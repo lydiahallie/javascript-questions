@@ -888,7 +888,7 @@ After the _callback_ is pushed to the WebAPI,the `setTimeout` function itself (b
 
 <img src="https://i.imgur.com/X5wsHOg.png" width="200">
 
-Now, `foo` gets invoked, and `"Second"` is being logged.
+Now, `foo` gets invoked, and `"First"` is being logged.
 
 <img src="https://i.imgur.com/Pvc0dGq.png" width="200">
 
@@ -904,7 +904,7 @@ This is where an event loop starts to work. An **event loop** looks looks at the
 
 <img src="https://i.imgur.com/uyiScAI.png" width="200">
 
-`bar` gets invoked, `"First"` gets logged, and it's popped off the stack.
+`bar` gets invoked, `"Second"` gets logged, and it's popped off the stack.
 
 </p>
 </details>
