@@ -1230,7 +1230,7 @@ Then, `[1, 2, 0, 1]` is `acc` and `[2, 3]` is `cur`. We concatenate them, and ge
 
 `""` is falsy. `!""` returns `true`. `!true` returns `false`.
 
-`""` is truthy. `!1` returns `false`. `!false` returns `true`.
+`1` is truthy. `!1` returns `false`. `!false` returns `true`.
 
 </p>
 </details>
