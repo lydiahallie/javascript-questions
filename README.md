@@ -217,7 +217,7 @@ console.log(b === c);
 
 - A: `true` `false` `true`
 - B: `false` `false` `true`
-- C: `true` `false` `true`
+- C: `true` `false` `false`
 - D: `false` `true` `true`
 
 <details><summary><b>Answer</b></summary>
@@ -442,10 +442,10 @@ function sum(a, b) {
 sum(1, "2");
 ```
 
-- A: `TypeError`
-- B: `SyntaxError`
-- C: `Lydia Hallie`
-- D: `undefined` `undefined`
+- A: `NaN`
+- B: `TypeError`
+- C: `"12"`
+- D: `3`
 
 <details><summary><b>Answer</b></summary>
 <p>
