@@ -1011,10 +1011,10 @@ function sayHi() {
 typeof sayHi();
 ```
 
-- A: `undefined is 21` `Lydia is 21`
-- B: `function` `function`
-- C: `Lydia is 21` `Lydia is 21`
-- D: `Lydia is 21` `function`
+- A: `"object"`
+- B: `"number"`
+- C: `"function"`
+- D: `"undefined"`
 
 <details><summary><b>Answer</b></summary>
 <p>
