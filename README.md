@@ -333,10 +333,12 @@ function Person(firstName, lastName) {
   this.lastName = lastName;
 }
 
-const member = new Person("Lydia", "Hallie");
-Person.getFullName = () => this.firstName + this.lastName;
+const lydia = new Person("Lydia", "Hallie");
+Person.getFullName = function () {
+  return this.firstName + ' ' + this.lastName;
+}
 
-console.log(member.getFullName());
+console.log(lydia.getFullName());
 ```
 
 - A: `TypeError`
@@ -351,7 +353,9 @@ console.log(member.getFullName());
 
 You can't add properties to a constructor like you can with regular objects. If you want to add a feature to all object at once, you have to use the prototype instead. So in this case,
 
-`Person.prototype.getFullName = () => this.firstName + this.lastName`
+`Person.prototype.getFullName = function () {
+  return this.firstName + ' ' + this.lastName;
+}`
 
 would have made `lydia.getFullName()` work. Why is this beneficial? Say that we added this method to the constructor itself. Maybe not every `Person` instance needed this method. This would waste a lot of memory space, since they would still have that property, which takes of memory space for each instance. Instead, if we only add it to the prototype, we just have it at one spot in memory, yet they all have access to it!
 
@@ -888,7 +892,7 @@ After the _callback_ is pushed to the WebAPI,the `setTimeout` function itself (b
 
 <img src="https://i.imgur.com/X5wsHOg.png" width="200">
 
-Now, `foo` gets invoked, and `"Second"` is being logged.
+Now, `foo` gets invoked, and `"First"` is being logged.
 
 <img src="https://i.imgur.com/Pvc0dGq.png" width="200">
 
@@ -904,7 +908,7 @@ This is where an event loop starts to work. An **event loop** looks looks at the
 
 <img src="https://i.imgur.com/uyiScAI.png" width="200">
 
-`bar` gets invoked, `"First"` gets logged, and it's popped off the stack.
+`bar` gets invoked, `"Second"` gets logged, and it's popped off the stack.
 
 </p>
 </details>
@@ -983,7 +987,7 @@ sayHi.bind(person, 21);
 - A: `undefined is 21` `Lydia is 21`
 - B: `function` `function`
 - C: `Lydia is 21` `Lydia is 21`
-- D: `Lydia is 21` `function`
+- D: `Lydia is 21`
 
 <details><summary><b>Answer</b></summary>
 <p>
