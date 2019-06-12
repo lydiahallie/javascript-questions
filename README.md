@@ -1,4 +1,4 @@
-# Complete JavaScript Questions
+# List of (Advanced) JavaScript Questions
 
 I post daily multiple choice JavaScript questions on my [Instagram](https://www.instagram.com/theavocoder), which I'll also post here!
 
