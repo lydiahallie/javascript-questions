@@ -1280,3 +1280,28 @@ A string is an iterable. The spread operator maps every character of an iterable
 
 </p>
 </details>
+
+---
+
+###### 42. What's the output?
+
+```javascript
+console.log(typeof null);
+```
+
+- A: `"undefined"`
+- B: `"null"`
+- C: `"object"`
+- D: `"number"`
+
+<details><summary><b>Answer</b></summary>
+<p>
+
+#### Answer: C
+
+In the first implementation of JavaScript, JavaScript values were represented as a type tag and a value. The type tag for objects was 0. null was represented as the NULL pointer (0x00 in most platforms). Consequently, null had 0 as type tag, hence the "object" typeof return value. [Reference](http://www.2ality.com/2013/10/typeof-null.html)
+
+[Source](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/typeof#null)
+
+</p>
+</details>
