@@ -160,7 +160,7 @@ JavaScript interprets (or unboxes) statements. When we use bracket notation, it 
 
 `mouse[bird.size]`: First it evaluates `bird.size`, which is `"small"`. `mouse["small"]` returns `true`
 
-However, with dot notation. this doesn't happen. `mouse` does not have a key called `bird`, which means that `mouse.bird` is `undefined`. Then, we ask for the `size` using dot notation: `mouse.bird.size`. Since `mouse.bird` is `undefinfed`, we're actually asking `undefined.size`. This isn't valid, and will throw an error similar to `Cannot read property "size" of undefined`.
+However, with dot notation, this doesn't happen. `mouse` does not have a key called `bird`, which means that `mouse.bird` is `undefined`. Then, we ask for the `size` using dot notation: `mouse.bird.size`. Since `mouse.bird` is `undefinfed`, we're actually asking `undefined.size`. This isn't valid, and will throw an error similar to `Cannot read property "size" of undefined`.
 
 </p>
 </details>
@@ -385,7 +385,7 @@ console.log(sarah);
 
 #### Answer: A
 
-For `sarah`, we didn't use the `new` keyword.When using `new`, it refers to the new empty object we create. However, if you don't add `new` it refers to the **global object**!
+For `sarah`, we didn't use the `new` keyword. When using `new`, it refers to the new empty object we create. However, if you don't add `new` it refers to the **global object**!
 
 We said that `this.firstName` equals `"Sarah"` and `this.lastName` equals `"Smith"`. What we actually did, is defining `global.firstName = 'Sarah'` and `global.lastName = 'Smith'`. `sarah` itself is left `undefined`.
 
@@ -415,7 +415,7 @@ During the **capturing** phase, the event goes through the ancestor elements dow
 
 ---
 
-###### 13. All object have prototypes.
+###### 13. All objects have prototypes.
 
 - A: true
 - B: false
@@ -452,7 +452,7 @@ sum(1, "2");
 
 #### Answer: C
 
-JavScript is a **dynamimcally typed language**: we don't specify what types certain variables are. Values can automatically be converted into another type without you knowing, which is called _implicit type coercion_. **Coercion** is converting from one type into another.
+JavaScript is a **dynamically typed language**: we don't specify what types certain variables are. Values can automatically be converted into another type without you knowing, which is called _implicit type coercion_. **Coercion** is converting from one type into another.
 
 In this example, JavaScript converts the number `1` into a string, in order for the function to make sense and return a value. During the addition of a numeric type (`1`) and a string type (`'2'`), the number is treated as a string. We can concatenate strings like `"Hello" + "World"`, so what's happening here is `"1" + "2"` which returns `"12"`.
 
@@ -584,7 +584,7 @@ getAge(21);
 
 #### Answer: C
 
-The spread operator (`...args`.) retrusn an array with arguments. An array is an object, so `typeof args` returns `"object"`
+The spread operator (`...args`.) returns an array with arguments. An array is an object, so `typeof args` returns `"object"`
 
 </p>
 </details>
@@ -613,7 +613,7 @@ getAge();
 
 #### Answer: C
 
-With `"use strict"`, you can make sure that you don't accidentally declare global variables. We never declared the variable `age`, and since we use `"use strict"`, it will throw a reference error. It we didn't use `"use strict"`, it would have worked, since the property `age` would have gotten added to the global object.
+With `"use strict"`, you can make sure that you don't accidentally declare global variables. We never declared the variable `age`, and since we use `"use strict"`, it will throw a reference error. If we didn't use `"use strict"`, it would have worked, since the property `age` would have gotten added to the global object.
 
 </p>
 </details>
@@ -651,7 +651,7 @@ sessionStorage.setItem("cool_secret", 123);
 
 - A: Forever, the data doesn't get lost.
 - B: When the user closes the tab.
-- C: When the uses closes the entire browser, not only the tab.
+- C: When the user closes the entire browser, not only the tab.
 - D: When the user shuts off their computer.
 
 <details><summary><b>Answer</b></summary>
@@ -718,7 +718,7 @@ set.has(1);
 
 #### Answer: C
 
-All object keys (excluding Symbols) are strings under the hood, even if you don't type it youself as a string. This is why `obj.hasOwnProperty('1')` also returns true.
+All object keys (excluding Symbols) are strings under the hood, even if you don't type it yourself as a string. This is why `obj.hasOwnProperty('1')` also returns true.
 
 It doesn't work that way for a set. There is no `'1'` in our set: `set.has('1')` returns `false`. It has the numeric type `1`, `set.has(1)` returns `true`.
 
@@ -884,7 +884,7 @@ We have a `setTimeout` function and invoked it first. Yet, it was logged last.
 
 This is because in browsers, we don't just have the runtime engine, we also have something called a `WebAPI`. The `WebAPI` gives us the `setTimeout` function to start with, and for example the DOM.
 
-After the _callback_ is pushed to the WebAPI,the `setTimeout` function itself (but not the callback!) is popped off the stack.
+After the _callback_ is pushed to the WebAPI, the `setTimeout` function itself (but not the callback!) is popped off the stack.
 
 <img src="https://i.imgur.com/X5wsHOg.png" width="200">
 
@@ -900,7 +900,7 @@ The WebAPI can't just add stuff to the stack whenever it's ready. Instead, it pu
 
 <img src="https://i.imgur.com/NSnDZmU.png" width="200">
 
-This is where an event loop starts to work. An **event loop** looks looks at the stack and task queue. If the stack is empty, it takes the first thing on the queue and pushes it onto the stack.
+This is where an event loop starts to work. An **event loop** looks at the stack and task queue. If the stack is empty, it takes the first thing on the queue and pushes it onto the stack.
 
 <img src="https://i.imgur.com/uyiScAI.png" width="200">
 
