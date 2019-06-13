@@ -1006,7 +1006,7 @@ function sayHi() {
   return (() => 0)();
 }
 
-typeof sayHi();
+console.log(typeof sayHi());
 ```
 
 - A: `"object"`
