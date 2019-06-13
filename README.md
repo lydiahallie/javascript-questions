@@ -33,7 +33,7 @@ sayHi();
 
 Within the function, we first declare the `name` variable with the `var` keyword. This means that the variable gets hoisted (memory space is set up during the creation phase) with the default value of `undefined`, until we actually get to the line where we define the variable. We haven't defined the variable yet on the line where we try to log the `name` variable, so it still holds the value of `undefined`.
 
-Variables with the `let` keyword (and `const`) don't get hoisted. They are not accessible before the line we declare them. This means that there is no reference yet to the variable `age`, yet we try to access it. JavaScript throws a `ReferenceError`.
+Variables with the `let` keyword (and `const`) are hoisted, but unlike `var`, don't get <i>initialized</i>. They are not accessible before the line we declare (initialize) them. This is called the "temporal dead zone". When we try to access the variables before they are declared, JavaScript throws a `ReferenceError`.
 
 </p>
 </details>
@@ -154,7 +154,7 @@ const mouse = {
 
 #### Answer: A
 
-In JavaScript, all object keys are strings. Even though we might not _type_ them as strings, they are always converted into strings under the hood.
+In JavaScript, all object keys are strings (unless it's a Symbol). Even though we might not _type_ them as strings, they are always converted into strings under the hood.
 
 JavaScript interprets (or unboxes) statements. When we use bracket notation, it sees the first opening bracket `[` and keeps going until it finds the closing bracket `]`. Only then, it will evaluate the statement.
 
@@ -718,7 +718,7 @@ set.has(1);
 
 #### Answer: C
 
-All object keys are strings under the hood, even if you don't type it yourself as a string. This is why `obj.hasOwnProperty('1')` also returns `true`.
+All object keys (excluding Symbols) are strings under the hood, even if you don't type it yourself as a string. This is why `obj.hasOwnProperty('1')` also returns true.
 
 It doesn't work that way for a set. There is no `'1'` in our set: `set.has('1')` returns `false`. It has the numeric type `1`, `set.has(1)` returns `true`.
 
@@ -911,7 +911,7 @@ This is where an event loop starts to work. An **event loop** looks at the stack
 
 ---
 
-###### 30. What is the event.target when clicking the button?
+###### 31. What is the event.target when clicking the button?
 
 ```html
 <div onclick="console.log('first div')">
@@ -940,7 +940,7 @@ The deepest nested element that caused the event is the target of the event. You
 
 ---
 
-###### 31. When you click the paragraph, what's the logged output?
+###### 32. When you click the paragraph, what's the logged output?
 
 ```html
 <div onclick="console.log('div')">
@@ -967,7 +967,7 @@ If we click `p`, we see two logs: `p` and `div`. During event propagation, there
 
 ---
 
-###### 32. What's the output?
+###### 33. What's the output?
 
 ```javascript
 const person = { name: "Lydia" };
@@ -999,7 +999,7 @@ With both, we can pass the object to which we want the `this` keyword to refer t
 
 ---
 
-###### 33. What's the output?
+###### 34. What's the output?
 
 ```javascript
 function sayHi() {
@@ -1028,7 +1028,7 @@ FYI: there are only 7 built-in types: `null`, `undefined`, `boolean`, `number`, 
 
 ---
 
-###### 34. Which of these values are falsy?
+###### 35. Which of these values are falsy?
 
 ```javascript
 0;
@@ -1065,7 +1065,7 @@ Function constructors, like `new Number` and `new Boolean` are truthy.
 
 ---
 
-###### 35. What's the output?
+###### 36. What's the output?
 
 ```javascript
 console.log(typeof typeof 1);
@@ -1089,7 +1089,7 @@ console.log(typeof typeof 1);
 
 ---
 
-###### 36. What's the output?
+###### 37. What's the output?
 
 ```javascript
 const numbers = [1, 2, 3];
@@ -1118,7 +1118,7 @@ depending on where you run it (it's different for every browser, node, etc.)
 
 ---
 
-###### 37. What's the output?
+###### 38. What's the output?
 
 ```javascript
 (() => {
@@ -1155,7 +1155,7 @@ Outside of the `catch` block, `x` is still `undefined`, and `y` is `2`. When we 
 
 ---
 
-###### 38. Everything in JavaScript is either a...
+###### 39. Everything in JavaScript is either a...
 
 - A: primitive or object
 - B: function or object
@@ -1176,7 +1176,7 @@ Primitive types are `boolean`, `null`, `undefined`, `bigint`, `number`, `string`
 
 ---
 
-###### 39. What's the output?
+###### 40. What's the output?
 
 ```javascript
 [[0, 1], [2, 3]].reduce(
@@ -1206,7 +1206,7 @@ Then, `[1, 2, 0, 1]` is `acc` and `[2, 3]` is `cur`. We concatenate them, and ge
 
 ---
 
-###### 40. What's the output?
+###### 41. What's the output?
 
 ```javascript
 !!null;
@@ -1235,7 +1235,7 @@ Then, `[1, 2, 0, 1]` is `acc` and `[2, 3]` is `cur`. We concatenate them, and ge
 
 ---
 
-###### 41. What does the `setInterval` method return?
+###### 42. What does the `setInterval` method return?
 
 ```javascript
 setInterval(() => console.log("Hi"), 1000);
@@ -1258,7 +1258,7 @@ It returns a unique id. This id can be used to clear that interval with the `cle
 
 ---
 
-###### 41. What does this return?
+###### 43. What does this return?
 
 ```javascript
 [..."Lydia"];
