@@ -160,7 +160,7 @@ JavaScript interprets (or unboxes) statements. When we use bracket notation, it 
 
 `mouse[bird.size]`: First it evaluates `bird.size`, which is `"small"`. `mouse["small"]` returns `true`
 
-However, with dot notation, this doesn't happen. `mouse` does not have a key called `bird`, which means that `mouse.bird` is `undefined`. Then, we ask for the `size` using dot notation: `mouse.bird.size`. Since `mouse.bird` is `undefinfed`, we're actually asking `undefined.size`. This isn't valid, and will throw an error similar to `Cannot read property "size" of undefined`.
+However, with dot notation, this doesn't happen. `mouse` does not have a key called `bird`, which means that `mouse.bird` is `undefined`. Then, we ask for the `size` using dot notation: `mouse.bird.size`. Since `mouse.bird` is `undefined`, we're actually asking `undefined.size`. This isn't valid, and will throw an error similar to `Cannot read property "size" of undefined`.
 
 </p>
 </details>
@@ -349,7 +349,7 @@ console.log(member.getFullName());
 
 #### Answer: A
 
-You can't add properties to a constructor like you can with regular objects. If you want to add a feature to all object at once, you have to use the prototype instead. So in this case,
+You can't add properties to a constructor like you can with regular objects. If you want to add a feature to all objects at once, you have to use the prototype instead. So in this case,
 
 `Person.prototype.getFullName = () => this.firstName + this.lastName`
 
@@ -1040,8 +1040,8 @@ undefined;
 ```
 
 - A: `0`, `''`, `undefined`
-- B: `0`, `new Number(0)`, `''`, `new Boolean(false`, `undefined`
-- C: `0`, `''`, `new Boolean(false0)`, `undefined`
+- B: `0`, `new Number(0)`, `''`, `new Boolean(false)`, `undefined`
+- C: `0`, `''`, `new Boolean(false)`, `undefined`
 - D: All of them are falsy
 
 <details><summary><b>Answer</b></summary>
