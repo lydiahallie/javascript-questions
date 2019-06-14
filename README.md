@@ -512,9 +512,9 @@ const age = 21;
 getPersonInfo`${person} is ${age} years old`;
 ```
 
-- A: `Lydia` `21` `["", "is", "years old"]`
-- B: `["", "is", "years old"]` `Lydia` `21`
-- C: `Lydia` `["", "is", "years old"]` `21`
+- A: `"Lydia"` `21` `["", " is ", " years old"]`
+- B: `["", " is ", " years old"]` `"Lydia"` `21`
+- C: `"Lydia"` `["", " is ", " years old"]` `21`
 
 <details><summary><b>Answer</b></summary>
 <p>
