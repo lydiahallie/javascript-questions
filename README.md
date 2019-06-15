@@ -2,7 +2,7 @@
 
 I post daily multiple choice JavaScript questions on my [Instagram](https://www.instagram.com/theavocoder), which I'll also post here!
 
-From basic to advanced: test how well you know JavaScript, refresh your knowledge a bit, or prepare for your coding interview! :muscle: :rocket:
+From basic to advanced: test how well you know JavaScript, refresh your knowledge a bit, or prepare for your coding interview! :muscle: :rocket:  I update this repo weekly with new questions.
 
 The answers are in the collapsed sections below the questions, simply click on them to expand it. Good luck :heart:
 
@@ -242,6 +242,7 @@ However, when we use the `===` operator, both value _and_ type should be the sam
 class Chameleon {
   static colorChange(newColor) {
     this.newColor = newColor;
+    return this.newColor;
   }
 
   constructor({ newColor = "green" } = {}) {
@@ -400,7 +401,7 @@ We said that `this.firstName` equals `"Sarah"` and `this.lastName` equals `"Smit
 
 ---
 
-###### 12. What are the three phases of event propagation?
+###### 13. What are the three phases of event propagation?
 
 - A: Target > Capturing > Bubbling
 - B: Bubbling > Target > Capturing
@@ -421,7 +422,7 @@ During the **capturing** phase, the event goes through the ancestor elements dow
 
 ---
 
-###### 13. All objects have prototypes.
+###### 14. All object have prototypes.
 
 - A: true
 - B: false
@@ -438,7 +439,7 @@ All objects have prototypes, except for the **base object**. The base object has
 
 ---
 
-###### 14. What's the output?
+###### 15. What's the output?
 
 ```javascript
 function sum(a, b) {
@@ -458,7 +459,7 @@ sum(1, "2");
 
 #### Answer: C
 
-JavaScript is a **dynamically typed language**: we don't specify what types certain variables are. Values can automatically be converted into another type without you knowing, which is called _implicit type coercion_. **Coercion** is converting from one type into another.
+JavaScript is a **dynamimcally typed language**: we don't specify what types certain variables are. Values can automatically be converted into another type without you knowing, which is called _implicit type coercion_. **Coercion** is converting from one type into another.
 
 In this example, JavaScript converts the number `1` into a string, in order for the function to make sense and return a value. During the addition of a numeric type (`1`) and a string type (`'2'`), the number is treated as a string. We can concatenate strings like `"Hello" + "World"`, so what's happening here is `"1" + "2"` which returns `"12"`.
 
@@ -467,7 +468,7 @@ In this example, JavaScript converts the number `1` into a string, in order for 
 
 ---
 
-###### 15. What's the output?
+###### 16. What's the output?
 
 ```javascript
 let number = 0;
@@ -503,7 +504,7 @@ This returns `0 2 2`.
 
 ---
 
-###### 16. What's the output?
+###### 17. What's the output?
 
 ```javascript
 function getPersonInfo(one, two, three) {
@@ -518,9 +519,9 @@ const age = 21;
 getPersonInfo`${person} is ${age} years old`;
 ```
 
-- A: `Lydia` `21` `["", "is", "years old"]`
-- B: `["", "is", "years old"]` `Lydia` `21`
-- C: `Lydia` `["", "is", "years old"]` `21`
+- A: `"Lydia"` `21` `["", " is ", " years old"]`
+- B: `["", " is ", " years old"]` `"Lydia"` `21`
+- C: `"Lydia"` `["", " is ", " years old"]` `21`
 
 <details><summary><b>Answer</b></summary>
 <p>
@@ -534,7 +535,7 @@ If you use tagged template literals, the value of the first argument is always a
 
 ---
 
-###### 17. What's the output?
+###### 18. What's the output?
 
 ```javascript
 function checkAge(data) {
@@ -570,7 +571,7 @@ This is why both `{ age: 18 } === { age: 18 }` and `{ age: 18 } == { age: 18 }` 
 
 ---
 
-###### 18. What's the output?
+###### 19. What's the output?
 
 ```javascript
 function getAge(...args) {
