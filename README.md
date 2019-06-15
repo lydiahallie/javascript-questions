@@ -242,6 +242,7 @@ However, when we use the `===` operator, both value _and_ type should be the sam
 class Chameleon {
   static colorChange(newColor) {
     this.newColor = newColor;
+    return this.newColor;
   }
 
   constructor({ newColor = "green" } = {}) {
