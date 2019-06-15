@@ -401,7 +401,7 @@ We said that `this.firstName` equals `"Sarah"` and `this.lastName` equals `"Smit
 
 ---
 
-###### 12. What are the three phases of event propagation?
+###### 13. What are the three phases of event propagation?
 
 - A: Target > Capturing > Bubbling
 - B: Bubbling > Target > Capturing
@@ -422,7 +422,7 @@ During the **capturing** phase, the event goes through the ancestor elements dow
 
 ---
 
-###### 13. All object have prototypes.
+###### 14. All object have prototypes.
 
 - A: true
 - B: false
@@ -439,7 +439,7 @@ All objects have prototypes, except for the **base object**. The base object has
 
 ---
 
-###### 14. What's the output?
+###### 15. What's the output?
 
 ```javascript
 function sum(a, b) {
@@ -459,7 +459,7 @@ sum(1, "2");
 
 #### Answer: C
 
-JavScript is a **dynamimcally typed language**: we don't specify what types certain variables are. Values can automatically be converted into another type without you knowing, which is called _implicit type coercion_. **Coercion** is converting from one type into another.
+JavaScript is a **dynamimcally typed language**: we don't specify what types certain variables are. Values can automatically be converted into another type without you knowing, which is called _implicit type coercion_. **Coercion** is converting from one type into another.
 
 In this example, JavaScript converts the number `1` into a string, in order for the function to make sense and return a value. During the addition of a numeric type (`1`) and a string type (`'2'`), the number is treated as a string. We can concatenate strings like `"Hello" + "World"`, so what's happening here is `"1" + "2"` which returns `"12"`.
 
@@ -468,7 +468,7 @@ In this example, JavaScript converts the number `1` into a string, in order for 
 
 ---
 
-###### 15. What's the output?
+###### 16. What's the output?
 
 ```javascript
 let number = 0;
@@ -504,7 +504,7 @@ This returns `0 2 2`.
 
 ---
 
-###### 16. What's the output?
+###### 17. What's the output?
 
 ```javascript
 function getPersonInfo(one, two, three) {
@@ -535,7 +535,7 @@ If you use tagged template literals, the value of the first argument is always a
 
 ---
 
-###### 17. What's the output?
+###### 18. What's the output?
 
 ```javascript
 function checkAge(data) {
@@ -571,7 +571,7 @@ This is why both `{ age: 18 } === { age: 18 }` and `{ age: 18 } == { age: 18 }` 
 
 ---
 
-###### 18. What's the output?
+###### 19. What's the output?
 
 ```javascript
 function getAge(...args) {
