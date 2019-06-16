@@ -644,14 +644,14 @@ const sum = eval('10*10+5')
 
 #### 答案: A
 
-`eval` evaluates codes that's passed as a string. If it's an expression, like in this case, it evaluates the expression. The expression is `10 * 10 + 5`. This returns the number `105`.
+代码以字符串形式传递进来，`eval` 对其求值。如果它是一个表达式，就像本例中那样，它对表达式求值。表达式是 `10 * 10 + 5`。这将返回数字 `105`。
 
 </p>
 </details>
 
 ---
 
-###### 22. How long is cool_secret accessible?
+###### 22. cool_secret 可访问多长时间？
 
 ```javascript
 sessionStorage.setItem('cool_secret', 123)
@@ -667,9 +667,9 @@ sessionStorage.setItem('cool_secret', 123)
 
 #### 答案: B
 
-The data stored in `sessionStorage` is removed after closing the _tab_.
+关闭 **tab 标签页** 后，`sessionStorage` 存储的数据才会删除。
 
-If you used `localStorage`, the data would've been there forever, unless for example `localStorage.clear()` is invoked.
+如果使用 `localStorage`，那么数据将永远在那里，除非调用了 `localStorage.clear()`。
 
 </p>
 </details>
@@ -695,9 +695,9 @@ console.log(num)
 
 #### 答案: B
 
-With the `var` keyword, you can declare multiple variables with the same name. The variable will then hold the latest value.
+使用 `var` 关键字，你可以用相同的名称声明多个变量。然后变量将保存最新的值。
 
-You cannot do this with `let` or `const` since they're block-scoped.
+你不能使用 `let` 或 `const` 来实现这一点，因为它们是块作用域的。
 
 </p>
 </details>
@@ -726,9 +726,9 @@ set.has(1)
 
 #### 答案: C
 
-All object keys (excluding Symbols) are strings under the hood, even if you don't type it yourself as a string. This is why `obj.hasOwnProperty('1')` also returns true.
+所有对象的键（不包括 Symbol）在底层都是字符串，即使你自己没有将其作为字符串输入。这就是为什么 `obj.hasOwnProperty('1')` 也返回 `true`。
 
-It doesn't work that way for a set. There is no `'1'` in our set: `set.has('1')` returns `false`. It has the numeric type `1`, `set.has(1)` returns `true`.
+对于集合，它不是这样工作的。在我们的集合中没有 `'1'`：`set.has('1')` 返回 `false`。它有数字类型为 `1`，`set.has(1)` 返回 `true`。
 
 </p>
 </details>
@@ -752,7 +752,7 @@ console.log(obj)
 
 #### 答案: C
 
-If you have two keys with the same name, the key will be replaced. It will still be in its first position, but with the last specified value.
+如果你有两个名称相同的键，则键会被替换掉。它仍然位于第一个键出现的位置，但是值是最后出现那个键的值。
 
 </p>
 </details>
