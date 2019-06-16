@@ -1302,7 +1302,7 @@ setInterval(() => console.log("Hi"), 1000);
 
 ---
 
-###### 43. What does this return?
+###### 43. 下面代码的返回值是什么?
 
 ```javascript
 [..."Lydia"];
