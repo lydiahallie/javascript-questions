@@ -1027,16 +1027,16 @@ typeof sayHi()
 
 #### 答案: B
 
-The `sayHi` function returns the returned value of the immediately invoked function (IIFE). This function returned `0`, which is type `"number"`.
+`sayHi` 方法返回的是立即执行函数(IIFE)的返回值.此立即执行函数的返回值是 `0`， 类型是 `number`
 
-FYI: there are only 7 built-in types: `null`, `undefined`, `boolean`, `number`, `string`, `object`, and `symbol`. `"function"` is not a type, since functions are objects, it's of type `"object"`.
+参考：只有7种内置类型：`null`，`undefined`，`boolean`，`number`，`string`，`object` 和 `symbol`。 ``function`` 不是一种类型，函数是对象，它的类型是``object``。
 
 </p>
 </details>
 
 ---
 
-###### 35. Which of these values are falsy?
+###### 35. 下面哪些值是 falsy?
 
 ```javascript
 0
@@ -1057,7 +1057,9 @@ undefined
 
 #### 答案: A
 
-There are only six falsy values:
+只有 6 种 [falsy](https://developer.mozilla.org/zh-CN/docs/Glossary/Falsy) 值:
+
+
 
 - `undefined`
 - `null`
@@ -1066,7 +1068,7 @@ There are only six falsy values:
 - `''` (empty string)
 - `false`
 
-Function constructors, like `new Number` and `new Boolean` are truthy.
+`Function` 构造函数, 比如 `new Number` 和 `new Boolean`，是 [truthy](https://developer.mozilla.org/zh-CN/docs/Glossary/Truthy)。
 
 </p>
 </details>
@@ -1089,8 +1091,8 @@ console.log(typeof typeof 1)
 
 #### 答案: B
 
-`typeof 1` returns `"number"`.
-`typeof "number"` returns `"string"`
+`typeof 1` 返回 `"number"`。
+`typeof "number"` 返回 `"string"`。
 
 </p>
 </details>
@@ -1115,11 +1117,11 @@ console.log(numbers)
 
 #### 答案: C
 
-When you set a value to an element in an array that exceeds the length of the array, JavaScript creates something called "empty slots". These actually have the value of `undefined`, but you will see something like:
+当你为数组设置超过数组长度的值的时候， JavaScript 会创建名为 "empty slots" 的东西。它们的值实际上是 `undefined`。你会看到以下场景：
 
 `[1, 2, 3, 7 x empty, 11]`
 
-depending on where you run it (it's different for every browser, node, etc.)
+这取决于你的运行环境（每个浏览器，以及 node 环境，都有可能不同）
 
 </p>
 </details>
@@ -1152,32 +1154,32 @@ depending on where you run it (it's different for every browser, node, etc.)
 
 #### 答案: A
 
-The `catch` block receives the argument `x`. This is not the same `x` as the variable when we pass arguments. This variable `x` is block-scoped.
+`catch` 代码块接收参数 `x`。当我们传递参数时，这与之前定义的变量 `x` 不同 。这个 `x` 是属于 `catch` 块级作用域的。
 
-Later, we set this block-scoped variable equal to `1`, and set the value of the variable `y`. Now, we log the block-scoped variable `x`, which is equal to `1`.
+然后，我们将块级作用域中的变量赋值为 `1`，同时也设置了变量 `y` 的值。现在，我们打印块级作用域中的变量 `x`，值为 `1`。
 
-Outside of the `catch` block, `x` is still `undefined`, and `y` is `2`. When we want to `console.log(x)` outside of the `catch` block, it returns `undefined`, and `y` returns `2`.
+`catch` 块之外的变量 `x` 的值仍为 `undefined`， `y` 的值为 `2`。当我们在 `catch` 块之外执行 `console.log(x)` 时，返回 `undefined`，`y` 返回 `2`。
 
 </p>
 </details>
 
 ---
 
-###### 39. Everything in JavaScript is either a...
+###### 39. JavaScript 中的一切都是？
 
 - A: primitive or object
 - B: function or object
 - C: trick question! only objects
 - D: number or object
-
+- 
 <details><summary><b>答案</b></summary>
 <p>
 
 #### 答案: A
 
-JavaScript only has primitive types and objects.
+JavaScript 只有原始类型和对象。
 
-Primitive types are `boolean`, `null`, `undefined`, `bigint`, `number`, `string`, and `symbol`.
+原始类型包括 `boolean`, `null`, `undefined`, `bigint`, `number`, `string`, `symbol`。
 
 </p>
 </details>
@@ -1205,9 +1207,8 @@ Primitive types are `boolean`, `null`, `undefined`, `bigint`, `number`, `string`
 
 #### 答案: C
 
-`[1, 2]` is our initial value. This is the value we start with, and the value of the very first `acc`. During the first round, `acc` is `[1,2]`, and `cur` is `[0, 1]`. We concatenate them, which results in `[1, 2, 0, 1]`.
-
-Then, `[1, 2, 0, 1]` is `acc` and `[2, 3]` is `cur`. We concatenate them, and get `[1, 2, 0, 1, 2, 3]`
+`[1, 2]`是初始值。初始值将会作为首次调用时第一个参数 `acc` 的值。在第一次执行时， `acc` 的值是 `[1, 2]`， `cur` 的值是 `[0, 1]`。合并它们，结果为 `[1, 2, 0, 1]`。
+第二次执行， `acc` 的值是 `[1, 2, 0, 1]`， `cur` 的值是 `[2, 3]`。合并它们，最终结果为 `[1, 2, 0, 1, 2, 3]`
 
 </p>
 </details>
@@ -1232,18 +1233,18 @@ Then, `[1, 2, 0, 1]` is `acc` and `[2, 3]` is `cur`. We concatenate them, and ge
 
 #### 答案: B
 
-`null` is falsy. `!null` returns `true`. `!true` returns `false`.
+`null` 是 [falsy](https://developer.mozilla.org/zh-CN/docs/Glossary/Falsy)。 `!null` 的值是 `true`。 `!true` 的值是 `false`。
 
-`""` is falsy. `!""` returns `true`. `!true` returns `false`.
+`""` 是 [falsy](https://developer.mozilla.org/zh-CN/docs/Glossary/Falsy)。 `!""` 的值是 `true`。  `!true` 的值是 `false`。
 
-`1` is truthy. `!1` returns `false`. `!false` returns `true`.
+`1` 是 [truthy](https://developer.mozilla.org/zh-CN/docs/Glossary/Truthy)。 `!1` 的值是 `false`。 `!false` 的值是 `true`。
 
 </p>
 </details>
 
 ---
 
-###### 42. What does the `setInterval` method return?
+###### 42. `setInterval` 方法的返回值是什么？
 
 ```javascript
 setInterval(() => console.log('Hi'), 1000)
@@ -1259,14 +1260,14 @@ setInterval(() => console.log('Hi'), 1000)
 
 #### 答案: A
 
-It returns a unique id. This id can be used to clear that interval with the `clearInterval()` function.
+`setInterval` 返回一个唯一的 id。此 id 可被用于 `clearInterval` 函数来取消定时。
 
 </p>
 </details>
 
 ---
 
-###### 43. What does this return?
+###### 43. 输出是什么？
 
 ```javascript
 ;[...'Lydia']
@@ -1282,7 +1283,7 @@ It returns a unique id. This id can be used to clear that interval with the `cle
 
 #### 答案: A
 
-A string is an iterable. The spread operator maps every character of an iterable to one element.
+string 类型是可迭代的。扩展运算符将迭代的每个字符映射成一个元素。
 
 </p>
 </details>
