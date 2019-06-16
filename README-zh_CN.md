@@ -1151,8 +1151,6 @@ console.log(numbers);
 
 #### 答案: C
 
-When you set a value to an element in an array that exceeds the length of the array, JavaScript creates something called "empty slots". These actually have the value of `undefined`, but you will see something like:
-
 当你为数组中的元素设置一个超过数组长度的值时，`JavaScript`会创建一个名为“空插槽”的东西。 这些位置的值实际上是`undefined`，但你会看到类似的东西：
 
 `[1, 2, 3, 7 x empty, 11]`
