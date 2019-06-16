@@ -1,4 +1,4 @@
-# List of (Advanced) JavaScript Questions
+# JavaScript 进阶问题列表
 
 我在我的[Instagram](https://www.instagram.com/theavocoder)上发布了每日`JavaScript`选择题，我也会在这里发布！
 
