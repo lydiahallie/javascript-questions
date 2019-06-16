@@ -460,7 +460,7 @@ sum(1, '2')
 
 #### 答案: C
 
-JavaScript 是一种**动态类型语言**：我们不指定某些变量的类型。值可以在你不知道的情况下自动转换成另一种类型，这种类型称为_隐式类型转换_（implicit type coercion）。**Coercion** 是指将一种类型转换为另一种类型。
+JavaScript 是一种**动态类型语言**：我们不指定某些变量的类型。值可以在你不知道的情况下自动转换成另一种类型，这种类型称为**隐式类型转换**（implicit type coercion）。**Coercion** 是指将一种类型转换为另一种类型。
 
 在本例中，JavaScript 将数字 `1` 转换为字符串，以便函数有意义并返回一个值。在数字类型（`1`）和字符串类型（`'2'`）相加时，该数字被视为字符串。我们可以连接字符串，比如 `"Hello" + "World"`，这里发生的是 `"1" + "2"`，它返回 `"12"`。
 
@@ -488,17 +488,17 @@ console.log(number)
 
 #### 答案: C
 
-The **postfix** unary operator `++`:
+一元**后自增**运算符 `++`：
 
-1. Returns the value (this returns `0`)
-2. Increments the value (number is now `1`)
+1. 返回值（返回 `0`）
+2. 值自增（number 现在是 `1`）
 
-The **prefix** unary operator `++`:
+一元**前自增**运算符 `++`：
 
-1. Increments the value (number is now `2`)
-2. Returns the value (this returns `2`)
+1. 值自增（number 现在是 `2`）
+2. 返回值（返回 `2`）
 
-This returns `0 2 2`.
+结果是 `0 2 2`.
 
 </p>
 </details>
@@ -529,7 +529,7 @@ getPersonInfo`${person} is ${age} years old`
 
 #### 答案: B
 
-If you use tagged template literals, the value of the first argument is always an array of the string values. The remaining arguments get the values of the passed expressions!
+如果使用标记模板字面量，第一个参数的值总是字符串值的数组。其余的参数获取的是传递的表达式的值！
 
 </p>
 </details>
@@ -561,11 +561,11 @@ checkAge({ age: 18 })
 
 #### 答案: C
 
-When testing equality, primitives are compared by their _value_, while objects are compared by their _reference_. JavaScript checks if the objects have a reference to the same location in memory.
+在测试相等性时，基本类型通过它们的值（value）进行比较，而对象通过它们的引用（reference）进行比较。JavaScript 检查对象是否具有对内存中相同位置的引用。
 
-The two objects that we are comparing don't have that: the object we passed as a parameter refers to a different location in memory than the object we used in order to check equality.
+题目中我们正在比较的两个对象不是同一个引用：作为参数传递的对象引用的内存位置，与用于判断相等的对象所引用的内存位置并不同。
 
-This is why both `{ age: 18 } === { age: 18 }` and `{ age: 18 } == { age: 18 }` return `false`.
+这也是 `{ age: 18 } === { age: 18 }` 和 `{ age: 18 } == { age: 18 }` 都返回 `false` 的原因。
 
 </p>
 </details>
@@ -592,7 +592,7 @@ getAge(21)
 
 #### 答案: C
 
-The spread operator (`...args`.) returns an array with arguments. An array is an object, so `typeof args` returns `"object"`
+扩展运算符（`...args`）会返回实参组成的数组。而数组是对象，因此 `typeof args` 返回 `"object"`。
 
 </p>
 </details>
@@ -621,7 +621,7 @@ getAge()
 
 #### 答案: C
 
-With `"use strict"`, you can make sure that you don't accidentally declare global variables. We never declared the variable `age`, and since we use `"use strict"`, it will throw a reference error. If we didn't use `"use strict"`, it would have worked, since the property `age` would have gotten added to the global object.
+使用 `"use strict"`，你可以确保不会意外地声明全局变量。我们从来没有声明变量 `age`，因为我们使用 `"use strict"`，它将抛出一个引用错误。如果我们不使用 `"use strict"`，它就会工作，因为属性 `age` 会被添加到全局对象中了。
 
 </p>
 </details>
