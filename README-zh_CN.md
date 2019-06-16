@@ -888,7 +888,7 @@ baz()
 
 #### 答案: B
 
-我们有一个 `setTimeout` 函数，并首先调用它。然而，它是最后打印的。
+我们有一个 `setTimeout` 函数，并首先调用它。然而，它是最后打印日志的。
 
 这是因为在浏览器中，我们不仅有运行时引擎，还有一个叫做 `WebAPI` 的东西。`WebAPI` 提供了 `setTimeout` 函数，也包含其他的，例如 DOM。
 
@@ -941,14 +941,14 @@ WebAPI 不能随时向栈内添加内容。相反，它将回调函数推到名�
 
 #### 答案: C
 
-The deepest nested element that caused the event is the target of the event. You can stop bubbling by `event.stopPropagation`
+导致事件的最深嵌套的元素是事件的 target。你可以通过 `event.stopPropagation` 来停止冒泡。
 
 </p>
 </details>
 
 ---
 
-###### 32. When you click the paragraph, what's the logged output?
+###### 32. 当您单击该段落时，日志输出是什么？
 
 ```html
 <div onclick="console.log('div')">
@@ -968,7 +968,7 @@ The deepest nested element that caused the event is the target of the event. You
 
 #### 答案: A
 
-If we click `p`, we see two logs: `p` and `div`. During event propagation, there are 3 phases: capturing, target, and bubbling. By default, event handlers are executed in the bubbling phase (unless you set `useCapture` to `true`). It goes from the deepest nested element outwards.
+如果我们点击 `p`，我们会看到两个日志：`p` 和 `div`。在事件传播期间，有三个阶段：捕获、目标和冒泡。默认情况下，事件处理程序在冒泡阶段执行（除非将 `useCapture` 设置为 `true`）。它从嵌套最深的元素向外传播。
 
 </p>
 </details>
@@ -998,9 +998,9 @@ sayHi.bind(person, 21)
 
 #### 答案: D
 
-With both, we can pass the object to which we want the `this` keyword to refer to. However, `.call` is also _executed immediately_!
+使用这两种方法，我们都可以传递我们希望 `this` 关键字引用的对象。但是，`.call` 是**立即执行**的。
 
-`.bind.` returns a _copy_ of the function, but with a bound context! It is not executed immediately.
+`.bind` 返回函数的**副本**，但带有绑定上下文！它不是立即执行的。
 
 </p>
 </details>
