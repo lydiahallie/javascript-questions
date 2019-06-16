@@ -331,16 +331,16 @@ bark.animal = 'dog'
 
 ```javascript
 function Person(firstName, lastName) {
-  this.firstName = firstName
-  this.lastName = lastName
+  this.firstName = firstName;
+  this.lastName = lastName;
 }
 
-const member = new Person('Lydia', 'Hallie')
-Person.getFullName = function() {
-  return `${this.firstName} ${this.lastName}`
+const member = new Person("Lydia", "Hallie");
+Person.getFullName = function () {
+  return `${this.firstName} ${this.lastName}`;
 }
 
-console.log(member.getFullName())
+console.log(member.getFullName());
 ```
 
 - A: `TypeError`
@@ -353,15 +353,15 @@ console.log(member.getFullName())
 
 #### 答案: A
 
-You can't add properties to a constructor like you can with regular objects. If you want to add a feature to all objects at once, you have to use the prototype instead. So in this case,
+你不能像常规对象那样，给构造函数添加属性。如果你想一次性给所有实例添加特性，你应该使用原型。因此本例中，使用如下方式：
 
 ```js
-Person.prototype.getFullName = function() {
-  return `${this.firstName} ${this.lastName}`
+Person.prototype.getFullName = function () {
+  return `${this.firstName} ${this.lastName}`;
 }
 ```
 
-would have made `member.getFullName()` work. Why is this beneficial? Say that we added this method to the constructor itself. Maybe not every `Person` instance needed this method. This would waste a lot of memory space, since they would still have that property, which takes of memory space for each instance. Instead, if we only add it to the prototype, we just have it at one spot in memory, yet they all have access to it!
+这才会使 `member.getFullName()` 起作用。为什么这么做有益的？假设我们将这个方法添加到构造函数本身里。也许不是每个 `Person` 实例都需要这个方法。这将浪费大量内存空间，因为它们仍然具有该属性，这将占用每个实例的内存空间。相反，如果我们只将它添加到原型中，那么它只存在于内存中的一个位置，但是所有实例都可以访问它！
 
 </p>
 </details>
@@ -393,16 +393,16 @@ console.log(sarah)
 
 #### 答案: A
 
-For `sarah`, we didn't use the `new` keyword. When using `new`, it refers to the new empty object we create. However, if you don't add `new` it refers to the **global object**!
+对于 `sarah`，我们没有使用 `new` 关键字。当使用 `new` 时，`this` 引用我们创建的空对象。当使用了 `new`，`this` 引用的是**全局对象**（global object）。 
 
-We said that `this.firstName` equals `"Sarah"` and `this.lastName` equals `"Smith"`. What we actually did, is defining `global.firstName = 'Sarah'` and `global.lastName = 'Smith'`. `sarah` itself is left `undefined`.
+我们说 `this.firstName` 等于 `"Sarah"`，并且 `this.lastName` 等于 `"Smith"`。实际上我们做的是，定义了 `global.firstName = 'Sarah'` 和 `global.lastName = 'Smith'`。而 `sarah` 本身是 `undefined`.
 
 </p>
 </details>
 
 ---
 
-###### 13. What are the three phases of event propagation?
+###### 13. 事件冒泡的三个阶段是什么？
 
 - A: Target > Capturing > Bubbling
 - B: Bubbling > Target > Capturing
@@ -414,7 +414,7 @@ We said that `this.firstName` equals `"Sarah"` and `this.lastName` equals `"Smit
 
 #### 答案: D
 
-During the **capturing** phase, the event goes through the ancestor elements down to the target element. It then reaches the **target** element, and **bubbling** begins.
+在**捕获**（capturing）阶段中，事件从祖先元素向下传播到目标元素。当事件达到**目标**（target）元素后，**冒泡**（bubbling）才开始。
 
 <img src="https://i.imgur.com/N18oRgd.png" width="200">
 
@@ -423,7 +423,7 @@ During the **capturing** phase, the event goes through the ancestor elements dow
 
 ---
 
-###### 14. All object have prototypes.
+###### 14. 所有对象都有原型。
 
 - A: true
 - B: false
@@ -433,7 +433,7 @@ During the **capturing** phase, the event goes through the ancestor elements dow
 
 #### 答案: B
 
-All objects have prototypes, except for the **base object**. The base object has access to some methods and properties, such as `.toString`. This is the reason why you can use built-in JavaScript methods! All of such methods are available on the prototype. Although JavaScript can't find it directly on your object, it goes down the prototype chain and finds it there, which makes it accessible for you.
+除了**基对象**（base object），所有对象都有原型。基对象可以访问一些方法和属性，比如 `.tostring`。这就是为什么你可以使用内置的 JavaScript 方法！所有这些方法在原型上都是可用的。虽然 JavaScript 不能直接在对象上找到这些方法，但 JavaScript 会沿着原型链找到它们，以便于你使用。
 
 </p>
 </details>
