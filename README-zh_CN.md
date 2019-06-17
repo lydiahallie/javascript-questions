@@ -393,7 +393,7 @@ console.log(sarah)
 
 #### 答案: A
 
-对于 `sarah`，我们没有使用 `new` 关键字。当使用 `new` 时，`this` 引用我们创建的空对象。当未使用 `new` 时，`this` 引用的是**全局对象**（global object）。 
+对于 `sarah`，我们没有使用 `new` 关键字。当使用 `new` 时，`this` 引用我们创建的空对象。当未使用 `new` 时，`this` 引用的是**全局对象**（global object）。
 
 我们说 `this.firstName` 等于 `"Sarah"`，并且 `this.lastName` 等于 `"Smith"`。实际上我们做的是，定义了 `global.firstName = 'Sarah'` 和 `global.lastName = 'Smith'`。而 `sarah` 本身是 `undefined`。
 
@@ -402,7 +402,7 @@ console.log(sarah)
 
 ---
 
-###### 13. 事件冒泡的三个阶段是什么？
+###### 13. 事件传播的三个阶段是什么？
 
 - A: Target > Capturing > Bubbling
 - B: Bubbling > Target > Capturing
@@ -529,7 +529,7 @@ getPersonInfo`${person} is ${age} years old`
 
 #### 答案: B
 
-如果使用标记模板字面量，第一个参数的值总是字符串值的数组。其余的参数获取的是传递的表达式的值！
+如果使用标记模板字面量，第一个参数的值总是包含字符串的数组。其余的参数获取的是传递的表达式的值！
 
 </p>
 </details>
@@ -1171,15 +1171,15 @@ console.log(numbers)
 - B: function or object
 - C: trick question! only objects
 - D: number or object
-- 
+-
 <details><summary><b>答案</b></summary>
 <p>
 
 #### 答案: A
 
-JavaScript 只有原始类型和对象。
+JavaScript 只有基本类型和对象。
 
-原始类型包括 `boolean`, `null`, `undefined`, `bigint`, `number`, `string`, `symbol`。
+基本类型包括 `boolean`, `null`, `undefined`, `bigint`, `number`, `string`, `symbol`。
 
 </p>
 </details>
