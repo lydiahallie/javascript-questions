@@ -229,7 +229,7 @@ console.log(b === c);
 
 `new Number()` is a built-in function constructor. Although it looks like a number, it's not really a number: it has a bunch of extra features and is an object.
 
-When we use the `==` operator, it only checks whether it has the same _value_. They do they both have the value of `3`, so it returns `true`.
+When we use the `==` operator, it only checks whether it has the same _value_. They both have the value of `3`, so it returns `true`.
 
 However, when we use the `===` operator, both value _and_ type should be the same. It's not: `new Number()` is not a number, it's an **object**. Both return `false.`
 
@@ -629,7 +629,7 @@ With `"use strict"`, you can make sure that you don't accidentally declare globa
 
 ---
 
-###### 21. What's the output?
+###### 21. What's value of `sum`?
 
 ```javascript
 const sum = eval("10*10+5");
@@ -1179,6 +1179,8 @@ Outside of the `catch` block, `x` is still `undefined`, and `y` is `2`. When we 
 JavaScript only has primitive types and objects.
 
 Primitive types are `boolean`, `null`, `undefined`, `bigint`, `number`, `string`, and `symbol`.
+
+What differentiates a primitive from an object is that primitives do not have any properties or methods; however, you'll note that `'foo'.toUpperCase()` evaluates to `'FOO'` and does not result in a `TypeError`. This is because when you try to access a property or method on a primitive like a string, JavaScript will implicity wrap the object using one of the wrapper classes, i.e. `String`, and then immediately discard the wrapper after the expression evaluates. All primitives except for `null` and `undefined` exhibit this behaviour.
 
 </p>
 </details>
