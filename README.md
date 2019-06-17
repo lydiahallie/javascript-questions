@@ -629,7 +629,7 @@ With `"use strict"`, you can make sure that you don't accidentally declare globa
 
 ---
 
-###### 21. What's the output?
+###### 21. What's value of `sum`?
 
 ```javascript
 const sum = eval("10*10+5");
