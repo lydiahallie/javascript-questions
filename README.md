@@ -91,8 +91,8 @@ ključna riječ: varijable deklarirane s ključnom riječi `let` (i` const`) su
 block-scoped (blok je sve između `{}`). Tijekom svake iteracije,
 `i` će imati novu vrijednost, a svaka vrijednost će biti obuhvaćena unutar petlje.
 
-</ p>
-</ details>
+</p>
+</details>
 
 * * * * *
 
@@ -131,8 +131,8 @@ okruženje (primjerice, prozor).
 
 Na tom objektu nema vrijednosti `radius` koja vraća` undefined`.
 
-</ p>
-</ details>
+</p>
+</details>
 
 * * * * *
 
@@ -158,8 +158,8 @@ i "false" je "0".
 Niz '' Lydia '' je istinita vrijednost. Ono što zapravo tražimo jest
 "je li ta istinita vrijednost lažna?". Ovo vraća "false".
 
-</ p>
-</ details>
+</p>
+</details>
 
 * * * * *
 
@@ -205,8 +205,8 @@ tražimo "veličinu" koristeći točkovni zapis: `mouse.bird.size '. Od
 To nije valjano, a bit će u pitanju pogreška slična onoj
 `Cannot read property "size" of undefined`.
 
-</ P>
-</ details>
+</p>
+</details>
 
 * * * * *
 
@@ -244,8 +244,8 @@ s istom referencom koju `c 'ima na objekt.
 
 Kada promijenite jedan objekt, mijenjate ih sve.
 
-</ p>
-</ details>
+</p>
+</details>
 
 * * * * *
 
@@ -282,8 +282,8 @@ Međutim, kada koristimo `===` operator, obje vrijednosti * i * trebaju biti
 isto. To nije: `new Number ()` nije broj, to je ** objekt **.
 Oba vraćaju "false"
 
-</ P>
-</ details>
+</p>
+</details>
 
 * * * * *
 
@@ -321,8 +321,8 @@ bilo kojem childu. Budući da je `freddie` child, function je
 nije proslijeđena, i nije dostupan na `freddie` instanci: a
 Izbačen je `TypeError`.
 
-</ P>
-</ details>
+</p>
+</details>
 
 * * * * *
 
@@ -351,8 +351,8 @@ interpreter je zapravo to vidio kao `global.greeting = {}` (ili
 Kako bismo to izbjegli, možemo koristiti `` use strict ''. To osigurava to
 da ste deklarirali varijablu prije nego je postavite na bilo što.
 
-</ P>
-</ details>
+</p>
+</details>
 
 * * * * *
 
@@ -383,8 +383,8 @@ function je posebna vrsta objekta. Kod koji sami napišete
 nije stvarna function. function je objekt sa svojstvima.
 Ova nekretnina je nepovratna.
 
-</ P>
-</ details>
+</p>
+</details>
 
 * * * * *
 
@@ -431,8 +431,8 @@ scopa (prostora), jer bi oni još uvijek imali tu svojinu, koja uzima memoriju
 scopa za svaku instancu. Umjesto toga, ako ga samo dodamo prototipu, mi
 će mo je imati na jednom mjestu u memoriji, ali svi imaju pristup!
 
-</ P>
-</ details>
+</p>
+</details>
 
 * * * * *
 
@@ -472,8 +472,8 @@ jednak je "Smithu". Ono što smo zapravo učinili jest definiranje
 `global.ime = 'Sarah'` i` global.prezime =' Smith'`. `sarah`
 sam je ostavljen 'undefined'.
 
-</ P>
-</ details>
+</p>
+</details>
 
 * * * * *
 
@@ -496,8 +496,8 @@ i ** bubbling **.
 
 <img src = "https://i.imgur.com/N18oRgd.png" width = "200">
 
-</ P>
-</ details>
+</p>
+</details>
 
 * * * * *
 
@@ -518,8 +518,8 @@ takve su metode dostupne na prototipu. Iako JavaScript ne može
 pronaći ga izravno na vašem objektu, ide niz lanac prototipa i
 nalazi ga tamo, što ga čini dostupnim.
 
-</ P>
-</ details>
+</p>
+</details>
 
 * * * * *
 
@@ -555,8 +555,8 @@ se tretira kao niz. Možemo slično spojiti
 "" Zdravo "+" Svijet "`, tako da se ovdje događa ``````````````````
 vraća `" 12 "`.
 
-</ P>
-</ details>
+</p>
+</details>
 
 * * * * *
 
@@ -591,8 +591,8 @@ console.log (broj);
 
 Ovo vraća `0 2 2`.
 
-</ P>
-</ details>
+</p>
+</details>
 
 * * * * *
 
@@ -624,8 +624,8 @@ Ako koristite literale s oznakom predložaka, vrijednost prvog argumenta je
 uvijek niz vrijednosti vrijednosti niza. Preostali argumenti dobivaju
 vrijednosti prošlih izraza!
 
-</ P>
-</ details>
+</p>
+</details>
 
 * * * * *
 
@@ -665,8 +665,8 @@ objekt koji smo koristili kako bismo provjerili jednakost.
 Zato i `{age: 18} === {age: 18}` i
 `{age: 18} == {age: 18}` return `false '.
 
-</ P>
-</ details>
+</p>
+</details>
 
 * * * * *
 
@@ -693,8 +693,8 @@ getAge (21);
 Operator spread (`... args`.) Vraća niz s argumentima.
 array je objekt, pa `typeof args` vraća` `objekt '`
 
-</ P>
-</ details>
+</p>
+</details>
 
 * * * * *
 
@@ -726,8 +726,8 @@ budući da koristimo `` use strict '', ona će načiniti referentnu pogrešku. A
 nije koristio "" strict ", to bi išlo od vlasništva
 `age` bi se dodao u globalni objekt.
 
-</ P>
-</ details>
+</p>
+</details>
 
 * * * * *
 
@@ -751,8 +751,8 @@ const sum = eval ("10x10 + 5");
 kao u ovom slučaju, on ocjenjuje izraz. Izraz je
 `10 * 10 + 5`. Ovo vraća broj "105".
 
-</ P>
-</ details>
+</p>
+</details>
 
 * * * * *
 
@@ -777,8 +777,8 @@ Podaci spremljeni u `sessionStorage` se uklanjaju nakon zatvaranja * tab *.
 Ako ste koristili `localStorage`, podaci bi bili tamo zauvijek, osim ako
 na primjer, `localStorage.clear ()` je pozvan.
 
-</ P>
-</ details>
+</p>
+</details>
 
 * * * * *
 
@@ -806,8 +806,8 @@ Ime. Varijabla će tada sadržavati zadnju vrijednost.
 
 To ne možete učiniti s `let` ili` const` jer su blokirani.
 
-</ P>
-</ details>
+</p>
+</details>
 
 * * * * *
 
@@ -841,8 +841,8 @@ To ne radi tako za skup. U našem setu ne postoji "1":
 `set.has ('1')` vraća `false`. Ima numerički tip "1",
 `set.has (1)` vraća `true`.
 
-</ P>
-</ details>
+</p>
+</details>
 
 * * * * *
 
@@ -866,8 +866,8 @@ console.log (obj);
 Ako imate dva ključa s istim imenom, ključ će biti zamijenjen. To
 i dalje će biti na prvom mjestu, ali s posljednjom navedenom vrijednošću.
 
-</ P>
-</ details>
+</p>
+</details>
 
 * * * * *
 
@@ -885,8 +885,8 @@ i dalje će biti na prvom mjestu, ali s posljednjom navedenom vrijednošću.
 Kontekst izvršenja baze je kontekst globalnog izvršavanja: to je ono što je
 dostupno svugdje u vašem kodu.
 
-</ P>
-</ details>
+</p>
+</details>
 
 * * * * *
 
@@ -912,8 +912,8 @@ za (let i = 1; i <5; i ++) {
 Izjava `continue` preskače iteraciju ako je određeno stanje
 vraća "true".
 
-</ P>
-</ details>
+</p>
+</details>
 
 * * * * *
 
@@ -945,8 +945,8 @@ automatski se pretvara u string objekt, generiran stringom
 prototipna function. Dakle, svi nizovi (objekti stringova) imaju pristup tome
 način!
 
-</ P>
-</ details>
+</p>
+</details>
 
 * * * * *
 
@@ -984,8 +984,8 @@ implicitno ograničavaju. Dakle, `a [" Objekt objekt "] = 456`.
 Zatim zapisujemo `a [b]`, što je zapravo `a [" Objekt objekt "]`. Upravo smo postavili
 da na `456`, tako da se vraća` 456`.
 
-</ P>
-</ details>
+</p>
+</details>
 
 * * * * *
 
@@ -1047,8 +1047,8 @@ stvar u redu i gura je u stog.
 `bar` se priziva,` `Second`` se bilježi, i on se pojavio
 stog.
 
-</ P>
-</ details>
+</p>
+</details>
 
 * * * * *
 
@@ -1077,8 +1077,8 @@ stog.
 Najdublji ugniježđeni element koji je uzrokovao događaj je cilj
 događaj. Možete zaustaviti mjehuriće 'event.stopPropagation'
 
-</ P>
-</ details>
+</p>
+</details>
 
 * * * * *
 
@@ -1088,7 +1088,7 @@ događaj. Možete zaustaviti mjehuriće 'event.stopPropagation'
 <div onclick = "console.log (" div ")">
   <p onclick = "console.log ('p')">
     Kliknite ovdje!
-  </ P>
+  </p>
 </ Div>
 ```
 
@@ -1108,8 +1108,8 @@ zadani, rukovatelji događaja izvršavaju se u fazi mjehurića (osim ako vi
 postavite `useCapture` na` true`). Ide od najdubljih ugniježđenih elemenata
 van.
 
-</ P>
-</ details>
+</p>
+</details>
 
 * * * * *
 
@@ -1142,8 +1142,8 @@ odnosi se na. Međutim, `.call` se također * izvršava odmah *!
 `.bind.` vraća * copy * funkcije, ali s vezanim kontekstom! To
 se ne izvršava odmah.
 
-</ P>
-</ details>
+</p>
+</details>
 
 * * * * *
 
@@ -1175,8 +1175,8 @@ FYI: postoji samo 7 ugrađenih tipova: `null`,` undefined`, `boolean`,
 "broj", "niz", "objekt" i "simbol". `` function '' nije tip,
 budući da su funkcije objekti, to je tipa `` objekta '`.
 
-</ P>
-</ details>
+</p>
+</details>
 
 * * * * *
 
@@ -1212,8 +1212,8 @@ Postoji samo šest krivotvorenih vrijednosti:
 
 Konstruktori function, kao što su 'new Number' i 'new Boolean' su istiniti.
 
-</ P>
-</ details>
+</p>
+</details>
 
 * * * * *
 
@@ -1235,8 +1235,8 @@ console.log (vrsta tipa 1);
 
 `typeof 1` vraća` `broj ''. `typeof" number "` return `` string "`
 
-</ P>
-</ details>
+</p>
+</details>
 
 * * * * *
 
@@ -1267,8 +1267,8 @@ zapravo imaju vrijednost `undefined`, ali vidjet ćete nešto poput:
 ovisno o tome gdje ga pokrećete (razlikuje se za svaki preglednik, čvor,
 itd)
 
-</ P>
-</ details>
+</p>
+</details>
 
 * * * * *
 
@@ -1309,8 +1309,8 @@ Izvan 'catch' bloka, `x 'je i dalje` undefined`, a `y` je` 2`.
 Kada želimo `console.log (x)` izvan `catch` bloka, to
 vraća `undefined` i` y` vraća `2`.
 
-</ P>
-</ details>
+</p>
+</details>
 
 * * * * *
 
@@ -1340,8 +1340,8 @@ koristeći jednu od klasa omotača, tj. `String ', a zatim odmah
 odbacite omotač nakon što se izraz procijeni. Svi primitivci
 osim "null" i "undefined" pokazuju ovo ponašanje.
 
-</ P>
-</ details>
+</p>
+</details>
 
 * * * * *
 
@@ -1374,8 +1374,8 @@ i `cur` je` [0, 1] `. Spojimo ih, što rezultira
 Tada je `[1, 2, 0, 1]` `acc` i` [2, 3] `````. Ulančavamo se
 i dobiti `[1, 2, 0, 1, 2, 3]`
 
-</ P>
-</ details>
+</p>
+</details>
 
 * * * * *
 
@@ -1403,8 +1403,8 @@ i dobiti `[1, 2, 0, 1, 2, 3]`
 
 "1" je istina. `! 1` vraća 'false'. `! false 'vraća' true '.
 
-</ P>
-</ details>
+</p>
+</details>
 
 * * * * *
 
@@ -1427,8 +1427,8 @@ setInterval (() => console.log ("Hi"), 1000);
 Vraća jedinstveni ID. Taj se ID može koristiti za brisanje tog intervala
 `clearInterval ()` function.
 
-</ P>
-</ details>
+</p>
+</details>
 
 * * * * *
 
@@ -1451,5 +1451,5 @@ Vraća jedinstveni ID. Taj se ID može koristiti za brisanje tog intervala
 Niz je iterabilan. Operator širenja mapira svaki znak
 iterabilan na jedan element.
 
-</ P>
-</ details>
+</p>
+</details>
