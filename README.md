@@ -60,18 +60,18 @@ JavaScript iz bacuje `ReferenceError`.
 ###### 2. Što je izlaz?
 
 ```javascript
-za (var i = 0; i <3; i ++) {
+for (var i = 0; i <3; i ++) {
   setTimeout (() => console.log (i), 1);
 }
 
-za (let i = 0; i <3; i ++) {
+for (let i = 0; i <3; i ++) {
   setTimeout (() => console.log (i), 1);
 }
 ```
 
-- A: `0 1 2` i` 0 1 2`
-- B: "0 1 2" i "3 3 3"
-- C: "3 3 3" i "0 1 2"
+- A: `0 1 2` and `0 1 2`
+- B: `0 1 2` and `3 3 3`
+- C: `3 3 3` and `0 1 2`
 
 <details><summary><b> Odgovor</b></summary>
 <p>
@@ -611,9 +611,9 @@ const age = 21;
 getPersonInfo` $ {Person} je $ {old} godina ';
 ```
 
-- A: `` Lydia` ``````````````````````````````````````
-- B: ```````````````````````````````````````````````````````````````````````````
-- C: `` Lydia` ``````````````````````````````````````````````````````````
+- A: `"Lydia"` `21` `["", " is ", " years old"]`
+- B: `["", " is ", " years old"]` `"Lydia"` `21`
+- C: `"Lydia"` `["", " is ", " years old"]` `21`
 
 <details> <summary> <b> Odgovor </b> </summary>
 </p>
