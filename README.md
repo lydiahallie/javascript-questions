@@ -252,9 +252,9 @@ Kada promijenite jedan objekt, mijenjate ih sve.
 ###### 7. Što je izlaz?
 
 ```javascript
-let je a = 3;
-let je b = new broj (3);
-let je c = 3;
+let a = 3;
+let b = new broj (3);
+let c = 3;
 
 console.log (a == b);
 console.log (a === b);
@@ -563,7 +563,7 @@ vraća `" 12 "`.
 ###### 16. Što je izlaz?
 
 ```javascript
-let je broj = 0;
+let broj = 0;
 console.log (broj ++);
 console.log (++ broj);
 console.log (broj);
@@ -1059,9 +1059,9 @@ stog.
   <div onclick = "console.log (" drugi div ")">
     <button onclick = "console.log ('gumb')">
       Klik!
-    </ Tipka>
-  </ Div>
-</ Div>
+    </button>
+  </div>
+</div>
 ```
 
 - A: Vanjski 'div'
@@ -1089,7 +1089,7 @@ događaj. Možete zaustaviti mjehuriće 'event.stopPropagation'
   <p onclick = "console.log ('p')">
     Kliknite ovdje!
   </p>
-</ Div>
+</div>
 ```
 
 - A: `p`` div`
@@ -1187,7 +1187,7 @@ budući da su funkcije objekti, to je tipa `` objekta '`.
 new broj (0);
 ( "");
 ("");
-new logički (false);
+new boolean (false);
 nedefiniran;
 ```
 
