@@ -133,7 +133,7 @@ The string `'Lydia'` is a truthy value. What we're actually asking, is "is this 
 
 ---
 
-###### 5. Which one is NOT valid?
+###### 5. Which one is true?
 
 ```javascript
 const bird = {
@@ -146,9 +146,9 @@ const mouse = {
 };
 ```
 
-- A: `mouse.bird.size`
-- B: `mouse[bird.size]`
-- C: `mouse[bird["size"]]`
+- A: `mouse.bird.size` is not valid
+- B: `mouse[bird.size]` is not valid
+- C: `mouse[bird["size"]]` is not valid
 - D: All of them are valid
 
 <details><summary><b>Answer</b></summary>
