@@ -33,15 +33,14 @@ sayHi();
 - C: `ReferenceError` y `21`
 - D: `undefined` y `ReferenceError`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>Solución</b></summary>
 <p>
 
-#### Respuesta: D
+#### Respuesta Correcta: D
 
-Within the function, we first declare the `name` variable with the `var` keyword. This means that the variable gets hoisted (memory space is set up during the creation phase) with the default value of `undefined`, until we actually get to the line where we define the variable. We haven't defined the variable yet on the line where we try to log the `name` variable, so it still holds the value of `undefined`.
+Dentro de la función, primero declaramos la variable `name` con la palabra reservada ` var`. Esto significa que la variable se _eleva_ (el espacio de memoria se configura durante la fase de creación. Hace referencia al termino [hoisting](https://developer.mozilla.org/es/docs/Glossary/Hoisting)) con el valor predeterminado de `indefinido`, hasta que realmente llegamos a la línea donde definimos la variable. Aún no hemos definido la variable en la línea donde intentamos registrar la variable `name`, por lo que aún mantiene el valor de` undefined`.
 
-Variables with the `let` keyword (and `const`) are hoisted, but unlike `var`, don't get <i>initialized</i>. They are not accessible before the line we declare (initialize) them. This is called the "temporal dead zone". When we try to access the variables before they are declared, JavaScript throws a `ReferenceError`.
-
+Las variables con la palabra clave `let` (y` const`) se _elevan_, pero a diferencia de `var`, no se inicializa <i> </i>. No son accesibles antes de la línea que los declaramos (inicializamos). Esto se llama la ["zona muerta temporal"](https://wesbos.com/temporal-dead-zone/). Cuando intentamos acceder a las variables antes de que se declaren, JavaScript lanza un `ReferenceError`
 </p>
 </details>
 
@@ -59,18 +58,18 @@ for (let i = 0; i < 3; i++) {
 }
 ```
 
-- A: `0 1 2` and `0 1 2`
-- B: `0 1 2` and `3 3 3`
-- C: `3 3 3` and `0 1 2`
+- A: `0 1 2` y `0 1 2`
+- B: `0 1 2` y `3 3 3`
+- C: `3 3 3` y `0 1 2`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>Solución</b></summary>
 <p>
 
-#### Respuesta: C
+#### Respuesta Correcta: C
 
-Because of the event queue in JavaScript, the `setTimeout` function is called _after_ the loop has been executed. Since the variable `i` in the first loop was declared using the `var` keyword, this value was global. During the loop, we incremented the value of `i` by `1` each time, using the unary operator `++`. By the time the `setTimeout` function was invoked, `i` was equal to `3` in the first example.
+Debido a la cola de eventos en JavaScript, la función `setTimeout` se llama una vez el ciclo se ha ejecutado. Dado que la variable `i` en el primer bucle se declaró utilizando la palabra reservada ` var`, este valor es global. Durante el bucle, incrementamos el valor de `i` en` 1` cada vez, utilizando el operador unario `++`. Cuando se invocó la función `setTimeout`,` i` era igual a `3` en el primer ejemplo.
 
-In the second loop, the variable `i` was declared using the `let` keyword: variables declared with the `let` (and `const`) keyword are block-scoped (a block is anything between `{ }`). During each iteration, `i` will have a new value, and each value is scoped inside the loop.
+En el segundo bucle, la variable `i` se declaró utilizando la palabra reservada` let`: las variables declaradas con la palabra reservada `let` (y` const`) tienen un ámbito de bloque (un bloque es lo que se encuentra entre `{}`). Durante cada iteración, `i` tendrá un nuevo valor, y cada valor se encuentra dentro del bucle.
 
 </p>
 </details>
@@ -92,53 +91,53 @@ shape.diameter();
 shape.perimeter();
 ```
 
-- A: `20` and `62.83185307179586`
-- B: `20` and `NaN`
-- C: `20` and `63`
-- D: `NaN` and `63`
+- A: `20` y `62.83185307179586`
+- B: `20` y `NaN`
+- C: `20` y `63`
+- D: `NaN` y `63`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>Solución</b></summary>
 <p>
 
-#### Answer: B
+#### Respuesta Correcta: B
 
-Note that the value of `diameter` is a regular function, whereas the value of `perimeter` is an arrow function.
+Hay que tener en cuenta aqui que el valor de `diámetro` es una función regular o _normal_, mientras que el valor de `perímetro` es una función de flecha.
 
-With arrow functions, the `this` keyword refers to its current surrounding scope, unlike regular functions! This means that when we call `perimeter`, it doesn't refer to the shape object, but to its surrounding scope (window for example).
+Con las funciones de flecha, la palabra clave `this` se refiere a su ámbito actual, a diferencia de las funciones regulares. Esto significa que cuando llamamos "perímetro", no se refiere al objeto en sí mismo, sino a su ámbito circundante (ventana por ejemplo).
 
-There is no value `radius` on that object, which returns `undefined`.
+No hay valor `radius` en ese objeto, que devuelve` undefined`.
 
 </p>
 </details>
 
 ---
 
-###### 4. What's the output?
+###### 4. ¿Qué devuelve la siguiente función?
 
 ```javascript
 +true;
 !"Lydia";
 ```
 
-- A: `1` and `false`
-- B: `false` and `NaN`
-- C: `false` and `false`
+- A: `1` y `false`
+- B: `false` y `NaN`
+- C: `false` y `false`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>Solución</b></summary>
 <p>
 
-#### Answer: A
+#### Respuesta Correcta: A
 
-The unary plus tries to convert an operand to a number. `true` is `1`, and `false` is `0`.
+En el primera caso se intenta convertir un operando en un número. `true` es` 1`, y `false` es` 0`.
 
-The string `'Lydia'` is a truthy value. What we're actually asking, is "is this truthy value falsy?". This returns `false`.
+En el segundo caso la cadena `'Lydia'` es un valor verdadero. Lo que realmente estamos preguntando es "¿es este verdadero valor falso?". Esto devuelve `false`.
 
 </p>
 </details>
 
 ---
 
-###### 5. Which one is NOT valid?
+###### 5. ¿Cuál NO es válida?
 
 ```javascript
 const bird = {
@@ -154,20 +153,20 @@ const mouse = {
 - A: `mouse.bird.size`
 - B: `mouse[bird.size]`
 - C: `mouse[bird["size"]]`
-- D: All of them are valid
+- D: Todas son correctas
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>Solución</b></summary>
 <p>
 
-#### Answer: A
+#### Respuesta Correcta: A
 
-In JavaScript, all object keys are strings (unless it's a Symbol). Even though we might not _type_ them as strings, they are always converted into strings under the hood.
+En JavaScript, todas las _keys_ son cadenas (a menos que sea un símbolo). A pesar de que no podríamos escribirlos como cadenas, siempre funcionan como cadenas de manera interna.
 
-JavaScript interprets (or unboxes) statements. When we use bracket notation, it sees the first opening bracket `[` and keeps going until it finds the closing bracket `]`. Only then, it will evaluate the statement.
+JavaScript interpreta declaraciones. Cuando usamos la notación de corchetes, ve el corchete de apertura `[` y continúa hasta que encuentra el corchete de cierre `]`. Solo de esta manera se evaluará la afirmación.
 
-`mouse[bird.size]`: First it evaluates `bird.size`, which is `"small"`. `mouse["small"]` returns `true`
+`mouse [bird.size]`: Primero evalúa `bird.size`, que es` "small" `. `mouse [" small "]` devuelve `true`
 
-However, with dot notation, this doesn't happen. `mouse` does not have a key called `bird`, which means that `mouse.bird` is `undefined`. Then, we ask for the `size` using dot notation: `mouse.bird.size`. Since `mouse.bird` is `undefined`, we're actually asking `undefined.size`. This isn't valid, and will throw an error similar to `Cannot read property "size" of undefined`.
+Sin embargo, con la notación de puntos, esto no sucede. `mouse` no tiene una clave llamada` bird`, lo que significa que `mouse.bird` es` undefined`. Luego, pedimos el `tamaño` usando la notación de puntos:` mouse.bird.size`. Como `mouse.bird` es` undefined`, en realidad estamos preguntando `undefined.size`. Esto no es válido y generará un error similar al `No se puede leer la propiedad" tamaño "de undefined`
 
 </p>
 </details>
@@ -176,7 +175,7 @@ However, with dot notation, this doesn't happen. `mouse` does not have a key cal
 
 ---
 
-###### 6. What's the output?
+###### 6. ¿Qué devuelve la siguiente función?
 
 ```javascript
 let c = { greeting: "Hey!" };
@@ -192,25 +191,25 @@ console.log(d.greeting);
 - C: `ReferenceError`
 - D: `TypeError`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>Solución</b></summary>
 <p>
 
-#### Answer: A
+#### Respuesta Correcta: A
 
-In JavaScript, all objects interact by _reference_ when setting them equal to each other.
+En JavaScript, TODOS los objetos interactúan por referencia, de modo que cuando se establecen iguales o pasan a una función, todos apuntan a la misma ubicación, de modo que cuando cambia un objeto, los cambia a todos.
 
-First, variable `c` holds a value to an object. Later, we assign `d` with the same reference that `c` has to the object.
+Primero, la variable `c` tiene un valor para un objeto. Más tarde, asignamos `d` con la misma referencia que` c` tiene al objeto.
 
-<img src="https://i.imgur.com/ko5k0fs.png" width="200">
+<img src = "https://i.imgur.com/ko5k0fs.png" width = "200">
 
-When you change one object, you change all of them.
+Cuando cambias un objeto, cambias todos ellos.
 
 </p>
 </details>
 
 ---
 
-###### 7. What's the output?
+###### 7. ¿Qué devuelve la siguiente función?
 
 ```javascript
 let a = 3;
@@ -227,23 +226,23 @@ console.log(b === c);
 - C: `true` `false` `false`
 - D: `false` `true` `true`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>Solución</b></summary>
 <p>
 
-#### Answer: C
+#### Respuesta Correcta: C
 
-`new Number()` is a built-in function constructor. Although it looks like a number, it's not really a number: it has a bunch of extra features and is an object.
+`new Number ()` es un constructor de funciones incorporado. Aunque parece un número, no es realmente un número: tiene muchas características adicionales y es un objeto.
 
-When we use the `==` operator, it only checks whether it has the same _value_. They both have the value of `3`, so it returns `true`.
+Cuando usamos el operador `==`, solo verifica si tiene el mismo _valor_. Ambos tienen el valor de `3`, por lo que devuelve` true`.
 
-However, when we use the `===` operator, both value _and_ type should be the same. It's not: `new Number()` is not a number, it's an **object**. Both return `false.`
+Sin embargo, cuando usamos el operador `===`, tanto el valor _ como el tipo deben ser iguales. No es: `new Number ()` no es un número, es un ** objeto **. Ambos devuelven "falso".
 
 </p>
 </details>
 
 ---
 
-###### 8. What's the output?
+###### 8. ¿Qué devuelve la siguiente función?
 
 ```javascript
 class Chameleon {
@@ -266,19 +265,19 @@ freddie.colorChange("orange");
 - C: `green`
 - D: `TypeError`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>Solución</b></summary>
 <p>
 
-#### Answer: D
+#### Respuesta Correcta: D
 
-The `colorChange` function is static. Static methods are designed to live only on the constructor in which they are created, and cannot be passed down to any children. Since `freddie` is a child, the function is not passed down, and not available on the `freddie` instance: a `TypeError` is thrown.
+La función `colorChange` es estática. Los métodos estáticos están diseñados para _vivir_ solo en el constructor en el que se crean y no se pueden transmitir a ningún elemento secundario. Como `freddie` es un niño, la función no se transmite y no está disponible en la instancia de` freddie`: por lo tanto se lanza un `TypeError`.
 
 </p>
 </details>
 
 ---
 
-###### 9. What's the output?
+###### 9. ¿Qué devuelve la siguiente función?
 
 ```javascript
 let greeting;
@@ -290,21 +289,21 @@ console.log(greetign);
 - B: `ReferenceError: greetign is not defined`
 - C: `undefined`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>Solución</b></summary>
 <p>
 
-#### Answer: A
+#### Respuesta Correcta: A
 
-It logs the object, because we just created an empty object on the global object! When we mistyped `greeting` as `greetign`, the JS interpreter actually saw this as `global.greetign = {}` (or `window.greetign = {}` in a browser).
+Lo que hace JS aquí es registrar el objeto debido a que acabamos de crear un objeto vacío en el objeto global. Cuando escribimos erróneamente `greeting` como` greetign`, el intérprete de JS ve esto como `global.greetign = {}` (o `window.greetign = {}` en un navegador).
 
-In order to avoid this, we can use `"use strict"`. This makes sure that you have declared a variable before setting it equal to anything.
+Para evitar esto, podemos usar el ["uso estricto"](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Modo_estricto). Esto asegura que se haya declarado una variable antes de establecerla igual a cualquier cosa.
 
 </p>
 </details>
 
 ---
 
-###### 10. What happens when we do this?
+###### 10. ¿Qué ocurre cuando hacemos esto?
 
 ```javascript
 function bark() {
@@ -314,19 +313,19 @@ function bark() {
 bark.animal = "dog";
 ```
 
-- A: Nothing, this is totally fine!
-- B: `SyntaxError`. You cannot add properties to a function this way.
+- A: No pasa nada, es totalmente correcto.
+- B: `SyntaxError`. No es posible agregar propiedades a una función de esta manera.
 - C: `undefined`
 - D: `ReferenceError`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>Solución</b></summary>
 <p>
 
-#### Answer: A
+#### Respuesta Correcta: A
 
-This is possible in JavaScript, because functions are objects! (Everything besides primitive types are objects)
+Esto es perfectamente posible en JavaScript, porque las funciones son objetos (Recuerda: Todo aparte de los tipos primitivos son objetos en JS)
 
-A function is a special type of object. The code you write yourself isn't the actual function. The function is an object with properties. This property is invocable.
+Una función es un tipo especial de objeto. El código que escribes tú mismo no es la función real. La función es un objeto con propiedades. Esta propiedad es invocable.
 
 </p>
 </details>
