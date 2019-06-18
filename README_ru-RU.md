@@ -330,7 +330,7 @@ A function is a special type of object. The code you write yourself isn't the ac
 
 ---
 
-###### 11. What's the output?
+###### 11. Что будет в консоли?
 
 ```javascript
 function Person(firstName, lastName) {
@@ -351,12 +351,12 @@ console.log(member.getFullName());
 - C: `Lydia Hallie`
 - D: `undefined` `undefined`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>Ответ</b></summary>
 <p>
 
-#### Answer: A
+#### Ответ: A
 
-You can't add properties to a constructor like you can with regular objects. If you want to add a feature to all objects at once, you have to use the prototype instead. So in this case,
+Нельзя добавлять свойства конструктору, как обычному объекту. Если нужно добавить фичу всем объектам, то необходимо использовать прототипы. В данном случае
 
 ```js
 Person.prototype.getFullName = function () {
@@ -364,14 +364,14 @@ Person.prototype.getFullName = function () {
 }
 ```
 
-would have made `member.getFullName()` work. Why is this beneficial? Say that we added this method to the constructor itself. Maybe not every `Person` instance needed this method. This would waste a lot of memory space, since they would still have that property, which takes of memory space for each instance. Instead, if we only add it to the prototype, we just have it at one spot in memory, yet they all have access to it!
+сделает метод `member.getFullName()` рабочим. В чем тут преимущество? Предположим, что мы добавили этот метод к конструктору. Возможно, не каждому экземпляру `Person` нужен этот метод. Это приведет к большим потерям памяти, т.к. все экземпляры будут иметь это свойство. Напротив, если мы добавим этот метод только к прототипу, у нас будет только одно место в памяти, к которому смогут обращаться все экземпляры!
 
 </p>
 </details>
 
 ---
 
-###### 12. What's the output?
+###### 12. Что будет в консоли?
 
 ```javascript
 function Person(firstName, lastName) {
@@ -386,38 +386,38 @@ console.log(lydia);
 console.log(sarah);
 ```
 
-- A: `Person {firstName: "Lydia", lastName: "Hallie"}` and `undefined`
-- B: `Person {firstName: "Lydia", lastName: "Hallie"}` and `Person {firstName: "Sarah", lastName: "Smith"}`
-- C: `Person {firstName: "Lydia", lastName: "Hallie"}` and `{}`
-- D:`Person {firstName: "Lydia", lastName: "Hallie"}` and `ReferenceError`
+- A: `Person {firstName: "Lydia", lastName: "Hallie"}` и `undefined`
+- B: `Person {firstName: "Lydia", lastName: "Hallie"}` и `Person {firstName: "Sarah", lastName: "Smith"}`
+- C: `Person {firstName: "Lydia", lastName: "Hallie"}` и `{}`
+- D:`Person {firstName: "Lydia", lastName: "Hallie"}` и `ReferenceError`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>Ответ</b></summary>
 <p>
 
-#### Answer: A
+#### Ответ: A
 
-For `sarah`, we didn't use the `new` keyword. When using `new`, it refers to the new empty object we create. However, if you don't add `new` it refers to the **global object**!
+Для `sarah` мы не использовали ключевое слово `new`. Использование `new` приводит к созданию нового объекта. Но без `new` он указывает на **глобальный объект**!
 
-We said that `this.firstName` equals `"Sarah"` and `this.lastName` equals `"Smith"`. What we actually did, is defining `global.firstName = 'Sarah'` and `global.lastName = 'Smith'`. `sarah` itself is left `undefined`.
+Мы указали, что `this.firstName` равно `"Sarah"` и `this.lastName` равно `"Smith"`. На самом деле мы определили `global.firstName = 'Sarah'` и `global.lastName = 'Smith'`. `sarah` осталась `undefined`.
 
 </p>
 </details>
 
 ---
 
-###### 13. What are the three phases of event propagation?
+###### 13. Назовите три фазы распространения событий
 
-- A: Target > Capturing > Bubbling
-- B: Bubbling > Target > Capturing
-- C: Target > Bubbling > Capturing
-- D: Capturing > Target > Bubbling
+- A: Цель > Захват > Всплытие
+- B: Всплытие > Цель > Захват
+- C: Цель > Всплытие > Захват
+- D: Захват > Цель > Всплытие
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>Ответ</b></summary>
 <p>
 
-#### Answer: D
+#### Ответ: D
 
-During the **capturing** phase, the event goes through the ancestor elements down to the target element. It then reaches the **target** element, and **bubbling** begins.
+Во время фазы **захвата** событие распространяется с элементов родителей до элемента цели. После достижения **цели** начинается фаза **всплытия**.
 
 <img src="https://i.imgur.com/N18oRgd.png" width="200">
 
@@ -426,24 +426,24 @@ During the **capturing** phase, the event goes through the ancestor elements dow
 
 ---
 
-###### 14. All object have prototypes.
+###### 14. Все объекты имют прототипы
 
-- A: true
-- B: false
+- A: Да
+- B: Нет
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>Ответ</b></summary>
 <p>
 
-#### Answer: B
+#### Ответ: B
 
-All objects have prototypes, except for the **base object**. The base object has access to some methods and properties, such as `.toString`. This is the reason why you can use built-in JavaScript methods! All of such methods are available on the prototype. Although JavaScript can't find it directly on your object, it goes down the prototype chain and finds it there, which makes it accessible for you.
+Все объекты имеют прототипы, кроме **базового объекта**. Базовый объект имеет доступ до некоторых методов и свойств, таких как `.toString`. Именно поэтому мы можем использовать встроенные методы JavaScript! Все эти методы доступны в прототипе. Если JavaScript не может найти метод непосредственно у объекта, он продолжает поиск по цепочке прототипов пока не найдет.
 
 </p>
 </details>
 
 ---
 
-###### 15. What's the output?
+###### 15. Каким будет результат?
 
 ```javascript
 function sum(a, b) {
@@ -458,21 +458,21 @@ sum(1, "2");
 - C: `"12"`
 - D: `3`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>Ответ</b></summary>
 <p>
 
-#### Answer: C
+#### Ответ: C
 
-JavaScript is a **dynamically typed language**: we don't specify what types certain variables are. Values can automatically be converted into another type without you knowing, which is called _implicit type coercion_. **Coercion** is converting from one type into another.
+JavaScript это **динамически типизированный язык**: мы не определяем тип переменных. Переменные могут автоматически быть преобразованы из одного типа в другой без нашего участия, что называется _неявным приведением типов_. **Приведение** это преобразование из одного типа в другой.
 
-In this example, JavaScript converts the number `1` into a string, in order for the function to make sense and return a value. During the addition of a numeric type (`1`) and a string type (`'2'`), the number is treated as a string. We can concatenate strings like `"Hello" + "World"`, so what's happening here is `"1" + "2"` which returns `"12"`.
+В этом примере JavaScript сконвертировал число `1` в строку, чтобы операция внутри функции имела смысл и вернула значение. Во время сложения числа (`1`) и строки (`'2'`) число преобразовывается к строке. Мы можем конкатенировать строки вот так: `"Hello" + "World"`. Таким образом, `"1" + "2"` возвращает `"12"`.
 
 </p>
 </details>
 
 ---
 
-###### 16. What's the output?
+###### 16. Что будет в консоли?
 
 ```javascript
 let number = 0;
@@ -486,29 +486,29 @@ console.log(number);
 - C: `0` `2` `2`
 - D: `0` `1` `2`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>Ответ</b></summary>
 <p>
 
-#### Answer: C
+#### Ответ: C
 
-The **postfix** unary operator `++`:
+**Постфиксный** унарный оператор `++`:
 
-1. Returns the value (this returns `0`)
-2. Increments the value (number is now `1`)
+1. Возвращает значение (`0`)
+2. Инкрементирует значение (теперь число равно `1`)
 
-The **prefix** unary operator `++`:
+**Префиксный** унарный оператор `++`:
 
-1. Increments the value (number is now `2`)
-2. Returns the value (this returns `2`)
+1. Инкрементирует значение (число теперь равно `2`)
+2. Возвращает значение (`2`)
 
-This returns `0 2 2`.
+Результат: `0 2 2`.
 
 </p>
 </details>
 
 ---
 
-###### 17. What's the output?
+###### 17. Что будет в консоли?
 
 ```javascript
 function getPersonInfo(one, two, three) {
@@ -527,55 +527,55 @@ getPersonInfo`${person} is ${age} years old`;
 - B: `["", " is ", " years old"]` `"Lydia"` `21`
 - C: `"Lydia"` `["", " is ", " years old"]` `21`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>Ответ</b></summary>
 <p>
 
-#### Answer: B
+#### Ответ: B
 
-If you use tagged template literals, the value of the first argument is always an array of the string values. The remaining arguments get the values of the passed expressions!
+При использовании тегированных шаблонных литералов первым аргументом всегда будет массив строковых значений. Оставшимися аргументами будут значения переданных выражений!
 
 </p>
 </details>
 
 ---
 
-###### 18. What's the output?
+###### 18. Что будет в консоли?
 
 ```javascript
 function checkAge(data) {
   if (data === { age: 18 }) {
-    console.log("You are an adult!");
+    console.log("Ты взрослый!");
   } else if (data == { age: 18 }) {
-    console.log("You are still an adult.");
+    console.log("Ты все еще взрослый.");
   } else {
-    console.log(`Hmm.. You don't have an age I guess`);
+    console.log(`Хмм.. Кажется, у тебя нет возраста.`);
   }
 }
 
 checkAge({ age: 18 });
 ```
 
-- A: `You are an adult!`
-- B: `You are still an adult.`
-- C: `Hmm.. You don't have an age I guess`
+- A: `Ты взрослый!`
+- B: `Ты все еще взрослый.`
+- C: `Хмм.. Кажется, у тебя нет возраста.`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>Ответ</b></summary>
 <p>
 
-#### Answer: C
+#### Ответ: C
 
-When testing equality, primitives are compared by their _value_, while objects are compared by their _reference_. JavaScript checks if the objects have a reference to the same location in memory.
+В операциях сравнения примитивы сравниваются по их _значениям_, а объекты по _ссылкам_. JavaScript проверяет, чтобы объекты указывали на одну и ту же область памяти.
 
-The two objects that we are comparing don't have that: the object we passed as a parameter refers to a different location in memory than the object we used in order to check equality.
+Сравниваемые объекты в нашем примере не такие: объект, переданный в качестве параметра, указывает на другую область памяти, чем объекты, используемые в сравнениях.
 
-This is why both `{ age: 18 } === { age: 18 }` and `{ age: 18 } == { age: 18 }` return `false`.
+Поэтому `{ age: 18 } === { age: 18 }` и `{ age: 18 } == { age: 18 }` возвращают `false`.
 
 </p>
 </details>
 
 ---
 
-###### 19. What's the output?
+###### 19. Что будет в консоли?
 
 ```javascript
 function getAge(...args) {
@@ -590,19 +590,19 @@ getAge(21);
 - C: `"object"`
 - D: `"NaN"`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>Ответ</b></summary>
 <p>
 
-#### Answer: C
+#### Ответ: C
 
-The spread operator (`...args`.) returns an array with arguments. An array is an object, so `typeof args` returns `"object"`
+Оператор распространения (`...args`) возвращает массив с аргументами. Массив это объект, поэтому `typeof args` возвращает `"object"`.
 
 </p>
 </details>
 
 ---
 
-###### 20. What's the output?
+###### 20. Что будет в консоли?
 
 ```javascript
 function getAge() {
@@ -619,12 +619,12 @@ getAge();
 - C: `ReferenceError`
 - D: `TypeError`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>Ответ</b></summary>
 <p>
 
-#### Answer: C
+#### Ответ: C
 
-With `"use strict"`, you can make sure that you don't accidentally declare global variables. We never declared the variable `age`, and since we use `"use strict"`, it will throw a reference error. If we didn't use `"use strict"`, it would have worked, since the property `age` would have gotten added to the global object.
+Используя `"use strict"`, можно быть уверенным, что мы по ошибке не побъявим глобальные переменные. Мы ранее нигде не объявляли переменную `age`, поэтому с использованием `"use strict"` возникнет `ReferenceError`. Без использования `"use strict"` ошибки не возникнет, а переменная `age` добавится в глобальный объект.
 
 </p>
 </details>
