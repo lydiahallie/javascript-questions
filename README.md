@@ -1,245 +1,293 @@
-# List of (Advanced) JavaScript Questions
+Popis (naprednih) JavaScript pitanja
+=======================================
 
-I post daily multiple choice JavaScript questions on my [Instagram](https://www.instagram.com/theavocoder), which I'll also post here!
+Svakodnevno postavljam JavaScript pitanja s višestrukim izborom na moj
+[Instagram] (https://www.instagram.com/theavocoder), koja  također objavljujem
+ovdje!
 
-From basic to advanced: test how well you know JavaScript, refresh your knowledge a bit, or prepare for your coding interview! :muscle: :rocket: I update this repo weekly with new questions.
+Od osnovnog do naprednog: testirajte koliko dobro znate JavaScript, osvježite svoj
+znanje malo, ili pripremiti za svoj intervju! : :: rocket:
+Ovaj tjedni repo ažuriram s newm pitanjima.
 
-The answers are in the collapsed sections below the questions, simply click on them to expand it. Good luck :heart:
+Odgovori su jednostavno dijelovima ispod pitanja
+kliknite na njih da biste ih proširili. Sretno: srce:
 
-[中文版本](./README-zh_CN.md)
+[中文 版本] (./ README-zh_CN.md)
 
----
+* * * * *
 
-###### 1. What's the output?
+###### 1. Što je izlaz?
 
-```javascript
-function sayHi() {
-  console.log(name);
-  console.log(age);
-  var name = "Lydia";
-  let age = 21;
+`` `{.javascript}
+function sayHi () {
+  console.log (ime);
+  console.log (starosti);
+  var ime = "Lydia";
+  let starost = 21;
 }
 
 sayHi();
-```
+`` `
 
-- A: `Lydia` and `undefined`
-- B: `Lydia` and `ReferenceError`
-- C: `ReferenceError` and `21`
-- D: `undefined` and `ReferenceError`
+- A: "Lydia" i "undefined"
+- B: "Lydia" i "ReferenceError"
+- C: "ReferenceError" i "21"
+- D: `undefined` i` ReferenceError`
 
-<details><summary><b>Answer</b></summary>
+<details> <summary> <b> Odgovor </ b> </ summary>
 <p>
 
-#### Answer: D
+#### Odgovor: D
 
-Within the function, we first declare the `name` variable with the `var` keyword. This means that the variable gets hoisted (memory space is set up during the creation phase) with the default value of `undefined`, until we actually get to the line where we define the variable. We haven't defined the variable yet on the line where we try to log the `name` variable, so it still holds the value of `undefined`.
+Unutar funkcije, najprije deklarišemo varijablu `name` s` var`
+ključne riječi. To znači da se varijabla podiže (memorijski prostor je postavljen
+tijekom faze izrade) sa zadanom vrijednošću `undefined`,
+dok zapravo ne dođemo do linije gdje definiramo varijablu. Mi
+još nismo definirali varijablu na liniji gdje pokušavamo prijaviti
+varijabla `name`, tako da još uvijek sadrži vrijednost` undefined`.
 
-Variables with the `let` keyword (and `const`) are hoisted, but unlike `var`, don't get <i>initialized</i>. They are not accessible before the line we declare (initialize) them. This is called the "temporal dead zone". When we try to access the variables before they are declared, JavaScript throws a `ReferenceError`.
-
-</p>
-</details>
-
----
-
-###### 2. What's the output?
-
-```javascript
-for (var i = 0; i < 3; i++) {
-  setTimeout(() => console.log(i), 1);
-}
-
-for (let i = 0; i < 3; i++) {
-  setTimeout(() => console.log(i), 1);
-}
-```
-
-- A: `0 1 2` and `0 1 2`
-- B: `0 1 2` and `3 3 3`
-- C: `3 3 3` and `0 1 2`
-
-<details><summary><b>Answer</b></summary>
-<p>
-
-#### Answer: C
-
-Because of the event queue in JavaScript, the `setTimeout` callback function is called _after_ the loop has been executed. Since the variable `i` in the first loop was declared using the `var` keyword, this value was global. During the loop, we incremented the value of `i` by `1` each time, using the unary operator `++`. By the time the `setTimeout` callback function was invoked, `i` was equal to `3` in the first example.
-
-In the second loop, the variable `i` was declared using the `let` keyword: variables declared with the `let` (and `const`) keyword are block-scoped (a block is anything between `{ }`). During each iteration, `i` will have a new value, and each value is scoped inside the loop.
+Varijable s ključnom riječi `let` (i` const`) su podignute, ali za razliku od njih
+`var`, ne bivaju <i> inicijalizirane </i>. Nisu dostupni prije
+linije na kojo ih proglašavamo (inicijaliziramo). To se naziva "temporal dead zone".
+Kada pokušamo pristupiti varijablama prije nego što budu deklarirane,
+JavaScript iz bacuje `ReferenceError`.
 
 </p>
-</details>
+</ details>
 
----
+* * * * *
 
-###### 3. What's the output?
+###### 2. Što je izlaz?
 
-```javascript
-const shape = {
-  radius: 10,
-  diameter() {
+`` `{.javascript}
+za (var i = 0; i <3; i ++) {
+  setTimeout (() => console.log (i), 1);
+}
+
+za (let i = 0; i <3; i ++) {
+  setTimeout (() => console.log (i), 1);
+}
+`` `
+
+- A: `0 1 2` i` 0 1 2`
+- B: "0 1 2" i "3 3 3"
+- C: "3 3 3" i "0 1 2"
+
+<details> <summary> <b> Odgovor </ b> </ summary>
+<P>
+
+#### Odgovor: C
+
+Zbog reda događaja u JavaScriptu, povratni poziv `setTimeout`
+function se zove * nakon što je izvršena petlja. Od
+varijabla `i` u prvoj petlji je deklarirana pomoću ključne riječi` var`,
+ta je vrijednost bila globalna. Tijekom petlje povećavamo vrijednost `i`
+svaki put '1', koristeći unarni operator `++`. Do vremena
+Pozvana je function povratnog poziva `setTimeout`,` i` je bila jednaka `3` u
+u prvom primjeru.
+
+U drugoj petlji, varijabla `i` je deklarirana pomoću` let`
+ključna riječ: varijable deklarirane s ključnom riječi `let` (i` const`) su
+block-scoped (blok je sve između `{}`). Tijekom svake iteracije,
+`i` će imati novu vrijednost, a svaka vrijednost će biti obuhvaćena unutar petlje.
+
+</ p>
+</ details>
+
+* * * * *
+
+###### 3. Što je izlaz?
+
+`` `{.javascript}
+const oblik = {
+  radijus: 10,
+  promjer() {
     return this.radius * 2;
-  },
-  perimeter: () => 2 * Math.PI * this.radius
+  }
+  perimetar: () => 2 * Math.PI * this.radius
 };
 
-shape.diameter();
-shape.perimeter();
-```
+oblik.radijus ();
+oblik.promjer ();
+`` `
 
-- A: `20` and `62.83185307179586`
-- B: `20` and `NaN`
-- C: `20` and `63`
-- D: `NaN` and `63`
+- A: "20" i "62.83185307179586"
+- B: "20" i "NaN"
+- C: "20" i "63"
+- D: "NaN" i "63"
 
-<details><summary><b>Answer</b></summary>
-<p>
+<details> <summary> <b> Odgovor </ b> </ summary>
+<P>
 
-#### Answer: B
+#### Odgovor: B
 
-Note that the value of `diameter` is a regular function, whereas the value of `perimeter` is an arrow function.
+Imajte na umu da je vrijednost "promjera" uobičajena function, dok je vrijednost promjera
+vrijednost "perimetra" je function strelice.
 
-With arrow functions, the `this` keyword refers to its current surrounding scope, unlike regular functions! This means that when we call `perimeter`, it doesn't refer to the shape object, but to its surrounding scope (window for example).
+Sa functionma strelica, ključna riječ "this" odnosi se na njegovo trenutno
+okolno područje, za razliku od uobičajenih function! To znači kada
+nazovemo 'perimetar', ne odnosi se na objekt oblika, već na njegov
+okruženje (primjerice, prozor).
 
-There is no value `radius` on that object, which returns `undefined`.
+Na tom objektu nema vrijednosti `radius` koja vraća` undefined`.
 
-</p>
-</details>
+</ p>
+</ details>
 
----
+* * * * *
 
-###### 4. What's the output?
+###### 4. Što je izlaz?
 
-```javascript
-+true;
-!"Lydia";
-```
+`` `{.javascript}
++ True;
+! "Lydia";
+`` `
 
-- A: `1` and `false`
-- B: `false` and `NaN`
-- C: `false` and `false`
+- A: "1" i "false"
+- B: "false" i "NaN"
+- C: "false" i "false"
 
-<details><summary><b>Answer</b></summary>
-<p>
+<details> <summary> <b> Odgovor </ b> </ summary>
+<P>
 
-#### Answer: A
+#### Odgovor: A
 
-The unary plus tries to convert an operand to a number. `true` is `1`, and `false` is `0`.
+Unary plus pokušava pretvoriti operand u broj. "true" je "1",
+i "false" je "0".
 
-The string `'Lydia'` is a truthy value. What we're actually asking, is "is this truthy value falsy?". This returns `false`.
+Niz '' Lydia '' je istinita vrijednost. Ono što zapravo tražimo jest
+"je li ta istinita vrijednost lažna?". Ovo vraća "false".
 
-</p>
-</details>
+</ p>
+</ details>
 
----
+* * * * *
 
-###### 5. Which one is true?
+###### 5. Koja je istina?
 
-```javascript
+`` `{.javascript}
 const bird = {
   size: "small"
 };
 
 const mouse = {
-  name: "Mickey",
+  ime: "Mickey",
   small: true
 };
-```
+`` `
 
-- A: `mouse.bird.size` is not valid
-- B: `mouse[bird.size]` is not valid
-- C: `mouse[bird["size"]]` is not valid
-- D: All of them are valid
+- A: `mouse.bird.size 'nije valjan
+- B: `mouse [bird.size]` nije važeća
+- C: `miš [ptica [" veličina "]]` nije važeća
+- D: Svi su valjani
 
-<details><summary><b>Answer</b></summary>
-<p>
+<details> <summary> <b> Odgovor </ b> </ summary>
+<P>
 
-#### Answer: A
+#### Odgovor: A
 
-In JavaScript, all object keys are strings (unless it's a Symbol). Even though we might not _type_ them as strings, they are always converted into strings under the hood.
+U JavaScriptu su svi key-evi objekta stringovi (osim ako to nije simbol). Čak
+iako ih možda ne * upisujemo kao * nizove, oni se uvijek pretvaraju
+u String ispod "haube".
 
-JavaScript interprets (or unboxes) statements. When we use bracket notation, it sees the first opening bracket `[` and keeps going until it finds the closing bracket `]`. Only then, it will evaluate the statement.
+JavaScript tumači (ili odlaže) izjave. Kada koristimo zagradu
+notacija, on vidi prvu otvarnu zagradu `` `i nastavlja dalje do nje
+pronalazi završnu zagradu `]`. Tek tada će procijeniti
+izjava.
 
-`mouse[bird.size]`: First it evaluates `bird.size`, which is `"small"`. `mouse["small"]` returns `true`
+`mouse [bird.size]`: Prvo procjenjuje `bird.size`, što je` `small``.
+`mouse [" small "]` vraća "true"
 
-However, with dot notation, this doesn't happen. `mouse` does not have a key called `bird`, which means that `mouse.bird` is `undefined`. Then, we ask for the `size` using dot notation: `mouse.bird.size`. Since `mouse.bird` is `undefined`, we're actually asking `undefined.size`. This isn't valid, and will throw an error similar to `Cannot read property "size" of undefined`.
+Međutim, s točkastom notacijom, to se ne događa. `miša 'nema a
+key naziva se 'bird', što znači da je `mouse.bird`` undefined`. Zatim,
+tražimo "veličinu" koristeći točkovni zapis: `mouse.bird.size '. Od
+`mouse.bird` je` undefined`, zapravo pitamo `undefined.size`.
+To nije valjano, a bit će u pitanju pogreška slična onoj
+`Cannot read property "size" of undefined`.
 
-</p>
-</details>
+</ P>
+</ details>
 
----
+* * * * *
 
----
+* * * * *
 
-###### 6. What's the output?
+###### 6. Što je izlaz?
 
-```javascript
-let c = { greeting: "Hey!" };
+`` `{.javascript}
+let c = {greeting: "Hej!" };
 let d;
 
 d = c;
-c.greeting = "Hello";
-console.log(d.greeting);
-```
+c.greeting = "Pozdrav";
+console.log (d.greeting);
+`` `
 
-- A: `Hello`
-- B: `Hey`
+- A: "Zdravo"
+- B: 'Hej'
 - C: `undefined`
-- D: `ReferenceError`
+- D: "ReferenceError"
 - E: `TypeError`
 
-<details><summary><b>Answer</b></summary>
-<p>
+<details> <summary> <b> Odgovor </ b> </ summary>
+<P>
 
-#### Answer: A
+#### Odgovor: A
 
-In JavaScript, all objects interact by _reference_ when setting them equal to each other.
+U JavaScriptu, svi objekti međusobno djeluju * referencom * kada ih postavljaju
+jednaki.
 
-First, variable `c` holds a value to an object. Later, we assign `d` with the same reference that `c` has to the object.
+Prvo, varijabla `c` sadrži vrijednost objekta. Kasnije dodijelimo `d`
+s istom referencom koju `c 'ima na objekt.
 
-<img src="https://i.imgur.com/ko5k0fs.png" width="200">
+<img src = "https://i.imgur.com/ko5k0fs.png" width = "200">
 
-When you change one object, you change all of them.
+Kada promijenite jedan objekt, mijenjate ih sve.
 
-</p>
-</details>
+</ p>
+</ details>
 
----
+* * * * *
 
-###### 7. What's the output?
+###### 7. Što je izlaz?
 
-```javascript
-let a = 3;
-let b = new Number(3);
-let c = 3;
+`` `{.javascript}
+let je a = 3;
+let je b = new broj (3);
+let je c = 3;
 
-console.log(a == b);
-console.log(a === b);
-console.log(b === c);
-```
+console.log (a == b);
+console.log (a === b);
+console.log (b === c);
+`` `
 
-- A: `true` `false` `true`
-- B: `false` `false` `true`
-- C: `true` `false` `false`
-- D: `false` `true` `true`
+- A: `true`` false` `true`
+- B: `false`` false` `true`
+- C: `true`` false` `false`
+- D: `false`` true` `true`
 
-<details><summary><b>Answer</b></summary>
-<p>
+<details> <summary> <b> Odgovor </ b> </ summary>
+<P>
 
-#### Answer: C
+#### Odgovor: C
 
-`new Number()` is a built-in function constructor. Although it looks like a number, it's not really a number: it has a bunch of extra features and is an object.
+`new Number ()` je ugrađeni konstruktor function. Iako izgleda
+kao broj, to zapravo nije broj: ima gomilu ekstra dodataka
+pa je zbog toga objekt.
 
-When we use the `==` operator, it only checks whether it has the same _value_. They both have the value of `3`, so it returns `true`.
+Kada koristimo `==` operatora, on samo provjerava ima li isti
+*vrijednost*. Obje imaju vrijednost `3`, pa se vraća 'true'.
 
-However, when we use the `===` operator, both value _and_ type should be the same. It's not: `new Number()` is not a number, it's an **object**. Both return `false.`
+Međutim, kada koristimo `===` operator, obje vrijednosti * i * trebaju biti
+isto. To nije: `new Number ()` nije broj, to je ** objekt **.
+Oba vraćaju "false"
 
-</p>
-</details>
+</ P>
+</ details>
 
----
+* * * * *
 
-###### 8. What's the output?
+###### 8. Što je izlaz?
 
 ```javascript
 class Chameleon {
@@ -248,7 +296,7 @@ class Chameleon {
     return this.newColor;
   }
 
-  constructor({ newColor = "green" } = {}) {
+  constructor({ newColor = "zelena" } = {}) {
     this.newColor = newColor;
   }
 }
@@ -257,50 +305,58 @@ const freddie = new Chameleon({ newColor: "purple" });
 freddie.colorChange("orange");
 ```
 
-- A: `orange`
-- B: `purple`
-- C: `green`
+- A: 'narančasta'
+- B: "ljubičasta"
+- C: "zelena"
 - D: `TypeError`
 
-<details><summary><b>Answer</b></summary>
-<p>
+<details> <summary> <b> Odgovor </ b> </ summary>
+<P>
 
-#### Answer: D
+#### Odgovor: D
 
-The `colorChange` function is static. Static methods are designed to live only on the constructor in which they are created, and cannot be passed down to any children. Since `freddie` is a child, the function is not passed down, and not available on the `freddie` instance: a `TypeError` is thrown.
+function `colorChange` je statična. Namijenjene su statičkim metodama
+žive samo na konstruktoru u kojem su stvoreni i ne mogu biti proslijeđeni 
+bilo kojem childu. Budući da je `freddie` child, function je
+nije proslijeđena, i nije dostupan na `freddie` instanci: a
+Izbačen je `TypeError`.
 
-</p>
-</details>
+</ P>
+</ details>
 
----
+* * * * *
 
-###### 9. What's the output?
+###### 9. Što je izlaz?
 
-```javascript
-let greeting;
-greetign = {}; // Typo!
-console.log(greetign);
-```
+`` `{.javascript}
+let pozdravi;
+greeting = {}; // Typo!
+console.log (greetign);
+`` `
 
 - A: `{}`
-- B: `ReferenceError: greetign is not defined`
+- B: `ReferenceError: greetign nije definiran '
 - C: `undefined`
 
-<details><summary><b>Answer</b></summary>
-<p>
+<details> <summary> <b> Odgovor </ b> </ summary>
+<P>
 
-#### Answer: A
+#### Odgovor: A
 
-It logs the object, because we just created an empty object on the global object! When we mistyped `greeting` as `greetign`, the JS interpreter actually saw this as `global.greetign = {}` (or `window.greetign = {}` in a browser).
+Zapisuje objekt, jer smo upravo stvorili prazan objekt na
+globalni objekt! Kada smo pogrešno ukucali `pozdrav` kao` greeting`, JS
+interpreter je zapravo to vidio kao `global.greeting = {}` (ili
+`window.greeting = {}` u pregledniku).
 
-In order to avoid this, we can use `"use strict"`. This makes sure that you have declared a variable before setting it equal to anything.
+Kako bismo to izbjegli, možemo koristiti `` use strict ''. To osigurava to
+da ste deklarirali varijablu prije nego je postavite na bilo što.
 
-</p>
-</details>
+</ P>
+</ details>
 
----
+* * * * *
 
-###### 10. What happens when we do this?
+###### 10. Što se događa kada to učinimo?
 
 ```javascript
 function bark() {
@@ -310,983 +366,1090 @@ function bark() {
 bark.animal = "dog";
 ```
 
-- A: Nothing, this is totally fine!
-- B: `SyntaxError`. You cannot add properties to a function this way.
+- A: Ništa, ovo je u redu!
+- B: `SyntaxError`. Na ovaj način ne možete dodavati svojstva funkciji.
 - C: `undefined`
-- D: `ReferenceError`
+- D: "ReferenceError"
 
-<details><summary><b>Answer</b></summary>
-<p>
+<details> <summary> <b> Odgovor </ b> </ summary>
+<P>
 
-#### Answer: A
+#### Odgovor: A
 
-This is possible in JavaScript, because functions are objects! (Everything besides primitive types are objects)
+To je moguće u JavaScriptu, jer su funkcije objekti!
+(Sve osim primitivnih tipova su objekti)
 
-A function is a special type of object. The code you write yourself isn't the actual function. The function is an object with properties. This property is invocable.
+function je posebna vrsta objekta. Kod koji sami napišete
+nije stvarna function. function je objekt sa svojstvima.
+Ova nekretnina je nepovratna.
 
-</p>
-</details>
+</ P>
+</ details>
 
----
+* * * * *
 
-###### 11. What's the output?
+###### 11. Kakav je rezultat?
 
-```javascript
-function Person(firstName, lastName) {
-  this.firstName = firstName;
-  this.lastName = lastName;
+`` `{.javascript}
+function Person (ime, prezime) {
+  this.ime = ime;
+  this.prezime = prezime;
 }
 
-const member = new Person("Lydia", "Hallie");
-Person.getFullName = function() {
-  return `${this.firstName} ${this.lastName}`;
+const member = new Person ("Lydia", "Hallie");
+Person.getFullName = function () {
+  return `$ {this.ime} $ {this.prezime}`;
 };
 
-console.log(member.getFullName());
-```
+console.log (member.getFullName ());
+`` `
 
 - A: `TypeError`
 - B: `SyntaxError`
-- C: `Lydia Hallie`
-- D: `undefined` `undefined`
+- C: "Lydia Hallie"
+- D: `undefined`` undefined`
 
-<details><summary><b>Answer</b></summary>
-<p>
+<details> <summary> <b> Odgovor </ b> </ summary>
+<P>
 
-#### Answer: A
+#### Odgovor: A
 
-You can't add properties to a constructor like you can with regular objects. If you want to add a feature to all objects at once, you have to use the prototype instead. So in this case,
+Ne možete dodati svojstva konstruktoru kao što možete s uobičajenim
+objekti. Ako želite dodati značajku svim objektima odjednom, imate
+umjesto toga koristiti prototip. Dakle, u ovom slučaju,
 
-```js
-Person.prototype.getFullName = function() {
-  return `${this.firstName} ${this.lastName}`;
+`` `{.js}
+Person.prototype.getFullName = function () {
+  return `$ {this.ime} $ {this.prezime}`;
 };
-```
+`` `
 
-would have made `member.getFullName()` work. Why is this beneficial? Say that we added this method to the constructor itself. Maybe not every `Person` instance needed this method. This would waste a lot of memory space, since they would still have that property, which takes of memory space for each instance. Instead, if we only add it to the prototype, we just have it at one spot in memory, yet they all have access to it!
+bi učinio `member.getFullName ()`. Zašto je to korisno? Reći će mo
+da smo tu metodu dodali samom konstruktoru. Možda ne svaki
+Primjer "Person" trebao je ovu metodu. To bi trošilo puno memorije
+scopa (prostora), jer bi oni još uvijek imali tu svojinu, koja uzima memoriju
+scopa za svaku instancu. Umjesto toga, ako ga samo dodamo prototipu, mi
+će mo je imati na jednom mjestu u memoriji, ali svi imaju pristup!
 
-</p>
-</details>
+</ P>
+</ details>
 
----
+* * * * *
 
-###### 12. What's the output?
+###### 12. Što je izlaz?
 
-```javascript
-function Person(firstName, lastName) {
-  this.firstName = firstName;
-  this.lastName = lastName;
+`` `{.javascript}
+function Person (ime, prezime) {
+  this.ime = ime;
+  this.prezime = prezime;
 }
 
-const lydia = new Person("Lydia", "Hallie");
-const sarah = Person("Sarah", "Smith");
+const lydia = new Person ("Lydia", "Hallie");
+const sarah = Person ("Sara", "Smith");
 
-console.log(lydia);
-console.log(sarah);
-```
+console.log (Lydia);
+console.log (sarah);
+`` `
 
-- A: `Person {firstName: "Lydia", lastName: "Hallie"}` and `undefined`
-- B: `Person {firstName: "Lydia", lastName: "Hallie"}` and `Person {firstName: "Sarah", lastName: "Smith"}`
-- C: `Person {firstName: "Lydia", lastName: "Hallie"}` and `{}`
-- D:`Person {firstName: "Lydia", lastName: "Hallie"}` and `ReferenceError`
+- A: `Person {ime:" Lydia ", prezime:" Hallie "} i` undefined`
+- B: `Person {ime:" Lydia ", prezime:" Hallie "} i
+    `Person {ime:" Sarah ", prezime:" Smith "}`
+- C: `Person {ime:" Lydia ", prezime:" Hallie "}` i `{}`
+- D: `Person {ime:" Lydia ", prezime:" Hallie "} i
+    `ReferenceError`
 
-<details><summary><b>Answer</b></summary>
-<p>
+<details> <summary> <b> Odgovor </ b> </ summary>
+<P>
 
-#### Answer: A
+#### Odgovor: A
 
-For `sarah`, we didn't use the `new` keyword. When using `new`, it refers to the new empty object we create. However, if you don't add `new` it refers to the **global object**!
+Za `sarah` nismo koristili ključnu riječ` new`. Kada koristite "new", to
+odnosi se na new prazni objekt koji stvaramo. Međutim, ako ne dodate
+`new` se odnosi na ** globalni objekt **!
 
-We said that `this.firstName` equals `"Sarah"` and `this.lastName` equals `"Smith"`. What we actually did, is defining `global.firstName = 'Sarah'` and `global.lastName = 'Smith'`. `sarah` itself is left `undefined`.
+Rekli smo da je "this.ime" jednako "Sarah" i `this.prezime`
+jednak je "Smithu". Ono što smo zapravo učinili jest definiranje
+`global.ime = 'Sarah'` i` global.prezime =' Smith'`. `sarah`
+sam je ostavljen 'undefined'.
 
-</p>
-</details>
+</ P>
+</ details>
 
----
+* * * * *
 
-###### 13. What are the three phases of event propagation?
+###### 13. Koje su tri faze propagiranja događaja?
 
 - A: Target > Capturing > Bubbling
 - B: Bubbling > Target > Capturing
 - C: Target > Bubbling > Capturing
 - D: Capturing > Target > Bubbling
 
-<details><summary><b>Answer</b></summary>
-<p>
 
-#### Answer: D
+<details> <summary> <b> Odgovor </ b> </ summary>
+<P>
 
-During the **capturing** phase, the event goes through the ancestor elements down to the target element. It then reaches the **target** element, and **bubbling** begins.
+#### Odgovor: D
 
-<img src="https://i.imgur.com/N18oRgd.png" width="200">
+Tijekom ** capturing ** događaj prolazi kroz pretka
+elemente do ciljnog elementa. Zatim doseže ** target **
+i ** bubbling **.
 
-</p>
-</details>
+<img src = "https://i.imgur.com/N18oRgd.png" width = "200">
 
----
+</ P>
+</ details>
 
-###### 14. All object have prototypes.
+* * * * *
 
-- A: true
-- B: false
+###### 14. Svi objekti imaju prototipove.
 
-<details><summary><b>Answer</b></summary>
-<p>
+-   Istinito
+- B: lažno
 
-#### Answer: B
+<details> <summary> <b> Odgovor </ b> </ summary>
+<P>
 
-All objects have prototypes, except for the **base object**. The base object has access to some methods and properties, such as `.toString`. This is the reason why you can use built-in JavaScript methods! All of such methods are available on the prototype. Although JavaScript can't find it directly on your object, it goes down the prototype chain and finds it there, which makes it accessible for you.
+#### Odgovor: B
 
-</p>
-</details>
+Svi objekti imaju prototipove, osim ** osnovnog objekta **. Uporište
+objekt ima pristup nekim metodama i svojstvima, kao što je `.toString`.
+To je razlog zašto možete koristiti ugrađene JavaScript metode! Sve od
+takve su metode dostupne na prototipu. Iako JavaScript ne može
+pronaći ga izravno na vašem objektu, ide niz lanac prototipa i
+nalazi ga tamo, što ga čini dostupnim.
 
----
+</ P>
+</ details>
 
-###### 15. What's the output?
+* * * * *
 
-```javascript
-function sum(a, b) {
+###### 15. Što je izlaz?
+
+`` `{.javascript}
+function sum (a, b) {
   return a + b;
 }
 
-sum(1, "2");
-```
+sum (1, "2");
+`` `
 
-- A: `NaN`
+- A: "NaN"
 - B: `TypeError`
-- C: `"12"`
+- C: "12"
 - D: `3`
 
-<details><summary><b>Answer</b></summary>
-<p>
+<details> <summary> <b> Odgovor </ b> </ summary>
+<P>
 
-#### Answer: C
+#### Odgovor: C
 
-JavaScript is a **dynamically typed language**: we don't specify what types certain variables are. Values can automatically be converted into another type without you knowing, which is called _implicit type coercion_. **Coercion** is converting from one type into another.
+JavaScript je ** dinamički upisani jezik **: ne navodimo što
+vrste su određene varijable. Vrijednosti se mogu automatski pretvoriti u
+drugi tip bez vašeg znanja, koji se zove * implicitni tip
+prisila *. ** Prisila ** pretvara iz jednog tipa u drugi.
 
-In this example, JavaScript converts the number `1` into a string, in order for the function to make sense and return a value. During the addition of a numeric type (`1`) and a string type (`'2'`), the number is treated as a string. We can concatenate strings like `"Hello" + "World"`, so what's happening here is `"1" + "2"` which returns `"12"`.
+U ovom primjeru JavaScript pretvara broj `1` u niz, u
+kako bi function imala smisla i vratila vrijednost. Tijekom
+dodavanje numeričkog tipa (`1`) i tipa niza (` '2'`), broja
+se tretira kao niz. Možemo slično spojiti
+"" Zdravo "+" Svijet "`, tako da se ovdje događa `` `` `` `` `` `` `` `` ``
+vraća `" 12 "`.
 
-</p>
-</details>
+</ P>
+</ details>
 
----
+* * * * *
 
-###### 16. What's the output?
+###### 16. Što je izlaz?
 
-```javascript
-let number = 0;
-console.log(number++);
-console.log(++number);
-console.log(number);
-```
+`` `{.javascript}
+let je broj = 0;
+console.log (broj ++);
+console.log (++ broj);
+console.log (broj);
+`` `
 
-- A: `1` `1` `2`
-- B: `1` `2` `2`
-- C: `0` `2` `2`
-- D: `0` `1` `2`
+- A: `1`` 1` `2`
+- B: `1`` 2` `2`
+- C: `0`` 2` `2`
+- D: `0`` 1` `2`
 
-<details><summary><b>Answer</b></summary>
-<p>
+<details> <summary> <b> Odgovor </ b> </ summary>
+<P>
 
-#### Answer: C
+#### Odgovor: C
 
-The **postfix** unary operator `++`:
+** postfix ** unarni operator `++`:
 
-1. Returns the value (this returns `0`)
-2. Increments the value (number is now `1`)
+1. Vraća vrijednost (ovo vraća `0`)
+2. Povećava vrijednost (broj je sada `1`)
 
-The **prefix** unary operator `++`:
+** prefiks ** unary operator `++`:
 
-1. Increments the value (number is now `2`)
-2. Returns the value (this returns `2`)
+1. Povećava vrijednost (broj je sada `2`)
+2. Vraća vrijednost (ovo vraća `2`)
 
-This returns `0 2 2`.
+Ovo vraća `0 2 2`.
 
-</p>
-</details>
+</ P>
+</ details>
 
----
+* * * * *
 
-###### 17. What's the output?
+###### 17. Što je izlaz?
 
-```javascript
-function getPersonInfo(one, two, three) {
-  console.log(one);
-  console.log(two);
-  console.log(three);
+`` `{.javascript}
+function getPersonInfo (one, two, tree) {
+  console.log (one);
+  console.log (two);
+  console.log (tree);
 }
 
-const person = "Lydia";
+const Person = "Lydia";
 const age = 21;
 
-getPersonInfo`${person} is ${age} years old`;
-```
+getPersonInfo` $ {Person} je $ {old} godina ';
+`` `
 
-- A: `"Lydia"` `21` `["", " is ", " years old"]`
-- B: `["", " is ", " years old"]` `"Lydia"` `21`
-- C: `"Lydia"` `["", " is ", " years old"]` `21`
+- A: `` Lydia` `` `` `` `` `` `` `` `` `` `` `` `` `` `` `` `` `` `` ``
+- B: `` `` `` `` `` `` `` `` `` `` `` `` `` `` `` `` `` `` `` `` `` `` `` `` `` `` `` `` `` `` `` `` `` `` `` `` `` `
+- C: `` Lydia` `` `` `` `` `` `` `` `` `` `` `` `` `` `` `` `` `` `` `` `` `` `` `` `` `` `` `` `` ``
 
-<details><summary><b>Answer</b></summary>
-<p>
+<details> <summary> <b> Odgovor </ b> </ summary>
+<P>
 
-#### Answer: B
+#### Odgovor: B
 
-If you use tagged template literals, the value of the first argument is always an array of the string values. The remaining arguments get the values of the passed expressions!
+Ako koristite literale s oznakom predložaka, vrijednost prvog argumenta je
+uvijek niz vrijednosti vrijednosti niza. Preostali argumenti dobivaju
+vrijednosti prošlih izraza!
 
-</p>
-</details>
+</ P>
+</ details>
 
----
+* * * * *
 
-###### 18. What's the output?
+###### 18. Što je izlaz?
 
-```javascript
-function checkAge(data) {
-  if (data === { age: 18 }) {
-    console.log("You are an adult!");
-  } else if (data == { age: 18 }) {
-    console.log("You are still an adult.");
+`` `{.javascript}
+function checkAge (podaci) {
+  ako (podaci === {age: 18}) {
+    console.log ("Vi ste odrasla osoba!");
+  } else if (data == {age: 18}) {
+    console.log ("Vi ste još uvijek odrasla osoba.");
   } else {
-    console.log(`Hmm.. You don't have an age I guess`);
+    console.log (`Hmm .. Nemate dobnu pretpostavku`);
   }
 }
 
-checkAge({ age: 18 });
-```
+checkAge ({age: 18});
+`` `
 
-- A: `You are an adult!`
-- B: `You are still an adult.`
-- C: `Hmm.. You don't have an age I guess`
+- A: "Vi ste odrasla osoba!"
+- B: "Vi ste još uvijek odrasla osoba."
+- C: 'Hmm .. Nemam godina za koju pretpostavljam'
 
-<details><summary><b>Answer</b></summary>
-<p>
+<details> <summary> <b> Odgovor </ b> </ summary>
+<P>
 
-#### Answer: C
+#### Odgovor: C
 
-When testing equality, primitives are compared by their _value_, while objects are compared by their _reference_. JavaScript checks if the objects have a reference to the same location in memory.
+Prilikom ispitivanja jednakosti, primitivi se uspoređuju prema njihovoj * vrijednosti *, dok
+objekti se uspoređuju prema njihovoj * referenci *. JavaScript provjerava ako
+objekti imaju referencu na isto mjesto u memoriji.
 
-The two objects that we are comparing don't have that: the object we passed as a parameter refers to a different location in memory than the object we used in order to check equality.
+Dva predmeta koje uspoređujemo nemaju: objekt mi
+proslijeđeno kao parametar odnosi se na drugo mjesto u memoriji od
+objekt koji smo koristili kako bismo provjerili jednakost.
 
-This is why both `{ age: 18 } === { age: 18 }` and `{ age: 18 } == { age: 18 }` return `false`.
+Zato i `{age: 18} === {age: 18}` i
+`{age: 18} == {age: 18}` return `false '.
 
-</p>
-</details>
+</ P>
+</ details>
 
----
+* * * * *
 
-###### 19. What's the output?
+###### 19. Što je izlaz?
 
-```javascript
-function getAge(...args) {
-  console.log(typeof args);
+`` `{.javascript}
+function getAge (... args) {
+  console.log (vrsta argumenta);
 }
 
-getAge(21);
-```
+getAge (21);
+`` `
 
-- A: `"number"`
-- B: `"array"`
-- C: `"object"`
-- D: `"NaN"`
+- A: `" broj "
+- B: `` niz ''
+- C: `` objekt ''
+- D: "NaN"
 
-<details><summary><b>Answer</b></summary>
-<p>
+<details> <summary> <b> Odgovor </ b> </ summary>
+<P>
 
-#### Answer: C
+#### Odgovor: C
 
-The spread operator (`...args`.) returns an array with arguments. An array is an object, so `typeof args` returns `"object"`
+Operator spread (`... args`.) Vraća niz s argumentima.
+array je objekt, pa `typeof args` vraća` `objekt '`
 
-</p>
-</details>
+</ P>
+</ details>
 
----
+* * * * *
 
-###### 20. What's the output?
+###### 20. Što je izlaz?
 
-```javascript
-function getAge() {
-  "use strict";
-  age = 21;
-  console.log(age);
+`` `{.javascript}
+function getAge () {
+  "koristite strogi";
+  starost = 21;
+  console.log (starosti);
 }
 
-getAge();
-```
+getAge ();
+`` `
 
 - A: `21`
 - B: `undefined`
-- C: `ReferenceError`
+- C: "ReferenceError"
 - D: `TypeError`
 
-<details><summary><b>Answer</b></summary>
-<p>
+<details> <summary> <b> Odgovor </ b> </ summary>
+<P>
 
-#### Answer: C
+#### Odgovor: C
 
-With `"use strict"`, you can make sure that you don't accidentally declare global variables. We never declared the variable `age`, and since we use `"use strict"`, it will throw a reference error. If we didn't use `"use strict"`, it would have worked, since the property `age` would have gotten added to the global object.
+Sa `` use strict '', možete se uvjeriti da nije slučajno
+deklarisana globalna varijabla. Nikada nismo objavili varijablu "age" i
+budući da koristimo `` use strict '', ona će načiniti referentnu pogrešku. Ako mi
+nije koristio "" strict ", to bi išlo od vlasništva
+`age` bi se dodao u globalni objekt.
 
-</p>
-</details>
+</ P>
+</ details>
 
----
+* * * * *
 
-###### 21. What's value of `sum`?
+###### 21. Što je vrijednost `suma '?
 
-```javascript
-const sum = eval("10*10+5");
-```
+`` `{.javascript}
+const sum = eval ("10x10 + 5");
+`` `
 
-- A: `105`
-- B: `"105"`
+- A: "105"
+- B: `" 105 "`
 - C: `TypeError`
-- D: `"10*10+5"`
+- D: `" 10 * 10 + 5 "`
 
-<details><summary><b>Answer</b></summary>
-<p>
+<details> <summary> <b> Odgovor </ b> </ summary>
+<P>
 
-#### Answer: A
+#### Odgovor: A
 
-`eval` evaluates codes that's passed as a string. If it's an expression, like in this case, it evaluates the expression. The expression is `10 * 10 + 5`. This returns the number `105`.
+`eval` procjenjuje kodove koji su prošli kao niz. Ako je to izraz,
+kao u ovom slučaju, on ocjenjuje izraz. Izraz je
+`10 * 10 + 5`. Ovo vraća broj "105".
 
-</p>
-</details>
+</ P>
+</ details>
 
----
+* * * * *
 
-###### 22. How long is cool_secret accessible?
+###### 22. Koliko dugo je cool \ _secret dostupan?
 
-```javascript
-sessionStorage.setItem("cool_secret", 123);
-```
+`` `{.javascript}
+sessionStorage.setItem ("cool_secret", 123);
+`` `
 
-- A: Forever, the data doesn't get lost.
-- B: When the user closes the tab.
-- C: When the user closes the entire browser, not only the tab.
-- D: When the user shuts off their computer.
+O: Podaci se zauvijek ne izgube.
+- B: Kada korisnik zatvori karticu.
+- C: Kada korisnik zatvori cijeli preglednik, ne samo karticu.
+- D: Kada korisnik isključi svoje računalo.
 
-<details><summary><b>Answer</b></summary>
-<p>
+<details> <summary> <b> Odgovor </ b> </ summary>
+<P>
 
-#### Answer: B
+#### Odgovor: B
 
-The data stored in `sessionStorage` is removed after closing the _tab_.
+Podaci spremljeni u `sessionStorage` se uklanjaju nakon zatvaranja * tab *.
 
-If you used `localStorage`, the data would've been there forever, unless for example `localStorage.clear()` is invoked.
+Ako ste koristili `localStorage`, podaci bi bili tamo zauvijek, osim ako
+na primjer, `localStorage.clear ()` je pozvan.
 
-</p>
-</details>
+</ P>
+</ details>
 
----
+* * * * *
 
-###### 23. What's the output?
+###### 23. Što je izlaz?
 
-```javascript
+`` `{.javascript}
 var num = 8;
 var num = 10;
 
-console.log(num);
-```
+console.log (num);
+`` `
 
 - A: `8`
-- B: `10`
+- B: "10"
 - C: `SyntaxError`
-- D: `ReferenceError`
+- D: "ReferenceError"
 
-<details><summary><b>Answer</b></summary>
-<p>
+<details> <summary> <b> Odgovor </ b> </ summary>
+<P>
 
-#### Answer: B
+#### Odgovor: B
 
-With the `var` keyword, you can declare multiple variables with the same name. The variable will then hold the latest value.
+Pomoću ključne riječi `var` možete deklarirati više varijabli s istom
+Ime. Varijabla će tada sadržavati zadnju vrijednost.
 
-You cannot do this with `let` or `const` since they're block-scoped.
+To ne možete učiniti s `let` ili` const` jer su blokirani.
 
-</p>
-</details>
+</ P>
+</ details>
 
----
+* * * * *
 
-###### 24. What's the output?
+###### 24. Što je izlaz?
 
-```javascript
-const obj = { 1: "a", 2: "b", 3: "c" };
-const set = new Set([1, 2, 3, 4, 5]);
+`` `{.javascript}
+const obj = {1: "a", 2: "b", 3: "c"};
+const set = new Set ([1, 2, 3, 4, 5]);
 
-obj.hasOwnProperty("1");
-obj.hasOwnProperty(1);
-set.has("1");
-set.has(1);
-```
+obj.hasOwnProperty ( "1");
+obj.hasOwnProperty (1);
+set.has ( "1");
+set.has (1);
+`` `
 
-- A: `false` `true` `false` `true`
-- B: `false` `true` `true` `true`
-- C: `true` `true` `false` `true`
-- D: `true` `true` `true` `true`
+- A: `false`` true` `false`` true`
+- B: `false`` true` `true`` true`
+- C: `true`` true` `false`` true`
+- D: `true`` true` `true`` true`
 
-<details><summary><b>Answer</b></summary>
-<p>
+<details> <summary> <b> Odgovor </ b> </ summary>
+<P>
 
-#### Answer: C
+#### Odgovor: C
 
-All object keys (excluding Symbols) are strings under the hood, even if you don't type it yourself as a string. This is why `obj.hasOwnProperty('1')` also returns true.
+Sve tipke objekta (osim simbola) su žice ispod haube, čak i ako
+ne upisujete sami kao niz znakova. To je razlog zašto
+`obj.hasOwnProperty ('1')` također vraća true.
 
-It doesn't work that way for a set. There is no `'1'` in our set: `set.has('1')` returns `false`. It has the numeric type `1`, `set.has(1)` returns `true`.
+To ne radi tako za skup. U našem setu ne postoji "1":
+`set.has ('1')` vraća `false`. Ima numerički tip "1",
+`set.has (1)` vraća `true`.
 
-</p>
-</details>
+</ P>
+</ details>
 
----
+* * * * *
 
-###### 25. What's the output?
+###### 25. Što je izlaz?
 
-```javascript
-const obj = { a: "one", b: "two", a: "three" };
-console.log(obj);
-```
+`` `{.javascript}
+const obj = {a: "jedan", b: "dva", a: "tri"};
+console.log (obj);
+`` `
 
-- A: `{ a: "one", b: "two" }`
-- B: `{ b: "two", a: "three" }`
-- C: `{ a: "three", b: "two" }`
+- A: `{a:" jedan ", b:" dva "}`
+- B: `{b:" dva ", a:" tri "}`
+- C: `{a:" tri ", b:" dva "}`
 - D: `SyntaxError`
 
-<details><summary><b>Answer</b></summary>
-<p>
+<details> <summary> <b> Odgovor </ b> </ summary>
+<P>
 
-#### Answer: C
+#### Odgovor: C
 
-If you have two keys with the same name, the key will be replaced. It will still be in its first position, but with the last specified value.
+Ako imate dva ključa s istim imenom, ključ će biti zamijenjen. To
+i dalje će biti na prvom mjestu, ali s posljednjom navedenom vrijednošću.
 
-</p>
-</details>
+</ P>
+</ details>
 
----
+* * * * *
 
-###### 26. The JavaScript global execution context creates two things for you: the global object, and the "this" keyword.
+###### 26. Globalni kontekst izvođenja JavaScripta za vas stvara dvije stvari: globalni objekt i "ovu" ključnu riječ.
 
-- A: true
-- B: false
-- C: it depends
+-   Istina
+- B: lažno
+- C: to ovisi
 
-<details><summary><b>Answer</b></summary>
-<p>
+<details> <summary> <b> Odgovor </ b> </ summary>
+<P>
 
-#### Answer: A
+#### Odgovor: A
 
-The base execution context is the global execution context: it's what's accessible everywhere in your code.
+Kontekst izvršenja baze je kontekst globalnog izvršavanja: to je ono što je
+dostupno svugdje u vašem kodu.
 
-</p>
-</details>
+</ P>
+</ details>
 
----
+* * * * *
 
-###### 27. What's the output?
+###### 27. Što je izlaz?
 
-```javascript
-for (let i = 1; i < 5; i++) {
-  if (i === 3) continue;
-  console.log(i);
+`` `{.javascript}
+za (let i = 1; i <5; i ++) {
+  ako (i === 3) nastavite;
+  console.log (i);
 }
-```
+`` `
 
-- A: `1` `2`
-- B: `1` `2` `3`
-- C: `1` `2` `4`
-- D: `1` `3` `4`
+- A: `1`` 2`
+- B: `1`` 2` `3`
+- C: `1`` 2` `4`
+- D: `1`` 3` `4`
 
-<details><summary><b>Answer</b></summary>
-<p>
+<details> <summary> <b> Odgovor </ b> </ summary>
+<P>
 
-#### Answer: C
+#### Odgovor: C
 
-The `continue` statement skips an iteration if a certain condition returns `true`.
+Izjava `continue` preskače iteraciju ako je određeno stanje
+vraća "true".
 
-</p>
-</details>
+</ P>
+</ details>
 
----
+* * * * *
 
-###### 28. What's the output?
+###### 28. Što je izlaz?
 
-```javascript
+`` `{.javascript}
 String.prototype.giveLydiaPizza = () => {
-  return "Just give Lydia pizza already!";
+  povratak "Dajte već picu Lydiju!";
 };
 
-const name = "Lydia";
+const ime = "Lydia";
 
-name.giveLydiaPizza();
-```
+name.giveLydiaPizza ();
+`` `
 
-- A: `"Just give Lydia pizza already!"`
-- B: `TypeError: not a function`
+- A: `` Već daj Lizijinu pizzu! ``
+- B: `TypeError: nije function`
 - C: `SyntaxError`
 - D: `undefined`
 
-<details><summary><b>Answer</b></summary>
-<p>
+<details> <summary> <b> Odgovor </ b> </ summary>
+<P>
 
-#### Answer: A
+#### Odgovor: A
 
-`String` is a built-in constructor, which we can add properties to. I just added a method to its prototype. Primitive strings are automatically converted into a string object, generated by the string prototype function. So, all strings (string objects) have access to that method!
+`String 'je ugrađeni konstruktor, kojem možemo dodati svojstva. ja
+samo je dodao metodu u svoj prototip. Primitivni nizovi su
+automatski se pretvara u string objekt, generiran stringom
+prototipna function. Dakle, svi nizovi (objekti stringova) imaju pristup tome
+način!
 
-</p>
-</details>
+</ P>
+</ details>
 
----
+* * * * *
 
-###### 29. What's the output?
+###### 29. Što je izlaz?
 
-```javascript
+`` `{.javascript}
 const a = {};
-const b = { key: "b" };
-const c = { key: "c" };
+const b = {ključ: "b"};
+const c = {ključ: "c"};
 
-a[b] = 123;
-a[c] = 456;
+a [b] = 123;
+a [c] = 456;
 
-console.log(a[b]);
-```
+console.log (a [b]);
+`` `
 
-- A: `123`
-- B: `456`
+- A: '123'
+- B: "456"
 - C: `undefined`
-- D: `ReferenceError`
+- D: "ReferenceError"
 
-<details><summary><b>Answer</b></summary>
-<p>
+<details> <summary> <b> Odgovor </ b> </ summary>
+<P>
 
-#### Answer: B
+#### Odgovor: B
 
-Object keys are automatically converted into strings. We are trying to set an object as a key to object `a`, with the value of `123`.
+Tipke objekta automatski se pretvaraju u nizove. Pokušavamo
+postavite objekt kao ključ za objekt "a", s vrijednošću "123".
 
-However, when we stringify an object, it becomes `"[Object object]"`. So what we are saying here, is that `a["Object object"] = 123`. Then, we can try to do the same again. `c` is another object that we are implicitly stringifying. So then, `a["Object object"] = 456`.
+Međutim, kada stringificiramo objekt, on postaje `` [Objekt objekt] '`. Tako
+ono što ovdje govorimo je da je `a [" Objekt objekt "] = 123`. Onda, mi
+može ponovno pokušati učiniti isto. "c" je još jedan objekt koji jesmo
+implicitno ograničavaju. Dakle, `a [" Objekt objekt "] = 456`.
 
-Then, we log `a[b]`, which is actually `a["Object object"]`. We just set that to `456`, so it returns `456`.
+Zatim zapisujemo `a [b]`, što je zapravo `a [" Objekt objekt "]`. Upravo smo postavili
+da na `456`, tako da se vraća` 456`.
 
-</p>
-</details>
+</ P>
+</ details>
 
----
+* * * * *
 
-###### 30. What's the output?
+###### 30. Što je izlaz?
 
-```javascript
-const foo = () => console.log("First");
-const bar = () => setTimeout(() => console.log("Second"));
-const baz = () => console.log("Third");
+`` `{.javascript}
+const foo = () => console.log ("Prvo");
+const bar = () => setTimeout (() => console.log ("Drugi"));
+const baz = () => console.log ("Treći");
 
 bar();
-foo();
-baz();
-```
+foo ();
+baz ();
+`` `
 
-- A: `First` `Second` `Third`
-- B: `First` `Third` `Second`
-- C: `Second` `First` `Third`
-- D: `Second` `Third` `First`
+- A: `Prvi`` Drugi` `Treći`
+- B: `Prvi`` Treći` `Drugi`
+- C: `Drugi`` Prvi` `Treći`
+- D: `Drugi`` Treći` `Prvi`
 
-<details><summary><b>Answer</b></summary>
-<p>
+<details> <summary> <b> Odgovor </ b> </ summary>
+<P>
 
-#### Answer: B
+#### Odgovor: B
 
-We have a `setTimeout` function and invoked it first. Yet, it was logged last.
+Imamo funkciju "setTimeout" i prvo je pozvali. Ipak, bio je prijavljen
+posljednji.
 
-This is because in browsers, we don't just have the runtime engine, we also have something called a `WebAPI`. The `WebAPI` gives us the `setTimeout` function to start with, and for example the DOM.
+To je zato što u preglednicima nemamo samo runtime engine, mi
+također imaju nešto što se zove "WebAPI". "WebAPI" nam daje
+`setTimeout` function za početak, i na primjer DOM.
 
-After the _callback_ is pushed to the WebAPI, the `setTimeout` function itself (but not the callback!) is popped off the stack.
+Nakon što je * callback * preusmjeren na WebAPI, function `setTimeout`
+sam (ali ne i povratni poziv!) iskače iz stog.
 
-<img src="https://i.imgur.com/X5wsHOg.png" width="200">
+<img src = "https://i.imgur.com/X5wsHOg.png" width = "200">
 
-Now, `foo` gets invoked, and `"First"` is being logged.
+Sada se `foo` poziva i` `Prvo`` se bilježi.
 
-<img src="https://i.imgur.com/Pvc0dGq.png" width="200">
+<img src = "https://i.imgur.com/Pvc0dGq.png" width = "200">
 
-`foo` is popped off the stack, and `baz` gets invoked. `"Third"` gets logged.
+`foo` je iskačen iz stog, i` baz` se poziva. "Treći" dobiva
+prijavljeni.
 
-<img src="https://i.imgur.com/WhA2bCP.png" width="200">
+<img src = "https://i.imgur.com/WhA2bCP.png" width = "200">
 
-The WebAPI can't just add stuff to the stack whenever it's ready. Instead, it pushes the callback function to something called the _queue_.
+WebAPI ne može jednostavno dodati stvari u stog kad god je spreman.
+Umjesto toga, on povlači funkciju povratnog poziva u nešto što se zove
+*red*.
 
-<img src="https://i.imgur.com/NSnDZmU.png" width="200">
+<img src = "https://i.imgur.com/NSnDZmU.png" width = "200">
 
-This is where an event loop starts to work. An **event loop** looks at the stack and task queue. If the stack is empty, it takes the first thing on the queue and pushes it onto the stack.
+Ovo je mjesto gdje petlja događaja počinje raditi. ** ** krug događaja ** gleda
+red i red za zadatke. Ako je stog prazan, uzima prvi
+stvar u redu i gura je u stog.
 
-<img src="https://i.imgur.com/uyiScAI.png" width="200">
+<img src = "https://i.imgur.com/uyiScAI.png" width = "200">
 
-`bar` gets invoked, `"Second"` gets logged, and it's popped off the stack.
+`bar` se priziva,` `Second`` se bilježi, i on se pojavio
+stog.
 
-</p>
-</details>
+</ P>
+</ details>
 
----
+* * * * *
 
-###### 31. What is the event.target when clicking the button?
+###### 31. Što je event.target kada kliknete na gumb?
 
-```html
-<div onclick="console.log('first div')">
-  <div onclick="console.log('second div')">
-    <button onclick="console.log('button')">
-      Click!
-    </button>
-  </div>
-</div>
-```
+`` `{.html}
+<div onclick = "console.log (" prvi div ")">
+  <div onclick = "console.log (" drugi div ")">
+    <button onclick = "console.log ('gumb')">
+      Klik!
+    </ Tipka>
+  </ Div>
+</ Div>
+`` `
 
-- A: Outer `div`
-- B: Inner `div`
-- C: `button`
-- D: An array of all nested elements.
+- A: Vanjski 'div'
+- B: Unutarnji 'div'
+- C: `gumb '
+- D: Niz svih ugniježđenih elemenata.
 
-<details><summary><b>Answer</b></summary>
-<p>
+<details> <summary> <b> Odgovor </ b> </ summary>
+<P>
 
-#### Answer: C
+#### Odgovor: C
 
-The deepest nested element that caused the event is the target of the event. You can stop bubbling by `event.stopPropagation`
+Najdublji ugniježđeni element koji je uzrokovao događaj je cilj
+događaj. Možete zaustaviti mjehuriće 'event.stopPropagation'
 
-</p>
-</details>
+</ P>
+</ details>
 
----
+* * * * *
 
-###### 32. When you click the paragraph, what's the logged output?
+###### 32. Kada kliknete na paragraf, što je zapisani izlaz?
 
-```html
-<div onclick="console.log('div')">
-  <p onclick="console.log('p')">
-    Click here!
-  </p>
-</div>
-```
+`` `{.html}
+<div onclick = "console.log (" div ")">
+  <p onclick = "console.log ('p')">
+    Kliknite ovdje!
+  </ P>
+</ Div>
+`` `
 
-- A: `p` `div`
-- B: `div` `p`
-- C: `p`
-- D: `div`
+- A: `p`` div`
+- B: `div`` p`
+- C: p
+- D: "div"
 
-<details><summary><b>Answer</b></summary>
-<p>
+<details> <summary> <b> Odgovor </ b> </ summary>
+<P>
 
-#### Answer: A
+#### Odgovor: A
 
-If we click `p`, we see two logs: `p` and `div`. During event propagation, there are 3 phases: capturing, target, and bubbling. By default, event handlers are executed in the bubbling phase (unless you set `useCapture` to `true`). It goes from the deepest nested element outwards.
+Ako kliknemo `p`, vidimo dva zapisa:` p` i `div`. Tijekom događaja
+razmnožavanje, postoje 3 faze: hvatanje, ciljanje i mjehuriće. Po
+zadani, rukovatelji događaja izvršavaju se u fazi mjehurića (osim ako vi
+postavite `useCapture` na` true`). Ide od najdubljih ugniježđenih elemenata
+van.
 
-</p>
-</details>
+</ P>
+</ details>
 
----
+* * * * *
 
-###### 33. What's the output?
+###### 33. Što je izlaz?
 
-```javascript
-const person = { name: "Lydia" };
+`` `{.javascript}
+const Person = {ime: "Lydia"};
 
-function sayHi(age) {
-  console.log(`${this.name} is ${age}`);
+function sayHi (dob) {
+  console.log (`$ {this.name} je $ {age}`);
 }
 
-sayHi.call(person, 21);
-sayHi.bind(person, 21);
-```
+sayHi.call (Person, 21);
+sayHi.bind (Person, 21);
+`` `
 
-- A: `undefined is 21` `Lydia is 21`
-- B: `function` `function`
-- C: `Lydia is 21` `Lydia is 21`
-- D: `Lydia is 21` `function`
+- A: `undefined is 21`` Lydia je 21`
+- B: function funkcije
+- C: `Lydia je 21`` Lydia je 21`
+- D: `Lydia je 21`` function`
 
-<details><summary><b>Answer</b></summary>
-<p>
+<details> <summary> <b> Odgovor </ b> </ summary>
+<P>
 
-#### Answer: D
+#### Odgovor: D
 
-With both, we can pass the object to which we want the `this` keyword to refer to. However, `.call` is also _executed immediately_!
+S oba, možemo proslijediti objekt kojem želimo ključnu riječ "this"
+odnosi se na. Međutim, `.call` se također * izvršava odmah *!
 
-`.bind.` returns a _copy_ of the function, but with a bound context! It is not executed immediately.
+`.bind.` vraća * copy * funkcije, ali s vezanim kontekstom! To
+se ne izvršava odmah.
 
-</p>
-</details>
+</ P>
+</ details>
 
----
+* * * * *
 
-###### 34. What's the output?
+###### 34. Što je izlaz?
 
-```javascript
-function sayHi() {
-  return (() => 0)();
+`` `{.javascript}
+function sayHi () {
+  return (() => 0) ();
 }
 
-typeof sayHi();
-```
+vrsta rečiHi ();
+`` `
 
-- A: `"object"`
-- B: `"number"`
-- C: `"function"`
-- D: `"undefined"`
+- A: `" objekt "`
+- B: `" broj "
+- C: function ""
+- D: `" undefined "`
 
-<details><summary><b>Answer</b></summary>
-<p>
+<details> <summary> <b> Odgovor </ b> </ summary>
+<P>
 
-#### Answer: B
+#### Odgovor: B
 
-The `sayHi` function returns the returned value of the immediately invoked function (IIFE). This function returned `0`, which is type `"number"`.
+function `sayHi` vraća vraćenu vrijednost odmah
+pozvana function (IIFE). Ova function vratila je `0`, što je tip
+` "Broj"`.
 
-FYI: there are only 7 built-in types: `null`, `undefined`, `boolean`, `number`, `string`, `object`, and `symbol`. `"function"` is not a type, since functions are objects, it's of type `"object"`.
+FYI: postoji samo 7 ugrađenih tipova: `null`,` undefined`, `boolean`,
+"broj", "niz", "objekt" i "simbol". `` function '' nije tip,
+budući da su funkcije objekti, to je tipa `` objekta '`.
 
-</p>
-</details>
+</ P>
+</ details>
 
----
+* * * * *
 
-###### 35. Which of these values are falsy?
+###### 35. Koja od ovih vrijednosti su neistinite?
 
-```javascript
+`` `{.javascript}
 0;
-new Number(0);
+new broj (0);
+( "");
 ("");
-(" ");
-new Boolean(false);
-undefined;
-```
+new logički (false);
+nedefiniran;
+`` `
 
-- A: `0`, `''`, `undefined`
-- B: `0`, `new Number(0)`, `''`, `new Boolean(false)`, `undefined`
-- C: `0`, `''`, `new Boolean(false)`, `undefined`
-- D: All of them are falsy
+- A: `0`,` `` `,` undefined`
+- B: `0`,` new Number (0) `,` '' `,` new Boolean (false) `,` undefined '
+- C: `0`,` '' `,` new Boolean (false) `,` undefined`
+- D: Svi su oni lažni
 
-<details><summary><b>Answer</b></summary>
-<p>
+<details> <summary> <b> Odgovor </ b> </ summary>
+<P>
 
-#### Answer: A
+#### Odgovor: A
 
-There are only six falsy values:
+Postoji samo šest krivotvorenih vrijednosti:
 
 - `undefined`
-- `null`
-- `NaN`
+- "null"
+- "NaN"
 - `0`
-- `''` (empty string)
-- `false`
+- `''` (prazan niz)
+- "false"
 
-Function constructors, like `new Number` and `new Boolean` are truthy.
+Konstruktori function, kao što su 'new Number' i 'new Boolean' su istiniti.
 
-</p>
-</details>
+</ P>
+</ details>
 
----
+* * * * *
 
-###### 36. What's the output?
+###### 36. Što je izlaz?
 
-```javascript
-console.log(typeof typeof 1);
-```
+`` `{.javascript}
+console.log (vrsta tipa 1);
+`` `
 
-- A: `"number"`
-- B: `"string"`
-- C: `"object"`
-- D: `"undefined"`
+- A: `" broj "
+- B: niz ""
+- C: `` objekt ''
+- D: `" undefined "`
 
-<details><summary><b>Answer</b></summary>
-<p>
+<details> <summary> <b> Odgovor </ b> </ summary>
+<P>
 
-#### Answer: B
+#### Odgovor: B
 
-`typeof 1` returns `"number"`.
-`typeof "number"` returns `"string"`
+`typeof 1` vraća` `broj ''. `typeof" number "` return `` string "`
 
-</p>
-</details>
+</ P>
+</ details>
 
----
+* * * * *
 
-###### 37. What's the output?
+###### 37. Što je izlaz?
 
-```javascript
-const numbers = [1, 2, 3];
-numbers[10] = 11;
-console.log(numbers);
-```
+`` `{.javascript}
+const brojevi = [1, 2, 3];
+brojevi [10] = 11;
+console.log (br);
+`` `
 
 - A: `[1, 2, 3, 7 x null, 11]`
 - B: `[1, 2, 3, 11]`
-- C: `[1, 2, 3, 7 x empty, 11]`
+- C: `[1, 2, 3, 7 x prazno, 11]`
 - D: `SyntaxError`
 
-<details><summary><b>Answer</b></summary>
-<p>
+<details> <summary> <b> Odgovor </ b> </ summary>
+<P>
 
-#### Answer: C
+#### Odgovor: C
 
-When you set a value to an element in an array that exceeds the length of the array, JavaScript creates something called "empty slots". These actually have the value of `undefined`, but you will see something like:
+Kada postavite vrijednost na element u nizu koji premašuje duljinu
+iz niza, JavaScript stvara nešto što se naziva "prazni utori". To
+zapravo imaju vrijednost `undefined`, ali vidjet ćete nešto poput:
 
-`[1, 2, 3, 7 x empty, 11]`
+`[1, 2, 3, 7 x prazno, 11]`
 
-depending on where you run it (it's different for every browser, node, etc.)
+ovisno o tome gdje ga pokrećete (razlikuje se za svaki preglednik, čvor,
+itd)
 
-</p>
-</details>
+</ P>
+</ details>
 
----
+* * * * *
 
-###### 38. What's the output?
+###### 38. Što je izlaz?
 
-```javascript
+`` `{.javascript}
 (() => {
   let x, y;
-  try {
-    throw new Error();
+  pokušaj {
+    baciti novu pogrešku ();
   } catch (x) {
     (x = 1), (y = 2);
-    console.log(x);
+    console.log (x);
   }
-  console.log(x);
-  console.log(y);
-})();
-```
+  console.log (x);
+  console.log (y);
+}) ();
+`` `
 
-- A: `1` `undefined` `2`
-- B: `undefined` `undefined` `undefined`
-- C: `1` `1` `2`
-- D: `1` `undefined` `undefined`
+- A: `1`` undefined `` 2`
+- B: `undefined`` undefined` `undefined`
+- C: `1`` 1` `2`
+- D: `1`` undefined` `undefined`
 
-<details><summary><b>Answer</b></summary>
-<p>
+<details> <summary> <b> Odgovor </ b> </ summary>
+<P>
 
-#### Answer: A
+#### Odgovor: A
 
-The `catch` block receives the argument `x`. This is not the same `x` as the variable when we pass arguments. This variable `x` is block-scoped.
+Blok `catch` prima argument` x`. To nije isti `x` kao
+varijablu kada proslijedimo argumente. Ova varijabla `x` je blokirana.
 
-Later, we set this block-scoped variable equal to `1`, and set the value of the variable `y`. Now, we log the block-scoped variable `x`, which is equal to `1`.
+Kasnije smo postavili ovu varijablu bloka koja je jednaka `1` i postavili vrijednost
+varijable `y '. Sada, zapisujemo blok-scoped varijablu `x`, koja je
+jednako "1".
 
-Outside of the `catch` block, `x` is still `undefined`, and `y` is `2`. When we want to `console.log(x)` outside of the `catch` block, it returns `undefined`, and `y` returns `2`.
+Izvan 'catch' bloka, `x 'je i dalje` undefined`, a `y` je` 2`.
+Kada želimo `console.log (x)` izvan `catch` bloka, to
+vraća `undefined` i` y` vraća `2`.
 
-</p>
-</details>
+</ P>
+</ details>
 
----
+* * * * *
 
-###### 39. Everything in JavaScript is either a...
+###### 39. Sve u JavaScriptu je ili ...
 
-- A: primitive or object
-- B: function or object
-- C: trick question! only objects
-- D: number or object
+- A: primitivni ili objektni
+- B: function ili objekt
+- C: trik pitanje! samo objekti
+- D: broj ili objekt
 
-<details><summary><b>Answer</b></summary>
-<p>
+<details> <summary> <b> Odgovor </ b> </ summary>
+<P>
 
-#### Answer: A
+#### Odgovor: A
 
-JavaScript only has primitive types and objects.
+JavaScript ima samo primitivne tipove i objekte.
 
-Primitive types are `boolean`, `null`, `undefined`, `bigint`, `number`, `string`, and `symbol`.
+Primitivni tipovi su "boolean", "null", "undefined", "bigint", "number",
+'string' i 'simbol'.
 
-What differentiates a primitive from an object is that primitives do not have any properties or methods; however, you'll note that `'foo'.toUpperCase()` evaluates to `'FOO'` and does not result in a `TypeError`. This is because when you try to access a property or method on a primitive like a string, JavaScript will implicity wrap the object using one of the wrapper classes, i.e. `String`, and then immediately discard the wrapper after the expression evaluates. All primitives except for `null` and `undefined` exhibit this behaviour.
+Ono što razlikuje primitiv od objekta je to što primitivci to ne čine
+imaju bilo kakva svojstva ili metode; međutim, to ćete primijetiti
+`'foo'.toUpperCase ()` vrednuje za' 'FOO'` i ne rezultira a
+`TypeError`. To je zato što kada pokušate pristupiti svojstvu ili metodi
+na primitivnom poput stringa, JavaScript će implicitet omotati objekt
+koristeći jednu od klasa omotača, tj. `String ', a zatim odmah
+odbacite omotač nakon što se izraz procijeni. Svi primitivci
+osim "null" i "undefined" pokazuju ovo ponašanje.
 
-</p>
-</details>
+</ P>
+</ details>
 
----
+* * * * *
 
-###### 40. What's the output?
+###### 40. Što je izlaz?
 
-```javascript
-[[0, 1], [2, 3]].reduce(
+`` `{.javascript}
+[[0, 1], [2, 3]].
   (acc, cur) => {
-    return acc.concat(cur);
-  },
+    povratak acc.concat (cur);
+  }
   [1, 2]
 );
-```
+`` `
 
 - A: `[0, 1, 2, 3, 1, 2]`
 - B: `[6, 1, 2]`
-- C: `[1, 2, 0, 1, 2, 3]`
+- C: "[1, 2, 0, 1, 2, 3]"
 - D: `[1, 2, 6]`
 
-<details><summary><b>Answer</b></summary>
-<p>
+<details> <summary> <b> Odgovor </ b> </ summary>
+<P>
 
-#### Answer: C
+#### Odgovor: C
 
-`[1, 2]` is our initial value. This is the value we start with, and the value of the very first `acc`. During the first round, `acc` is `[1,2]`, and `cur` is `[0, 1]`. We concatenate them, which results in `[1, 2, 0, 1]`.
+"[1, 2]" je naša početna vrijednost. To je vrijednost s kojom počinjemo i
+vrijednost prvog `acc`. Tijekom prvog kruga, "acc" je "[1,2]",
+i `cur` je` [0, 1] `. Spojimo ih, što rezultira
+`[1, 2, 0, 1]`.
 
-Then, `[1, 2, 0, 1]` is `acc` and `[2, 3]` is `cur`. We concatenate them, and get `[1, 2, 0, 1, 2, 3]`
+Tada je `[1, 2, 0, 1]` `acc` i` [2, 3] `` `` `. Ulančavamo se
+i dobiti `[1, 2, 0, 1, 2, 3]`
 
-</p>
-</details>
+</ P>
+</ details>
 
----
+* * * * *
 
-###### 41. What's the output?
+###### 41. Što je izlaz?
 
-```javascript
-!!null;
-!!"";
-!!1;
-```
+`` `{.javascript}
+!! null;
+!! "";
+!! 1;
+`` `
 
-- A: `false` `true` `false`
-- B: `false` `false` `true`
-- C: `false` `true` `true`
-- D: `true` `true` `false`
+- A: `false`` true` `false`
+- B: `false`` false` `true`
+- C: `false`` true` `true`
+- D: `true`` true` `false`
 
-<details><summary><b>Answer</b></summary>
-<p>
+<details> <summary> <b> Odgovor </ b> </ summary>
+<P>
 
-#### Answer: B
+#### Odgovor: B
 
-`null` is falsy. `!null` returns `true`. `!true` returns `false`.
+`null` je lažan. `! null` vraća 'true'. `! true 'vraća" false ".
 
-`""` is falsy. `!""` returns `true`. `!true` returns `false`.
+`` `` je neistinit. `!" `` vraća `true '. `! true 'vraća" false ".
 
-`1` is truthy. `!1` returns `false`. `!false` returns `true`.
+"1" je istina. `! 1` vraća 'false'. `! false 'vraća' true '.
 
-</p>
-</details>
+</ P>
+</ details>
 
----
+* * * * *
 
-###### 42. What does the `setInterval` method return?
+###### 42. Što se vraća metoda `setInterval`?
 
-```javascript
-setInterval(() => console.log("Hi"), 1000);
-```
+`` `{.javascript}
+setInterval (() => console.log ("Hi"), 1000);
+`` `
 
-- A: a unique id
-- B: the amount of milliseconds specified
-- C: the passed function
+- A: jedinstveni ID
+- B: određena količina milisekundi
+- C: prošla function
 - D: `undefined`
 
-<details><summary><b>Answer</b></summary>
-<p>
+<details> <summary> <b> Odgovor </ b> </ summary>
+<P>
 
-#### Answer: A
+#### Odgovor: A
 
-It returns a unique id. This id can be used to clear that interval with the `clearInterval()` function.
+Vraća jedinstveni ID. Taj se ID može koristiti za brisanje tog intervala
+`clearInterval ()` function.
 
-</p>
-</details>
+</ P>
+</ details>
 
----
+* * * * *
 
-###### 43. What does this return?
+###### 43. Što se to vraća?
 
-```javascript
-[..."Lydia"];
-```
+`` `{.javascript}
+[... "Lydia"];
+`` `
 
-- A: `["L", "y", "d", "i", "a"]`
-- B: `["Lydia"]`
-- C: `[[], "Lydia"]`
-- D: `[["L", "y", "d", "i", "a"]]`
+- A: `[" L "," y "," d "," i "," a "]`
+- B: `[" Lydia "]`
+- C: `[[]," Lydia "]`
+- D: `[[" L "," y "," d "," i "," a "]]`
 
-<details><summary><b>Answer</b></summary>
-<p>
+<details> <summary> <b> Odgovor </ b> </ summary>
+<P>
 
-#### Answer: A
+#### Odgovor: A
 
-A string is an iterable. The spread operator maps every character of an iterable to one element.
+Niz je iterabilan. Operator širenja mapira svaki znak
+iterabilan na jedan element.
 
-</p>
-</details>
+</ P>
+</ details>
