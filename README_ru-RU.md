@@ -922,41 +922,41 @@ WebAPI не может добавлять содержимое в стек ко�
 
 ---
 
-###### 31. What is the event.target when clicking the button?
+###### 31. Что будет в event.target после клика на кнопку?
 
 ```html
 <div onclick="console.log('first div')">
   <div onclick="console.log('second div')">
     <button onclick="console.log('button')">
-      Click!
+      Кликни!
     </button>
   </div>
 </div>
 ```
 
-- A: Outer `div`
-- B: Inner `div`
+- A: Внешний `div`
+- B: Внутренний `div`
 - C: `button`
-- D: An array of all nested elements.
+- D: Массив со всеми вложенными элементами
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>Ответ</b></summary>
 <p>
 
-#### Answer: C
+#### Ответ: C
 
-The deepest nested element that caused the event is the target of the event. You can stop bubbling by `event.stopPropagation`
+Целью события является самый глубокий вложенный элемент. Остановить распространение событий можно с помощью `event.stopPropagation`
 
 </p>
 </details>
 
 ---
 
-###### 32. When you click the paragraph, what's the logged output?
+###### 32. Что будет в консоли после клика по параграфу?
 
 ```html
 <div onclick="console.log('div')">
   <p onclick="console.log('p')">
-    Click here!
+    Кликни меня!
   </p>
 </div>
 ```
@@ -966,19 +966,19 @@ The deepest nested element that caused the event is the target of the event. You
 - C: `p`
 - D: `div`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>Ответ</b></summary>
 <p>
 
-#### Answer: A
+#### Ответ: A
 
-If we click `p`, we see two logs: `p` and `div`. During event propagation, there are 3 phases: capturing, target, and bubbling. By default, event handlers are executed in the bubbling phase (unless you set `useCapture` to `true`). It goes from the deepest nested element outwards.
+После клика по `p` будет выведено `p` и `div`. В цикле жизни события есть три фазы: захват, цель и всплытие. По умолчанию обработчики событий выполняются на фазе всплытия (если не установлен параметр `useCapture` в `true`). Всплытие идет с самого глубокого элемента вверх.
 
 </p>
 </details>
 
 ---
 
-###### 33. What's the output?
+###### 33. Что будет в консоли?
 
 ```javascript
 const person = { name: "Lydia" };
@@ -996,21 +996,21 @@ sayHi.bind(person, 21);
 - C: `Lydia is 21` `Lydia is 21`
 - D: `Lydia is 21` `function`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>Ответ</b></summary>
 <p>
 
-#### Answer: D
+#### Ответ: D
 
-With both, we can pass the object to which we want the `this` keyword to refer to. However, `.call` is also _executed immediately_!
+В обоих случаях мы мы передаем объект, на который будет указывать `this`. Но `.call` _выполняется сразу же_!
 
-`.bind.` returns a _copy_ of the function, but with a bound context! It is not executed immediately.
+`.bind` возвращает _копию_ функции, но с привязанным контекстом. Она не выполняется незамедлительно.
 
 </p>
 </details>
 
 ---
 
-###### 34. What's the output?
+###### 34. Каким будет результат?
 
 ```javascript
 function sayHi() {
@@ -1025,21 +1025,21 @@ typeof sayHi();
 - C: `"function"`
 - D: `"undefined"`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>Ответ</b></summary>
 <p>
 
-#### Answer: B
+#### Ответ: B
 
-The `sayHi` function returns the returned value of the immediately invoked function (IIFE). This function returned `0`, which is type `"number"`.
+Функция `sayHi` возвращает значение, возвращаемое из немедленно вызываемого функционального выражения (IIFE). Результатом является `0` типа `"number"`.
 
-FYI: there are only 7 built-in types: `null`, `undefined`, `boolean`, `number`, `string`, `object`, and `symbol`. `"function"` is not a type, since functions are objects, it's of type `"object"`.
+Для информации: в JS 7 встроенных типов: `null`, `undefined`, `boolean`, `number`, `string`, `object`, и `symbol`. `"function"` не является отдельным типом, т.к. функции являются объектами типа `"object"`.
 
 </p>
 </details>
 
 ---
 
-###### 35. Which of these values are falsy?
+###### 35. Какие из этих значений являются "ложными"?
 
 ```javascript
 0;
@@ -1053,14 +1053,14 @@ undefined;
 - A: `0`, `''`, `undefined`
 - B: `0`, `new Number(0)`, `''`, `new Boolean(false)`, `undefined`
 - C: `0`, `''`, `new Boolean(false)`, `undefined`
-- D: All of them are falsy
+- D: Все являются "ложными"
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>Ответ</b></summary>
 <p>
 
-#### Answer: A
+#### Ответ: A
 
-There are only six falsy values:
+Есть только шесть "ложных" значений:
 
 - `undefined`
 - `null`
@@ -1069,14 +1069,14 @@ There are only six falsy values:
 - `''` (empty string)
 - `false`
 
-Function constructors, like `new Number` and `new Boolean` are truthy.
+Конструкторы функций, такие как `new Number` и `new Boolean` являются "истинными".
 
 </p>
 </details>
 
 ---
 
-###### 36. What's the output?
+###### 36. Что будет в консоли
 
 ```javascript
 console.log(typeof typeof 1);
@@ -1087,20 +1087,20 @@ console.log(typeof typeof 1);
 - C: `"object"`
 - D: `"undefined"`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>Ответ</b></summary>
 <p>
 
-#### Answer: B
+#### Ответ: B
 
-`typeof 1` returns `"number"`.
-`typeof "number"` returns `"string"`
+`typeof 1` возвращает `"number"`.
+`typeof "number"` возвращает `"string"`
 
 </p>
 </details>
 
 ---
 
-###### 37. What's the output?
+###### 37. Что будет в консоли?
 
 ```javascript
 const numbers = [1, 2, 3];
@@ -1113,23 +1113,23 @@ console.log(numbers);
 - C: `[1, 2, 3, 7 x empty, 11]`
 - D: `SyntaxError`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>Ответ</b></summary>
 <p>
 
-#### Answer: C
+#### Ответ: C
 
-When you set a value to an element in an array that exceeds the length of the array, JavaScript creates something called "empty slots". These actually have the value of `undefined`, but you will see something like:
+Когда в массив добавляется значение, которое выходит за пределы длины массива, JavaScript создает так называемые "пустые ячейки". На самом деле они имеют значения `undefined`, но в консоли выводятся так:
 
 `[1, 2, 3, 7 x empty, 11]`
 
-depending on where you run it (it's different for every browser, node, etc.)
+в зависимости от окружения (может отличаться для браузеров, Node, и т.д.).
 
 </p>
 </details>
 
 ---
 
-###### 38. What's the output?
+###### 38. Что будет в консоли?
 
 ```javascript
 (() => {
@@ -1150,46 +1150,46 @@ depending on where you run it (it's different for every browser, node, etc.)
 - C: `1` `1` `2`
 - D: `1` `undefined` `undefined`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>Ответ</b></summary>
 <p>
 
-#### Answer: A
+#### Ответ: A
 
-The `catch` block receives the argument `x`. This is not the same `x` as the variable when we pass arguments. This variable `x` is block-scoped.
+Блок `catch` получает аргумент `x`. Это не тот же `x`, который определен в качестве переменной перед строкой `try {`
 
-Later, we set this block-scoped variable equal to `1`, and set the value of the variable `y`. Now, we log the block-scoped variable `x`, which is equal to `1`.
+Затем мы присваиваем этому аргументу значение `1` и устанавливаем значение для переменной `y`. Потом выводим в консоль значение аргумента `x`, которое равно `1`.
 
-Outside of the `catch` block, `x` is still `undefined`, and `y` is `2`. When we want to `console.log(x)` outside of the `catch` block, it returns `undefined`, and `y` returns `2`.
+За пределами блока `catch` переменная `x` все еще `undefined`, а `y` равно `2`. Когда мы вызываем `console.log(x)` за пределами блока `catch`, этот вызов возвращает `undefined`, а `y` возвращает `2`.
 
 </p>
 </details>
 
 ---
 
-###### 39. Everything in JavaScript is either a...
+###### 39. Всё в JavaScript это 
 
-- A: primitive or object
-- B: function or object
-- C: trick question! only objects
-- D: number or object
+- A: примитив или объект
+- B: функция или объект
+- C: вопрос с подвохом! только объекты
+- D: число или объект
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>Ответ</b></summary>
 <p>
 
-#### Answer: A
+#### Ответ: A
 
-JavaScript only has primitive types and objects.
+В JavaScript есть только примитивы и объекты.
 
-Primitive types are `boolean`, `null`, `undefined`, `bigint`, `number`, `string`, and `symbol`.
+Типы примитивов: `boolean`, `null`, `undefined`, `bigint`, `number`, `string`, и `symbol`.
 
-What differentiates a primitive from an object is that primitives do not have any properties or methods; however, you'll note that `'foo'.toUpperCase()` evaluates to `'FOO'` and does not result in a `TypeError`. This is because when you try to access a property or method on a primitive like a string, JavaScript will implicity wrap the object using one of the wrapper classes, i.e. `String`, and then immediately discard the wrapper after the expression evaluates. All primitives except for `null` and `undefined` exhibit this behaviour.
+Отличием примитива от объекта является то, что примитивы не имеют свойств или методов. Тем не менее, `'foo'.toUpperCase()` преобразуется в `'FOO'` и не вызывает `TypeError`. Это происходит потому, что при попытке получения свойства или метода у примитива (например, строки), JavaScript неявно обернет примитив объектом, используя один из классов-оберток (например, `String`), а затем сразу же уничтожет обертку после вычисления выражения. Все примитивы кроме `null` и `undefined` ведут себя таким образом.
 
 </p>
 </details>
 
 ---
 
-###### 40. What's the output?
+###### 40. Каким будет результат?
 
 ```javascript
 [[0, 1], [2, 3]].reduce(
@@ -1205,21 +1205,22 @@ What differentiates a primitive from an object is that primitives do not have an
 - C: `[1, 2, 0, 1, 2, 3]`
 - D: `[1, 2, 6]`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>Ответ</b></summary>
 <p>
 
-#### Answer: C
+#### Ответ: C
 
-`[1, 2]` is our initial value. This is the value we start with, and the value of the very first `acc`. During the first round, `acc` is `[1,2]`, and `cur` is `[0, 1]`. We concatenate them, which results in `[1, 2, 0, 1]`.
+`[1, 2]` - начальное значение, с которым инициализируется переменная `acc`. После первого прохода `acc` будет равно `[1,2]`, а `cur` будет `[0,1]`. После конкатенации результат будет `[1, 2, 0, 1]`.
 
-Then, `[1, 2, 0, 1]` is `acc` and `[2, 3]` is `cur`. We concatenate them, and get `[1, 2, 0, 1, 2, 3]`
+
+Затем `acc` равно `[1, 2, 0, 1]`, а `cur` равно `[2, 3]`. После слияния получим `[1, 2, 0, 1, 2, 3]`.
 
 </p>
 </details>
 
 ---
 
-###### 41. What's the output?
+###### 41. Каким будет результат?
 
 ```javascript
 !!null;
@@ -1232,46 +1233,46 @@ Then, `[1, 2, 0, 1]` is `acc` and `[2, 3]` is `cur`. We concatenate them, and ge
 - C: `false` `true` `true`
 - D: `true` `true` `false`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>Ответ</b></summary>
 <p>
 
-#### Answer: B
+#### Ответ: B
 
-`null` is falsy. `!null` returns `true`. `!true` returns `false`.
+`null` - "ложный". `!null` возвращает `true`. `!true` возвращает `false`.
 
-`""` is falsy. `!""` returns `true`. `!true` returns `false`.
+`""` - "ложный". `!""` возвращает `true`. `!true` возвращает `false`.
 
-`1` is truthy. `!1` returns `false`. `!false` returns `true`.
+`1` - "истинный". `!1` возвращает `false`. `!false` возвращает `true`.
 
 </p>
 </details>
 
 ---
 
-###### 42. What does the `setInterval` method return?
+###### 42. Что возвращает метод `setInterval`?
 
 ```javascript
 setInterval(() => console.log("Hi"), 1000);
 ```
 
-- A: a unique id
-- B: the amount of milliseconds specified
-- C: the passed function
+- A: уникальный id
+- B: указанное количество миллисекунд
+- C: переданную функцию
 - D: `undefined`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>Ответ</b></summary>
 <p>
 
-#### Answer: A
+#### Ответ: A
 
-It returns a unique id. This id can be used to clear that interval with the `clearInterval()` function.
+Это метод возвращает уникальный id. Этот id может быть использован для очищения интервала с помощью функции `clearInterval()`.
 
 </p>
 </details>
 
 ---
 
-###### 43. What does this return?
+###### 43. Каким будет результат?
 
 ```javascript
 [..."Lydia"];
@@ -1282,12 +1283,12 @@ It returns a unique id. This id can be used to clear that interval with the `cle
 - C: `[[], "Lydia"]`
 - D: `[["L", "y", "d", "i", "a"]]`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>Ответ</b></summary>
 <p>
 
-#### Answer: A
+#### Ответ: A
 
-A string is an iterable. The spread operator maps every character of an iterable to one element.
+Строка является итерируемой сущностью. Оператор распространения преобразовывает каждый символ в отдельный элемент.
 
 </p>
 </details>
