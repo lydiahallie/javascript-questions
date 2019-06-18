@@ -631,7 +631,7 @@ getAge();
 
 ---
 
-###### 21. What's value of `sum`?
+###### 21. Чему будет равно `sum`?
 
 ```javascript
 const sum = eval("10*10+5");
@@ -642,44 +642,44 @@ const sum = eval("10*10+5");
 - C: `TypeError`
 - D: `"10*10+5"`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>Ответ</b></summary>
 <p>
 
-#### Answer: A
+#### Ответ: A
 
-`eval` evaluates codes that's passed as a string. If it's an expression, like in this case, it evaluates the expression. The expression is `10 * 10 + 5`. This returns the number `105`.
+`eval` выполняет код, переданный в виде строки. Если это выражение (как в данном случае), то вычисляется выражение. Выражение `10 * 10 + 5` вернет число `105`.
 
 </p>
 </details>
 
 ---
 
-###### 22. How long is cool_secret accessible?
+###### 22. Как долго будет доступен cool_secret?
 
 ```javascript
 sessionStorage.setItem("cool_secret", 123);
 ```
 
-- A: Forever, the data doesn't get lost.
-- B: When the user closes the tab.
-- C: When the user closes the entire browser, not only the tab.
-- D: When the user shuts off their computer.
+- A: Всегда, данные не потеряются.
+- B: Пока пользователь не закроет вкладку.
+- C: Пока пользователь не закроет браузер, а не только вкладку.
+- D: Пока пользователь не выключит компьютер.
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>Ответ</b></summary>
 <p>
 
-#### Answer: B
+#### Ответ: B
 
-The data stored in `sessionStorage` is removed after closing the _tab_.
+Данные, сохраненные в `sessionStorage` очищаются после закрытия _вкладки_.
 
-If you used `localStorage`, the data would've been there forever, unless for example `localStorage.clear()` is invoked.
+При использовании `localStorage` данные сохраняются навсегда. Очистить их можно, например, используя `localStorage.clear()`.
 
 </p>
 </details>
 
 ---
 
-###### 23. What's the output?
+###### 23. Что будет в консоли?
 
 ```javascript
 var num = 8;
@@ -693,21 +693,21 @@ console.log(num);
 - C: `SyntaxError`
 - D: `ReferenceError`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>Ответ</b></summary>
 <p>
 
-#### Answer: B
+#### Ответ: B
 
-With the `var` keyword, you can declare multiple variables with the same name. The variable will then hold the latest value.
+С помощью ключевого слова `var` можно определять сколько угодно переменных с одним и тем же именем. Переменная будет хранить последнее присвоенное значение.
 
-You cannot do this with `let` or `const` since they're block-scoped.
+Но такой трюк нельзя проделать с `let` и `const`, т.к. у них блочная область видимости.
 
 </p>
 </details>
 
 ---
 
-###### 24. What's the output?
+###### 24. Каким будет результат?
 
 ```javascript
 const obj = { 1: "a", 2: "b", 3: "c" };
@@ -724,21 +724,21 @@ set.has(1);
 - C: `true` `true` `false` `true`
 - D: `true` `true` `true` `true`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>Ответ</b></summary>
 <p>
 
-#### Answer: C
+#### Ответ: C
 
-All object keys (excluding Symbols) are strings under the hood, even if you don't type it yourself as a string. This is why `obj.hasOwnProperty('1')` also returns true.
+Все ключи объектов (кроме Symbols) являются строками, даже если заданы не в виде строк. Поэтому `obj.hasOwnProperty('1')` так же возвращает true.
 
-It doesn't work that way for a set. There is no `'1'` in our set: `set.has('1')` returns `false`. It has the numeric type `1`, `set.has(1)` returns `true`.
+Но это не работает для `set`. Значения `'1'` нет в `set`: `set.has('1')` возвращает `false`. Но `set.has(1)` вернет `true`.
 
 </p>
 </details>
 
 ---
 
-###### 25. What's the output?
+###### 25. Что будет в консоли?
 
 ```javascript
 const obj = { a: "one", b: "two", a: "three" };
@@ -750,37 +750,37 @@ console.log(obj);
 - C: `{ a: "three", b: "two" }`
 - D: `SyntaxError`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>Ответ</b></summary>
 <p>
 
-#### Answer: C
+#### Ответ: C
 
-If you have two keys with the same name, the key will be replaced. It will still be in its first position, but with the last specified value.
+Если есть два ключа с одинаковым именем, то ключ будет перезаписан. Его позиция сохранится, но значением будет последнее указанное.
 
 </p>
 </details>
 
 ---
 
-###### 26. The JavaScript global execution context creates two things for you: the global object, and the "this" keyword.
+###### 26. Глобальный контекст исполнения создает две вещи: глобальный объект и `this`
 
-- A: true
-- B: false
-- C: it depends
+- A: Да
+- B: Нет
+- C: Это зависит
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>Ответ</b></summary>
 <p>
 
-#### Answer: A
+#### Ответ: A
 
-The base execution context is the global execution context: it's what's accessible everywhere in your code.
+Базовый контекст исполнения это глобальный контекст исполнения: это то, что доступно где угодно в твоем коде.
 
 </p>
 </details>
 
 ---
 
-###### 27. What's the output?
+###### 27. Что будет в консоли?
 
 ```javascript
 for (let i = 1; i < 5; i++) {
@@ -794,19 +794,19 @@ for (let i = 1; i < 5; i++) {
 - C: `1` `2` `4`
 - D: `1` `3` `4`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>Ответ</b></summary>
 <p>
 
-#### Answer: C
+#### Ответ: C
 
-The `continue` statement skips an iteration if a certain condition returns `true`.
+Оператор `continue` пропускает итерацию, если условие возвращает `true`.
 
 </p>
 </details>
 
 ---
 
-###### 28. What's the output?
+###### 28. Каким будет результат?
 
 ```javascript
 String.prototype.giveLydiaPizza = () => {
@@ -823,19 +823,19 @@ name.giveLydiaPizza();
 - C: `SyntaxError`
 - D: `undefined`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>Ответ</b></summary>
 <p>
 
-#### Answer: A
+#### Ответ: A
 
-`String` is a built-in constructor, which we can add properties to. I just added a method to its prototype. Primitive strings are automatically converted into a string object, generated by the string prototype function. So, all strings (string objects) have access to that method!
+`String` это встроенный конструктор, к которому можно добавлять свойства. Я добавила метод к его прототипу. Строки-примитивы автоматически конвертируются к строкам-объектам. Поэтому все строки (строковые объекты) имеют доступ к этому методу!
 
 </p>
 </details>
 
 ---
 
-###### 29. What's the output?
+###### 29. Что будет в консоли?
 
 ```javascript
 const a = {};
@@ -853,23 +853,23 @@ console.log(a[b]);
 - C: `undefined`
 - D: `ReferenceError`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>Ответ</b></summary>
 <p>
 
-#### Answer: B
+#### Ответ: B
 
-Object keys are automatically converted into strings. We are trying to set an object as a key to object `a`, with the value of `123`.
+Ключи объекта автоматически конвертируются в строки. Мы собираемся добавить объект в качестве ключа к объекту `a` со значением `123`.
 
-However, when we stringify an object, it becomes `"[Object object]"`. So what we are saying here, is that `a["Object object"] = 123`. Then, we can try to do the same again. `c` is another object that we are implicitly stringifying. So then, `a["Object object"] = 456`.
+Тем не менее, когда мы приводим объект к строке, он становится `"[object Object]"`. Таким образом, мы говорим, что `a["Object object"] = 123`. Потом мы делаем то же самое. `c` это другой объект, который мы неявно приводим к строке. Поэтому `a["Object object"] = 456`.
 
-Then, we log `a[b]`, which is actually `a["Object object"]`. We just set that to `456`, so it returns `456`.
+Затем, когда мы выводим `a[b]`, мы имеем в виду `a["Object object"]`. Мы только что установили туда значение `456`, поэтому в результате получаем `456`.
 
 </p>
 </details>
 
 ---
 
-###### 30. What's the output?
+###### 30. Каким будет результат?
 
 ```javascript
 const foo = () => console.log("First");
@@ -886,36 +886,36 @@ baz();
 - C: `Second` `First` `Third`
 - D: `Second` `Third` `First`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>Ответ</b></summary>
 <p>
 
-#### Answer: B
+#### Ответ: B
 
-We have a `setTimeout` function and invoked it first. Yet, it was logged last.
+Мы вызываем функцию `setTimeout` первой. Тем не менее, она выводится в консоль последней
 
-This is because in browsers, we don't just have the runtime engine, we also have something called a `WebAPI`. The `WebAPI` gives us the `setTimeout` function to start with, and for example the DOM.
+Это происходит из-за того, что в браузерах у нас есть не только рантайм движок, но и `WebAPI`. `WebAPI` предоставляет нам функцию `setTimeout` и много других возможностей. Например, DOM.
 
-After the _callback_ is pushed to the WebAPI, the `setTimeout` function itself (but not the callback!) is popped off the stack.
+После того как _коллбек_ отправлен в `WebAPI`, функция `setTimeout` (но не коллбек!) вынимается из стека.
 
 <img src="https://i.imgur.com/X5wsHOg.png" width="200">
 
-Now, `foo` gets invoked, and `"First"` is being logged.
+Теперь вызывается `foo`, и `"First"` выводится в консоль.
 
 <img src="https://i.imgur.com/Pvc0dGq.png" width="200">
 
-`foo` is popped off the stack, and `baz` gets invoked. `"Third"` gets logged.
+`foo` достается из стека, и вызывается `baz`. `"Third"` выводится в консоль.
 
 <img src="https://i.imgur.com/WhA2bCP.png" width="200">
 
-The WebAPI can't just add stuff to the stack whenever it's ready. Instead, it pushes the callback function to something called the _queue_.
+WebAPI не может добавлять содержимое в стек когда захочет. Вместо этого он отправляет коллбек-функцию в так называемую _очередь_.
 
 <img src="https://i.imgur.com/NSnDZmU.png" width="200">
 
-This is where an event loop starts to work. An **event loop** looks at the stack and task queue. If the stack is empty, it takes the first thing on the queue and pushes it onto the stack.
+Здесь на сцену выходит цикл событий (event loop). **Event loop** проверяет стек и очередь задач. Если стек пустой, то он берет первый элемент из очереди и отправляет его в стек.
 
 <img src="https://i.imgur.com/uyiScAI.png" width="200">
 
-`bar` gets invoked, `"Second"` gets logged, and it's popped off the stack.
+Вызывается `bar`, в консоль выводится `"Second"` и эта функция достается из стека.
 
 </p>
 </details>
