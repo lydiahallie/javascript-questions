@@ -1,6 +1,8 @@
 # Popis (naprednih) JavaScript pitanja
 =======================================
 
+###### Pošto je cilj bio što prije izbaciti domaću verziju ovog odličnog repozitorija vjerovatno je došlo do sitnih gramatičkih i sintatičkih grešaka.Hvala na razumjevanju!
+
 Svakodnevno postavljam JavaScript pitanja s višestrukim izborom na moj
 [Instagram](https://www.instagram.com/theavocoder), koja  također objavljujem
 ovdje!
