@@ -73,8 +73,8 @@ za (let i = 0; i <3; i ++) {
 - B: "0 1 2" i "3 3 3"
 - C: "3 3 3" i "0 1 2"
 
-<details> <summary> <b> Odgovor </ b> </ summary>
-<P>
+<details><summary><b> Odgovor</b></summary>
+<p>
 
 #### Odgovor: C
 
@@ -116,8 +116,8 @@ oblik.promjer ();
 - C: "20" i "63"
 - D: "NaN" i "63"
 
-<details> <summary> <b> Odgovor </ b> </ summary>
-<P>
+<details> <summary> <b> Odgovor </b> </summary>
+</p>
 
 #### Odgovor: B
 
@@ -147,8 +147,8 @@ Na tom objektu nema vrijednosti `radius` koja vraća` undefined`.
 - B: "false" i "NaN"
 - C: "false" i "false"
 
-<details> <summary> <b> Odgovor </ b> </ summary>
-<P>
+<details> <summary> <b> Odgovor </b> </summary>
+</p>
 
 #### Odgovor: A
 
@@ -181,8 +181,8 @@ const mouse = {
 - C: `miš [ptica [" veličina "]]` nije važeća
 - D: Svi su valjani
 
-<details> <summary> <b> Odgovor </ b> </ summary>
-<P>
+<details> <summary> <b> Odgovor </b> </summary>
+</p>
 
 #### Odgovor: A
 
@@ -229,8 +229,8 @@ console.log (d.greeting);
 - D: "ReferenceError"
 - E: `TypeError`
 
-<details> <summary> <b> Odgovor </ b> </ summary>
-<P>
+<details> <summary> <b> Odgovor </b> </summary>
+</p>
 
 #### Odgovor: A
 
@@ -266,8 +266,8 @@ console.log (b === c);
 - C: `true`` false` `false`
 - D: `false`` true` `true`
 
-<details> <summary> <b> Odgovor </ b> </ summary>
-<P>
+<details> <summary> <b> Odgovor </b> </summary>
+</p>
 
 #### Odgovor: C
 
@@ -310,8 +310,8 @@ freddie.colorChange("orange");
 - C: "zelena"
 - D: `TypeError`
 
-<details> <summary> <b> Odgovor </ b> </ summary>
-<P>
+<details> <summary> <b> Odgovor </b> </summary>
+</p>
 
 #### Odgovor: D
 
@@ -338,8 +338,8 @@ console.log (greetign);
 - B: `ReferenceError: greetign nije definiran '
 - C: `undefined`
 
-<details> <summary> <b> Odgovor </ b> </ summary>
-<P>
+<details> <summary> <b> Odgovor </b> </summary>
+</p>
 
 #### Odgovor: A
 
@@ -371,8 +371,8 @@ bark.animal = "dog";
 - C: `undefined`
 - D: "ReferenceError"
 
-<details> <summary> <b> Odgovor </ b> </ summary>
-<P>
+<details> <summary> <b> Odgovor </b> </summary>
+</p>
 
 #### Odgovor: A
 
@@ -409,8 +409,8 @@ console.log (member.getFullName ());
 - C: "Lydia Hallie"
 - D: `undefined`` undefined`
 
-<details> <summary> <b> Odgovor </ b> </ summary>
-<P>
+<details> <summary> <b> Odgovor </b> </summary>
+</p>
 
 #### Odgovor: A
 
@@ -458,8 +458,8 @@ console.log (sarah);
 - D: `Person {ime:" Lydia ", prezime:" Hallie "} i
     `ReferenceError`
 
-<details> <summary> <b> Odgovor </ b> </ summary>
-<P>
+<details> <summary> <b> Odgovor </b> </summary>
+</p>
 
 #### Odgovor: A
 
@@ -485,8 +485,8 @@ sam je ostavljen 'undefined'.
 - D: Capturing > Target > Bubbling
 
 
-<details> <summary> <b> Odgovor </ b> </ summary>
-<P>
+<details> <summary> <b> Odgovor </b> </summary>
+</p>
 
 #### Odgovor: D
 
@@ -506,8 +506,8 @@ i ** bubbling **.
 -   Istinito
 - B: lažno
 
-<details> <summary> <b> Odgovor </ b> </ summary>
-<P>
+<details> <summary> <b> Odgovor </b> </summary>
+</p>
 
 #### Odgovor: B
 
@@ -538,8 +538,8 @@ sum (1, "2");
 - C: "12"
 - D: `3`
 
-<details> <summary> <b> Odgovor </ b> </ summary>
-<P>
+<details> <summary> <b> Odgovor </b> </summary>
+</p>
 
 #### Odgovor: C
 
@@ -574,8 +574,8 @@ console.log (broj);
 - C: `0`` 2` `2`
 - D: `0`` 1` `2`
 
-<details> <summary> <b> Odgovor </ b> </ summary>
-<P>
+<details> <summary> <b> Odgovor </b> </summary>
+</p>
 
 #### Odgovor: C
 
@@ -615,8 +615,8 @@ getPersonInfo` $ {Person} je $ {old} godina ';
 - B: ```````````````````````````````````````````````````````````````````````````
 - C: `` Lydia` ``````````````````````````````````````````````````````````
 
-<details> <summary> <b> Odgovor </ b> </ summary>
-<P>
+<details> <summary> <b> Odgovor </b> </summary>
+</p>
 
 #### Odgovor: B
 
@@ -649,8 +649,8 @@ checkAge ({age: 18});
 - B: "Vi ste još uvijek odrasla osoba."
 - C: 'Hmm .. Nemam godina za koju pretpostavljam'
 
-<details> <summary> <b> Odgovor </ b> </ summary>
-<P>
+<details> <summary> <b> Odgovor </b> </summary>
+</p>
 
 #### Odgovor: C
 
@@ -685,8 +685,8 @@ getAge (21);
 - C: `` objekt ''
 - D: "NaN"
 
-<details> <summary> <b> Odgovor </ b> </ summary>
-<P>
+<details> <summary> <b> Odgovor </b> </summary>
+</p>
 
 #### Odgovor: C
 
@@ -715,8 +715,8 @@ getAge ();
 - C: "ReferenceError"
 - D: `TypeError`
 
-<details> <summary> <b> Odgovor </ b> </ summary>
-<P>
+<details> <summary> <b> Odgovor </b> </summary>
+</p>
 
 #### Odgovor: C
 
@@ -742,8 +742,8 @@ const sum = eval ("10x10 + 5");
 - C: `TypeError`
 - D: `" 10 * 10 + 5 "`
 
-<details> <summary> <b> Odgovor </ b> </ summary>
-<P>
+<details> <summary> <b> Odgovor </b> </summary>
+</p>
 
 #### Odgovor: A
 
@@ -767,8 +767,8 @@ O: Podaci se zauvijek ne izgube.
 - C: Kada korisnik zatvori cijeli preglednik, ne samo karticu.
 - D: Kada korisnik isključi svoje računalo.
 
-<details> <summary> <b> Odgovor </ b> </ summary>
-<P>
+<details> <summary> <b> Odgovor </b> </summary>
+</p>
 
 #### Odgovor: B
 
@@ -796,8 +796,8 @@ console.log (num);
 - C: `SyntaxError`
 - D: "ReferenceError"
 
-<details> <summary> <b> Odgovor </ b> </ summary>
-<P>
+<details> <summary> <b> Odgovor </b> </summary>
+</p>
 
 #### Odgovor: B
 
@@ -828,8 +828,8 @@ set.has (1);
 - C: `true`` true` `false`` true`
 - D: `true`` true` `true`` true`
 
-<details> <summary> <b> Odgovor </ b> </ summary>
-<P>
+<details> <summary> <b> Odgovor </b> </summary>
+</p>
 
 #### Odgovor: C
 
@@ -858,8 +858,8 @@ console.log (obj);
 - C: `{a:" tri ", b:" dva "}`
 - D: `SyntaxError`
 
-<details> <summary> <b> Odgovor </ b> </ summary>
-<P>
+<details> <summary> <b> Odgovor </b> </summary>
+</p>
 
 #### Odgovor: C
 
@@ -877,8 +877,8 @@ i dalje će biti na prvom mjestu, ali s posljednjom navedenom vrijednošću.
 - B: lažno
 - C: to ovisi
 
-<details> <summary> <b> Odgovor </ b> </ summary>
-<P>
+<details> <summary> <b> Odgovor </b> </summary>
+</p>
 
 #### Odgovor: A
 
@@ -904,8 +904,8 @@ za (let i = 1; i <5; i ++) {
 - C: `1`` 2` `4`
 - D: `1`` 3` `4`
 
-<details> <summary> <b> Odgovor </ b> </ summary>
-<P>
+<details> <summary> <b> Odgovor </b> </summary>
+</p>
 
 #### Odgovor: C
 
@@ -934,8 +934,8 @@ name.giveLydiaPizza ();
 - C: `SyntaxError`
 - D: `undefined`
 
-<details> <summary> <b> Odgovor </ b> </ summary>
-<P>
+<details> <summary> <b> Odgovor </b> </summary>
+</p>
 
 #### Odgovor: A
 
@@ -968,8 +968,8 @@ console.log (a [b]);
 - C: `undefined`
 - D: "ReferenceError"
 
-<details> <summary> <b> Odgovor </ b> </ summary>
-<P>
+<details> <summary> <b> Odgovor </b> </summary>
+</p>
 
 #### Odgovor: B
 
@@ -1006,8 +1006,8 @@ baz ();
 - C: `Drugi`` Prvi` `Treći`
 - D: `Drugi`` Treći` `Prvi`
 
-<details> <summary> <b> Odgovor </ b> </ summary>
-<P>
+<details> <summary> <b> Odgovor </b> </summary>
+</p>
 
 #### Odgovor: B
 
@@ -1069,8 +1069,8 @@ stog.
 - C: `gumb '
 - D: Niz svih ugniježđenih elemenata.
 
-<details> <summary> <b> Odgovor </ b> </ summary>
-<P>
+<details> <summary> <b> Odgovor </b> </summary>
+</p>
 
 #### Odgovor: C
 
@@ -1097,8 +1097,8 @@ događaj. Možete zaustaviti mjehuriće 'event.stopPropagation'
 - C: p
 - D: "div"
 
-<details> <summary> <b> Odgovor </ b> </ summary>
-<P>
+<details> <summary> <b> Odgovor </b> </summary>
+</p>
 
 #### Odgovor: A
 
@@ -1131,8 +1131,8 @@ sayHi.bind (Person, 21);
 - C: `Lydia je 21`` Lydia je 21`
 - D: `Lydia je 21`` function`
 
-<details> <summary> <b> Odgovor </ b> </ summary>
-<P>
+<details> <summary> <b> Odgovor </b> </summary>
+</p>
 
 #### Odgovor: D
 
@@ -1162,8 +1162,8 @@ vrsta rečiHi ();
 - C: function ""
 - D: `" undefined "`
 
-<details> <summary> <b> Odgovor </ b> </ summary>
-<P>
+<details> <summary> <b> Odgovor </b> </summary>
+</p>
 
 #### Odgovor: B
 
@@ -1196,8 +1196,8 @@ nedefiniran;
 - C: `0`,` '' `,` new Boolean (false) `,` undefined`
 - D: Svi su oni lažni
 
-<details> <summary> <b> Odgovor </ b> </ summary>
-<P>
+<details> <summary> <b> Odgovor </b> </summary>
+</p>
 
 #### Odgovor: A
 
@@ -1228,8 +1228,8 @@ console.log (vrsta tipa 1);
 - C: `` objekt ''
 - D: `" undefined "`
 
-<details> <summary> <b> Odgovor </ b> </ summary>
-<P>
+<details> <summary> <b> Odgovor </b> </summary>
+</p>
 
 #### Odgovor: B
 
@@ -1253,8 +1253,8 @@ console.log (br);
 - C: `[1, 2, 3, 7 x prazno, 11]`
 - D: `SyntaxError`
 
-<details> <summary> <b> Odgovor </ b> </ summary>
-<P>
+<details> <summary> <b> Odgovor </b> </summary>
+</p>
 
 #### Odgovor: C
 
@@ -1293,8 +1293,8 @@ itd)
 - C: `1`` 1` `2`
 - D: `1`` undefined` `undefined`
 
-<details> <summary> <b> Odgovor </ b> </ summary>
-<P>
+<details> <summary> <b> Odgovor </b> </summary>
+</p>
 
 #### Odgovor: A
 
@@ -1321,8 +1321,8 @@ vraća `undefined` i` y` vraća `2`.
 - C: trik pitanje! samo objekti
 - D: broj ili objekt
 
-<details> <summary> <b> Odgovor </ b> </ summary>
-<P>
+<details> <summary> <b> Odgovor </b> </summary>
+</p>
 
 #### Odgovor: A
 
@@ -1361,8 +1361,8 @@ osim "null" i "undefined" pokazuju ovo ponašanje.
 - C: "[1, 2, 0, 1, 2, 3]"
 - D: `[1, 2, 6]`
 
-<details> <summary> <b> Odgovor </ b> </ summary>
-<P>
+<details> <summary> <b> Odgovor </b> </summary>
+</p>
 
 #### Odgovor: C
 
@@ -1392,8 +1392,8 @@ i dobiti `[1, 2, 0, 1, 2, 3]`
 - C: `false`` true` `true`
 - D: `true`` true` `false`
 
-<details> <summary> <b> Odgovor </ b> </ summary>
-<P>
+<details> <summary> <b> Odgovor </b> </summary>
+</p>
 
 #### Odgovor: B
 
@@ -1419,8 +1419,8 @@ setInterval (() => console.log ("Hi"), 1000);
 - C: prošla function
 - D: `undefined`
 
-<details> <summary> <b> Odgovor </ b> </ summary>
-<P>
+<details> <summary> <b> Odgovor </b> </summary>
+</p>
 
 #### Odgovor: A
 
@@ -1443,8 +1443,8 @@ Vraća jedinstveni ID. Taj se ID može koristiti za brisanje tog intervala
 - C: `[[]," Lydia "]`
 - D: `[[" L "," y "," d "," i "," a "]]`
 
-<details> <summary> <b> Odgovor </ b> </ summary>
-<P>
+<details> <summary> <b> Odgovor </b> </summary>
+</p>
 
 #### Odgovor: A
 
