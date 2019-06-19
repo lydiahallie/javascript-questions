@@ -7,6 +7,11 @@
 
 答案在问题下方的折叠部分，点击即可展开问题。祝你好运 :heart:
 
+[English](./README.md)  
+[Deutsch](./README-de_DE.md)  
+[Русский](./README_ru-RU.md)  
+[Western Balkan](./README-bs.md)
+
 ---
 
 ###### 1. 输出是什么？

@@ -6,8 +6,10 @@
 
 Ответы находятся в свернутой секции ниже вопросов. Просто нажми на ответ, чтобы развернуть. Удачи! :heart:
 
+[English](./README.md)  
+[Deutsch](./README-de_DE.md)  
 [中文版本](./README-zh_CN.md)  
-[Русский](./README_ru-RU.md)
+[Western Balkan](./README-bs.md)
 
 ---
 
