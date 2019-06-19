@@ -36,7 +36,7 @@ sayHi();
 <details><summary><b>Solución</b></summary>
 <p>
 
-#### Respuesta Correcta: D
+#### Respuesta correcta: D
 
 Dentro de la función, primero declaramos la variable `name` con la palabra reservada ` var`. Esto significa que la variable se _eleva_ (el espacio de memoria se configura durante la fase de creación. Hace referencia al termino [hoisting](https://developer.mozilla.org/es/docs/Glossary/Hoisting)) con el valor predeterminado de `indefinido`, hasta que realmente llegamos a la línea donde definimos la variable. Aún no hemos definido la variable en la línea donde intentamos registrar la variable `name`, por lo que aún mantiene el valor de` undefined`.
 
@@ -65,7 +65,7 @@ for (let i = 0; i < 3; i++) {
 <details><summary><b>Solución</b></summary>
 <p>
 
-#### Respuesta Correcta: C
+#### Respuesta correcta: C
 
 Debido a la cola de eventos en JavaScript, la función `setTimeout` se llama una vez el ciclo se ha ejecutado. Dado que la variable `i` en el primer bucle se declaró utilizando la palabra reservada ` var`, este valor es global. Durante el bucle, incrementamos el valor de `i` en` 1` cada vez, utilizando el operador unario `++`. Cuando se invocó la función `setTimeout`,` i` era igual a `3` en el primer ejemplo.
 
@@ -99,7 +99,7 @@ shape.perimeter();
 <details><summary><b>Solución</b></summary>
 <p>
 
-#### Respuesta Correcta: B
+#### Respuesta correcta: B
 
 Hay que tener en cuenta aqui que el valor de `diámetro` es una función regular o _normal_, mientras que el valor de `perímetro` es una función de flecha.
 
@@ -126,7 +126,7 @@ No hay valor `radius` en ese objeto, que devuelve` undefined`.
 <details><summary><b>Solución</b></summary>
 <p>
 
-#### Respuesta Correcta: A
+#### Respuesta correcta: A
 
 En el primera caso se intenta convertir un operando en un número. `true` es` 1`, y `false` es` 0`.
 
@@ -158,7 +158,7 @@ const mouse = {
 <details><summary><b>Solución</b></summary>
 <p>
 
-#### Respuesta Correcta: A
+#### Respuesta correcta: A
 
 En JavaScript, todas las _keys_ son cadenas (a menos que sea un símbolo). A pesar de que no podríamos escribirlos como cadenas, siempre funcionan como cadenas de manera interna.
 
@@ -170,8 +170,6 @@ Sin embargo, con la notación de puntos, esto no sucede. `mouse` no tiene una cl
 
 </p>
 </details>
-
----
 
 ---
 
@@ -194,7 +192,7 @@ console.log(d.greeting);
 <details><summary><b>Solución</b></summary>
 <p>
 
-#### Respuesta Correcta: A
+#### Respuesta correcta: A
 
 En JavaScript, TODOS los objetos interactúan por referencia, de modo que cuando se establecen iguales o pasan a una función, todos apuntan a la misma ubicación, de modo que cuando cambia un objeto, los cambia a todos.
 
@@ -229,7 +227,7 @@ console.log(b === c);
 <details><summary><b>Solución</b></summary>
 <p>
 
-#### Respuesta Correcta: C
+#### Respuesta correcta: C
 
 `new Number ()` es un constructor de funciones incorporado. Aunque parece un número, no es realmente un número: tiene muchas características adicionales y es un objeto.
 
@@ -268,7 +266,7 @@ freddie.colorChange("orange");
 <details><summary><b>Solución</b></summary>
 <p>
 
-#### Respuesta Correcta: D
+#### Respuesta correcta: D
 
 La función `colorChange` es estática. Los métodos estáticos están diseñados para _vivir_ solo en el constructor en el que se crean y no se pueden transmitir a ningún elemento secundario. Como `freddie` es un niño, la función no se transmite y no está disponible en la instancia de` freddie`: por lo tanto se lanza un `TypeError`.
 
@@ -292,7 +290,7 @@ console.log(greetign);
 <details><summary><b>Solución</b></summary>
 <p>
 
-#### Respuesta Correcta: A
+#### Respuesta correcta: A
 
 Lo que hace JS aquí es registrar el objeto debido a que acabamos de crear un objeto vacío en el objeto global. Cuando escribimos erróneamente `greeting` como` greetign`, el intérprete de JS ve esto como `global.greetign = {}` (o `window.greetign = {}` en un navegador).
 
@@ -321,7 +319,7 @@ bark.animal = "dog";
 <details><summary><b>Solución</b></summary>
 <p>
 
-#### Respuesta Correcta: A
+#### Respuesta correcta: A
 
 Esto es perfectamente posible en JavaScript, porque las funciones son objetos (Recuerda: Todo aparte de los tipos primitivos son objetos en JS)
 
@@ -332,7 +330,7 @@ Una función es un tipo especial de objeto. El código que escribes tú mismo no
 
 ---
 
-###### 11. What's the output?
+###### 11. ¿Qué devuelve la siguiente función?
 
 ```javascript
 function Person(firstName, lastName) {
@@ -353,27 +351,27 @@ console.log(member.getFullName());
 - C: `Lydia Hallie`
 - D: `undefined` `undefined`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>Solución</b></summary>
 <p>
 
-#### Answer: A
+#### Respuesta correcta: A
 
-You can't add properties to a constructor like you can with regular objects. If you want to add a feature to all objects at once, you have to use the prototype instead. So in this case,
+En JS no se pueden añadir propiedades a un constructor como se puede hacer con los objetos. Si se desea añadir una característica a todos los objetos a la vez, se debe utilizar el [prototipo](https://www.w3schools.com/js/js_object_prototypes.asp) en su lugar. Así que en este caso,
 
 ```js
-Person.prototype.getFullName = function () {
-  return `${this.firstName} ${this.lastName}`;
+Persona.prototipo.getFullName = función () {)
+  devuelve `${este.nombre} ${este.apellido}`;
 }
 ```
 
-would have made `member.getFullName()` work. Why is this beneficial? Say that we added this method to the constructor itself. Maybe not every `Person` instance needed this method. This would waste a lot of memory space, since they would still have that property, which takes of memory space for each instance. Instead, if we only add it to the prototype, we just have it at one spot in memory, yet they all have access to it!
+habría hecho que `member.getFullName()` funcionara. ¿Por qué es bueno? Imaginemos que añadimos este método al constructor. Quizás no todas las "personas" necesitaban este método. Esto desperdiciaría mucho espacio de memoria, ya que todavía tendrían esa propiedad, que ocupa espacio de memoria para cada caso. En cambio, si sólo lo añadimos al prototipo, sólo lo tenemos en un lugar en la memoria, ¡pero todos ellos tienen acceso a él!
 
 </p>
 </details>
 
 ---
 
-###### 12. What's the output?
+###### 12. ¿Qué devuelve la siguiente función?
 
 ```javascript
 function Person(firstName, lastName) {
@@ -393,33 +391,33 @@ console.log(sarah);
 - C: `Person {firstName: "Lydia", lastName: "Hallie"}` and `{}`
 - D:`Person {firstName: "Lydia", lastName: "Hallie"}` and `ReferenceError`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>Solución</b></summary>
 <p>
 
-#### Answer: A
+#### Respuesta correcta: A
 
-For `sarah`, we didn't use the `new` keyword. When using `new`, it refers to the new empty object we create. However, if you don't add `new` it refers to the **global object**!
+Para `sarah`, no usamos la palabra reservada `new`. Cuando se usa `new`, se refiere al nuevo objeto vacío que creamos. Sin embargo, si no se agrega `new', se refiere al **objeto global**!
 
-We said that `this.firstName` equals `"Sarah"` and `this.lastName` equals `"Smith"`. What we actually did, is defining `global.firstName = 'Sarah'` and `global.lastName = 'Smith'`. `sarah` itself is left `undefined`.
+En el ejemplo `this.firstName` equivale a `"Sarah"` y `this.lastName` equivale a `"Smith"`. Lo que realmente hicimos fue definir `global.firstName = `Sarah'` y `global.lastName = `Smith'`. La misma `sarah` se deja `indefinida`.
 
 </p>
 </details>
 
 ---
 
-###### 13. What are the three phases of event propagation?
+###### 13. ¿Cuáles son las tres fases de la propagación de eventos?
 
 - A: Target > Capturing > Bubbling
 - B: Bubbling > Target > Capturing
 - C: Target > Bubbling > Capturing
 - D: Capturing > Target > Bubbling
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>Solución</b></summary>
 <p>
 
-#### Answer: D
+#### Respuesta correcta: D
 
-During the **capturing** phase, the event goes through the ancestor elements down to the target element. It then reaches the **target** element, and **bubbling** begins.
+Durante la fase de **Capturing**, el evento pasa a través de los elementos ancestrales hasta el elemento objetivo. A continuación, alcanza el elemento **Target** y comienza el **bubbling**. Más información [aquí](https://www.sitepoint.com/event-bubbling-javascript/).
 
 <img src="https://i.imgur.com/N18oRgd.png" width="200">
 
@@ -433,19 +431,19 @@ During the **capturing** phase, the event goes through the ancestor elements dow
 - A: true
 - B: false
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>Solución</b></summary>
 <p>
 
-#### Answer: B
+#### Respuesta correcta: B
 
-All objects have prototypes, except for the **base object**. The base object has access to some methods and properties, such as `.toString`. This is the reason why you can use built-in JavaScript methods! All of such methods are available on the prototype. Although JavaScript can't find it directly on your object, it goes down the prototype chain and finds it there, which makes it accessible for you.
+Todos los objetos tienen prototipos, excepto el **objeto base** (Más info [aquí](https://stackoverflow.com/questions/56659303/what-is-base-object-in-javascript)). El componente tiene acceso a algunos métodos y propiedades, como `.toString`. Esta es la razón principal por la que se puede utilizar los métodos JavaScript incorporados. Todos estos métodos están disponibles en el prototipo. Aunque JavaScript no puede encontrar de manera directa en su objeto, baja por la cadena de prototipos y lo encuentra allí, lo que lo hace accesible para poder usarse posteriormente.
 
 </p>
 </details>
 
 ---
 
-###### 15. What's the output?
+###### 15. ¿Qué devuelve la siguiente función?
 
 ```javascript
 function sum(a, b) {
@@ -460,21 +458,21 @@ sum(1, "2");
 - C: `"12"`
 - D: `3`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>Solución</b></summary>
 <p>
 
-#### Answer: C
+#### Respuesta correcta: C
 
-JavaScript is a **dynamically typed language**: we don't specify what types certain variables are. Values can automatically be converted into another type without you knowing, which is called _implicit type coercion_. **Coercion** is converting from one type into another.
+JavaScript es un **lenguaje dinámicamente tipado** o de tipado débil, esto significa que no es necesario declarar el tipo de variable antes de usarla pues será determinado automáticamente cuando el programa comience a ser procesado. Los valores se pueden convertir automáticamente en otro tipo sin que se sepa, esto se llama denomina _implicit type coercion_ (Más info [aquí](https://medium.com/@ManuCastrillonM/entendiendo-la-coerci%C3%B3n-en-javascript-bc202d22d23f)). **La coerción es la conversión de un tipo a otro.**
 
-In this example, JavaScript converts the number `1` into a string, in order for the function to make sense and return a value. During the addition of a numeric type (`1`) and a string type (`'2'`), the number is treated as a string. We can concatenate strings like `"Hello" + "World"`, so what's happening here is `"1" + "2"` which returns `"12"`.
+En este ejemplo, JavaScript convierte el número `1` en una cadena, para que la función tenga sentido y devuelva un valor. Durante la suma de un tipo numérico (`1`) y un tipo de cadena (`'2'`), el número se trata como una cadena. Podemos concatenar cadenas como `"Hello" + "World"``, así que lo que está pasando aquí es `"1" + "2"` que devuelve `"12"`
 
 </p>
 </details>
 
 ---
 
-###### 16. What's the output?
+###### 16. ¿Qué devuelve la siguiente función?
 
 ```javascript
 let number = 0;
@@ -488,29 +486,29 @@ console.log(number);
 - C: `0` `2` `2`
 - D: `0` `1` `2`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>Solución</b></summary>
 <p>
 
-#### Answer: C
+#### Respuesta correcta: C
 
-The **postfix** unary operator `++`:
+El operador **postfix** unario `++`:
 
-1. Returns the value (this returns `0`)
-2. Increments the value (number is now `1`)
+1. Devuelve el valor (esto devuelve `0`)
+2. Incrementa el valor (el número es ahora `1`)
 
-The **prefix** unary operator `++`:
+El operador unario **prefix** `++`:
 
-1. Increments the value (number is now `2`)
-2. Returns the value (this returns `2`)
+1. Incrementa el valor (el número es ahora `2`)
+2. Devuelve el valor (esto devuelve `2`)
 
-This returns `0 2 2`.
+Por lo tanto, devuelve `0 2 2 2`.
 
 </p>
 </details>
 
 ---
 
-###### 17. What's the output?
+###### 17. ¿Qué devuelve la siguiente función?
 
 ```javascript
 function getPersonInfo(one, two, three) {
@@ -529,19 +527,19 @@ getPersonInfo`${person} is ${age} years old`;
 - B: `["", " is ", " years old"]` `"Lydia"` `21`
 - C: `"Lydia"` `["", " is ", " years old"]` `21`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>Solución</b></summary>
 <p>
 
-#### Answer: B
+#### Respuesta correcta: B
 
-If you use tagged template literals, the value of the first argument is always an array of the string values. The remaining arguments get the values of the passed expressions!
 
+_Tagged templates_ es un caso de uso de [template literals](https://codeburst.io/javascript-template-literals-tag-functions-for-beginners-758a041160e1). Una _plantilla etiquetada_ es una llamada de función que utiliza una plantilla literal de la que obtener sus argumentos. Si se usan literales de plantillas etiquetadas, el valor del primer argumento es siempre una matriz de los valores de las cadenas. El resto de los argumentos obtienen los valores de las expresiones pasadas.
 </p>
 </details>
 
 ---
 
-###### 18. What's the output?
+###### 18. ¿Qué devuelve la siguiente función?
 
 ```javascript
 function checkAge(data) {
@@ -561,23 +559,23 @@ checkAge({ age: 18 });
 - B: `You are still an adult.`
 - C: `Hmm.. You don't have an age I guess`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>Solución</b></summary>
 <p>
 
-#### Answer: C
+#### Respuesta correcta: C
 
-When testing equality, primitives are compared by their _value_, while objects are compared by their _reference_. JavaScript checks if the objects have a reference to the same location in memory.
+Al probar la igualdad, las primitivas se comparan por su _valor_, mientras que los objetos se comparan por su _referencia_. JavaScript comprueba si los objetos tienen una referencia a la misma ubicación en la memoria.
 
-The two objects that we are comparing don't have that: the object we passed as a parameter refers to a different location in memory than the object we used in order to check equality.
+Los dos objetos que estamos comparando no tienen eso: el objeto que pasamos como parámetro se refiere a una ubicación diferente en la memoria que el objeto que usamos para comprobar la igualdad.
 
-This is why both `{ age: 18 } === { age: 18 }` and `{ age: 18 } == { age: 18 }` return `false`.
+Esta es la razón por la que ambos `{ edad: 18 } === { edad: 18 }` y `{ edad: 18 }} == { edad: 18 }` devuelven `false`
 
 </p>
 </details>
 
 ---
 
-###### 19. What's the output?
+###### 19. ¿Qué devuelve la siguiente función?
 
 ```javascript
 function getAge(...args) {
@@ -592,19 +590,19 @@ getAge(21);
 - C: `"object"`
 - D: `"NaN"`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>Solución</b></summary>
 <p>
 
-#### Answer: C
+#### Respuesta correcta: C
 
-The spread operator (`...args`.) returns an array with arguments. An array is an object, so `typeof args` returns `"object"`
+El operador spread (`...args`.) devuelve un array con argumentos. Una matriz es un objeto, así que `typeof args` devuelve `"object"`
 
 </p>
 </details>
 
 ---
 
-###### 20. What's the output?
+###### 20. ¿Qué devuelve la siguiente función?
 
 ```javascript
 function getAge() {
@@ -621,12 +619,12 @@ getAge();
 - C: `ReferenceError`
 - D: `TypeError`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>Solución</b></summary>
 <p>
 
-#### Answer: C
+#### Respuesta correcta: C
 
-With `"use strict"`, you can make sure that you don't accidentally declare global variables. We never declared the variable `age`, and since we use `"use strict"`, it will throw a reference error. If we didn't use `"use strict"`, it would have worked, since the property `age` would have gotten added to the global object.
+Con `"use strict"`, es posible asegurarse de que no se declara accidentalmente variables globales. Nunca declaramos la variable `age`, y como usamos `"use strict"`, nos dará un error de referencia. Si no hubiéramos usado `"use strict"`, habría funcionado, ya que la propiedad `age` se habría añadido al objeto global.
 
 </p>
 </details>
