@@ -8,7 +8,7 @@ The answers are in the collapsed sections below the questions, simply click on t
 
 [中文版本](./README-zh_CN.md)
 
-[WESTERN BALKAN](./README-bs.md)
+[Western Balkan](./README-bs.md)
 
 ---
 
