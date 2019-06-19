@@ -34,7 +34,7 @@ sayHi();
 - C: `ReferenceError` e `21`
 - D: `undefined` e `ReferenceError`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>Resposta</b></summary>
 <p>
 
 #### Resposta: D
@@ -48,7 +48,7 @@ Variáveis com a palavra-chave `let` (e `const`) são elevadas, mas diferente de
 
 ---
 
-###### 2. What's the output?
+###### 2. Qual é a saída?
 
 ```javascript
 for (var i = 0; i < 3; i++) {
@@ -60,25 +60,25 @@ for (let i = 0; i < 3; i++) {
 }
 ```
 
-- A: `0 1 2` and `0 1 2`
-- B: `0 1 2` and `3 3 3`
-- C: `3 3 3` and `0 1 2`
+- A: `0 1 2` e `0 1 2`
+- B: `0 1 2` e `3 3 3`
+- C: `3 3 3` e `0 1 2`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>Resposta</b></summary>
 <p>
 
-#### Answer: C
+#### Resposta: C
 
-Because of the event queue in JavaScript, the `setTimeout` callback function is called _after_ the loop has been executed. Since the variable `i` in the first loop was declared using the `var` keyword, this value was global. During the loop, we incremented the value of `i` by `1` each time, using the unary operator `++`. By the time the `setTimeout` callback function was invoked, `i` was equal to `3` in the first example.
+Por causa da fila de eventos em JavaScript, a callback de `setTimeout` é chamada <i>depois</i> do laço ter sido executado. Já que a variável `i` no primeiro laço foi declarada usando a palavra-chave `var`, seu valor era global. Durante o laço, incrementamos o valor de `i` por `1` em cada repetição, usando o operador unário `++`. Quando a callback de `setTimeout` foi chamada, `i` valia `3`.
 
-In the second loop, the variable `i` was declared using the `let` keyword: variables declared with the `let` (and `const`) keyword are block-scoped (a block is anything between `{ }`). During each iteration, `i` will have a new value, and each value is scoped inside the loop.
+No segundo laço, a variável `i` foi declarada usando a palavra-chave `let`: Variáveis declaradas com `let` (e `const`) só são acessíveis nos escopos de seus blocos (um bloco é qualquer código entre `{ }`). Durante cada repetição do laço, `i` vai ter um novo valor, e cada valor tem seu escopo dentro do laço.
 
 </p>
 </details>
 
 ---
 
-###### 3. What's the output?
+###### 3. Qual é a saída?
 
 ```javascript
 const shape = {
@@ -93,21 +93,21 @@ shape.diameter();
 shape.perimeter();
 ```
 
-- A: `20` and `62.83185307179586`
-- B: `20` and `NaN`
-- C: `20` and `63`
-- D: `NaN` and `63`
+- A: `20` e `62.83185307179586`
+- B: `20` e `NaN`
+- C: `20` e `63`
+- D: `NaN` e `63`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>Resposta</b></summary>
 <p>
 
-#### Answer: B
+#### Resposta: B
 
-Note that the value of `diameter` is a regular function, whereas the value of `perimeter` is an arrow function.
+Perceba que o valor de `diameter` é uma função normal, enquanto que o valor de `perimeter` é uma arrow function.
 
-With arrow functions, the `this` keyword refers to its current surrounding scope, unlike regular functions! This means that when we call `perimeter`, it doesn't refer to the shape object, but to its surrounding scope (window for example).
+Com arrow functions, a palavra-chave `this` faz referência ao escopo atual em que está inserida, diferente de funções normais! Isso significa que quando nós chamamos `perimeter`, ela não faz referência ao objeto <i>shape</i>, mas ao seu escopo atual (por exemplo, <i>window</i>).
 
-There is no value `radius` on that object, which returns `undefined`.
+Não há `radius` fora de <i>shape</i>, então retorna `undefined`.
 
 </p>
 </details>
