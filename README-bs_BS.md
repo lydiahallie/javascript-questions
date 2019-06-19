@@ -13,7 +13,11 @@ Odgovori su jednostavno dijelovima ispod pitanja
 kliknite na njih da biste ih proširili. Sretno :heart:
 
 
-[中文版本](./README-zh_CN.md)
+[中文版本](./README-zh_CN.md)  
+[Русский](./README_ru-RU.md)  
+[Western Balkan](./README-bs_BS.md)  
+[Deutsch](./README-de_DE.md)  
+
 * * * * *
 
 ###### 1. Što je izlaz?
