@@ -6,7 +6,8 @@ From basic to advanced: test how well you know JavaScript, refresh your knowledg
 
 The answers are in the collapsed sections below the questions, simply click on them to expand it. Good luck :heart:
 
-[中文版本](./README-zh_CN.md)
+[中文版本](./README-zh_CN.md)  
+[Русский](./README_ru-RU.md)
 
 ---
 
