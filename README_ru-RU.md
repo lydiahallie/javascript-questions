@@ -7,7 +7,10 @@
 Ответы находятся в свернутой секции ниже вопросов. Просто нажми на ответ, чтобы развернуть. Удачи! :heart:
 
 [中文版本](./README-zh_CN.md)  
-[Русский](./README_ru-RU.md)
+[Русский](./README_ru-RU.md)  
+[Western Balkan](./README-bs.md)  
+[Deutsch](./README-de_DE.md)  
+[Tiếng Việt](./README-vi.md)  
 
 ---
 
@@ -322,8 +325,7 @@ bark.animal = "dog";
 
 В JavaScript это возможно, т.к. функции это объекты! (Всё есть объект кроме примитивов).
 
-Функция это специальный тип объекта, который можно вызвать. Функция это объект со свойствами.
-A function is a special type of object. The code you write yourself isn't the actual function. The function is an object with properties. This property is invocable.
+Функция — это специальный тип объекта, который можно вызвать. Кроме того, функция — это объект со свойствами. Свойство такого объекта нельзя вызвать, так как оно не является функцией.
 
 </p>
 </details>
