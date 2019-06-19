@@ -9,7 +9,9 @@ The answers are in the collapsed sections below the questions, simply click on t
 [中文版本](./README-zh_CN.md)  
 [Русский](./README_ru-RU.md)  
 [Western Balkan](./README-bs.md)  
+[Deutsch](./README-de_DE.md)  
 [Tiếng Việt](./README-vi.md)  
+
 ---
 
 ###### 1. What's the output?
@@ -1249,7 +1251,7 @@ Then, `[1, 2, 0, 1]` is `acc` and `[2, 3]` is `cur`. We concatenate them, and ge
 
 ---
 
-###### 42. What does the `setInterval` method return?
+###### 42. What does the `setInterval` method return in the browser?
 
 ```javascript
 setInterval(() => console.log("Hi"), 1000);
