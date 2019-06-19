@@ -16,8 +16,7 @@ kliknite na njih da biste ih proširili. Sretno :heart:
 [Kineski 中文版本](./README-zh_CN.md)  
 [Ruski](./README_ru-RU.md)  
 [Zapadni balkan](./README-bs_BS.md)  
-[Njemački](./README-de_DE.md)
-
+[Njemački](./README-de_DE.md) <br>
 [Vijetnamski](./README-vi.md)  
 
 * * * * *
