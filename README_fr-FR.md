@@ -36,9 +36,9 @@ sayHi();
 
 #### Réponse: D
 
-Within the function, we first declare the `name` variable with the `var` keyword. This means that the variable gets hoisted (memory space is set up during the creation phase) with the default value of `undefined`, until we actually get to the line where we define the variable. We haven't defined the variable yet on the line where we try to log the `name` variable, so it still holds the value of `undefined`.
+Dans la fonction, nous déclarons en premier la variable `name` grâce au mot clé `var`. Cela signifie que la variable est "levée" _(hoisted)_ (l'espace mémoire est définie à la phase de création) avec pour valeur par défaut `undefined`, jusqu'à ce que le script atteigne la ligne de définition de la variable. Nous n'avons pas encore défini la variable lorsque nous essayons d'afficher la variable `name`, donc elle a toujours la valeur `undefined`.
 
-Variables with the `let` keyword (and `const`) are hoisted, but unlike `var`, don't get <i>initialized</i>. They are not accessible before the line we declare (initialize) them. This is called the "temporal dead zone". When we try to access the variables before they are declared, JavaScript throws a `ReferenceError`.
+Les variables avec le mot clé `let` (et `const`) sont "levées" _(hoisted)_, mais contrairement à `var`, elle n'est pas <i>initialisée</i>. Elles ne sont pas accessible avant la ligne qui les declare (initialise). C'est appelé la "zone morte temporaire". Lorsque nous essayons d'accéder aux variables avant leur déclaration, JavaScript renvoit une `ReferenceError`.
 
 </p>
 </details>
@@ -66,9 +66,9 @@ for (let i = 0; i < 3; i++) {
 
 #### Réponse: C
 
-Because of the event queue in JavaScript, the `setTimeout` callback function is called _after_ the loop has been executed. Since the variable `i` in the first loop was declared using the `var` keyword, this value was global. During the loop, we incremented the value of `i` by `1` each time, using the unary operator `++`. By the time the `setTimeout` callback function was invoked, `i` was equal to `3` in the first example.
+À cause du système de queue dans JavaScript, la fonction de rappel _(callback)_ du `setTimeout` est appellée _après_ que la boucle soit exécutée. Comme la variable `i` dans la première boucle est déclarée avec le mot clé `var`, c'est une variable global. Pendant la boucle, nous incrémentons la valeur de `i` par `1` à chaque fois, en utilisant l'opérateur arithmétique `++`. Lorsque la fonction de rappel _(callback)_ du `setTimeout` est invoquée, `i` est égal à `3` dans le premier exemple.
 
-In the second loop, the variable `i` was declared using the `let` keyword: variables declared with the `let` (and `const`) keyword are block-scoped (a block is anything between `{ }`). During each iteration, `i` will have a new value, and each value is scoped inside the loop.
+Dans la seconde boucle, la variable `i` est déclarée avec le mot clé `let` : les variables déclarées avec `let` (et `const`) ont une portée de bloc (tout ce qui est entre `{ }` est considéré comme un bloc). Pendant chaque itération, `i` aura une nouvelle valeur, et chaque valeur sera définie dans la boucle.
 
 </p>
 </details>
@@ -100,11 +100,11 @@ shape.perimeter();
 
 #### Réponse: B
 
-Note that the value of `diameter` is a regular function, whereas the value of `perimeter` is an arrow function.
+Notez que le valeur de `diameter` est une fonction régulière, alors que `perimeter` est une fonction fléchée.
 
-With arrow functions, the `this` keyword refers to its current surrounding scope, unlike regular functions! This means that when we call `perimeter`, it doesn't refer to the shape object, but to its surrounding scope (window for example).
+Avec les fonctions fléchée, le mot clé `this` réfère à son périmètre actuel, contrairement au fonctions régulières ! Cela signifie que lorsque nous appelons `perimeter`, elle ne réfère pas à l'objet shape, mais à son périmètre actuel (`window` par exemple).
 
-There is no value `radius` on that object, which returns `undefined`.
+Il n'y a pas de valeur `radius` dans cet objet, qui retournera `undefined`.
 
 </p>
 </details>
@@ -127,16 +127,16 @@ There is no value `radius` on that object, which returns `undefined`.
 
 #### Réponse: A
 
-The unary plus tries to convert an operand to a number. `true` is `1`, and `false` is `0`.
+L'opérateur arithmétique `+` essait de convertir un opérande en une valeur numérique. `true` devient `1`, et `false` devient `0`.
 
-The string `'Lydia'` is a truthy value. What we're actually asking, is "is this truthy value falsy?". This returns `false`.
+La chaine de caractère `'Lydia'` est une value considérée comme vraie _(truthy)_. Ce que nous sommes actuellement entrain de demander, c'est "est-ce que cette valeur vraie est fausse ?". Ce qui retournera `false`.
 
 </p>
 </details>
 
 ---
 
-###### 5. Which one is true?
+###### 5. Laquelle est vraie ?
 
 ```javascript
 const bird = {
@@ -159,13 +159,13 @@ const mouse = {
 
 #### Réponse: A
 
-In JavaScript, all object keys are strings (unless it's a Symbol). Even though we might not _type_ them as strings, they are always converted into strings under the hood.
+En JavaScript, toutes les clé d'objet sont des chaines de caractères (sauf si c'est un Symbol). Bien que nous ne puission pas les _typer_ comme des chaines de caractères, elles sont converties en chaines de caractères sous le capot.
 
-JavaScript interprets (or unboxes) statements. When we use bracket notation, it sees the first opening bracket `[` and keeps going until it finds the closing bracket `]`. Only then, it will evaluate the statement.
+JavaScript interprète (ou décompresse) les instructions. Lorsque nous utilisons la notation pas crochet, il voit le premier crochet `[` et continue jusqu'à ce qu'il trouve le crochet fermant `]`. Seulement après, il évalue l'instruction.
 
-`mouse[bird.size]`: First it evaluates `bird.size`, which is `"small"`. `mouse["small"]` returns `true`
+`mouse[bird.size]` : Premièrement, il évalue `bird.size`, qui est `"small"`. `mouse["small"]` retourne `true`.
 
-However, with dot notation, this doesn't happen. `mouse` does not have a key called `bird`, which means that `mouse.bird` is `undefined`. Then, we ask for the `size` using dot notation: `mouse.bird.size`. Since `mouse.bird` is `undefined`, we're actually asking `undefined.size`. This isn't valid, and will throw an error similar to `Cannot read property "size" of undefined`.
+Cependant, avec la notation par points, cela n'arrive pas. `mouse` n'a pas de clé appelée `bird`, ce qui signifie que `mouse.bird` est `undefined`. Puis, on demande `size` en utilisant la notation par point : `mouse.bird.size`. Comme `mouse.bird` est `undefined`, on demande `undefined.size`. Cela n'est pas valide, et nous aurons une erreur similaire à `Impossible de lire la propriété "size" de undefined`.
 
 </p>
 </details>
@@ -196,13 +196,13 @@ console.log(d.greeting);
 
 #### Réponse: A
 
-In JavaScript, all objects interact by _reference_ when setting them equal to each other.
+En JavaScript, tous les object intéragisent par _référence_ en plaçant égaux les uns aux autres.
 
-First, variable `c` holds a value to an object. Later, we assign `d` with the same reference that `c` has to the object.
+Premièrement, la variable `c` contaient une valeur d'objet. Plus tard, nous assignons `d` avec la même réference que `c` à l'objet.
 
 <img src="https://i.imgur.com/ko5k0fs.png" width="200">
 
-When you change one object, you change all of them.
+Quand on modifie un objet, on les modifie donc tous.
 
 </p>
 </details>
@@ -231,11 +231,11 @@ console.log(b === c);
 
 #### Réponse: C
 
-`new Number()` is a built-in function constructor. Although it looks like a number, it's not really a number: it has a bunch of extra features and is an object.
+`new Number()` est une fonction globale. Bien qu'il ressamble à un nombre, ce n'en est pas vraiment un : il a une poignée de fonctionnalités supplémentaire and est un objet.
 
-When we use the `==` operator, it only checks whether it has the same _value_. They both have the value of `3`, so it returns `true`.
+Quand nous utilisons l'opérateur `==`, il vérifie seulement qu'il s'agisse de la même _valeur_. Les deux ont pour valeur `3`, donc il retourne `true`.
 
-However, when we use the `===` operator, both value _and_ type should be the same. It's not: `new Number()` is not a number, it's an **object**. Both return `false.`
+Cependant, quand on utilise l'opérateur `===`, les 2 valeurs _et_ type doivent être les même. `new Number()` n'est pas un nombre, c'est un **objet**, il retourne `false`.
 
 </p>
 </details>
@@ -270,7 +270,7 @@ freddie.colorChange("orange");
 
 #### Réponse: D
 
-The `colorChange` function is static. Static methods are designed to live only on the constructor in which they are created, and cannot be passed down to any children. Since `freddie` is a child, the function is not passed down, and not available on the `freddie` instance: a `TypeError` is thrown.
+La fonction `colorChange` est statique. Les méthodes statiques sont désignée pour vivre seulement dans le constructeur qui les a créer et ne peuvent pas être transférer aux enfants. Comme `freddie` est un enfant, la fonction n'est pas transférée et non disponible dans l'instance de `freddie` : une erreur `TypeError` est renvoyée.
 
 </p>
 </details>
@@ -407,7 +407,7 @@ We said that `this.firstName` equals `"Sarah"` and `this.lastName` equals `"Smit
 
 ---
 
-###### 13. What are the three phases of event propagation?
+###### 13. Quelle sont les trois phases de propagation des événements ?
 
 - A: Target > Capturing > Bubbling
 - B: Bubbling > Target > Capturing
@@ -419,7 +419,7 @@ We said that `this.firstName` equals `"Sarah"` and `this.lastName` equals `"Smit
 
 #### Réponse: D
 
-During the **capturing** phase, the event goes through the ancestor elements down to the target element. It then reaches the **target** element, and **bubbling** begins.
+Durant la phase de **capture** _(capturing)_, l'événement passe par les événements parent jusqu'à l'élément ciblé. Il attient ensuite l'élément **ciblé** _(target)_, et commence à **bouillonner** _(bubbling)_.
 
 <img src="https://i.imgur.com/N18oRgd.png" width="200">
 
