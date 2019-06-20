@@ -114,7 +114,7 @@ Não há `radius` fora de <i>shape</i>, então retorna `undefined`.
 
 ---
 
-###### 4. What's the output?
+###### 4. Qual é a saída?
 
 ```javascript
 +true;
@@ -125,21 +125,22 @@ Não há `radius` fora de <i>shape</i>, então retorna `undefined`.
 - B: `false` and `NaN`
 - C: `false` and `false`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>Resposta</b></summary>
 <p>
 
-#### Answer: A
+#### Resposta: A
 
-The unary plus tries to convert an operand to a number. `true` is `1`, and `false` is `0`.
+O operador unário `+` tenta converter um operando para um número. `true` é `1`, e `false` é `0`.
 
-The string `'Lydia'` is a truthy value. What we're actually asking, is "is this truthy value falsy?". This returns `false`.
+A string `'Lydia'` tem valor truthy*. O que estamos realmente perguntando é "Esse valor truthy é falsy?". Isso retorna `false`.  
+###### *Nota do tradutor: <i>truthy</i> é um termo único ao JavaScript que denota valores que podem ser convertidos em um booleano `True`. Sua contraparte é <i>falsey</i>, que são valores que podem ser convertidos em um booleano `false`. Para fins de consistência, mantenho os termos originais. 
 
 </p>
 </details>
 
 ---
 
-###### 5. Which one is true?
+###### 5. Qual é a alternativa correta?
 
 ```javascript
 const bird = {
@@ -152,23 +153,23 @@ const mouse = {
 };
 ```
 
-- A: `mouse.bird.size` is not valid
-- B: `mouse[bird.size]` is not valid
-- C: `mouse[bird["size"]]` is not valid
-- D: All of them are valid
+- A: `mouse.bird.size` não é válido
+- B: `mouse[bird.size]` não é válido
+- C: `mouse[bird["size"]]` não é válido
+- D: Todos são válidos
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>Resposta</b></summary>
 <p>
 
-#### Answer: A
+#### Resposta: A
 
-In JavaScript, all object keys are strings (unless it's a Symbol). Even though we might not _type_ them as strings, they are always converted into strings under the hood.
+No JavaScript, todas chaves dos objetos são strings (a não ser que sejam um símbolo). Ainda que não possamos <i>digitá-las</i> como strings, elas são sempre convertidas para string sob o capô.
 
-JavaScript interprets (or unboxes) statements. When we use bracket notation, it sees the first opening bracket `[` and keeps going until it finds the closing bracket `]`. Only then, it will evaluate the statement.
+JavaScript interpreta afirmações. Quando usamos a notação de colchetes, ele vê o colchete de abertura `[` e continua lendo até encontrar o colchete que o fecha `]`. Só então vai avaliar e rodar as afirmações.
 
-`mouse[bird.size]`: First it evaluates `bird.size`, which is `"small"`. `mouse["small"]` returns `true`
+`mouse[bird.size]`: Primeiro avalia `bird.size`, que é `"small"`. `mouse["small"]` retorna `true`
 
-However, with dot notation, this doesn't happen. `mouse` does not have a key called `bird`, which means that `mouse.bird` is `undefined`. Then, we ask for the `size` using dot notation: `mouse.bird.size`. Since `mouse.bird` is `undefined`, we're actually asking `undefined.size`. This isn't valid, and will throw an error similar to `Cannot read property "size" of undefined`.
+Por outro lado, com a notação de ponto `.`, isso não acontece. `mouse` não tem uma chave chamada `bird`, o que significa que `mouse.bird` é `undefined`. Então, pedimos pelo `size` usando a notação de ponto: `mouse.bird.size`. Uma vez que `mouse.bird` é `undefined`, estamos realmente pedindo `undefined.size`. Isso não é válido, e irá gerar um erro similar a `Cannot read property "size" of undefined`.
 
 </p>
 </details>
@@ -177,7 +178,7 @@ However, with dot notation, this doesn't happen. `mouse` does not have a key cal
 
 ---
 
-###### 6. What's the output?
+###### 6. Quais são as saídas?
 
 ```javascript
 let c = { greeting: "Hey!" };
@@ -194,25 +195,25 @@ console.log(d.greeting);
 - D: `ReferenceError`
 - E: `TypeError`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>Resposta</b></summary>
 <p>
 
-#### Answer: A
+#### Resposta: A
 
-In JavaScript, all objects interact by _reference_ when setting them equal to each other.
+Em JavaScript, todos objetos interagem por <i>referência</i> quando os colocamos um igual ao outro.
 
-First, variable `c` holds a value to an object. Later, we assign `d` with the same reference that `c` has to the object.
+Primeiro, a variável `c` guarda o valor de um objeto. Depois, declaramos `d` com a mesma referencia que `c` tem para o objeto.
 
 <img src="https://i.imgur.com/ko5k0fs.png" width="200">
 
-When you change one object, you change all of them.
+Quando você muda um objeto, você muda todos eles.
 
 </p>
 </details>
 
 ---
 
-###### 7. What's the output?
+###### 7. Qual é a saída?
 
 ```javascript
 let a = 3;
@@ -229,23 +230,23 @@ console.log(b === c);
 - C: `true` `false` `false`
 - D: `false` `true` `true`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>Resposta</b></summary>
 <p>
 
-#### Answer: C
+#### Resposta: C
 
-`new Number()` is a built-in function constructor. Although it looks like a number, it's not really a number: it has a bunch of extra features and is an object.
+`new Number()` é uma funcção construtura padrão do JavaScript. Ainda que parece com um número, não é realmente um número: Tem um monte de funções extras e é um objeto.
 
-When we use the `==` operator, it only checks whether it has the same _value_. They both have the value of `3`, so it returns `true`.
+Quando usamos o operador `==`, só conferimos se ambas tem o mesmo <i>valor</i>. Ambas tem o valor de `3`, então retorna `true`. 
 
-However, when we use the `===` operator, both value _and_ type should be the same. It's not: `new Number()` is not a number, it's an **object**. Both return `false.`
+Contudo, quando usamos o operador `===`, ambos valor <i>e</i> tipo tem de ser o mesmo. E não é: `new Number()` não é um número, é um **objeto**. Ambos retornam `false`.
 
 </p>
 </details>
 
 ---
 
-###### 8. What's the output?
+###### 8. Qual é a saída?
 
 ```javascript
 class Chameleon {
@@ -268,23 +269,24 @@ freddie.colorChange("orange");
 - C: `green`
 - D: `TypeError`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>Resposta</b></summary>
 <p>
 
-#### Answer: D
+#### Resposta: D
 
-The `colorChange` function is static. Static methods are designed to live only on the constructor in which they are created, and cannot be passed down to any children. Since `freddie` is a child, the function is not passed down, and not available on the `freddie` instance: a `TypeError` is thrown.
+A função `colorChange` é estática. Métodos estáticos são designados para viver somente nos construtores em que são criados, e filhos não herdam esses métodos.
+Já que `freddie` é filho de `Chameleon`, a função não é herdada, e não está disponível para `freddie`: Um erro `TypeError` é gerado.
 
 </p>
 </details>
 
 ---
 
-###### 9. What's the output?
+###### 9. Qual é a saída?
 
 ```javascript
 let greeting;
-greetign = {}; // Typo!
+greetign = {}; // Erro de digitação!
 console.log(greetign);
 ```
 
@@ -292,21 +294,21 @@ console.log(greetign);
 - B: `ReferenceError: greetign is not defined`
 - C: `undefined`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>Resposta</b></summary>
 <p>
 
-#### Answer: A
+#### Resposta: A
 
-It logs the object, because we just created an empty object on the global object! When we mistyped `greeting` as `greetign`, the JS interpreter actually saw this as `global.greetign = {}` (or `window.greetign = {}` in a browser).
+Cria o log do objeto, pois criamos um objeto vazio no objeto global! Quando erramos a digitação de `greeting` como `greetign`, o interpretador do JavaScript viu isso como `global.greetign = {}` (ou `window.greetign = {}` em um navegador).
 
-In order to avoid this, we can use `"use strict"`. This makes sure that you have declared a variable before setting it equal to anything.
+Para evitar esse comportamento, podemos usar `"use strict"`. Isso garante que você  tenha declarado uma variável antes de poder inicializá-la com algum valor.
 
 </p>
 </details>
 
 ---
 
-###### 10. What happens when we do this?
+###### 10. O que acontece quando fazemos isso?
 
 ```javascript
 function bark() {
@@ -316,26 +318,26 @@ function bark() {
 bark.animal = "dog";
 ```
 
-- A: Nothing, this is totally fine!
-- B: `SyntaxError`. You cannot add properties to a function this way.
+- A: Nada, isso é ok!
+- B: `SyntaxError`. Não se pode adicionar propriedades em uma função dessa maneira.
 - C: `undefined`
 - D: `ReferenceError`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>Resposta</b></summary>
 <p>
 
-#### Answer: A
+#### Resposta: A
 
-This is possible in JavaScript, because functions are objects! (Everything besides primitive types are objects)
+Isso é possível em JavaScript, pois funções são objetos! (Tudo menos tipos primitivos são objetos)
 
-A function is a special type of object. The code you write yourself isn't the actual function. The function is an object with properties. This property is invocable.
+Uma função é um tipo especial de objeto. O código que você escreve não é a verdadeira função. A função é um objeto com propriedades. E essa propriedade é invocável.
 
 </p>
 </details>
 
 ---
 
-###### 11. What's the output?
+###### 11. Qual é a saída?
 
 ```javascript
 function Person(firstName, lastName) {
@@ -356,12 +358,14 @@ console.log(member.getFullName());
 - C: `Lydia Hallie`
 - D: `undefined` `undefined`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>Resposta</b></summary>
 <p>
 
-#### Answer: A
+#### Resposta: A
 
-You can't add properties to a constructor like you can with regular objects. If you want to add a feature to all objects at once, you have to use the prototype instead. So in this case,
+Você não pode adicionar propriedades para um construtor igual aos objetos normais. Se você quer adicionar uma funcionalidade para todos objetos ao mesmo tempo, você deve usar o prototype.
+
+Então nesse caso
 
 ```js
 Person.prototype.getFullName = function() {
@@ -369,14 +373,14 @@ Person.prototype.getFullName = function() {
 };
 ```
 
-would have made `member.getFullName()` work. Why is this beneficial? Say that we added this method to the constructor itself. Maybe not every `Person` instance needed this method. This would waste a lot of memory space, since they would still have that property, which takes of memory space for each instance. Instead, if we only add it to the prototype, we just have it at one spot in memory, yet they all have access to it!
+faria `member.getFullName()` funcionar. Por quê isso é beneficial? Digamos que tivéssemos esse método ao próprio construtor. Talvez nem toda instância de `Person` precisasse desse método. Isso gastaria muita memória, uma vez que cada instância teria esse propriedade e teria seu espaço alocado. Ao invés disso, se adicionarmos somente ao protótipo, alocamos somente um único espaço na memória, e todas instâncias de `Person`ainda tem acesso ao método.
 
 </p>
 </details>
 
 ---
 
-###### 12. What's the output?
+###### 12. Qual é a saída?
 
 ```javascript
 function Person(firstName, lastName) {
@@ -391,38 +395,38 @@ console.log(lydia);
 console.log(sarah);
 ```
 
-- A: `Person {firstName: "Lydia", lastName: "Hallie"}` and `undefined`
-- B: `Person {firstName: "Lydia", lastName: "Hallie"}` and `Person {firstName: "Sarah", lastName: "Smith"}`
-- C: `Person {firstName: "Lydia", lastName: "Hallie"}` and `{}`
-- D:`Person {firstName: "Lydia", lastName: "Hallie"}` and `ReferenceError`
+- A: `Person {firstName: "Lydia", lastName: "Hallie"}` e `undefined`
+- B: `Person {firstName: "Lydia", lastName: "Hallie"}` e `Person {firstName: "Sarah", lastName: "Smith"}`
+- C: `Person {firstName: "Lydia", lastName: "Hallie"}` e `{}`
+- D:`Person {firstName: "Lydia", lastName: "Hallie"}` e `ReferenceError`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>Resposta</b></summary>
 <p>
 
-#### Answer: A
+#### Resposta: A
 
-For `sarah`, we didn't use the `new` keyword. When using `new`, it refers to the new empty object we create. However, if you don't add `new` it refers to the **global object**!
+Na `sarah`, não usamos a palavra-chave `new`. Quando usamos `new`, se refere ao novo objeto vazio que criamos. Contudo, se não usarmos `new`, nos referimos ao **objeto global**!
 
-We said that `this.firstName` equals `"Sarah"` and `this.lastName` equals `"Smith"`. What we actually did, is defining `global.firstName = 'Sarah'` and `global.lastName = 'Smith'`. `sarah` itself is left `undefined`.
+Afirmamos que `this.firstName` vale `"Sarah"` e `this.lastName` vale `"Smith"`. O que realmente fizemos foi definir `global.firstName = 'Sarah'` e `global.lastName = 'Smith'`. A `sarah` ainda é `undefined`.
 
 </p>
 </details>
 
 ---
 
-###### 13. What are the three phases of event propagation?
+###### 13. Quais são as três fases na propagação de eventos?
 
 - A: Target > Capturing > Bubbling
 - B: Bubbling > Target > Capturing
 - C: Target > Bubbling > Capturing
 - D: Capturing > Target > Bubbling
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>Resposta</b></summary>
 <p>
 
-#### Answer: D
+#### Resposta: D
 
-During the **capturing** phase, the event goes through the ancestor elements down to the target element. It then reaches the **target** element, and **bubbling** begins.
+Durate a fase do **capturing**, o evento percorre os elementos pais até chegar no elemento algo. Isso alcança o elemento **target**, e o **bubbling** começa.
 
 <img src="https://i.imgur.com/N18oRgd.png" width="200">
 
@@ -431,17 +435,17 @@ During the **capturing** phase, the event goes through the ancestor elements dow
 
 ---
 
-###### 14. All object have prototypes.
+###### 14. Todos objetos tem protótipos.
 
-- A: true
-- B: false
+- A: Verdadeiro
+- B: Falso
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>Resposta</b></summary>
 <p>
 
-#### Answer: B
+#### Resposta: B
 
-All objects have prototypes, except for the **base object**. The base object has access to some methods and properties, such as `.toString`. This is the reason why you can use built-in JavaScript methods! All of such methods are available on the prototype. Although JavaScript can't find it directly on your object, it goes down the prototype chain and finds it there, which makes it accessible for you.
+Todos objetos tem protótipos, exceto pelo **base object**. O base object tem acesso à alguns métodos e propriedades, como `.toString`. É o motivo de podermos usar métodos já embutidos no JavaScript! Todos métodos desse tipo já estão embutidos no protótipo. Apesar do JavaScript não encontrar algum método diretamente no seu objeto, ele percorre a cadeia de protótipos até encontrar no base, o que torna acessível para todo objeto. 
 
 </p>
 </details>
