@@ -2,14 +2,19 @@
 
 I post daily multiple choice JavaScript questions on my [Instagram](https://www.instagram.com/theavocoder), which I'll also post here!
 
-From basic to advanced: test how well you know JavaScript, refresh your knowledge a bit, or prepare for your coding interview! :muscle: :rocket:  I update this repo weekly with new questions.
+From basic to advanced: test how well you know JavaScript, refresh your knowledge a bit, or prepare for your coding interview! :muscle: :rocket: I update this repo weekly with new questions.
 
 The answers are in the collapsed sections below the questions, simply click on them to expand it. Good luck :heart:
 
 ---
-List of a available languages:
-* 🇨🇳[中文版本](./README-zh_CN.md)
-* 🇪🇸[Versión en español](./README-ES.md)
+List of available languages:
+* [中文版本](./README-zh_CN.md)
+* [Versión en español](./README-ES.md)
+* [中文版本](./README-zh_CN.md)  
+* [Русский](./README_ru-RU.md)  
+* [Western Balkan](./README-bs_BS.md)  
+* [Deutsch](./README-de_DE.md)  
+* [Tiếng Việt](./README-vi.md)  
 
 ---
 
@@ -66,7 +71,7 @@ for (let i = 0; i < 3; i++) {
 
 #### Answer: C
 
-Because of the event queue in JavaScript, the `setTimeout` function is called _after_ the loop has been executed. Since the variable `i` in the first loop was declared using the `var` keyword, this value was global. During the loop, we incremented the value of `i` by `1` each time, using the unary operator `++`. By the time the `setTimeout` function was invoked, `i` was equal to `3` in the first example.
+Because of the event queue in JavaScript, the `setTimeout` callback function is called _after_ the loop has been executed. Since the variable `i` in the first loop was declared using the `var` keyword, this value was global. During the loop, we incremented the value of `i` by `1` each time, using the unary operator `++`. By the time the `setTimeout` callback function was invoked, `i` was equal to `3` in the first example.
 
 In the second loop, the variable `i` was declared using the `let` keyword: variables declared with the `let` (and `const`) keyword are block-scoped (a block is anything between `{ }`). During each iteration, `i` will have a new value, and each value is scoped inside the loop.
 
@@ -136,7 +141,7 @@ The string `'Lydia'` is a truthy value. What we're actually asking, is "is this 
 
 ---
 
-###### 5. Which one is NOT valid?
+###### 5. Which one is true?
 
 ```javascript
 const bird = {
@@ -149,9 +154,9 @@ const mouse = {
 };
 ```
 
-- A: `mouse.bird.size`
-- B: `mouse[bird.size]`
-- C: `mouse[bird["size"]]`
+- A: `mouse.bird.size` is not valid
+- B: `mouse[bird.size]` is not valid
+- C: `mouse[bird["size"]]` is not valid
 - D: All of them are valid
 
 <details><summary><b>Answer</b></summary>
@@ -186,9 +191,10 @@ console.log(d.greeting);
 ```
 
 - A: `Hello`
-- B: `undefined`
-- C: `ReferenceError`
-- D: `TypeError`
+- B: `Hey`
+- C: `undefined`
+- D: `ReferenceError`
+- E: `TypeError`
 
 <details><summary><b>Answer</b></summary>
 <p>
@@ -340,9 +346,9 @@ function Person(firstName, lastName) {
 }
 
 const member = new Person("Lydia", "Hallie");
-Person.getFullName = function () {
+Person.getFullName = function() {
   return `${this.firstName} ${this.lastName}`;
-}
+};
 
 console.log(member.getFullName());
 ```
@@ -360,9 +366,9 @@ console.log(member.getFullName());
 You can't add properties to a constructor like you can with regular objects. If you want to add a feature to all objects at once, you have to use the prototype instead. So in this case,
 
 ```js
-Person.prototype.getFullName = function () {
+Person.prototype.getFullName = function() {
   return `${this.firstName} ${this.lastName}`;
-}
+};
 ```
 
 would have made `member.getFullName()` work. Why is this beneficial? Say that we added this method to the constructor itself. Maybe not every `Person` instance needed this method. This would waste a lot of memory space, since they would still have that property, which takes of memory space for each instance. Instead, if we only add it to the prototype, we just have it at one spot in memory, yet they all have access to it!
@@ -1249,7 +1255,7 @@ Then, `[1, 2, 0, 1]` is `acc` and `[2, 3]` is `cur`. We concatenate them, and ge
 
 ---
 
-###### 42. What does the `setInterval` method return?
+###### 42. What does the `setInterval` method return in the browser?
 
 ```javascript
 setInterval(() => console.log("Hi"), 1000);
