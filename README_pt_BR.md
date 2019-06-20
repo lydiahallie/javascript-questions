@@ -178,7 +178,7 @@ Por outro lado, com a notação de ponto `.`, isso não acontece. `mouse` não t
 
 ---
 
-###### 6. Quais são as saídas?
+###### 6. Qual é a saída?
 
 ```javascript
 let c = { greeting: "Hey!" };
@@ -1139,7 +1139,7 @@ depending on where you run it (it's different for every browser, node, etc.)
 
 ---
 
-###### 38. What's the output?
+###### 38. Qual é a saída?
 
 ```javascript
 (() => {
