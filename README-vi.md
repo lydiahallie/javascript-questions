@@ -439,8 +439,9 @@ Tất cả các object đều có prototypes, ngoại trừ **base object**. Obj
 
 </p>
 
-</details>---
+</details>
 
+---
 
 ###### 15. Ouput là gì?
 
@@ -859,7 +860,6 @@ console.log(a[b]);
 
 Object keys sẽ tự động được convert sang dạng string. Chúng ta đang set một object như là một key cho object `a`, với giá trị là `123`.
 
-However, when we stringify an object, it becomes `"[Object object]"`. So what we are saying here, is that `a["Object object"] = 123`. Then, we can try to do the same again. `c` is another object that we are implicitly stringifying. So then, `a["Object object"] = 456`.
 Tuy nhiên khi ta string hóa một object, nó sẽ trở thành `"[Object object]"`. Nên tại đây phép gán này thực chất chính là `a["Object object"] = 123`. Phép gán tiếp theo cũng giống hệt vậy. `c` là một object khác mà chúng ta đang string hóa nó. Theo đó, `a["Object object"] = 456`.
 
 Cuối cùng khi gọi `a[b]`, thực chất chính là gọi `a["Object object"]`. Giá trị của nó là `456`, nên trả về là `456`.
@@ -915,7 +915,7 @@ WebAPI không thể thêm thứ gì đó vào stack cho tới khi nó được s
 
 <img src="https://i.imgur.com/uyiScAI.png" width="200">
 
-`bar` được gọi, `"Second"` được log ra, và nó được đưa ra khói stack.
+`bar` được gọi, `"Second"` được log ra, và nó được đưa ra khỏi stack.
 
 </p>
 </details>
@@ -1053,7 +1053,7 @@ undefined;
 - A: `0`, `''`, `undefined`
 - B: `0`, `new Number(0)`, `''`, `new Boolean(false)`, `undefined`
 - C: `0`, `''`, `new Boolean(false)`, `undefined`
-- D: All of them are falsy
+- D: Tất cả đều là falsy
 
 <details><summary><b>Đáp án</b></summary>
 <p>
@@ -1210,7 +1210,6 @@ Primitive types là `boolean`, `null`, `undefined`, `bigint`, `number`, `string`
 
 #### Đáp án: C
 
-`[1, 2]` is our initial value. This is the value we start with, and the value of the very first `acc`. During the first round, `acc` is `[1,2]`, and `cur` is `[0, 1]`. We concatenate them, which results in `[1, 2, 0, 1]`.
 `[1, 2]` là giá trị khởi tạo. Đây là giá trị chúng ta bắt đầu, và cũng là giá trị đầu tiên của `acc`. Tại vòng đầu tiên, `acc` là `[1,2]`, và `cur` là `[0, 1]`. Ta nối chúng lại tạo ra `[1, 2, 0, 1]`.
 
 Tiếp tục, `[1, 2, 0, 1]` là `acc` và `[2, 3]` là `cur`. Ta nối chúng lại tạo ra `[1, 2, 0, 1, 2, 3]`.
