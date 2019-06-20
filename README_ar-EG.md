@@ -1,4 +1,5 @@
-﻿# قائمة اسئلة جافاسكربت متقدمة
+<div dir="rtl">
+# قائمة اسئلة جافاسكربت متقدمة
 أنا بنشر أسئلة اختر جافاسكربت كل يوم على [انستجرام](https://www.instagram.com/theavocoder) واللي بدوري هنشرهم هنا
 
 من البسيط للمتطور: اختبر نفسك في الجافاسكربت, افتكر حاجات كنت ناسيها, او جهز نفسك لمقابلة عمل جايه! :muscle: :rocket: 
@@ -1286,3 +1287,4 @@ A string is an iterable. The spread operator maps every character of an iterable
 
 </p>
 </details>
+</div>
