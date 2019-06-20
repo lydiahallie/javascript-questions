@@ -631,7 +631,7 @@ Con `"use strict"`, es posible asegurarse de que no se declara accidentalmente v
 
 ---
 
-###### 21. What's value of `sum`?
+###### 21. ¿Cuál es el valor de `sum`?
 
 ```javascript
 const sum = eval("10*10+5");
@@ -642,44 +642,44 @@ const sum = eval("10*10+5");
 - C: `TypeError`
 - D: `"10*10+5"`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>Solución</b></summary>
 <p>
 
-#### Answer: A
+#### Respuesta correcta: A
 
-`eval` evaluates codes that's passed as a string. If it's an expression, like in this case, it evaluates the expression. The expression is `10 * 10 + 5`. This returns the number `105`.
+`eval` evalúa los códigos que se pasan como una cadena. Si es una expresión, como en este caso, evalúa la expresión. La expresión es `10 * 10 + 5`. Esto devuelve el número `105`.
 
 </p>
 </details>
 
 ---
 
-###### 22. How long is cool_secret accessible?
+###### 22. ¿Cuánto tiempo es accesible cool_secret?
 
 ```javascript
 sessionStorage.setItem("cool_secret", 123);
 ```
 
-- A: Forever, the data doesn't get lost.
-- B: When the user closes the tab.
-- C: When the user closes the entire browser, not only the tab.
-- D: When the user shuts off their computer.
+- A: Para siempre, los datos no se pierden.
+- B: Cuando el usuario cierra la pestaña.
+- C: Cuando el usuario cierra todo el navegador, no sólo la pestaña.
+- D: Cuando el usuario apaga su ordenador.
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>Solución</b></summary>
 <p>
 
-#### Answer: B
+#### Respuesta correcta: B
 
-The data stored in `sessionStorage` is removed after closing the _tab_.
+Los datos almacenados en `sessionStorage` se eliminan después de cerrar la pestaña.
 
-If you used `localStorage`, the data would've been there forever, unless for example `localStorage.clear()` is invoked.
+Si se usó `localStorage`, los datos habrían estado allí siempre, a menos que por ejemplo `localStorage.clear()` sea invocado.
 
 </p>
 </details>
 
 ---
 
-###### 23. What's the output?
+###### 23. ¿Qué devuelve la siguiente función?
 
 ```javascript
 var num = 8;
@@ -693,21 +693,21 @@ console.log(num);
 - C: `SyntaxError`
 - D: `ReferenceError`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>Solución</b></summary>
 <p>
 
-#### Answer: B
+#### Respuesta correcta: B
 
-With the `var` keyword, you can declare multiple variables with the same name. The variable will then hold the latest value.
+Con la palabra reservada `var`, se pueden declarar múltiples variables con el mismo nombre. La variable tendrá entonces el último valor.
 
-You cannot do this with `let` or `const` since they're block-scoped.
+No es posible hacer esto con `let` o `const` ya que tienen un alcance de bloque.
 
 </p>
 </details>
 
 ---
 
-###### 24. What's the output?
+###### 24. ¿Qué devuelve la siguiente función?
 
 ```javascript
 const obj = { 1: "a", 2: "b", 3: "c" };
@@ -724,21 +724,22 @@ set.has(1);
 - C: `true` `true` `false` `true`
 - D: `true` `true` `true` `true`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>Solución</b></summary>
 <p>
 
-#### Answer: C
+#### Respuesta correcta: C
 
-All object keys (excluding Symbols) are strings under the hood, even if you don't type it yourself as a string. This is why `obj.hasOwnProperty('1')` also returns true.
+Todas las claves de un objeto (excepto los símbolos) actúan como cadenas, incluso si no son escritas como una cadena. Es por eso que `obj.hasOwnProperty('1')` también devuelve verdadero.
 
-It doesn't work that way for a set. There is no `'1'` in our set: `set.has('1')` returns `false`. It has the numeric type `1`, `set.has(1)` returns `true`.
+No funciona así para un conjunto. No hay un "1" en nuestro set: `set.has('1')` devuelve `falso`. Tiene el tipo numérico `1`, `set.has(1)` devuelve `true`.
+
 
 </p>
 </details>
 
 ---
 
-###### 25. What's the output?
+###### 25. ¿Qué devuelve la siguiente función?
 
 ```javascript
 const obj = { a: "one", b: "two", a: "three" };
@@ -750,37 +751,37 @@ console.log(obj);
 - C: `{ a: "three", b: "two" }`
 - D: `SyntaxError`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>Solución</b></summary>
 <p>
 
-#### Answer: C
+#### Respuesta correcta: C
 
-If you have two keys with the same name, the key will be replaced. It will still be in its first position, but with the last specified value.
+Si tiene dos claves con el mismo nombre, la clave será reemplazada. Seguirá estando en su primera posición, pero con el último valor especificado
 
 </p>
 </details>
 
 ---
 
-###### 26. The JavaScript global execution context creates two things for you: the global object, and the "this" keyword.
+###### 26. El contexto de ejecución de JS crea dos cosas: el objecto global y la palabra reservada "this".
 
 - A: true
 - B: false
 - C: it depends
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>Solución</b></summary>
 <p>
 
-#### Answer: A
+#### Respuesta correcta: A
 
-The base execution context is the global execution context: it's what's accessible everywhere in your code.
+El contexto de ejecución base es el contexto de ejecución global: es accesible en todo el código.
 
 </p>
 </details>
 
 ---
 
-###### 27. What's the output?
+###### 27. ¿Qué devuelve la siguiente función?
 
 ```javascript
 for (let i = 1; i < 5; i++) {
@@ -794,19 +795,18 @@ for (let i = 1; i < 5; i++) {
 - C: `1` `2` `4`
 - D: `1` `3` `4`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>Solución</b></summary>
 <p>
 
-#### Answer: C
-
-The `continue` statement skips an iteration if a certain condition returns `true`.
+#### Respuesta correcta: C
+La sentencia `continue` omite una iteración si una cierta condición, en este caso `(i === 3)`,  devuelve `true`.
 
 </p>
 </details>
 
 ---
 
-###### 28. What's the output?
+###### 28. ¿Qué devuelve la siguiente función?
 
 ```javascript
 String.prototype.giveLydiaPizza = () => {
@@ -823,19 +823,19 @@ name.giveLydiaPizza();
 - C: `SyntaxError`
 - D: `undefined`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>Solución</b></summary>
 <p>
 
-#### Answer: A
+#### Respuesta correcta: A
 
-`String` is a built-in constructor, which we can add properties to. I just added a method to its prototype. Primitive strings are automatically converted into a string object, generated by the string prototype function. So, all strings (string objects) have access to that method!
+`String` es un constructor incorporado, al que podemos añadir propiedades. En este caso concreto, añadimos un método a su prototipo. Las cadenas primitivas se convierten automáticamente en un objeto de cadena, generado por la función de prototipo de cadena. Por lo tanto, todas las cadenas (objetos de cadena) tienen acceso a ese método.
 
 </p>
 </details>
 
 ---
 
-###### 29. What's the output?
+###### 29. ¿Qué devuelve la siguiente función?
 
 ```javascript
 const a = {};
@@ -853,23 +853,23 @@ console.log(a[b]);
 - C: `undefined`
 - D: `ReferenceError`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>Solución</b></summary>
 <p>
 
-#### Answer: B
+#### Respuesta correcta: B
 
-Object keys are automatically converted into strings. We are trying to set an object as a key to object `a`, with the value of `123`.
+Las claves se convierten automáticamente en strings. Estamos tratando en este pregunta de establecer un objeto como clave para el objeto `a`, con el valor de `123`.
 
-However, when we stringify an object, it becomes `"[Object object]"`. So what we are saying here, is that `a["Object object"] = 123`. Then, we can try to do the same again. `c` is another object that we are implicitly stringifying. So then, `a["Object object"] = 456`.
+Sin embargo, cuando se _stringfy_ (compleja traducción) un objeto, se convierte en `"[Object object]"`. Así que lo que estamos diciendo aquí, es que `a["Object object"] = 123`. Entonces, podemos intentar hacer lo mismo de nuevo. `c` es otro objeto que estamos implícitamente encadenando. Entonces, `a["Object object"] = 456`.
 
-Then, we log `a[b]`, which is actually `a["Object object"]`. We just set that to `456`, so it returns `456`.
+Para finalizar, registramos `a[b]`, que en realidad es `a["Object"]`. Acabamos de ponerlo en `456`, así que devuelve `456`.
 
 </p>
 </details>
 
 ---
 
-###### 30. What's the output?
+###### 30. ¿Qué devuelve la siguiente función?
 
 ```javascript
 const foo = () => console.log("First");
@@ -886,36 +886,36 @@ baz();
 - C: `Second` `First` `Third`
 - D: `Second` `Third` `First`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>Solución</b></summary>
 <p>
 
-#### Answer: B
+#### Respuesta correcta: B
 
-We have a `setTimeout` function and invoked it first. Yet, it was logged last.
+Tenemos una función `setTimeout` y la invocamos primero. Sin embargo, fue el último en ser registrado.
 
-This is because in browsers, we don't just have the runtime engine, we also have something called a `WebAPI`. The `WebAPI` gives us the `setTimeout` function to start with, and for example the DOM.
+Esto se debe a que en los navegadores, no sólo tenemos el motor de tiempo de ejecución, también tenemos algo llamado `WebAPI`. El `WebAPI` nos da la función `setTimeout` para empezar, y por ejemplo el DOM.
 
-After the _callback_ is pushed to the WebAPI, the `setTimeout` function itself (but not the callback!) is popped off the stack.
+Después de que la _callback_ es empujada a la WebAPI, la función `setTimeout` en sí misma (¡pero no la callback!) es removida de la pila.
 
 <img src="https://i.imgur.com/X5wsHOg.png" width="200">
 
-Now, `foo` gets invoked, and `"First"` is being logged.
+Ahora, `foo` es invocado, y ``"First"`` está siendo registrado.
 
 <img src="https://i.imgur.com/Pvc0dGq.png" width="200">
 
-`foo` is popped off the stack, and `baz` gets invoked. `"Third"` gets logged.
+`Foo` se quita de la pila, y `Baz` es invocado. `Third` se registra.
 
 <img src="https://i.imgur.com/WhA2bCP.png" width="200">
 
-The WebAPI can't just add stuff to the stack whenever it's ready. Instead, it pushes the callback function to something called the _queue_.
+La WebAPI no puede simplemente añadir cosas a la pila cuando está lista. En su lugar, empuja la función de devolución de llamada a algo llamado la _queue_ (cola en español).
 
 <img src="https://i.imgur.com/NSnDZmU.png" width="200">
 
-This is where an event loop starts to work. An **event loop** looks at the stack and task queue. If the stack is empty, it takes the first thing on the queue and pushes it onto the stack.
+Aquí es donde un bucle de eventos comienza a funcionar. Un **lazo de evento** mira la pila y la cola de tareas. Si la pila está vacía, toma lo primero que encuentra en la cola y la empuja sobre la pila.
 
 <img src="https://i.imgur.com/uyiScAI.png" width="200">
 
-`bar` gets invoked, `"Second"` gets logged, and it's popped off the stack.
+Se invoca el `bar`, se registra el ``"Second"`` y se quita de la pila.
 
 </p>
 </details>
