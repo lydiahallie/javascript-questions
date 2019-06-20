@@ -427,6 +427,7 @@ Afirmamos que `this.firstName` vale `"Sarah"` e `this.lastName` vale `"Smith"`. 
 #### Resposta: D
 
 Durate a fase do **capturing**, o evento percorre os elementos pais até chegar no elemento algo. Isso alcança o elemento **target**, e o **bubbling** começa.
+ ##### *Nota do tradutor: _bubbling_ descreve uma forma específica de propagação de eventos. Em tradução livre é "borbulhar", que indica como os eventos "sobem" a cadeia onde estão aninhados, mas prefiro por manter o original, visto que é o nome dessa forma de propagação.
 
 <img src="https://i.imgur.com/N18oRgd.png" width="200">
 
@@ -452,7 +453,7 @@ Todos objetos tem protótipos, exceto pelo **base object**. O base object tem ac
 
 ---
 
-###### 15. What's the output?
+###### 15. Qual é a saída?
 
 ```javascript
 function sum(a, b) {
@@ -467,21 +468,21 @@ sum(1, "2");
 - C: `"12"`
 - D: `3`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>Resposta</b></summary>
 <p>
 
-#### Answer: C
+#### Resposta: C
 
-JavaScript is a **dynamically typed language**: we don't specify what types certain variables are. Values can automatically be converted into another type without you knowing, which is called _implicit type coercion_. **Coercion** is converting from one type into another.
+JavaScript é uma **linguagem dinamicamente tipada**: Não especificamos quais tipos nossas variáveis são. Valores pode ser automaticamente convertidos em outro tipo sem você saber, o que é chamado de <i>coerção implicita de tipo</i>. **Coerção** é converter de um tipo em outro.
 
-In this example, JavaScript converts the number `1` into a string, in order for the function to make sense and return a value. During the addition of a numeric type (`1`) and a string type (`'2'`), the number is treated as a string. We can concatenate strings like `"Hello" + "World"`, so what's happening here is `"1" + "2"` which returns `"12"`.
+Nesse exemplo, JavaScript converte o número `1` em uma string, para que a função faça sentido e retorne um valor. Durante a adição de um tipo numérico (`1`) e uma string (`'2'`), o número é tratado como uma string. Podemos concatenar strings como `"Hello" + "World"`, então o que está acontecendo aqui é `"1" + "2"` que retorna `"12"`.
 
 </p>
 </details>
 
 ---
 
-###### 16. What's the output?
+###### 16. Qual é a saída?
 
 ```javascript
 let number = 0;
@@ -495,29 +496,29 @@ console.log(number);
 - C: `0` `2` `2`
 - D: `0` `1` `2`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>Resposta</b></summary>
 <p>
 
-#### Answer: C
+#### Resposta: C
 
-The **postfix** unary operator `++`:
+O operador unário no **sufixo**  `++`:
 
-1. Returns the value (this returns `0`)
-2. Increments the value (number is now `1`)
+1. Retorna o valor (retorna o valor `0`)
+2. Incrementa o valor (numero agora é `1`)
 
-The **prefix** unary operator `++`:
+O operador unário **prefixo** `++`:
 
-1. Increments the value (number is now `2`)
-2. Returns the value (this returns `2`)
+1. Incrementa o valor (numero agora é `2`)
+2. Retorna o valor (Retorna o valor `2`)
 
-This returns `0 2 2`.
+Isso retorna `0 2 2`.
 
 </p>
 </details>
 
 ---
 
-###### 17. What's the output?
+###### 17. Qual é a saída?
 
 ```javascript
 function getPersonInfo(one, two, three) {
@@ -536,19 +537,19 @@ getPersonInfo`${person} is ${age} years old`;
 - B: `["", " is ", " years old"]` `"Lydia"` `21`
 - C: `"Lydia"` `["", " is ", " years old"]` `21`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>Resposta</b></summary>
 <p>
 
-#### Answer: B
+#### Resposta: B
 
-If you use tagged template literals, the value of the first argument is always an array of the string values. The remaining arguments get the values of the passed expressions!
+Se usamos template literals marcadas, ou tagged template literals, o valor do primeiro argumento é sempre um array com a string, separada pelos tagged template liberals. Os argumentos restantes recebem os valores das expressões passadas!
 
 </p>
 </details>
 
 ---
 
-###### 18. What's the output?
+###### 18. Qual é a saída?
 
 ```javascript
 function checkAge(data) {
@@ -568,23 +569,23 @@ checkAge({ age: 18 });
 - B: `You are still an adult.`
 - C: `Hmm.. You don't have an age I guess`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>Resposta</b></summary>
 <p>
 
-#### Answer: C
+#### Resposta: C
 
-When testing equality, primitives are compared by their _value_, while objects are compared by their _reference_. JavaScript checks if the objects have a reference to the same location in memory.
+Quando testamos igualdade, primitivos são comparados por seus _valores_, enquanto objetos são comparados por suas  _referências_. O JavaScript confere se os objetos tem a referência para o mesmo local na memória.
 
-The two objects that we are comparing don't have that: the object we passed as a parameter refers to a different location in memory than the object we used in order to check equality.
+Os dois objetos que estamos comparando não são assim: O objeto que passamos como parâmetro faz referência a uma posição na memória diferente daquela que o objeto que usamos para conferir a igualdade.
 
-This is why both `{ age: 18 } === { age: 18 }` and `{ age: 18 } == { age: 18 }` return `false`.
+É por isso que ambos `{ age: 18 } === { age: 18 }` E `{ age: 18 } == { age: 18 }` retornam `false`.
 
 </p>
 </details>
 
 ---
 
-###### 19. What's the output?
+###### 19. Qual é a saída?
 
 ```javascript
 function getAge(...args) {
@@ -599,19 +600,19 @@ getAge(21);
 - C: `"object"`
 - D: `"NaN"`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>Resposta</b></summary>
 <p>
 
-#### Answer: C
+#### Resposta: C
 
-The spread operator (`...args`.) returns an array with arguments. An array is an object, so `typeof args` returns `"object"`
+O operador _spread_ (`...args`.) retorna um array com os argumentos. Um array é um objeto, então `typeof args` retorna `"object"`
 
 </p>
 </details>
 
 ---
 
-###### 20. What's the output?
+###### 20. Qual é a saída?
 
 ```javascript
 function getAge() {
@@ -628,19 +629,19 @@ getAge();
 - C: `ReferenceError`
 - D: `TypeError`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>Resposta</b></summary>
 <p>
 
-#### Answer: C
+#### Resposta: C
 
-With `"use strict"`, you can make sure that you don't accidentally declare global variables. We never declared the variable `age`, and since we use `"use strict"`, it will throw a reference error. If we didn't use `"use strict"`, it would have worked, since the property `age` would have gotten added to the global object.
+Com `"use strict"`, você pode ter certeza que não declarou variáveis globais. Nunca declaramos a variável `age`, e já que usamos `"use strict"`, ira gerar um erro de referência. Se não tivéssemos usado `"use strict"`, teria funcionado, uma vez que a propriedade `age` teria sido adicionada ao objeto global.
 
 </p>
 </details>
 
 ---
 
-###### 21. What's value of `sum`?
+###### 21. Qual o valor de `sum`?
 
 ```javascript
 const sum = eval("10*10+5");
@@ -651,44 +652,44 @@ const sum = eval("10*10+5");
 - C: `TypeError`
 - D: `"10*10+5"`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>Resposta</b></summary>
 <p>
 
-#### Answer: A
+#### Resposta: A
 
-`eval` evaluates codes that's passed as a string. If it's an expression, like in this case, it evaluates the expression. The expression is `10 * 10 + 5`. This returns the number `105`.
+`eval` executa o código mesmo se passado como string. Se é uma expressão, como nesse caso, ele cálcula a expressão. A expressão é `10 * 10 + 5`. Isso retorna o número `105`.
 
 </p>
 </details>
 
 ---
 
-###### 22. How long is cool_secret accessible?
+###### 22. Por quanto tempo cool_secret é acessível?
 
 ```javascript
 sessionStorage.setItem("cool_secret", 123);
 ```
 
-- A: Forever, the data doesn't get lost.
-- B: When the user closes the tab.
-- C: When the user closes the entire browser, not only the tab.
-- D: When the user shuts off their computer.
+- A: Sempre, o dado não é perdido.
+- B: Quando o usuário fechar a guia.
+- C: Quando o usuário fechar o navegador inteiro.
+- D: Quando o usuário desligar o computador.
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>Resposta</b></summary>
 <p>
 
-#### Answer: B
+#### Resposta: B
 
-The data stored in `sessionStorage` is removed after closing the _tab_.
+Dados guardados em `sessionStorage` são removidos depois de fechar a _guia_.
 
-If you used `localStorage`, the data would've been there forever, unless for example `localStorage.clear()` is invoked.
+Se usássemos `localStorage`, o dado seria guardado para sempre, exceto se `localStorage.clear()` fosse chamado.
 
 </p>
 </details>
 
 ---
 
-###### 23. What's the output?
+###### 23. Qual é a saída?
 
 ```javascript
 var num = 8;
@@ -702,21 +703,21 @@ console.log(num);
 - C: `SyntaxError`
 - D: `ReferenceError`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>Resposta</b></summary>
 <p>
 
-#### Answer: B
+#### Resposta: B
 
-With the `var` keyword, you can declare multiple variables with the same name. The variable will then hold the latest value.
+Coma a palavra-chave `var`, você pode declarar várias variáveis com o mesmo nome. A variável vai guardar o último valor.
 
-You cannot do this with `let` or `const` since they're block-scoped.
+Você não pode fazer isso com `let` ou `const` uma vez que eles conferem o bloco de escopo em que estão inseridos.
 
 </p>
 </details>
 
 ---
 
-###### 24. What's the output?
+###### 24. Qual é a saída?
 
 ```javascript
 const obj = { 1: "a", 2: "b", 3: "c" };
@@ -733,21 +734,21 @@ set.has(1);
 - C: `true` `true` `false` `true`
 - D: `true` `true` `true` `true`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>Resposta</b></summary>
 <p>
 
-#### Answer: C
+#### Resposta: C
 
-All object keys (excluding Symbols) are strings under the hood, even if you don't type it yourself as a string. This is why `obj.hasOwnProperty('1')` also returns true.
+Todas as chaves de objetos (exceto símbolos) são strings debaixo do capô, mesmo que você não digite como uma string. É por isso que `obj.hasOwnProperty('1')` também retorna `true`.
 
-It doesn't work that way for a set. There is no `'1'` in our set: `set.has('1')` returns `false`. It has the numeric type `1`, `set.has(1)` returns `true`.
+Não funciona assim para `Set`. Não tem um `'1'` no nosso set: `set.has('1')` retorna `false`. Temos o tipo número `1`, então `set.has(1)` retorna `true`.
 
 </p>
 </details>
 
 ---
 
-###### 25. What's the output?
+###### 25. Qual é a saída?
 
 ```javascript
 const obj = { a: "one", b: "two", a: "three" };
@@ -759,37 +760,37 @@ console.log(obj);
 - C: `{ a: "three", b: "two" }`
 - D: `SyntaxError`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>Resposta</b></summary>
 <p>
 
-#### Answer: C
+#### Resposta: C
 
-If you have two keys with the same name, the key will be replaced. It will still be in its first position, but with the last specified value.
+Se temos duas chaves com o mesmo nome, a última irá substituir a primeira. Ainda vai estar na primeira posição, mas com o último valor específicado.
 
 </p>
 </details>
 
 ---
 
-###### 26. The JavaScript global execution context creates two things for you: the global object, and the "this" keyword.
+###### 26. O contexto glogal de execução do JavaScrit cria duas coisas para você: O objeto glogal, e a palavra-chave `this`.
 
-- A: true
-- B: false
-- C: it depends
+- A: Verdadeiro
+- B: Falso 
+- C: Depende
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>Resposta</b></summary>
 <p>
 
-#### Answer: A
+#### Resposta: A
 
-The base execution context is the global execution context: it's what's accessible everywhere in your code.
+O contexto base de execução é o contexto glogal: É aquilo que está acessível em qualquer lugar do código.
 
 </p>
 </details>
 
 ---
 
-###### 27. What's the output?
+###### 27. Qual é a saída?
 
 ```javascript
 for (let i = 1; i < 5; i++) {
@@ -803,19 +804,19 @@ for (let i = 1; i < 5; i++) {
 - C: `1` `2` `4`
 - D: `1` `3` `4`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>Resposta</b></summary>
 <p>
 
-#### Answer: C
+#### Resposta: C
 
-The `continue` statement skips an iteration if a certain condition returns `true`.
+A palavra-chave `continue` pula uma iteração se a condição retorna `true`.
 
 </p>
 </details>
 
 ---
 
-###### 28. What's the output?
+###### 28. Qual é a saída?
 
 ```javascript
 String.prototype.giveLydiaPizza = () => {
@@ -832,19 +833,19 @@ name.giveLydiaPizza();
 - C: `SyntaxError`
 - D: `undefined`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>Resposta</b></summary>
 <p>
 
-#### Answer: A
+#### Resposta: A
 
-`String` is a built-in constructor, which we can add properties to. I just added a method to its prototype. Primitive strings are automatically converted into a string object, generated by the string prototype function. So, all strings (string objects) have access to that method!
+`String` é um construtor embutido, no qual podemos adicionar propriedades. Nesse caso adicionamos um método ao seu protótipo. Tipos primitivos `string` são automaticamente convertidos em um objeto string, gerado pelo construtor `String`. Assim, todas as strings (que são objetos string) tem acesso ao método.
 
 </p>
 </details>
 
 ---
 
-###### 29. What's the output?
+###### 29. Qual é a saída?
 
 ```javascript
 const a = {};
@@ -862,23 +863,23 @@ console.log(a[b]);
 - C: `undefined`
 - D: `ReferenceError`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>Resposta</b></summary>
 <p>
 
-#### Answer: B
+#### Resposta: B
 
-Object keys are automatically converted into strings. We are trying to set an object as a key to object `a`, with the value of `123`.
+Chaves de objeto são automaticamente convertidas em strings. Estamos tentando usar um objeto como chave do objeto `a`, com o valor de `123`.
 
-However, when we stringify an object, it becomes `"[Object object]"`. So what we are saying here, is that `a["Object object"] = 123`. Then, we can try to do the same again. `c` is another object that we are implicitly stringifying. So then, `a["Object object"] = 456`.
+Contudo, quando transformamos um objeto em string, ele vira um `"[Object object]"`. Então, o que estamos afirmando é `a["Object object"] = 123`. Após, tentamos a mesma coisa. `c` é outro objeto que (implicitamente) convertemos para string. Então, temos `a["Object object"] = 456`.
 
-Then, we log `a[b]`, which is actually `a["Object object"]`. We just set that to `456`, so it returns `456`.
+Então, fazemos o log de `a[b]`, o que na verdade é `a["Object object"]`. Acabmos de definir esse valor, como `456`, e é isso que ele retorna.
 
 </p>
 </details>
 
 ---
 
-###### 30. What's the output?
+###### 30. Qual é a saída?
 
 ```javascript
 const foo = () => console.log("First");
@@ -895,43 +896,43 @@ baz();
 - C: `Second` `First` `Third`
 - D: `Second` `Third` `First`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>Resposta</b></summary>
 <p>
 
-#### Answer: B
+#### Resposta: B
 
-We have a `setTimeout` function and invoked it first. Yet, it was logged last.
+Temos a função `setTimeout` e a invocamos por primeiro. Ainda assim, apareceu no log por último.
 
-This is because in browsers, we don't just have the runtime engine, we also have something called a `WebAPI`. The `WebAPI` gives us the `setTimeout` function to start with, and for example the DOM.
+Isso acontece pois nos navegadores, não temos apenas o nosso mecanismo de execução (runtime engine), temos também algo chamado `WebAPI`. A `WebAPI` nos da coisas como a `setTimeout` e o DOM.
 
-After the _callback_ is pushed to the WebAPI, the `setTimeout` function itself (but not the callback!) is popped off the stack.
+Depois que a função de retorno (callback) é enviada para a `WebAPI`, a função `setTimeout` (mas não seu retorno ou callback) são enviadas para fora do stack.
 
 <img src="https://i.imgur.com/X5wsHOg.png" width="200">
 
-Now, `foo` gets invoked, and `"First"` is being logged.
+Agora, `foo` é chamada, e `"First"` é adicionado ao log.
 
 <img src="https://i.imgur.com/Pvc0dGq.png" width="200">
 
-`foo` is popped off the stack, and `baz` gets invoked. `"Third"` gets logged.
+`foo` é evniada para fora do stack, e `baz` é chamada. `"Third"` é adicionado ao log.
 
 <img src="https://i.imgur.com/WhA2bCP.png" width="200">
 
-The WebAPI can't just add stuff to the stack whenever it's ready. Instead, it pushes the callback function to something called the _queue_.
+A `WebAPI` não pode simplesmente adicionar coisas ao stack sempre que ficam prontas. Ao invés, disso, todo retorno que fica pronto é enviado para algo chamado _queue_.
 
 <img src="https://i.imgur.com/NSnDZmU.png" width="200">
 
-This is where an event loop starts to work. An **event loop** looks at the stack and task queue. If the stack is empty, it takes the first thing on the queue and pushes it onto the stack.
+É aqui que um laço de evento começa a ocorrer. Um **laço de evento** confere o stack e o _queue_. Se o stack está livre, pega a primeira coisa que estiver na queue e coloca no stack.
 
 <img src="https://i.imgur.com/uyiScAI.png" width="200">
 
-`bar` gets invoked, `"Second"` gets logged, and it's popped off the stack.
+`bar` é chamada, `"Second"` é adicionado ao log, e é enviado para fora do stack.
 
 </p>
 </details>
 
 ---
 
-###### 31. What is the event.target when clicking the button?
+###### 31. qual é o event.target quando clicamos no botão?
 
 ```html
 <div onclick="console.log('first div')">
@@ -943,24 +944,24 @@ This is where an event loop starts to work. An **event loop** looks at the stack
 </div>
 ```
 
-- A: Outer `div`
-- B: Inner `div`
+- A: A `div` mais externa
+- B: A `div` mais interna
 - C: `button`
-- D: An array of all nested elements.
+- D: Um array dos elementos aninhandos.
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>Resposta</b></summary>
 <p>
 
-#### Answer: C
+#### Resposta: C
 
-The deepest nested element that caused the event is the target of the event. You can stop bubbling by `event.stopPropagation`
+O elemento mais interno no aninhamento que causou o evento é o alvo do evento. Você pode parar o _bubbling_ com `event.stopPropagation`. 
 
 </p>
 </details>
 
 ---
 
-###### 32. When you click the paragraph, what's the logged output?
+###### 32. Quando você clica no parágrafo, O que é adicionado ao log?
 
 ```html
 <div onclick="console.log('div')">
@@ -975,19 +976,19 @@ The deepest nested element that caused the event is the target of the event. You
 - C: `p`
 - D: `div`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>Resposta</b></summary>
 <p>
 
-#### Answer: A
+#### Resposta: A
 
-If we click `p`, we see two logs: `p` and `div`. During event propagation, there are 3 phases: capturing, target, and bubbling. By default, event handlers are executed in the bubbling phase (unless you set `useCapture` to `true`). It goes from the deepest nested element outwards.
+Se clicarmos em `p`, veremos dois itens adicionaos ao log: `p` e `div`. Durante a propagação de eventos, existem 3 fases: capturar, adquirir o _target_, e o bubbling. Por padrão, manipuladores de eventos são executados junto a fase de bubbling (a não ser que você marque `useCapture` como `true`). Percorre do elemento aninhando mais interno, propagando para fora.
 
 </p>
 </details>
 
 ---
 
-###### 33. What's the output?
+###### 33. Qual é a saída?
 
 ```javascript
 const person = { name: "Lydia" };
@@ -1005,21 +1006,21 @@ sayHi.bind(person, 21);
 - C: `Lydia is 21` `Lydia is 21`
 - D: `Lydia is 21` `function`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>Resposta</b></summary>
 <p>
 
-#### Answer: D
+#### Resposta: D
 
-With both, we can pass the object to which we want the `this` keyword to refer to. However, `.call` is also _executed immediately_!
+Com ambos, podemos passar o objeto que queremos que o `this`faça referência. Contudo, `.call` é _executado imediatamente_!
 
-`.bind.` returns a _copy_ of the function, but with a bound context! It is not executed immediately.
+`.bind.` retorna uma _cópia_ da função, mas com seu contexto vinculado à cópia. E não é executado imediatamente.
 
 </p>
 </details>
 
 ---
 
-###### 34. What's the output?
+###### 34. Qual é a saída?
 
 ```javascript
 function sayHi() {
@@ -1034,21 +1035,21 @@ typeof sayHi();
 - C: `"function"`
 - D: `"undefined"`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>Resposta</b></summary>
 <p>
 
-#### Answer: B
+#### Resposta: B
 
-The `sayHi` function returns the returned value of the immediately invoked function (IIFE). This function returned `0`, which is type `"number"`.
+A função `sayHi` retorna o valor retornado pela arrow function pois ela é uma IIFE (Immediately Invoked Function Expression ou Expressão de Função Invocada Imediatamente). Essa IIFE retornou `0`, que é do tipo `"number"`.
 
-FYI: there are only 7 built-in types: `null`, `undefined`, `boolean`, `number`, `string`, `object`, and `symbol`. `"function"` is not a type, since functions are objects, it's of type `"object"`.
+Para saber mais: Só existem 7 tipos já definidos: `null`, `undefined`, `boolean`, `number`, `string`, `object`, e `symbol`. `"function"` não é um tipo, uma vez que  funções são objetos, elas são do tipo `"object"`.
 
 </p>
 </details>
 
 ---
 
-###### 35. Which of these values are falsy?
+###### 35. Qual desses tem valor falsy?
 
 ```javascript
 0;
@@ -1062,30 +1063,30 @@ undefined;
 - A: `0`, `''`, `undefined`
 - B: `0`, `new Number(0)`, `''`, `new Boolean(false)`, `undefined`
 - C: `0`, `''`, `new Boolean(false)`, `undefined`
-- D: All of them are falsy
+- D: Todos são falsy
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>Resposta</b></summary>
 <p>
 
-#### Answer: A
+#### Resposta: A
 
-There are only six falsy values:
+Existem somente seis valores falsy:
 
 - `undefined`
 - `null`
 - `NaN`
 - `0`
-- `''` (empty string)
+- `''` (string vazia)
 - `false`
 
-Function constructors, like `new Number` and `new Boolean` are truthy.
+Funções construtoras, como `new Number` e `new Boolean` são truthy.
 
 </p>
 </details>
 
 ---
 
-###### 36. What's the output?
+###### 36. Qual é a sáida?
 
 ```javascript
 console.log(typeof typeof 1);
@@ -1096,20 +1097,20 @@ console.log(typeof typeof 1);
 - C: `"object"`
 - D: `"undefined"`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>Resposta</b></summary>
 <p>
 
-#### Answer: B
+#### Resposta: B
 
-`typeof 1` returns `"number"`.
-`typeof "number"` returns `"string"`
+`typeof 1` retorna `"number"`.
+`typeof "number"` retorna `"string"`
 
 </p>
 </details>
 
 ---
 
-###### 37. What's the output?
+###### 37. Qual é a saída?
 
 ```javascript
 const numbers = [1, 2, 3];
@@ -1159,46 +1160,46 @@ depending on where you run it (it's different for every browser, node, etc.)
 - C: `1` `1` `2`
 - D: `1` `undefined` `undefined`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>Resposta</b></summary>
 <p>
 
-#### Answer: A
+#### Resposta: A
 
-The `catch` block receives the argument `x`. This is not the same `x` as the variable when we pass arguments. This variable `x` is block-scoped.
+O bloco do `catch` recebe o argumento `x`. Esse não é o mesmo `x` da variável de quando estamos passando os argumentos. A variável `x` é de escopo do seu bloco.
 
-Later, we set this block-scoped variable equal to `1`, and set the value of the variable `y`. Now, we log the block-scoped variable `x`, which is equal to `1`.
+Depois, definimos essa variável, dentro do seu bloco, para valor `1`, e definimos o valor de `y`, que pertence a um bloco maior. Agora, nos adicionamos ao log o valor de `x`, que dentro desse bloco tem valor `1`.
 
-Outside of the `catch` block, `x` is still `undefined`, and `y` is `2`. When we want to `console.log(x)` outside of the `catch` block, it returns `undefined`, and `y` returns `2`.
+Fora do bloco do `catch`. `x` ainda é `undefined`, e `y` ainda é `2`. Quando tentamos usar `console.log(x)` fora do bloco do `catch`, isso retorna `undefined`, e `y` retorna `2`.
 
 </p>
 </details>
 
 ---
 
-###### 39. Everything in JavaScript is either a...
+###### 39. Tudo em JavaScript ou é um...
 
-- A: primitive or object
-- B: function or object
-- C: trick question! only objects
-- D: number or object
+- A: primitivo ou um objeto
+- B: função ou um object
+- C: Pegadinha! Somente objetos
+- D: número ou um objeto
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>Resposta</b></summary>
 <p>
 
-#### Answer: A
+#### Resposta: A
 
-JavaScript only has primitive types and objects.
+JavaScript tem somente tipos primitivos e objetos.
 
-Primitive types are `boolean`, `null`, `undefined`, `bigint`, `number`, `string`, and `symbol`.
+Tipos primitivos são `boolean`, `null`, `undefined`, `bigint`, `number`, `string`, e `symbol`.
 
-What differentiates a primitive from an object is that primitives do not have any properties or methods; however, you'll note that `'foo'.toUpperCase()` evaluates to `'FOO'` and does not result in a `TypeError`. This is because when you try to access a property or method on a primitive like a string, JavaScript will implicity wrap the object using one of the wrapper classes, i.e. `String`, and then immediately discard the wrapper after the expression evaluates. All primitives except for `null` and `undefined` exhibit this behaviour.
+O que diferencia um primitivo de um objeto é que primitivos não métodos ou propriedades. Contudo, se você está atento vai lembrar que `'foo'.toUpperCase()` retorna `'FOO'` e não resulta em um `TypeError`. Isso acontece pois quando você tenta acessar uma propriedade ou método em um primitivo como, por exemplo, uma string, JavaScript vai transformar esse primitivo em objeto usando um _wrapper_, nesse caso o `String`, e discarta o wrapper imediatamente após executar o método ou propriedade. Todos os primitivos, com exceção de `null` e `undefined` exibem esse comportamento.
 
 </p>
 </details>
 
 ---
 
-###### 40. What's the output?
+###### 40. Qual é a saída?
 
 ```javascript
 [[0, 1], [2, 3]].reduce(
@@ -1214,21 +1215,21 @@ What differentiates a primitive from an object is that primitives do not have an
 - C: `[1, 2, 0, 1, 2, 3]`
 - D: `[1, 2, 6]`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>Resposta</b></summary>
 <p>
 
-#### Answer: C
+#### Resposta: C
 
-`[1, 2]` is our initial value. This is the value we start with, and the value of the very first `acc`. During the first round, `acc` is `[1,2]`, and `cur` is `[0, 1]`. We concatenate them, which results in `[1, 2, 0, 1]`.
+`[1, 2]` é nosso valor inicial. É o valor que começamos, e portanto o valor do primeiro `acc`. Durante a primeira iteração, `acc` é `[1,2]`, e `cur` é `[0, 1]`. Nós concatemos ambos, o que resulta em `[1, 2, 0, 1]`.
 
-Then, `[1, 2, 0, 1]` is `acc` and `[2, 3]` is `cur`. We concatenate them, and get `[1, 2, 0, 1, 2, 3]`
+Então, `[1, 2, 0, 1]` é `acc` e `[2, 3]` é o `cur`. Concatenamos novamente, e chegamos em `[1, 2, 0, 1, 2, 3]`.
 
 </p>
 </details>
 
 ---
 
-###### 41. What's the output?
+###### 41. Qual é a saída?
 
 ```javascript
 !!null;
@@ -1241,46 +1242,46 @@ Then, `[1, 2, 0, 1]` is `acc` and `[2, 3]` is `cur`. We concatenate them, and ge
 - C: `false` `true` `true`
 - D: `true` `true` `false`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>Resposta</b></summary>
 <p>
 
-#### Answer: B
+#### Resposta: B
 
-`null` is falsy. `!null` returns `true`. `!true` returns `false`.
+`null` é falsy. `!null` retorna `true`. `!true` retorna `false`.
 
-`""` is falsy. `!""` returns `true`. `!true` returns `false`.
+`""` é falsy. `!""` retorna `true`. `!true` retorna `false`.
 
-`1` is truthy. `!1` returns `false`. `!false` returns `true`.
+`1` é truthy. `!1` retorna `false`. `!false` retorna `true`.
 
 </p>
 </details>
 
 ---
 
-###### 42. What does the `setInterval` method return in the browser?
+###### 42. O que o método `setInterval` retorna no navegador?
 
 ```javascript
 setInterval(() => console.log("Hi"), 1000);
 ```
 
-- A: a unique id
-- B: the amount of milliseconds specified
-- C: the passed function
+- A: um id único
+- B: a quantidade de  millisegundos especificada
+- C: a função passada
 - D: `undefined`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>Resposta</b></summary>
 <p>
 
-#### Answer: A
+#### Resposta: A
 
-It returns a unique id. This id can be used to clear that interval with the `clearInterval()` function.
+Retorna um id único. Esse id pode ser usado para limpar o intervalo com a função `clearInterval()`.
 
 </p>
 </details>
 
 ---
 
-###### 43. What does this return?
+###### 43. Qual é o retorno?
 
 ```javascript
 [..."Lydia"];
@@ -1291,12 +1292,12 @@ It returns a unique id. This id can be used to clear that interval with the `cle
 - C: `[[], "Lydia"]`
 - D: `[["L", "y", "d", "i", "a"]]`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>Resposta</b></summary>
 <p>
 
-#### Answer: A
+#### Resposta: A
 
-A string is an iterable. The spread operator maps every character of an iterable to one element.
+Strings são iteráveis. O operador do spread `...` mapeia todo caractére de um iterável para um elemento.
 
 </p>
 </details>
