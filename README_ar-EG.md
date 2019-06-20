@@ -1,4 +1,4 @@
-# قائمة اسئلة جافاسكربت متقدمة
+﻿# قائمة اسئلة جافاسكربت متقدمة
 أنا بنشر أسئلة اختر جافاسكربت كل يوم على [انستجرام](https://www.instagram.com/theavocoder) واللي بدوري هنشرهم هنا
 
 من البسيط للمتطور: اختبر نفسك في الجافاسكربت, افتكر حاجات كنت ناسيها, او جهز نفسك لمقابلة عمل جايه! :muscle: :rocket: 
@@ -39,7 +39,7 @@ sayHi();
 
 ---
 
-###### 2. What's the output?
+###### 2. ايه اللي هيتطبع؟
 
 ```javascript
 for (var i = 0; i < 3; i++) {
@@ -51,25 +51,25 @@ for (let i = 0; i < 3; i++) {
 }
 ```
 
-- A: `0 1 2` and `0 1 2`
-- B: `0 1 2` and `3 3 3`
-- C: `3 3 3` and `0 1 2`
+أ- `0 1 2` و `0 1 2` 
+ب- `0 1 2` و `3 3 3`
+ج- `3 3 3` و `0 1 2`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>الاجابة</b></summary>
 <p>
 
-#### Answer: C
+#### الاجابة: ج
 
-Because of the event queue in JavaScript, the `setTimeout` callback function is called _after_ the loop has been executed. Since the variable `i` in the first loop was declared using the `var` keyword, this value was global. During the loop, we incremented the value of `i` by `1` each time, using the unary operator `++`. By the time the `setTimeout` callback function was invoked, `i` was equal to `3` in the first example.
+الفنكشن اللي`setTimeout` بتشغلها بيتم تشغليها _بعد_ ما اللووب تخلص بسبب قائمة الاحداث `event queue` في جافاسكربت. بما ان اول لووب اتعملت كان المتغير بتاعها معمول بكلمة `var` اذا كان `global` وبالتالي في اللوب احنا كل شوية كنا بنزود `i` لحد ما وصل ل 3 و _بعد_ كده قامت الفنكشن اللي جوا `setTimeout` اشتغلت. ده كده اول لووب. 
 
-In the second loop, the variable `i` was declared using the `let` keyword: variables declared with the `let` (and `const`) keyword are block-scoped (a block is anything between `{ }`). During each iteration, `i` will have a new value, and each value is scoped inside the loop.
+اما بقى في تاني لووب المتغير `i` كان معمول بكلمة `let` و بالتالي المنظور بتاعه `scope` محدد بالاقواس المحيطة بيه `block` وبالتالي في كل مره اللوب هتزيد هيكون في قيمة جديدة تماماً للمتغير `i` و كل قيمة من دول موجوده جوا ال`block scope` اللي هي حصلت فيه, و بالتالي هيبقى كأن البرنامج شايف 3 قيم للمتغير `i` في 3 اماكن مختلفه!
 
 </p>
 </details>
 
 ---
 
-###### 3. What's the output?
+###### 3. ايه اللي هيتطبع؟
 
 ```javascript
 const shape = {
@@ -84,22 +84,21 @@ shape.diameter();
 shape.perimeter();
 ```
 
-- A: `20` and `62.83185307179586`
-- B: `20` and `NaN`
-- C: `20` and `63`
-- D: `NaN` and `63`
+أ- `20` و `62.83185307179586`
+ب- `20` و `NaN`
+ج- `20` و `63`
+د- `NaN` و `63`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>الاجابة</b></summary>
 <p>
 
-#### Answer: B
+#### الاجابة: ب
 
-Note that the value of `diameter` is a regular function, whereas the value of `perimeter` is an arrow function.
+خلي بالك من نوعية الفنكشن `diameter` و هي `regular`و نوعية الفنكشن `perimeter` واللي هي `arrow function`.
 
-With arrow functions, the `this` keyword refers to its current surrounding scope, unlike regular functions! This means that when we call `perimeter`, it doesn't refer to the shape object, but to its surrounding scope (window for example).
+في النوع الاخير, الكلمة الدالة `this` بتشاور الى المحيط بالدالة دي. وده معناه اننا لما بنشغل `perimeter` احنا مش بنشاور ب`this` على `shape` بل بنشاور على المحيط و هو `window` مثلاً! 
 
-There is no value `radius` on that object, which returns `undefined`.
-
+وبالتالي مفيش قيمة `radius` في النطاق ده, و بالتالي البرنامج بيدينا `undefined`.
 </p>
 </details>
 
