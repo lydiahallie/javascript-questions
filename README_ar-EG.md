@@ -11,6 +11,8 @@
 
 ###### 1. ايه اللي هيتطبع؟
 
+ <div dir="ltr">
+
 ```javascript
 function sayHi() {
   console.log(name);
@@ -21,6 +23,7 @@ function sayHi() {
 
 sayHi();
 ```
+</div>
 
 - أ: `Lydia` و `undefined`
 - ب: `Lydia` و `ReferenceError`
