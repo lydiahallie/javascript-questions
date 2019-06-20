@@ -45,7 +45,8 @@ sayHi();
 ---
 
 ###### 2. ايه اللي هيتطبع؟
-
+<div dir="ltr">
+  
 ```javascript
 for (var i = 0; i < 3; i++) {
   setTimeout(() => console.log(i), 1);
@@ -55,6 +56,7 @@ for (let i = 0; i < 3; i++) {
   setTimeout(() => console.log(i), 1);
 }
 ```
+</div>
 
 - أ: `0 1 2` و `0 1 2` 
 - ب: `0 1 2` و `3 3 3`
@@ -75,7 +77,8 @@ for (let i = 0; i < 3; i++) {
 ---
 
 ###### 3. ايه اللي هيتطبع؟
-
+<div dir="ltr">
+  
 ```javascript
 const shape = {
   radius: 10,
@@ -88,6 +91,7 @@ const shape = {
 shape.diameter();
 shape.perimeter();
 ```
+</div>
 
 - أ: `20` و `62.83185307179586`
 - ب: `20` و `NaN`
