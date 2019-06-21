@@ -164,9 +164,9 @@ En JavaScript, todas las _keys_ son cadenas (a menos que sea un símbolo). A pes
 
 JavaScript interpreta declaraciones. Cuando usamos la notación de corchetes, ve el corchete de apertura `[` y continúa hasta que encuentra el corchete de cierre `]`. Solo de esta manera se evaluará la afirmación.
 
-`mouse [bird.size]`: Primero evalúa `bird.size`, que es` "small" `. `mouse [" small "]` devuelve `true`
+`mouse [bird.size]`: Primero evalúa `bird.size`, que es` "small" `. `mouse ["small"]` devuelve `true`
 
-Sin embargo, con la notación de puntos, esto no sucede. `mouse` no tiene una clave llamada` bird`, lo que significa que `mouse.bird` es` undefined`. Luego, pedimos el `tamaño` usando la notación de puntos:` mouse.bird.size`. Como `mouse.bird` es` undefined`, en realidad estamos preguntando `undefined.size`. Esto no es válido y generará un error similar al `No se puede leer la propiedad" tamaño "de undefined`
+Sin embargo, con la notación de puntos, esto no sucede. `mouse` no tiene una clave llamada` bird`, lo que significa que `mouse.bird` es` undefined`. Luego, pedimos el `tamaño` usando la notación de puntos:` mouse.bird.size`. Como `mouse.bird` es` undefined`, en realidad estamos preguntando `undefined.size`. Esto no es válido y generará un error similar `al Cannot read property "size" of undefined`
 
 </p>
 </details>
@@ -194,7 +194,7 @@ console.log(d.greeting);
 
 #### Respuesta correcta: A
 
-En JavaScript, TODOS los objetos interactúan por referencia, de modo que cuando se establecen iguales o pasan a una función, todos apuntan a la misma ubicación, de modo que cuando cambia un objeto, los cambia a todos.
+En JavaScript, TODOS los objetos interactúan por referencia, de modo que cuando se establecen iguales o pasan a una función, todos apuntan a la misma ubicación. De esta manera cuando cambia un objeto, los cambia a todos.
 
 Primero, la variable `c` tiene un valor para un objeto. Más tarde, asignamos `d` con la misma referencia que` c` tiene al objeto.
 
@@ -233,7 +233,7 @@ console.log(b === c);
 
 Cuando usamos el operador `==`, solo verifica si tiene el mismo _valor_. Ambos tienen el valor de `3`, por lo que devuelve` true`.
 
-Sin embargo, cuando usamos el operador `===`, tanto el valor _ como el tipo deben ser iguales. No es: `new Number ()` no es un número, es un ** objeto **. Ambos devuelven "falso".
+Sin embargo, cuando usamos el operador `===`, tanto el **valor** como el **tipo** deben ser iguales. Entonces: `new Number ()` no es un número, es un **objeto**. Ambos devuelven "false".
 
 </p>
 </details>
@@ -268,7 +268,7 @@ freddie.colorChange("orange");
 
 #### Respuesta correcta: D
 
-La función `colorChange` es estática. Los métodos estáticos están diseñados para _vivir_ solo en el constructor en el que se crean y no se pueden transmitir a ningún elemento secundario. Como `freddie` es un niño, la función no se transmite y no está disponible en la instancia de` freddie`: por lo tanto se lanza un `TypeError`.
+La función `colorChange` es estática. Los métodos estáticos están diseñados para _vivir_ solo en el constructor en el que se crean y no se pueden transmitir a ningún elemento secundario. Como `freddie` es un niño, la función no se transmite y no está disponible en la instancia de `freddie`: por lo tanto se lanza un `TypeError`.
 
 </p>
 </details>
@@ -292,7 +292,7 @@ console.log(greetign);
 
 #### Respuesta correcta: A
 
-Lo que hace JS aquí es registrar el objeto debido a que acabamos de crear un objeto vacío en el objeto global. Cuando escribimos erróneamente `greeting` como` greetign`, el intérprete de JS ve esto como `global.greetign = {}` (o `window.greetign = {}` en un navegador).
+Lo que hace JS aquí es registrar el objeto debido a que acabamos de crear un objeto vacío en el objeto global. Cuando escribimos erróneamente `greeting` como `greetign`, el intérprete de JS ve esto como `global.greetign = {}` (o `window.greetign = {}` en un navegador).
 
 Para evitar esto, podemos usar el ["uso estricto"](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Modo_estricto). Esto asegura que se haya declarado una variable antes de establecerla igual a cualquier cosa.
 
@@ -321,7 +321,7 @@ bark.animal = "dog";
 
 #### Respuesta correcta: A
 
-Esto es perfectamente posible en JavaScript, porque las funciones son objetos (Recuerda: Todo aparte de los tipos primitivos son objetos en JS)
+Esto es perfectamente posible en JavaScript, porque las funciones son objetos (Recuerda: **todo** aparte de los tipos primitivos son objetos en JS)
 
 Una función es un tipo especial de objeto. El código que escribes tú mismo no es la función real. La función es un objeto con propiedades. Esta propiedad es invocable.
 
@@ -1183,7 +1183,7 @@ JavaScript solo tiene tipos y objetos primitivos.
 
 Los tipos primitivos son `boolean`, `null`, `undefined`, `bigint`, `number`, `string` y `symbol`.
 
-Lo que diferencia a una tipo primitivo de un objeto es que los primeros no tienen propiedades o métodos; sin embargo, se puede ver que `'foo'.toUpperCase ()` se evalúa como `' FOO'` y no da como resultado un` TypeError`. Esto se debe a que cuando se intenta acceder a una propiedad o método en un tipo primitivo, como una cadena, JavaScript envolverá implícitamente el objeto utilizando una de las clases de envoltura, por ejemplo `string`, y luego descartará la envoltura inmediatamente después de evaluar la expresión. Todas los tipos primitivos excepto `null` y `undefined` poseen este comportamiento.
+Lo que diferencia a un tipo primitivo de un objeto es que los primeros no tienen propiedades o métodos; sin embargo, se puede ver que `'foo'.toUpperCase ()` se evalúa como `'FOO'` y no da como resultado un `TypeError`. Esto se debe a que cuando se intenta acceder a una propiedad o método en un tipo primitivo, como una cadena, JavaScript envolverá implícitamente el objeto utilizando una de las clases de envoltura, por ejemplo `string`, y luego descartará la envoltura inmediatamente después de evaluar la expresión. Todas los tipos primitivos excepto `null` y `undefined` poseen este comportamiento.
 
 </p>
 </details>
