@@ -915,14 +915,14 @@ Aquí es donde un bucle de eventos comienza a funcionar. Un **lazo de evento** m
 
 <img src="https://i.imgur.com/uyiScAI.png" width="200">
 
-Se invoca el `bar`, se registra el ``"Second"`` y se quita de la pila.
+Se invoca el `bar`, se registra el `"Second"` y se quita de la pila.
 
 </p>
 </details>
 
 ---
 
-###### 31. What is the event.target when clicking the button?
+###### 31. ¿Cuál es la referencia al objeto que lanza el evento cuando se hace click en el botón?
 
 ```html
 <div onclick="console.log('first div')">
@@ -939,19 +939,19 @@ Se invoca el `bar`, se registra el ``"Second"`` y se quita de la pila.
 - C: `button`
 - D: An array of all nested elements.
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>Solución</b></summary>
 <p>
 
-#### Answer: C
+#### Respuesta correcta: C
 
-The deepest nested element that caused the event is the target of the event. You can stop bubbling by `event.stopPropagation`
+El elemento anidado más profundo que causa el evento es el destino de ese evento.
 
 </p>
 </details>
 
 ---
 
-###### 32. When you click the paragraph, what's the logged output?
+###### 32. Al hacer click en el párrafo, ¿qué se muestra por pantalla?
 
 ```html
 <div onclick="console.log('div')">
@@ -966,19 +966,19 @@ The deepest nested element that caused the event is the target of the event. You
 - C: `p`
 - D: `div`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>Solución</b></summary>
 <p>
 
-#### Answer: A
+#### Respuesta correcta: A
 
-If we click `p`, we see two logs: `p` and `div`. During event propagation, there are 3 phases: capturing, target, and bubbling. By default, event handlers are executed in the bubbling phase (unless you set `useCapture` to `true`). It goes from the deepest nested element outwards.
+Si hacemos clic en `p`, vemos dos _outputs_: `p` y `div`. Durante la propagación del evento, hay 3 [fases](https://www.sitepoint.com/event-bubbling-javascript/): _capturing_, _target_ y _bubbling_. De forma predeterminada, los controladores de eventos se ejecutan en la fase uno (a menos que se establezca `useCapture` en `true`). Va desde el elemento anidado más profundo hacia el exterior.
 
 </p>
 </details>
 
 ---
 
-###### 33. What's the output?
+###### 33. ¿Qué devuelve la siguiente función?
 
 ```javascript
 const person = { name: "Lydia" };
@@ -996,21 +996,21 @@ sayHi.bind(person, 21);
 - C: `Lydia is 21` `Lydia is 21`
 - D: `Lydia is 21` `function`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>Solución</b></summary>
 <p>
 
-#### Answer: D
+#### Respuesta correcta: D
 
-With both, we can pass the object to which we want the `this` keyword to refer to. However, `.call` is also _executed immediately_!
+En ambos  podemos pasar el objeto al que queremos que se refiera la palabra reservada `this`. Sin embargo, la diferencia es que `.call` es *ejecutado inmediatamente*!
 
-`.bind.` returns a _copy_ of the function, but with a bound context! It is not executed immediately.
+`.bind` devuelve una copia de la función, pero con un contexto enlazado. Es decir, no se ejecuta de inmediato.
 
 </p>
 </details>
 
 ---
 
-###### 34. What's the output?
+###### 34. ¿Qué devuelve la siguiente función?
 
 ```javascript
 function sayHi() {
@@ -1025,21 +1025,21 @@ typeof sayHi();
 - C: `"function"`
 - D: `"undefined"`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>Solución</b></summary>
 <p>
 
-#### Answer: B
+#### Respuesta correcta: B
 
-The `sayHi` function returns the returned value of the immediately invoked function (IIFE). This function returned `0`, which is type `"number"`.
+La función `sayHi` devuelve el valor devuelto de la función invocada inmediatamente ([IIFE](https://developer.mozilla.org/es/docs/Glossary/IIFE)). Esta función devuelve `0`, que es el tipo `"number"`.
 
-FYI: there are only 7 built-in types: `null`, `undefined`, `boolean`, `number`, `string`, `object`, and `symbol`. `"function"` is not a type, since functions are objects, it's of type `"object"`.
+En JS solo hay 7 tipos incorporados (En inglés se llaman _built-in types_, y pueden identificarse con el operador `typeof`. Más información [aquí](https://www.oreilly.com/library/view/you-dont-know/9781491905159/ch01.html)): `null`,` undefined`, `boolean`,` number`, `string`,` object` y `symbol`. `"function"` no es un tipo, ya que las funciones son objetos, es de tipo `"object"`.
 
 </p>
 </details>
 
 ---
 
-###### 35. Which of these values are falsy?
+###### 35. ¿Cuáles de estos valores son falsos?
 
 ```javascript
 0;
@@ -1055,28 +1055,29 @@ undefined;
 - C: `0`, `''`, `new Boolean(false)`, `undefined`
 - D: All of them are falsy
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>Solución</b></summary>
 <p>
 
-#### Answer: A
+#### Respuesta correcta: A
 
-There are only six falsy values:
+Solo hay seis valores falsos:
 
 - `undefined`
 - `null`
 - `NaN`
 - `0`
-- `''` (empty string)
+- `''` (cadena vacía)
 - `false`
 
-Function constructors, like `new Number` and `new Boolean` are truthy.
+
+Los constructores de funciones, como `new Number` y `new Boolean` son correctos.
 
 </p>
 </details>
 
 ---
 
-###### 36. What's the output?
+###### 36. ¿Qué devuelve la siguiente función?
 
 ```javascript
 console.log(typeof typeof 1);
@@ -1087,20 +1088,20 @@ console.log(typeof typeof 1);
 - C: `"object"`
 - D: `"undefined"`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>Solución</b></summary>
 <p>
 
-#### Answer: B
+#### Respuesta correcta: B
 
-`typeof 1` returns `"number"`.
-`typeof "number"` returns `"string"`
+`typeof 1` devuelve `"number" `.
+`typeof "number"` devuelve `"string"`
 
 </p>
 </details>
 
 ---
 
-###### 37. What's the output?
+###### 37. ¿Qué devuelve la siguiente función?
 
 ```javascript
 const numbers = [1, 2, 3];
@@ -1113,23 +1114,23 @@ console.log(numbers);
 - C: `[1, 2, 3, 7 x empty, 11]`
 - D: `SyntaxError`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>Solución</b></summary>
 <p>
 
-#### Answer: C
+#### Respuesta correcta: C
 
-When you set a value to an element in an array that exceeds the length of the array, JavaScript creates something called "empty slots". These actually have the value of `undefined`, but you will see something like:
+Cuando se establece un valor en un elemento de una matriz que excede la longitud de la matriz, JS crea algo llamado "ranuras vacías". Estos realmente tienen el valor de `undefined`, pero se podrá ver algo como:
 
 `[1, 2, 3, 7 x empty, 11]`
 
-depending on where you run it (it's different for every browser, node, etc.)
+dependiendo de dónde lo ejecute (es diferente para cada navegador, nodo, etc.)
 
 </p>
 </details>
 
 ---
 
-###### 38. What's the output?
+###### 38. ¿Qué devuelve la siguiente función?
 
 ```javascript
 (() => {
@@ -1150,46 +1151,46 @@ depending on where you run it (it's different for every browser, node, etc.)
 - C: `1` `1` `2`
 - D: `1` `undefined` `undefined`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>Solución</b></summary>
 <p>
 
-#### Answer: A
+#### Respuesta correcta: A
 
-The `catch` block receives the argument `x`. This is not the same `x` as the variable when we pass arguments. This variable `x` is block-scoped.
+El bloque `catch` recibe el argumento` x`. Este no es el mismo `x` que la variable cuando pasamos los argumentos. Esta variable `x` tiene un ámbito de bloque.
 
-Later, we set this block-scoped variable equal to `1`, and set the value of the variable `y`. Now, we log the block-scoped variable `x`, which is equal to `1`.
+Más adelante, establecemos esta variable de ámbito de bloque igual a `1`, y establecemos el valor de la variable `y`. Ahora, registramos la variable de ámbito de bloque `x`, que es igual a `1`.
 
-Outside of the `catch` block, `x` is still `undefined`, and `y` is `2`. When we want to `console.log(x)` outside of the `catch` block, it returns `undefined`, and `y` returns `2`.
+Fuera del bloque `catch`,` x` sigue siendo `undefined`, e `y` es `2`. Cuando queremos `console.log (x)` fuera del bloque `catch`, devuelve `undefined`, y `y` devuelve` 2`.
 
 </p>
 </details>
 
 ---
 
-###### 39. Everything in JavaScript is either a...
+###### 39. Todo en Javascript es o bien un(a)..
 
-- A: primitive or object
-- B: function or object
-- C: trick question! only objects
-- D: number or object
+- A: tipo primitivo o un objeto
+- B: función u objeto
+- C: ¡pregunta trampa! solo objetos
+- D: número u objeto
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>Solución</b></summary>
 <p>
 
-#### Answer: A
+#### Respuesta correcta: A
 
-JavaScript only has primitive types and objects.
+JavaScript solo tiene tipos y objetos primitivos.
 
-Primitive types are `boolean`, `null`, `undefined`, `bigint`, `number`, `string`, and `symbol`.
+Los tipos primitivos son `boolean`, `null`, `undefined`, `bigint`, `number`, `string` y `symbol`.
 
-What differentiates a primitive from an object is that primitives do not have any properties or methods; however, you'll note that `'foo'.toUpperCase()` evaluates to `'FOO'` and does not result in a `TypeError`. This is because when you try to access a property or method on a primitive like a string, JavaScript will implicity wrap the object using one of the wrapper classes, i.e. `String`, and then immediately discard the wrapper after the expression evaluates. All primitives except for `null` and `undefined` exhibit this behaviour.
+Lo que diferencia a una tipo primitivo de un objeto es que los primeros no tienen propiedades o métodos; sin embargo, se puede ver que `'foo'.toUpperCase ()` se evalúa como `' FOO'` y no da como resultado un` TypeError`. Esto se debe a que cuando se intenta acceder a una propiedad o método en un tipo primitivo, como una cadena, JavaScript envolverá implícitamente el objeto utilizando una de las clases de envoltura, por ejemplo `string`, y luego descartará la envoltura inmediatamente después de evaluar la expresión. Todas los tipos primitivos excepto `null` y `undefined` poseen este comportamiento.
 
 </p>
 </details>
 
 ---
 
-###### 40. What's the output?
+###### 40. ¿Qué devuelve la siguiente función?
 
 ```javascript
 [[0, 1], [2, 3]].reduce(
@@ -1205,21 +1206,21 @@ What differentiates a primitive from an object is that primitives do not have an
 - C: `[1, 2, 0, 1, 2, 3]`
 - D: `[1, 2, 6]`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>Solución</b></summary>
 <p>
 
-#### Answer: C
+#### Respuesta correcta: C
 
-`[1, 2]` is our initial value. This is the value we start with, and the value of the very first `acc`. During the first round, `acc` is `[1,2]`, and `cur` is `[0, 1]`. We concatenate them, which results in `[1, 2, 0, 1]`.
+`[1, 2]` es nuestro valor inicial. Este es el valor con el que empezamos y el valor del primer `acc`. Durante la primera ronda, `acc` es` [1,2] `, y `cur` es `[0, 1]`. Los concatenamos, lo que resulta en `[1, 2, 0, 1]`.
 
-Then, `[1, 2, 0, 1]` is `acc` and `[2, 3]` is `cur`. We concatenate them, and get `[1, 2, 0, 1, 2, 3]`
+Entonces, `[1, 2, 0, 1]` es `acc` y` [2, 3]` es `cur`. Los concatenamos, y obtenemos `[1, 2, 0, 1, 2, 3]`
 
 </p>
 </details>
 
 ---
 
-###### 41. What's the output?
+###### 41. ¿Qué devuelve la siguiente función?
 
 ```javascript
 !!null;
@@ -1232,46 +1233,46 @@ Then, `[1, 2, 0, 1]` is `acc` and `[2, 3]` is `cur`. We concatenate them, and ge
 - C: `false` `true` `true`
 - D: `true` `true` `false`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>Solución</b></summary>
 <p>
 
-#### Answer: B
+#### Respuesta correcta: B
 
-`null` is falsy. `!null` returns `true`. `!true` returns `false`.
+`null` es falso. `! null` devuelve `true`. `! true` devuelve `false`.
 
-`""` is falsy. `!""` returns `true`. `!true` returns `false`.
+`" "` es falso. `!" "` devuelve `true`. `! true` devuelve `false`.
 
-`1` is truthy. `!1` returns `false`. `!false` returns `true`.
+'1' es verdadero. `! 1` devuelve `false`. `! false` devuelve `true`.
 
 </p>
 </details>
 
 ---
 
-###### 42. What does the `setInterval` method return?
+###### 42. ¿Qué devuelveel método `setInterval`?
 
 ```javascript
 setInterval(() => console.log("Hi"), 1000);
 ```
 
-- A: a unique id
-- B: the amount of milliseconds specified
-- C: the passed function
+- A: una id único
+- B: la cantidad de milisegundos especificada
+- C: la función pasada
 - D: `undefined`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>Solución</b></summary>
 <p>
 
-#### Answer: A
+#### Respuesta correcta: A
 
-It returns a unique id. This id can be used to clear that interval with the `clearInterval()` function.
+Devuelve una identificación única, un id único. Este id se puede usar para borrar ese intervalo con la función `clearInterval ()`.
 
 </p>
 </details>
 
 ---
 
-###### 43. What does this return?
+###### 43. ¿Qué devuelve la siguiente función?
 
 ```javascript
 [..."Lydia"];
@@ -1282,12 +1283,12 @@ It returns a unique id. This id can be used to clear that interval with the `cle
 - C: `[[], "Lydia"]`
 - D: `[["L", "y", "d", "i", "a"]]`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>Solución</b></summary>
 <p>
 
-#### Answer: A
+#### Respuesta correcta: A
 
-A string is an iterable. The spread operator maps every character of an iterable to one element.
+Una cadena es un iterable. El [operador de propagación](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Operadores/Spread_operator) asigna todos los caracteres de un iterable a un elemento.
 
 </p>
 </details>
