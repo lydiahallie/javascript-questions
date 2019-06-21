@@ -307,8 +307,8 @@ function bark() {
 bark.animal = 'dog'
 ```
 
-- A: Nothing, this is totally fine!
-- B: `SyntaxError`. You cannot add properties to a function this way.
+- A: 正常运行!
+- B: `SyntaxError`. 你不能通过这种方式给函数增加属性。
 - C: `undefined`
 - D: `ReferenceError`
 
@@ -656,10 +656,10 @@ const sum = eval('10*10+5')
 sessionStorage.setItem('cool_secret', 123)
 ```
 
-- A: Forever, the data doesn't get lost.
-- B: When the user closes the tab.
-- C: When the user closes the entire browser, not only the tab.
-- D: When the user shuts off their computer.
+- A: 永远，数据不会丢失。
+- B: 当用户关掉标签页时。
+- C: 当用户关掉整个浏览器，而不只是关掉标签页。
+- D: 当用户关闭电脑时。
 
 <details><summary><b>答案</b></summary>
 <p>
@@ -856,9 +856,9 @@ console.log(a[b])
 
 对象的键被自动转换为字符串。我们试图将一个对象 `b` 设置为对象 `a` 的键，且相应的值为 `123`。
 
-然而，当字符串化一个对象时，它会变成 `"[Object object]"`。因此这里说的是，`a["Object object"] = 123`。然后，我们再一次做了同样的事情，`c` 是另外一个对象，这里也有隐式字符串化，于是，`a["Object object"] = 456`。
+然而，当字符串化一个对象时，它会变成 `"[object Object]"`。因此这里说的是，`a["[object Object]"] = 123`。然后，我们再一次做了同样的事情，`c` 是另外一个对象，这里也有隐式字符串化，于是，`a["[object Object]"] = 456`。
 
-然后，我们打印 `a[b]`，也就是 `a["Object object"]`。之前刚设置为 `456`，因此返回的是 `456`。
+然后，我们打印 `a[b]`，也就是 `a["[object Object]"]`。之前刚设置为 `456`，因此返回的是 `456`。
 
 </p>
 </details>
@@ -933,7 +933,7 @@ WebAPI 不能随时向栈内添加内容。相反，它将回调函数推到名�
 - A: Outer `div`
 - B: Inner `div`
 - C: `button`
-- D: An array of all nested elements.
+- D: 一个包含所有嵌套元素的数组。
 
 <details><summary><b>答案</b></summary>
 <p>
@@ -1166,10 +1166,10 @@ console.log(numbers)
 
 ###### 39. JavaScript 中的一切都是？
 
-- A: primitive or object
-- B: function or object
-- C: trick question! only objects
-- D: number or object
+- A: 基本类型与对象
+- B: 函数与对象
+- C: 只有对象
+- D: 数字与对象
 -
 <details><summary><b>答案</b></summary>
 <p>
@@ -1249,9 +1249,9 @@ JavaScript 只有基本类型和对象。
 setInterval(() => console.log('Hi'), 1000)
 ```
 
-- A: a unique id
-- B: the amount of milliseconds specified
-- C: the passed function
+- A: 一个唯一的id
+- B: 该方法指定的毫秒数
+- C: 传递的函数
 - D: `undefined`
 
 <details><summary><b>答案</b></summary>
