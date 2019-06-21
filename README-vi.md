@@ -6,7 +6,8 @@ Các câu hỏi sẽ từ cơ bản đến nâng cao: kiểm tra trình độ Ja
 
 Các đáp án được đặt dưới mỗi câu hỏi, hãy click để tham khảo chúng. Chúc may mắn :heart:
 
-[English Version](./README.md)
+[English Version](./README.md)  
+[Українська мова](./README-ua_UA.md)  
 
 ---
 
@@ -169,7 +170,6 @@ Tuy nhiên, khi chúng ta sử dụng dấu chấm `.`, điều trên không cò
 
 ---
 
----
 
 ###### 6. Ouput là gì?
 
