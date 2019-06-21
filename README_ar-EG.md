@@ -1,4 +1,6 @@
-﻿# قائمة اسئلة جافاسكربت متقدمة
+﻿<div dir="rtl">
+
+# قائمة اسئلة جافاسكربت متقدمة
 أنا بنشر أسئلة اختر جافاسكربت كل يوم على [انستجرام](https://www.instagram.com/theavocoder) واللي بدوري هنشرهم هنا
 
 من البسيط للمتطور: اختبر نفسك في الجافاسكربت, افتكر حاجات كنت ناسيها, او جهز نفسك لمقابلة عمل جايه! :muscle: :rocket: 
@@ -8,6 +10,7 @@
 ---
 
 ###### 1. ايه اللي هيتطبع؟
+<div dir="ltr">
 
 ```javascript
 function sayHi() {
@@ -19,6 +22,7 @@ function sayHi() {
 
 sayHi();
 ```
+</div>
 
 - أ: `Lydia` و `undefined`
 - ب: `Lydia` و `ReferenceError`
@@ -40,6 +44,7 @@ sayHi();
 ---
 
 ###### 2. ايه اللي هيتطبع؟
+<div dir="ltr">
 
 ```javascript
 for (var i = 0; i < 3; i++) {
@@ -50,6 +55,7 @@ for (let i = 0; i < 3; i++) {
   setTimeout(() => console.log(i), 1);
 }
 ```
+</div>
 
 - أ: `0 1 2` و `0 1 2` 
 - ب: `0 1 2` و `3 3 3`
@@ -70,6 +76,7 @@ for (let i = 0; i < 3; i++) {
 ---
 
 ###### 3. ايه اللي هيتطبع؟
+<div dir="ltr">
 
 ```javascript
 const shape = {
@@ -83,6 +90,7 @@ const shape = {
 shape.diameter();
 shape.perimeter();
 ```
+</div>
 
 - أ: `20` و `62.83185307179586`
 - ب: `20` و `NaN`
@@ -104,32 +112,36 @@ shape.perimeter();
 
 ---
 
-###### 4. What's the output?
+###### 4. ايه اللي هيتطبع؟
+<div dir="ltr">
 
 ```javascript
 +true;
 !"Lydia";
 ```
+</div>
 
-- A: `1` and `false`
-- B: `false` and `NaN`
-- C: `false` and `false`
+- أ: `1` و `false` 
+- ب: `NaN` و `false`
+- ج: `false` و `false`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>الاجابة</b></summary>
 <p>
 
-#### Answer: A
+#### الاجابة الصحيحة: أ
 
+علامة الجمع تحاول دائما ان تغير قيم من قيم مدخلاتها الى رقم باعتبار ان اي قيمة حقيقية ايجابية `true` يتم تحويلها لرقم `1` و القيم السالبية `false` تتحول الى `0`. 
 The unary plus tries to convert an operand to a number. `true` is `1`, and `false` is `0`.
 
-The string `'Lydia'` is a truthy value. What we're actually asking, is "is this truthy value falsy?". This returns `false`.
+و في الحالة دي القيمة الكتابية `'Lydia'` تعتبر ايجابية. هنا بقى السؤال: "هل القيمه الايجابيه دي سالبيه؟ و بالتالي الاجابة لا اللي هي `false`.
 
 </p>
 </details>
 
 ---
 
-###### 5. Which one is true?
+###### 5. اختر الاجابة الصحيحة
+<div dir="ltr">
 
 ```javascript
 const bird = {
@@ -141,24 +153,35 @@ const mouse = {
   small: true
 };
 ```
+</div>
 
-- A: `mouse.bird.size` is not valid
-- B: `mouse[bird.size]` is not valid
-- C: `mouse[bird["size"]]` is not valid
-- D: All of them are valid
+- أ: `mouse.bird.size` متنفعش
+- ب: `mouse[bird.size]` متنفعش
+- ج: mouse[bird["size"]]` متنفعش
+- د: كلهم ينفعوا
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>الاجابة</b></summary>
 <p>
 
-#### Answer: A
+#### الاجابة الصحيحة: أ
 
-In JavaScript, all object keys are strings (unless it's a Symbol). Even though we might not _type_ them as strings, they are always converted into strings under the hood.
+في جافاسكربت كل مفاتيح العناصر `object keys` من النوع `string` الا في حالة الـ `symbol`. وعلى الرغم من اننا ممكن منكتبهمش في شكل `string` فهما دايماً بيتحولوا ل`string`
+بص المثال: 
+<div dir="ltr">
 
-JavaScript interprets (or unboxes) statements. When we use bracket notation, it sees the first opening bracket `[` and keeps going until it finds the closing bracket `]`. Only then, it will evaluate the statement.
+```javascriptlet obj = {
+  size: 'big'
+}
+```
+</div>
 
-`mouse[bird.size]`: First it evaluates `bird.size`, which is `"small"`. `mouse["small"]` returns `true`
+في المثال ده احنا عملنا عنصر و كان ليه مفتاح اسمه size. شكل size احنا عاملينه من غير علامة التنصيص `""` ولكن لما البرنامج بيشتغل بيتم تحويلها الى سترنج و بالتالي بتكون في شكل `"size"`
 
-However, with dot notation, this doesn't happen. `mouse` does not have a key called `bird`, which means that `mouse.bird` is `undefined`. Then, we ask for the `size` using dot notation: `mouse.bird.size`. Since `mouse.bird` is `undefined`, we're actually asking `undefined.size`. This isn't valid, and will throw an error similar to `Cannot read property "size" of undefined`.
+غير بقى ان جافاسكربت بتفك كل جمله لوحدها. ده معناه انها لما بنستعمل علامات ال `[]` واسمها `bracket notation` هتفضل تمشي من اول `[` لحد ما توصل للي يقفله اللي هو `]`. و بعد كده هتقوم مشغله الجمله بعد ما تعرف ان الجمله دي مفيهاش اخطاء. 
+
+فا عشان كده عندنا `mouse[bird.size]` الاول هتجيب `bird.size` اللي قيمته `"small"` وبالتالي تبقى الجمله `mouse["small"]` هترجع `true` 
+
+ولكن لما بنستعمل ال `dot notation` مبيحصلش كده. `mouse` ملوش مفتاح اسمه `bird` و بالتالي احنا بنطلب قيمه موجوده جوا حاجه مش موجودة اصلاً و بالتالي بيرجعلنا خطأ `cannot read property of undefined`.
 
 </p>
 </details>
@@ -167,7 +190,8 @@ However, with dot notation, this doesn't happen. `mouse` does not have a key cal
 
 ---
 
-###### 6. What's the output?
+###### 6. ايه اللي هيتطبع؟
+<div dir="ltr">
 
 ```javascript
 let c = { greeting: "Hey!" };
@@ -177,32 +201,35 @@ d = c;
 c.greeting = "Hello";
 console.log(d.greeting);
 ```
+</div>
 
-- A: `Hello`
-- B: `Hey`
-- C: `undefined`
-- D: `ReferenceError`
-- E: `TypeError`
+- أ: `Hello`
+- ب: `Hey`
+- ج: `undefined`
+- د: `ReferenceError`
+- هـ: `TypeError`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>الاجابة</b></summary>
 <p>
 
-#### Answer: A
+#### الاجابة الصحيحة: أ
 
-In JavaScript, all objects interact by _reference_ when setting them equal to each other.
+في جافاسكربت كل العناصر `objects` بيتعاملوا بالـ`reference` لما بنساويهم ببعض. ده معناه ان الاوبجكت مش بيتعمل منه نسخه جديدة و انما بيتم الاشارة اليه بأسم جديد مش اكتر. 
 
-First, variable `c` holds a value to an object. Later, we assign `d` with the same reference that `c` has to the object.
+في الاول المتغير `c` جواه قيمة اوبجكت و بعد كده بنقوم عاملين اشارة للاوبجكت ده عن طريق المتغير `d` 
+.
 
 <img src="https://i.imgur.com/ko5k0fs.png" width="200">
 
-When you change one object, you change all of them.
+وبالتالي لما بتغير متغير واحد منهم انت بتغير الاتنين لان الاتنين بيشيروا لنفس العنصر في الميموري.
 
 </p>
 </details>
 
 ---
 
-###### 7. What's the output?
+###### 7. ايه اللي هيتطبع؟
+<div dir="ltr">
 
 ```javascript
 let a = 3;
@@ -213,29 +240,31 @@ console.log(a == b);
 console.log(a === b);
 console.log(b === c);
 ```
+</div>
 
-- A: `true` `false` `true`
-- B: `false` `false` `true`
-- C: `true` `false` `false`
-- D: `false` `true` `true`
+- أ: `true` `false` `true`
+- ب: `false` `false` `true`
+- ج: `true` `false` `false`
+- د: `false` `true` `true`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>الاجابة</b></summary>
 <p>
 
-#### Answer: C
+#### الاجابة الصحيحة: ج
 
-`new Number()` is a built-in function constructor. Although it looks like a number, it's not really a number: it has a bunch of extra features and is an object.
+`new Number()` ده `constructor` مبني في اللغه و على الرغم من ان شكل القيمه اللي هتطلع منه مجرد رقم `primitive` لكن الحقيقه ان القيمة اللي هتيجي `object` وهيكون فيه زيادات زي ال`methods` وهكذا.
 
-When we use the `==` operator, it only checks whether it has the same _value_. They both have the value of `3`, so it returns `true`.
+لما بنستعمل علامة المساواه `==` احنا بنشوف بس لو القيمتين اللي بنقارنهم ليهم نفس **القيمة** فقط ولا لا. الاتنين ليهم قيمة `3` وبالتالي هترجع `true`
 
-However, when we use the `===` operator, both value _and_ type should be the same. It's not: `new Number()` is not a number, it's an **object**. Both return `false.`
+اما بقى لما بنستعمل المساواة `===` احنا بنشوف **القيمة** و **النوع** و بالتالي بما ان الاتنين `object` بس موجودين في اماكن مختلفه في الميموري اذاً احنا مش عاملين اشارة لنفس العنصر و بالتالي هترجع `false`.
 
 </p>
 </details>
 
 ---
 
-###### 8. What's the output?
+###### 8. ايه اللي هيتطبع؟
+<div dir="ltr">
 
 ```javascript
 class Chameleon {
@@ -252,51 +281,55 @@ class Chameleon {
 const freddie = new Chameleon({ newColor: "purple" });
 freddie.colorChange("orange");
 ```
+</div>
 
-- A: `orange`
-- B: `purple`
-- C: `green`
-- D: `TypeError`
+- أ: `orange`
+- ب: `purple`
+- ج: `green`
+- د: `TypeError`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>الاجابة</b></summary>
 <p>
 
-#### Answer: D
+#### الاجابة الصحيحة: د
 
-The `colorChange` function is static. Static methods are designed to live only on the constructor in which they are created, and cannot be passed down to any children. Since `freddie` is a child, the function is not passed down, and not available on the `freddie` instance: a `TypeError` is thrown.
+الدالة `colorChange` من نوع `static` و بالتالي هي مموجوده فقط في ال`constructor` اللي بتتعمل فيه و مش بتروح لأي عنصر بيتعمل من ال`class` ده و بما ان `freddie` ده عنصر معمول من الكلاس ده فا الدالة `colorChange` مش بتروحله و بالتالي مش موجوده معاه و عشان كده هتدينا `TypeError`.
 
 </p>
 </details>
 
 ---
 
-###### 9. What's the output?
+###### 9. ايه اللي هيتطبع؟
+<div dir="ltr">
 
 ```javascript
 let greeting;
 greetign = {}; // Typo!
 console.log(greetign);
 ```
+</div>
 
-- A: `{}`
-- B: `ReferenceError: greetign is not defined`
-- C: `undefined`
+- أ: `{}`
+- ب: `ReferenceError: greetign is not defined`
+- ج: `undefined`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>الاجابة</b></summary>
 <p>
 
-#### Answer: A
+#### الاجابة الصحيحة: أ
 
-It logs the object, because we just created an empty object on the global object! When we mistyped `greeting` as `greetign`, the JS interpreter actually saw this as `global.greetign = {}` (or `window.greetign = {}` in a browser).
+بتطبع العنصر الفاضي لأننا عملنا الاوبجكت ده من نوع `global` لما كتبنا `greetign` بدل `greeting` و بالتالي البرنامج شاف `greetign` على انها `window.greetign={}` لو في المتصفح. 
 
-In order to avoid this, we can use `"use strict"`. This makes sure that you have declared a variable before setting it equal to anything.
+عشان نبعد عن المشكلة دي نقدر نستعمل `"use strict"` و اللي بدورها بتتأكد ان انت عملت المتغير قبل ما تحاول تتعامل معاه.
 
 </p>
 </details>
 
 ---
 
-###### 10. What happens when we do this?
+###### 10. ايه اللي هيحصل لما نعمل كده؟
+<div dir="ltr">
 
 ```javascript
 function bark() {
@@ -305,27 +338,28 @@ function bark() {
 
 bark.animal = "dog";
 ```
+</div>
 
-- A: Nothing, this is totally fine!
-- B: `SyntaxError`. You cannot add properties to a function this way.
-- C: `undefined`
-- D: `ReferenceError`
+- أ: مش هيحصل اي حاجه غلط, الكود ده صحيح تماماً!
+- ب:  `SyntaxError`
+- ج: `undefined`
+- د: `ReferenceError`
 
-<details><summary><b>Answer</b></summary>
+
+<details><summary><b>الاجابة</b></summary>
 <p>
 
-#### Answer: A
+#### الاجابة الصحيحة: أ
 
-This is possible in JavaScript, because functions are objects! (Everything besides primitive types are objects)
-
-A function is a special type of object. The code you write yourself isn't the actual function. The function is an object with properties. This property is invocable.
+كل حاجه في جافاسكربت عبارة عن `object` حتى الدوال و بالتالي نقدر بكل سهولة اننا نعمل اللي احنا عملناه في الكود و نضيف مفاتيح و قيم للداله على انها عنصر اوبجكت عادي جداً.
 
 </p>
 </details>
 
 ---
 
-###### 11. What's the output?
+###### 11. ايه اللي هيتطبع؟
+<div dir="ltr">
 
 ```javascript
 function Person(firstName, lastName) {
@@ -340,33 +374,40 @@ Person.getFullName = function() {
 
 console.log(member.getFullName());
 ```
+</div>
 
-- A: `TypeError`
-- B: `SyntaxError`
-- C: `Lydia Hallie`
-- D: `undefined` `undefined`
+- أ: `TypeError`
+- ب: `SyntaxError`
+- ج: `Lydia Hallie`
+- د: `undefined` `undefined`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>الاجابة</b></summary>
 <p>
 
-#### Answer: A
+#### الاجابة الصحيحة: أ
 
-You can't add properties to a constructor like you can with regular objects. If you want to add a feature to all objects at once, you have to use the prototype instead. So in this case,
+مينفعش تضيف قيم لـ `constructor`بالشكل ده. لو عايز تضيف قيمة لكل الاوبجكتس اللي معمولين من الـ`constructor` ده لازم تستعمل الـ `prototype` 
+
+بص  المثال ده:
+<div dir="ltr">
 
 ```js
 Person.prototype.getFullName = function() {
   return `${this.firstName} ${this.lastName}`;
 };
 ```
+</div>
 
-would have made `member.getFullName()` work. Why is this beneficial? Say that we added this method to the constructor itself. Maybe not every `Person` instance needed this method. This would waste a lot of memory space, since they would still have that property, which takes of memory space for each instance. Instead, if we only add it to the prototype, we just have it at one spot in memory, yet they all have access to it!
+في المثال ده هنقدر نضيف القيمه لكل العناصر اللي معموله من الـ`constructor` ده. ايه الفايده من ده بقى؟ تخيل معايا ان احنا عملنا كوبي من دالة دي جوا كل عنصر لوحدة --مع التغاضي عن اعتبار ان بعضهم ممكن ميكونوش محتاجينها اصلاً-- احنا كده بنستخدم ميموري كتير جداً على الفاضي بينما عن طريق الـ`prototype` بنقدر اننا نعملها مره واحدة فقط و بتكون موجوده لكل العناصر اللي معموله منها! 
+
 
 </p>
 </details>
 
 ---
 
-###### 12. What's the output?
+###### 12. ايه اللي هيتطبع؟
+<div dir="ltr">
 
 ```javascript
 function Person(firstName, lastName) {
@@ -380,39 +421,39 @@ const sarah = Person("Sarah", "Smith");
 console.log(lydia);
 console.log(sarah);
 ```
+</div>
 
-- A: `Person {firstName: "Lydia", lastName: "Hallie"}` and `undefined`
-- B: `Person {firstName: "Lydia", lastName: "Hallie"}` and `Person {firstName: "Sarah", lastName: "Smith"}`
-- C: `Person {firstName: "Lydia", lastName: "Hallie"}` and `{}`
-- D:`Person {firstName: "Lydia", lastName: "Hallie"}` and `ReferenceError`
+- أ: `Person {firstName: "Lydia", lastName: "Hallie"}` و `undefined`
+- ب: `Person {firstName: "Lydia", lastName: "Hallie"}` و `Person {firstName: "Sarah", lastName: "Smith"}`
+- ج: `Person {firstName: "Lydia", lastName: "Hallie"}` و `{}`
+- د: `Person {firstName: "Lydia", lastName: "Hallie"}` و `ReferenceError`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>الاجابة</b></summary>
 <p>
 
-#### Answer: A
+#### الاجابة الصحيحة: أ
 
-For `sarah`, we didn't use the `new` keyword. When using `new`, it refers to the new empty object we create. However, if you don't add `new` it refers to the **global object**!
-
-We said that `this.firstName` equals `"Sarah"` and `this.lastName` equals `"Smith"`. What we actually did, is defining `global.firstName = 'Sarah'` and `global.lastName = 'Smith'`. `sarah` itself is left `undefined`.
+كلمة `new` بتشير الى الاوبجكت الفاضي الجديد اللي احنا بنعمله قبل ما يتم اضافة اي قيم ليه. لكن لما مش بتستعمل `new` بيتم الاشارة الى الـ`global` او `window` على حسب انت بتشغل الكود فين و بالتالي لما عملنا `this.firstName = "Sarah"` احنا كده كأننا قولنا `window.firstName = "Sarah"` وبالتالي الاوبجكت `sarah نفسه فضل `undefined` 
 
 </p>
 </details>
 
 ---
 
-###### 13. What are the three phases of event propagation?
+###### 13. ايه  الـ3 مراحل بتوع الـ `event propagation`؟
 
-- A: Target > Capturing > Bubbling
-- B: Bubbling > Target > Capturing
-- C: Target > Bubbling > Capturing
-- D: Capturing > Target > Bubbling
+- أ: Target > Capturing > Bubbling
+- ب: Bubbling > Target > Capturing
+- ج: Target > Bubbling > Capturing
+- د: Capturing > Target > Bubbling
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>الاجابة</b></summary>
 <p>
 
-#### Answer: D
+#### الاجابة الصحيحة: د
 
-During the **capturing** phase, the event goes through the ancestor elements down to the target element. It then reaches the **target** element, and **bubbling** begins.
+في مرحلة الـ`capturing` الحدث بيمر الاول خلال العناصر الكبيره المحتوية على العنصر اللي حصلت فيه الحدث اصلاً لحد ما توصل للعنصر ده. بعد كده بتوصل لـ `target` واللي هو العنصر اللي عمل الحدث و بعد كده بترد تاني لفوق في مرحلة الـ`bubbling`
+
 
 <img src="https://i.imgur.com/N18oRgd.png" width="200">
 
@@ -421,10 +462,10 @@ During the **capturing** phase, the event goes through the ancestor elements dow
 
 ---
 
-###### 14. All object have prototypes.
+###### 14. كل العناصر `objects` ليهم `prototype`. هذه العبارة: 
 
-- A: true
-- B: false
+- أ: صحيحة
+- ب: خطأ
 
 <details><summary><b>Answer</b></summary>
 <p>
@@ -439,6 +480,7 @@ All objects have prototypes, except for the **base object**. The base object has
 ---
 
 ###### 15. What's the output?
+<div dir="ltr">
 
 ```javascript
 function sum(a, b) {
@@ -447,6 +489,7 @@ function sum(a, b) {
 
 sum(1, "2");
 ```
+</div>
 
 - A: `NaN`
 - B: `TypeError`
@@ -469,12 +512,15 @@ In this example, JavaScript converts the number `1` into a string, in order for 
 
 ###### 16. What's the output?
 
+<div dir="ltr">
+
 ```javascript
 let number = 0;
 console.log(number++);
 console.log(++number);
 console.log(number);
 ```
+</div>
 
 - A: `1` `1` `2`
 - B: `1` `2` `2`
@@ -505,6 +551,8 @@ This returns `0 2 2`.
 
 ###### 17. What's the output?
 
+<div dir="ltr">
+
 ```javascript
 function getPersonInfo(one, two, three) {
   console.log(one);
@@ -517,6 +565,8 @@ const age = 21;
 
 getPersonInfo`${person} is ${age} years old`;
 ```
+</div>
+
 
 - A: `"Lydia"` `21` `["", " is ", " years old"]`
 - B: `["", " is ", " years old"]` `"Lydia"` `21`
@@ -536,6 +586,8 @@ If you use tagged template literals, the value of the first argument is always a
 
 ###### 18. What's the output?
 
+<div dir="ltr">
+
 ```javascript
 function checkAge(data) {
   if (data === { age: 18 }) {
@@ -549,6 +601,8 @@ function checkAge(data) {
 
 checkAge({ age: 18 });
 ```
+</div>
+
 
 - A: `You are an adult!`
 - B: `You are still an adult.`
@@ -572,6 +626,8 @@ This is why both `{ age: 18 } === { age: 18 }` and `{ age: 18 } == { age: 18 }` 
 
 ###### 19. What's the output?
 
+<div dir="ltr">
+
 ```javascript
 function getAge(...args) {
   console.log(typeof args);
@@ -579,6 +635,8 @@ function getAge(...args) {
 
 getAge(21);
 ```
+</div>
+
 
 - A: `"number"`
 - B: `"array"`
@@ -599,6 +657,8 @@ The spread operator (`...args`.) returns an array with arguments. An array is an
 
 ###### 20. What's the output?
 
+<div dir="ltr">
+
 ```javascript
 function getAge() {
   "use strict";
@@ -608,6 +668,8 @@ function getAge() {
 
 getAge();
 ```
+</div>
+
 
 - A: `21`
 - B: `undefined`
@@ -628,9 +690,13 @@ With `"use strict"`, you can make sure that you don't accidentally declare globa
 
 ###### 21. What's value of `sum`?
 
+<div dir="ltr">
+
 ```javascript
 const sum = eval("10*10+5");
 ```
+</div>
+
 
 - A: `105`
 - B: `"105"`
@@ -651,9 +717,13 @@ const sum = eval("10*10+5");
 
 ###### 22. How long is cool_secret accessible?
 
+<div dir="ltr">
+
 ```javascript
 sessionStorage.setItem("cool_secret", 123);
 ```
+</div>
+
 
 - A: Forever, the data doesn't get lost.
 - B: When the user closes the tab.
@@ -676,12 +746,16 @@ If you used `localStorage`, the data would've been there forever, unless for exa
 
 ###### 23. What's the output?
 
+<div dir="ltr">
+
 ```javascript
 var num = 8;
 var num = 10;
 
 console.log(num);
 ```
+</div>
+
 
 - A: `8`
 - B: `10`
@@ -704,6 +778,8 @@ You cannot do this with `let` or `const` since they're block-scoped.
 
 ###### 24. What's the output?
 
+<div dir="ltr">
+
 ```javascript
 const obj = { 1: "a", 2: "b", 3: "c" };
 const set = new Set([1, 2, 3, 4, 5]);
@@ -713,6 +789,8 @@ obj.hasOwnProperty(1);
 set.has("1");
 set.has(1);
 ```
+</div>
+
 
 - A: `false` `true` `false` `true`
 - B: `false` `true` `true` `true`
@@ -735,10 +813,14 @@ It doesn't work that way for a set. There is no `'1'` in our set: `set.has('1')`
 
 ###### 25. What's the output?
 
+<div dir="ltr">
+
 ```javascript
 const obj = { a: "one", b: "two", a: "three" };
 console.log(obj);
 ```
+</div>
+
 
 - A: `{ a: "one", b: "two" }`
 - B: `{ b: "two", a: "three" }`
@@ -777,12 +859,16 @@ The base execution context is the global execution context: it's what's accessib
 
 ###### 27. What's the output?
 
+<div dir="ltr">
+
 ```javascript
 for (let i = 1; i < 5; i++) {
   if (i === 3) continue;
   console.log(i);
 }
 ```
+</div>
+
 
 - A: `1` `2`
 - B: `1` `2` `3`
@@ -803,6 +889,8 @@ The `continue` statement skips an iteration if a certain condition returns `true
 
 ###### 28. What's the output?
 
+<div dir="ltr">
+
 ```javascript
 String.prototype.giveLydiaPizza = () => {
   return "Just give Lydia pizza already!";
@@ -812,6 +900,8 @@ const name = "Lydia";
 
 name.giveLydiaPizza();
 ```
+</div>
+
 
 - A: `"Just give Lydia pizza already!"`
 - B: `TypeError: not a function`
@@ -832,6 +922,8 @@ name.giveLydiaPizza();
 
 ###### 29. What's the output?
 
+<div dir="ltr">
+
 ```javascript
 const a = {};
 const b = { key: "b" };
@@ -842,6 +934,8 @@ a[c] = 456;
 
 console.log(a[b]);
 ```
+</div>
+
 
 - A: `123`
 - B: `456`
@@ -866,6 +960,8 @@ Then, we log `a[b]`, which is actually `a["Object object"]`. We just set that to
 
 ###### 30. What's the output?
 
+<div dir="ltr">
+
 ```javascript
 const foo = () => console.log("First");
 const bar = () => setTimeout(() => console.log("Second"));
@@ -875,6 +971,8 @@ bar();
 foo();
 baz();
 ```
+</div>
+
 
 - A: `First` `Second` `Third`
 - B: `First` `Third` `Second`
@@ -918,6 +1016,7 @@ This is where an event loop starts to work. An **event loop** looks at the stack
 ---
 
 ###### 31. What is the event.target when clicking the button?
+<div dir="ltr">
 
 ```html
 <div onclick="console.log('first div')">
@@ -928,6 +1027,8 @@ This is where an event loop starts to work. An **event loop** looks at the stack
   </div>
 </div>
 ```
+</div>
+
 
 - A: Outer `div`
 - B: Inner `div`
@@ -947,6 +1048,7 @@ The deepest nested element that caused the event is the target of the event. You
 ---
 
 ###### 32. When you click the paragraph, what's the logged output?
+<div dir="ltr">
 
 ```html
 <div onclick="console.log('div')">
@@ -955,6 +1057,7 @@ The deepest nested element that caused the event is the target of the event. You
   </p>
 </div>
 ```
+</div>
 
 - A: `p` `div`
 - B: `div` `p`
@@ -975,6 +1078,8 @@ If we click `p`, we see two logs: `p` and `div`. During event propagation, there
 
 ###### 33. What's the output?
 
+<div dir="ltr">
+
 ```javascript
 const person = { name: "Lydia" };
 
@@ -985,6 +1090,8 @@ function sayHi(age) {
 sayHi.call(person, 21);
 sayHi.bind(person, 21);
 ```
+</div>
+
 
 - A: `undefined is 21` `Lydia is 21`
 - B: `function` `function`
@@ -1007,6 +1114,8 @@ With both, we can pass the object to which we want the `this` keyword to refer t
 
 ###### 34. What's the output?
 
+<div dir="ltr">
+
 ```javascript
 function sayHi() {
   return (() => 0)();
@@ -1014,6 +1123,8 @@ function sayHi() {
 
 typeof sayHi();
 ```
+</div>
+
 
 - A: `"object"`
 - B: `"number"`
@@ -1036,6 +1147,8 @@ FYI: there are only 7 built-in types: `null`, `undefined`, `boolean`, `number`, 
 
 ###### 35. Which of these values are falsy?
 
+<div dir="ltr">
+
 ```javascript
 0;
 new Number(0);
@@ -1044,6 +1157,8 @@ new Number(0);
 new Boolean(false);
 undefined;
 ```
+</div>
+
 
 - A: `0`, `''`, `undefined`
 - B: `0`, `new Number(0)`, `''`, `new Boolean(false)`, `undefined`
@@ -1073,9 +1188,13 @@ Function constructors, like `new Number` and `new Boolean` are truthy.
 
 ###### 36. What's the output?
 
+<div dir="ltr">
+
 ```javascript
 console.log(typeof typeof 1);
 ```
+</div>
+
 
 - A: `"number"`
 - B: `"string"`
@@ -1097,11 +1216,15 @@ console.log(typeof typeof 1);
 
 ###### 37. What's the output?
 
+<div dir="ltr">
+
 ```javascript
 const numbers = [1, 2, 3];
 numbers[10] = 11;
 console.log(numbers);
 ```
+</div>
+
 
 - A: `[1, 2, 3, 7 x null, 11]`
 - B: `[1, 2, 3, 11]`
@@ -1126,6 +1249,8 @@ depending on where you run it (it's different for every browser, node, etc.)
 
 ###### 38. What's the output?
 
+<div dir="ltr">
+
 ```javascript
 (() => {
   let x, y;
@@ -1139,6 +1264,8 @@ depending on where you run it (it's different for every browser, node, etc.)
   console.log(y);
 })();
 ```
+</div>
+
 
 - A: `1` `undefined` `2`
 - B: `undefined` `undefined` `undefined`
@@ -1186,6 +1313,8 @@ What differentiates a primitive from an object is that primitives do not have an
 
 ###### 40. What's the output?
 
+<div dir="ltr">
+
 ```javascript
 [[0, 1], [2, 3]].reduce(
   (acc, cur) => {
@@ -1194,6 +1323,8 @@ What differentiates a primitive from an object is that primitives do not have an
   [1, 2]
 );
 ```
+</div>
+
 
 - A: `[0, 1, 2, 3, 1, 2]`
 - B: `[6, 1, 2]`
@@ -1216,11 +1347,15 @@ Then, `[1, 2, 0, 1]` is `acc` and `[2, 3]` is `cur`. We concatenate them, and ge
 
 ###### 41. What's the output?
 
+<div dir="ltr">
+
 ```javascript
 !!null;
 !!"";
 !!1;
 ```
+</div>
+
 
 - A: `false` `true` `false`
 - B: `false` `false` `true`
@@ -1245,9 +1380,13 @@ Then, `[1, 2, 0, 1]` is `acc` and `[2, 3]` is `cur`. We concatenate them, and ge
 
 ###### 42. What does the `setInterval` method return in the browser?
 
+<div dir="ltr">
+
 ```javascript
 setInterval(() => console.log("Hi"), 1000);
 ```
+</div>
+
 
 - A: a unique id
 - B: the amount of milliseconds specified
@@ -1268,9 +1407,13 @@ It returns a unique id. This id can be used to clear that interval with the `cle
 
 ###### 43. What does this return?
 
+<div dir="ltr">
+
 ```javascript
 [..."Lydia"];
 ```
+</div>
+
 
 - A: `["L", "y", "d", "i", "a"]`
 - B: `["Lydia"]`
@@ -1286,3 +1429,4 @@ A string is an iterable. The spread operator maps every character of an iterable
 
 </p>
 </details>
+</div>
