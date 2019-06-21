@@ -215,7 +215,6 @@ To nije valjano, a bit će u pitanju pogreška slična onoj
 
 * * * * *
 
-* * * * *
 
 ###### 6. Što je izlaz?
 
