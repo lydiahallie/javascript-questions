@@ -174,7 +174,6 @@ However, with dot notation, this doesn't happen. `mouse` does not have a key cal
 
 ---
 
----
 
 ###### 6. What's the output?
 

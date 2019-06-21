@@ -169,7 +169,6 @@ Tuy nhiên, khi chúng ta sử dụng dấu chấm `.`, điều trên không cò
 
 ---
 
----
 
 ###### 6. Ouput là gì?
 

@@ -172,7 +172,6 @@ Mit der Dot Notation ist das nicht der Fall. `mouse` hat keinen Key namens `bird
 
 ---
 
----
 
 ###### 6. Was ist der Output?
 
