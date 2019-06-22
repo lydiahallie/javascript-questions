@@ -104,7 +104,7 @@ Notez que le valeur de `diameter` est une fonction régulière, alors que `perim
 
 Avec les fonctions fléchée, le mot clé `this` réfère à son périmètre actuel, contrairement au fonctions régulières ! Cela signifie que lorsque nous appelons `perimeter`, elle ne réfère pas à l'objet shape, mais à son périmètre actuel (`window` par exemple).
 
-Il n'y a pas de valeur `radius` dans cet objet, qui retournera `undefined`.
+Il n'y a pas de valeur `radius` dans cet objet, on retournera `undefined`.
 
 </p>
 </details>
@@ -231,7 +231,7 @@ console.log(b === c);
 
 #### Réponse: C
 
-`new Number()` est une fonction globale. Bien qu'il ressamble à un nombre, ce n'en est pas vraiment un : il a une poignée de fonctionnalités supplémentaire and est un objet.
+`new Number()` est une fonction globale. Bien qu'il ressemble à un nombre, ce n'en est pas vraiment un : il a une poignée de fonctionnalités supplémentaire and est un objet.
 
 Quand nous utilisons l'opérateur `==`, il vérifie seulement qu'il s'agisse de la même _valeur_. Les deux ont pour valeur `3`, donc il retourne `true`.
 
@@ -294,9 +294,9 @@ console.log(greetign);
 
 #### Réponse: A
 
-It logs the object, because we just created an empty object on the global object! When we mistyped `greeting` as `greetign`, the JS interpreter actually saw this as `global.greetign = {}` (or `window.greetign = {}` in a browser).
+Il affiche l'objet, car on a juste créé un objet vide dnas l'objet global ! Quand on écrit mal `greeting` en `greetign`, JaveScript l'interprète comme il le voit `global.greetign = {}` (ou `window.greetign = {}` dans le navigateur).
 
-In order to avoid this, we can use `"use strict"`. This makes sure that you have declared a variable before setting it equal to anything.
+Pour éviter cela, on peut utiliser `"use strict"`. Cela nous assure de devoir déclarer la variable avant de lui assigné une valeur.
 
 </p>
 </details>
@@ -323,9 +323,9 @@ bark.animal = "dog";
 
 #### Réponse: A
 
-This is possible in JavaScript, because functions are objects! (Everything besides primitive types are objects)
+C'est possible en JavaScript, car les fonctions sont des objets ! (Tout ce qui n'est pas de type primitif est un objet)
 
-A function is a special type of object. The code you write yourself isn't the actual function. The function is an object with properties. This property is invocable.
+Une fonction est un type special d'objet. Le code que vous écrivez vous-même n'est pas la fonction. La fonction est un objet avec des propriétées. Cette propriétée est invocable.
 
 </p>
 </details>
@@ -358,7 +358,7 @@ console.log(member.getFullName());
 
 #### Réponse: A
 
-You can't add properties to a constructor like you can with regular objects. If you want to add a feature to all objects at once, you have to use the prototype instead. So in this case,
+Vous ne pouvez pas ajouter de propriétés à un constructeur comme pour des objets normaux. Si vous voulez ajouter une fonctionnalité pour tout les objets en une fois, vous devez utiliser le prototype. Donc dans ce cas,
 
 ```js
 Person.prototype.getFullName = function() {
@@ -366,7 +366,7 @@ Person.prototype.getFullName = function() {
 };
 ```
 
-would have made `member.getFullName()` work. Why is this beneficial? Say that we added this method to the constructor itself. Maybe not every `Person` instance needed this method. This would waste a lot of memory space, since they would still have that property, which takes of memory space for each instance. Instead, if we only add it to the prototype, we just have it at one spot in memory, yet they all have access to it!
+rendra fonctionnel `member.getFullName`. Pourquoi est-ce benifique ? Disons que nous ajoutons cette méthode au constructeur directement. Peut-être que toutes les instances de `Person` n'ont pas besoin de cette méthode. Cela fera perdre de l'espace mémoire, car elles auront tous cette propriété, ce qui prendra de l'espace mémoire pour chaque instance. Alors que, si nous ajoutons la méthode au prototype uniquement, nous n'utilisons qu'un seul slot mémoire, et ils y auront tous accès !
 
 </p>
 </details>
@@ -398,9 +398,9 @@ console.log(sarah);
 
 #### Réponse: A
 
-For `sarah`, we didn't use the `new` keyword. When using `new`, it refers to the new empty object we create. However, if you don't add `new` it refers to the **global object**!
+Pour `sarah`, nous n'avons pas utilisé le mot clé `new`. Quand nous utilisons `new`, il fait référence à un nouvel objet vide que nous créons. Cependant so nous n'ajoutons pas `new` il réfère à **l'objet global** !
 
-We said that `this.firstName` equals `"Sarah"` and `this.lastName` equals `"Smith"`. What we actually did, is defining `global.firstName = 'Sarah'` and `global.lastName = 'Smith'`. `sarah` itself is left `undefined`.
+Nous disons que `this.firstName` est égal à `"Sarah"` et que `this.lastName` est égal à `Smith`. Ce que nous faisons c'est définir `global.firstName = 'Sarah'` et `global.lastName = 'Smith'`. La variable `sarah` elle-même reste à `undefined`.
 
 </p>
 </details>
@@ -430,15 +430,15 @@ Durant la phase de **capture** _(capturing)_, l'événement passe par les évén
 
 ###### 14. Tous les objects ont des prototypes.
 
-- A: true
-- B: false
+- A: vrai
+- B: faux
 
 <details><summary><b>Réponse</b></summary>
 <p>
 
 #### Réponse: B
 
-All objects have prototypes, except for the **base object**. The base object has access to some methods and properties, such as `.toString`. This is the reason why you can use built-in JavaScript methods! All of such methods are available on the prototype. Although JavaScript can't find it directly on your object, it goes down the prototype chain and finds it there, which makes it accessible for you.
+Tous les objets ont des prototypes, excepté pour les **objets standards**. Les objets standards ont accès à certaines méthodes et propriétés, comme `.toString`. C'est pour cette raison que vous pouvez utiliser les méthodes natives de JavaScript ! Toutes ces méthodes sont disponibles dans le prototype. Bien que JavaScript ne trouve pas la fonction dans l'objet, il parcours le prototype et la méthode afin de la rendre accessible.
 
 </p>
 </details>
@@ -764,7 +764,7 @@ If you have two keys with the same name, the key will be replaced. It will still
 
 ---
 
-###### 26. The JavaScript global execution context creates two things for you: the global object, and the "this" keyword.
+###### 26. Le contexte global d'exécution de JavaScript créait 2 choses pour vous : l'objet global and le mot clé `this`.
 
 - A: Vrai
 - B: Faux
@@ -924,7 +924,7 @@ This is where an event loop starts to work. An **event loop** looks at the stack
 
 ---
 
-###### 31. What is the event.target when clicking the button?
+###### 31. Quel est l'élément ciblé _(event.target)_ au click sur le bouton _(button)_ ?
 
 ```html
 <div onclick="console.log('first div')">
@@ -936,10 +936,10 @@ This is where an event loop starts to work. An **event loop** looks at the stack
 </div>
 ```
 
-- A: Outer `div`
-- B: Inner `div`
+- A: La `div` extérieure
+- B: La `div` intérieure
 - C: `button`
-- D: An array of all nested elements.
+- D: Un tableau de tous les éléments imbriqués.
 
 <details><summary><b>Réponse</b></summary>
 <p>
@@ -953,7 +953,7 @@ The deepest nested element that caused the event is the target of the event. You
 
 ---
 
-###### 32. When you click the paragraph, what's the logged output?
+###### 32. Quand vous cliquez sur le paragraphe, quelle est la sortie ?
 
 ```html
 <div onclick="console.log('div')">
@@ -1041,7 +1041,7 @@ FYI: there are only 7 built-in types: `null`, `undefined`, `boolean`, `number`, 
 
 ---
 
-###### 35. Which of these values are falsy?
+###### 35. Lesquelles de ces valeurs sont fausses ?
 
 ```javascript
 0;
@@ -1168,12 +1168,12 @@ Outside of the `catch` block, `x` is still `undefined`, and `y` is `2`. When we 
 
 ---
 
-###### 39. Everything in JavaScript is either a...
+###### 39. Tout en JavaScript est...
 
-- A: primitive or object
-- B: function or object
-- C: trick question! only objects
-- D: number or object
+- A: primitif ou objet
+- B: fonction ou objet
+- C: question délicate ! Seulement des objets
+- D: nombre ou objet
 
 <details><summary><b>Réponse</b></summary>
 <p>
@@ -1250,15 +1250,15 @@ Then, `[1, 2, 0, 1]` is `acc` and `[2, 3]` is `cur`. We concatenate them, and ge
 
 ---
 
-###### 42. What does the `setInterval` method return?
+###### 42. Que retourne la méthode `setInterval` ?
 
 ```javascript
 setInterval(() => console.log("Hi"), 1000);
 ```
 
-- A: a unique id
-- B: the amount of milliseconds specified
-- C: the passed function
+- A: un identifiant unique
+- B: le temps de millisecondes spécifié
+- C: la fonction passée en paramètre
 - D: `undefined`
 
 <details><summary><b>Réponse</b></summary>
@@ -1273,7 +1273,7 @@ It returns a unique id. This id can be used to clear that interval with the `cle
 
 ---
 
-###### 43. What does this return?
+###### 43. Que retourne ceci ?
 
 ```javascript
 [..."Lydia"];
