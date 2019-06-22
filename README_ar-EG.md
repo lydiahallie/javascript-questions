@@ -7,6 +7,8 @@
 
 الاجابات في الجزء المخفي تحت, ببساطة دوس على السؤال عشان تفتح تفاصيله. اتمنالكم حظ سعيد :heart:
 
+ملحوظة المترجم: الترجمه دي معموله بمزيج من اللغه الانجليزية و اللغه العامية العربية المستخدمه في مصر. انا مشيت في اتجاه اني استخدم اللغه الانجليزية في جزئيات معينه لأن مينفعش تتكتب بالعربي بطريقة او بأخرى من غير ما تفقد المعنى او يبقى البحث عنها بعد كده صعب. لو عندك اقتراح للترجمه اعمل منشن وانت بتعمل `issue` على الموقع هنا. 
+
 ---
 
 ###### 1. ايه اللي هيتطبع؟
@@ -29,7 +31,7 @@ sayHi();
 - ج: `ReferenceError` و `21`
 - د: `undefined` و `ReferenceError`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>الاجابة</b></summary>
 <p>
 
 #### الاجابة الصحيحة: د
@@ -467,19 +469,20 @@ console.log(sarah);
 - أ: صحيحة
 - ب: خطأ
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>الاجابة</b></summary>
 <p>
 
-#### Answer: B
+#### الاجابة الصحيحة: ب
 
-All objects have prototypes, except for the **base object**. The base object has access to some methods and properties, such as `.toString`. This is the reason why you can use built-in JavaScript methods! All of such methods are available on the prototype. Although JavaScript can't find it directly on your object, it goes down the prototype chain and finds it there, which makes it accessible for you.
+كل العناصر في جافاسكربت ليها `prototype` ما عدا الـ**base object** و اللي كل العناصر بتاخد منه الدوال بتاعته. ده السبب اللي بيخليك تقدر تستعمل الدوال دي في اي عنصر تعمله.
+
 
 </p>
 </details>
 
 ---
 
-###### 15. What's the output?
+###### 15. ايه اللي هيتطبع؟
 <div dir="ltr">
 
 ```javascript
@@ -491,26 +494,26 @@ sum(1, "2");
 ```
 </div>
 
-- A: `NaN`
-- B: `TypeError`
-- C: `"12"`
-- D: `3`
+- أ: `NaN`
+- ب: `TypeError`
+- ج: `12`
+- د: `3`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>الاجابة</b></summary>
 <p>
 
-#### Answer: C
+#### الاجابة الصحيحة: ج
 
-JavaScript is a **dynamically typed language**: we don't specify what types certain variables are. Values can automatically be converted into another type without you knowing, which is called _implicit type coercion_. **Coercion** is converting from one type into another.
+جافاسكربت `dynamic` و بالتالي احنا مش بنحدد نوع المتغير لما بنعمله و المتغير نوعه بيتغير عادي جداً و ممكن ده يحصل من غير ما تعرف حتى و ده اسمه `implicit coercion`. 
 
-In this example, JavaScript converts the number `1` into a string, in order for the function to make sense and return a value. During the addition of a numeric type (`1`) and a string type (`'2'`), the number is treated as a string. We can concatenate strings like `"Hello" + "World"`, so what's happening here is `"1" + "2"` which returns `"12"`.
+في المثال ده بقى جافاسكربت هتحول رقم `1` الى `string` عشان الدالة تقدر تتعامل معاه و ترجع قيمة. و في عملية الجمع مابين القيمة العددية `1` و السترنج `"2"` الرقم هيتحول الى سترنج و بعد كده هيقوم متضاف الى السترنج التانية عشان يعمل سترنج `"12"`.
 
 </p>
 </details>
 
 ---
 
-###### 16. What's the output?
+###### 16. ايه اللي هيتطبع؟
 
 <div dir="ltr">
 
@@ -522,34 +525,26 @@ console.log(number);
 ```
 </div>
 
-- A: `1` `1` `2`
-- B: `1` `2` `2`
-- C: `0` `2` `2`
-- D: `0` `1` `2`
+- أ: `1` `1` `2`
+- ب: `1` `2` `2`
+- ج: `0` `2` `2`
+- د: `0` `1` `2`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>الاجابة</b></summary>
 <p>
 
-#### Answer: C
+#### الاجابة الصحيحة: ج
 
-The **postfix** unary operator `++`:
+العامل البعدي `x++` بيرجع القيمة الاصلية الاول بعد كده يزود واحد على المتغير
 
-1. Returns the value (this returns `0`)
-2. Increments the value (number is now `1`)
-
-The **prefix** unary operator `++`:
-
-1. Increments the value (number is now `2`)
-2. Returns the value (this returns `2`)
-
-This returns `0 2 2`.
+اما العامل القبلي `++x` بيعدل القيمة الاول و يرجع القيمة المعدلة
 
 </p>
 </details>
 
 ---
 
-###### 17. What's the output?
+###### 17. ايه اللي هيتطبع؟ (جرب تشغل السؤال ده عشان تفهمه كويس)
 
 <div dir="ltr">
 
@@ -567,24 +562,24 @@ getPersonInfo`${person} is ${age} years old`;
 ```
 </div>
 
+- أ: `"Lydia"` `21` `["", " is ", " years old"]`
+- ب: `["", " is ", " years old"]` `"Lydia"` `21`
+- ج: `"Lydia"` `["", " is ", " years old"]` `21`
 
-- A: `"Lydia"` `21` `["", " is ", " years old"]`
-- B: `["", " is ", " years old"]` `"Lydia"` `21`
-- C: `"Lydia"` `["", " is ", " years old"]` `21`
-
-<details><summary><b>Answer</b></summary>
+<details><summary><b>الاجابة</b></summary>
 <p>
 
-#### Answer: B
+#### الاجابة الصحيحة: ب
 
-If you use tagged template literals, the value of the first argument is always an array of the string values. The remaining arguments get the values of the passed expressions!
+
+لو بتستعمل `tagged template literals` اول قيمة داخله للدالة دايماً هتكون `array` مليانه بالسترنج اللي داخله فقط من غير اي متغيرات و الباقي هياخدوا القيم اللي داخله بالترتيب. 
 
 </p>
 </details>
 
 ---
 
-###### 18. What's the output?
+###### 18. ايه اللي هيتطبع؟
 
 <div dir="ltr">
 
@@ -603,28 +598,26 @@ checkAge({ age: 18 });
 ```
 </div>
 
+- أ: `You are an adult!`
+- ب: `You are still an adult.`
+- ج: `Hmm.. You don't have an age I guess`
 
-- A: `You are an adult!`
-- B: `You are still an adult.`
-- C: `Hmm.. You don't have an age I guess`
-
-<details><summary><b>Answer</b></summary>
+<details><summary><b>الاجابة</b></summary>
 <p>
 
-#### Answer: C
+#### الاجابة الصحيحة: ج
 
-When testing equality, primitives are compared by their _value_, while objects are compared by their _reference_. JavaScript checks if the objects have a reference to the same location in memory.
+لما بنقارن في جافاسكربت, القيم الـ`primitive` زي الارقام و السترنج البسيطة بيتم مقارنة قيمتها فقط بينما الاوبجكتس بيتم مقارنة الاشارة ليهم `reference`. يعني لما بنقارن اوبجكتس ببعض جافاسكربت بتشوف هل الاتنين بيشاوروا لنفس المكان في الرام ولا لا.
 
-The two objects that we are comparing don't have that: the object we passed as a parameter refers to a different location in memory than the object we used in order to check equality.
+و بما ان الاوبجكتس اللي بنقارنهم احنا هنا داخلين على انهم قيمتين مختلفتين للداله وبالتالي مش بيشيروا لنفس المكان ف الرام يبقى مش متساويين و ده السبب اللي بيخلي الاجابة بالشكل ده. المقارنه عشان تتم بشكل صحيح بقى ممكن تحولهم ل سترنج او تشوف القيم اللي جوا كل اوبجكت.
 
-This is why both `{ age: 18 } === { age: 18 }` and `{ age: 18 } == { age: 18 }` return `false`.
 
 </p>
 </details>
 
 ---
 
-###### 19. What's the output?
+###### 19. ايه اللي هيتطبع؟
 
 <div dir="ltr">
 
@@ -638,24 +631,25 @@ getAge(21);
 </div>
 
 
-- A: `"number"`
-- B: `"array"`
-- C: `"object"`
-- D: `"NaN"`
+- أ: `"number"`
+- ب: `"array"`
+- ج: `"object"`
+- د: `"NaN"`
 
-<details><summary><b>Answer</b></summary>
+
+<details><summary><b>الاجابة</b></summary>
 <p>
 
-#### Answer: C
+#### الاجابة الصحيحة: ج
 
-The spread operator (`...args`.) returns an array with arguments. An array is an object, so `typeof args` returns `"object"`
+معامل التفكيك `spread operator ...args` بيرجع `array` فيها الـقيم اللي داخله للدالة. و بما ان كل حاجه في جافاسكربت عبارة عن اوبجكت بما فيها الـ`array` يبقى القيمه اللي هترجع `"object"`
 
 </p>
 </details>
 
 ---
 
-###### 20. What's the output?
+###### 20. ايه اللي هيتطبع؟
 
 <div dir="ltr">
 
@@ -671,24 +665,25 @@ getAge();
 </div>
 
 
-- A: `21`
-- B: `undefined`
-- C: `ReferenceError`
-- D: `TypeError`
+- أ: `21`
+- ب: `undefined`
+- ج: `ReferenceError` 
+- د: `TypeError`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>الاجابة</b></summary>
 <p>
 
-#### Answer: C
+####  الاجابة الصحيحة: ج
 
-With `"use strict"`, you can make sure that you don't accidentally declare global variables. We never declared the variable `age`, and since we use `"use strict"`, it will throw a reference error. If we didn't use `"use strict"`, it would have worked, since the property `age` would have gotten added to the global object.
+لما بنستعمل `"use strict"` تقدر تتأكد ان انت مش بتعمل متغيرات `global` عن طريق الخطأ. احنا هنا عمرنا ما عملنا `declare` للمتغير `age` اصلاً و بما اننا بنستعمل `"use strict"` البرنامج هيدينا خطأ من نوع `ReferenceError`.
+
 
 </p>
 </details>
 
 ---
 
-###### 21. What's value of `sum`?
+###### 21. ايه قيمة `sum`?
 
 <div dir="ltr">
 
@@ -697,25 +692,25 @@ const sum = eval("10*10+5");
 ```
 </div>
 
+- أ: `105`
+- ب: `"105"`
+- ج: `TypeError`
+- د: `"10*10+5"`
 
-- A: `105`
-- B: `"105"`
-- C: `TypeError`
-- D: `"10*10+5"`
-
-<details><summary><b>Answer</b></summary>
+<details><summary><b>الاجابة</b></summary>
 <p>
 
-#### Answer: A
+#### الاجابة الصحيحة: أ
 
-`eval` evaluates codes that's passed as a string. If it's an expression, like in this case, it evaluates the expression. The expression is `10 * 10 + 5`. This returns the number `105`.
+الدالة `eval` بتشغل الكود اللي داخلها على هيئة `string`. لو السترنج دي بتعبر عن عملية حسابية مثلاً هتقوم مشغله العملية دي و بالتالي `10 * 10 + 5` هيرجع القيمة العددية `105`.
+
 
 </p>
 </details>
 
 ---
 
-###### 22. How long is cool_secret accessible?
+###### 22. cool_secret هتفضل موجوده قد ايه؟
 
 <div dir="ltr">
 
@@ -724,27 +719,26 @@ sessionStorage.setItem("cool_secret", 123);
 ```
 </div>
 
+- أ: للأبد, عمرها ما هتتمسح 
+- ب: لما المستخدم يقفل التبويب
+- ج: لما المستخدم يقفل نافذة المتصفح كلها
+- د: لما المستخدم يطفي الكمبيوتر بتاعه
 
-- A: Forever, the data doesn't get lost.
-- B: When the user closes the tab.
-- C: When the user closes the entire browser, not only the tab.
-- D: When the user shuts off their computer.
-
-<details><summary><b>Answer</b></summary>
+<details><summary><b>الاجابة</b></summary>
 <p>
 
-#### Answer: B
+#### الاجابة الصحيحة: ب
 
-The data stored in `sessionStorage` is removed after closing the _tab_.
+اي معلومات بيتم تخزينها في الـ`sessionStorage` بتتمسح مجرد ما المستخدم يقفل التبويب.
 
-If you used `localStorage`, the data would've been there forever, unless for example `localStorage.clear()` is invoked.
+لو استخدمت `localStorage` المعلومات هتفضل موجوده للأبد او لحد ما تمسحها انت بنفسك في الكود.
 
 </p>
 </details>
 
 ---
 
-###### 23. What's the output?
+###### 23. ايه اللي هيتطبع؟
 
 <div dir="ltr">
 
@@ -756,27 +750,25 @@ console.log(num);
 ```
 </div>
 
+- أ: `8`
+- ب: `10`
+- ج: `SyntaxError`
+- د: `ReferenceError`
 
-- A: `8`
-- B: `10`
-- C: `SyntaxError`
-- D: `ReferenceError`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>الاجابة</b></summary>
 <p>
 
-#### Answer: B
+#### الاجابة الصحيحة: ب
 
-With the `var` keyword, you can declare multiple variables with the same name. The variable will then hold the latest value.
-
-You cannot do this with `let` or `const` since they're block-scoped.
+مع كلمة `var` احنا بنعمل المتغير من اول و جديد بنفس الاسم و بقيم مختلفه و بالتالي اخر قيمه بس هي اللي هتكون موجودة. مش بيحصل كده مع `let` و `const`.
 
 </p>
 </details>
 
 ---
 
-###### 24. What's the output?
+###### 24. ايه اللي هيتطبع؟
 
 <div dir="ltr">
 
@@ -791,27 +783,26 @@ set.has(1);
 ```
 </div>
 
+- أ: `false` `true` `false` `true`
+- ب: `false` `true` `true` `true`
+- ج: `true` `true` `false` `true`
+- د: `true` `true` `true` `true`
 
-- A: `false` `true` `false` `true`
-- B: `false` `true` `true` `true`
-- C: `true` `true` `false` `true`
-- D: `true` `true` `true` `true`
-
-<details><summary><b>Answer</b></summary>
+<details><summary><b>الاجابة</b></summary>
 <p>
 
-#### Answer: C
+#### الاجابة الصحيحة: ج
 
-All object keys (excluding Symbols) are strings under the hood, even if you don't type it yourself as a string. This is why `obj.hasOwnProperty('1')` also returns true.
+كل مفاتيح العناصر `object keys` ما عدا اللي من نوع `Symbol` عبارة عن قيم `string` حتى لو انت مش كاتبها كسترنج. و ده السبب ان `obj.hasOwnProperty('1')` برضه بترجع `true`
 
-It doesn't work that way for a set. There is no `'1'` in our set: `set.has('1')` returns `false`. It has the numeric type `1`, `set.has(1)` returns `true`.
+اما بالنسبه لنوع `set` فا اللي معانا حالياً جواها قيم عددية فقط و بالتالي الـ`string` `'1'` مش موجوده.
 
 </p>
 </details>
 
 ---
 
-###### 25. What's the output?
+###### 25. ايه اللي هيتطبع؟
 
 <div dir="ltr">
 
@@ -822,42 +813,44 @@ console.log(obj);
 </div>
 
 
-- A: `{ a: "one", b: "two" }`
-- B: `{ b: "two", a: "three" }`
-- C: `{ a: "three", b: "two" }`
-- D: `SyntaxError`
+- أ: `{ a: "one", b: "two" }`
+- ب: `{ b: "two", a: "three" }`
+- ج: `{ a: "three", b: "two" }`
+- د: `SyntaxError`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>الاجابة</b></summary>
 <p>
 
-#### Answer: C
+#### الاجابة الصحيحة: ج
 
-If you have two keys with the same name, the key will be replaced. It will still be in its first position, but with the last specified value.
+لو عندك في العنصر اكتر من قيمة `object key` بنفس الاسم, هيتم استبدال القيم اللي موجوده بآخر قيمة تم تسجيلها.
+
 
 </p>
 </details>
 
 ---
 
-###### 26. The JavaScript global execution context creates two things for you: the global object, and the "this" keyword.
+###### 26. في جافاسكربت, بنلاقي حاجتين موجودين دايماً وهما الـ `global` و كلمة ال `this` المفتاحية. العبارة دي: 
 
-- A: true
-- B: false
-- C: it depends
+- أ: صحيحة
+- ب: خاطئة
+- ج: تعتمد
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>الاجابة</b></summary>
 <p>
 
-#### Answer: A
+####  الاجابة الصحيحة: أ
 
-The base execution context is the global execution context: it's what's accessible everywhere in your code.
+و دي حاجه اسمها `global execution context` واللي يمكن اعتباره عن محيط او البيئة اللي الكوود بيشتغل فيه و بيكون فيه المتغيرات الـ`global` كلها.
+
 
 </p>
 </details>
 
 ---
 
-###### 27. What's the output?
+###### 27. ايه اللي هيتطبع؟
 
 <div dir="ltr">
 
@@ -869,25 +862,25 @@ for (let i = 1; i < 5; i++) {
 ```
 </div>
 
+- أ: `1` `2`
+- ب: `1` `2` `3`
+- ج: `1` `2` `4`
+- د: `1` `3` `4`
 
-- A: `1` `2`
-- B: `1` `2` `3`
-- C: `1` `2` `4`
-- D: `1` `3` `4`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>الاجابة</b></summary>
 <p>
 
-#### Answer: C
+#### الاجابة الصحيحة: ج
 
-The `continue` statement skips an iteration if a certain condition returns `true`.
+كلمة `continue` بتخلي اللووب تكمل لو الشرط اللي هي جواه اتحقق. 
 
 </p>
 </details>
 
 ---
 
-###### 28. What's the output?
+###### 28. ايه اللي هيتطبع؟
 
 <div dir="ltr">
 
@@ -903,24 +896,25 @@ name.giveLydiaPizza();
 </div>
 
 
-- A: `"Just give Lydia pizza already!"`
-- B: `TypeError: not a function`
-- C: `SyntaxError`
-- D: `undefined`
 
-<details><summary><b>Answer</b></summary>
+- أ: `"Just give Lydia pizza already!"`
+- ب: `TypeError: not a function`
+- ج: `SyntaxError`
+- د: `undefined`
+
+<details><summary><b>الاجابة</b></summary>
 <p>
 
-#### Answer: A
+#### الاجابة الصحيحة: أ
 
-`String` is a built-in constructor, which we can add properties to. I just added a method to its prototype. Primitive strings are automatically converted into a string object, generated by the string prototype function. So, all strings (string objects) have access to that method!
+`String` هو فنكشن `constructor` واللي بنقدر نضيف خواص و قيم ليه. انا هنا ضيفت دالة للـ`prototype` بتاعه. المتغيرات البدائية `primitive` بيتم تحويلها بطريقة تلقائياً الى عنصر `object` وبالتالي بيكون ليها القدره انها تشغل الدوال الخاصه بالنوع ده. 
 
 </p>
 </details>
 
 ---
 
-###### 29. What's the output?
+###### 29. ايه اللي هيتطبع؟
 
 <div dir="ltr">
 
@@ -936,29 +930,25 @@ console.log(a[b]);
 ```
 </div>
 
+- أ: `123`
+- ب: `456`
+- ج: `undefined`
+- د: `ReferenceError`
 
-- A: `123`
-- B: `456`
-- C: `undefined`
-- D: `ReferenceError`
-
-<details><summary><b>Answer</b></summary>
+<details><summary><b>الاجابة</b></summary>
 <p>
 
-#### Answer: B
+#### الاجابة الصحيحة: ب
 
-Object keys are automatically converted into strings. We are trying to set an object as a key to object `a`, with the value of `123`.
+مفاتيح العناصر `Object keys` بيتم تحويلهم تلقائياً الى string. احنا هنا بنحاول نحط اوبجكت على انه مفتاح لأوبجكت تاني. بس المشكلة ان لما نعمل كده مش بيترجم لأسمه او لمحتوياته بل بيتحول الى `[Object object] و بالتالي احنا كنا كأننا بالظبط عاملين `a["Object object"]=123` و بنكرر كده مع `c` و بعد كده بنقوم طابعين `a[b]` اللي احنا لسه مخليين مفتاحها من شوية `a["Object object"]` و خلينا القيمة بتاعته 456 و بالتالي دي اللي بتطبع.
 
-However, when we stringify an object, it becomes `"[Object object]"`. So what we are saying here, is that `a["Object object"] = 123`. Then, we can try to do the same again. `c` is another object that we are implicitly stringifying. So then, `a["Object object"] = 456`.
-
-Then, we log `a[b]`, which is actually `a["Object object"]`. We just set that to `456`, so it returns `456`.
 
 </p>
 </details>
 
 ---
 
-###### 30. What's the output?
+###### 30. ايه اللي هيتطبع؟
 
 <div dir="ltr">
 
@@ -973,49 +963,38 @@ baz();
 ```
 </div>
 
+- أ: `First` `Second` `Third`
+- ب: `First` `Third` `Second`
+- ج: `Second` `First` `Third`
+- د: `Second` `Third` `First`
 
-- A: `First` `Second` `Third`
-- B: `First` `Third` `Second`
-- C: `Second` `First` `Third`
-- D: `Second` `Third` `First`
-
-<details><summary><b>Answer</b></summary>
+<details><summary><b>الاجابة</b></summary>
 <p>
 
-#### Answer: B
+#### الاجابة الصحيحة: ب
 
-We have a `setTimeout` function and invoked it first. Yet, it was logged last.
+عندنا دالة `setTimeout` و المفروض تشتغل الاول و لكن اللي جواها اتشغل اخر حاجه. ايه اللي حصل؟ 
 
-This is because in browsers, we don't just have the runtime engine, we also have something called a `WebAPI`. The `WebAPI` gives us the `setTimeout` function to start with, and for example the DOM.
+في المتصفحات محرك الجافاسكربت مش لوحده اللي موجود, بل موجود كمان معاه حاجه اسمها `Web Application APIs` واختصارها `WebAPIs` ودي بتديلك شوية دوال و حاجات زيادة عن اللغه الاساسية زي `setTimeout` اللي مش في اللغه اصلاً. 
 
-After the _callback_ is pushed to the WebAPI, the `setTimeout` function itself (but not the callback!) is popped off the stack.
+اللي بيحصل بقى ان الدالة اللي جوا `setTimeout` اللي هي الـ `callback` بتتجهز عشان تشتغل, و `setTimeout` نفسها بتخلص, و بعد كده البرنامج بينط على طول على الدالة اللي بعدها و بتشغلها و اللي بعدها و بتشغلها لحد ما ميتبقاش حاجه شاغله المتصفح بعد كده يقوم البرنامج مشغل الـ`callback` اللي كانت متجهزه. 
 
 <img src="https://i.imgur.com/X5wsHOg.png" width="200">
 
-Now, `foo` gets invoked, and `"First"` is being logged.
-
 <img src="https://i.imgur.com/Pvc0dGq.png" width="200">
-
-`foo` is popped off the stack, and `baz` gets invoked. `"Third"` gets logged.
 
 <img src="https://i.imgur.com/WhA2bCP.png" width="200">
 
-The WebAPI can't just add stuff to the stack whenever it's ready. Instead, it pushes the callback function to something called the _queue_.
-
 <img src="https://i.imgur.com/NSnDZmU.png" width="200">
 
-This is where an event loop starts to work. An **event loop** looks at the stack and task queue. If the stack is empty, it takes the first thing on the queue and pushes it onto the stack.
-
 <img src="https://i.imgur.com/uyiScAI.png" width="200">
-
-`bar` gets invoked, `"Second"` gets logged, and it's popped off the stack.
 
 </p>
 </details>
 
 ---
 
-###### 31. What is the event.target when clicking the button?
+###### 31. ايه قيمة `event.target` لما تدوس على الزرار؟ 
 <div dir="ltr">
 
 ```html
@@ -1029,25 +1008,26 @@ This is where an event loop starts to work. An **event loop** looks at the stack
 ```
 </div>
 
+- أ: Outer `div`
+- ب: Inner `div`
+- ج: `button`
+- د: اراي جواها كل العناصر اللي جوا الزرار
 
-- A: Outer `div`
-- B: Inner `div`
-- C: `button`
-- D: An array of all nested elements.
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>الاجابة</b></summary>
 <p>
 
-#### Answer: C
+#### الاجابة الصحيحة: ج
 
-The deepest nested element that caused the event is the target of the event. You can stop bubbling by `event.stopPropagation`
+هدف الحدث بيكون اخر عنصر في سلسلة الابناء و تقدر تمنع ده عن طريق `event.stopPropagation`.
 
 </p>
 </details>
 
 ---
 
-###### 32. When you click the paragraph, what's the logged output?
+###### 32. لما تدوس على البرجراف ايه اللي هيتطبع؟
+
 <div dir="ltr">
 
 ```html
@@ -1059,24 +1039,24 @@ The deepest nested element that caused the event is the target of the event. You
 ```
 </div>
 
-- A: `p` `div`
-- B: `div` `p`
-- C: `p`
-- D: `div`
+- أ: `p` `div`
+- ب: `div` `p`
+- ج: `p`
+- د: `div`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>الاجابة</b></summary>
 <p>
 
-#### Answer: A
+#### الاجابة الصحيحة: أ
 
-If we click `p`, we see two logs: `p` and `div`. During event propagation, there are 3 phases: capturing, target, and bubbling. By default, event handlers are executed in the bubbling phase (unless you set `useCapture` to `true`). It goes from the deepest nested element outwards.
+لما تدوس على البرجراف هتلاقي حاجتين ظهروا: `p` و `div`. و اثناء ما الحدث بيتم التعامل معاه بيحصل 3 مراحل زي ما قولنا في سؤال قبل كده. الاساسي ان الدوال اللي انت بتحددها عشان تتعامل مع الاحداث بتشتغل في اخر مرحله و هي الـ`Bubbling` و بالتالي هيتشغل من اعمق عنصر الى اكبر عنصر.
 
 </p>
 </details>
 
 ---
 
-###### 33. What's the output?
+###### 33. ايه اللي هيتطبع؟
 
 <div dir="ltr">
 
@@ -1092,27 +1072,25 @@ sayHi.bind(person, 21);
 ```
 </div>
 
+- أ: `undefined is 21` `Lydia is 21`
+- ب: `function` `function`
+- ج: `Lydia is 21` `Lydia is 21`
+- د: `Lydia is 21` `function`
 
-- A: `undefined is 21` `Lydia is 21`
-- B: `function` `function`
-- C: `Lydia is 21` `Lydia is 21`
-- D: `Lydia is 21` `function`
-
-<details><summary><b>Answer</b></summary>
+<details><summary><b>الاجابة</b></summary>
 <p>
 
-#### Answer: D
+#### الاجابة الصحيحة: د
 
-With both, we can pass the object to which we want the `this` keyword to refer to. However, `.call` is also _executed immediately_!
+في الحالتين بنقدر نحدد احنا عايزين كلمة `this` تشير لأيه بالظبط. بس الفرق ان `call` بتشتغل على طول اما `bind` بترجع نسخة جديدة من الدالة اللي دخلتلها قيمة `this` بتاعتها اللي احنا محددينها بس مش بتشتغل على طول.
 
-`.bind.` returns a _copy_ of the function, but with a bound context! It is not executed immediately.
 
 </p>
 </details>
 
 ---
 
-###### 34. What's the output?
+###### 34. ايه اللي هيتطبع؟
 
 <div dir="ltr">
 
@@ -1125,27 +1103,26 @@ typeof sayHi();
 ```
 </div>
 
+- أ: `"object"`
+- ب: `"number"`
+- ج: `"function"`
+- د: `"undefined"`
 
-- A: `"object"`
-- B: `"number"`
-- C: `"function"`
-- D: `"undefined"`
-
-<details><summary><b>Answer</b></summary>
+<details><summary><b>الاجابة</b></summary>
 <p>
 
-#### Answer: B
+#### الاجابة الصحيحة: ب
 
-The `sayHi` function returns the returned value of the immediately invoked function (IIFE). This function returned `0`, which is type `"number"`.
+الدالة `sayHi` بترجع القيمة اللي بتيجي من الدالة ذاتية التشغيل (IIFE) و اللي بدورها بترجع قيمة نوعها `"number"`. 
 
-FYI: there are only 7 built-in types: `null`, `undefined`, `boolean`, `number`, `string`, `object`, and `symbol`. `"function"` is not a type, since functions are objects, it's of type `"object"`.
+ولمعلومات القارئ: في 3 انواع فقط في الجافاسكربت: `null`, `undefined`, `boolean`, `number`, `string`, `object` و `symbol`. الدوال ليست نوع و انما هما عناصر من نوع `object`.
 
 </p>
 </details>
 
 ---
 
-###### 35. Which of these values are falsy?
+###### 35. انهي قيمة من دول سالبية `false`؟
 
 <div dir="ltr">
 
@@ -1159,18 +1136,17 @@ undefined;
 ```
 </div>
 
+- أ: `0`, `''`, `undefined`
+- ب: `0`, `new Number(0)`, `''`, `new Boolean(false)`, `undefined`
+- ج: `0`, `''`, `new Boolean(false)`, `undefined`
+- د: كلهم
 
-- A: `0`, `''`, `undefined`
-- B: `0`, `new Number(0)`, `''`, `new Boolean(false)`, `undefined`
-- C: `0`, `''`, `new Boolean(false)`, `undefined`
-- D: All of them are falsy
-
-<details><summary><b>Answer</b></summary>
+<details><summary><b>الاجابة</b></summary>
 <p>
 
-#### Answer: A
+####  الاجابة الصحيحة: أ
 
-There are only six falsy values:
+موجود في اللغه 6 قيم سالبية `false` فقط:
 
 - `undefined`
 - `null`
@@ -1179,14 +1155,14 @@ There are only six falsy values:
 - `''` (empty string)
 - `false`
 
-Function constructors, like `new Number` and `new Boolean` are truthy.
+اي `constructor` بيكون ايجابي `truthy` علشان بيرجع قيمة مش واحدة من اللي 6 دول.
 
 </p>
 </details>
 
 ---
 
-###### 36. What's the output?
+###### 36. ايه اللي هيتطبع؟
 
 <div dir="ltr">
 
@@ -1195,26 +1171,24 @@ console.log(typeof typeof 1);
 ```
 </div>
 
+- أ: `"number"`
+- ب: `"string"`
+- ج: `"object"`
+- د: `"undefined"`
 
-- A: `"number"`
-- B: `"string"`
-- C: `"object"`
-- D: `"undefined"`
-
-<details><summary><b>Answer</b></summary>
+<details><summary><b>الاجابة</b></summary>
 <p>
 
-#### Answer: B
+#### الاجابة الصحيحة: ب
 
-`typeof 1` returns `"number"`.
-`typeof "number"` returns `"string"`
+`typeof 1` هترجع `"number"` و لاحظ ان دي مابين `""` يعني سترنج و بالتالي لما تدخل في الـ `typeof "number"` هترجع `"string"`
 
 </p>
 </details>
 
 ---
 
-###### 37. What's the output?
+###### 37. ايه اللي هيتطبع؟
 
 <div dir="ltr">
 
@@ -1225,29 +1199,29 @@ console.log(numbers);
 ```
 </div>
 
+- أ: `[1, 2, 3, 7 x null, 11]`
+- ب: `[1, 2, 3, 11]`
+- ج: `[1, 2, 3, 7 x empty, 11]`
+- د: `SyntaxError`
 
-- A: `[1, 2, 3, 7 x null, 11]`
-- B: `[1, 2, 3, 11]`
-- C: `[1, 2, 3, 7 x empty, 11]`
-- D: `SyntaxError`
-
-<details><summary><b>Answer</b></summary>
+<details><summary><b>الاجابة</b></summary>
 <p>
 
-#### Answer: C
+#### الاجابة الصحيحة: ج
 
-When you set a value to an element in an array that exceeds the length of the array, JavaScript creates something called "empty slots". These actually have the value of `undefined`, but you will see something like:
+لما بتحط قيمة في مكان في `array` و المكان ده بيتعدى عدد المساحات الموجوده في الاراي (طولها) بتقوم جافاسكربت بعمل حاجه اسمها "مساحات فارغه" "empty slots" واللي بيكونوا قيمهم `undefined` ولكن لما تبص في الكونسول بتاعت المتصفح مثلاً هتلاقي الشكل طالعلك كده: 
 
 `[1, 2, 3, 7 x empty, 11]`
 
-depending on where you run it (it's different for every browser, node, etc.)
+و الشكل بيعتمد على حسب انت بتشغل الكود فين. كل متصفح بيطلعها بشكل مختلف, و تقدر تجربها بنفسك.
+
 
 </p>
 </details>
 
 ---
 
-###### 38. What's the output?
+###### 38. ايه اللي هيتطبع؟
 
 <div dir="ltr">
 
@@ -1266,52 +1240,49 @@ depending on where you run it (it's different for every browser, node, etc.)
 ```
 </div>
 
+- أ: `1` `undefined` `2`
+- ب: `undefined` `undefined` `undefined`
+- ج: `1` `1` `2`
+- د: `1` `undefined` `undefined`
 
-- A: `1` `undefined` `2`
-- B: `undefined` `undefined` `undefined`
-- C: `1` `1` `2`
-- D: `1` `undefined` `undefined`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>الاجابة</b></summary>
 <p>
 
-#### Answer: A
+#### الاجابة الصحيحة: أ
 
-The `catch` block receives the argument `x`. This is not the same `x` as the variable when we pass arguments. This variable `x` is block-scoped.
+جزء الـ`catch` بيستلم متغير `x` بس الفرق ان الاكس في الحاله دي مش بتاعت الداله و انما ده متغير موجود فقط لجزء الـ `catch`. بعد كده احنا قومنا مغيرين القيمة بتاعته الى `1` و غيرنا قيمة المتغير `y` الى `2`. بعد كده قومنا طابعين القيم اللي موجودة جوا جزء الـ`catch` فقط. 
 
-Later, we set this block-scoped variable equal to `1`, and set the value of the variable `y`. Now, we log the block-scoped variable `x`, which is equal to `1`.
-
-Outside of the `catch` block, `x` is still `undefined`, and `y` is `2`. When we want to `console.log(x)` outside of the `catch` block, it returns `undefined`, and `y` returns `2`.
+برا الجزء بتاع الـ`catch` اكس هيفضل برضه `undefined` و `y` بما ان مفيش الا واحدة بس و هي بتاعت الدالة الاساسية واحنا غيرنا قيمتها بالتالي هتفضل على القيمة المتغيره اللي هي `2`.
 
 </p>
 </details>
 
 ---
 
-###### 39. Everything in JavaScript is either a...
+###### 39. كل حاجه في جافاسكربت ...
 
-- A: primitive or object
-- B: function or object
-- C: trick question! only objects
-- D: number or object
+- أ: primitive او  عنصر `object`
+- ب: function او عنصر `object`
+- ج: عناصر `object` بس!
+- د: رقم او عنصر `object`
 
-<details><summary><b>Answer</b></summary>
+
+<details><summary><b>الاجابة</b></summary>
 <p>
 
-#### Answer: A
+#### الاجابة الصحيحة: أ
 
-JavaScript only has primitive types and objects.
+جافاسكربت فيها انواع بدائية\بسيطة `primitives` و عناصر `object` فقط. الانواع البسيطة هما:  `boolean`, `null`, `undefined`, `bigint`, `number`, `string`, و `symbol` 
 
-Primitive types are `boolean`, `null`, `undefined`, `bigint`, `number`, `string`, and `symbol`.
-
-What differentiates a primitive from an object is that primitives do not have any properties or methods; however, you'll note that `'foo'.toUpperCase()` evaluates to `'FOO'` and does not result in a `TypeError`. This is because when you try to access a property or method on a primitive like a string, JavaScript will implicity wrap the object using one of the wrapper classes, i.e. `String`, and then immediately discard the wrapper after the expression evaluates. All primitives except for `null` and `undefined` exhibit this behaviour.
+الفرق بين البسيطة و العناصر ان البسيطة مفيهاش اي دوال `methods` ولكن بنلاحظ ان لما مثلاُ بنحاول نشغل دالة على نوع بسيط زي `'foo'.toUpperCase()` الداله بتشتغل عادي جداً من غير ما تدينا خطأ `TypeError` و ده لأن زي ما قولنا في اجابة سابقه ان لما بنحاول نستغل الدوال دول جافاسكربت بتقوم تلقائياً بتحويل القيم البدائية اللي بنحاول نشغل عليها الدوال دي الى قيم من نوع `object` عشان تقدر تشغل الدوال دول و بعد كده ترجعها زي ما كانت. كل الانواع البسيطة بينطبق عليها الكلام ده ما عدا `undefined` و `null`.
 
 </p>
 </details>
 
 ---
 
-###### 40. What's the output?
+###### 40. ايه اللي هيتطبع؟
 
 <div dir="ltr">
 
@@ -1325,27 +1296,26 @@ What differentiates a primitive from an object is that primitives do not have an
 ```
 </div>
 
+- أ: `[0, 1, 2, 3, 1, 2]`
+- ب: `[6, 1, 2]`
+- ج: `[1, 2, 0, 1, 2, 3]`
+- د: `[1, 2, 6]`
 
-- A: `[0, 1, 2, 3, 1, 2]`
-- B: `[6, 1, 2]`
-- C: `[1, 2, 0, 1, 2, 3]`
-- D: `[1, 2, 6]`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>الاجابة</b></summary>
 <p>
 
-#### Answer: C
+#### الاجابة الصحيحة: ج
 
-`[1, 2]` is our initial value. This is the value we start with, and the value of the very first `acc`. During the first round, `acc` is `[1,2]`, and `cur` is `[0, 1]`. We concatenate them, which results in `[1, 2, 0, 1]`.
+الاراي `[1,2]` هي القيمه الاساسية اللي معانا و اللي هنبدأ بيها و هي برضه اول قيمة للمتغير `acc`. في الدورة الاولى المتغير `acc` قيمته `[1,2]` و المتغير `cur` قيمته `[0,1]` و لما نجمعهم سوا بيكون الناتج `[1,2,0,1]` و بعد كده المتغير `acc` بياخد القيمة دي و يقوم دامجها مع `[2,3]` اللي هي قيمة `cur` في الدورة التانية و اللي بدوره بيدي الناتج النهائي `[1, 2, 0, 1, 2, 3]`.
 
-Then, `[1, 2, 0, 1]` is `acc` and `[2, 3]` is `cur`. We concatenate them, and get `[1, 2, 0, 1, 2, 3]`
 
 </p>
 </details>
 
 ---
 
-###### 41. What's the output?
+###### 41. ايه اللي هيتطبع؟
 
 <div dir="ltr">
 
@@ -1357,28 +1327,30 @@ Then, `[1, 2, 0, 1]` is `acc` and `[2, 3]` is `cur`. We concatenate them, and ge
 </div>
 
 
-- A: `false` `true` `false`
-- B: `false` `false` `true`
-- C: `false` `true` `true`
-- D: `true` `true` `false`
+- أ: `false` `true` `false`
+- ب: `false` `false` `true`
+- ج: `false` `true` `true`
+- د: `true` `true` `false`
 
-<details><summary><b>Answer</b></summary>
+
+<details><summary><b>الاجابة</b></summary>
 <p>
 
-#### Answer: B
+#### الاجابة الصحيحة: ب
 
-`null` is falsy. `!null` returns `true`. `!true` returns `false`.
+`null` قيمة سالبية `falsy` و بالتالي `!null` هترجع قيمة ايجابية `true` و بعد كده بتخش `!true` فا تتحول `false` 
 
-`""` is falsy. `!""` returns `true`. `!true` returns `false`.
+وزي ما قولنا `""` دي قيمة سالبية لما نجيب عكسها هتتحول هي لـ`false` و بعد كده السالب بتاعها هيكون `true` و بعد كده تدخل في سالب تاني فتبقى `false`
 
-`1` is truthy. `!1` returns `false`. `!false` returns `true`.
+بعد كده عندنا رقم `1` اللي هو قيمة ايجابية و بدوره بيتحول مره يبقى سالبية و بعد كده يبقى ايجابية `true`.
+
 
 </p>
 </details>
 
 ---
 
-###### 42. What does the `setInterval` method return in the browser?
+###### 42. دالة `setInterval` بترجع ايه في المتصفح؟
 
 <div dir="ltr">
 
@@ -1388,24 +1360,25 @@ setInterval(() => console.log("Hi"), 1000);
 </div>
 
 
-- A: a unique id
-- B: the amount of milliseconds specified
-- C: the passed function
-- D: `undefined`
+- أ: اسم تعريفي فريد من نوعه `unique id`
+- ب: الوقت المحدد
+- ج: الداله المدخله معاها
+- د: `undefined`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>الاجابة</b></summary>
 <p>
 
-#### Answer: A
+#### الاجابة الصحيحة: أ
 
-It returns a unique id. This id can be used to clear that interval with the `clearInterval()` function.
+دالة `setInterval` بترجع اسم تعريفي فريد تقدر تستعمله في `clearInterval` عشان توقف بيه التكرار.
+
 
 </p>
 </details>
 
 ---
 
-###### 43. What does this return?
+###### 43. ايه القيمة اللي هتطلع هنا؟
 
 <div dir="ltr">
 
@@ -1415,17 +1388,18 @@ It returns a unique id. This id can be used to clear that interval with the `cle
 </div>
 
 
-- A: `["L", "y", "d", "i", "a"]`
-- B: `["Lydia"]`
-- C: `[[], "Lydia"]`
-- D: `[["L", "y", "d", "i", "a"]]`
+- أ: `["L", "y", "d", "i", "a"]`
+- ب: `["Lydia"]`
+- ج: `[[], "Lydia"]`
+- د: `[["L", "y", "d", "i", "a"]]`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>الاجابة</b></summary>
 <p>
 
-#### Answer: A
+#### الاجابة الصحيحة: أ
 
-A string is an iterable. The spread operator maps every character of an iterable to one element.
+القيم اللي من نوع `string` بنقدر نعدي عليها عادي و بالتالي بنقدر نستعمل الـ Spread operator `...x` عشان نحول كل حرف الى عنصر في اراي.
+
 
 </p>
 </details>
