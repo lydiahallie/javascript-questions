@@ -1682,7 +1682,7 @@ console.log(Walk.length);
 
 #### Answer: A
 
-The local `arguments` variable within non-arrow functions have entries (zero-based e.g.,first entry indexed by 0) for each of the argument(s) the function was called with. Which is why our first log to the console outputs `7` for `arguments.length` due to the invocation of `Walk` with the arguments `('NB', false, 'spring water', false, 'dog', 'gatorade', 'towel')`. The `length` property on the Function object `Walk` itself can tell you how many arguments the function was declared to accept rather than how many it was called with, therefore our second `console.log` outputs `4` due to `(shoes, sunglasses, water, backpack)` not taking into account the rest operator (`...otherEssentials`) which is an array representing an indefinite nunber of arguments.
+The local `arguments` variable within non-arrow functions have entries (zero-based e.g.,first entry indexed by 0) for each of the argument(s) the function was called with. Which is why our first log to the console outputs `7` for `arguments.length` due to the invocation of `Walk` with the arguments `('NB', false, 'spring water', false, 'dog', 'gatorade', 'towel')`. The `length` property on the Function object `Walk` itself can tell you how many arguments the function was declared to accept rather than how many it was called with, therefore our second `console.log` outputs `4` due to `(shoes, sunglasses, water, backpack)` not taking into account the rest operator (`...otherEssentials`) which is an array representing an indefinite number of arguments.
 
 </p>
 </details>
