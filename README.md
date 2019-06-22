@@ -2,7 +2,7 @@
 
 I post daily multiple choice JavaScript questions on my [Instagram](https://www.instagram.com/theavocoder), which I'll also post here!
 
-From basic to advanced: test how well you know JavaScript, refresh your knowledge a bit, or prepare for your coding interview! :muscle: :rocket: I update this repo weekly with new questions. Last update: <b>June 21st</b>
+From basic to advanced: test how well you know JavaScript, refresh your knowledge a bit, or prepare for your coding interview! :muscle: :rocket: I update this repo weekly with new questions. Last update: <b>[June 21st](#20190621)</b>
 
 The answers are in the collapsed sections below the questions, simply click on them to expand it. Good luck :heart:
 
@@ -1298,7 +1298,7 @@ A string is an iterable. The spread operator maps every character of an iterable
 
 ---
 
-###### 44. What's the output?
+###### <a name="20190621"></a>44. What's the output?
 
 ```javascript
 function* generator(i) {
@@ -1485,7 +1485,7 @@ Only the first numbers in the string is returned. Based on the _radix_ (the seco
 
 ---
 
-###### 50. What's the output`?
+###### 50. What's the output?
 
 ```javascript
 [1, 2, 3].map(num => {
@@ -1572,16 +1572,16 @@ sayHi();
 - A: `"It worked! Hello world!"`
 - B: `"Oh no an error: undefined`
 - C: `SyntaxError: can only throw Error objects`
-- D: `"Oh no an error: Hello world!`
+- D: `"Oh no an error! Hello world!`
 
 <details><summary><b>Answer</b></summary>
 <p>
 
 #### Answer: D
 
-With the `throw` statement, we can create custom errors. With this statement, you can throw exceptions. An exception can be a <b>string</b>, a <b>number</b>, a <b>boolean</b> or an <b>object</b>. In this case, our exception is the string `'Hello world'`.
+With the `throw` statement, we can create custom errors. With this statement, you can throw exceptions. An exception can be a <b>string</b>, a <b>number</b>, a <b>boolean</b> or an <b>object</b>. In this case, our exception is the string `'Hello world!'`.
 
-With the `catch` statement, we can specify what to do if an exception is thrown in the `try` block. An exception is thrown: the string `'Hello world'`. `e` is now equal to that string, which we log. This results in `'Oh an error: Hello world'`.
+With the `catch` statement, we can specify what to do if an exception is thrown in the `try` block. An exception is thrown: the string `'Hello world~'`. `e` is now equal to that string, which we log. This results in `'Oh an error! Hello world!'`.
 
 </p>
 </details>
@@ -1638,7 +1638,7 @@ console.log(typeof y);
 
 #### Answer: A
 
-`let x = y = 10;` is actually shorthand for:
+`let x = (y = 10);` is actually shorthand for:
 
 ```javascript
 y = 10;
