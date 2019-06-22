@@ -1653,3 +1653,38 @@ However, we created a global variable `y` when setting `y` equal to `10`. This v
 
 </p>
 </details>
+
+###### 55. What's the output?
+
+```javascript
+function Walk(shoes, sunglasses, water, backpack, ...otherEssentials) {
+  console.log(arguments.length)
+  return {
+    shoes,
+    sunglasses,
+    water,
+    backpack,
+    otherEssentials: [...otherEssentials]
+  }
+}
+
+const goWalk = new Walk('NB', false, 'spring water', false, 'dog', 'gatorade', 'towel');
+console.log(Walk.length);
+```
+
+- A: `"7 4"`
+- B: `"7 5"`
+- C: `4 7`
+- D: `5 4`
+
+<details><summary><b>Answer</b></summary>
+<p>
+
+#### Answer: A
+
+The local `arguments` variable within non-arrow functions have entries (zero-based e.g.,first entry indexed by 0) for each of the argument(s) the function was called with. Which is why our first log to the console outputs `7` for `arguments.length` due to the invocation of `Walk` with the arguments `('NB', false, 'spring water', false, 'dog', 'gatorade', 'towel')`. The `length` property on the Function object `Walk` itself can tell you how many arguments the function was declared to accept rather than how many it was called with, therefore our second `console.log` outputs `4` due to `(shoes, sunglasses, water, backpack)` not taking into account the rest operator (`...otherEssentials`) which is an array representing an indefinite nunber of arguments.
+
+</p>
+</details>
+
+---
