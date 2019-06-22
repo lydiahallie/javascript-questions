@@ -1672,10 +1672,10 @@ const goWalk = new Walk('NB', false, 'spring water', false, 'dog', 'gatorade', '
 console.log(Walk.length);
 ```
 
-- A: `"7 4"`
-- B: `"7 5"`
-- C: `4 7`
-- D: `5 4`
+- A: `7, 4`
+- B: `7, 5`
+- C: `4, 7`
+- D: `5, 4`
 
 <details><summary><b>Answer</b></summary>
 <p>
