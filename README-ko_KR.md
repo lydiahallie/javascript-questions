@@ -30,10 +30,10 @@ function sayHi() {
 sayHi();
 ```
 
-- A: `Lydia` 와 `undefined`
-- B: `Lydia` 와 `ReferenceError`
-- C: `ReferenceError` 와 `21`
-- D: `undefined` 와 `ReferenceError`
+- A: `Lydia` 그리고 `undefined`
+- B: `Lydia` 그리고 `ReferenceError`
+- C: `ReferenceError` 그리고 `21`
+- D: `undefined` 그리고 `ReferenceError`
 
 <details><summary><b>정답</b></summary>
 <p>
@@ -61,9 +61,9 @@ for (let i = 0; i < 3; i++) {
 }
 ```
 
-- A: `0 1 2` 와 `0 1 2`
-- B: `0 1 2` 와 `3 3 3`
-- C: `3 3 3` 와 `0 1 2`
+- A: `0 1 2` 그리고 `0 1 2`
+- B: `0 1 2` 그리고 `3 3 3`
+- C: `3 3 3` 그리고 `0 1 2`
 
 <details><summary><b>정답</b></summary>
 <p>
@@ -94,10 +94,10 @@ shape.diameter();
 shape.perimeter();
 ```
 
-- A: `20` 과 `62.83185307179586`
-- B: `20` 과 `NaN`
-- C: `20` 과 `63`
-- D: `NaN` 과 `63`
+- A: `20` 그리고 `62.83185307179586`
+- B: `20` 그리고 `NaN`
+- C: `20` 그리고 `63`
+- D: `NaN` 그리고 `63`
 
 <details><summary><b>정답</b></summary>
 <p>
@@ -122,9 +122,9 @@ shape.perimeter();
 !"Lydia";
 ```
 
-- A: `1` 과 `false`
-- B: `false` 와 `NaN`
-- C: `false` 와 `false`
+- A: `1` 그리고 `false`
+- B: `false` 그리고 `NaN`
+- C: `false` 그리고 `false`
 
 <details><summary><b>정답</b></summary>
 <p>
@@ -190,7 +190,7 @@ console.log(d.greeting);
 ```
 
 - A: `Hello`
-- B: `Hey`
+- B: `Hey!`
 - C: `undefined`
 - D: `ReferenceError`
 - E: `TypeError`
@@ -235,7 +235,7 @@ console.log(b === c);
 
 #### 정답: C
 
-`new Number()`는, 내장 함수 생성자에요. 숫자처럼 보이지만, 실제로는 숫자가 아니에요: 많은 추가 특징이 있고 그것은 객체에요.
+`new Number()`는, 내장 함수 생성자에요. 숫자처럼 보이지만, 실제로는 숫자가 아니에요: 많은 추가 특성이 있고 그것은 객체에요.
 
 `==`연산자를 사용할 때, 그건 같은 _값_ 을 가지고 있는지 여부만 확인해요. 그것들은 모두`3`의 값을 가지고 있으므로, `true`를 리턴해요.
 
@@ -328,9 +328,9 @@ bark.animal = "dog";
 #### 정답: A
 
 JavaScript에서는 가능해요, 함수는 객체이기 때문이에요!
-(프리미티브형 이외는 모두 객체에요)
+(프리미티브형 이외는 모두 객체)
 
-함수는 특별한 종류의 객체에요. 자신이 쓴 코드는 실제 함수가 아니에요. 함수는 속성을 가진 객체에요. 이 속성은 호출이 가능해요.
+함수는 특별한 종류의 객체에요. 당신이 쓴 코드는 실제 함수가 아니에요. 함수는 속성을 가진 객체에요. 이 속성은 호출이 가능해요.
 
 </p>
 </details>
@@ -363,7 +363,7 @@ console.log(member.getFullName());
 
 #### 정답: A
 
-You can't add properties to a constructor like you can with regular objects. If you want to add a feature to all objects at once, you have to use the prototype instead. So in this case,
+보통의 객체처럼 생성자에는 속성을 추가할 수 없어요. 한 번에 모든 객체에 기능을 추가하고 싶다면, 프로토 타입을 사용해야 해요. 그래서 이 경우에,
 
 ```js
 Person.prototype.getFullName = function() {
@@ -371,7 +371,7 @@ Person.prototype.getFullName = function() {
 };
 ```
 
-would have made `member.getFullName()` work. Why is this beneficial? Say that we added this method to the constructor itself. Maybe not every `Person` instance needed this method. This would waste a lot of memory space, since they would still have that property, which takes of memory space for each instance. Instead, if we only add it to the prototype, we just have it at one spot in memory, yet they all have access to it!
+`member.getFullName()`은 작동되요. 이것은 왜 유익할까요? 이 메소드를 생성자 자체에 추가했다고 할게요. 아마도 모든 `Person` 인스턴스는 이 메소드를 필요로 하지 않을 수도 있어요. 그 경우 그들은 아직 속성을 갖고, 각각의 인스턴스를 위해 메모리 공간을 소비하기 때문에, 많은 메모리 공간을 낭비하게 되요. 대신에, 프로토타입을 추가하는 것만으로, 메모리의 한 지점을 가지지만, 모든 것들은 그것에 접근 할 수 있어요.
 
 </p>
 </details>
@@ -393,26 +393,26 @@ console.log(lydia);
 console.log(sarah);
 ```
 
-- A: `Person {firstName: "Lydia", lastName: "Hallie"}` and `undefined`
-- B: `Person {firstName: "Lydia", lastName: "Hallie"}` and `Person {firstName: "Sarah", lastName: "Smith"}`
-- C: `Person {firstName: "Lydia", lastName: "Hallie"}` and `{}`
-- D:`Person {firstName: "Lydia", lastName: "Hallie"}` and `ReferenceError`
+- A: `Person {firstName: "Lydia", lastName: "Hallie"}` 그리고 `undefined`
+- B: `Person {firstName: "Lydia", lastName: "Hallie"}` 그리고 `Person {firstName: "Sarah", lastName: "Smith"}`
+- C: `Person {firstName: "Lydia", lastName: "Hallie"}` 그리고 `{}`
+- D:`Person {firstName: "Lydia", lastName: "Hallie"}` 그리고 `ReferenceError`
 
 <details><summary><b>정답</b></summary>
 <p>
 
 #### 정답: A
 
-For `sarah`, we didn't use the `new` keyword. When using `new`, it refers to the new empty object we create. However, if you don't add `new` it refers to the **global object**!
+`sarah`를 위해, `new`키워드를 사용하지 않았어요. `new`를 사용한 경우, 이것은 우리가 만든 새로운 빈 객체를 참조해요. 그러나, `new`를 추가하지 않으면 **전역변수**를 참조하게 되요!
 
-We said that `this.firstName` equals `"Sarah"` and `this.lastName` equals `"Smith"`. What we actually did, is defining `global.firstName = 'Sarah'` and `global.lastName = 'Smith'`. `sarah` itself is left `undefined`.
+`this.firstName`에 `"Sarah"`을 대입하고, `this.lastName`에 `"Smith"`을 대입 했다고 말했었어요. (그렇지만) 우리는 실제로, `global.firstName = 'Sarah'` 그리고 `global.lastName = 'Smith'`를 정의한거에요. `sarah` 자체는 `undefined`로 남아있어요.
 
 </p>
 </details>
 
 ---
 
-###### 13. What are the three phases of event propagation?
+###### 13. 이벤트 전달의 3단계는 무엇일까요?
 
 - A: Target > Capturing > Bubbling
 - B: Bubbling > Target > Capturing
@@ -424,7 +424,7 @@ We said that `this.firstName` equals `"Sarah"` and `this.lastName` equals `"Smit
 
 #### 정답: D
 
-During the **capturing** phase, the event goes through the ancestor elements down to the target element. It then reaches the **target** element, and **bubbling** begins.
+**capturing** 단계 동안에, 이벤트는 조상요소를 거쳐 목표 요소까지 내려가요. 그런 다음 **target** 요소에 도달하고, **bubbling**이 시작되요.
 
 <img src="https://i.imgur.com/N18oRgd.png" width="200">
 
@@ -433,7 +433,7 @@ During the **capturing** phase, the event goes through the ancestor elements dow
 
 ---
 
-###### 14. All object have prototypes.
+###### 14. 모든 객체는 프로토 타입을 가져요.
 
 - A: true
 - B: false
@@ -443,7 +443,7 @@ During the **capturing** phase, the event goes through the ancestor elements dow
 
 #### 정답: B
 
-All objects have prototypes, except for the **base object**. The base object has access to some methods and properties, such as `.toString`. This is the reason why you can use built-in JavaScript methods! All of such methods are available on the prototype. Although JavaScript can't find it directly on your object, it goes down the prototype chain and finds it there, which makes it accessible for you.
+**기본객체**를 제외한, 모든 객체는 프로포타입을 가져요. 기본객체는 `.toString`와 같은 몇개의 메소드와 속성에 접근할 수 있어요. 이것이 내장 JavaScript 메소드를 사용할 수 있는 이유죠! 이러한 모든 메소드는 프로토 타입에서 이용 할 수 있어요. JavaScript가 당신의 객체를 직접 찾을 수 없더라도, 당신이 접근 할 수 있도록, 프로토타입 체인으로 내려가서 찾을거에요.
 
 </p>
 </details>
@@ -470,9 +470,9 @@ sum(1, "2");
 
 #### 정답: C
 
-JavaScript is a **dynamically typed language**: we don't specify what types certain variables are. Values can automatically be converted into another type without you knowing, which is called _implicit type coercion_. **Coercion** is converting from one type into another.
+JavaScript는 **동적으로 만들어진 언어**에요: 특정변수가 어떤 타입인지 지정하지 않아요. 변수는 당신이 모르는 사이에 자동으로 다른 타입으로 변환 될 수 있는데, 이걸 _암묵적 타입 변환_ 이라고 불러요. **Coercion**은 하나의 타입을 다른 타입으로 변환하는 거에요.
 
-In this example, JavaScript converts the number `1` into a string, in order for the function to make sense and return a value. During the addition of a numeric type (`1`) and a string type (`'2'`), the number is treated as a string. We can concatenate strings like `"Hello" + "World"`, so what's happening here is `"1" + "2"` which returns `"12"`.
+이 예제에서, 함수가 이해하고 값을 리턴하도록, JavaScript는 숫자 `1`을 문자열로 변환해요. 수형 (`1`)와 문자열형 (`'2'`)의 추가 중에는, 숫자는 문자열로 취급되요. `"Hello" + "World"`처럼 문자열을 연결할 수 있어요, 따라서 여기 `"1" + "2"`는 `"12"`을 리턴하는 일이 발생해요.
 
 </p>
 </details>
@@ -498,17 +498,17 @@ console.log(number);
 
 #### 정답: C
 
-The **postfix** unary operator `++`:
+**접미사** 단항연산자 `++`:
 
-1. Returns the value (this returns `0`)
-2. Increments the value (number is now `1`)
+1. 값 리턴 (이것은 `0`을 리턴해요)
+2. 값 증가 (number는 지금 `1`이에요)
 
-The **prefix** unary operator `++`:
+**접두사** 단항연산자 `++`:
 
-1. Increments the value (number is now `2`)
-2. Returns the value (this returns `2`)
+1. 값 증가 (number는 지금 `2`이에요)
+2. 값 리턴 (이것은 `2`을 리턴해요)
 
-This returns `0 2 2`.
+이건 `0 2 2`을 리턴해요.
 
 </p>
 </details>
@@ -539,7 +539,7 @@ getPersonInfo`${person} is ${age} years old`;
 
 #### 정답: B
 
-If you use tagged template literals, the value of the first argument is always an array of the string values. The remaining arguments get the values of the passed expressions!
+태그드 템플릿 리터럴을 사용하는 경우, 첫번재 인수의 값은 항상 문자열 값의 배열이에요. 나머지 인수는 식을 통과한 값을 얻게 되요.
 
 </p>
 </details>
@@ -571,11 +571,11 @@ checkAge({ age: 18 });
 
 #### 정답: C
 
-When testing equality, primitives are compared by their _value_, while objects are compared by their _reference_. JavaScript checks if the objects have a reference to the same location in memory.
+동등성을 테스트할 때, 프리미티브는 그 _값_ 에 따라 비교되며, 객체는 그들의 _참조_ 에 따라 비교되요. JavaScript 객체가 메모리내의 같은 장소를 참조하고 있는지 여부를 확인해요.
 
-The two objects that we are comparing don't have that: the object we passed as a parameter refers to a different location in memory than the object we used in order to check equality.
+비교하고 있는 두개의 객체는 그것이 없어요: 파라미터로 전달된 객체와 동등성을 확인하기 위해 사용한 객체는 메모리 내의 다른 장소를 참조해요.
 
-This is why both `{ age: 18 } === { age: 18 }` and `{ age: 18 } == { age: 18 }` return `false`.
+이것이 `{ age: 18 } === { age: 18 }` 그리고 `{ age: 18 } == { age: 18 }` 두개 다 `false`를 리턴하는 이유죠.
 
 </p>
 </details>
@@ -602,7 +602,7 @@ getAge(21);
 
 #### 정답: C
 
-The spread operator (`...args`.) returns an array with arguments. An array is an object, so `typeof args` returns `"object"`
+스프레드 연산자 (`...args`.)는 인수를 가진 배열을 리턴해요. 배열은 객체이므로, `typeof args`는 `"object"`를 리턴해요.
 
 </p>
 </details>
@@ -631,14 +631,14 @@ getAge();
 
 #### 정답: C
 
-With `"use strict"`, you can make sure that you don't accidentally declare global variables. We never declared the variable `age`, and since we use `"use strict"`, it will throw a reference error. If we didn't use `"use strict"`, it would have worked, since the property `age` would have gotten added to the global object.
+`"use strict"`을 사용하면, 실수로 전역 변수를 선언하지 않게 할 수 있어요. `age`이라는 변수를 선언한적이 전혀없고, `"use strict"`을 사용하고 있으므로, 참조 에러를 던지게 될거에요. 만약 `"use strict"`을 사용하지 않았다면, 이건 작동할거에요, `age` 속성이 전역 객체에 추가된 것이기 때문이죠.
 
 </p>
 </details>
 
 ---
 
-###### 21. What's value of `sum`?
+###### 21. `sum`의 값은 무엇일까요?
 
 ```javascript
 const sum = eval("10*10+5");
