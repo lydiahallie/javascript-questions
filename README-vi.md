@@ -404,7 +404,7 @@ Chúng ta cho rằng `this.firstName` là `"Sarah"` và `this.lastName` là `"Sm
 
 ---
 
-###### 13. What are the three phases of event propagation?
+###### 13. 3 giai đoạn của event propagation là gì?
 
 - A: Target > Capturing > Bubbling
 - B: Bubbling > Target > Capturing
