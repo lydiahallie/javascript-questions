@@ -264,7 +264,7 @@ class Chameleon {
 }
 
 const freddie = new Chameleon({ newColor: "purple" });
-freddie.colorChange("orange");
+console.log(freddie.colorChange("orange"));
 ```
 
 - A: `orange`
