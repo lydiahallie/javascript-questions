@@ -193,7 +193,7 @@ console.log(d.greeting);
 ```
 
 - A: `Hello`
-- B: `Hey`
+- B: `Hey!`
 - C: `undefined`
 - D: `ReferenceError`
 - E: `TypeError`
