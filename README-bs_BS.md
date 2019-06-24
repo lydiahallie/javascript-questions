@@ -1,8 +1,6 @@
 # Popis (naprednih) JavaScript pitanja
 =======================================
 
-###### Pošto je cilj bio što prije izbaciti domaću verziju ovog odličnog repozitorija vjerovatno je došlo do sitnih gramatičkih i sintatičkih grešaka.Hvala na razumjevanju!
-
 Svakodnevno postavljam JavaScript pitanja s višestrukim izborom na moj
 [Instagram](https://www.instagram.com/theavocoder), koja  također objavljujem
 ovdje!
@@ -15,21 +13,23 @@ Odgovori su jednostavno dijelovima ispod pitanja
 kliknite na njih da biste ih proširili. Sretno :heart:
 
 
-[中文版本](./README-zh_CN.md)
-
-[WESTERN BALKAN](./README-bs.md)
-
+[Kineski 中文版本](./README-zh_CN.md)  
+[Ruski](./README_ru-RU.md)  
+[Zapadni balkan](./README-bs_BS.md)  
+[Njemački](./README-de_DE.md) <br>
+[Vijetnamski](./README-vi.md)  
+[Українська мова](./README-ua_UA.md)  
 
 * * * * *
 
 ###### 1. Što je izlaz?
 
 ```javascript
-function sayHi () {
-  console.log (ime);
-  console.log (starosti);
-  var ime = "Lydia";
-  let starost = 21;
+function sayHi() {
+  console.log(name);
+  console.log(age);
+  var name = "Lydia";
+  let age = 21;
 }
 
 sayHi();
@@ -66,18 +66,18 @@ JavaScript iz bacuje `ReferenceError`.
 ###### 2. Što je izlaz?
 
 ```javascript
-for (var i = 0; i <3; i ++) {
-  setTimeout (() => console.log (i), 1);
+for (var i = 0; i < 3; i++) {
+  setTimeout(() => console.log(i), 1);
 }
 
-for (let i = 0; i <3; i ++) {
-  setTimeout (() => console.log (i), 1);
+for (let i = 0; i < 3; i++) {
+  setTimeout(() => console.log(i), 1);
 }
 ```
 
-- A: `0 1 2` and `0 1 2`
-- B: `0 1 2` and `3 3 3`
-- C: `3 3 3` and `0 1 2`
+- A: `0 1 2` i` 0 1 2`
+- B: "0 1 2" i "3 3 3"
+- C: "3 3 3" i "0 1 2"
 
 <details><summary><b> Odgovor</b></summary>
 <p>
@@ -105,16 +105,16 @@ block-scoped (blok je sve između `{}`). Tijekom svake iteracije,
 ###### 3. Što je izlaz?
 
 ```javascript
-const oblik = {
-  radijus: 10,
-  promjer() {
+const shape = {
+  radius: 10,
+  diameter() {
     return this.radius * 2;
-  }
-  perimetar: () => 2 * Math.PI * this.radius
+  },
+  perimeter: () => 2 * Math.PI * this.radius
 };
 
-oblik.radijus ();
-oblik.promjer ();
+shape.diameter();
+shape.perimeter();
 ```
 
 - A: "20" i "62.83185307179586"
@@ -145,8 +145,8 @@ Na tom objektu nema vrijednosti `radius` koja vraća` undefined`.
 ###### 4. Što je izlaz?
 
 ```javascript
-+ True;
-! "Lydia";
++true;
+!"Lydia";
 ```
 
 - A: "1" i "false"
@@ -177,14 +177,14 @@ const bird = {
 };
 
 const mouse = {
-  ime: "Mickey",
+  name: "Mickey",
   small: true
 };
 ```
 
 - A: `mouse.bird.size 'nije valjan
 - B: `mouse [bird.size]` nije važeća
-- C: `miš [ptica [" veličina "]]` nije važeća
+- C: `miš [bird [" veličina "]]` nije važeća
 - D: Svi su valjani
 
 <details> <summary> <b> Odgovor </b> </summary>
@@ -216,17 +216,16 @@ To nije valjano, a bit će u pitanju pogreška slična onoj
 
 * * * * *
 
-* * * * *
 
 ###### 6. Što je izlaz?
 
 ```javascript
-let c = {greeting: "Hej!" };
+let c = { greeting: "Hey!" };
 let d;
 
 d = c;
-c.greeting = "Pozdrav";
-console.log (d.greeting);
+c.greeting = "Hello";
+console.log(d.greeting);
 ```
 
 - A: "Zdravo"
@@ -259,12 +258,12 @@ Kada promijenite jedan objekt, mijenjate ih sve.
 
 ```javascript
 let a = 3;
-let b = new broj (3);
+let b = new Number(3);
 let c = 3;
 
-console.log (a == b);
-console.log (a === b);
-console.log (b === c);
+console.log(a == b);
+console.log(a === b);
+console.log(b === c);
 ```
 
 - A: `true`` false` `true`
@@ -302,7 +301,7 @@ class Chameleon {
     return this.newColor;
   }
 
-  constructor({ newColor = "zelena" } = {}) {
+  constructor({ newColor = "green" } = {}) {
     this.newColor = newColor;
   }
 }
@@ -335,9 +334,10 @@ Izbačen je `TypeError`.
 ###### 9. Što je izlaz?
 
 ```javascript
-let pozdravi;
-greeting = {}; // Typo!
-console.log (greetign);
+let greeting;
+greetign = {}; // Typo!
+console.log(greetign);
+
 ```
 
 - A: `{}`
@@ -397,17 +397,17 @@ Ova nekretnina je nepovratna.
 ###### 11. Kakav je rezultat?
 
 ```javascript
-function Person (ime, prezime) {
-  this.ime = ime;
-  this.prezime = prezime;
+function Person(firstName, lastName) {
+  this.firstName = firstName;
+  this.lastName = lastName;
 }
 
-const member = new Person ("Lydia", "Hallie");
-Person.getFullName = function () {
-  return `$ {this.ime} $ {this.prezime}`;
+const member = new Person("Lydia", "Hallie");
+Person.getFullName = function() {
+  return `${this.firstName} ${this.lastName}`;
 };
 
-console.log (member.getFullName ());
+console.log(member.getFullName());
 ```
 
 - A: `TypeError`
@@ -445,16 +445,16 @@ scopa za svaku instancu. Umjesto toga, ako ga samo dodamo prototipu, mi
 ###### 12. Što je izlaz?
 
 ```javascript
-function Person (ime, prezime) {
-  this.ime = ime;
-  this.prezime = prezime;
+function Person(firstName, lastName) {
+  this.firstName = firstName;
+  this.lastName = lastName;
 }
 
-const lydia = new Person ("Lydia", "Hallie");
-const sarah = Person ("Sara", "Smith");
+const lydia = new Person("Lydia", "Hallie");
+const sarah = Person("Sarah", "Smith");
 
-console.log (Lydia);
-console.log (sarah);
+console.log(lydia);
+console.log(sarah);
 ```
 
 - A: `Person {ime:" Lydia ", prezime:" Hallie "} i` undefined`
@@ -532,11 +532,11 @@ nalazi ga tamo, što ga čini dostupnim.
 ###### 15. Što je izlaz?
 
 ```javascript
-function sum (a, b) {
+function sum(a, b) {
   return a + b;
 }
 
-sum (1, "2");
+sum(1, "2");
 ```
 
 - A: "NaN"
@@ -569,10 +569,10 @@ vraća `" 12 "`.
 ###### 16. Što je izlaz?
 
 ```javascript
-let broj = 0;
-console.log (broj ++);
-console.log (++ broj);
-console.log (broj);
+let number = 0;
+console.log(number++);
+console.log(++number);
+console.log(number);
 ```
 
 - A: `1`` 1` `2`
@@ -605,21 +605,21 @@ Ovo vraća `0 2 2`.
 ###### 17. Što je izlaz?
 
 ```javascript
-function getPersonInfo (one, two, tree) {
-  console.log (one);
-  console.log (two);
-  console.log (tree);
+function getPersonInfo(one, two, three) {
+  console.log(one);
+  console.log(two);
+  console.log(three);
 }
 
-const Person = "Lydia";
+const person = "Lydia";
 const age = 21;
 
-getPersonInfo` $ {Person} je $ {old} godina ';
+getPersonInfo`${person} is ${age} years old`;
 ```
 
-- A: `"Lydia"` `21` `["", " is ", " years old"]`
-- B: `["", " is ", " years old"]` `"Lydia"` `21`
-- C: `"Lydia"` `["", " is ", " years old"]` `21`
+- A: `` Lydia` ``````````````````````````````````````
+- B: ```````````````````````````````````````````````````````````````````````````
+- C: `` Lydia` ``````````````````````````````````````````````````````````
 
 <details> <summary> <b> Odgovor </b> </summary>
 </p>
@@ -638,17 +638,17 @@ vrijednosti prošlih izraza!
 ###### 18. Što je izlaz?
 
 ```javascript
-function checkAge (podaci) {
-  ako (podaci === {age: 18}) {
-    console.log ("Vi ste odrasla osoba!");
-  } else if (data == {age: 18}) {
-    console.log ("Vi ste još uvijek odrasla osoba.");
+function checkAge(data) {
+  if (data === { age: 18 }) {
+    console.log("You are an adult!");
+  } else if (data == { age: 18 }) {
+    console.log("You are still an adult.");
   } else {
-    console.log (`Hmm .. Nemate dobnu pretpostavku`);
+    console.log(`Hmm.. You don't have an age I guess`);
   }
 }
 
-checkAge ({age: 18});
+checkAge({ age: 18 });
 ```
 
 - A: "Vi ste odrasla osoba!"
@@ -679,11 +679,12 @@ Zato i `{age: 18} === {age: 18}` i
 ###### 19. Što je izlaz?
 
 ```javascript
-function getAge (... args) {
-  console.log (vrsta argumenta);
+
+function getAge(...args) {
+  console.log(typeof args);
 }
 
-getAge (21);
+getAge(21);
 ```
 
 - A: `" broj "
@@ -707,13 +708,13 @@ array je objekt, pa `typeof args` vraća` `objekt '`
 ###### 20. Što je izlaz?
 
 ```javascript
-function getAge () {
-  "koristite strogi";
-  starost = 21;
-  console.log (starosti);
+function getAge() {
+  "use strict";
+  age = 21;
+  console.log(age);
 }
 
-getAge ();
+getAge();
 ```
 
 - A: `21`
@@ -740,7 +741,7 @@ nije koristio "" strict ", to bi išlo od vlasništva
 ###### 21. Što je vrijednost `suma '?
 
 ```javascript
-const sum = eval ("10x10 + 5");
+const sum = eval("10*10+5");
 ```
 
 - A: "105"
@@ -765,10 +766,10 @@ kao u ovom slučaju, on ocjenjuje izraz. Izraz je
 ###### 22. Koliko dugo je cool \ _secret dostupan?
 
 ```javascript
-sessionStorage.setItem ("cool_secret", 123);
+sessionStorage.setItem("cool_secret", 123);
 ```
 
-O: Podaci se zauvijek ne izgube.
+O: Podaci se zauvijek ne gube.
 - B: Kada korisnik zatvori karticu.
 - C: Kada korisnik zatvori cijeli preglednik, ne samo karticu.
 - D: Kada korisnik isključi svoje računalo.
@@ -794,7 +795,7 @@ na primjer, `localStorage.clear ()` je pozvan.
 var num = 8;
 var num = 10;
 
-console.log (num);
+console.log(num);
 ```
 
 - A: `8`
@@ -820,13 +821,13 @@ To ne možete učiniti s `let` ili` const` jer su blokirani.
 ###### 24. Što je izlaz?
 
 ```javascript
-const obj = {1: "a", 2: "b", 3: "c"};
-const set = new Set ([1, 2, 3, 4, 5]);
+const obj = { 1: "a", 2: "b", 3: "c" };
+const set = new Set([1, 2, 3, 4, 5]);
 
-obj.hasOwnProperty ( "1");
-obj.hasOwnProperty (1);
-set.has ( "1");
-set.has (1);
+obj.hasOwnProperty("1");
+obj.hasOwnProperty(1);
+set.has("1");
+set.has(1);
 ```
 
 - A: `false`` true` `false`` true`
@@ -855,8 +856,8 @@ To ne radi tako za skup. U našem setu ne postoji "1":
 ###### 25. Što je izlaz?
 
 ```javascript
-const obj = {a: "jedan", b: "dva", a: "tri"};
-console.log (obj);
+const obj = { a: "one", b: "two", a: "three" };
+console.log(obj);
 ```
 
 - A: `{a:" jedan ", b:" dva "}`
@@ -899,10 +900,11 @@ dostupno svugdje u vašem kodu.
 ###### 27. Što je izlaz?
 
 ```javascript
-za (let i = 1; i <5; i ++) {
-  ako (i === 3) nastavite;
-  console.log (i);
+for (let i = 1; i < 5; i++) {
+  if (i === 3) continue;
+  console.log(i);
 }
+
 ```
 
 - A: `1`` 2`
@@ -927,12 +929,12 @@ vraća "true".
 
 ```javascript
 String.prototype.giveLydiaPizza = () => {
-  povratak "Dajte već picu Lydiju!";
+  return "Just give Lydia pizza already!";
 };
 
-const ime = "Lydia";
+const name = "Lydia";
 
-name.giveLydiaPizza ();
+name.giveLydiaPizza();
 ```
 
 - A: `` Već daj Lizijinu pizzu! ``
@@ -960,13 +962,13 @@ način!
 
 ```javascript
 const a = {};
-const b = {ključ: "b"};
-const c = {ključ: "c"};
+const b = { key: "b" };
+const c = { key: "c" };
 
-a [b] = 123;
-a [c] = 456;
+a[b] = 123;
+a[c] = 456;
 
-console.log (a [b]);
+console.log(a[b]);
 ```
 
 - A: '123'
@@ -998,13 +1000,13 @@ da na `456`, tako da se vraća` 456`.
 ###### 30. Što je izlaz?
 
 ```javascript
-const foo = () => console.log ("Prvo");
-const bar = () => setTimeout (() => console.log ("Drugi"));
-const baz = () => console.log ("Treći");
+const foo = () => console.log("First");
+const bar = () => setTimeout(() => console.log("Second"));
+const baz = () => console.log("Third");
 
 bar();
-foo ();
-baz ();
+foo();
+baz();
 ```
 
 - A: `Prvi`` Drugi` `Treći`
@@ -1061,13 +1063,15 @@ stog.
 ###### 31. Što je event.target kada kliknete na gumb?
 
 ```{.html}
-<div onclick = "console.log (" prvi div ")">
-  <div onclick = "console.log (" drugi div ")">
-    <button onclick = "console.log ('gumb')">
-      Klik!
+
+<div onclick="console.log('first div')">
+  <div onclick="console.log('second div')">
+    <button onclick="console.log('button')">
+      Click!
     </button>
   </div>
 </div>
+
 ```
 
 - A: Vanjski 'div'
@@ -1091,9 +1095,9 @@ događaj. Možete zaustaviti mjehuriće 'event.stopPropagation'
 ###### 32. Kada kliknete na paragraf, što je zapisani izlaz?
 
 ```{.html}
-<div onclick = "console.log (" div ")">
-  <p onclick = "console.log ('p')">
-    Kliknite ovdje!
+<div onclick="console.log('div')">
+  <p onclick="console.log('p')">
+    Click here!
   </p>
 </div>
 ```
@@ -1122,14 +1126,14 @@ van.
 ###### 33. Što je izlaz?
 
 ```javascript
-const Person = {ime: "Lydia"};
+const person = { name: "Lydia" };
 
-function sayHi (dob) {
-  console.log (`$ {this.name} je $ {age}`);
+function sayHi(age) {
+  console.log(`${this.name} is ${age}`);
 }
 
-sayHi.call (Person, 21);
-sayHi.bind (Person, 21);
+sayHi.call(person, 21);
+sayHi.bind(person, 21);
 ```
 
 - A: `undefined is 21`` Lydia je 21`
@@ -1156,11 +1160,11 @@ se ne izvršava odmah.
 ###### 34. Što je izlaz?
 
 ```javascript
-function sayHi () {
-  return (() => 0) ();
+function sayHi() {
+  return (() => 0)();
 }
 
-vrsta rečiHi ();
+typeof sayHi();
 ```
 
 - A: `" objekt "`
@@ -1190,11 +1194,11 @@ budući da su funkcije objekti, to je tipa `` objekta '`.
 
 ```javascript
 0;
-new broj (0);
-( "");
+new Number(0);
 ("");
-new boolean (false);
-nedefiniran;
+(" ");
+new Boolean(false);
+undefined;
 ```
 
 - A: `0`,` ```,` undefined`
@@ -1226,7 +1230,8 @@ Konstruktori function, kao što su 'new Number' i 'new Boolean' su istiniti.
 ###### 36. Što je izlaz?
 
 ```javascript
-console.log (vrsta tipa 1);
+console.log(typeof typeof 1);
+
 ```
 
 - A: `" broj "
@@ -1249,9 +1254,9 @@ console.log (vrsta tipa 1);
 ###### 37. Što je izlaz?
 
 ```javascript
-const brojevi = [1, 2, 3];
-brojevi [10] = 11;
-console.log (br);
+const numbers = [1, 2, 3];
+numbers[10] = 11;
+console.log(numbers);
 ```
 
 - A: `[1, 2, 3, 7 x null, 11]`
@@ -1283,15 +1288,15 @@ itd)
 ```javascript
 (() => {
   let x, y;
-  pokušaj {
-    baciti novu pogrešku ();
+  try {
+    throw new Error();
   } catch (x) {
     (x = 1), (y = 2);
-    console.log (x);
+    console.log(x);
   }
-  console.log (x);
-  console.log (y);
-}) ();
+  console.log(x);
+  console.log(y);
+})();
 ```
 
 - A: `1`` undefined `` 2`
@@ -1354,10 +1359,10 @@ osim "null" i "undefined" pokazuju ovo ponašanje.
 ###### 40. Što je izlaz?
 
 ```javascript
-[[0, 1], [2, 3]].
+[[0, 1], [2, 3]].reduce(
   (acc, cur) => {
-    povratak acc.concat (cur);
-  }
+    return acc.concat(cur);
+  },
   [1, 2]
 );
 ```
@@ -1388,9 +1393,9 @@ i dobiti `[1, 2, 0, 1, 2, 3]`
 ###### 41. Što je izlaz?
 
 ```javascript
-!! null;
-!! "";
-!! 1;
+!!null;
+!!"";
+!!1;
 ```
 
 - A: `false`` true` `false`
@@ -1417,7 +1422,7 @@ i dobiti `[1, 2, 0, 1, 2, 3]`
 ###### 42. Što se vraća metoda `setInterval`?
 
 ```javascript
-setInterval (() => console.log ("Hi"), 1000);
+setInterval(() => console.log("Hi"), 1000);
 ```
 
 - A: jedinstveni ID
@@ -1441,7 +1446,7 @@ Vraća jedinstveni ID. Taj se ID može koristiti za brisanje tog intervala
 ###### 43. Što se to vraća?
 
 ```javascript
-[... "Lydia"];
+[..."Lydia"];
 ```
 
 - A: `[" L "," y "," d "," i "," a "]`
