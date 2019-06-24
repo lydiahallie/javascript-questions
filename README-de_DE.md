@@ -6,13 +6,13 @@ Von einfach bis fortgeschritten: teste wie gut du JavaScript kennst, frische dei
 
 Die Antworten sind unterhalb der Fragen versteckt. Du kannst einfach darauf klicken um die Antworten anzuzeigen. Viel Glück :heart:
 
-[English](./README.md)  
-[Bosanski Jezik](./README-bs_BS.md)
-[日本語](./README-ja_JA.md)  
-[Русский](./README_ru-RU.md)  
-[Українська мова](./README-ua_UA.md)
-[Tiếng Việt](./README-vi.md)
-[中文版本](./README-zh_CN.md)  
+[English](./README.md) <br />
+[Bosanski Jezik](./README-bs_BS.md) <br />
+[日本語](./README-ja_JA.md) <br />
+[Русский](./README_ru-RU.md) <br />
+[Українська мова](./README-ua_UA.md) <br />
+[Tiếng Việt](./README-vi.md) <br />
+[中文版本](./README-zh_CN.md) <br />
 
 ---
 

@@ -1269,7 +1269,7 @@ setInterval(() => console.log('Hi'), 1000)
 ###### 43. 输出是什么？
 
 ```javascript
-;[...'Lydia']
+[...'Lydia']
 ```
 
 - A: `["L", "y", "d", "i", "a"]`

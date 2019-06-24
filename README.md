@@ -6,14 +6,18 @@ From basic to advanced: test how well you know JavaScript, refresh your knowledg
 
 The answers are in the collapsed sections below the questions, simply click on them to expand it. Good luck :heart:
 
-[中文版本](./README-zh_CN.md)  
-[Русский](./README_ru-RU.md)  
-[Western Balkan](./README-bs_BS.md)  
-[Deutsch](./README-de_DE.md)  
-[Tiếng Việt](./README-vi.md)  
-[日本語](./README-ja_JA.md)  
-[Українська мова](./README-ua_UA.md)  
-[اللغة العامية - Egyptian Arabic](./README_ar-EG.md)
+
+List of available languages:
+* [中文版本](./README-zh_CN.md)
+* [Versión en español](./README-ES.md)
+* [日本語](./README-ja_JA.md)  
+* [Русский](./README_ru-RU.md)  
+* [Western Balkan](./README-bs_BS.md)  
+* [Deutsch](./README-de_DE.md)  
+* [Tiếng Việt](./README-vi.md)
+* [Українська мова](./README-ua_UA.md)  
+* [Português Brasil](./README_pt_BR.md)  
+* [اللغة العامية - Egyptian Arabic](./README_ar-EG.md)
 
 
 ---
@@ -190,7 +194,7 @@ console.log(d.greeting);
 ```
 
 - A: `Hello`
-- B: `Hey`
+- B: `Hey!`
 - C: `undefined`
 - D: `ReferenceError`
 - E: `TypeError`
@@ -261,7 +265,7 @@ class Chameleon {
 }
 
 const freddie = new Chameleon({ newColor: "purple" });
-freddie.colorChange("orange");
+console.log(freddie.colorChange("orange"));
 ```
 
 - A: `orange`
@@ -442,7 +446,7 @@ During the **capturing** phase, the event goes through the ancestor elements dow
 
 #### Answer: B
 
-All objects have prototypes, except for the **base object**. The base object has access to some methods and properties, such as `.toString`. This is the reason why you can use built-in JavaScript methods! All of such methods are available on the prototype. Although JavaScript can't find it directly on your object, it goes down the prototype chain and finds it there, which makes it accessible for you.
+All objects have prototypes, except for the **base object**. The base object is the object created by the user, or an object that is created using the `new` keyword. The base object has access to some methods and properties, such as `.toString`. This is the reason why you can use built-in JavaScript methods! All of such methods are available on the prototype. Although JavaScript can't find it directly on your object, it goes down the prototype chain and finds it there, which makes it accessible for you.
 
 </p>
 </details>
@@ -1023,7 +1027,7 @@ function sayHi() {
   return (() => 0)();
 }
 
-typeof sayHi();
+console.log(typeof sayHi());
 ```
 
 - A: `"object"`
@@ -1039,7 +1043,6 @@ typeof sayHi();
 The `sayHi` function returns the returned value of the immediately invoked function (IIFE). This function returned `0`, which is type `"number"`.
 
 FYI: there are only 7 built-in types: `null`, `undefined`, `boolean`, `number`, `string`, `object`, and `symbol`. `"function"` is not a type, since functions are objects, it's of type `"object"`.
-
 </p>
 </details>
 
@@ -1359,7 +1362,7 @@ Promise.race([firstPromise, secondPromise]).then(res => console.log(res));
 
 #### Answer: B
 
-When we pass multiple promises to the `Promice.race` method, it resolves/rejects the _first_ promise that resolves/rejects. To the `setTimeout` method, we pass a timer: 500ms for the first promise (`firstPromise`), and 100ms for the second promise (`secondPromise`). This means that the `secondPromise` resolves first with the value of `'two'`. `res` now holds the value of `'two'`, which gets logged.
+When we pass multiple promises to the `Promise.race` method, it resolves/rejects the _first_ promise that resolves/rejects. To the `setTimeout` method, we pass a timer: 500ms for the first promise (`firstPromise`), and 100ms for the second promise (`secondPromise`). This means that the `secondPromise` resolves first with the value of `'two'`. `res` now holds the value of `'two'`, which gets logged.
 
 </p>
 </details>
