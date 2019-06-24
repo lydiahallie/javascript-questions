@@ -804,7 +804,7 @@ String.prototype.giveLydiaPizza = () => {
 
 const name = "Lydia";
 
-console.log(name.giveLydiaPizza());
+name.giveLydiaPizza();
 ```
 
 - A: `"Just give Lydia pizza already!"`
