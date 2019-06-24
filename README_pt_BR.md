@@ -1009,7 +1009,7 @@ sayHi.bind(person, 21);
 
 #### Resposta: D
 
-Com ambos, podemos passar o objeto que queremos que o `this`faça referência. Contudo, `.call` é _executado imediatamente_!
+Com ambos, podemos passar o objeto que queremos que o `this` faça referência. Contudo, `.call` é _executado imediatamente_!
 
 `.bind.` retorna uma _cópia_ da função, mas com seu contexto vinculado à cópia. E não é executado imediatamente.
 
