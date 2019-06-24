@@ -1,6 +1,6 @@
 # Những câu hỏi JavaScript trình độ Advanced
 
-Hàng ngày tôi sẽ post các câu hỏi multichoice lên [Instagram](https://www.instagram.com/theavocoder) của tôi và tại đây nữa!
+Hàng ngày tôi sẽ đăng các câu hỏi multichoice lên [Instagram](https://www.instagram.com/theavocoder) của tôi và tại đây nữa!
 
 Các câu hỏi sẽ từ cơ bản đến nâng cao: kiểm tra trình độ JavaScript của bạn, làm mới một chút về kiến thức, hay chuẩn bị cho cuộc phỏng vấn lập trình! :muscle: :rocket: Tôi sẽ cập nhật các câu hỏi mới hàng tuần.
 
@@ -157,7 +157,7 @@ const mouse = {
 
 #### Đáp án: A
 
-Trong JavaScript thì tất cả keys của các object đều là string (ngoại trừ khi nó là một Symbol). Dù chúng ta không viết chúng như một string, về cơ bản chúng sẽ luôn được convert sang dạng string.
+Trong JavaScript thì tất cả keys của các object đều là string (ngoại trừ khi nó là một Symbol). Dù chúng ta không viết chúng như một string, về cơ bản chúng sẽ luôn được chuyển sang dạng string.
 
 JavaScript thông dịch (hay unboxes) từng câu lệnh. Khi chúng ta sử dụng cặp dấu ngoặc `[]`, nó sẽ tìm kiếm dấu mở ngoặc đầu tiên `[`, và sẽ tiếp tục tìm kiếm cho tới khi gặp dấu đóng ngoặc `]`. Chỉ khi đó thì câu lệnh mới được thực thi.
 
@@ -463,7 +463,7 @@ sum(1, "2");
 
 #### Đáp án: C
 
-JavaScript là một ngôn ngữ **dynamically typed**: chúng ta không khai báo kiểu dữ liệu khi khai báo biến. Giá trị có thể bị tự động convert sang một kiểu dữ liệu khác mà ta không hề hay biết, điều này được gọi là __implicit type coercion_. **Coercion** có nghĩa là convert từ kiểu này sang kiểu khác.
+JavaScript là một ngôn ngữ **dynamically typed**: chúng ta không khai báo kiểu dữ liệu khi khai báo biến. Giá trị có thể bị tự động convert sang một kiểu dữ liệu khác mà ta không hề hay biết, điều này được gọi là _implicit type coercion_. **Coercion** có nghĩa là convert từ kiểu này sang kiểu khác.
 
 Trong ví dụ này, JavaScript sẽ convert số `1` sang dạng string. Mỗi khi ta cộng một số (`1`) với một string (`'2'`), số sẽ luôn được xem như là một string. Kết quả sẽ là một phép nối chuỗi giống như `"Hello" + "World"`, vậy nên `"1" + "2"` sẽ trả về là `"12"`.
 
@@ -631,7 +631,7 @@ Với `"use strict"`, chúng ta sẽ đảm bảo được rằng ta sẽ không
 
 ---
 
-###### 21. What's value of `sum`?
+###### 21. Giá trị của `sum` là gì?
 
 ```javascript
 const sum = eval("10*10+5");
@@ -922,7 +922,7 @@ WebAPI không thể thêm thứ gì đó vào stack cho tới khi nó được s
 
 ---
 
-###### 31. What is the event.target when clicking the button?
+###### 31. Giá trị của event.target là gì khi click button?
 
 ```html
 <div onclick="console.log('first div')">
@@ -951,7 +951,7 @@ Phần tử sâu nhất trong các phần tử lồng nhau sẽ là target của
 
 ---
 
-###### 32. Khi bạn click vào đoạn văn, cái gì sẽ được ghi ra output?
+###### 32. Khi bạn click vào đoạn văn, giá trị của output sẽ là gì?
 
 ```html
 <div onclick="console.log('div')">
