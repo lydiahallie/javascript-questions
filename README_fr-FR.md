@@ -465,9 +465,9 @@ sum(1, "2");
 
 #### Réponse: C
 
-JavaScript is a **dynamically typed language**: we don't specify what types certain variables are. Values can automatically be converted into another type without you knowing, which is called _implicit type coercion_. **Coercion** is converting from one type into another.
+JavaScript est un **langage à types dynamiques** : nous n'avons pas besoin de spécifier le types des variables. Les valeurs peuvent être automatiquement convertir vers les autres types sans que vous le sachiez, c'est ce que l'on appelle _la conversion de types implicites_ _(implicit type coercion)_.
 
-In this example, JavaScript converts the number `1` into a string, in order for the function to make sense and return a value. During the addition of a numeric type (`1`) and a string type (`'2'`), the number is treated as a string. We can concatenate strings like `"Hello" + "World"`, so what's happening here is `"1" + "2"` which returns `"12"`.
+Dans cette exemple, JavaScript convertit le nombre `1` en un chaine de caractère, afin que la fonction est du sens et puisse renvoyer un valeur. Durant l'addition d'un type numérique (`1`) et d'un type chaine de caractère (`'2'`), le nombre est traité comme une chaine de caractère. Nous pouvons concaténer les chaines de caractères comme `"Hello" + "World"`, c'est donc ce qui arrive ici avec `"1" + "2"` qui retourne `"12"`.
 
 </p>
 </details>
@@ -493,17 +493,17 @@ console.log(number);
 
 #### Réponse: C
 
-The **postfix** unary operator `++`:
+L'opérateur arithmétique **postfix** `++` :
 
-1. Returns the value (this returns `0`)
-2. Increments the value (number is now `1`)
+1. Retourne la valeur (ici il retourne `0`)
+2. Incrémente la valeur (le nombre est maintenant égal à `1`)
 
-The **prefix** unary operator `++`:
+L'opérateur arithmétique **préfix** `++` :
 
-1. Increments the value (number is now `2`)
-2. Returns the value (this returns `2`)
+1. Incrémente la valeur (le nombre est maintenant égal à `2`)
+2. Retourne la valeur (ici il retourne `2`)
 
-This returns `0 2 2`.
+Cela retourne donc `0 2 2`.
 
 </p>
 </details>
@@ -534,7 +534,7 @@ getPersonInfo`${person} is ${age} years old`;
 
 #### Réponse: B
 
-If you use tagged template literals, the value of the first argument is always an array of the string values. The remaining arguments get the values of the passed expressions!
+Si vous utilisez les template de chaine de caractère, la valeur du premier argument sera toujours un tableau de valeurs des chaines de caractère. Le reste des arguments seront les valeurs des expressions utilisées !
 
 </p>
 </details>
@@ -566,11 +566,11 @@ checkAge({ age: 18 });
 
 #### Réponse: C
 
-When testing equality, primitives are compared by their _value_, while objects are compared by their _reference_. JavaScript checks if the objects have a reference to the same location in memory.
+Lorsque l'on teste une égalité, les primitifs sont comparés par leur valeur, alors que les objet sont comparés par leur _référence_. JavaScript vérifie si les objets ont une référence à la même zone de la mémoire.=
 
-The two objects that we are comparing don't have that: the object we passed as a parameter refers to a different location in memory than the object we used in order to check equality.
+Les 2 objets que nous comparons n'ont pas ça : l'objet passé en paramètre fait référence à une zone mémoire différente que l'objet que nous utilisons pour faire la comparaison.
 
-This is why both `{ age: 18 } === { age: 18 }` and `{ age: 18 } == { age: 18 }` return `false`.
+C'est pourquoi l;es 2 conditions `{ ag: 18 } === { age: 18 }` et `{ age: 18 } == { age: 18 }` retournent `false`.
 
 </p>
 </details>
@@ -597,7 +597,7 @@ getAge(21);
 
 #### Réponse: C
 
-The spread operator (`...args`.) returns an array with arguments. An array is an object, so `typeof args` returns `"object"`
+L'opérateur de destructuration _(spread operator)_ (`...args`) retourne un tableau avec les arguments. Un tableau est un objet, donc `typeof args` retournera `"object"`.
 
 </p>
 </details>
@@ -626,7 +626,7 @@ getAge();
 
 #### Réponse: C
 
-With `"use strict"`, you can make sure that you don't accidentally declare global variables. We never declared the variable `age`, and since we use `"use strict"`, it will throw a reference error. If we didn't use `"use strict"`, it would have worked, since the property `age` would have gotten added to the global object.
+Avec `"use strict"`, vous pouvez êtes sûr de ne pas déclarer accidentellement des variables gloables. Nous ne déclarerons jamais la variable `age`, et temps que nous utiliserons `"use strict"`, cela créera une erreur de référence. Si nous n'utilisons pas `"use strict"`, cela fonctionnera et la variable `age` sont attribué à l'objet global.
 
 </p>
 </details>
@@ -649,7 +649,7 @@ const sum = eval("10*10+5");
 
 #### Réponse: A
 
-`eval` evaluates codes that's passed as a string. If it's an expression, like in this case, it evaluates the expression. The expression is `10 * 10 + 5`. This returns the number `105`.
+`eval` évalue les codes que nous passons en paramétre de type chaine de caractères. Si c'est une expression, comme dans notre cas, il évaluera l'expression. L'expression est `10 * 10 + 5`, ce qui retourne le nombre `105`.
 
 </p>
 </details>
@@ -672,9 +672,9 @@ sessionStorage.setItem("cool_secret", 123);
 
 #### Réponse: B
 
-The data stored in `sessionStorage` is removed after closing the _tab_.
+La donnée stocké dans le `sessionStorage` est supprimée après la fermeture de l'onglet.
 
-If you used `localStorage`, the data would've been there forever, unless for example `localStorage.clear()` is invoked.
+Si vous utilisez le `localStorage`, la donnée sera là pour toujours, jusqu'à ce que, par exemple, `localStorage.clear()` soit invoquée.
 
 </p>
 </details>
@@ -700,9 +700,9 @@ console.log(num);
 
 #### Réponse: B
 
-With the `var` keyword, you can declare multiple variables with the same name. The variable will then hold the latest value.
+Avec le mot clé `var`, vous pouvez déclarer plusieurs variables avec le même nom. La variable aura pour valeur la dernière assignée.
 
-You cannot do this with `let` or `const` since they're block-scoped.
+Vous ne pouvez par faire cela avec `let` ou `const` puisqu'ils ont une portée de bloc.
 
 </p>
 </details>
