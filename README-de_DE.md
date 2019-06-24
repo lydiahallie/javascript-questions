@@ -864,9 +864,9 @@ console.log(a[b]);
 
 Objekt Keys werden automatisch in Strings umgewandelt. Wir versuchen ein Objekt mit dem Wert `123` als Key dem Objekt `a` zuzuweisen.
 
-Allerdings wird ein Object, wenn es in einen String umgewandelt wird als `"[Object object]"` ausgegeben. Was wir hier also sagen ist, dass `a["Object object"] = 123` ist. Wir versuchen das gleiche erneut - `c` ist ein anderes Objekt, welches wir implizit zu einem String umwandeln, sodass `a["Object object"] = 456` ist.
+Allerdings wird ein Object, wenn es in einen String umgewandelt wird als `"[object Object]"` ausgegeben. Was wir hier also sagen ist, dass `a["[object Object]"] = 123` ist. Wir versuchen das gleiche erneut - `c` ist ein anderes Objekt, welches wir implizit zu einem String umwandeln, sodass `a["[object Object]"] = 456` ist.
 
-Dann loggen wir `a[b]`, was eigentlich `a["Object object"]` ist und gerade von uns zu `456` gesetzt wurde, sodass `456` ausgegeben wird.
+Dann loggen wir `a[b]`, was eigentlich `a["[object Object]"]` ist und gerade von uns zu `456` gesetzt wurde, sodass `456` ausgegeben wird.
 
 </p>
 </details>
