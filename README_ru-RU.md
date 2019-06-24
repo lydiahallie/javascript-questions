@@ -1515,7 +1515,7 @@ const num = parseInt("7*6", 10);
 
 ---
 
-###### 51. What's the output?
+###### 51. Каким будет результат?
 
 ```javascript
 function getInfo(member, year) {
@@ -1536,23 +1536,23 @@ console.log(person, birthYear);
 - C: `{ name: "Lydia" }, "1998"`
 - D: `{ name: "Sarah" }, "1997"`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>Ответ</b></summary>
 <p>
 
-#### Answer: A
+#### Ответ: A
 
-Arguments are passed by _value_, unless their value is an object, then they're passed by _reference_. `birthYear` is passed by value, since it's a string, not an object. When we pass arguments by value, a _copy_ of that value is created (see question 46).
+Аргументы передаются _значением_, если их значение не является объектом, то они передаются _ссылкой_. `birthYear` передается по значению, поскольку это строка, а не объект. Когда мы передаем аргументы по значению, создается _копия_ этого значения (см. вопрос 46).
 
-The variable `birthYear` has a reference to the value `"1997"`. The argument `year` also has a reference to the value `"1997"`, but it's not the same value as `birthYear` has a reference to. When we update the value of `year` by setting `year` equal to `"1998"`, we are only updating the value of `year`. `birthYear` is still equal to `"1997"`.
+Переменная `birthYear` имеет ссылку на значение `"1997"`. Аргумент `year` также имеет ссылку на значение` "1997" `, но это не то же самое значение, на которое имеется ссылка для `birthYear`. Когда мы обновляем значение `year`, устанавливая `year` равным `"1998"`, мы обновляем только значение `year`. `birthYear` по-прежнему равно `"1997"`.
 
-The value of `person` is an object. The argument `member` has a (copied) reference to the _same_ object. When we modify a property of the object `member` has a reference to, the value of `person` will also be modified, since they both have a reference to the same object. `person`'s `name` property is now equal to the value `"Lydia"`
+Значение `person` является объектом. Аргумент `member` имеет (скопированную) ссылку на _тот же_ объект. Когда мы изменяем свойство объекта, на который `member` ссылается, значение `person` также будет изменено, поскольку они оба имеют ссылку на один и тот же объект. Свойство `name` объекта `person` теперь равно значению `"Lydia"`.
 
 </p>
 </details>
 
 ---
 
-###### 52. What's the output?
+###### 52. Каким будет результат?
 
 ```javascript
 function greeting() {
@@ -1576,21 +1576,21 @@ sayHi();
 - C: `SyntaxError: can only throw Error objects`
 - D: `"Oh no an error: Hello world!`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>Ответ</b></summary>
 <p>
 
-#### Answer: D
+#### Ответ: D
 
-With the `throw` statement, we can create custom errors. With this statement, you can throw exceptions. An exception can be a <b>string</b>, a <b>number</b>, a <b>boolean</b> or an <b>object</b>. In this case, our exception is the string `'Hello world'`.
+С помощью оператора `throw` мы можем создавать собственные ошибки. С этим оператором вы можете генерировать исключения. Исключением может быть <b>строка</b>, <b>число</b>, <b>логическое значение</b> или <b>объект</b>. В этом случае нашим исключением является строка `'Hello world'`.
 
-With the `catch` statement, we can specify what to do if an exception is thrown in the `try` block. An exception is thrown: the string `'Hello world'`. `e` is now equal to that string, which we log. This results in `'Oh an error: Hello world'`.
+С помощью оператора `catch` мы можем указать, что делать, если в блоке` try` выдается исключение. Исключение: строка `'Hello world'`. `e` теперь равно той строке, которую мы записываем. Это приводит к `'Oh error: Hello world'`.
 
 </p>
 </details>
 
 ---
 
-###### 53. What's the output?
+###### 53. Каким будет результат?
 
 ```javascript
 function Car() {
@@ -1607,19 +1607,19 @@ console.log(myCar.make);
 - C: `ReferenceError`
 - D: `TypeError`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>Ответ</b></summary>
 <p>
 
-#### Answer: B
+#### Ответ: B
 
-When you return a property, the value of the property is equal to the _returned_ value, not the value set in the constructor function. We return the string `"Maserati"`, so `myCar.make` is equal to `"Maserati"`.
+Когда вы возвращаете свойство, значение свойства равно _возвращаемому_ значению, а не значению, установленному в функции конструктора. Мы возвращаем строку `"Maserati"`, поэтому `myCar.make` равно `"Maserati"`.
 
 </p>
 </details>
 
 ---
 
-###### 54. What's the output?
+###### 54. Каким будет результат?
 
 ```javascript
 (() => {
@@ -1635,23 +1635,23 @@ console.log(typeof y);
 - C: `"object", "number"`
 - D: `"number", "undefined"`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>Ответ</b></summary>
 <p>
 
-#### Answer: A
+#### Ответ: A
 
-`let x = y = 10;` is actually shorthand for:
+`let x = y = 10;` на самом деле является сокращением для:
 
 ```javascript
 y = 10;
 let x = y;
 ```
 
-When we set `y` equal to `10`, we actually add a property `y` to the global object (`window` in browser, `global` in Node). In a browser, `window.y` is now equal to `10`.
+Когда мы устанавливаем `y` равным` 10`, мы фактически добавляем свойство `y` к глобальному объекту (`window` в браузере, `global` в Node). В браузере `window.y` теперь равен` 10`.
 
-Then, we declare a variable `x` with the value of `y`, which is `10`. Variables declared with the `let` keyword are _block scoped_, they are only defined within the block they're declared in; the immediately-invoked function (IIFE) in this case. When we use the `typeof` operator, the operand `x` is not defined: we are trying to access `x` outside of the block it's declared in. This means that `x` is not defined. Values who haven't been assigned a value or declared are of type `"undefined"`. `console.log(typeof x)` returns `"undefined"`.
+Затем мы объявляем переменную `x` со значением` y`, которое равно `10`. Переменные, объявленные с ключевым словом `let`, имею _блочную видимость_, они определены только в блоке, в котором они объявлены; немедленно вызванная функция (IIFE) в этом случае. Когда мы используем оператор `typeof`, операнд` x` не определен: мы пытаемся получить доступ к `x` вне блока, в котором он объявлен. Это означает, что` x` не определен. Значения, которым не присвоено или не объявлено значение, имеют тип `"undefined"`. `console.log(typeof x)` возвращает `"undefined"`.
 
-However, we created a global variable `y` when setting `y` equal to `10`. This value is accessible anywhere in our code. `y` is defined, and holds a value of type `"number"`. `console.log(typeof y)` returns `"number"`.
+Однако мы создали глобальную переменную `y`, установив `y` равным `10`. Это значение доступно в любом месте нашего кода. `y` определен и содержит значение типа `"number"`. `console.log(typeof y)` возвращает `"number"`.
 
 </p>
 </details>
