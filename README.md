@@ -6,8 +6,6 @@ From basic to advanced: test how well you know JavaScript, refresh your knowledg
 
 The answers are in the collapsed sections below the questions, simply click on them to expand it. Good luck :heart:
 
----
-
 List of available languages:
 * [中文版本](./README-zh_CN.md)
 * [Versión en español](./README-ES.md)
@@ -17,6 +15,7 @@ List of available languages:
 * [Deutsch](./README-de_DE.md)  
 * [Tiếng Việt](./README-vi.md)
 * [Українська мова](./README-ua_UA.md)  
+* [Português Brasil](./README_pt_BR.md)  
 
 ---
 
