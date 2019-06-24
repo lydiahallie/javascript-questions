@@ -18,6 +18,7 @@ kliknite na njih da biste ih proširili. Sretno :heart:
 [Zapadni balkan](./README-bs_BS.md)  
 [Njemački](./README-de_DE.md) <br>
 [Vijetnamski](./README-vi.md)  
+[Українська мова](./README-ua_UA.md)  
 
 * * * * *
 
@@ -215,7 +216,6 @@ To nije valjano, a bit će u pitanju pogreška slična onoj
 
 * * * * *
 
-* * * * *
 
 ###### 6. Što je izlaz?
 
