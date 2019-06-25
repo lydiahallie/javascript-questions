@@ -11,6 +11,8 @@
 
 الأجوبة توجد في الجزء المطوي بالأسفل أدناه تحت كل سؤال على حدة, فقط قم بالضغط على كلمة الإجابة لكي تحصل على الإجابة, حظا موفقا  :heart: 
 
+اللغات المتوفرة:
+
 [English](https://github.com/SaraAli26/javascript-questions/blob/master/README.md)
 
 [中文版本](https://github.com/SaraAli26/javascript-questions/blob/master/README-zh_CN.md)
@@ -124,6 +126,7 @@ shape.perimeter();
 </p>
 </details>
 </div>
+
 ---
 
 4. ماهو الناتج؟ 
@@ -147,6 +150,7 @@ shape.perimeter();
 </p>
 </details>
 </div>
+
 ---
 
 5. أي الإجابات هو إجابة صحيحة؟ 
@@ -182,6 +186,7 @@ const mouse = {
 </p>
 </details>
 </div>
+
 ---
 
 6. ماهو الناتج؟ 
@@ -217,6 +222,7 @@ console.log(d.greeting);
 </p>
 </details>
 </div>
+
 ---
 
 7. ماهو الناتج؟
@@ -252,4 +258,401 @@ console.log(b === c);
 </p>
 </details>
 </div>
+
+---
+
+8. ماهو الناتج؟ 
+
+```javascript
+class Chameleon {
+  static colorChange(newColor) {
+    this.newColor = newColor;
+    return this.newColor;
+  }
+
+  constructor({ newColor = "green" } = {}) {
+    this.newColor = newColor;
+  }
+}
+
+const freddie = new Chameleon({ newColor: "purple" });
+console.log(freddie.colorChange("orange"));
+```
+
+- A: `orange`
+- B: `purple`
+- C: `green`
+- D: `TypeError`
+
+<details><summary><b>الإجابة</b></summary>
+<p>
+<div dir='rtl'>
+الجواب هو الخيار الرابع: D
+
+الدالة `colorChange` هي دالة static, و الدوال التي هي من نوع static هي دوال صممت لكي يتم استخدامها فقط في الconstructor  الذي تم تعريفها به, و ليس من الممكن ان يتم تمريرها او استخدامها من قبل اي مكون children. بما أن `freddie` هي متغير children فإن الدالة لم يتم تمريرها اليه و هي غير متوفرة في ال instant من  `freddie` لذا نتحصل على الخطأ `TypeError` .    
+</p>
+</details>
+</div>
+
+---
+
+9. ماهو الناتج؟
+
+```javascript
+let greeting;
+greetign = {}; // Typo!
+console.log(greetign);
+```
+
+- A: `{}`
+- B: `ReferenceError: greetign is not defined`
+- C: `undefined`
+
+<details><summary><b>الإجابة</b></summary>
+<p>
+<div dir='rtl'>
+الجواب هو الخيار الأول : A
+
+تقوم بعمل log على الconsole  ل object. و لأننا قمنا بإنشاء object فارغ في glopal object! عندما قمنا بالخطأ بطباعة  `greetign` بدل ان نقوم بطباعتها بصورة صحيحة هكذا `greeting`, هنا قام مترجم الجافاسكريبت بترجمة الآتي `global.greetign = {}` أو `window.greetign = {}` في المتصفح.   
+
+لكي نتجنب حدوث مثل هذه الحالة, بإمكاننا إستخدام `"use strict"`. بفعل هذه الخطوة ستتأكد من أنك قد عرفت المتغير قبل ان تساويه بأي شي آخر. 
+</p>
+</details>
+</div>
+
+---
+
+ 10. ما الذي يحدث عندما نقوم بعمل الآتي؟ 
+
+```javascript
+function bark() {
+  console.log("Woof!");
+}
+
+bark.animal = "dog";
+```
+
+- A: Nothing, this is totally fine!
+- B: `SyntaxError`. You cannot add properties to a function this way.
+- C: `undefined`
+- D: `ReferenceError`
+
+<details><summary><b>الإجابة</b></summary>
+<p>
+<div dir='rtl'>
+الجواب هو الخيار الأول: A
+
+هذا ممكن في لغة الجافاسكريبت, لأن الدوال هي عبارة عن objects, (كل شيء بداخل الأنواع التي هي primitive هو عبارة عن object)
+
+الدالة هي عبارة عن نوع خاص من الobjects, الكود الذي تقوم بكتابته بنفسك هو ليس بالدالة الفعلية, الدالة هي object لديه خصائص. و هذه الخاصية قابلة للمناداة
+</p>
+</details>
+</div>
+
+---
+
+11. ماهو الناتج؟
+
+```javascript
+function Person(firstName, lastName) {
+  this.firstName = firstName;
+  this.lastName = lastName;
+}
+
+const member = new Person("Lydia", "Hallie");
+Person.getFullName = function() {
+  return `${this.firstName} ${this.lastName}`;
+};
+
+console.log(member.getFullName());
+```
+
+- A: `TypeError`
+- B: `SyntaxError`
+- C: `Lydia Hallie`
+- D: `undefined` `undefined`
+
+<details><summary><b>الإجابة</b></summary>
+<p>
+<div dir='rtl'>
+الجواب هو الخيار الأول: A
+
+ليس بإمكانك اضافة الخصائص ل constructor كما تقوم بإضافة الخصائص للobjects. إذا أردت أن تضيف مميزات لكل الobjects مرة واحدة, سيجب عليك أن تقوم بإستخدام الprototype. لذا في هذه الحالة,
+</div>
+
+```js
+Person.prototype.getFullName = function() {
+  return `${this.firstName} ${this.lastName}`;
+};
+```
+
+<div dir='rtl'>
+اذا استطعنا جعل `member.getFullName()` تعمل. لماذا ستكون ذات فائدة؟ فلنفترض أننا أضفنا هذه الmethod للconstructor نفسها. ربما ليس أي instance من `Person` تحتاج الى هذه ال method. بهذه الطريقة سنقوم بإستهلاك مساحة كبيرة من الذاكرة, بما أنهم سيظلون يحتفظون ب هذه الخاصية, و التي بدورها ستقوم بحجز مساحة في الذاكرة لأي instance. لذا من الأفضل أن نقوم بإضافتهاالى الprototype, بهذه الطريقة ستقوم بحجز مكان واحد فقط في الذاكرة, و لكنها متاحة للكل للوصول إليها.   
+</p>
+</details>
+<div>
+  
+---
+
+12. ماهو الناتج؟
+
+```javascript
+function Person(firstName, lastName) {
+  this.firstName = firstName;
+  this.lastName = lastName;
+}
+
+const lydia = new Person("Lydia", "Hallie");
+const sarah = Person("Sarah", "Smith");
+
+console.log(lydia);
+console.log(sarah);
+```
+
+- A: `Person {firstName: "Lydia", lastName: "Hallie"}` and `undefined`
+- B: `Person {firstName: "Lydia", lastName: "Hallie"}` and `Person {firstName: "Sarah", lastName: "Smith"}`
+- C: `Person {firstName: "Lydia", lastName: "Hallie"}` and `{}`
+- D:`Person {firstName: "Lydia", lastName: "Hallie"}` and `ReferenceError`
+
+<details><summary><b>الإجابة</b></summary>
+<p>
+<div dir='rtl'>
+الجواب هو الخيار الأول: A
+
+للمتغير `sarah` لم نقم بإستخدام الكلمة المفتاحية `new`, عندإستخدام الكلمة المفتاحية `new` ف هي تشير الى ال object  الخالي او الفارغ الذي قمنا بإنشاءه, و لكن اذا لم تقم بإضافة`new` ف هي ستشير الى ال **global object**!.  
+
+نحن نقول بأن `this.firstName` تساوي `"Sarah"` و `this.lastName` تساوي `"Smith"`. ماقمنا بفعله حقا هنا, هو أنه قمنا بتعريف `global.firstName = 'Sarah'` و `global.lastName = 'Smith'`. المتغير `sarah` لا يظل `undefined`.     
+</p>
+</details>
+</div>
+
+---
+
+13. ماهي الثلاث مراحل التي تمر بها الevent propagation? 
+
+- A: Target > Capturing > Bubbling
+- B: Bubbling > Target > Capturing
+- C: Target > Bubbling > Capturing
+- D: Capturing > Target > Bubbling
+
+<details><summary><b>الإجابة</b></summary>
+<p>
+<div dir='rtl'>
+الجواب هو الخيار الرابع: D
+
+أثناء مرحلة ال**capturing**, الevent تمر عبر العناصر العليا, أي العناصر الآباء إلى أن تصل الى العنصر المقصود أو المراد, حينها تتمكن من الوصول الى العنصر **target** , و حينها تبدأ عملية ال **bubbling**. 
+
+<img src="https://i.imgur.com/N18oRgd.png" width="200">
+
+</p>
+</details>
+</div>
+
+---
+
+14. جميع الobjects  لديها prototypes?
+
+- A: true
+- B: false
+
+<details><summary><b>الإجابة</b></summary>
+<p>
+<div dir='rtl'>
+الجواب هو الخيار الثاني: B
+
+جميع الobjects  لديها prototypes, عدا ال objects من نوع **base object**. الobject من نوع base object هو عبارة عن object  تم إنشاءه من قبل المستخدم, أو تم إنشاءه عن طريق إستخدام الكلمة المفتاحية `new`. الbase object  لديه حق الوصول الى بعض ال methods و الخصائص. مثال: `.toString`. هذا هو السبب الذي يمكنك من إستخدام built-in JavaScript methods, مثل هذه ال methods جميعها متاحة في ال ptototype, على الرغم من أن لغة الجافا سكريبت ليس بإمكانها أن تجدها بصورة مباشرة من الobject  الذي قمت أنت بإنشاءه, و لكنها تذهب الى سلسلة الprototype  حيث بإمكانها ان تجده هناك, مما يجعله قابل للوصول من قبلك, أي بإمكانك أن تصل إليه.   
+</p>
+</details>
+</div>
+
+---
+
+15. ماهو الناتج؟
+
+```javascript
+function sum(a, b) {
+  return a + b;
+}
+
+sum(1, "2");
+```
+
+- A: `NaN`
+- B: `TypeError`
+- C: `"12"`
+- D: `3`
+
+<details><summary><b>الإجابة</b></summary>
+<p>
+<div dir='rtl'>
+الجواب هو الخيار الثالث: C
+
+لغة الجافاسكريبت هي لغة **dynamically typed language** بمعنى أننا لا نقوم بتعريف نوع معين للمتغيرات, المتغيرات بصورة أوتوماتيكية يتم تحويلها الى أنواع أخرى بدون أن تعرف أنت ذلك, وهذا يسمى ب _implicit type coercion_. **Coercion** تعني بأنك تقوم بالتحويل من نوع الى آخر.  
+
+في هذا المثال, لغة الجافاسكريبت تقوم بتحويل الرقم `1` الى string, لكي تستطيع الدالةأن تقوم بعملها و تتمكن من إرجاع قيمة. أثناء قيام عملية إضافةالمتغير من النوع number  و الذي هو (`1`) و المتغير من النوع string  والذي هو (`'2'`), الرقم تم التعامل معه ك string,  بهذه الطريقة سنتمكن من عمل عملية concatenate للمتغيرين من نوع string ك مثال `"Hello" + "World"`, لهذا مايحدث هنا هو عبارة عن `"1" + "2"` و الذي بدوره يقوم بإرجاع `"12"`.      
+</p>
+</details>
+</div>
+
+---
+
+16. ماهو الناتج؟
+
+```javascript
+let number = 0;
+console.log(number++);
+console.log(++number);
+console.log(number);
+```
+
+- A: `1` `1` `2`
+- B: `1` `2` `2`
+- C: `0` `2` `2`
+- D: `0` `1` `2`
+
+<details><summary><b>الإجابة</b></summary>
+<p>
+<div dir='rtl'>
+الجواب هو الخيار الثالث: C
+
+ال **postfix** العامل الأحادي `++`:
+
+1. تقوم بإرجاع القيمة (هذه ترجع `0`)
+2. تقوم بزيادةالقيمة (number الآن تساوي `1`)
+
+ال **prefix** العامل الأحادي `++`:
+
+1. تقوم بزيادة القيمة(number الآن تساوي  `2`)
+2. تقوم بإٍرجاع القيمة (هذه ترجع  `2`)
+
+هذايقوم بإرجاع `0 2 2`.
+
+</p>
+</details>
+</div>
+
+---
+
+17.ماهو الناتج؟   
+
+```javascript
+function getPersonInfo(one, two, three) {
+  console.log(one);
+  console.log(two);
+  console.log(three);
+}
+
+const person = "Lydia";
+const age = 21;
+
+getPersonInfo`${person} is ${age} years old`;
+```
+
+- A: `"Lydia"` `21` `["", " is ", " years old"]`
+- B: `["", " is ", " years old"]` `"Lydia"` `21`
+- C: `"Lydia"` `["", " is ", " years old"]` `21`
+
+<details><summary><b>الإجابة</b></summary>
+<p>
+<div dir='rtl'>
+الجواب هو الخيار الثاني: B
+
+اذا قمت بإستخدام tagged template literals, فإن قيمة ال argument الأول هي دائما عبارة عن array والذي نوع قيمها عبارة عن string, ماتبقى من الarguments تتحصل على القيم من الpassed expressions. 
+</p>
+</details>
+</div>
+
+---
+
+18. ماهو الناتج؟
+
+```javascript
+function checkAge(data) {
+  if (data === { age: 18 }) {
+    console.log("You are an adult!");
+  } else if (data == { age: 18 }) {
+    console.log("You are still an adult.");
+  } else {
+    console.log(`Hmm.. You don't have an age I guess`);
+  }
+}
+
+checkAge({ age: 18 });
+```
+
+- A: `You are an adult!`
+- B: `You are still an adult.`
+- C: `Hmm.. You don't have an age I guess`
+
+<details><summary><b>الإجابة</b></summary>
+<p>
+<div dir='rtl'>
+الجواب هو الخيار الثالث: C
+
+عندما نقوم بإختبار المساواة أو التساوي بين طرفين, ال primitives يتم مقارنتها عن طريق قيمها, بينما ال objects  يتم مقارنتها عن طريق الreference الذي يتبع لها, لغة الجافاسكريبت تتحقق عن إذا ماكان الrefrence الذي يتبع لobject يشير الى نفس الموقع في الذاكرة. 
+
+لدينا هنا اثنان من ال objects والتي نقوم بعمل مقارنة بينهما, واللذان بدورهما ليس لديهما ذلك, الobject الذي قمنا بتمريره ك parameter يشير الى موقع مختلف في الذاكرة من الموقع الذي يشير اليه الobject  الثاني و الذي تم استخدامه للتحق من شرط المساواة.
+
+لهذا كلا من  `{ age: 18 } === { age: 18 }` و  `{ age: 18 } == { age: 18 }` يرجعان `false`.
+
+</p>
+</details>
+</div>
+
+---
+
+19. ماهو الناتج؟
+
+```javascript
+function getAge(...args) {
+  console.log(typeof args);
+}
+
+getAge(21);
+```
+
+- A: `"number"`
+- B: `"array"`
+- C: `"object"`
+- D: `"NaN"`
+
+<details><summary><b>الإجابة</b></summary>
+<p>
+<div dir='rtl'>
+الجواب هو الخيار الثالث: C
+
+العامل spread `...args` يقوم بإرجاع array مع  arguments. الarray  هي object, لذا فإن `typeof args` تقوم بإرجاع  `"object"`.   
+</p>
+</details>
+</div>
+
+---
+
+20. ماهو الناتج؟ 
+
+```javascript
+function getAge() {
+  "use strict";
+  age = 21;
+  console.log(age);
+}
+
+getAge();
+```
+
+- A: `21`
+- B: `undefined`
+- C: `ReferenceError`
+- D: `TypeError`
+
+<details><summary><b>الإجابة</b></summary>
+<p>
+<div dir='rtl'>
+الجواب هو الخيار الثالث: C
+
+بإستخدام `"use strict"`, يمكنك التأكد بأنك لن تقوم عن طريق الخطأ بتعريف glopal variables. نحن لم نقم قط بتعريف المتغير `age`, و بما أننا قمنا بإستخدام `"use strict"` ستقوم بإرجاع reference error. اذا لم نقم بإستخدام `"use strict"` لكانت قد أدت المطلوب, بما أن الخاصية `age` تم إضافتها لل glopal object.      
+</p>
+</details>
+</div>
+
 ---
