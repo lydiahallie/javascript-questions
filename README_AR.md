@@ -27,7 +27,7 @@
 </div>
 ____________
 
-###### 1. ماهو الناتج ؟
+1. ماهو الناتج ؟
 
 ```javascript
 function sayHi() {
@@ -428,7 +428,9 @@ console.log(sarah);
 
 ---
 
-13. ماهي الثلاث مراحل التي تمر بها الevent propagation? 
+<div dir='rtl'>
+13. ماهي الثلاث مراحل التي تمر بها الevent propagation?
+</div>
 
 - A: Target > Capturing > Bubbling
 - B: Bubbling > Target > Capturing
@@ -450,7 +452,9 @@ console.log(sarah);
 
 ---
 
+<div dir='rtl'>
 14. جميع الobjects  لديها prototypes?
+</div>
 
 - A: true
 - B: false
