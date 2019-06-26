@@ -19,6 +19,13 @@ List of available languages:
 
 ---
 
+Incase you need to prep a little beforehand
+
+- [Mozilla Developer network](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+- [ECMA Standard](https://www.ecma-international.org/ecma-262/9.0/index.html#Title)
+
+---
+
 ###### 1. What's the output?
 
 ```javascript
@@ -36,6 +43,14 @@ sayHi();
 - B: `Lydia` and `ReferenceError`
 - C: `ReferenceError` and `21`
 - D: `undefined` and `ReferenceError`
+
+<details><summary><b>Hint</b></summary>
+<p>
+
+##### Hoisting
+
+</p>
+</details>
 
 <details><summary><b>Answer</b></summary>
 <p>
@@ -66,6 +81,14 @@ for (let i = 0; i < 3; i++) {
 - A: `0 1 2` and `0 1 2`
 - B: `0 1 2` and `3 3 3`
 - C: `3 3 3` and `0 1 2`
+
+<details><summary><b>Hint</b></summary>
+<p>
+
+##### Event Queue and Loops and Scopes
+
+</p>
+</details>
 
 <details><summary><b>Answer</b></summary>
 <p>
@@ -101,6 +124,13 @@ shape.perimeter();
 - C: `20` and `63`
 - D: `NaN` and `63`
 
+<details><summary><b>Hint</b></summary>
+<p>
+
+##### Scope and arrow functions
+
+</p>
+</details>
 <details><summary><b>Answer</b></summary>
 <p>
 
@@ -128,6 +158,13 @@ There is no value `radius` on that object, which returns `undefined`.
 - B: `false` and `NaN`
 - C: `false` and `false`
 
+<details><summary><b>Hint</b></summary>
+<p>
+
+##### Focus on what's being checked
+
+</p>
+</details>
 <details><summary><b>Answer</b></summary>
 <p>
 
@@ -160,6 +197,13 @@ const mouse = {
 - C: `mouse[bird["size"]]` is not valid
 - D: All of them are valid
 
+<details><summary><b>Hint</b></summary>
+<p>
+
+##### Object Keys
+
+</p>
+</details>
 <details><summary><b>Answer</b></summary>
 <p>
 
@@ -196,6 +240,14 @@ console.log(d.greeting);
 - D: `ReferenceError`
 - E: `TypeError`
 
+<details><summary><b>Hint</b></summary>
+<p>
+
+##### Reassigning
+
+</p>
+</details>
+
 <details><summary><b>Answer</b></summary>
 <p>
 
@@ -231,6 +283,13 @@ console.log(b === c);
 - C: `true` `false` `false`
 - D: `false` `true` `true`
 
+<details><summary><b>Hint</b></summary>
+<p>
+
+##### Built in functions and exact values
+
+</p>
+</details>
 <details><summary><b>Answer</b></summary>
 <p>
 
@@ -270,6 +329,13 @@ console.log(freddie.colorChange("orange"));
 - C: `green`
 - D: `TypeError`
 
+<details><summary><b>Hint</b></summary>
+<p>
+
+##### Types of methods
+
+</p>
+</details>
 <details><summary><b>Answer</b></summary>
 <p>
 
@@ -293,6 +359,14 @@ console.log(greetign);
 - A: `{}`
 - B: `ReferenceError: greetign is not defined`
 - C: `undefined`
+
+<details><summary><b>Hint</b></summary>
+<p>
+
+##### Event Queue and Loops
+
+</p>
+</details>
 
 <details><summary><b>Answer</b></summary>
 <p>
@@ -322,6 +396,14 @@ bark.animal = "dog";
 - B: `SyntaxError`. You cannot add properties to a function this way.
 - C: `undefined`
 - D: `ReferenceError`
+
+<details><summary><b>Hint</b></summary>
+<p>
+
+##### Primitives
+
+</p>
+</details>
 
 <details><summary><b>Answer</b></summary>
 <p>
@@ -357,6 +439,14 @@ console.log(member.getFullName());
 - B: `SyntaxError`
 - C: `Lydia Hallie`
 - D: `undefined` `undefined`
+
+<details><summary><b>Hint</b></summary>
+<p>
+
+##### Inheritance
+
+</p>
+</details>
 
 <details><summary><b>Answer</b></summary>
 <p>
@@ -398,6 +488,14 @@ console.log(sarah);
 - C: `Person {firstName: "Lydia", lastName: "Hallie"}` and `{}`
 - D:`Person {firstName: "Lydia", lastName: "Hallie"}` and `ReferenceError`
 
+<details><summary><b>Hint</b></summary>
+<p>
+
+##### Reassigning
+
+</p>
+</details>
+
 <details><summary><b>Answer</b></summary>
 <p>
 
@@ -419,6 +517,13 @@ We said that `this.firstName` equals `"Sarah"` and `this.lastName` equals `"Smit
 - C: Target > Bubbling > Capturing
 - D: Capturing > Target > Bubbling
 
+<details><summary><b>Hint</b></summary>
+<p>
+
+##### Event loops and inheritance
+
+</p>
+</details>
 <details><summary><b>Answer</b></summary>
 <p>
 
@@ -438,6 +543,14 @@ During the **capturing** phase, the event goes through the ancestor elements dow
 - A: true
 - B: false
 
+<details><summary><b>Hint</b></summary>
+<p>
+
+##### Defination of Inherit: to receive from a parent or ancestor 
+
+</p>
+</details>
+
 <details><summary><b>Answer</b></summary>
 <p>
 
@@ -445,6 +558,7 @@ During the **capturing** phase, the event goes through the ancestor elements dow
 
 All objects have prototypes, except for the **base object**. The base object is the object created by the user, or an object that is created using the `new` keyword. The base object has access to some methods and properties, such as `.toString`. This is the reason why you can use built-in JavaScript methods! All of such methods are available on the prototype. Although JavaScript can't find it directly on your object, it goes down the prototype chain and finds it there, which makes it accessible for you.
 
+More In-Depth: https://www.ecma-international.org/ecma-262/9.0/index.html#sec-ecmascript-standard-built-in-objects
 </p>
 </details>
 
@@ -464,6 +578,14 @@ sum(1, "2");
 - B: `TypeError`
 - C: `"12"`
 - D: `3`
+
+<details><summary><b>Hint</b></summary>
+<p>
+
+##### Converting values
+
+</p>
+</details>
 
 <details><summary><b>Answer</b></summary>
 <p>
@@ -492,6 +614,14 @@ console.log(number);
 - B: `1` `2` `2`
 - C: `0` `2` `2`
 - D: `0` `1` `2`
+
+<details><summary><b>Hint</b></summary>
+<p>
+
+##### Prefix and Postfix
+
+</p>
+</details>
 
 <details><summary><b>Answer</b></summary>
 <p>
@@ -534,6 +664,14 @@ getPersonInfo`${person} is ${age} years old`;
 - B: `["", " is ", " years old"]` `"Lydia"` `21`
 - C: `"Lydia"` `["", " is ", " years old"]` `21`
 
+<details><summary><b>Hint</b></summary>
+<p>
+
+##### Template literals
+##### https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals
+
+</p>
+</details>
 <details><summary><b>Answer</b></summary>
 <p>
 
@@ -566,6 +704,14 @@ checkAge({ age: 18 });
 - B: `You are still an adult.`
 - C: `Hmm.. You don't have an age I guess`
 
+<details><summary><b>Hint</b></summary>
+<p>
+
+##### Primitives
+
+</p>
+</details>
+
 <details><summary><b>Answer</b></summary>
 <p>
 
@@ -597,6 +743,14 @@ getAge(21);
 - C: `"object"`
 - D: `"NaN"`
 
+
+<details><summary><b>Hint</b></summary>
+<p>
+
+##### https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/arguments
+
+</p>
+</details>
 <details><summary><b>Answer</b></summary>
 <p>
 
@@ -626,6 +780,14 @@ getAge();
 - C: `ReferenceError`
 - D: `TypeError`
 
+<details><summary><b>Hint</b></summary>
+<p>
+
+##### Declaration
+
+</p>
+</details>
+
 <details><summary><b>Answer</b></summary>
 <p>
 
@@ -649,6 +811,13 @@ const sum = eval("10*10+5");
 - C: `TypeError`
 - D: `"10*10+5"`
 
+<details><summary><b>Hint</b></summary>
+<p>
+
+##### https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/eval
+</p>
+</details>
+
 <details><summary><b>Answer</b></summary>
 <p>
 
@@ -671,6 +840,14 @@ sessionStorage.setItem("cool_secret", 123);
 - B: When the user closes the tab.
 - C: When the user closes the entire browser, not only the tab.
 - D: When the user shuts off their computer.
+
+<details><summary><b>Hint</b></summary>
+<p>
+
+##### was the length decalred in wording
+
+</p>
+</details>
 
 <details><summary><b>Answer</b></summary>
 <p>
@@ -699,6 +876,14 @@ console.log(num);
 - B: `10`
 - C: `SyntaxError`
 - D: `ReferenceError`
+
+<details><summary><b>Hint</b></summary>
+<p>
+
+##### Reassigning
+
+</p>
+</details>
 
 <details><summary><b>Answer</b></summary>
 <p>
@@ -731,6 +916,14 @@ set.has(1);
 - C: `true` `true` `false` `true`
 - D: `true` `true` `true` `true`
 
+<details><summary><b>Hint</b></summary>
+<p>
+
+##### https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/keys
+
+</p>
+</details>
+
 <details><summary><b>Answer</b></summary>
 <p>
 
@@ -757,6 +950,14 @@ console.log(obj);
 - C: `{ a: "three", b: "two" }`
 - D: `SyntaxError`
 
+<details><summary><b>Hint</b></summary>
+<p>
+
+##### Sorry! Look for hints in previous questions 
+
+</p>
+</details>
+
 <details><summary><b>Answer</b></summary>
 <p>
 
@@ -774,6 +975,14 @@ If you have two keys with the same name, the key will be replaced. It will still
 - A: true
 - B: false
 - C: it depends
+
+<details><summary><b>Hint</b></summary>
+<p>
+
+##### Scope
+
+</p>
+</details>
 
 <details><summary><b>Answer</b></summary>
 <p>
@@ -800,6 +1009,14 @@ for (let i = 1; i < 5; i++) {
 - B: `1` `2` `3`
 - C: `1` `2` `4`
 - D: `1` `3` `4`
+
+<details><summary><b>Hint</b></summary>
+<p>
+
+##### Event Queue
+
+</p>
+</details>
 
 <details><summary><b>Answer</b></summary>
 <p>
@@ -830,6 +1047,13 @@ name.giveLydiaPizza();
 - C: `SyntaxError`
 - D: `undefined`
 
+<details><summary><b>Hint</b></summary>
+<p>
+
+##### Extending built in functions/methods
+</p>
+</details>
+
 <details><summary><b>Answer</b></summary>
 <p>
 
@@ -859,6 +1083,14 @@ console.log(a[b]);
 - B: `456`
 - C: `undefined`
 - D: `ReferenceError`
+
+<details><summary><b>Hint</b></summary>
+<p>
+
+##### Object Keys
+
+</p>
+</details>
 
 <details><summary><b>Answer</b></summary>
 <p>
@@ -892,6 +1124,15 @@ baz();
 - B: `First` `Third` `Second`
 - C: `Second` `First` `Third`
 - D: `Second` `Third` `First`
+
+<details><summary><b>Hint</b></summary>
+<p>
+
+##### Question 2
+
+</p>
+</details>
+
 
 <details><summary><b>Answer</b></summary>
 <p>
@@ -946,6 +1187,14 @@ This is where an event loop starts to work. An **event loop** looks at the stack
 - C: `button`
 - D: An array of all nested elements.
 
+<details><summary><b>Hint</b></summary>
+<p>
+
+##### Question 13
+
+</p>
+</details>
+
 <details><summary><b>Answer</b></summary>
 <p>
 
@@ -972,6 +1221,14 @@ The deepest nested element that caused the event is the target of the event. You
 - B: `div` `p`
 - C: `p`
 - D: `div`
+
+<details><summary><b>Hint</b></summary>
+<p>
+
+##### Question 13
+
+</p>
+</details>
 
 <details><summary><b>Answer</b></summary>
 <p>
@@ -1003,6 +1260,13 @@ sayHi.bind(person, 21);
 - C: `Lydia is 21` `Lydia is 21`
 - D: `Lydia is 21` `function`
 
+<details><summary><b>Hint</b></summary>
+<p>
+
+##### https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_objects/Function/bind
+
+</p>
+</details>
 <details><summary><b>Answer</b></summary>
 <p>
 
@@ -1031,6 +1295,14 @@ console.log(typeof sayHi());
 - B: `"number"`
 - C: `"function"`
 - D: `"undefined"`
+
+<details><summary><b>Hint</b></summary>
+<p>
+
+##### Arrow functions
+
+</p>
+</details>
 
 <details><summary><b>Answer</b></summary>
 <p>
@@ -1061,6 +1333,13 @@ undefined;
 - C: `0`, `''`, `new Boolean(false)`, `undefined`
 - D: All of them are falsy
 
+<details><summary><b>Hint</b></summary>
+<p>
+
+##### https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/new
+
+</p>
+</details>
 <details><summary><b>Answer</b></summary>
 <p>
 
@@ -1093,6 +1372,14 @@ console.log(typeof typeof 1);
 - C: `"object"`
 - D: `"undefined"`
 
+<details><summary><b>Hint</b></summary>
+<p>
+
+##### initial return from typeof
+##### https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/typeof
+
+</p>
+</details>
 <details><summary><b>Answer</b></summary>
 <p>
 
@@ -1118,6 +1405,15 @@ console.log(numbers);
 - B: `[1, 2, 3, 11]`
 - C: `[1, 2, 3, 7 x empty, 11]`
 - D: `SyntaxError`
+
+<details><summary><b>Hint</b></summary>
+<p>
+  
+##### Arrays
+##### https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/null
+
+</p>
+</details>
 
 <details><summary><b>Answer</b></summary>
 <p>
@@ -1156,6 +1452,14 @@ depending on where you run it (it's different for every browser, node, etc.)
 - C: `1` `1` `2`
 - D: `1` `undefined` `undefined`
 
+<details><summary><b>Hint</b></summary>
+<p>
+
+##### Scope 
+
+</p>
+</details>
+
 <details><summary><b>Answer</b></summary>
 <p>
 
@@ -1179,6 +1483,13 @@ Outside of the `catch` block, `x` is still `undefined`, and `y` is `2`. When we 
 - C: trick question! only objects
 - D: number or object
 
+<details><summary><b>Hint</b></summary>
+<p>
+
+##### https://developer.mozilla.org/en-US/docs/Glossary/Primitive
+
+</p>
+</details>
 <details><summary><b>Answer</b></summary>
 <p>
 
@@ -1211,6 +1522,14 @@ What differentiates a primitive from an object is that primitives do not have an
 - C: `[1, 2, 0, 1, 2, 3]`
 - D: `[1, 2, 6]`
 
+<details><summary><b>Hint</b></summary>
+<p>
+
+##### Initial Values
+
+</p>
+</details>
+
 <details><summary><b>Answer</b></summary>
 <p>
 
@@ -1237,6 +1556,14 @@ Then, `[1, 2, 0, 1]` is `acc` and `[2, 3]` is `cur`. We concatenate them, and ge
 - B: `false` `false` `true`
 - C: `false` `true` `true`
 - D: `true` `true` `false`
+
+<details><summary><b>Hint</b></summary>
+<p>
+
+##### Not then Not 
+
+</p>
+</details>
 
 <details><summary><b>Answer</b></summary>
 <p>
@@ -1265,6 +1592,15 @@ setInterval(() => console.log("Hi"), 1000);
 - C: the passed function
 - D: `undefined`
 
+
+<details><summary><b>Hint</b></summary>
+<p>
+
+##### https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/setInterval 
+
+</p>
+</details>
+
 <details><summary><b>Answer</b></summary>
 <p>
 
@@ -1287,6 +1623,14 @@ It returns a unique id. This id can be used to clear that interval with the `cle
 - B: `["Lydia"]`
 - C: `[[], "Lydia"]`
 - D: `[["L", "y", "d", "i", "a"]]`
+
+<details><summary><b>Hint</b></summary>
+<p>
+
+##### https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax
+
+</p>
+</details>
 
 <details><summary><b>Answer</b></summary>
 <p>
@@ -1318,6 +1662,14 @@ console.log(gen.next().value);
 - B: `20, 20`
 - C: `10, 20`
 - D: `0, 10 and 10, 20`
+
+<details><summary><b>Hint</b></summary>
+<p>
+
+##### Defination of Yield: "to produce/give way to arguments, demands, or pressure"
+
+</p>
+</details>
 
 <details><summary><b>Answer</b></summary>
 <p>
@@ -1354,6 +1706,14 @@ Promise.race([firstPromise, secondPromise]).then(res => console.log(res));
 - C: `"two" "one"`
 - D: `"one" "two"`
 
+<details><summary><b>Hint</b></summary>
+<p>
+
+##### Time 
+
+</p>
+</details>
+
 <details><summary><b>Answer</b></summary>
 <p>
 
@@ -1380,6 +1740,14 @@ console.log(members);
 - B: `[null]`
 - C: `[{}]`
 - D: `[{ name: "Lydia" }]`
+
+<details><summary><b>Hint</b></summary>
+<p>
+
+##### Reassigning
+
+</p>
+</details>
 
 <details><summary><b>Answer</b></summary>
 <p>
@@ -1423,6 +1791,14 @@ for (const item in person) {
 - C: `"Lydia", 21`
 - D: `["name", "Lydia"], ["age", 21]`
 
+<details><summary><b>Hint</b></summary>
+<p>
+
+##### Object Keys
+
+</p>
+</details>
+
 <details><summary><b>Answer</b></summary>
 <p>
 
@@ -1445,6 +1821,14 @@ console.log(3 + 4 + "5");
 - B: `"75"`
 - C: `12`
 - D: `"12"`
+
+<details><summary><b>Hint</b></summary>
+<p>
+
+##### Question 15
+
+</p>
+</details>
 
 <details><summary><b>Answer</b></summary>
 <p>
@@ -1473,6 +1857,14 @@ const num = parseInt("7*6", 10);
 - C: `7`
 - D: `NaN`
 
+<details><summary><b>Hint</b></summary>
+<p>
+
+##### https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/parseInt
+
+</p>
+</details>
+
 <details><summary><b>Answer</b></summary>
 <p>
 
@@ -1500,6 +1892,14 @@ Only the first numbers in the string is returned. Based on the _radix_ (the seco
 - B: `[null, null, null]`
 - C: `[undefined, undefined, undefined]`
 - D: `[ 3 x empty ]`
+
+<details><summary><b>Hint</b></summary>
+<p>
+
+##### Conditional return
+
+</p>
+</details>
 
 <details><summary><b>Answer</b></summary>
 <p>
@@ -1535,6 +1935,14 @@ console.log(person, birthYear);
 - B: `{ name: "Sarah" }, "1998"`
 - C: `{ name: "Lydia" }, "1998"`
 - D: `{ name: "Sarah" }, "1997"`
+
+<details><summary><b>Hint</b></summary>
+<p>
+
+##### Reference
+
+</p>
+</details>
 
 <details><summary><b>Answer</b></summary>
 <p>
@@ -1576,6 +1984,14 @@ sayHi();
 - C: `SyntaxError: can only throw Error objects`
 - D: `"Oh no an error: Hello world!`
 
+<details><summary><b>Hint</b></summary>
+<p>
+
+##### https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/try...catch
+
+</p>
+</details>
+
 <details><summary><b>Answer</b></summary>
 <p>
 
@@ -1607,6 +2023,14 @@ console.log(myCar.make);
 - C: `ReferenceError`
 - D: `TypeError`
 
+<details><summary><b>Hint</b></summary>
+<p>
+
+##### Reassigning
+
+</p>
+</details>
+
 <details><summary><b>Answer</b></summary>
 <p>
 
@@ -1634,6 +2058,14 @@ console.log(typeof y);
 - B: `"number", "number"`
 - C: `"object", "number"`
 - D: `"number", "undefined"`
+
+<details><summary><b>Hint</b></summary>
+<p>
+
+##### Scope
+
+</p>
+</details>
 
 <details><summary><b>Answer</b></summary>
 <p>
