@@ -40,7 +40,7 @@ sayHi();
 
 #### 정답: D
 
-함수내에서, 우선 `var`키워드를 사용해 `name`변수를 선언해요. 이것은 변수가 정의되어 있는 행에 실제로 도달할 때까지, 변수는 `undefined`을 기본값으로 호이스팅 된(생성단계에 메모리 공간이 설정됨)는 것을 의미해요. `name`변수를 출력 하려는 줄에서 아직 변수를 정의하고 있지 않았기 때문에, `undefined`값을 유지하고 있어요.
+함수내에서, 우선 `var`키워드를 사용해 `name`변수를 선언해요. 이것은 변수가 정의되어 있는 행에 실제로 도달할 때까지, 변수는 `undefined`을 기본값으로 호이스팅 되(생성단계에 메모리 공간이 설정됨)는 것을 의미해요. `name` 변수를 출력 하려는 줄에서 아직 변수를 정의하고 있지 않기 때문에, `undefined`값을 유지하고 있어요.
 
 `let`키워드(그리고 `const`)를 가지는 변수들은, `var`와는 달리, 호이스팅되지만 <i>초기화</i>되지 않아요. 그것들을 선언(초기화)하는 줄 전에는 접근 할 수 없어요. 이것은 "일시적 사각지대"라고 불려요. 선언되기 전에 변수에 접근하려고 하면, JavaScript는 `ReferenceError`를 던져요.
 
@@ -736,8 +736,7 @@ set.has(1);
 
 #### 정답: C
 
-모든 객체 키(Symbols 제외)
-모든 객체 키는(Symbol 제외) 문자열로 직접 입력하지 않아도, 내부적으로는 문자열이에요. 이것이 `obj.hasOwnProperty('1')` 또한 true를 리턴하는 이유에요.
+모든 객체 키는(Symbol 제외) 문자열로 직접 입력하지 않아도, 내부적으로는 문자열이에요. 이것이 `obj.hasOwnProperty('1')` 또한 true를 리턴하는 이유에요.
 
 set에서는 작동하지 않아요. set에는 `'1'`이 없어요: `set.has('1')`는 `false`를 리턴해요. 그것은 수형인 `1`을 가지고 있어, `set.has(1)`은 `true`를 리턴해요.
 
@@ -1128,12 +1127,12 @@ console.log(numbers);
 
 #### 정답: C
 
-배열의 길이를 초과한 값을 배열의 요소로 설정하고자 할때, JavaScript는 "empty slots"이라고 불리는 것을 생성해요. 이것은 실제로 `undefined`의 값을 가지고 있지만, 다음과 같은 것을 보게 될거에요:
+배열의 길이를 초과한 값을 배열의 요소로 설정하고자 할때, JavaScript는 "empty slots"이라고 불리는 것을 생성해요. 이것은 실제로 `undefined`의 값을 가지고 있지만, 다음과 같은 것을 보게 될거에요:
 
 `[1, 2, 3, 7 x empty, 11]`
 
 depending on where you run it (it's different for every browser, node, etc.)
-실행 위치에 따라 달라요 (브라우저, node 등마다 달라요.)
+실행 위치에 따라 달라요 (브라우저, node 등 마다 달라요.)
 
 </p>
 </details>
@@ -1177,11 +1176,11 @@ depending on where you run it (it's different for every browser, node, etc.)
 
 ---
 
-###### 39. JavaScript의 모든 것은...
+###### 39. JavaScript의 모든 것은...
 
 - A: primitive 또는 object
 - B: function 또는 object
-- C: 함정 문제! objects만
+- C: 함정 문제! objects만
 - D: number 또는 object
 
 <details><summary><b>정답</b></summary>
@@ -1193,7 +1192,7 @@ JavaScript는 원시형과 객체만 가지고 있어요.
 
 원시형은 `boolean`, `null`, `undefined`, `bigint`, `number`, `string` 그리고 `symbol`이 있어요.
 
-원시형과 객체를 구별하는 법은 원시형에는 속성이나 메소드가 없어요. 그러나 `'foo'.toUpperCase()`는 `'FOO'`로 평가되어, `TypeError`의 결과가 되지 않아요. 문자열과 같은 원시형이 속성 또는 메소드에 접근하려고 할때, JavaScript는 래퍼 클래스 중 하나인 `String`을 사용하여 암묵적으로 감싸고, 표현식이 평가된 후 즉시 래퍼를 폐기하기 때문이에요. `null` 그리고 `undefined`를 제외한 모든 원시형은 이러한 행동을 합니다.
+원시형과 객체를 구별하는 법은 원시형에는 속성이나 메소드가 없어요. 그러나 `'foo'.toUpperCase()`는 `'FOO'`로 평가되어, `TypeError`의 결과가 되지 않아요. 문자열과 같은 원시형이 속성 또는 메소드에 접근하려고 할때, JavaScript는 래퍼 클래스 중 하나인 `String`을 사용하여 암묵적으로 감싸고, 표현식이 평가된 후 즉시 래퍼를 폐기하기 때문이에요. `null` 그리고 `undefined`를 제외한 모든 원시형은 이러한 행동을 합니다.
 
 </p>
 </details>
