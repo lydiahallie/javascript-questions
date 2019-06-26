@@ -5,6 +5,7 @@ I post daily multiple choice JavaScript questions on my [Instagram](https://www.
 From basic to advanced: test how well you know JavaScript, refresh your knowledge a bit, or prepare for your coding interview! :muscle: :rocket: I update this repo weekly with new questions. Last update: <b>June 21st</b>
 
 The answers are in the collapsed sections below the questions, simply click on them to expand it. Good luck :heart:
+If you need a little help, there is a hint available for each question, simply click on them to expand it . It won't give you the answer but guide you toward it. 
 
 List of available languages:
 * [中文版本](./README-zh_CN.md)
@@ -19,12 +20,11 @@ List of available languages:
 
 ---
 
-Incase you need to prep a little beforehand
+In case you need to prep a little beforehand
 
 - [Mozilla Developer network](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
 - [ECMA Standard](https://www.ecma-international.org/ecma-262/9.0/index.html#Title)
-
----
+- [Eloquent JavaScript](https://eloquentjavascript.net/)
 
 ###### 1. What's the output?
 
@@ -85,7 +85,7 @@ for (let i = 0; i < 3; i++) {
 <details><summary><b>Hint</b></summary>
 <p>
 
-##### Event Queue and Loops and Scopes
+##### Event Queue and Scope
 
 </p>
 </details>
@@ -363,7 +363,7 @@ console.log(greetign);
 <details><summary><b>Hint</b></summary>
 <p>
 
-##### Event Queue and Loops
+##### Window 
 
 </p>
 </details>
@@ -844,7 +844,7 @@ sessionStorage.setItem("cool_secret", 123);
 <details><summary><b>Hint</b></summary>
 <p>
 
-##### was the length decalred in wording
+##### was the length declared in wording
 
 </p>
 </details>
@@ -1128,7 +1128,7 @@ baz();
 <details><summary><b>Hint</b></summary>
 <p>
 
-##### Question 2
+##### Callstack
 
 </p>
 </details>
@@ -1190,7 +1190,7 @@ This is where an event loop starts to work. An **event loop** looks at the stack
 <details><summary><b>Hint</b></summary>
 <p>
 
-##### Question 13
+##### Nesting
 
 </p>
 </details>
@@ -1225,7 +1225,7 @@ The deepest nested element that caused the event is the target of the event. You
 <details><summary><b>Hint</b></summary>
 <p>
 
-##### Question 13
+##### Propagation
 
 </p>
 </details>
@@ -1375,7 +1375,7 @@ console.log(typeof typeof 1);
 <details><summary><b>Hint</b></summary>
 <p>
 
-##### initial return from typeof
+##### Initial return from typeof
 ##### https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/typeof
 
 </p>
