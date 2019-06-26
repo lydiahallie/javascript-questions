@@ -163,7 +163,7 @@ const mouse = {
 
 #### 정답: A
 
-JavaScript에서, 모든 객체 키는 문자열이에요 (Symbol이 아닌 한). 비록 그것을 문자열 _타입_ 으로 입력하지 않아도, 항상 내부적으로 문자열로 변환되요.
+JavaScript에서, 모든 객체 키는 문자열이에요 (Symbol이 아닌 한). 비록 그것을 문자열 _형_ 으로 입력하지 않아도, 항상 내부적으로 문자열로 변환되요.
 
 JavaScript는 문장을 해석(또는 박스해제)해요. 대괄호 표기를 사용하면, 첫 번째 좌대괄호 `[`를 보고 오른쪽 대괄호 `]`를 찾을 때까지 진행해요. 그때, 그 문장을 평가할거에요.
 
@@ -239,7 +239,7 @@ console.log(b === c);
 
 `==`연산자를 사용할 때, 그건 같은 _값_ 을 가지고 있는지 여부만 확인해요. 그것들은 모두`3`의 값을 가지고 있으므로, `true`를 리턴해요.
 
-그러나, `===`연산자를 사용할 때, 값 _과_ 타입 둘다 같아야 해요. 이건 아니에요: `new Number()`는 숫자가 아니에요. **객체**에요. 그래서 둘다 `false`를 리턴해요.
+그러나, `===`연산자를 사용할 때, 값 _과_ 형 둘다 같아야 해요. 이건 아니에요: `new Number()`는 숫자가 아니에요. **객체**에요. 그래서 둘다 `false`를 리턴해요.
 
 </p>
 </details>
@@ -363,7 +363,7 @@ console.log(member.getFullName());
 
 #### 정답: A
 
-보통의 객체처럼 생성자에는 속성을 추가할 수 없어요. 한 번에 모든 객체에 기능을 추가하고 싶다면, 프로토 타입을 사용해야 해요. 그래서 이 경우에,
+보통의 객체처럼 생성자에는 속성을 추가할 수 없어요. 한 번에 모든 객체에 기능을 추가하고 싶다면, 프로토타입을 사용해야 해요. 그래서 이 경우에,
 
 ```js
 Person.prototype.getFullName = function() {
@@ -470,7 +470,7 @@ sum(1, "2");
 
 #### 정답: C
 
-JavaScript는 **동적으로 만들어진 언어**에요: 특정변수가 어떤 타입인지 지정하지 않아요. 변수는 당신이 모르는 사이에 자동으로 다른 타입으로 변환 될 수 있는데, 이걸 _암묵적 타입 변환_ 이라고 불러요. **Coercion**은 하나의 타입을 다른 타입으로 변환하는 거에요.
+JavaScript는 **동적으로 만들어진 언어**에요: 특정변수가 어떤 형인지 지정하지 않아요. 변수는 당신이 모르는 사이에 자동으로 다른 형으로 변환 될 수 있는데, 이걸 _암묵적 형 변환_ 이라고 불러요. **Coercion**은 하나의 형을 다른 형으로 변환하는 거에요.
 
 이 예제에서, 함수가 이해하고 값을 리턴하도록, JavaScript는 숫자 `1`을 문자열로 변환해요. 수형 (`1`)와 문자열형 (`'2'`)의 추가 중에는, 숫자는 문자열로 취급되요. `"Hello" + "World"`처럼 문자열을 연결할 수 있어요, 따라서 여기 `"1" + "2"`는 `"12"`을 리턴하는 일이 발생해요.
 
@@ -932,7 +932,7 @@ WebAPI는 준비가 될때 마다 stack에 항목을 추가 할 수 없어요. �
 
 ---
 
-###### 31. What is the event.target when clicking the button?
+###### 31. 버튼을 클릭했을때 event.target은 무엇일까요?
 
 ```html
 <div onclick="console.log('first div')">
@@ -944,24 +944,24 @@ WebAPI는 준비가 될때 마다 stack에 항목을 추가 할 수 없어요. �
 </div>
 ```
 
-- A: Outer `div`
-- B: Inner `div`
+- A: 외부의 `div`
+- B: 내부의 `div`
 - C: `button`
-- D: An array of all nested elements.
+- D: 중첩된 모든 요소의 배열
 
 <details><summary><b>정답</b></summary>
 <p>
 
 #### 정답: C
 
-The deepest nested element that caused the event is the target of the event. You can stop bubbling by `event.stopPropagation`
+가장 깊이 중첩된 요소가 이벤트를 발생시킬 이벤트 대상이에요. `event.stopPropagation`을 통해서 버블링을 중단 할 수 있어요.
 
 </p>
 </details>
 
 ---
 
-###### 32. When you click the paragraph, what's the logged output?
+###### 32. p태그를 클릭하면 로그의 출력은 무엇일까요 ?
 
 ```html
 <div onclick="console.log('div')">
@@ -981,7 +981,7 @@ The deepest nested element that caused the event is the target of the event. You
 
 #### 정답: A
 
-If we click `p`, we see two logs: `p` and `div`. During event propagation, there are 3 phases: capturing, target, and bubbling. By default, event handlers are executed in the bubbling phase (unless you set `useCapture` to `true`). It goes from the deepest nested element outwards.
+`p`를 클릭하면, 2개의 로그를 볼 수 있어요: `p` 그리고 `div`. 이벤트의 전파 중에는 3 단계가 있어요: 캡처링, 타켓, 버블링. 기본적으로, 이벤트 핸들러는 버블링단계에서 시작되요. (`useCapture`를 `true`로 설정하지 않는 한). 가장 깊게 중첩된 요소로 부터 바깥쪽으로 나가요.
 
 </p>
 </details>
@@ -1011,9 +1011,9 @@ sayHi.bind(person, 21);
 
 #### 정답: D
 
-With both, we can pass the object to which we want the `this` keyword to refer to. However, `.call` is also _executed immediately_!
+두개 모두, `this`키워드를 참조하고자하는 객체로 보낼 수 있어요. 그러나, `.call`은 _즉시 실행되요_!
 
-`.bind.` returns a _copy_ of the function, but with a bound context! It is not executed immediately.
+`.bind.`는 함수의 _복사본_ 을 리턴하지만, 바인딩 컨텍스트에요! 이건 즉시 실행되지 않아요.
 
 </p>
 </details>
@@ -1040,16 +1040,16 @@ typeof sayHi();
 
 #### 정답: B
 
-The `sayHi` function returns the returned value of the immediately invoked function (IIFE). This function returned `0`, which is type `"number"`.
+`sayHi`함수는 즉시 호출 함수(IIFE)로서 리턴된 값을 리턴해요. 이 함수는 `0`을 리턴하고, 형은 `"number"`이에요.
 
-FYI: there are only 7 built-in types: `null`, `undefined`, `boolean`, `number`, `string`, `object`, and `symbol`. `"function"` is not a type, since functions are objects, it's of type `"object"`.
+참고: 단 7개의 내장형이 있어요: `null`, `undefined`, `boolean`, `number`, `string`, `object` 그리고 `symbol`. `"function"`은 객체이기 때문에 형이아니라 `"object"` 형이에요.
 
 </p>
 </details>
 
 ---
 
-###### 35. Which of these values are falsy?
+###### 35. 이 값들 중 어느 것이 거짓 같은 값 일까요?
 
 ```javascript
 0;
@@ -1063,23 +1063,23 @@ undefined;
 - A: `0`, `''`, `undefined`
 - B: `0`, `new Number(0)`, `''`, `new Boolean(false)`, `undefined`
 - C: `0`, `''`, `new Boolean(false)`, `undefined`
-- D: All of them are falsy
+- D: 모든 값은 거짓
 
 <details><summary><b>정답</b></summary>
 <p>
 
 #### 정답: A
 
-There are only six falsy values:
+단 6개의 거짓 값이 있어요:
 
 - `undefined`
 - `null`
 - `NaN`
 - `0`
-- `''` (empty string)
+- `''` (빈 문자열)
 - `false`
 
-Function constructors, like `new Number` and `new Boolean` are truthy.
+`new Number` 그리고 `new Boolean`와 같은 생성자 함수는 참같은 값이에요.
 
 </p>
 </details>
@@ -1102,8 +1102,8 @@ console.log(typeof typeof 1);
 
 #### 정답: B
 
-`typeof 1` returns `"number"`.
-`typeof "number"` returns `"string"`
+`typeof 1` 은 `"number"`을 리턴해요.
+`typeof "number"`은 `"string"`을 리턴해요.
 
 </p>
 </details>
@@ -1128,11 +1128,12 @@ console.log(numbers);
 
 #### 정답: C
 
-When you set a value to an element in an array that exceeds the length of the array, JavaScript creates something called "empty slots". These actually have the value of `undefined`, but you will see something like:
+배열의 길이를 초과한 값을 배열의 요소로 설정하고자 할때, JavaScript는 "empty slots"이라고 불리는 것을 생성해요. 이것은 실제로 `undefined`의 값을 가지고 있지만, 다음과 같은 것을 보게 될거에요:
 
 `[1, 2, 3, 7 x empty, 11]`
 
 depending on where you run it (it's different for every browser, node, etc.)
+실행 위치에 따라 달라요 (브라우저, node 등마다 달라요.)
 
 </p>
 </details>
@@ -1165,34 +1166,34 @@ depending on where you run it (it's different for every browser, node, etc.)
 
 #### 정답: A
 
-The `catch` block receives the argument `x`. This is not the same `x` as the variable when we pass arguments. This variable `x` is block-scoped.
+`catch`블록은 `x`의 인자를 받아요. 이것은 인수를 전달할때 변수로서의 `x`와는 달라요. 이 `x` 변수는 블록-스코프에요.
 
-Later, we set this block-scoped variable equal to `1`, and set the value of the variable `y`. Now, we log the block-scoped variable `x`, which is equal to `1`.
+후에, 블록-스코프 변수는 `1`로 설정하고, 변수 `y`의 값을 설정해요. 여기서, 블록-스코프의 변수 `x`를 출력하는데, 이것은 `1`이에요.
 
-Outside of the `catch` block, `x` is still `undefined`, and `y` is `2`. When we want to `console.log(x)` outside of the `catch` block, it returns `undefined`, and `y` returns `2`.
+`catch` 블록 밖에서, `x`는 여전히 `undefined`이고 `y`는 `2`이에요. `catch` 블록 밖에서 `console.log(x)`를 출력하면, `undefined`을 리턴하고. 그리고 `y`는 `2`를 리턴해요.
 
 </p>
 </details>
 
 ---
 
-###### 39. Everything in JavaScript is either a...
+###### 39. JavaScript의 모든 것은...
 
-- A: primitive or object
-- B: function or object
-- C: trick question! only objects
-- D: number or object
+- A: primitive 또는 object
+- B: function 또는 object
+- C: 함정 문제! objects만
+- D: number 또는 object
 
 <details><summary><b>정답</b></summary>
 <p>
 
 #### 정답: A
 
-JavaScript only has primitive types and objects.
+JavaScript는 원시형과 객체만 가지고 있어요.
 
-Primitive types are `boolean`, `null`, `undefined`, `bigint`, `number`, `string`, and `symbol`.
+원시형은 `boolean`, `null`, `undefined`, `bigint`, `number`, `string` 그리고 `symbol`이 있어요.
 
-What differentiates a primitive from an object is that primitives do not have any properties or methods; however, you'll note that `'foo'.toUpperCase()` evaluates to `'FOO'` and does not result in a `TypeError`. This is because when you try to access a property or method on a primitive like a string, JavaScript will implicity wrap the object using one of the wrapper classes, i.e. `String`, and then immediately discard the wrapper after the expression evaluates. All primitives except for `null` and `undefined` exhibit this behaviour.
+원시형과 객체를 구별하는 법은 원시형에는 속성이나 메소드가 없어요. 그러나 `'foo'.toUpperCase()`는 `'FOO'`로 평가되어, `TypeError`의 결과가 되지 않아요. 문자열과 같은 원시형이 속성 또는 메소드에 접근하려고 할때, JavaScript는 래퍼 클래스 중 하나인 `String`을 사용하여 암묵적으로 감싸고, 표현식이 평가된 후 즉시 래퍼를 폐기하기 때문이에요. `null` 그리고 `undefined`를 제외한 모든 원시형은 이러한 행동을 합니다.
 
 </p>
 </details>
@@ -1220,9 +1221,9 @@ What differentiates a primitive from an object is that primitives do not have an
 
 #### 정답: C
 
-`[1, 2]` is our initial value. This is the value we start with, and the value of the very first `acc`. During the first round, `acc` is `[1,2]`, and `cur` is `[0, 1]`. We concatenate them, which results in `[1, 2, 0, 1]`.
+`[1, 2]`은 초기값이에요. 이것이 최초의 값으로, 제일 처음의 `acc`의 값이에요. 처음 라운드 동안에 `acc`은 `[1,2]`이며, `cur`은 `[0, 1]`이에요. 그것들을 연결하면 결과적으로 `[1, 2, 0, 1]`이 되요.
 
-Then, `[1, 2, 0, 1]` is `acc` and `[2, 3]` is `cur`. We concatenate them, and get `[1, 2, 0, 1, 2, 3]`
+그리고나서, `[1, 2, 0, 1]`은 `acc`이고, `[2, 3]`은 `cur`이 에요. 그것들을 연결하면 `[1, 2, 0, 1, 2, 3]`을 얻게되요.
 
 </p>
 </details>
