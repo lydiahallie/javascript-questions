@@ -42,9 +42,9 @@ sayHi();
 
 #### 정답: D
 
-함수내에서, 우선 `var`키워드를 사용해 `name`변수를 선언해요. 이것은 변수가 정의되어 있는 행에 실제로 도달할 때까지, 변수는 `undefined`을 기본값으로 호이스팅 되(생성단계에 메모리 공간이 설정됨)는 것을 의미해요. `name` 변수를 출력 하려는 줄에서 아직 변수를 정의하고 있지 않기 때문에, `undefined`값을 유지하고 있어요.
+함수 내에서, 우선 `var`키워드를 사용해 `name`변수를 선언해요. 이것은 변수가 정의되어 있는 행에 실제로 도달할 때까지, 변수는 `undefined`의 기본값으로 호이스팅 되(생성단계에 메모리 공간이 설정됨)는 것을 의미해요. `name` 변수를 출력하려는 줄에서 아직 변수를 정의하고 있지 않기 때문에, `undefined`값을 유지하고 있어요.
 
-`let`키워드(그리고 `const`)를 가지는 변수들은, `var`와는 달리, 호이스팅되지만 <i>초기화</i>되지 않아요. 그것들을 선언(초기화)하는 줄 전에는 접근 할 수 없어요. 이것은 "일시적 사각지대"라고 불려요. 선언되기 전에 변수에 접근하려고 하면, JavaScript는 `ReferenceError`를 던져요.
+`let`키워드(그리고 `const`)를 가지는 변수들은, `var`와는 달리, 호이스팅되지만 <i>초기화</i>되지 않아요. 그것들을 선언(초기화)하는 줄 전에는 접근할 수 없어요. 이것은 "일시적 사각지대"라고 불려요. 선언되기 전에 변수에 접근하려고 하면, JavaScript는 `ReferenceError`를 던져요.
 
 </p>
 </details>
@@ -72,9 +72,9 @@ for (let i = 0; i < 3; i++) {
 
 #### 정답: C
 
-JavaScript의 이벤트 큐 때문에, `setTimeout`의 콜백함수는 루프가 실행된 _후에_ 호출되요. 첫번째의 루프 변수 `i`는 `var`키워드를 사용해 선언되어 있으므로, 이 값은 전역변수가 되요. 루프 동안, 단항 연산자 `++`를 사용하여, 매번 `i`의 값을 `1`씩 증가했어요. `setTimeout`콜백 함수가 호출되기까지, 첫번째 예에서 `i`는 `3`과 같아요.
+JavaScript의 이벤트 큐 때문에, `setTimeout`의 콜백 함수는 루프가 실행된 _후에_ 호출되어요. 첫 번째의 루프 변수 `i`는 `var`키워드를 사용해 선언되어 있으므로, 이 값은 전역 변수가 되어요. 루프 동안, 단항 연산자 `++`를 사용하여, 매번 `i`의 값을 `1`씩 증가했어요. `setTimeout`콜백 함수가 호출되기까지, 첫 번째 예에서 `i`는 `3`과 같아요.
 
-두번째 루프에서, 변수 `i`는 `let`키워드를 사용해 선언되었어요: `let` (그리고 `const`)키워드로 선언된 변수는 블록 범위에요(블록은 `{ }` 사이의 모든것). 각각의 반복동안, `i`는 새로운 값을 가지고, 각각의 값은 루프 안쪽 범위에 있어요.
+두 번째 루프에서, 변수 `i`는 `let`키워드를 사용해 선언되었어요: `let`(그리고 `const`)키워드로 선언된 변수는 블록 범위예요(블록은 `{ }` 사이의 모든 것). 각각의 반복 동안, `i`는 새로운 값을 가지고, 각각의 값은 루프 안쪽 범위에 있어요.
 
 </p>
 </details>
@@ -106,11 +106,11 @@ shape.perimeter();
 
 #### 정답: B
 
-`diameter`의 값은 정규 함수인 반면, `perimeter`의 값은 화살표 함수라는 점에 유의해요.
+`diameter`의 값은 정규 함수인 반면, `perimeter`의 값은 화살표 함수라는 점을 유의하세요.
 
 화살표 함수에서는, 통상적인 함수와는 달리, `this`키워드는 현재 주위의 범위를 참조해요! 이것은 `perimeter`를 부르면, shape 객체가 아닌, 그 주위의 범위(예를 들면 window)를 참조하는 것을 의미해요.
 
-그 객체에는 `radius`라는 값은 없고, `undefined`를 리턴해요.
+그 객체에는 `radius`라는 값은 없어, `undefined`를 리턴해요.
 
 </p>
 </details>
@@ -135,7 +135,7 @@ shape.perimeter();
 
 단항 더하기는 피연산자를 숫자로 변환하려 해요. `true`는 `1`, `false`은 `0`.
 
-문자열 `'Lydia'`는 참 같은 값이에요. 실제로 묻고 있는 것은, "이 참 같은 값이 거짓 같은 값인가?"에요. 이것은 `false`을 리턴해요.
+문자열 `'Lydia'`는 참 같은 값이에요. 실제로 물어보는 것은, "이 참 같은 값이 거짓 같은 값인가?"에요. 이것은 `false`을 리턴해요.
 
 </p>
 </details>
@@ -165,15 +165,15 @@ const mouse = {
 
 #### 정답: A
 
-JavaScript에서, 모든 객체 키는 문자열이에요 (Symbol이 아닌 한). 비록 그것을 문자열 _형_ 으로 입력하지 않아도, 항상 내부적으로 문자열로 변환되요.
+JavaScript에서, 모든 객체 키는 문자열이에요 (심볼이 아닌 한). 비록 그것을 문자열 _형_ 으로 입력하지 않아도, 항상 내부적으로 문자열로 변환되어요.
 
-JavaScript는 문장을 해석(또는 박스해제)해요. 대괄호 표기를 사용하면, 첫 번째 좌대괄호 `[`를 보고 오른쪽 대괄호 `]`를 찾을 때까지 진행해요. 그때, 그 문장을 평가할거에요.
+JavaScript는 문장을 해석(또는 박스 해제)해요. 대괄호 표기를 사용하면, 첫 번째 왼쪽 대괄호 `[`를 보고 오른쪽 대괄호 `]`를 찾을 때까지 진행해요. 그때, 그 문장을 평가할 거에요.
 
 `mouse[bird.size]`: 먼저 `bird.size`를 평가해요, 이것은 `"small"`이에요. `mouse["small"]` 은 `true`를 리턴해요.
 
 그러나, 닷 표기에서는, 이것은 발생하지 않아요, `mouse`는 `bird`라고 불리는 키를 가지고 있지 않아요 즉, `mouse.bird`는 `undefined`를 의미해요.
 
-또, 닷 표기를 사용해 `size`를 물어봐요. `mouse.bird.size`. `mouse.bird`는 `undefined`로, 실제로는 `undefined.size`를 물어보고 있어요. 이것은 유효하지 않기 때문에, `Cannot read property "size" of undefined`와 비슷한 에러를 던질거에요.
+또, 닷 표기를 사용해 `size`를 물어봐요. `mouse.bird.size`. `mouse.bird`는 `undefined`로, 실제로는 `undefined.size`를 물어보고 있어요. 이것은 유효하지 않기 때문에, `Cannot read property "size" of undefined`와 비슷한 에러를 던질 거예요.
 
 </p>
 </details>
@@ -208,7 +208,7 @@ JavaScript에서, 모든 객체는 서로 동일하게 설정하면 _참조_ 에
 
 <img src="https://i.imgur.com/ko5k0fs.png" width="200">
 
-한개의 객체를 변경하면, 그것들 모두 변경해요.
+한 개의 객체를 변경하면, 그것들 모두 변경해요.
 
 </p>
 </details>
@@ -237,11 +237,11 @@ console.log(b === c);
 
 #### 정답: C
 
-`new Number()`는, 내장 함수 생성자에요. 숫자처럼 보이지만, 실제로는 숫자가 아니에요: 많은 추가 특성이 있고 그것은 객체에요.
+`new Number()`는, 내장 함수 생성자예요. 숫자처럼 보이지만, 실제로는 숫자가 아니에요: 많은 추가 특성이 있고 그것은 객체예요.
 
 `==`연산자를 사용할 때, 그건 같은 _값_ 을 가지고 있는지 여부만 확인해요. 그것들은 모두`3`의 값을 가지고 있으므로, `true`를 리턴해요.
 
-그러나, `===`연산자를 사용할 때, 값 _과_ 형 둘다 같아야 해요. 이건 아니에요: `new Number()`는 숫자가 아니에요. **객체**에요. 그래서 둘다 `false`를 리턴해요.
+그러나, `===`연산자를 사용할 때, 값 _과_ 형 둘 다 같아야 해요. 이건 아니에요: `new Number()`는 숫자가 아니에요. **객체**에요. 그래서 둘 다 `false`를 리턴해요.
 
 </p>
 </details>
@@ -276,7 +276,7 @@ console.log(freddie.colorChange("orange"));
 
 #### 정답: D
 
-`colorChange`함수는 정적이에요. 정적 메소드는 그것들이 만들어지는 생성자 상에서만 살아있도록 설계되어 있어, 어떤 자식들도 상속 받을 수 없어요. `freddie`는 자식이기 때문에, 이 함수는 상속되지 않고, `freddie`인스턴스에서는 이용할 수 없어요: `TypeError`가 던져져요.
+`colorChange`함수는 정적이에요. 정적 메소드는 그것들이 만들어지는 생성자 상에서만 살아있도록 설계되어 있어, 어떤 자식들도 상속받을 수 없어요. `freddie`는 자식이기 때문에, 이 함수는 상속되지 않고, `freddie`인스턴스에서는 이용할 수 없어요: `TypeError`가 던져져요.
 
 </p>
 </details>
@@ -300,7 +300,7 @@ console.log(greetign);
 
 #### 정답: A
 
-객체는 출력되요, 전역객체에 빈 객체를 방금 만들었기 때문이에요. `greeting`을 `greettign`으로 잘못 입력했을 경우, JS 인터프리터는 실제로 이것을 `global.greettign = {}` (또는 브라우저의 `window.greetign = {}`) 라고 간주해요.
+객체는 출력돼요, 전역 객체에 빈 객체를 방금 만들었기 때문이에요. `greeting`을 `greettign`으로 잘못 입력했을 경우, JS 인터프리터는 실제로 이것을 `global.greettign = {}` (또는 브라우저의 `window.greetign = {}`) 라고 간주해요.
 
 이것을 피하기 위해서, `"use strict"`를 사용할 수 있어요. 이렇게 하면 변수를 어떤 것과 동일하게 설정하기 전에 변수를 선언했는지 확인할 수 있어요.
 
@@ -332,7 +332,7 @@ bark.animal = "dog";
 JavaScript에서는 가능해요, 함수는 객체이기 때문이에요!
 (윈시형 이외는 모두 객체)
 
-함수는 특별한 종류의 객체에요. 당신이 쓴 코드는 실제 함수가 아니에요. 함수는 속성을 가진 객체에요. 이 속성은 호출이 가능해요.
+함수는 특별한 종류의 객체예요. 당신이 쓴 코드는 실제 함수가 아니에요. 함수는 속성을 가진 객체예요. 이 속성은 호출이 가능해요.
 
 </p>
 </details>
@@ -373,7 +373,7 @@ Person.prototype.getFullName = function() {
 };
 ```
 
-`member.getFullName()`은 작동되요. 이것은 왜 유익할까요? 이 메소드를 생성자 자체에 추가했다고 할게요. 아마도 모든 `Person` 인스턴스는 이 메소드를 필요로 하지 않을 수도 있어요. 그 경우 그들은 아직 속성을 갖고, 각각의 인스턴스를 위해 메모리 공간을 소비하기 때문에, 많은 메모리 공간을 낭비하게 되요. 대신에, 프로토타입을 추가하는 것만으로, 메모리의 한 지점을 가지지만, 모든 것들은 그것에 접근 할 수 있어요.
+`member.getFullName()`은 작동해요. 이것은 왜 유익할까요? 이 메소드를 생성자 자체에 추가했다고 할게요. 아마도 모든 `Person` 인스턴스는 이 메소드를 필요로 하지 않을 수도 있어요. 그 경우 그들은 아직 속성을 갖고, 각각의 인스턴스를 위해 메모리 공간을 소비하기 때문에, 많은 메모리 공간을 낭비해요. 대신에, 프로토타입을 추가하는 것만으로, 메모리의 한 지점을 가지지만, 모든 것들은 그것에 접근 할 수 있어요.
 
 </p>
 </details>
@@ -405,9 +405,9 @@ console.log(sarah);
 
 #### 정답: A
 
-`sarah`를 위해, `new`키워드를 사용하지 않았어요. `new`를 사용한 경우, 이것은 우리가 만든 새로운 빈 객체를 참조해요. 그러나, `new`를 추가하지 않으면 **전역변수**를 참조하게 되요!
+`sarah`를 위해, `new`키워드를 사용하지 않았어요. `new`를 사용한 경우, 이것은 우리가 만든 새로운 빈 객체를 참조해요. 그러나, `new`를 추가하지 않으면 **전역변수**를 참조해요!
 
-`this.firstName`에 `"Sarah"`을 대입하고, `this.lastName`에 `"Smith"`을 대입 했다고 말했었어요. (그렇지만) 우리는 실제로, `global.firstName = 'Sarah'` 그리고 `global.lastName = 'Smith'`를 정의한거에요. `sarah` 자체는 `undefined`로 남아있어요.
+`this.firstName`에 `"Sarah"`을 대입하고, `this.lastName`에 `"Smith"`을 대입했다고 말했었어요. (그렇지만) 우리는 실제로, `global.firstName = 'Sarah'` 그리고 `global.lastName = 'Smith'`를 정의해요. `sarah` 자체는 `undefined`로 남아있어요.
 
 </p>
 </details>
@@ -426,7 +426,7 @@ console.log(sarah);
 
 #### 정답: D
 
-**capturing** 단계 동안에, 이벤트는 조상요소를 거쳐 목표 요소까지 내려가요. 그런 다음 **target** 요소에 도달하고, **bubbling**이 시작되요.
+**capturing** 단계 동안에, 이벤트는 조상요소를 거쳐 목표 요소까지 내려가요. 그런 다음 **target** 요소에 도달하고, **bubbling**이 시작돼요.
 
 <img src="https://i.imgur.com/N18oRgd.png" width="200">
 
@@ -445,7 +445,7 @@ console.log(sarah);
 
 #### 정답: B
 
-**기본객체**를 제외한, 모든 객체는 프로포타입을 가져요. 기본객체는 사용자에 의해 만들어지거나 `new`키워드를 사용하여 만들어져요. 기본객체는 `.toString`와 같은 몇개의 메소드와 속성에 접근할 수 있어요. 이것이 내장 JavaScript 메소드를 사용할 수 있는 이유죠! 이러한 모든 메소드는 프로토 타입에서 이용 할 수 있어요. JavaScript가 당신의 객체를 직접 찾을 수 없더라도, 당신이 접근 할 수 있도록, 프로토타입 체인으로 내려가서 찾을거에요.
+**기본 객체**를 제외한, 모든 객체는 프로토타입을 가져요. 기본 객체는 사용자에 의해 만들어지거나 `new`키워드를 사용하여 만들어져요. 기본 객체는 `.toString`와 같은 몇 개의 메소드와 속성에 접근할 수 있어요. 이것이 내장 JavaScript 메소드를 사용할 수 있는 이유죠! 이러한 모든 메소드는 프로토 타입에서 이용할 수 있어요. JavaScript가 당신의 객체를 직접 찾을 수 없더라도, 당신이 접근할 수 있도록, 프로토타입 체인으로 내려가서 찾을거에요.
 
 </p>
 </details>
@@ -472,9 +472,9 @@ sum(1, "2");
 
 #### 정답: C
 
-JavaScript는 **동적으로 만들어진 언어**에요: 특정변수가 어떤 형인지 지정하지 않아요. 변수는 당신이 모르는 사이에 자동으로 다른 형으로 변환 될 수 있는데, 이걸 _암묵적 형 변환_ 이라고 불러요. **Coercion**은 하나의 형을 다른 형으로 변환하는 거에요.
+JavaScript는 **동적으로 만들어진 언어**에요: 특정 변수가 어떤 형인지 지정하지 않아요. 변수는 당신이 모르는 사이에 자동으로 다른 형으로 변환될 수 있는데, 이걸 _암묵적 형 변환_ 이라고 불러요. **Coercion**은 하나의 형을 다른 형으로 변환해요.
 
-이 예제에서, 함수가 이해하고 값을 리턴하도록, JavaScript는 숫자 `1`을 문자열로 변환해요. 수형 (`1`)와 문자열형 (`'2'`)의 추가 중에는, 숫자는 문자열로 취급되요. `"Hello" + "World"`처럼 문자열을 연결할 수 있어요, 따라서 여기 `"1" + "2"`는 `"12"`을 리턴하는 일이 발생해요.
+이 예제에서, 함수가 이해하고 값을 리턴하도록, JavaScript는 숫자 `1`을 문자열로 변환해요. 수형 (`1`)와 문자열형 (`'2'`)의 추가 중에는, 숫자는 문자열로 취급해요. `"Hello" + "World"`처럼 문자열을 연결할 수 있어요, 따라서 여기 `"1" + "2"`는 `"12"`을 리턴하는 일이 발생해요.
 
 </p>
 </details>
@@ -500,12 +500,12 @@ console.log(number);
 
 #### 정답: C
 
-**접미사** 단항연산자 `++`:
+**접미사** 단항 연산자 `++`:
 
 1. 값 리턴 (이것은 `0`을 리턴해요)
 2. 값 증가 (number는 지금 `1`이에요)
 
-**접두사** 단항연산자 `++`:
+**접두사** 단항 연산자 `++`:
 
 1. 값 증가 (number는 지금 `2`이에요)
 2. 값 리턴 (이것은 `2`을 리턴해요)
@@ -541,7 +541,7 @@ getPersonInfo`${person} is ${age} years old`;
 
 #### 정답: B
 
-태그드 템플릿 리터럴을 사용하는 경우, 첫번재 인수의 값은 항상 문자열 값의 배열이에요. 나머지 인수는 식을 통과한 값을 얻게 되요.
+태그드 템플릿 리터럴을 사용하는 경우, 첫 번재 인수의 값은 항상 문자열 값의 배열이에요. 나머지 인수는 식을 통과한 값을 얻어요.
 
 </p>
 </details>
@@ -573,11 +573,11 @@ checkAge({ age: 18 });
 
 #### 정답: C
 
-동등성을 테스트할 때, 원시형은 그 _값_ 에 따라 비교되며, 객체는 그들의 _참조_ 에 따라 비교되요. JavaScript 객체가 메모리내의 같은 장소를 참조하고 있는지 여부를 확인해요.
+동등성을 테스트할 때, 원시형은 그 _값_ 에 따라 비교되며, 객체는 그들의 _참조_ 에 따라 비교돼요. JavaScript 객체가 메모리 내의 같은 장소를 참조하고 있는지 여부를 확인해요.
 
 비교하고 있는 두개의 객체는 그것이 없어요: 파라미터로 전달된 객체와 동등성을 확인하기 위해 사용한 객체는 메모리 내의 다른 장소를 참조해요.
 
-이것이 `{ age: 18 } === { age: 18 }` 그리고 `{ age: 18 } == { age: 18 }` 두개 다 `false`를 리턴하는 이유죠.
+이것이 `{ age: 18 } === { age: 18 }` 그리고 `{ age: 18 } == { age: 18 }` 두 개 다 `false`를 리턴하는 이유죠.
 
 </p>
 </details>
@@ -633,7 +633,7 @@ getAge();
 
 #### 정답: C
 
-`"use strict"`을 사용하면, 실수로 전역 변수를 선언하지 않게 할 수 있어요. `age`이라는 변수를 선언한적이 전혀없고, `"use strict"`을 사용하고 있으므로, 참조 에러를 던지게 될거에요. 만약 `"use strict"`을 사용하지 않았다면, 이건 작동할거에요, `age` 속성이 전역 객체에 추가된 것이기 때문이죠.
+`"use strict"`을 사용하면, 실수로 전역 변수를 선언하지 않게 할 수 있어요. `age`이라는 변수를 선언한 적이 전혀 없고, `"use strict"`을 사용하고 있으므로, 참조 에러를 던지게 될 거에요. 만약 `"use strict"`을 사용하지 않았다면, 이건 작동할 거에요, `age` 속성이 전역 객체에 추가된 것이기 때문이죠.
 
 </p>
 </details>
@@ -656,7 +656,7 @@ const sum = eval("10*10+5");
 
 #### 정답: A
 
-`eval` 문자열로서 통과된 코드를 평가해요. 이 경우와 같이 만약 그것이 표현식이라면, 표현식을 평가해요. 표현식은 `10 * 10 + 5` 이에요. 이것은 숫자 `105`를 리턴해요.
+`eval` 문자열로서 통과된 코드를 평가해요. 이 경우와 같이 만약 그것이 표현식이라면, 표현식을 평가해요. 표현식은 `10 * 10 + 5`이에요. 이것은 숫자 `105`를 리턴해요.
 
 </p>
 </details>
@@ -679,9 +679,9 @@ sessionStorage.setItem("cool_secret", 123);
 
 #### 정답: B
 
-`sessionStorage`에 저장된 데이터는 _탭_ 을 닫은 후에 삭제되요.
+`sessionStorage`에 저장된 데이터는 _탭_ 을 닫은 후에 삭제돼요.
 
-만약 `localStorage`를 사용했다면, 예를들어 `localStorage.clear()`를 호출 하지 않는 한, 데이터는 영원할거에요.
+만약 `localStorage`를 사용했다면, 예를 들어 `localStorage.clear()`를 호출하지 않는 한, 데이터는 영원할 거에요.
 
 </p>
 </details>
@@ -707,7 +707,7 @@ console.log(num);
 
 #### 정답: B
 
-`var`키워드를 사용하면, 같은 이름으로 복수의 변수를 선언 할 수 있어요. 변수는 최신의 값을 유지해요.
+`var`키워드를 사용하면, 같은 이름으로 복수의 변수를 선언할 수 있어요. 변수는 최신의 값을 유지해요.
 
 블록 스코프의 `let` 또는 `const`에서는 할 수 없어요.
 
@@ -738,7 +738,7 @@ set.has(1);
 
 #### 정답: C
 
-모든 객체 키는(Symbol 제외) 문자열로 직접 입력하지 않아도, 내부적으로는 문자열이에요. 이것이 `obj.hasOwnProperty('1')` 또한 true를 리턴하는 이유에요.
+모든 객체 키는(심볼 제외) 문자열로 직접 입력하지 않아도, 내부적으로는 문자열이에요. 이것이 `obj.hasOwnProperty('1')` 또한 true를 리턴하는 이유죠.
 
 set에서는 작동하지 않아요. set에는 `'1'`이 없어요: `set.has('1')`는 `false`를 리턴해요. 그것은 수형인 `1`을 가지고 있어, `set.has(1)`은 `true`를 리턴해요.
 
@@ -764,7 +764,7 @@ console.log(obj);
 
 #### 정답: C
 
-같은 이름의 키를 두개 가지고 있다면, 첫번째 위치에서, 마지막에 지정된 값으로 대체 될 거에요.
+같은 이름의 키를 두 개 가지고 있다면, 첫 번째 위치에서, 마지막에 지정된 값으로 대체될 거예요.
 
 </p>
 </details>
@@ -782,7 +782,7 @@ console.log(obj);
 
 #### 정답: A
 
-기본적인 execution context는 전역 실행 문장이에요: 당신의 코드 모든 곳에서 접근 할 수 있어요.
+기본적인 execution context는 전역 실행 문장이에요: 당신의 코드 모든 곳에서 접근할 수 있어요.
 
 </p>
 </details>
@@ -808,7 +808,7 @@ for (let i = 1; i < 5; i++) {
 
 #### 정답: C
 
-`continue` 표현식은 특정 조건이 `true`를 리턴하면 반복처리를 건너뛰어요.
+`continue` 표현식은 특정 조건이 `true`를 리턴하면 반복 처리를 건너뛰어요.
 
 </p>
 </details>
@@ -837,7 +837,7 @@ name.giveLydiaPizza();
 
 #### 정답: A
 
-`String`은 내장 생성자로 속성을 추가 할 수 있어요. 단지 프로토타입이라는 메소드를 추가했어요. 원시형 문자열은 문자열 프로토타입 함수에 의해 생성된 문자열 객체로 자동 변환되요. 그래서, 모든 문자열(문자열 객체)는 그 메소드에 접근 할 수 있어요!
+`String`은 내장 생성자로 속성을 추가할 수 있어요. 단지 프로토타입이라는 메소드를 추가했어요. 원시형 문자열은 문자열 프로토타입 함수에 의해 생성된 문자열 객체로 자동 변환돼요. 그래서, 모든 문자열(문자열 객체)는 그 메소드에 접근할 수 있어요!
 
 </p>
 </details>
@@ -867,11 +867,11 @@ console.log(a[b]);
 
 #### 정답: B
 
-객체 키는 자동으로 문자열로 변환되요. 객체 `a`의 키 값으로 `123`를 세팅하려고 해요.
+객체 키는 자동으로 문자열로 변환돼요. 객체 `a`의 키 값으로 `123`를 세팅하려고 해요.
 
-그러나, 객체를 문자열화 하면 `"[Object object]"`가 되요. 그래서 여기서 밀하고자 하는 건 `a["Object object"] = 123` 이라는 거에요. 그후, 같은 일을 다시 시도해요. `c`는 암묵적으로 문자열화 한 다른객체에요. 그래서 `a["Object object"] = 456`이 되요.
+그러나, 객체를 문자열화 하면 `"[Object object]"`가 돼요. 그래서 여기서 말하고자 하는 건 `a["Object object"] = 123`이라는 거예요. 그 후, 같은 일을 다시 시도해요. `c`는 암묵적으로 문자열화 한 다른 객체에요. 그래서 `a["Object object"] = 456`이 돼요.
 
-그후, `a[b]`는 출력하면 실제로는 `a["Object object"]`에요. 단지 `456`를 설정 했기때문에, `456`를 리턴해요.
+그 후, `a[b]`는 출력하면 실제로는 `a["Object object"]`에요. 단지 `456`를 설정했기 때문에, `456`를 리턴해요.
 
 </p>
 </details>
@@ -900,33 +900,31 @@ baz();
 
 #### 정답: B
 
-`setTimeout`함수를 처음으로 호출 했어요. 그러나 그것은 마지막에 출력되요.
+처음에 `setTimeout`함수를 호출했어요. 그러나 그것은 마지막에 출력돼요.
 
-브라우저에는 런타임 엔진 뿐만 아니라 `WebAPI`라고 불리는 것도 있기 때문이에요. `WebAPI`는 `setTimeout`함수를 최초에 부여하는데, DOM을 예로 들 수 있어요.
-
-After the _callback_ is pushed to the WebAPI, the `setTimeout` function itself (but not the callback!) is popped off the stack.
+브라우저에는 런타임 엔진뿐만 아니라 `WebAPI`라고 불리는 것도 있기 때문이에요. `WebAPI`는 `setTimeout`함수를 최초에 부여하는데, DOM을 예로 들 수 있어요.
 
 _callback_ 이 WebAPI에 푸시된 후, `setTimeout`함수 자체(callback이 아니에요!)는 stack에 사라졌어요.
 
 <img src="https://i.imgur.com/X5wsHOg.png" width="200">
 
-지금, `foo` 는 호출 되었고, `"First"`는 출력 되었어요.
+지금, `foo` 는 호출되었고, `"First"`는 출력되었어요.
 
 <img src="https://i.imgur.com/Pvc0dGq.png" width="200">
 
-`foo`는 stack에 사라지고, `baz`가 호출 되었어요. `"Third"`가 출력 되었어요.
+`foo`는 stack에 사라지고, `baz`가 호출되었어요. `"Third"`가 출력되었어요.
 
 <img src="https://i.imgur.com/WhA2bCP.png" width="200">
 
-WebAPI는 준비가 될때 마다 stack에 항목을 추가 할 수 없어요. 대신에, _queue_ 라고 불리는 것에 callback함수를 푸시해요.
+WebAPI는 준비가 될 때마다 stack에 항목을 추가할 수 없어요. 대신에, _queue_ 라고 불리는 것에 callback함수를 푸시해요.
 
 <img src="https://i.imgur.com/NSnDZmU.png" width="200">
 
-여기서 event loop가 작동하기 시작해요. **event loop**는 stack과 task queue를 봐요. stack이 비어있다면, queue에 첫번째것을 가져다가 stack 위로 푸시해요.
+여기서 event loop가 작동하기 시작해요. **event loop**는 stack과 task queue를 봐요. stack이 비어있다면, queue에 첫 번째의 것을 가져다가 stack 위로 푸시해요.
 
 <img src="https://i.imgur.com/uyiScAI.png" width="200">
 
-`bar`가 호출되었고, `"Second"`가 출력 되었으며, stack에서 사라졌어요.
+`bar`가 호출되었고, `"Second"`가 출력되었으며, stack에서 사라졌어요.
 
 </p>
 </details>
@@ -955,7 +953,7 @@ WebAPI는 준비가 될때 마다 stack에 항목을 추가 할 수 없어요. �
 
 #### 정답: C
 
-가장 깊이 중첩된 요소가 이벤트를 발생시킬 이벤트 대상이에요. `event.stopPropagation`을 통해서 버블링을 중단 할 수 있어요.
+가장 깊이 중첩된 요소가 이벤트를 발생시킬 이벤트 대상이에요. `event.stopPropagation`을 통해서 버블링을 중단할 수 있어요.
 
 </p>
 </details>
@@ -982,7 +980,7 @@ WebAPI는 준비가 될때 마다 stack에 항목을 추가 할 수 없어요. �
 
 #### 정답: A
 
-`p`를 클릭하면, 2개의 로그를 볼 수 있어요: `p` 그리고 `div`. 이벤트의 전파 중에는 3 단계가 있어요: 캡처링, 타켓, 버블링. 기본적으로, 이벤트 핸들러는 버블링단계에서 시작되요. (`useCapture`를 `true`로 설정하지 않는 한). 가장 깊게 중첩된 요소로 부터 바깥쪽으로 나가요.
+`p`를 클릭하면, 2개의 로그를 볼 수 있어요: `p` 그리고 `div`. 이벤트의 전파 중에는 3 단계가 있어요: 캡처링, 타겟, 버블링. 기본적으로, 이벤트 핸들러는 버블링 단계에서 시작돼요. (`useCapture`를 `true`로 설정하지 않는 한). 가장 깊게 중첩된 요소로부터 바깥쪽으로 나가요.
 
 </p>
 </details>
@@ -1012,9 +1010,9 @@ sayHi.bind(person, 21);
 
 #### 정답: D
 
-두개 모두, `this`키워드를 참조하고자하는 객체로 보낼 수 있어요. 그러나, `.call`은 _즉시 실행되요_!
+두 개 모두, `this`키워드를 참조하고자 하는 객체로 보낼 수 있어요. 그러나, `.call`은 _즉시 실행돼요_!
 
-`.bind.`는 함수의 _복사본_ 을 리턴하지만, 바인딩 컨텍스트에요! 이건 즉시 실행되지 않아요.
+`.bind.`는 함수의 _복사본_ 을 리턴하지만, 바인딩 콘텍스트죠! 이건 즉시 실행되지 않아요.
 
 </p>
 </details>
@@ -1043,7 +1041,7 @@ console.log(typeof sayHi());
 
 `sayHi`함수는 즉시 호출 함수(IIFE)로서 리턴된 값을 리턴해요. 이 함수는 `0`을 리턴하고, 형은 `"number"`이에요.
 
-참고: 단 7개의 내장형이 있어요: `null`, `undefined`, `boolean`, `number`, `string`, `object` 그리고 `symbol`. `"function"`은 객체이기 때문에 형이아니라 `"object"` 형이에요.
+참고: 단 7개의 내장형이 있어요: `null`, `undefined`, `boolean`, `number`, `string`, `object` 그리고 `symbol`. `"function"`은 객체이기 때문에 형이 아니라 `"object"` 형이에요.
 
 </p>
 </details>
@@ -1071,7 +1069,7 @@ undefined;
 
 #### 정답: A
 
-단 6개의 거짓 값이 있어요:
+단 6개의 거짓 같은 값이 있어요:
 
 - `undefined`
 - `null`
@@ -1080,7 +1078,7 @@ undefined;
 - `''` (빈 문자열)
 - `false`
 
-`new Number` 그리고 `new Boolean`와 같은 생성자 함수는 참같은 값이에요.
+`new Number` 그리고 `new Boolean`와 같은 생성자 함수는 참 같은 값이에요.
 
 </p>
 </details>
@@ -1129,12 +1127,12 @@ console.log(numbers);
 
 #### 정답: C
 
-배열의 길이를 초과한 값을 배열의 요소로 설정하고자 할때, JavaScript는 "empty slots"이라고 불리는 것을 생성해요. 이것은 실제로 `undefined`의 값을 가지고 있지만, 다음과 같은 것을 보게 될거에요:
+배열의 길이를 초과한 값을 배열의 요소로 설정하고자 할 때, JavaScript는 "empty slots"이라고 불리는 것을 생성해요. 이것은 실제로 `undefined`의 값을 가지고 있지만, 다음과 같은 것을 보게 될 거에요:
 
 `[1, 2, 3, 7 x empty, 11]`
 
 depending on where you run it (it's different for every browser, node, etc.)
-실행 위치에 따라 달라요 (브라우저, node 등 마다 달라요.)
+실행 위치에 따라 달라요 (브라우저, node 등마다 달라요.)
 
 </p>
 </details>
@@ -1167,7 +1165,7 @@ depending on where you run it (it's different for every browser, node, etc.)
 
 #### 정답: A
 
-`catch`블록은 `x`의 인자를 받아요. 이것은 인수를 전달할때 변수로서의 `x`와는 달라요. 이 `x` 변수는 블록-스코프에요.
+`catch`블록은 `x`의 인수를 받아요. 이것은 인수를 전달할 때 변수로서의 `x`와는 달라요. 이 `x` 변수는 블록-스코프예요.
 
 후에, 블록-스코프 변수는 `1`로 설정하고, 변수 `y`의 값을 설정해요. 여기서, 블록-스코프의 변수 `x`를 출력하는데, 이것은 `1`이에요.
 
@@ -1194,7 +1192,7 @@ JavaScript는 원시형과 객체만 가지고 있어요.
 
 원시형은 `boolean`, `null`, `undefined`, `bigint`, `number`, `string` 그리고 `symbol`이 있어요.
 
-원시형과 객체를 구별하는 법은 원시형에는 속성이나 메소드가 없어요. 그러나 `'foo'.toUpperCase()`는 `'FOO'`로 평가되어, `TypeError`의 결과가 되지 않아요. 문자열과 같은 원시형이 속성 또는 메소드에 접근하려고 할때, JavaScript는 래퍼 클래스 중 하나인 `String`을 사용하여 암묵적으로 감싸고, 표현식이 평가된 후 즉시 래퍼를 폐기하기 때문이에요. `null` 그리고 `undefined`를 제외한 모든 원시형은 이러한 행동을 합니다.
+원시형과 객체를 구별하는 법은 원시형에는 속성이나 메소드가 없어요. 그러나 `'foo'.toUpperCase()`는 `'FOO'`로 평가되어, `TypeError`의 결과가 되지 않아요. 문자열과 같은 원시형이 속성 또는 메소드에 접근하려고 할 때, JavaScript는 래퍼 클래스 중 하나인 `String`을 사용하여 암묵적으로 감싸고, 표현식이 평가된 후 즉시 래퍼를 폐기하기 때문이에요. `null` 그리고 `undefined`를 제외한 모든 원시형은 이러한 행동을 합니다.
 
 </p>
 </details>
@@ -1222,9 +1220,9 @@ JavaScript는 원시형과 객체만 가지고 있어요.
 
 #### 정답: C
 
-`[1, 2]`은 초기값이에요. 이것이 최초의 값으로, 제일 처음의 `acc`의 값이에요. 처음 라운드 동안에 `acc`은 `[1,2]`이며, `cur`은 `[0, 1]`이에요. 그것들을 연결하면 결과적으로 `[1, 2, 0, 1]`이 되요.
+`[1, 2]`은 초기값이에요. 이것이 최초의 값으로, 제일 처음의 `acc`의 값이에요. 처음 라운드 동안에 `acc`은 `[1,2]`이며, `cur`은 `[0, 1]`이에요. 그것들을 연결하면 결과적으로 `[1, 2, 0, 1]`이 돼요.
 
-그리고나서, `[1, 2, 0, 1]`은 `acc`이고, `[2, 3]`은 `cur`이 에요. 그것들을 연결하면 `[1, 2, 0, 1, 2, 3]`을 얻게되요.
+그 후, `[1, 2, 0, 1]`은 `acc`이고, `[2, 3]`은 `cur`이 에요. 그것들을 연결하면 `[1, 2, 0, 1, 2, 3]`을 얻게 돼요.
 
 </p>
 </details>
@@ -1276,7 +1274,7 @@ setInterval(() => console.log("Hi"), 1000);
 
 #### 정답: A
 
-이것은 유니크한 id를 리턴해요. 이 id는 `clearInterval()` 함수로 간격을 없애기 위해 사용 될 수 있어요.
+이것은 유니크한 id를 리턴해요. 이 id는 `clearInterval()` 함수로 간격을 없애기 위해 사용될 수 있어요.
 
 </p>
 </details>
@@ -1299,7 +1297,7 @@ setInterval(() => console.log("Hi"), 1000);
 
 #### 정답: A
 
-문자열은 반복 가능한 객체에요. 스프레드 연산자는 반복 가능한 객체의 모든 문자를 1개의 요소로 매핑해요.
+문자열은 반복 가능한 객체예요. 스프레드 연산자는 반복 가능한 객체의 모든 문자를 1개의 요소로 매핑해요.
 
 </p>
 </details>
@@ -1330,11 +1328,11 @@ console.log(gen.next().value);
 
 #### 정답: C
 
-Regular functions cannot be stopped mid-way after invocation. However, a generator function can be "stopped" midway, and later continue from where it stopped. Every time a generator function encounters a `yield` keyword, the function yields the value specified after it. Note that the generator function in that case doesn’t _return_ the value, it _yields_ the value.
+보통의 함수는 호출 후에 중단할 수 없어요. 하지만, 제너레이터 함수는 중간에 "멈췄다가", 나중에 중단된 부분부터 계속할 수 있어요. 제너레이터 함수는 `yield` 키워드를 만날 때마다, yield 뒤에 지정된 값을 넘겨줘요. 제너레이터 함수에서는 값을 _리턴_ 하지 않고, _넘겨준다_ 는 것을 유의하세요.
 
-First, we initialize the generator function with `i` equal to `10`. We invoke the generator function using the `next()` method. The first time we invoke the generator function, `i` is equal to `10`. It encounters the first `yield` keyword: it yields the value of `i`. The generator is now "paused", and `10` gets logged.
+우선, 제너레이터 함수에서 `i`를 `10`로 초기화해요. `next()` 메소드를 사용해 제너레이터 함수를 호출해요. 처음에 제너레이터 함수를 호출하면, `i`은 `10`이에요. 첫 번째 `yield` 키워드를 만났어요: 그것은 `i`의 값을 넘겨줘요. 이제 제너레이터는 "멈추고", `10`을 출력해요.
 
-Then, we invoke the function again with the `next()` method. It starts to continue where it stopped previously, still with `i` equal to `10`. Now, it encounters the next `yield` keyword, and yields `i * 2`. `i` is equal to `10`, so it returns `10 * 2`, which is `20`. This results in `10, 20`.
+그 후, `next()` 메소드를 사용해 다시 한번 함수를 호출해요. `i`는 여전히 `10`이에요. 이제, 다음 `yield` 키워드를 만나 `i * 2`를 넘겨줘요. `i`는 `10`이므로, `10 * 2`, 즉 `20`을 리턴해요. 결과는 `10, 20`이에요.
 
 </p>
 </details>
@@ -1365,7 +1363,7 @@ Promise.race([firstPromise, secondPromise]).then(res => console.log(res));
 
 #### 정답: B
 
-When we pass multiple promises to the `Promise.race` method, it resolves/rejects the _first_ promise that resolves/rejects. To the `setTimeout` method, we pass a timer: 500ms for the first promise (`firstPromise`), and 100ms for the second promise (`secondPromise`). This means that the `secondPromise` resolves first with the value of `'two'`. `res` now holds the value of `'two'`, which gets logged.
+복수의 프로미스를 `Promise.race` 메소드에 넘겨주면, _최초_ 의 프로미스를 해결/거부 해요. `setTimeout` 메소드에 타이머를 전달해요: 첫번째 프로미스(`firstPromise`)에는 500ms, 두번째 프로미스(`secondPromise`)에는 100ms. 이것은 `'two'`의 값을 가진 `secondPromise`가 최초로 해결한다는 것을 의미해요. 이제 `res`는 `'two'`의 값을 유지하고 출력되요.
 
 </p>
 </details>
@@ -1392,19 +1390,19 @@ console.log(members);
 
 #### 정답: D
 
-First, we declare a variable `person` with the value of an object that has a `name` property.
+우선, 변수 `person`의 값을 `name`속성을 가진 객체로 선언해요.
 
 <img src="https://i.imgur.com/TML1MbS.png" width="200">
 
-Then, we declare a variable called `members`. We set the first element of that array equal to the value of the `person` variable. Objects interact by _reference_ when setting them equal to each other. When you assign a reference from one variable to another, you make a _copy_ of that reference. (note that they don't have the _same_ reference!)
+그 후, `members`라는 변수를 선언해요. 배열의 첫 번째 요소에 `person`변수의 값을 대입해요. 서로를 같게 설정하면 _참조_ 에 의해 상호작용해요. 어떤 변수에서 다른 변수로 참조를 할당하면, 그 참조의 _복사본_ 을 만들어요. (그들은 _같은_ 참조를 가지고 있지 않다는 것을 유의하세요!)
 
 <img src="https://i.imgur.com/FSG5K3F.png" width="300">
 
-Then, we set the variable `person` equal to `null`.
+그리고, 변수 `person`를 `null`로 설정해요.
 
 <img src="https://i.imgur.com/sYjcsMT.png" width="300">
 
-We are only modifying the value of the `person` variable, and not the first element in the array, since that element has a different (copied) reference to the object. The first element in `members` still holds its reference to the original object. When we log the `members` array, the first element still holds the value of the object, which gets logged.
+배열의 첫 번째 요소는 객체에 대한 다른 (복사된) 참조를 가지고 있기 때문에, `person` 변수의 값만 변경하고, 배열의 첫번째 요소는 변경할 수 없어요. `members`의 첫 번째 요소는 여전히 원본 객체에 대한 참조를 유지하고 있어요. `members` 배열을 출력할 때, 첫 번째 요소는 여전히 객체의 값을 유지하고 있어 로그가 출력돼요.
 
 </p>
 </details>
@@ -1434,7 +1432,7 @@ for (const item in person) {
 
 #### 정답: B
 
-With a `for-in` loop, we can iterate through object keys, in this case `name` and `age`. Under the hood, object keys are strings (if they're not a Symbol). On every loop, we set the value of `item`equal to the current key it’s iterating over. First, `item` is equal to `name`, and gets logged. Then, `item` is equal to `age`, which gets logged.
+`for-in` 루프를 사용하면, 객체 키를 통해서 반복할 수 있는데, 이경우에서는 `name` 그리고 `age`에요. 내부적으로, 객체 키는 문자열이에요 (심볼이 아니라면 말이죠). 모든 루프에서, `item`의 값은 반복되어 있는 현재의 키 값으로 설정해요. 우선, `item`은 `name`가 대입되어, 로그로 출력돼요. 그 후, `item`은 `age`가 대입되어, 로그로 출력돼요.
 
 </p>
 </details>
@@ -1457,18 +1455,18 @@ console.log(3 + 4 + "5");
 
 #### 정답: B
 
-Operator associativity is the order in which the compiler evaluates the expressions, either left-to-right or right-to-left. This only happens if all operators have the _same_ precedence. We only have one type of operator: `+`. For addition, the associativity is left-to-right.
+연산자 결합성은 왼쪽에서 오른쪽 또는 오른쪽에서 왼쪽으로 컴파일러가 표현식을 평가하는 순서가 되요. 이것은 연산자가 _같은_ 우선순위를 가진 경우에만 해당되요. 연산자의 종류는 한개뿐이에요: `+`. 게다가, 결합성은 왼쪽에서 오른쪽이에요.
 
-`3 + 4` gets evaluated first. This results in the number `7`.
+처음으로 `3 + 4`가 평가되요. 결과는 숫자 `7`이에요.
 
-`7 + '5'` results in `"75"` because of coercion. JavaScript converts the number `7` into a string, see question 15. We can concatenate two strings using the `+`operator. `"7" + "5"` results in `"75"`.
+`7 + '5'`의 결과는 강제성 때문에 `"75"`가 돼요. JavaScript는 숫자 `7`을 문자열로 변환하고, (자세한 내용은)질문 15를 보세요. `+` 연산자를 사용해서 두 개의 문자열을 연결할 수 있어요. `"7" + "5"`의 결과는 `"75"`이에요.
 
 </p>
 </details>
 
 ---
 
-###### 49. What's the value of `num`?
+###### 49. `num`의 값은 무엇일까요?
 
 ```javascript
 const num = parseInt("7*6", 10);
@@ -1484,16 +1482,16 @@ const num = parseInt("7*6", 10);
 
 #### 정답: C
 
-Only the first numbers in the string is returned. Based on the _radix_ (the second argument in order to specify what type of number we want to parse it to: base 10, hexadecimal, octal, binary, etc.), the `parseInt` checks whether the characters in the string are valid. Once it encounters a character that isn't a valid number in the radix, it stops parsing and ignores the following characters.
+문자열의 첫 번째 숫자만 리턴돼요. _진법_ 에 근거하여 (파싱 하고자 하는 숫자의 기준을 명시하기 위한 두 번째 인수: 기본적인 10진수, 6진수, 8진수, 2진수 등), `parseInt`는 문자열 내의 문자가 타당한지 여부를 확인해요. 진수에 유효한 숫자가 아닌 문자를 만나면, 파싱을 멈추고, 다음 문자를 무시해요.
 
-`*` is not a valid number. It only parses `"7"` into the decimal `7`. `num` now holds the value of `7`.
+`*`은 유요한 숫자가 아니에요. `"7"`만 십진수의 `7`으로 파싱 돼요. 이제 `num`은 `7`의 값을 유지해요.
 
 </p>
 </details>
 
 ---
 
-###### 50. What's the output`?
+###### 50. 무엇이 출력 될까요?
 
 ```javascript
 [1, 2, 3].map(num => {
@@ -1512,9 +1510,9 @@ Only the first numbers in the string is returned. Based on the _radix_ (the seco
 
 #### 정답: C
 
-When mapping over the array, the value of `num` is equal to the element it’s currently looping over. In this case, the elements are numbers, so the condition of the if statement `typeof num === "number"` returns `true`. The map function creates a new array and inserts the values returned from the function.
+배열을 매핑할 때, `num`의 값은 헌재 순환하고 있는 요소예요. 이 경우, 요소는 숫자이기 때문에, if문의 조건 `typeof num === "number"`는 `true`를 리턴해요. map 합수는 새로운 배열을 만들고 함수에서 리턴된 값을 삽입해요.
 
-However, we don’t return a value. When we don’t return a value from the function, the function returns `undefined`. For every element in the array, the function block gets called, so for each element we return `undefined`.
+그러나, 값을 리턴하지 않아요. 함수는 값을 리턴하지 않을 때, `undefined`을 리턴해요. 배열에서의 모든 요소에 대해 블록 함수가 호출되기 때문에, 각 요소에 대해 `undefined`을 리턴해요.
 
 </p>
 </details>
@@ -1547,11 +1545,11 @@ console.log(person, birthYear);
 
 #### 정답: A
 
-Arguments are passed by _value_, unless their value is an object, then they're passed by _reference_. `birthYear` is passed by value, since it's a string, not an object. When we pass arguments by value, a _copy_ of that value is created (see question 46).
+인수들의 값이 객체가 아닌 한 _값_ 에 의해 전달되요. 그 후 _참조_ 에 의해 전달되요. `birthYear`는 객체가 아니라 문자열이기 때문에 값에 의해 전달되요. 값으로 전달하면 값의 _복사본_ 이 만들어 져요(질문 46을 보세요).
 
-The variable `birthYear` has a reference to the value `"1997"`. The argument `year` also has a reference to the value `"1997"`, but it's not the same value as `birthYear` has a reference to. When we update the value of `year` by setting `year` equal to `"1998"`, we are only updating the value of `year`. `birthYear` is still equal to `"1997"`.
+변수 `birthYear`는 `"1997"`값에 대한 참조를 가져요. 인수 `year` 또한 `"1997"`에 대한 참조를 가지지만, `birthYear`가 가진 참조값과는 달라요. `year`에 `"1997"`을 대입하여 `year`의 값을 업데이트할 때, `year`의 값만 업데이트해요. `birthYear`는 여전히 `"1997"`이에요.
 
-The value of `person` is an object. The argument `member` has a (copied) reference to the _same_ object. When we modify a property of the object `member` has a reference to, the value of `person` will also be modified, since they both have a reference to the same object. `person`'s `name` property is now equal to the value `"Lydia"`
+`person`의 값은 객체예요. 인수 `member`는 _같은_ 객체의 (복사된) 참조값을 가져요. `member`객체의 속성이 갖는 참조를 변경하면, 두 개 모두 같은 객체를 참조 값을 가지고 있기 때문에, `person`의 값 또한 변경돼요. 이제 `person`'의 `name` 속성은 값 `"Lydia"`와 같아요.
 
 </p>
 </details>
@@ -1578,18 +1576,18 @@ sayHi();
 ```
 
 - A: `"It worked! Hello world!"`
-- B: `"Oh no an error: undefined`
+- B: `"Oh no an error! undefined"`
 - C: `SyntaxError: can only throw Error objects`
-- D: `"Oh no an error: Hello world!`
+- D: `"Oh no an error! Hello world!"`
 
 <details><summary><b>정답</b></summary>
 <p>
 
 #### 정답: D
 
-With the `throw` statement, we can create custom errors. With this statement, you can throw exceptions. An exception can be a <b>string</b>, a <b>number</b>, a <b>boolean</b> or an <b>object</b>. In this case, our exception is the string `'Hello world'`.
+`throw`문을 사용해, 커스텀 에러를 만들 수 있어요. 이 표현식을 사용해, 예외를 던질 수 있어요. 예외는 <b>string</b>, a <b>number</b>, a <b>boolean</b> or an <b>object</b>이 될 수 있어요. 이 경우, 예외는 `'Hello world'` 문자열이에요.
 
-With the `catch` statement, we can specify what to do if an exception is thrown in the `try` block. An exception is thrown: the string `'Hello world'`. `e` is now equal to that string, which we log. This results in `'Oh an error: Hello world'`.
+`catch` 문을 사용해, `try` 블록에서 예외가 던져졌을 경우에 어떻게 할지 명시할 수 있어요. 예외가 던져졌어요: 문자열 `'Hello world'`. `e`는 이제 문자열이고, 그것을 출력해요. 결과는 `'Oh an error: Hello world'`이에요.
 
 </p>
 </details>
@@ -1618,7 +1616,7 @@ console.log(myCar.make);
 
 #### 정답: B
 
-When you return a property, the value of the property is equal to the _returned_ value, not the value set in the constructor function. We return the string `"Maserati"`, so `myCar.make` is equal to `"Maserati"`.
+속성을 리턴할 때, 속성 값은 생성자에 설정한 값이 아닌, _리턴된_ 값과 같아요. `"Maserati"` 문자열을 리턴하기 때문에, `myCar.make`는 `"Maserati"`에요.
 
 </p>
 </details>
@@ -1646,18 +1644,18 @@ console.log(typeof y);
 
 #### 정답: A
 
-`let x = y = 10;` is actually shorthand for:
+`let x = y = 10;`은 다음의 단축형이에요:
 
 ```javascript
 y = 10;
 let x = y;
 ```
 
-When we set `y` equal to `10`, we actually add a property `y` to the global object (`window` in browser, `global` in Node). In a browser, `window.y` is now equal to `10`.
+`y`에 `10`을 대입하면, 실제로는 전역 객체에 속성 `y`를 추가해요(브라우저에서는 `window`, Node에서는 `global`). 브라우저에서, `window.y`는 이제 `10`이에요.
 
-Then, we declare a variable `x` with the value of `y`, which is `10`. Variables declared with the `let` keyword are _block scoped_, they are only defined within the block they're declared in; the immediately-invoked function (IIFE) in this case. When we use the `typeof` operator, the operand `x` is not defined: we are trying to access `x` outside of the block it's declared in. This means that `x` is not defined. Values who haven't been assigned a value or declared are of type `"undefined"`. `console.log(typeof x)` returns `"undefined"`.
+그 후, 변수 `x`를 `10`인 `y`를 값으로 선언해요. `let`키워드로 선언된 변수는 _블록 스코프_ 로, 선언된 블록 내에서만 정의돼요: 이경우 즉시 호출 함수예요(IIFE). `typeof`연산자를 사용할 때, 피연산자 `x`는 정의되지 않았어요: 선언된 블록 밖에서 접근하려 했어요. 이것은 `x`가 선언되지 않음을 의미해요. 값을 할당하거나 선언하지 않은 변수는 `"undefined"` 형이에요. `console.log(typeof x)`는 `"undefined"`를 리턴해요.
 
-However, we created a global variable `y` when setting `y` equal to `10`. This value is accessible anywhere in our code. `y` is defined, and holds a value of type `"number"`. `console.log(typeof y)` returns `"number"`.
+그러나, `y`를 `10`으로 설정할 때 전역 변수 `y`를 만들었어요. 이 값은 코드 내 어디에서나 접근할 수 있어요. `y`는 정의되었고, `"number"`형의 값을 유지해요. `console.log(typeof y)`는 `"number"`을 리턴해요.
 
 </p>
 </details>
