@@ -964,8 +964,9 @@ baz();
 </div>
 
 ---
-
-###### 31. What is the event.target when clicking the button?
+<div dir='rtl'>
+31. ماهو ال event.target عندما نقوم بالضغط على الزر
+</div>
 
 ```html
 <div onclick="console.log('first div')">
@@ -977,24 +978,31 @@ baz();
 </div>
 ```
 
-- A: Outer `div`
-- B: Inner `div`
+<div dir='rtl'>
+- A:  الخارجي `div`
+
+- B: الداخلي `div`
+
 - C: `button`
-- D: An array of all nested elements.
 
-<details><summary><b>Answer</b></summary>
+- D: array تحتوي على جميع العناصرالمتداخلة.
+</div>
+
+<details><summary><b>الإجابة</b></summary>
 <p>
+<div dir='rtl'>
+الجواب هو الخيار الثالث: C
 
-#### Answer: C
-
-The deepest nested element that caused the event is the target of the event. You can stop bubbling by `event.stopPropagation`
-
+العنصر المتداخل الأعمق الذي تسبب بتنفيذ الevent  هو العنصر الذي يستهدفه هذا الevent, بإمكانك إيقاف ال bubbling عن طريق `event.stopPropagation`.
 </p>
 </details>
+</div>
 
 ---
 
-###### 32. When you click the paragraph, what's the logged output?
+<div dir='rtl'>
+32. عندما تقوم بالضغط على الفقرة (P), ماهو الناتج الذي ستتحصل عليه؟
+</div>
 
 ```html
 <div onclick="console.log('div')">
@@ -1009,19 +1017,19 @@ The deepest nested element that caused the event is the target of the event. You
 - C: `p`
 - D: `div`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>الإجابة</b></summary>
 <p>
+<div dir='rtl'>
+الجواب هو الخيار الأول: A
 
-#### Answer: A
-
-If we click `p`, we see two logs: `p` and `div`. During event propagation, there are 3 phases: capturing, target, and bubbling. By default, event handlers are executed in the bubbling phase (unless you set `useCapture` to `true`). It goes from the deepest nested element outwards.
-
+إذا قمنا بالضغط على `p` سنرى إثنان من الlogs, ألا و هما `p` و `div`, أثناء عملية event propagation, هنالك ثلاث مراحل: الا وهي capturing, target و bubbling. بصورة افتراضية, الevent handlers يتم تنفيذهم في مرحلة الbubbling (إلا في حال أنك قمت بضبط قيمة `useCapture` ل `true` ). هي تتسلسل ابتداءا من أعمق عنصر متداخل تصاعدا الى الأقل عمقاً. 
 </p>
 </details>
+</div>
 
 ---
 
-###### 33. What's the output?
+33. ماهو الناتج؟
 
 ```javascript
 const person = { name: "Lydia" };
@@ -1039,21 +1047,21 @@ sayHi.bind(person, 21);
 - C: `Lydia is 21` `Lydia is 21`
 - D: `Lydia is 21` `function`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>الإجابة</b></summary>
 <p>
+<div dir='rtl'>
+الجواب هو الخيار الرابع: D
 
-#### Answer: D
+في الحالتين, بإمكاننا تمرير ال object الذي نود أن تشير اليه الكلمة المفتاحية `this`, ولكن, `.call` هي أيضا تم تنفيذها حالا.  
 
-With both, we can pass the object to which we want the `this` keyword to refer to. However, `.call` is also _executed immediately_!
-
-`.bind.` returns a _copy_ of the function, but with a bound context! It is not executed immediately.
-
+`.bind.` تقوم بإرجاع نسخة من الدالة, ولكن مع سياق محدد, لذا هي لا يتم تنفيذها حالاً.
 </p>
 </details>
+</div>
 
 ---
 
-###### 34. What's the output?
+34. ماهو الناتج؟
 
 ```javascript
 function sayHi() {
@@ -1068,20 +1076,21 @@ console.log(typeof sayHi());
 - C: `"function"`
 - D: `"undefined"`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>الإجابة</b></summary>
 <p>
+<div dir='rtl'>
+الجواب هو الخيار الثاني: B
 
-#### Answer: B
+دالة `sayHi` تقوم بإرجاع القيمة المرجعة من الدالة المناداة في اللحظة (IIFE). هذه الدالة تقوم بإرجاع `0`, و الذي نوعه عبارة عن `"number"`.   
 
-The `sayHi` function returns the returned value of the immediately invoked function (IIFE). This function returned `0`, which is type `"number"`.
-
-FYI: there are only 7 built-in types: `null`, `undefined`, `boolean`, `number`, `string`, `object`, and `symbol`. `"function"` is not a type, since functions are objects, it's of type `"object"`.
+لمعلوماتك: لدينا فقط سبعة أنواع من ال built-in و هي : `null`, `undefined`, `boolean`, `number`, `string`, `object`, و `symbol`.`"function"` هي ليست نوع, وبما أن الدوال عبارة عن objects, ف هي ليست من النوع `"object"`.  
 </p>
 </details>
+</div>
 
 ---
 
-###### 35. Which of these values are falsy?
+35. أي هذه القيم هي قيم قابلة للخطأ؟
 
 ```javascript
 0;
@@ -1095,14 +1104,14 @@ undefined;
 - A: `0`, `''`, `undefined`
 - B: `0`, `new Number(0)`, `''`, `new Boolean(false)`, `undefined`
 - C: `0`, `''`, `new Boolean(false)`, `undefined`
-- D: All of them are falsy
+- D: جميعها
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>الإجابة</b></summary>
 <p>
+<div dir='rtl'>
+الجواب هو الخيار الأول : A
 
-#### Answer: A
-
-There are only six falsy values:
+لدينا فقط ستة قيم قابلة للخطأ:
 
 - `undefined`
 - `null`
@@ -1111,14 +1120,15 @@ There are only six falsy values:
 - `''` (empty string)
 - `false`
 
-Function constructors, like `new Number` and `new Boolean` are truthy.
+Function constructors, مثل `new Number` و  `new Boolean` هي قيم قابلة للصواب.
 
 </p>
 </details>
+</div>
 
 ---
 
-###### 36. What's the output?
+36. ماهو الناتج؟
 
 ```javascript
 console.log(typeof typeof 1);
@@ -1129,20 +1139,21 @@ console.log(typeof typeof 1);
 - C: `"object"`
 - D: `"undefined"`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>الإجابة</b></summary>
 <p>
+<div dir='rtl'>
+الجواب هو الخيار الثاني: B
 
-#### Answer: B
-
-`typeof 1` returns `"number"`.
-`typeof "number"` returns `"string"`
+`typeof 1` تقوم بإرجاع `"number"`.
+`typeof "number"` تقوم بإرجاع `"string"`
 
 </p>
 </details>
+</div>
 
 ---
 
-###### 37. What's the output?
+37. ماهو الناتج؟
 
 ```javascript
 const numbers = [1, 2, 3];
@@ -1155,23 +1166,23 @@ console.log(numbers);
 - C: `[1, 2, 3, 7 x empty, 11]`
 - D: `SyntaxError`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>الإجابة</b></summary>
 <p>
+<div dir='rtl'>
+الجواب هو الخيار الثالث: C
 
-#### Answer: C
-
-When you set a value to an element in an array that exceeds the length of the array, JavaScript creates something called "empty slots". These actually have the value of `undefined`, but you will see something like:
+عندما تقوم بضبط قيمة ما لعنصر في الarray , و بعد إضافة هذا العنصر انت تكون قد تجاوزت طول الarray, لغة الجافاسكريبت تنشيء شيئا يسمى ب "empty slots", أي خانة فارغة, و هي في الحقيقة تحمل القيمة `undefined`, و لكنك سترى شيئا كالتالي:
 
 `[1, 2, 3, 7 x empty, 11]`
 
-depending on where you run it (it's different for every browser, node, etc.)
-
+وذلك يعتمد على المكان الذي قمت فيه بتشغيل البرنامج ( هو مختلف لكل متصفح, node, ...الخ)
 </p>
 </details>
+</div>
 
 ---
 
-###### 38. What's the output?
+38. ماهو الناتج؟
 
 ```javascript
 (() => {
@@ -1192,46 +1203,46 @@ depending on where you run it (it's different for every browser, node, etc.)
 - C: `1` `1` `2`
 - D: `1` `undefined` `undefined`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>الإجابة</b></summary>
 <p>
+<div dir='rtl'>
+الجواب هو الخيار الأول : A
 
-#### Answer: A
+النطاق أو الblock `catch`يستقبل ال arguemnt الذي يساوي `x`, هذا ليس نفس القيمة `x` هندما قمنا بتمرير الarguments, هذا المتغير `x` هو متغير block-scoped, أي يتم التعامل معه أو مناداته فقط بداخل الblock الذي تم تعريفه به.
 
-The `catch` block receives the argument `x`. This is not the same `x` as the variable when we pass arguments. This variable `x` is block-scoped.
+لاحقا, قمنا بضبط القيمة `1` لهذا المتغير من نوع block-scoped, وقمنا أيضا بضبط قيمة للمتغير `y`. الآن نحن نقوم بطباعة قيمة المتغير الذي من نوع block-scoped و الذي هو `x` عن طريق الlog, و الذي هو يساوي `1`.    
 
-Later, we set this block-scoped variable equal to `1`, and set the value of the variable `y`. Now, we log the block-scoped variable `x`, which is equal to `1`.
-
-Outside of the `catch` block, `x` is still `undefined`, and `y` is `2`. When we want to `console.log(x)` outside of the `catch` block, it returns `undefined`, and `y` returns `2`.
-
+بخارج نطاق ال`catch` block, `x` هي لاتزال `undefined`, و قيمة ال `y` تساوي `2`. عندما نريد طباعة قيمة ال x عن طريق الlog خارج نطاق ال `catch` block, فهي تقوم بإرجاع `undefined`, و ال `y` تقوم بإرجاع `2`.      
 </p>
 </details>
+</div>
 
 ---
 
-###### 39. Everything in JavaScript is either a...
+39. كل شيء في الجافاسكريبت هو عبارة عن ...
 
-- A: primitive or object
-- B: function or object
-- C: trick question! only objects
+- A: primitive أو object
+- B: function أو object
+- C: فقط objects , سؤال مخادع
 - D: number or object
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>الإجابة</b></summary>
 <p>
+<div dir='rtl'>
+الجواب هو الخيار الأول: A
 
-#### Answer: A
+لغة الجافاسكريبت لديها فقط primitive types و objects.
 
-JavaScript only has primitive types and objects.
+نقصد بال Primitive types:  `boolean`, `null`, `undefined`, `bigint`, `number`, `string`, و `symbol`.
 
-Primitive types are `boolean`, `null`, `undefined`, `bigint`, `number`, `string`, and `symbol`.
-
-What differentiates a primitive from an object is that primitives do not have any properties or methods; however, you'll note that `'foo'.toUpperCase()` evaluates to `'FOO'` and does not result in a `TypeError`. This is because when you try to access a property or method on a primitive like a string, JavaScript will implicity wrap the object using one of the wrapper classes, i.e. `String`, and then immediately discard the wrapper after the expression evaluates. All primitives except for `null` and `undefined` exhibit this behaviour.
-
+مايميز ال primitive من ال object هو أن ال primitives ليس لديها أي خصائص أو methods; ولكنك ستلاحظ أن `'foo'.toUpperCase()`يتم تقييمها ومعالجتها الى `'FOO'`و لا نتحصل على الخطأ `TypeError`. هذا لأنه عندما تحاول الوصول الى خاصية أو method لمتغير من من نوع primitive مثل ال string, فإن لغة الجافاسكريبت ستقوم بشكل ضمني بعمل wrap لل object بإستخدام واحدة من ال wrapper Classes, أي مانعنيه `String`, و لاحقا بصورة مباشرة يقوم بالتخلص من الwrapper, بعد أن يتم تقييم و تنفيذ الexpression.  جميع الprimitives, ماعدا `null` و `undefined` تقوم بعمل هذه العملية.    
 </p>
 </details>
+</div>
 
 ---
 
-###### 40. What's the output?
+40. ماهو الناتج؟ 
 
 ```javascript
 [[0, 1], [2, 3]].reduce(
@@ -1247,16 +1258,16 @@ What differentiates a primitive from an object is that primitives do not have an
 - C: `[1, 2, 0, 1, 2, 3]`
 - D: `[1, 2, 6]`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>الإجابة</b></summary>
 <p>
+<div dir='rtl'>
+الجواب هو الخيارالثالث: C
 
-#### Answer: C
+`[1, 2]` هي القيمة المبدئية.هذه القيمة هي التي بدأنا بها, و هي القيمة الأولى ل `acc`. أثناء الدورة الأولى`acc` تساوي `[1,2]` و `cur` تساوي `[0, 1]`, عندما نقوم بدمجهما سويا عن طريق concat يصبح لدينا الناتج `[1, 2, 0, 1]`.
 
-`[1, 2]` is our initial value. This is the value we start with, and the value of the very first `acc`. During the first round, `acc` is `[1,2]`, and `cur` is `[0, 1]`. We concatenate them, which results in `[1, 2, 0, 1]`.
-
-Then, `[1, 2, 0, 1]` is `acc` and `[2, 3]` is `cur`. We concatenate them, and get `[1, 2, 0, 1, 2, 3]`
-
+إذاً, `[1, 2, 0, 1]`  هي `acc` و `[2, 3]` هي `cur`. نقوم بدمجهما سويةو نتحصل على `[1, 2, 0, 1, 2, 3]`.
 </p>
 </details>
+</div>
 
 ---
