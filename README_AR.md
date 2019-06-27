@@ -660,3 +660,599 @@ getAge();
 </div>
 
 ---
+
+<div dir='rtl'>
+21. ماهي القيمة التي تحملها `sum`؟ 
+</div> 
+
+```javascript
+const sum = eval("10*10+5");
+```
+
+- A: `105`
+- B: `"105"`
+- C: `TypeError`
+- D: `"10*10+5"`
+
+<details><summary><b>الأجابة</b></summary>
+<p>
+<div dir='rtl'>
+الجواب هو الخيار الأول : A
+
+`eval` تقوم بتقييم الكود الذي تم تمريره ك string. إذا كان عبارة عن expression كما في هذه الحالة, فإنها تقوم بتقييم ال expression. ال expression هو `10 * 10 + 5`. و هذا بدوره يقوم بإرجاع الرقم `105`.   
+</p>
+</details>
+</div>
+
+---
+
+<div dir='rtl'>
+22. الى كم من المدة الزمنية ستكون "cool_secret" قابلة للوصول إليها؟  
+</div>
+
+```javascript
+sessionStorage.setItem("cool_secret", 123);
+```
+<div dir='rtl'>
+A - الى الأبد, فالبيانات لايمكن أن تفقد.
+B - عندما يقوم المستخدم بقفل ال tab.
+C - عندما يقوم المستخدم بقفل نافذه المتصفح , ليس فقط الtab.
+D - عندما يقوم المستخدم بقفل جهاز الكمبيوتر.
+</div>
+
+<details><summary><b>الإجابة</b></summary>
+<p>
+<div dir='rtl'>
+الجواب هو الخيار الثاني: B
+  
+البيانات التي يتم تخزينها في `sessionStorage` يتم فقدها بعد قفل ال tab. 
+
+إذا قمت بإستخدام `localStorage`, البيانات ستكون مخزنة هناك الى الأبد, و لكن اذا قمت بإستثناء ان تقوم بمناداة الدالة Clear كما في التالي `localStorage.clear()` عندها ستفقد هذه البيانات.:  
+</p>
+</details>
+</div>
+
+---
+
+23. ماهو الناتج؟ 
+
+```javascript
+var num = 8;
+var num = 10;
+
+console.log(num);
+```
+
+- A: `8`
+- B: `10`
+- C: `SyntaxError`
+- D: `ReferenceError`
+
+<details><summary><b>الإجابة</b></summary>
+<p>
+<div dir='rtl'>
+الجواب هو الخيار الثاني: B
+
+مع الكلمة المفتاحية `var` بإمكانك تريف عدد من المتغيرات تحمل نفس الإسم, و المتغير سيقوم بأخذ آخر قيمة تمت إضافتها اليه.  
+
+ليس بإمكانك أن تفعل هذا مع `let` أو `const` بما أن الكلمتان المفتاحيتان عبارة عن block-scoped, بمعنى أن القيمة ستكون متاحة في نطاق الBlock  الذي تم تعريفها به.   
+</p>
+</details>
+</div>
+
+---
+
+24. ماهو الناتج؟
+
+```javascript
+const obj = { 1: "a", 2: "b", 3: "c" };
+const set = new Set([1, 2, 3, 4, 5]);
+
+obj.hasOwnProperty("1");
+obj.hasOwnProperty(1);
+set.has("1");
+set.has(1);
+```
+
+- A: `false` `true` `false` `true`
+- B: `false` `true` `true` `true`
+- C: `true` `true` `false` `true`
+- D: `true` `true` `true` `true`
+
+<details><summary><b>الإجابة</b></summary>
+<p>
+<div dir='rtl'>
+الجواب هو الخيار الثالث: C
+
+كل مفاتيح ال object (عدا الSymbols)هي عبارة عن strings وراء الكواليس, حتى لو لم تقم بكتابة ذلك صراحة بنفسك ك string, لهذا دائما `obj.hasOwnProperty('1')` تقوم بإرجاع القيمة true.  
+
+ولكنها لا تعمل بهذا الشكل مع set, ليس هنالك `'1'` من ضمن set, لهذا `set.has('1')` تقوم بإرجاع `false`, لديها القيمة الرقمية `1` أي من النوع number, `set.has(1)` تقوم بإرجاع `true`.     
+</p>
+</details>
+</div>
+
+---
+
+25. ماهو الناتج؟ 
+
+```javascript
+const obj = { a: "one", b: "two", a: "three" };
+console.log(obj);
+```
+
+- A: `{ a: "one", b: "two" }`
+- B: `{ b: "two", a: "three" }`
+- C: `{ a: "three", b: "two" }`
+- D: `SyntaxError`
+
+<details><summary><b>الإجابة</b></summary>
+<p>
+<div dir='rtl'>
+الجواب هو الخيار الثالث: C 
+  
+إذا كان لديك مفتاحان يحملان نفس الاسم, فإن المفتاح سيتم تبديله, سيكون المفتاح في نفس مكانه, ولكنه سيحمل فقط القيمة الأخيرة
+</p>
+</details>
+</div>
+
+---
+
+<div dir='rtl'>
+26. في سياق تنفيذ glopal في لغة الجافاسكريبت, فإن الجافاسكريبت تقوم بإنشاء شيئين لك: الglopal object و الكلمة المفتاحية "this". 
+</div>
+
+- A: true
+- B: false
+- C: تعتمد على 
+
+<details><summary><b>الإجابة</b></summary>
+<p>
+<div dir='rtl'>
+الجواب هو الخيارالأول: A
+
+سياق التنفيذ الأساسي هو سياق تنفيذ الglopal, وهي الشيء الذي يمكن الوصول إليه من أي مكان في الكود الذي ببرنامجك.
+</p>
+</details>
+</div> 
+
+---
+
+27. ماهو الناتج؟
+
+```javascript
+for (let i = 1; i < 5; i++) {
+  if (i === 3) continue;
+  console.log(i);
+}
+```
+
+- A: `1` `2`
+- B: `1` `2` `3`
+- C: `1` `2` `4`
+- D: `1` `3` `4`
+
+<details><summary><b>الإجابة</b></summary>
+<p>
+<div dir='rtl'>
+الجواب هو الخيار الثالث: C
+
+العبارة `continue`  تقوم بتخطي دورة التكرار إذا وجد شرط معين يقوم بإرجاع `true`.  
+</p>
+</details>
+</div>
+
+---
+
+28. ماهو الناتج؟
+
+```javascript
+String.prototype.giveLydiaPizza = () => {
+  return "Just give Lydia pizza already!";
+};
+
+const name = "Lydia";
+
+name.giveLydiaPizza();
+```
+
+- A: `"Just give Lydia pizza already!"`
+- B: `TypeError: not a function`
+- C: `SyntaxError`
+- D: `undefined`
+
+<details><summary><b>الإجابة</b></summary>
+<p>
+<div dir='rtl'>
+الجواب هو الخيار الأول : A
+
+`String` هي built-in constructor, و لهذا سنتمكن من إضافة خصائص لها. لقد قمت بإضافة method للprototype الخاص ب `String`. Primitive strings يتمتحويلهم بصورة اوتوماتيكية الى objects من نوع string, و التي بدورها تم انشائها عن طريق دالة ال string prototype, لهذا جميع الstrings و التي هي string objects  لديها حق الوصول الى الmethod.   
+</p>
+</details>
+</div>
+
+---
+
+29. ماهو الناتج؟ 
+
+```javascript
+const a = {};
+const b = { key: "b" };
+const c = { key: "c" };
+
+a[b] = 123;
+a[c] = 456;
+
+console.log(a[b]);
+```
+
+- A: `123`
+- B: `456`
+- C: `undefined`
+- D: `ReferenceError`
+
+<details><summary><b>الإجابة</b></summary>
+<p>
+<div dir='rtl'>
+الجواب هو الخيار الثاني : B
+
+مفاتيح ال object يتم تحويلها اوتوماتيكيا الى strings. نحن نحاول أن نقوم بجعل  object عبارة عن مفتاح للobject `a`, و الذي يحمل القيمة `123`.  
+
+و لكن, عندما نقوم بمحاول جعل object الى نوع string, سيصبح `"[Object object]"`. لذا ما نحاول أن نقوله هنا, هو أن `a["Object object"] = 123`.
+إذا, سنحاول أن نفعل هذا مرة أخرى , `c` هو object آخر سنقوم بتحويله الى string بصورة صريحة, لذا `a["Object object"] = 456`.  
+
+إذاَ, نحن نقوم بعمل log ل `a[b]`, و التي هي في الحقيقة `a["Object object"]`. و نحن قبل قليل قمنا بوضع قيمتها التي تساوي `456`, لذا ستقوم بإرجاع `456`.    
+</p>
+</details>
+</div>
+
+---
+
+30. ماهو الناتج؟
+
+```javascript
+const foo = () => console.log("First");
+const bar = () => setTimeout(() => console.log("Second"));
+const baz = () => console.log("Third");
+
+bar();
+foo();
+baz();
+```
+
+- A: `First` `Second` `Third`
+- B: `First` `Third` `Second`
+- C: `Second` `First` `Third`
+- D: `Second` `Third` `First`
+
+<details><summary><b>الإجابة</b></summary>
+<p>
+<div dir='rtl'>
+الجوا ب هو الخيار الثاني: B
+
+لدينا الدالة `setTimeout` والتي تم استدعائها أولا, و لكن تم الخروج منها آخراً.
+
+هذا لأن في المتصفح, ليس لدينا محرَك من نوع runtime, أيضا لدينا مايعرف ب `WebAPI`. هذا ال`WebAPI` يقوم بإعطائنا الدالة `setTimeout`  لكي نبدأ بها, على سبيل المثال: DOM.
+
+بعد ان يتم ارسال و البدء بتنفيذ ال _callback_ الى الWebAPI, الدالة `setTimeout` نفسها (ليس ال callback!) يتم اخراجها من الstack.
+
+<img src="https://i.imgur.com/X5wsHOg.png" width="200">
+
+الآن, `foo` يتم إدخالها و البدء بتنفيذها, بينما `"First"` يتم تسجيل دخولها.  
+
+<img src="https://i.imgur.com/Pvc0dGq.png" width="200">
+
+`foo` يتم إخراجها من ال stack, بينما `baz` يتم إدخالها و البدأ بتنفيذها. `"Third"` يتم تسجيل دخولها. 
+
+<img src="https://i.imgur.com/WhA2bCP.png" width="200">
+
+ال WebAPI ليس بإمكانها إضافة أشياء الى ال stack عندما تكون جاهزة. في المقابل, هي تقوم بإدخال دالة الcallback الى شيء يسمى بال _queue_.
+
+<img src="https://i.imgur.com/NSnDZmU.png" width="200">
+
+هنا تحديدا المكان الذي تبدأ فيه الloop بالعمل. 
+ال **event loop** تنظر الى الstack و ال task queue, إذا كانت الstack خاوية, فهي تقوم بأخذ أول شيء في الqueue. و تقوم بإدخاله الى stack.
+
+<img src="https://i.imgur.com/uyiScAI.png" width="200">
+
+`bar` يتم إدخالها و البدأ بتنفيذها, `"Second"` يتم تسجيل دخولها, و من ثم إخراجها من الstack. 
+</p>
+</details>
+</div>
+
+---
+
+###### 31. What is the event.target when clicking the button?
+
+```html
+<div onclick="console.log('first div')">
+  <div onclick="console.log('second div')">
+    <button onclick="console.log('button')">
+      Click!
+    </button>
+  </div>
+</div>
+```
+
+- A: Outer `div`
+- B: Inner `div`
+- C: `button`
+- D: An array of all nested elements.
+
+<details><summary><b>Answer</b></summary>
+<p>
+
+#### Answer: C
+
+The deepest nested element that caused the event is the target of the event. You can stop bubbling by `event.stopPropagation`
+
+</p>
+</details>
+
+---
+
+###### 32. When you click the paragraph, what's the logged output?
+
+```html
+<div onclick="console.log('div')">
+  <p onclick="console.log('p')">
+    Click here!
+  </p>
+</div>
+```
+
+- A: `p` `div`
+- B: `div` `p`
+- C: `p`
+- D: `div`
+
+<details><summary><b>Answer</b></summary>
+<p>
+
+#### Answer: A
+
+If we click `p`, we see two logs: `p` and `div`. During event propagation, there are 3 phases: capturing, target, and bubbling. By default, event handlers are executed in the bubbling phase (unless you set `useCapture` to `true`). It goes from the deepest nested element outwards.
+
+</p>
+</details>
+
+---
+
+###### 33. What's the output?
+
+```javascript
+const person = { name: "Lydia" };
+
+function sayHi(age) {
+  console.log(`${this.name} is ${age}`);
+}
+
+sayHi.call(person, 21);
+sayHi.bind(person, 21);
+```
+
+- A: `undefined is 21` `Lydia is 21`
+- B: `function` `function`
+- C: `Lydia is 21` `Lydia is 21`
+- D: `Lydia is 21` `function`
+
+<details><summary><b>Answer</b></summary>
+<p>
+
+#### Answer: D
+
+With both, we can pass the object to which we want the `this` keyword to refer to. However, `.call` is also _executed immediately_!
+
+`.bind.` returns a _copy_ of the function, but with a bound context! It is not executed immediately.
+
+</p>
+</details>
+
+---
+
+###### 34. What's the output?
+
+```javascript
+function sayHi() {
+  return (() => 0)();
+}
+
+console.log(typeof sayHi());
+```
+
+- A: `"object"`
+- B: `"number"`
+- C: `"function"`
+- D: `"undefined"`
+
+<details><summary><b>Answer</b></summary>
+<p>
+
+#### Answer: B
+
+The `sayHi` function returns the returned value of the immediately invoked function (IIFE). This function returned `0`, which is type `"number"`.
+
+FYI: there are only 7 built-in types: `null`, `undefined`, `boolean`, `number`, `string`, `object`, and `symbol`. `"function"` is not a type, since functions are objects, it's of type `"object"`.
+</p>
+</details>
+
+---
+
+###### 35. Which of these values are falsy?
+
+```javascript
+0;
+new Number(0);
+("");
+(" ");
+new Boolean(false);
+undefined;
+```
+
+- A: `0`, `''`, `undefined`
+- B: `0`, `new Number(0)`, `''`, `new Boolean(false)`, `undefined`
+- C: `0`, `''`, `new Boolean(false)`, `undefined`
+- D: All of them are falsy
+
+<details><summary><b>Answer</b></summary>
+<p>
+
+#### Answer: A
+
+There are only six falsy values:
+
+- `undefined`
+- `null`
+- `NaN`
+- `0`
+- `''` (empty string)
+- `false`
+
+Function constructors, like `new Number` and `new Boolean` are truthy.
+
+</p>
+</details>
+
+---
+
+###### 36. What's the output?
+
+```javascript
+console.log(typeof typeof 1);
+```
+
+- A: `"number"`
+- B: `"string"`
+- C: `"object"`
+- D: `"undefined"`
+
+<details><summary><b>Answer</b></summary>
+<p>
+
+#### Answer: B
+
+`typeof 1` returns `"number"`.
+`typeof "number"` returns `"string"`
+
+</p>
+</details>
+
+---
+
+###### 37. What's the output?
+
+```javascript
+const numbers = [1, 2, 3];
+numbers[10] = 11;
+console.log(numbers);
+```
+
+- A: `[1, 2, 3, 7 x null, 11]`
+- B: `[1, 2, 3, 11]`
+- C: `[1, 2, 3, 7 x empty, 11]`
+- D: `SyntaxError`
+
+<details><summary><b>Answer</b></summary>
+<p>
+
+#### Answer: C
+
+When you set a value to an element in an array that exceeds the length of the array, JavaScript creates something called "empty slots". These actually have the value of `undefined`, but you will see something like:
+
+`[1, 2, 3, 7 x empty, 11]`
+
+depending on where you run it (it's different for every browser, node, etc.)
+
+</p>
+</details>
+
+---
+
+###### 38. What's the output?
+
+```javascript
+(() => {
+  let x, y;
+  try {
+    throw new Error();
+  } catch (x) {
+    (x = 1), (y = 2);
+    console.log(x);
+  }
+  console.log(x);
+  console.log(y);
+})();
+```
+
+- A: `1` `undefined` `2`
+- B: `undefined` `undefined` `undefined`
+- C: `1` `1` `2`
+- D: `1` `undefined` `undefined`
+
+<details><summary><b>Answer</b></summary>
+<p>
+
+#### Answer: A
+
+The `catch` block receives the argument `x`. This is not the same `x` as the variable when we pass arguments. This variable `x` is block-scoped.
+
+Later, we set this block-scoped variable equal to `1`, and set the value of the variable `y`. Now, we log the block-scoped variable `x`, which is equal to `1`.
+
+Outside of the `catch` block, `x` is still `undefined`, and `y` is `2`. When we want to `console.log(x)` outside of the `catch` block, it returns `undefined`, and `y` returns `2`.
+
+</p>
+</details>
+
+---
+
+###### 39. Everything in JavaScript is either a...
+
+- A: primitive or object
+- B: function or object
+- C: trick question! only objects
+- D: number or object
+
+<details><summary><b>Answer</b></summary>
+<p>
+
+#### Answer: A
+
+JavaScript only has primitive types and objects.
+
+Primitive types are `boolean`, `null`, `undefined`, `bigint`, `number`, `string`, and `symbol`.
+
+What differentiates a primitive from an object is that primitives do not have any properties or methods; however, you'll note that `'foo'.toUpperCase()` evaluates to `'FOO'` and does not result in a `TypeError`. This is because when you try to access a property or method on a primitive like a string, JavaScript will implicity wrap the object using one of the wrapper classes, i.e. `String`, and then immediately discard the wrapper after the expression evaluates. All primitives except for `null` and `undefined` exhibit this behaviour.
+
+</p>
+</details>
+
+---
+
+###### 40. What's the output?
+
+```javascript
+[[0, 1], [2, 3]].reduce(
+  (acc, cur) => {
+    return acc.concat(cur);
+  },
+  [1, 2]
+);
+```
+
+- A: `[0, 1, 2, 3, 1, 2]`
+- B: `[6, 1, 2]`
+- C: `[1, 2, 0, 1, 2, 3]`
+- D: `[1, 2, 6]`
+
+<details><summary><b>Answer</b></summary>
+<p>
+
+#### Answer: C
+
+`[1, 2]` is our initial value. This is the value we start with, and the value of the very first `acc`. During the first round, `acc` is `[1,2]`, and `cur` is `[0, 1]`. We concatenate them, which results in `[1, 2, 0, 1]`.
+
+Then, `[1, 2, 0, 1]` is `acc` and `[2, 3]` is `cur`. We concatenate them, and get `[1, 2, 0, 1, 2, 3]`
+
+</p>
+</details>
+
+---
