@@ -7,17 +7,16 @@ From basic to advanced: test how well you know JavaScript, refresh your knowledg
 The answers are in the collapsed sections below the questions, simply click on them to expand it. Good luck :heart:
 
 List of available languages:
-
-- [中文版本](./README-zh_CN.md)
-- [Versión en español](./README-ES.md)
-- [日本語](./README-ja_JA.md)
-- [한국어](./README-ko_KR.md)
-- [Русский](./README_ru-RU.md)
-- [Western Balkan](./README-bs_BS.md)
-- [Deutsch](./README-de_DE.md)
-- [Tiếng Việt](./README-vi.md)
-- [Українська мова](./README-ua_UA.md)
-- [Português Brasil](./README_pt_BR.md)
+* [中文版本](./README-zh_CN.md)
+* [Versión en español](./README-ES.md)
+* [日本語](./README-ja_JA.md)  
+* [한국어](./README-ko_KR.md)
+* [Русский](./README_ru-RU.md)  
+* [Western Balkan](./README-bs_BS.md)  
+* [Deutsch](./README-de_DE.md)  
+* [Tiếng Việt](./README-vi.md)
+* [Українська мова](./README-ua_UA.md)  
+* [Português Brasil](./README_pt_BR.md)  
 
 ---
 
@@ -179,6 +178,7 @@ However, with dot notation, this doesn't happen. `mouse` does not have a key cal
 </details>
 
 ---
+
 
 ###### 6. What's the output?
 
@@ -1041,7 +1041,6 @@ console.log(typeof sayHi());
 The `sayHi` function returns the returned value of the immediately invoked function (IIFE). This function returned `0`, which is type `"number"`.
 
 FYI: there are only 7 built-in types: `null`, `undefined`, `boolean`, `number`, `string`, `object`, and `symbol`. `"function"` is not a type, since functions are objects, it's of type `"object"`.
-
 </p>
 </details>
 

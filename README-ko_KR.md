@@ -7,13 +7,15 @@ JavaScript 에 관한 객관식 문제를 [Instagram](https://www.instagram.com/
 정답은 질문 아래 접힌 부분에 있어요, 그냥 클릭하면 펼칠 수 있어요. 행운을 빌어요 :heart:
 
 [中文版本](./README-zh_CN.md)  
+[Versión en español](./README-ES.md)  
+[日本語](./README-ja_JA.md)  
+[한국어](./README-ko_KR.md)  
 [Русский](./README_ru-RU.md)  
 [Western Balkan](./README-bs_BS.md)  
 [Deutsch](./README-de_DE.md)  
 [Tiếng Việt](./README-vi.md)  
-[日本語](./README-ja_JA.md)  
 [Українська мова](./README-ua_UA.md)  
-[한국어](./README-ko_KR.md)
+[Português Brasil](./README_pt_BR.md)
 
 ---
 
@@ -1247,26 +1249,26 @@ JavaScript는 원시형과 객체만 가지고 있어요.
 
 #### 정답: B
 
-`null` is falsy. `!null` returns `true`. `!true` returns `false`.
+`null`은 거짓 같은 값이에요. `!null`은 `true`를 리턴해요. `!true`은 `false`를 리턴해요.
 
-`""` is falsy. `!""` returns `true`. `!true` returns `false`.
+`""` 은 거짓 같은 값이에요. `!""`은 `true`를 리턴해요. `!true`은 `false`를 리턴해요.
 
-`1` is truthy. `!1` returns `false`. `!false` returns `true`.
+`1`은 참 같은 값이에요. `!1`은 `false`를 리턴해요. `!false`는`true`를 리턴해요.
 
 </p>
 </details>
 
 ---
 
-###### 42. What does the `setInterval` method return in the browser?
+###### 42. `setInterval` 메소드는 브라우저에게 무엇을 리턴 할까요?
 
 ```javascript
 setInterval(() => console.log("Hi"), 1000);
 ```
 
-- A: a unique id
-- B: the amount of milliseconds specified
-- C: the passed function
+- A: 유니크한 id
+- B: 지정된 밀리초
+- C: 통과된 함수
 - D: `undefined`
 
 <details><summary><b>정답</b></summary>
@@ -1274,14 +1276,14 @@ setInterval(() => console.log("Hi"), 1000);
 
 #### 정답: A
 
-It returns a unique id. This id can be used to clear that interval with the `clearInterval()` function.
+이것은 유니크한 id를 리턴해요. 이 id는 `clearInterval()` 함수로 간격을 없애기 위해 사용 될 수 있어요.
 
 </p>
 </details>
 
 ---
 
-###### 43. What does this return?
+###### 43. 이것은 무엇을 리턴할까요?
 
 ```javascript
 [..."Lydia"];
@@ -1297,7 +1299,7 @@ It returns a unique id. This id can be used to clear that interval with the `cle
 
 #### 정답: A
 
-A string is an iterable. The spread operator maps every character of an iterable to one element.
+문자열은 반복 가능한 객체에요. 스프레드 연산자는 반복 가능한 객체의 모든 문자를 1개의 요소로 매핑해요.
 
 </p>
 </details>
@@ -1339,7 +1341,7 @@ Then, we invoke the function again with the `next()` method. It starts to contin
 
 ---
 
-###### 45. What does this return?
+###### 45. 이것은 무엇을 리턴할까요?
 
 ```javascript
 const firstPromise = new Promise((res, rej) => {
@@ -1363,7 +1365,7 @@ Promise.race([firstPromise, secondPromise]).then(res => console.log(res));
 
 #### 정답: B
 
-When we pass multiple promises to the `Promice.race` method, it resolves/rejects the _first_ promise that resolves/rejects. To the `setTimeout` method, we pass a timer: 500ms for the first promise (`firstPromise`), and 100ms for the second promise (`secondPromise`). This means that the `secondPromise` resolves first with the value of `'two'`. `res` now holds the value of `'two'`, which gets logged.
+When we pass multiple promises to the `Promise.race` method, it resolves/rejects the _first_ promise that resolves/rejects. To the `setTimeout` method, we pass a timer: 500ms for the first promise (`firstPromise`), and 100ms for the second promise (`secondPromise`). This means that the `secondPromise` resolves first with the value of `'two'`. `res` now holds the value of `'two'`, which gets logged.
 
 </p>
 </details>
