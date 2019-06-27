@@ -978,15 +978,10 @@ baz();
 </div>
 ```
 
-<div dir='rtl'>
 - A:  الخارجي `div`
-
 - B: الداخلي `div`
-
 - C: `button`
-
 - D: array تحتوي على جميع العناصرالمتداخلة.
-</div>
 
 <details><summary><b>الإجابة</b></summary>
 <p>
