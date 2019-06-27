@@ -6,16 +6,16 @@ JavaScript 에 관한 객관식 문제를 [Instagram](https://www.instagram.com/
 
 정답은 질문 아래 접힌 부분에 있어요, 그냥 클릭하면 펼칠 수 있어요. 행운을 빌어요 :heart:
 
-[中文版本](./README-zh_CN.md)  
-[Versión en español](./README-ES.md)  
-[日本語](./README-ja_JA.md)  
-[한국어](./README-ko_KR.md)  
-[Русский](./README_ru-RU.md)  
-[Western Balkan](./README-bs_BS.md)  
-[Deutsch](./README-de_DE.md)  
-[Tiếng Việt](./README-vi.md)  
-[Українська мова](./README-ua_UA.md)  
-[Português Brasil](./README_pt_BR.md)
+- [English](./README.md)
+- [中文版本](./README-zh_CN.md)
+- [Versión en español](./README-ES.md)
+- [日本語](./README-ja_JA.md)
+- [Русский](./README_ru-RU.md)
+- [Western Balkan](./README-bs_BS.md)
+- [Deutsch](./README-de_DE.md)
+- [Tiếng Việt](./README-vi.md)
+- [Українська мова](./README-ua_UA.md)
+- [Português Brasil](./README_pt_BR.md)
 
 ---
 
@@ -263,7 +263,7 @@ class Chameleon {
 }
 
 const freddie = new Chameleon({ newColor: "purple" });
-freddie.colorChange("orange");
+console.log(freddie.colorChange("orange"));
 ```
 
 - A: `orange`
@@ -445,7 +445,7 @@ console.log(sarah);
 
 #### 정답: B
 
-**기본객체**를 제외한, 모든 객체는 프로포타입을 가져요. 기본객체는 `.toString`와 같은 몇개의 메소드와 속성에 접근할 수 있어요. 이것이 내장 JavaScript 메소드를 사용할 수 있는 이유죠! 이러한 모든 메소드는 프로토 타입에서 이용 할 수 있어요. JavaScript가 당신의 객체를 직접 찾을 수 없더라도, 당신이 접근 할 수 있도록, 프로토타입 체인으로 내려가서 찾을거에요.
+**기본객체**를 제외한, 모든 객체는 프로포타입을 가져요. 기본객체는 사용자에 의해 만들어지거나 `new`키워드를 사용하여 만들어져요. 기본객체는 `.toString`와 같은 몇개의 메소드와 속성에 접근할 수 있어요. 이것이 내장 JavaScript 메소드를 사용할 수 있는 이유죠! 이러한 모든 메소드는 프로토 타입에서 이용 할 수 있어요. JavaScript가 당신의 객체를 직접 찾을 수 없더라도, 당신이 접근 할 수 있도록, 프로토타입 체인으로 내려가서 찾을거에요.
 
 </p>
 </details>
@@ -1028,7 +1028,7 @@ function sayHi() {
   return (() => 0)();
 }
 
-typeof sayHi();
+console.log(typeof sayHi());
 ```
 
 - A: `"object"`
