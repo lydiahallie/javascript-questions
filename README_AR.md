@@ -1316,6 +1316,7 @@ console.log(numbers);
 ---
 
 <div dir='rtl'>
+  
 42. ماهو الذي تقوم الدالة `setInterval` بإرجاعه في المتصفح؟ 
 </div>
 
@@ -1324,9 +1325,11 @@ setInterval(() => console.log("Hi"), 1000);
 ```
 
 <div dir='rtl'>
-فريد id - A
-  
-قيمة ال milliseconds محددة. - B
+
+ A- id فريد
+ 
+ 
+ B - قيمة محددة لل milliseconds
 
  C - الدالة التي تم تمريرها 
 
