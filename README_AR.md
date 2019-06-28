@@ -9,21 +9,23 @@
 
 أقوم بتحديث هذا المستودع أسبوعيا بإضافة المزيد من الأسئلة. :muscle: :rocket:
 
+آخر تحديث:  <b>21 يونيو </b>
+
+
 الأجوبة توجد في الجزء المطوي بالأسفل أدناه تحت كل سؤال على حدة, فقط قم بالضغط على كلمة الإجابة لكي تحصل على الإجابة, حظا موفقا  :heart: 
 
 اللغات المتوفرة:
 
-[English](https://github.com/SaraAli26/javascript-questions/blob/master/README.md)
-
-[中文版本](https://github.com/SaraAli26/javascript-questions/blob/master/README-zh_CN.md)
-
-[Русский](https://github.com/SaraAli26/javascript-questions/blob/master/README_ru-RU.md)
-
-[Western Balkan](https://github.com/SaraAli26/javascript-questions/blob/master/README-bs_BS.md)
-
-[Deutsch](https://github.com/SaraAli26/javascript-questions/blob/master/README-de_DE.md)
-
-[Tiếng Việt](https://github.com/SaraAli26/javascript-questions/blob/master/README-vi.md)
+* [English](./README.md)
+* [中文版本](./README-zh_CN.md)
+* [Versión en español](./README-ES.md)
+* [日本語](./README-ja_JA.md)  
+* [Русский](./README_ru-RU.md)  
+* [Western Balkan](./README-bs_BS.md)  
+* [Deutsch](./README-de_DE.md)  
+* [Tiếng Việt](./README-vi.md)
+* [Українська мова](./README-ua_UA.md)  
+* [Português Brasil](./README_pt_BR.md)  
 </div>
 ____________
 
