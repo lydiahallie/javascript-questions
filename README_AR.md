@@ -1266,3 +1266,88 @@ console.log(numbers);
 </div>
 
 ---
+
+41. ماهو الناتج؟
+
+```javascript
+!!null;
+!!"";
+!!1;
+```
+
+- A: `false` `true` `false`
+- B: `false` `false` `true`
+- C: `false` `true` `true`
+- D: `true` `true` `false`
+
+<details><summary><b>الإجابة</b></summary>
+<p>
+<div dir='rtl'>
+الجواب هو الخيارالثاني: B
+
+`null` هي قيمة خطئية. `!null` تقوم بإرجاع `true`. `!true` تقوم بإرجاع `false`.
+
+`""` هي قيمة خطئية. `!""` تقوم بإرجاع `true`. `!true` تقوم بإرجاع `false`.
+
+`1` هي قيمة صحيحية. `!1` تقوم بإرجاع `false`. `!false` تقوم بإرجاع `true`.
+
+</p>
+</details>
+</div> 
+
+---
+
+<div dir='rtl'>
+42. ماهو الذي تقوم الدالة `setInterval` بإرجاع في المتصفح؟ 
+</div>
+
+```javascript
+setInterval(() => console.log("Hi"), 1000);
+```
+
+<div dir='rtl'>
+- A: فريد id
+  
+- B: قيمة ال milliseconds محددة.
+
+- C: الدالة التي تم تمريرها
+
+- D: `undefined`
+
+</div>
+
+<details><summary><b>الإجابة</b></summary>
+<p>
+<div dir='rtl'>
+الجواب هو الخيار الأول: A
+
+تقوم بإرجاع ال id الفريد, هذا الid يمكن استخدامه لكي يقوم بتصفير عداد الفترات المفصلة عن طريق استخدام الدالة `clearInterval()` 
+</p>
+</details>
+</div>
+
+---
+
+43. مالذي يتم ارجاعه بعد تنفيذ الكود أدناه؟ 
+
+```javascript
+[..."Lydia"];
+```
+
+- A: `["L", "y", "d", "i", "a"]`
+- B: `["Lydia"]`
+- C: `[[], "Lydia"]`
+- D: `[["L", "y", "d", "i", "a"]]`
+
+<details><summary><b>الإجابة</b></summary>
+<p>
+<div dir='rtl'>
+الجواب هو الخيار الأول: A
+
+الstring هي تكرارية, و عملية الspread (...) تقوم بتحويل اي حرف ينتمي الى فئة تكرارية الى عنصر منفرد واحد.
+</p>
+</details>
+</div>
+
+---
+
