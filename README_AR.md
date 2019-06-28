@@ -1285,12 +1285,25 @@ console.log(numbers);
 <div dir='rtl'>
 الجواب هو الخيارالثاني: B
 
-`null` is falsy. `!null` returns `true`. `!true` returns `false`.
-`null` هي قيمة خطئية, `!null` تقوم بإرجاع `true`. `!true` تقوم بإرجاع `false`.  
-`""` is falsy. `!""` returns `true`. `!true` returns `false`.
-`""` هي قيمة خطئية, `!""` تقوم بإرجاع `true` . `!true` تقوم بإرجاع `false`.   
-`1` is truthy. `!1` returns `false`. `!false` returns `true`.
-`1` هي قيمة صحيحية. `!1` تقوم بإرجاع `false`. `!false` تقوم بإرجاع `true`.  
+`null` قيمة خطئية.
+
+`!null` تقوم بإرجاع `true`. 
+
+`!true` تقوم بإرجاع `false`.
+*********
+ 
+`""` قيمة خطئية.
+
+`!""`تقوم بإرجاع `true`. 
+
+`!true` تقوم بإرجاع `false`.
+*********
+   
+`1` قيمة صحيحية.
+
+`!1` تقوم بإرجاع `false`.
+
+`!false` تقوم بإرجاع `true`. 
 
 </p>
 </details>
@@ -1352,7 +1365,7 @@ setInterval(() => console.log("Hi"), 1000);
 
 ---
 
-###### 44. What's the output?
+44. ماهو الناتج؟
 
 ```javascript
 function* generator(i) {
@@ -1371,23 +1384,23 @@ console.log(gen.next().value);
 - C: `10, 20`
 - D: `0, 10 and 10, 20`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>الإجابة</b></summary>
 <p>
+<div dir='rtl'>
+الجواب هو الخيار الثالث: C
 
-#### Answer: C
+الدوال العادية ليس بإمكانها ان تتوقف في وسط التنفيذ بعد أن يتم مناداتها, و لكن الدوال من نوع generator من الممكن أن يتم ايقافها وسط التنفيذ, و لاحقا يتم مواصلة تنفيذها من حيث المكان الذي توقفت به. في كل مرة تواجه فيها الدالة من نوع generator الكلمة المفتاحية `yield`, فإن الدالة تخضع أو تستسلم للقيمة المحددة بعدها. مع ملاحظة أن الدالة من نوع generator  في هذه الحالة, لاتقوم بإرجاع القيمة, يل تخضع لتلك القيمة. 
 
-Regular functions cannot be stopped mid-way after invocation. However, a generator function can be "stopped" midway, and later continue from where it stopped. Every time a generator function encounters a `yield` keyword, the function yields the value specified after it. Note that the generator function in that case doesn’t _return_ the value, it _yields_ the value.
+أولا, نقوم بإنشاء الدالة من نوع generator مع وجود المتغير `i` مساوي ل `10`. نقوم بمناداة الدالةمن نوع generator باستخدام الدالة `next()`. في المرة الأولى التي ننادي فيها الدالة من نوع generator, فإن ال `i` تساوي `10`. هي تواجه الكلمة المفتاحية `yield`, فتخضع لقيمة ال `i`. الدالة generator في هذه اللحظة تم توقيفها مؤقتا, و القيمة `10` تم طباعتها عن طريق log.
 
-First, we initialize the generator function with `i` equal to `10`. We invoke the generator function using the `next()` method. The first time we invoke the generator function, `i` is equal to `10`. It encounters the first `yield` keyword: it yields the value of `i`. The generator is now "paused", and `10` gets logged.
-
-Then, we invoke the function again with the `next()` method. It starts to continue where it stopped previously, still with `i` equal to `10`. Now, it encounters the next `yield` keyword, and yields `i * 2`. `i` is equal to `10`, so it returns `10 * 2`, which is `20`. This results in `10, 20`.
-
+اذاً, نقوم بمناداة الدالة مرة أخرى عن طريق الدالة `next()`, هي تبدأ لتواصل من المكان الذي تم توقفيها فيه مؤقتا سابقاً, و ماتزال قيمة `i` تساوي `10`. الآن هي تواجه الكلمة المفتاحية `yield` التالية, و تواجه `i * 2`. `i` تساوي `10`,لهذا تقوم بإرجاع `10 * 2` و التي هي تساوي `20`, و هذا سيوصلنا للنتيجة `10, 20`.         
 </p>
 </details>
+</div>
 
 ---
 
-###### 45. What does this return?
+45. ما الذي يتم ارجاعه عند تنفيذ الكود؟
 
 ```javascript
 const firstPromise = new Promise((res, rej) => {
@@ -1406,19 +1419,19 @@ Promise.race([firstPromise, secondPromise]).then(res => console.log(res));
 - C: `"two" "one"`
 - D: `"one" "two"`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>الإجابة</b></summary>
 <p>
+<div dir='rtl'>
+الجواب هو الخيار الثاني: B
 
-#### Answer: B
-
-When we pass multiple promises to the `Promise.race` method, it resolves/rejects the _first_ promise that resolves/rejects. To the `setTimeout` method, we pass a timer: 500ms for the first promise (`firstPromise`), and 100ms for the second promise (`secondPromise`). This means that the `secondPromise` resolves first with the value of `'two'`. `res` now holds the value of `'two'`, which gets logged.
-
+عندما نقوم بتمرير عدد من الpromises للدالة `Promise.race`. فهي تقوم برفض أو فصل الpromise  الاولى. للدالة `setTimeout` نحن نقوم بتمرير timer: 500ms لل promise الأولى و التي هي (`firstPromise`), و 100ms اي 100ملي ثانية للpromise الثانية والتي هي (`secondPromise`) هذا يعني ان ال `secondPromise` يتم فصلها اولاً مع القيمة `'two'`. `res` الآن تحمل قيمة `'two'`, وهي التي تم طباعتها عن طريق الlog.        
 </p>
 </details>
+</div>
 
 ---
 
-###### 46. What's the output?
+46. ماهو الناتج؟
 
 ```javascript
 let person = { name: "Lydia" };
@@ -1433,31 +1446,32 @@ console.log(members);
 - C: `[{}]`
 - D: `[{ name: "Lydia" }]`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>الإجابة</b></summary>
 <p>
+<div dir='rtl'>
+الجواب هو الخيار الرابع: D
 
-#### Answer: D
-
-First, we declare a variable `person` with the value of an object that has a `name` property.
+أولا, نقوم بتعريف المتغير `person` مع قيمة عبارة عن object لديه الخاصية `name`.  
 
 <img src="https://i.imgur.com/TML1MbS.png" width="200">
 
-Then, we declare a variable called `members`. We set the first element of that array equal to the value of the `person` variable. Objects interact by _reference_ when setting them equal to each other. When you assign a reference from one variable to another, you make a _copy_ of that reference. (note that they don't have the _same_ reference!)
+ثم ,نقوم بتعريف المتغير الذي يسمى ب `members`. نقوم بضيط قيمة أول عنصر في ال array بالقيمة التي يحملها المتغير `person`.
+الobjects تتفاعل عن طريق الrefrence عندما نقوم بضبطها مساويةً لبعضها البعض, عندما تقوم بتعريف أو إنشاء refrence معين من متغير الى متغير آخر, أنت فعليا تقوم بعمل نسخة من ذلك الrefrence. (مع ملاحظة أنهم ليس لديهم نفس الrefrence)
 
 <img src="https://i.imgur.com/FSG5K3F.png" width="300">
 
-Then, we set the variable `person` equal to `null`.
+ثم , نقوم بضبط قمية المتغير `person` بقيمة تساوي `null`.  
 
 <img src="https://i.imgur.com/sYjcsMT.png" width="300">
 
-We are only modifying the value of the `person` variable, and not the first element in the array, since that element has a different (copied) reference to the object. The first element in `members` still holds its reference to the original object. When we log the `members` array, the first element still holds the value of the object, which gets logged.
-
+نحن فقط نقوم بتعديل قيمة المتغير `person`, وليس أول عنصر في ال array, بما أن ذلك العنصر لديه refrence منسوخ من ال object. أول عنصر في `members` لا يزال لديه refrence للobject الأصلي. و عندما نقوم بطباع الarray `members` عن طريق الlog, فإن العنصر الأول لايزال يحمل قيمة الobject, و التي سيتم طباعتها عن طريق log.  
 </p>
 </details>
+</div>
 
 ---
 
-###### 47. What's the output?
+47. ماهو الناتج؟
 
 ```javascript
 const person = {
@@ -1475,19 +1489,19 @@ for (const item in person) {
 - C: `"Lydia", 21`
 - D: `["name", "Lydia"], ["age", 21]`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>الإجابة</b></summary>
 <p>
-
+<div dir='rtl'>
 #### Answer: B
 
-With a `for-in` loop, we can iterate through object keys, in this case `name` and `age`. Under the hood, object keys are strings (if they're not a Symbol). On every loop, we set the value of `item`equal to the current key it’s iterating over. First, `item` is equal to `name`, and gets logged. Then, `item` is equal to `age`, which gets logged.
-
+بإستخدام `for-in` التكرارية, بامكاننا أن نصل الى جميع المفاتيح التي تخص object معين. في هذه الحالة `name` و `age`. ماوراء الكواليس, مفاتيح ال objects هي عبارة عن strings (إذا لم تكن هذه المفاتيح عبارة عن symbol), في أي حلقة من الحلقات التكرارية, نقوم بضبط القيمة `item`مساوية للمفتاح الحالي الذي هي تتكرر فيه اوعنده. أولا `item`  تساوي `name`, و يتم طباعتها عن طريق الlog, ثم `item` تساوي `age` و التي ايضا تم طباعتها عن طريق الlog.
 </p>
 </details>
+</div>
 
 ---
 
-###### 48. What's the output?
+48. ماهو الناتج؟
 
 ```javascript
 console.log(3 + 4 + "5");
@@ -1498,23 +1512,26 @@ console.log(3 + 4 + "5");
 - C: `12`
 - D: `"12"`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>الإجابة</b></summary>
 <p>
+<div dir='rtl'>
+الجواب هو الخيار الثاني: B
 
-#### Answer: B
-
-Operator associativity is the order in which the compiler evaluates the expressions, either left-to-right or right-to-left. This only happens if all operators have the _same_ precedence. We only have one type of operator: `+`. For addition, the associativity is left-to-right.
+Operator associativity او ترابطية العامل هي الترتيب أو التسلسل الذي يقيم به الcompiler ال expressions, ف هو إما أن يكون من اليسار الى اليمين أو من اليمين الى اليسار. هذا يحدث فقط إذا كان جميع الoperators لديها نفس الأسبقية. لدينا فقط نوع واحد من الoperator ألا و هو `+`. بالإضافة الى التالي, الترابطية هي من اليسار الى اليمين.  
 
 `3 + 4` gets evaluated first. This results in the number `7`.
+`3 + 4` يتم تقييمها أولا. هذا مايعطينا الناتج الذي هو عبارة عن الرقم `7`.
 
-`7 + '5'` results in `"75"` because of coercion. JavaScript converts the number `7` into a string, see question 15. We can concatenate two strings using the `+`operator. `"7" + "5"` results in `"75"`.
-
+`7 + '5'` تقوم بإرجاع الناتج `"75"` بسبب عملية ال coercion وهي العمليةالتي تقوم بالتحويل من نوع الى آخر, لغة الجافاسكريبت تقوم بتحويل الرقم `7` الى النوع string, أنظرالى السؤال رقم 15 في الأعلى. بإمكاننا عمل concatenate لمتغيرين من النوع string بإستخدام العملية `+`. `"7" + "5"` سترجع الناتج `"75"`.   
 </p>
 </details>
+</div>
 
 ---
 
-###### 49. What's the value of `num`?
+<div dir='rtl'>
+49. ماهي قيمة `num`؟ 
+</div>
 
 ```javascript
 const num = parseInt("7*6", 10);
@@ -1525,21 +1542,21 @@ const num = parseInt("7*6", 10);
 - C: `7`
 - D: `NaN`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>الإجابة</b></summary>
 <p>
+<div dir='rtl'>
+الجواب هو الخيار الثالث: C
 
-#### Answer: C
+فقط الأرقام الأولى في الstring يتم إرجاعها. بناءاً على _radix_ (الargument الثاني لكي يتم تحديدنوعية الرقم الذي نود أن نقوم بعمل parse له الى: base 10, hexadecimal, octal, binary, الخ. ). تقوم `parseInt` بالتحقق عن إذا ماكانت الحروف في الstring صالحة. و بمجرد أن تجد حرف غير صالح في ال radix, ف هي تقوم بإيقاف عملية الparsing مباشرة و تتجاهل الحروف التي تليه.   
 
-Only the first numbers in the string is returned. Based on the _radix_ (the second argument in order to specify what type of number we want to parse it to: base 10, hexadecimal, octal, binary, etc.), the `parseInt` checks whether the characters in the string are valid. Once it encounters a character that isn't a valid number in the radix, it stops parsing and ignores the following characters.
-
-`*` is not a valid number. It only parses `"7"` into the decimal `7`. `num` now holds the value of `7`.
-
+`*` ليست رقم صالح. هي فقط تقوم بعمل parse ل `"7"` الى عدد عشري `7`. `num` الآن تحمل القيمة `7`.   
 </p>
 </details>
+</div>
 
 ---
 
-###### 50. What's the output`?
+50. ماهو الناتج؟
 
 ```javascript
 [1, 2, 3].map(num => {
@@ -1553,21 +1570,21 @@ Only the first numbers in the string is returned. Based on the _radix_ (the seco
 - C: `[undefined, undefined, undefined]`
 - D: `[ 3 x empty ]`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>الإجابة</b></summary>
 <p>
+<div dir='rtl'>
+الجواب هو الخيار الثالث: C
 
-#### Answer: C
+عندما يتم عمل mapping لل array, فإن قيمة `num` ستساوي قيمة العنصر الذي يتم حاليا المرور به, فكما نعرف أن الmapping يدور على جميع عناصر الarray. في هذه الحالة, العناصر عبارة عن أرقام, لهذا فإن شرط ال if statement `typeof num === "number"` يقوم بإرجاع `true`. دالة map  تقوم بإنشاء array جديدة, و إدخال القيم المرجعة من الدالة في هذه الarray.
 
-When mapping over the array, the value of `num` is equal to the element it’s currently looping over. In this case, the elements are numbers, so the condition of the if statement `typeof num === "number"` returns `true`. The map function creates a new array and inserts the values returned from the function.
-
-However, we don’t return a value. When we don’t return a value from the function, the function returns `undefined`. For every element in the array, the function block gets called, so for each element we return `undefined`.
-
+ولكن, لا نقوم بإرجاع قيمة. عندما لا نقوم بإرجاع قيمة من الدالة, فإن الدالة تقوم بإرجاع `undefined`. لكل عنصرٍ في الarray, فإن نطاق الدالة يتم مناداته, لهذا لأي عنصر نقوم بإرجاع `undefined`.  
 </p>
 </details>
+</div>
 
 ---
 
-###### 51. What's the output?
+51. ماهو الناتج؟
 
 ```javascript
 function getInfo(member, year) {
@@ -1588,10 +1605,10 @@ console.log(person, birthYear);
 - C: `{ name: "Lydia" }, "1998"`
 - D: `{ name: "Sarah" }, "1997"`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>الإجابة</b></summary>
 <p>
-
-#### Answer: A
+<div dir='rtl'>
+الجواب هو الخيار الأول: A
 
 Arguments are passed by _value_, unless their value is an object, then they're passed by _reference_. `birthYear` is passed by value, since it's a string, not an object. When we pass arguments by value, a _copy_ of that value is created (see question 46).
 
@@ -1601,10 +1618,11 @@ The value of `person` is an object. The argument `member` has a (copied) referen
 
 </p>
 </details>
+</div>
 
 ---
 
-###### 52. What's the output?
+52. ماهو الناتج؟
 
 ```javascript
 function greeting() {
@@ -1628,10 +1646,10 @@ sayHi();
 - C: `SyntaxError: can only throw Error objects`
 - D: `"Oh no an error: Hello world!`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>الإجابة</b></summary>
 <p>
-
-#### Answer: D
+<div dir='rtl'>
+الجواب هو الخيار الرابع: D
 
 With the `throw` statement, we can create custom errors. With this statement, you can throw exceptions. An exception can be a <b>string</b>, a <b>number</b>, a <b>boolean</b> or an <b>object</b>. In this case, our exception is the string `'Hello world'`.
 
@@ -1639,10 +1657,11 @@ With the `catch` statement, we can specify what to do if an exception is thrown 
 
 </p>
 </details>
+</div>
 
 ---
 
-###### 53. What's the output?
+53. ماهو الناتج؟ 
 
 ```javascript
 function Car() {
@@ -1659,19 +1678,20 @@ console.log(myCar.make);
 - C: `ReferenceError`
 - D: `TypeError`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>الإجابةAnswer</b></summary>
 <p>
-
-#### Answer: B
+<div dir='rtl'>
+الجواب هو الخيار الثاني: B
 
 When you return a property, the value of the property is equal to the _returned_ value, not the value set in the constructor function. We return the string `"Maserati"`, so `myCar.make` is equal to `"Maserati"`.
 
 </p>
 </details>
+</div>
 
 ---
 
-###### 54. What's the output?
+54. ماهو الناتج؟
 
 ```javascript
 (() => {
@@ -1687,10 +1707,10 @@ console.log(typeof y);
 - C: `"object", "number"`
 - D: `"number", "undefined"`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>الإجابة</b></summary>
 <p>
-
-#### Answer: A
+<div dir='rtl'>
+الجواب هو الخيار الأول : A
 
 `let x = y = 10;` is actually shorthand for:
 
@@ -1707,3 +1727,4 @@ However, we created a global variable `y` when setting `y` equal to `10`. This v
 
 </p>
 </details>
+</div>
