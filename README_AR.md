@@ -1326,7 +1326,7 @@ setInterval(() => console.log("Hi"), 1000);
 
 <div dir='rtl'>
 
-A - فريد id
+A - رقم فريد أو متفرد id
  
  
  B - قيمة محددة لل milliseconds
