@@ -1610,12 +1610,11 @@ console.log(person, birthYear);
 <div dir='rtl'>
 الجواب هو الخيار الأول: A
 
-Arguments are passed by _value_, unless their value is an object, then they're passed by _reference_. `birthYear` is passed by value, since it's a string, not an object. When we pass arguments by value, a _copy_ of that value is created (see question 46).
+الArguments يتم تمريرها عن طريق قيمها, إلا في حالة كان قيمتها عبارة عن object, ففي هذه الحالة يتم تمريرها عن طريق الrefrence. `birthYear` تم تمريرها عن طريق القيمة, و بما أنها من النوع string وليس object. عندما نقوم بتمرير الarguments عن طريق القيمة, فإن نسخة من هذه القيمة يتم إنشاءها (أنظر للسؤال رقم 46 في الاعلى).
 
-The variable `birthYear` has a reference to the value `"1997"`. The argument `year` also has a reference to the value `"1997"`, but it's not the same value as `birthYear` has a reference to. When we update the value of `year` by setting `year` equal to `"1998"`, we are only updating the value of `year`. `birthYear` is still equal to `"1997"`.
+المتغير `birthYear` لديه refrence للقيمة `"1997"`. الargument `year` أيضا لديه refrence للقيمة `"1997"`, لكنها ليست نفس القيمة التي `birthYear` لديها refrence لها. عندما نقوم بتحديث قيمة `year` عن طريق ضبط `year` تساوي ل `"1998"`, نحن فقط نقوم بتحديث قيمة `year`. `birthYear` لا تزال تساوي `"1997"`.
 
-The value of `person` is an object. The argument `member` has a (copied) reference to the _same_ object. When we modify a property of the object `member` has a reference to, the value of `person` will also be modified, since they both have a reference to the same object. `person`'s `name` property is now equal to the value `"Lydia"`
-
+قيمة `person` هي object. الargument `member` لديه نسخة refrence لنفس الobject. عندما نقوم بتعديل او تحديث خاصية للobject `member`و الذي لديه refrence لها, فإن قيمة `person` ستتعدل و تتغير أيضا,بما أن كلاهما لديهما refrence لنفس الobject. الخصائص `person` و `name` هما الأىن مساويان للقيمة `"Lydia"`.      
 </p>
 </details>
 </div>
@@ -1651,10 +1650,9 @@ sayHi();
 <div dir='rtl'>
 الجواب هو الخيار الرابع: D
 
-With the `throw` statement, we can create custom errors. With this statement, you can throw exceptions. An exception can be a <b>string</b>, a <b>number</b>, a <b>boolean</b> or an <b>object</b>. In this case, our exception is the string `'Hello world'`.
+مع عبارة `throw` , بإمكاننا إنشاء errors حسب الطلب, أي ليست كا الإخطاء العامة في اللغة, بإستخدام هذه العبارة بإمكانك أن تضع exception, الexception يمكن أن يكون : <b>string</b>, a <b>number</b>, a <b>boolean</b> or an <b>object</b>. في هذه الحالة, الexcption لدينا هو ال string `'Hello world'`.
 
-With the `catch` statement, we can specify what to do if an exception is thrown in the `try` block. An exception is thrown: the string `'Hello world'`. `e` is now equal to that string, which we log. This results in `'Oh an error: Hello world'`.
-
+مع عبارة `catch`, بإمكاننا ان نحدد ما الذي يتوجب فعله عندما يتم وضع أو إلقاء الexception في نطاق ال `try`. تم إلقاء أو وضع exception: الstring `'Hello world'`.  `e` الآن تساوي تلك تلك الstring,و هي التي نقوم بطباعتها عن طريق الlgo. هذا سيعطينا النتيجة `'Oh an error: Hello world'`.  
 </p>
 </details>
 </div>
@@ -1683,8 +1681,7 @@ console.log(myCar.make);
 <div dir='rtl'>
 الجواب هو الخيار الثاني: B
 
-When you return a property, the value of the property is equal to the _returned_ value, not the value set in the constructor function. We return the string `"Maserati"`, so `myCar.make` is equal to `"Maserati"`.
-
+عندما تقوم بإرجاع خاصية, فإن قيمة هذه الخاصية هي تساوي القيمة المرجعة, ليس القيمة التي تم ضبطها في دالة الconstructor. نقوم بإرجاع الstring `"Maserati"`, لذا فإن `myCar.make` تساوي `"Maserati"`.   
 </p>
 </details>
 </div>
@@ -1712,19 +1709,20 @@ console.log(typeof y);
 <div dir='rtl'>
 الجواب هو الخيار الأول : A
 
-`let x = y = 10;` is actually shorthand for:
+`let x = y = 10;` هي في الحقيقة إختصار ل: 
+</div>
 
 ```javascript
 y = 10;
 let x = y;
 ```
 
-When we set `y` equal to `10`, we actually add a property `y` to the global object (`window` in browser, `global` in Node). In a browser, `window.y` is now equal to `10`.
+<div dir='rtl'>
+عندما نقوم بضبط قيمة `y` لكي تساوي `10`, فنحن فعليا نقوم بإضافة الخاصية `y` للglopal object. (`window` في المتصفح, `global` في Node). في المتصفح, `window.y` الآن تساوي `10`.   
 
-Then, we declare a variable `x` with the value of `y`, which is `10`. Variables declared with the `let` keyword are _block scoped_, they are only defined within the block they're declared in; the immediately-invoked function (IIFE) in this case. When we use the `typeof` operator, the operand `x` is not defined: we are trying to access `x` outside of the block it's declared in. This means that `x` is not defined. Values who haven't been assigned a value or declared are of type `"undefined"`. `console.log(typeof x)` returns `"undefined"`.
+ثم, عندما نقوم بتعريف المتغير `x` بالقيمة `y` و التي هي في الحقيقة تساوي `10`. المتغيرات التي يتم تعريفها بالكلمة المفتاحية `let`هي متغيرات block scoped, أي يتم التعامل معها في النطاق الذي تم تعريفها فيه فقط, الدالة المناداة حاليا في هذه الحالة أي immediately-invoked function (IIFE). عندما نقوم بإستخدام العملية `typeof`, فإن المعامل `x` ليس معرف, نحن نحاول الوصول الى `x` خارج النطاق الذي تم تعريفه بها. هذا يعني أن `x` ليست معرفة. المتغيرات التي لم يتم وضع قيمة لها أو لم يتم تعريفها هي من النوع `"undefined"`. `console.log(typeof x)` تقوم بإرجاع `"undefined"`.
 
-However, we created a global variable `y` when setting `y` equal to `10`. This value is accessible anywhere in our code. `y` is defined, and holds a value of type `"number"`. `console.log(typeof y)` returns `"number"`.
-
+ولكن, نحن قمنا بإنشاء و تعريف global variable `y` عندما قمنا بضبط قيمة `y` لتساوي `10`. هذه القيمة يمكن الوصول إليها من أي مكان في البرنامج. `y` هي معرفة, و لديها قيمة من النوع `"number"`.  `console.log(typeof y)` تقوم بإرجاع `"number"`.   
 </p>
 </details>
 </div>
