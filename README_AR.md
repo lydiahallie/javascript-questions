@@ -1089,7 +1089,7 @@ console.log(typeof sayHi());
 
 ---
 
-35. أي هذه القيم هي قيم قابلة للخطأ؟
+35. أي هذه القيم هي قيم خطئية؟
 
 ```javascript
 0;
@@ -1110,7 +1110,7 @@ undefined;
 <div dir='rtl'>
 الجواب هو الخيار الأول : A
 
-لدينا فقط ستة قيم قابلة للخطأ:
+لدينا فقط ستة قيم خطئية:
 
 - `undefined`
 - `null`
@@ -1119,7 +1119,7 @@ undefined;
 - `''` (empty string)
 - `false`
 
-Function constructors, مثل `new Number` و  `new Boolean` هي قيم قابلة للصواب.
+Function constructors, مثل `new Number` و  `new Boolean` هي قيم صحيحية.
 
 </p>
 </details>
