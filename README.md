@@ -320,7 +320,7 @@ bark.animal = "dog";
 
 - A: Nothing, this is totally fine!
 - B: `SyntaxError`. You cannot add properties to a function this way.
-- C: `undefined`
+- C: `"Woof"` gets logged.
 - D: `ReferenceError`
 
 <details><summary><b>Answer</b></summary>
