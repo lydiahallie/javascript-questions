@@ -10,7 +10,6 @@ List of available languages:
 * [中文版本](./README-zh_CN.md)
 * [Versión en español](./README-ES.md)
 * [日本語](./README-ja_JA.md)  
-* [한국어](./README-ko_KR.md)
 * [Русский](./README_ru-RU.md)  
 * [Western Balkan](./README-bs_BS.md)  
 * [Deutsch](./README-de_DE.md)  
@@ -1521,7 +1520,7 @@ However, we don’t return a value. When we don’t return a value from the func
 ```javascript
 function getInfo(member, year) {
   member.name = "Lydia";
-  year = 1998;
+  year = "1998";
 }
 
 const person = { name: "Sarah" };
@@ -1573,9 +1572,9 @@ sayHi();
 ```
 
 - A: `"It worked! Hello world!"`
-- B: `"Oh no an error: undefined"`
+- B: `"Oh no an error: undefined`
 - C: `SyntaxError: can only throw Error objects`
-- D: `"Oh no an error! Hello world!"`
+- D: `"Oh no an error: Hello world!`
 
 <details><summary><b>Answer</b></summary>
 <p>
