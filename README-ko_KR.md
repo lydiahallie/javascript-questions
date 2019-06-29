@@ -1656,3 +1656,302 @@ let x = y;
 
 </p>
 </details>
+
+---
+
+###### 55. 무엇이 출력 될까요?
+
+```javascript
+class Dog {
+  constructor(name) {
+    this.name = name;
+  }
+}
+
+Dog.prototype.bark = function() {
+  console.log(`Woof I am ${this.name}`);
+};
+
+const pet = new Dog("Mara");
+
+pet.bark();
+
+delete Dog.prototype.bark;
+
+pet.bark();
+```
+
+- A: `"Woof I am Mara"`, `TypeError`
+- B: `"Woof I am Mara"`,`"Woof I am Mara"`
+- C: `"Woof I am Mara"`, `undefined`
+- D: `TypeError`, `TypeError`
+
+<details><summary><b>Answer</b></summary>
+<p>
+
+#### Answer: A
+
+프로토타입에서도 `delete`키워드를 사용해, 객체로부터 속성을 삭제할 수 있어요. 프로토타입에서 속성을 삭제하면, 프로토타입 체인에서 더 이상 사용할 수 없게 돼요. 이경우, `bark`함수는 `delete Dog.prototype.bark` 후에 프로토타입에서 더 이상 사용할 수 없게 되지만, 그래도 여전히 그것에 접근하려고 해요.
+
+함수가 아닌 것을 호출하려고 할 때, `TypeError`가 던져져요. 이경우 `pet.bark`은 `undefined`이기 때문에, `TypeError: pet.bark is not a function`예요.
+
+</p>
+</details>
+
+---
+
+###### 56. 무엇이 출력 될까요?
+
+```javascript
+const set = new Set([1, 1, 2, 3, 4]);
+
+console.log(set);
+```
+
+- A: `[1, 1, 2, 3, 4]`
+- B: `[1, 2, 3, 4]`
+- C: `{1, 1, 2, 3, 4}`
+- D: `{1, 2, 3, 4}`
+
+<details><summary><b>Answer</b></summary>
+<p>
+
+#### Answer: D
+
+`Set`는 _unique_ 값의 집합 객체예요: 값은 set 내에서 단 한 번만 발생해요.
+
+중복 값 `1`을 가진 반복 가능한 `[1, 1, 2, 3, 4]`을 전달하기 때문에, 그들 중 하나는 삭제돼요. 이것은 결과적으로 `{1, 2, 3, 4}`돼요.
+
+</p>
+</details>
+
+---
+
+###### 57. 무엇이 출력 될까요?
+
+```javascript
+// counter.js
+let counter = 10;
+export default counter;
+```
+
+```javascript
+// index.js
+import myCounter from "./counter";
+
+myCounter += 1;
+
+console.log(myCounter);
+```
+
+- A: `10`
+- B: `11`
+- C: `Error`
+- D: `NaN`
+
+<details><summary><b>Answer</b></summary>
+<p>
+
+#### Answer: C
+
+import 된 모듈은 _read-only_ 예요 : import 된 모듈은 수정할 수 없어요. export 한 모듈만 값을 변경할 수 있어요.
+
+`myCounter`의 값을 증가 시키려고 할 때, 에러를 던져요: `myCounter`은 read-only이고 수정할 수 없어요.
+
+</p>
+</details>
+
+---
+
+###### 58. 무엇이 출력 될까요?
+
+```javascript
+const name = "Lydia";
+age = 21;
+
+console.log(delete name);
+console.log(delete age);
+```
+
+- A: `false`, `true`
+- B: `"Lydia"`, `21`
+- C: `true`, `true`
+- D: `undefined`, `undefined`
+
+<details><summary><b>Answer</b></summary>
+<p>
+
+#### Answer: A
+
+`delete`연산자는 불린 값을 리턴해요: 성공적으로 삭제를 한 경우 `true`를, 그렇지 않다면 `false`를 리턴해요. 그러나, `var`, `const` 또는 `let` 키워드로 선언된 변수들은 `delete`연산자를 사용해서 삭제될 수 없어요.
+
+`name` 변수는 `const`키워드로 선언되었기 때문에, 삭제에 실패해요. `age`를 `21`로 설정할 때, 실제로는 `age`라는 속성을 전역 객체에 추가한 거죠. 이 방법으로 객체, 전역 객체의 속성들을 성공적으로 삭제할 수 있어요. `delete age`는 `true`을 리턴해요.
+
+</p>
+</details>
+
+---
+
+###### 59. 무엇이 출력 될까요?
+
+```javascript
+const numbers = [1, 2, 3, 4, 5];
+const [y] = numbers;
+
+console.log(y);
+```
+
+- A: `[[1, 2, 3, 4, 5]]`
+- B: `[1, 2, 3, 4, 5]`
+- C: `1`
+- D: `[1]`
+
+<details><summary><b>Answer</b></summary>
+<p>
+
+#### Answer: C
+
+구조 분해 할당을 통해 객체의 배열 또는 속성들로부터 변수를 해체할 수 있어요. 예를 들어:
+
+```javascript
+[a, b] = [1, 2];
+```
+
+<img src="https://i.imgur.com/ADFpVop.png" width="200">
+
+`a`는 이제 `1`이고, `b`는 이제 `2`예요. 질문에서 실제로 한 건 다음과 같아요:
+
+```javascript
+[y] = [1, 2, 3, 4, 5];
+```
+
+<img src="https://i.imgur.com/NzGkMNk.png" width="200">
+
+이것은 `y`의 값은 숫자 `1`인 배열의 첫번째 값과 같다는 것을 의미하죠. `y`를 출력하면 `1`이 리턴돼요.
+
+</p>
+</details>
+
+---
+
+###### 60. 무엇이 출력 될까요?
+
+```javascript
+const user = { name: "Lydia", age: 21 };
+const admin = { admin: true, ...user };
+
+console.log(admin);
+```
+
+- A: `{ admin: true, user: { name: "Lydia", age: 21 } }`
+- B: `{ admin: true, name: "Lydia", age: 21 }`
+- C: `{ admin: true, user: ["Lydia", 21] }`
+- D: `{ admin: true }`
+
+<details><summary><b>Answer</b></summary>
+<p>
+
+#### Answer: B
+
+스프레드 연산자 `...`를 사용해 객체를 결합할 수 있어요. 이것은 하나의 객체의 키/값의 쌍들을 복사본들을 만들어, 다른 객체에 추가해요. 이 경우, `user` 객체의 복사 본들을 만들어, `admin` 객체에 추가해요. `admin` 객체는 이제 복사된 키/값의 쌍들이 들어있고, 결과는 `{ admin: true, name: "Lydia", age: 21 }`예요.
+
+</p>
+</details>
+
+---
+
+###### 61. 무엇이 출력 될까요?
+
+```javascript
+const person = { name: "Lydia" };
+
+Object.defineProperty(person, "age", { value: 21 });
+
+console.log(person);
+console.log(Object.keys(person));
+```
+
+- A: `{ name: "Lydia", age: 21 }`, `["name", "age"]`
+- B: `{ name: "Lydia", age: 21 }`, `["name"]`
+- C: `{ name: "Lydia"}`, `["name", "age"]`
+- D: `{ name: "Lydia"}`, `["age"]`
+
+<details><summary><b>Answer</b></summary>
+<p>
+
+#### Answer: B
+
+`defineProperty`메소드로, 객체에 새로운 속성들을 추가하거나, 기존 것을 수정할 수 있어요. `defineProperty` 메소드를 사용해 객체의 속성을 추가할 때, 기본적으로 객체의 속성들은 _비 열거자_ 예요. `Object.keys`메소드는 모든 _열거자_ 객체의 속성 이름들을 리턴하는데, 이 경우는 `"name"` 뿐이에요.
+
+`defineProperty`를 사용해 추가된 속성들은 기본적으로 변경할 수 없어요. `writable`, `configurable` 그리고 `enumerable` 속성들을 사용해 덮어쓰기 할 수 있어요. `defineProperty`메소드의 방법은 객체에 추가할 속성들을 훨씬 더 정교 하게 제어하도록 해줘요.
+
+</p>
+</details>
+
+---
+
+###### 62. 무엇이 출력 될까요?
+
+```javascript
+const settings = {
+  username: "lydiahallie",
+  level: 19,
+  health: 90
+};
+
+const data = JSON.stringify(settings, ["level", "health"]);
+console.log(data);
+```
+
+- A: `"{"level":19, "health":90}"`
+- B: `"{"username": "lydiahallie"}"`
+- C: `"["level", "health"]"`
+- D: `"{"username": "lydiahallie", "level":19, "health":90}"`
+
+<details><summary><b>Answer</b></summary>
+<p>
+
+#### Answer: A
+
+`JSON.stringify` 두번째 인수는 _replacer_ 예요. replacer는 함수 또는 배열 둘 중 하나가 될 수 있고, stringify 할 대상과 방법을 제어 할 수 있게 해줘요.
+
+replacer가 _배열_ 이라면, 배열에 이름이 포함된 속성만 JSON 문자열에 추가될 거에요. 이 경우, 이름을 가진 `"level"` 그리고 `"health"`속성들만 포함되고, `"username"`은 제외되요. `data` 은 이제 `"{"level":19, "health":90}"`에요.
+
+replacer가 _함수_ 라면, stringifying 할 객체의 모든 속성에 호출돼요. 이 함수로부터 리턴된 값은 JSON 문자열에 추가될 때 속성의 값이 될 거에요. 만약 값이 `undefined`라면, 이 속성은 JSON 문자열로부터 제외돼요.
+
+</p>
+</details>
+
+---
+
+###### 63. 무엇이 출력 될까요?
+
+```javascript
+let num = 10;
+
+const increaseNumber = () => num++;
+const increasePassedNumber = number => number++;
+
+const num1 = increaseNumber();
+const num2 = increasePassedNumber(num1);
+
+console.log(num1);
+console.log(num2);
+```
+
+- A: `10`, `10`
+- B: `10`, `11`
+- C: `11`, `11`
+- D: `11`, `12`
+
+<details><summary><b>Answer</b></summary>
+<p>
+
+#### Answer: A
+
+단항 연산자 `++`는 _우선_ 피연산자의 값을 _리턴하고_, _그 후_ 피연산자의 값을 _증가해요_. `increaseNumber` 함수이 처음으로 리턴 한 `num`의 값은 `10` 이기 때문에, `num1`의 값은 `10`이고, 그 후엔 `num`의 값만 증가해요.
+
+`num1`을 `increasePassedNumber`로 전달했기 때문에, `num2`는 `10`이에요. `number`는 `10`이에요(`num1`의 값은, 다시 한번, 단항 연산자가 `++`는 _우선_ 피연산자의 값을 _리턴하고_, _그 후_ 피연산자의 값을 _증가해요_. `number`의 값은 `10`이에요 즉, `num2`는 `10`이죠.
+
+</p>
+</details>
