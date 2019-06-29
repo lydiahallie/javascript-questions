@@ -92,8 +92,8 @@ const shape = {
   perimeter: () => 2 * Math.PI * this.radius
 };
 
-shape.diameter();
-shape.perimeter();
+console.log(shape.diameter());
+console.log(shape.perimeter());
 ```
 
 - A: `20` and `62.83185307179586`
