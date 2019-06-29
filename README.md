@@ -798,7 +798,7 @@ for (let i = 1; i < 5; i++) {
 
 #### Answer: C
 
-The `continue` statement skips an iteration and does in this case if `i` is equal to `3`.
+The `continue` statement skips an iteration if a certain condition returns `true`, in this case if `i` is equal to `3`.
 
 </p>
 </details>
