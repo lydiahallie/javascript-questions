@@ -18,7 +18,8 @@ List of available languages:
 * [Tiếng Việt](./README-vi.md)
 * [Українська мова](./README-ua_UA.md)  
 * [Português Brasil](./README_pt_BR.md)  
-* [العربية](https://github.com/SaraAli26/javascript-questions/blob/master/README_AR.md) 
+* [العربية](./README_AR.md)
+
 
 ---
 
