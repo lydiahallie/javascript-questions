@@ -1333,3 +1333,381 @@ setInterval(() => console.log("Hi"), 1000);
 
 </p>
 </details>
+
+###### 44. 何が出力されるでしょうか？
+
+```javascript
+function* generator(i) {
+  yield i;
+  yield i * 2;
+}
+
+const gen = generator(10);
+
+console.log(gen.next().value);
+console.log(gen.next().value);
+```
+
+- A: `[0, 10], [10, 20]`
+- B: `20, 20`
+- C: `10, 20`
+- D: `0, 10 and 10, 20`
+
+<details><summary><b>答え</b></summary>
+<p>
+
+#### 答え: C
+
+通常の関数は、呼び出し後に途中で停止することはできません。ただし、ジェネレータ関数は途中で"停止"し、後で停止した場所から続行することができます。
+
+ジェネレータ関数が`yield`キーワードを見つけるたびに、その関数はその後に指定された値を返します。その場合のジェネレータ関数は、値を"返す"わけではないことに注意してください。値を生み出しています。
+
+まず、`i`に`10`を指定してジェネレータ関数を初期化します。次に`next()`メソッドを使用してジェネレータ関数を呼び出します。
+
+最初にジェネレータ関数を呼び出すと、`i`は`10`になり、最初の`yield`キーワードに遭遇します。そこから`i`の値が得られます。ジェネレータは"一時停止"され、`10`がログ出力されます。
+
+それから、`next()`メソッドを使って関数を再度呼び出します。依然として`i`は`10`のまま、以前に停止したところから継続し始めます。
+
+それから次の`yield`キーワードに遭遇し、そこから`i * 2`の値が得られます。`i`は`10`のままなので、`10 * 2`、つまり`20`を返します。なので、`10、20`が返る事になります。
+
+</p>
+</details>
+
+---
+
+###### 45. これは何を返しますか？
+
+```javascript
+const firstPromise = new Promise((res, rej) => {
+  setTimeout(res, 500, "one");
+});
+
+const secondPromise = new Promise((res, rej) => {
+  setTimeout(res, 100, "two");
+});
+
+Promise.race([firstPromise, secondPromise]).then(res => console.log(res));
+```
+
+- A: `"one"`
+- B: `"two"`
+- C: `"two" "one"`
+- D: `"one" "two"`
+
+<details><summary><b>答え</b></summary>
+<p>
+
+#### 答え: B
+
+複数のプロミスを`Promise.race`メソッドに渡した時、"resolves/rejects"は、"最初"のプロミスの"resolves/rejects"を行います。
+
+`setTimeout`メソッドには、タイマーを渡します: 最初のプロミスには500ms(`firstPromise`)、2番目のプロミスには100ms(`secondPromise`)。
+
+これは、`secondPromise`が最初に`'two'`の値で解決されることを意味します。`res`は`'two'`の値を保持するようになり、ログ出力されます。
+
+</p>
+</details>
+
+---
+
+###### 46. 何が出力されるでしょうか？
+
+```javascript
+let person = { name: "Lydia" };
+const members = [person];
+person = null;
+
+console.log(members);
+```
+
+- A: `null`
+- B: `[null]`
+- C: `[{}]`
+- D: `[{ name: "Lydia" }]`
+
+<details><summary><b>答え</b></summary>
+<p>
+
+#### 答え: D
+
+まず、`name`プロパティを持つオブジェクトの値を使って、変数`person`を宣言します。
+
+<img src="https://i.imgur.com/TML1MbS.png" width="200">
+
+それから、`members`という変数を宣言します。その配列の最初の要素に、変数`person`の値を代入します。オブジェクトは、互いをイコールで設定すると、「参照」によって相互作用します。
+
+ある変数から別の変数への"参照"を代入すると、その参照の"コピー"が作成されます。 (それらは、"同じ参照"を持っていないことに注意してください！)
+
+<img src="https://i.imgur.com/FSG5K3F.png" width="300">
+
+そして、変数`person`を`null`に設定します。
+
+<img src="https://i.imgur.com/sYjcsMT.png" width="300">
+
+その要素はオブジェクトへの異なる（コピーされた）参照を持っているので、`person`変数の値を変更するだけで配列の最初の要素は変更されません。 `members`の最初の要素はまだ元のオブジェクトへの参照を保持しています。
+ 
+`members`配列をログ出力したとき、最初の要素はまだオブジェクトの値を保持しているので、それがログ出力されます。
+
+</p>
+</details>
+
+---
+
+###### 47. 何が出力されるでしょうか？
+
+```javascript
+const person = {
+  name: "Lydia",
+  age: 21
+};
+
+for (const item in person) {
+  console.log(item);
+}
+```
+
+- A: `{ name: "Lydia" }, { age: 21 }`
+- B: `"name", "age"`
+- C: `"Lydia", 21`
+- D: `["name", "Lydia"], ["age", 21]`
+
+<details><summary><b>答え</b></summary>
+<p>
+
+#### 答え: B
+
+この場合、`for-in`ループを使うと、オブジェクトキーである`name`と`age`の繰り返し処理できます。内部的には、オブジェクトキーは文字列です（シンボルではない場合）。
+
+すべてのループで、`item`の値は反復している現在のキーに設定されます。まず、`item`は`name`が代入され、ログに出力されます。その後、`item`は`age`が代入され、ログに出力されます。
+
+</p>
+</details>
+
+---
+
+###### 48. 何が出力されるでしょうか？
+
+```javascript
+console.log(3 + 4 + "5");
+```
+
+- A: `"345"`
+- B: `"75"`
+- C: `12`
+- D: `"12"`
+
+<details><summary><b>答え</b></summary>
+<p>
+
+#### 答え: B
+
+演算子結合性は、コンパイラーが式を評価する順序（左から右または右から左）となります。これは、すべての演算子が同じ優先順位を持つ場合にのみ発生します。演算子の種類は1つだけです: `+`。さらに、結合性は左から右です。
+
+`3 + 4`が最初に評価されます。これは数字の`7`になります。
+
+`7 + '5'`は、強制的に`"75"`になります。 JavaScriptでは、数字の`7`を文字列に変換します。質問15を参照してください。2つの文字列を演算子の`+`を使って連結することができます。よって、`"7" + "5"`は、`"75"`になります。
+
+</p>
+</details>
+
+---
+
+###### 49. numの値は何ですか？
+
+```javascript
+const num = parseInt("7*6", 10);
+```
+
+- A: `42`
+- B: `"42"`
+- C: `7`
+- D: `NaN`
+
+<details><summary><b>答え</b></summary>
+<p>
+
+#### 答え: C
+
+文字列の最初の数字だけが返されます。"基数"（解析する数値の種類を指定するための2番目の引数: 基数10, 16進数, 8進数, 2進数など）に基づいて、`parseInt`は文字列内の文字が有効かどうかをチェックします。基数の中で有効な数字ではない文字に出会うと、構文解析を停止して次の文字を無視します。
+
+`*`は、有効な数字ではありません。`"7"`を、10進数の`7`に解析するだけです。そのままnumは`7`の値を保持します。
+
+</p>
+</details>
+
+---
+
+###### 50. 何が出力されるでしょうか？
+
+```javascript
+[1, 2, 3].map(num => {
+  if (typeof num === "number") return;
+  return num * 2;
+});
+```
+
+- A: `[]`
+- B: `[null, null, null]`
+- C: `[undefined, undefined, undefined]`
+- D: `[ 3 x empty ]`
+
+<details><summary><b>答え</b></summary>
+<p>
+
+#### 答え: C
+
+配列をマッピングするとき、`num`の値に代入されるのは、ループで渡ってくる要素となります。この場合、要素は数値なので、ifステートメント `typeof num === "number"`の条件は`true`を返します。 map関数は新しい配列を作成して関数から返された値を挿入します。
+
+ただし、値は返されません。関数から値を返さないと、関数は`undefined`を返します。配列内のすべての要素に対して関数ブロックが呼び出されるので、各要素に対して`undefined`を返します。
+
+</p>
+</details>
+
+---
+
+###### 51. 何が出力されるでしょうか？
+
+```javascript
+function getInfo(member, year) {
+  member.name = "Lydia";
+  year = 1998;
+}
+
+const person = { name: "Sarah" };
+const birthYear = "1997";
+
+getInfo(person, birthYear);
+
+console.log(person, birthYear);
+```
+
+- A: `{ name: "Lydia" }, "1997"`
+- B: `{ name: "Sarah" }, "1998"`
+- C: `{ name: "Lydia" }, "1998"`
+- D: `{ name: "Sarah" }, "1997"`
+
+<details><summary><b>答え</b></summary>
+<p>
+
+#### 答え: A
+
+値がオブジェクトでない限り、引数は"値"によって渡され、その後、"参照"によって渡されます。 `birthYear`はオブジェクトではなく文字列なので、値で渡されます。引数を値で渡すと、その値の"コピー"が作成されます（質問46を参照）。
+
+変数`birthYear`は、値`"1997"`への参照を持ちます。引数`year`は、値`"1997"`も参照していますが、それは`birthYear`が参照しているのと同じ値ではありません。`year`に`"1998"`を代入することによって`year`の値を更新したとしても、`year`の値を更新するだけです。`birthYear`はまだ`"1997"`となります。
+
+`person`の値はオブジェクトです。引数`member`は"同じ"オブジェクトへの（コピーされた）参照を持ちます。
+
+`member`が参照を持つオブジェクトのプロパティを変更すると、`person`の値も変更されます。これらは両方とも同じオブジェクトへの参照を持つからです。`person`の`name`プロパティは、値の`"Lydia"`となりました。
+
+</p>
+</details>
+
+---
+
+###### 52. 何が出力されるでしょうか？
+
+```javascript
+function greeting() {
+  throw "Hello world!";
+}
+
+function sayHi() {
+  try {
+    const data = greeting();
+    console.log("It worked!", data);
+  } catch (e) {
+    console.log("Oh no an error!", e);
+  }
+}
+
+sayHi();
+```
+
+- A: `"It worked! Hello world!"`
+- B: `"Oh no an error: undefined`
+- C: `SyntaxError: can only throw Error objects`
+- D: `"Oh no an error: Hello world!`
+
+<details><summary><b>答え</b></summary>
+<p>
+
+#### 答え: D
+
+`throw`ステートメントを使って、カスタムエラーを作ることができます。このステートメントで、あなたは例外を投げることができます。例外は、<b>string</b>, <b>number</b>, <b>boolean</b>, <b>object</b>のいずれかとなります。上記の場合だと、例外は文字列`'Hello world'`となります。
+
+`catch`ステートメントを使って、`try`ブロックで例外が投げられた場合にどうするかを指定できます。例外がスローされます: 文字列`'Hello world'`は、`e`に代入されます。その結果`'Oh an error: Hello world'`となります。
+
+</p>
+</details>
+
+---
+
+###### 53. 何が出力されるでしょうか？
+
+```javascript
+function Car() {
+  this.make = "Lamborghini";
+  return { make: "Maserati" };
+}
+
+const myCar = new Car();
+console.log(myCar.make);
+```
+
+- A: `"Lamborghini"`
+- B: `"Maserati"`
+- C: `ReferenceError`
+- D: `TypeError`
+
+<details><summary><b>答え</b></summary>
+<p>
+
+#### 答え: B
+
+プロパティを返すと、そのプロパティの値は、コンストラクタ関数で設定された値ではなく、"戻り値"となります。 `"Maserati"`という文字列を返すので、`myCar.make`は `"Maserati"`となります。
+
+</p>
+</details>
+
+---
+
+###### 54. 何が出力されるでしょうか？
+
+```javascript
+(() => {
+  let x = (y = 10);
+})();
+
+console.log(typeof x);
+console.log(typeof y);
+```
+
+- A: `"undefined", "number"`
+- B: `"number", "number"`
+- C: `"object", "number"`
+- D: `"number", "undefined"`
+
+<details><summary><b>答え</b></summary>
+<p>
+
+#### 答え: A
+
+`let x = y = 10;` is actually shorthand for:
+
+```javascript
+y = 10;
+let x = y;
+```
+
+`y`に`10`を代入すると、実際にはグローバルオブジェクトにプロパティ`y`が追加されます（ブラウザでは`window`、nodeでは`global`）。ブラウザでは、`window.y`は`10`となりました。
+
+それから、変数`x`を`10`である値`y`で宣言します。`let`キーワードで宣言された変数は"ブロックスコープ"となり、宣言されたブロック内でのみ定義されます。この場合は即時関数（IIFE）となります。 
+
+`typeof`演算子使用時、オペランド`x`は定義されていません: 宣言されているブロックの外側で`x`にアクセスしようとしています。これは`x`が定義されていないことを意味します。
+
+値が割り当てられていない、または宣言されていない値は`"undefined"`型となります。なので`console.log(typeof x)`は`"undefined"`を返します。
+
+yに関しては、`y`に`10`を代入するときにグローバル変数`y`を作成しました。この値は、コード内のどこからでもアクセスできます。`y`が定義されていて、`"number"`型の値を保持します。よって`console.log(typeof y)`は`"number"`を返します。
+
+</p>
+</details>
