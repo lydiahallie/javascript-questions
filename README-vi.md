@@ -1,12 +1,13 @@
 # Những câu hỏi JavaScript trình độ Advanced
 
-Hàng ngày tôi sẽ post các câu hỏi multichoice lên [Instagram](https://www.instagram.com/theavocoder) của tôi và tại đây nữa!
+Hàng ngày tôi sẽ đăng các câu hỏi multichoice lên [Instagram](https://www.instagram.com/theavocoder) của tôi và tại đây nữa!
 
 Các câu hỏi sẽ từ cơ bản đến nâng cao: kiểm tra trình độ JavaScript của bạn, làm mới một chút về kiến thức, hay chuẩn bị cho cuộc phỏng vấn lập trình! :muscle: :rocket: Tôi sẽ cập nhật các câu hỏi mới hàng tuần.
 
 Các đáp án được đặt dưới mỗi câu hỏi, hãy click để tham khảo chúng. Chúc may mắn :heart:
 
-[English Version](./README.md)
+[English Version](./README.md)  
+[Українська мова](./README-ua_UA.md)  
 
 ---
 
@@ -156,7 +157,7 @@ const mouse = {
 
 #### Đáp án: A
 
-Trong JavaScript thì tất cả keys của các object đều là string (ngoại trừ khi nó là một Symbol). Dù chúng ta không viết chúng như một string, về cơ bản chúng sẽ luôn được convert sang dạng string.
+Trong JavaScript thì tất cả keys của các object đều là string (ngoại trừ khi nó là một Symbol). Dù chúng ta không viết chúng như một string, về cơ bản chúng sẽ luôn được chuyển sang dạng string.
 
 JavaScript thông dịch (hay unboxes) từng câu lệnh. Khi chúng ta sử dụng cặp dấu ngoặc `[]`, nó sẽ tìm kiếm dấu mở ngoặc đầu tiên `[`, và sẽ tiếp tục tìm kiếm cho tới khi gặp dấu đóng ngoặc `]`. Chỉ khi đó thì câu lệnh mới được thực thi.
 
@@ -169,7 +170,6 @@ Tuy nhiên, khi chúng ta sử dụng dấu chấm `.`, điều trên không cò
 
 ---
 
----
 
 ###### 6. Ouput là gì?
 
@@ -404,7 +404,7 @@ Chúng ta cho rằng `this.firstName` là `"Sarah"` và `this.lastName` là `"Sm
 
 ---
 
-###### 13. What are the three phases of event propagation?
+###### 13. 3 giai đoạn của event propagation là gì?
 
 - A: Target > Capturing > Bubbling
 - B: Bubbling > Target > Capturing
@@ -439,8 +439,9 @@ Tất cả các object đều có prototypes, ngoại trừ **base object**. Obj
 
 </p>
 
-</details>---
+</details>
 
+---
 
 ###### 15. Ouput là gì?
 
@@ -462,7 +463,7 @@ sum(1, "2");
 
 #### Đáp án: C
 
-JavaScript là một ngôn ngữ **dynamically typed**: chúng ta không khai báo kiểu dữ liệu khi khai báo biến. Giá trị có thể bị tự động convert sang một kiểu dữ liệu khác mà ta không hề hay biết, điều này được gọi là __implicit type coercion_. **Coercion** có nghĩa là convert từ kiểu này sang kiểu khác.
+JavaScript là một ngôn ngữ **dynamically typed**: chúng ta không khai báo kiểu dữ liệu khi khai báo biến. Giá trị có thể bị tự động convert sang một kiểu dữ liệu khác mà ta không hề hay biết, điều này được gọi là _implicit type coercion_. **Coercion** có nghĩa là convert từ kiểu này sang kiểu khác.
 
 Trong ví dụ này, JavaScript sẽ convert số `1` sang dạng string. Mỗi khi ta cộng một số (`1`) với một string (`'2'`), số sẽ luôn được xem như là một string. Kết quả sẽ là một phép nối chuỗi giống như `"Hello" + "World"`, vậy nên `"1" + "2"` sẽ trả về là `"12"`.
 
@@ -630,7 +631,7 @@ Với `"use strict"`, chúng ta sẽ đảm bảo được rằng ta sẽ không
 
 ---
 
-###### 21. What's value of `sum`?
+###### 21. Giá trị của `sum` là gì?
 
 ```javascript
 const sum = eval("10*10+5");
@@ -859,7 +860,6 @@ console.log(a[b]);
 
 Object keys sẽ tự động được convert sang dạng string. Chúng ta đang set một object như là một key cho object `a`, với giá trị là `123`.
 
-However, when we stringify an object, it becomes `"[Object object]"`. So what we are saying here, is that `a["Object object"] = 123`. Then, we can try to do the same again. `c` is another object that we are implicitly stringifying. So then, `a["Object object"] = 456`.
 Tuy nhiên khi ta string hóa một object, nó sẽ trở thành `"[Object object]"`. Nên tại đây phép gán này thực chất chính là `a["Object object"] = 123`. Phép gán tiếp theo cũng giống hệt vậy. `c` là một object khác mà chúng ta đang string hóa nó. Theo đó, `a["Object object"] = 456`.
 
 Cuối cùng khi gọi `a[b]`, thực chất chính là gọi `a["Object object"]`. Giá trị của nó là `456`, nên trả về là `456`.
@@ -915,14 +915,14 @@ WebAPI không thể thêm thứ gì đó vào stack cho tới khi nó được s
 
 <img src="https://i.imgur.com/uyiScAI.png" width="200">
 
-`bar` được gọi, `"Second"` được log ra, và nó được đưa ra khói stack.
+`bar` được gọi, `"Second"` được log ra, và nó được đưa ra khỏi stack.
 
 </p>
 </details>
 
 ---
 
-###### 31. What is the event.target when clicking the button?
+###### 31. Giá trị của event.target là gì khi click button?
 
 ```html
 <div onclick="console.log('first div')">
@@ -951,7 +951,7 @@ Phần tử sâu nhất trong các phần tử lồng nhau sẽ là target của
 
 ---
 
-###### 32. Khi bạn click vào đoạn văn, cái gì sẽ được ghi ra output?
+###### 32. Khi bạn click vào đoạn văn, giá trị của output sẽ là gì?
 
 ```html
 <div onclick="console.log('div')">
@@ -1053,7 +1053,7 @@ undefined;
 - A: `0`, `''`, `undefined`
 - B: `0`, `new Number(0)`, `''`, `new Boolean(false)`, `undefined`
 - C: `0`, `''`, `new Boolean(false)`, `undefined`
-- D: All of them are falsy
+- D: Tất cả đều là falsy
 
 <details><summary><b>Đáp án</b></summary>
 <p>
@@ -1210,7 +1210,6 @@ Primitive types là `boolean`, `null`, `undefined`, `bigint`, `number`, `string`
 
 #### Đáp án: C
 
-`[1, 2]` is our initial value. This is the value we start with, and the value of the very first `acc`. During the first round, `acc` is `[1,2]`, and `cur` is `[0, 1]`. We concatenate them, which results in `[1, 2, 0, 1]`.
 `[1, 2]` là giá trị khởi tạo. Đây là giá trị chúng ta bắt đầu, và cũng là giá trị đầu tiên của `acc`. Tại vòng đầu tiên, `acc` là `[1,2]`, và `cur` là `[0, 1]`. Ta nối chúng lại tạo ra `[1, 2, 0, 1]`.
 
 Tiếp tục, `[1, 2, 0, 1]` là `acc` và `[2, 3]` là `cur`. Ta nối chúng lại tạo ra `[1, 2, 0, 1, 2, 3]`.
