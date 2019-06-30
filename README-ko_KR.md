@@ -2,7 +2,7 @@
 
 JavaScript 에 관한 객관식 문제를 [Instagram](https://www.instagram.com/theavocoder)에 매일 게시하고 있어요, 물론 여기에도 게시할 거예요!
 
-초급부터 고급까지: JavaScript를 얼마나 잘 알고 있는지 테스트하거나, 지식을 조금 깊게 하거나, 코딩 면접을 준비하세요! :muscle: :rocket: 이 기록을 매주 새로운 질문으로 업데이트해요. 마지막 업데이트: <b>6월 21일</b>
+초급부터 고급까지: JavaScript를 얼마나 잘 알고 있는지 테스트하거나, 지식을 조금 더 새롭게 하거나, 코딩 면접을 준비하세요! :muscle: :rocket: 이 기록을 매주 새로운 질문으로 업데이트해요. 마지막 업데이트: <b>6월 29일</b>
 
 정답은 질문 아래 접힌 부분에 있어요, 그냥 클릭하면 펼칠 수 있어요. 행운을 빌어요 :heart:
 
@@ -42,9 +42,9 @@ sayHi();
 
 #### 정답: D
 
-함수 내에서, 우선 `var`키워드를 사용해 `name`변수를 선언해요. 이것은 변수가 정의되어 있는 행에 실제로 도달할 때까지, 변수는 `undefined`의 기본값으로 호이스팅 되(생성단계에 메모리 공간이 설정됨)는 것을 의미해요. `name` 변수를 출력하려는 줄에서 아직 변수를 정의하고 있지 않기 때문에, `undefined`값을 유지하고 있어요.
+함수 내에서, 우선 `var`키워드를 사용해 `name`변수를 선언해요. 이것은 변수가 정의되어 있는 행에 실제로 도달할 때까지, `undefined`의 기본값으로 호이스팅 되(생성단계에 메모리 공간이 설정)는 것을 의미해요. `name` 변수를 출력하려는 줄에서 아직 변수를 정의하고 있지 않기 때문에, `undefined`값을 유지하고 있어요.
 
-`let`키워드(그리고 `const`)를 가지는 변수들은, `var`와는 달리, 호이스팅되지만 <i>초기화</i>되지 않아요. 그것들을 선언(초기화)하는 줄 전에는 접근할 수 없어요. 이것은 "일시적 사각지대"라고 불려요. 선언되기 전에 변수에 접근하려고 하면, JavaScript는 `ReferenceError`를 던져요.
+`let`키워드(그리고 `const`)를 가지는 변수들은, `var`와는 달리, 호이스팅되지만 <i>초기화</i>되지 않아요. 그것들을 선언(초기화)하는 줄 전에는 접근할 수 없어요. 이것은 "일시적 사각지대"라고 불려요. 선언되기 전 변수에 접근하려고 하면, JavaScript는 `ReferenceError`를 던져요.
 
 </p>
 </details>
@@ -72,7 +72,7 @@ for (let i = 0; i < 3; i++) {
 
 #### 정답: C
 
-JavaScript의 이벤트 큐 때문에, `setTimeout`의 콜백 함수는 루프가 실행된 _후에_ 호출되어요. 첫 번째의 루프 변수 `i`는 `var`키워드를 사용해 선언되어 있으므로, 이 값은 전역 변수가 되어요. 루프 동안, 단항 연산자 `++`를 사용하여, 매번 `i`의 값을 `1`씩 증가했어요. `setTimeout`콜백 함수가 호출되기까지, 첫 번째 예에서 `i`는 `3`과 같아요.
+JavaScript의 이벤트 큐 때문에, `setTimeout`의 콜백 함수는 루프가 실행된 _후에_ 호출돼요. 첫 번째의 루프 변수 `i`는 `var`키워드를 사용해 선언되어 있기 때문에, 이 값은 전역 변수가 돼요. 루프 동안, 단항 연산자 `++`를 사용하여, 매번 `i`의 값을 `1`씩 증가했어요. `setTimeout`콜백 함수가 호출되기까지, 첫 번째 예에서 `i`는 `3`이에요.
 
 두 번째 루프에서, 변수 `i`는 `let`키워드를 사용해 선언되었어요: `let`(그리고 `const`)키워드로 선언된 변수는 블록 범위예요(블록은 `{ }` 사이의 모든 것). 각각의 반복 동안, `i`는 새로운 값을 가지고, 각각의 값은 루프 안쪽 범위에 있어요.
 
@@ -92,8 +92,8 @@ const shape = {
   perimeter: () => 2 * Math.PI * this.radius
 };
 
-shape.diameter();
-shape.perimeter();
+console.log(shape.diameter());
+console.log(shape.perimeter());
 ```
 
 - A: `20` 그리고 `62.83185307179586`
@@ -108,9 +108,9 @@ shape.perimeter();
 
 `diameter`의 값은 정규 함수인 반면, `perimeter`의 값은 화살표 함수라는 점을 유의하세요.
 
-화살표 함수에서는, 통상적인 함수와는 달리, `this`키워드는 현재 주위의 범위를 참조해요! 이것은 `perimeter`를 부르면, shape 객체가 아닌, 그 주위의 범위(예를 들면 window)를 참조하는 것을 의미해요.
+화살표 함수에서, `this`키워드는 통상적인 함수와는 다르게 현재 주위의 범위를 참조해요! 이것은 `perimeter`를 부르면, shape 객체가 아닌 그 주위의 범위(예를 들면 window)를 참조하는 것을 의미해요.
 
-그 객체에는 `radius`라는 값은 없어, `undefined`를 리턴해요.
+그 객체에는 `radius`라는 값은 없기 때문에 `undefined`를 리턴해요.
 
 </p>
 </details>
@@ -133,9 +133,9 @@ shape.perimeter();
 
 #### 정답: A
 
-단항 더하기는 피연산자를 숫자로 변환하려 해요. `true`는 `1`, `false`은 `0`.
+단항 더하기는 피연산자를 숫자로 변환하려 시도 해요. `true`는 `1`이고, `false`은 `0`이에요.
 
-문자열 `'Lydia'`는 참 같은 값이에요. 실제로 물어보는 것은, "이 참 같은 값이 거짓 같은 값인가?"에요. 이것은 `false`을 리턴해요.
+문자열 `'Lydia'`는 참 같은 값이에요. 실제로는, "이 참 같은 값이 거짓 같은 값인가?"를 물어보고 있어요. 이것은 `false`을 리턴해요.
 
 </p>
 </details>
@@ -165,15 +165,13 @@ const mouse = {
 
 #### 정답: A
 
-JavaScript에서, 모든 객체 키는 문자열이에요 (심볼이 아닌 한). 비록 그것을 문자열 _형_ 으로 입력하지 않아도, 항상 내부적으로 문자열로 변환되어요.
+JavaScript에서, 모든 객체 키는 문자열이에요 (심볼이 아닌 한). 비록 그것을 문자열 _형_ 으로 입력하지 않아도, 항상 내부적으로 문자열로 변환돼요.
 
-JavaScript는 문장을 해석(또는 박스 해제)해요. 대괄호 표기를 사용하면, 첫 번째 왼쪽 대괄호 `[`를 보고 오른쪽 대괄호 `]`를 찾을 때까지 진행해요. 그때, 그 문장을 평가할 거에요.
+JavaScript는 문장을 해석(또는 박스 해제)해요. 대괄호 표기를 사용하면, 첫 번째 열린 대괄호 `[`를 보고 닫힌 대괄호 `]`를 찾을 때까지 진행해요. 그때에 만, 그 문장을 평가할 거예요.
 
-`mouse[bird.size]`: 먼저 `bird.size`를 평가해요, 이것은 `"small"`이에요. `mouse["small"]` 은 `true`를 리턴해요.
+`mouse[bird.size]`: 먼저 `"small"`인 `bird.size`를 평가해요. `mouse["small"]` 은 `true`를 리턴해요.
 
-그러나, 닷 표기에서는, 이것은 발생하지 않아요, `mouse`는 `bird`라고 불리는 키를 가지고 있지 않아요 즉, `mouse.bird`는 `undefined`를 의미해요.
-
-또, 닷 표기를 사용해 `size`를 물어봐요. `mouse.bird.size`. `mouse.bird`는 `undefined`로, 실제로는 `undefined.size`를 물어보고 있어요. 이것은 유효하지 않기 때문에, `Cannot read property "size" of undefined`와 비슷한 에러를 던질 거예요.
+그러나, 닷 표기법에서, 이것은 발생하지 않아요, `mouse`는 `bird`라고 불리는 키를 가지고 있지 않아요. 즉, `mouse.bird`는 `undefined`를 의미해요. 그 후, 닷 표기법을 사용해 `size`를 물어봐요. `mouse.bird.size`. `mouse.bird`는 `undefined`로, 실제로는 `undefined.size`를 물어보고 있어요. 이것은 유효하지 않기 때문에, `Cannot read property "size" of undefined`와 비슷한 에러를 던질 거예요.
 
 </p>
 </details>
@@ -286,8 +284,8 @@ console.log(freddie.colorChange("orange"));
 ###### 9. 무엇이 출력 될까요?
 
 ```javascript
-let greeting;
-greetign = {}; // Typo!
+let greeting; // Typo!
+greetign = {};
 console.log(greetign);
 ```
 
@@ -300,7 +298,7 @@ console.log(greetign);
 
 #### 정답: A
 
-객체는 출력돼요, 전역 객체에 빈 객체를 방금 만들었기 때문이에요. `greeting`을 `greettign`으로 잘못 입력했을 경우, JS 인터프리터는 실제로 이것을 `global.greettign = {}` (또는 브라우저의 `window.greetign = {}`) 라고 간주해요.
+역 객체에 빈 객체를 방금 만들었기 때문에, 객체는 출력되요. `greeting`을 `greettign`으로 잘못 입력했을 경우, JS 인터프리터는 실제로 이것을 `global.greettign = {}` (또는 브라우저의 `window.greetign = {}`) 라고 간주해요.
 
 이것을 피하기 위해서, `"use strict"`를 사용할 수 있어요. 이렇게 하면 변수를 어떤 것과 동일하게 설정하기 전에 변수를 선언했는지 확인할 수 있어요.
 
@@ -309,7 +307,7 @@ console.log(greetign);
 
 ---
 
-###### 10. 이것을 하면 어떻게 될까요?
+###### 10. 이렇게 하면 무슨 일이 생길까요?
 
 ```javascript
 function bark() {
@@ -319,9 +317,9 @@ function bark() {
 bark.animal = "dog";
 ```
 
-- A: 아무 일도 일어나지 않아요, 이건 완전히 괜찮아요!
+- A: 별일 없어요, 이건 완전히 괜찮아요!
 - B: `SyntaxError` 이 방법으로 함수에 속성을 추가할 수 없어요.
-- C: `undefined`
+- C: `"Woof"`이 출력돼요.
 - D: `ReferenceError`
 
 <details><summary><b>정답</b></summary>
@@ -329,8 +327,7 @@ bark.animal = "dog";
 
 #### 정답: A
 
-JavaScript에서는 가능해요, 함수는 객체이기 때문이에요!
-(윈시형 이외는 모두 객체)
+함수는 객체이기 때문에, 이건 JavaScript에서는 가능해요! (윈시형 이외는 모두 객체)
 
 함수는 특별한 종류의 객체예요. 당신이 쓴 코드는 실제 함수가 아니에요. 함수는 속성을 가진 객체예요. 이 속성은 호출이 가능해요.
 
@@ -365,7 +362,7 @@ console.log(member.getFullName());
 
 #### 정답: A
 
-보통의 객체처럼 생성자에는 속성을 추가할 수 없어요. 한 번에 모든 객체에 기능을 추가하고 싶다면, 프로토타입을 사용해야 해요. 그래서 이 경우에,
+생성자에는 보통의 객체처럼 속성을 추가할 수 없어요. 한 번에 모든 객체에 기능을 추가하고 싶다면, 프로토타입을 사용해야 해요. 그래서 이 경우에,
 
 ```js
 Person.prototype.getFullName = function() {
@@ -373,7 +370,7 @@ Person.prototype.getFullName = function() {
 };
 ```
 
-`member.getFullName()`은 작동해요. 이것은 왜 유익할까요? 이 메소드를 생성자 자체에 추가했다고 할게요. 아마도 모든 `Person` 인스턴스는 이 메소드를 필요로 하지 않을 수도 있어요. 그 경우 그들은 아직 속성을 갖고, 각각의 인스턴스를 위해 메모리 공간을 소비하기 때문에, 많은 메모리 공간을 낭비해요. 대신에, 프로토타입을 추가하는 것만으로, 메모리의 한 지점을 가지지만, 모든 것들은 그것에 접근 할 수 있어요.
+`member.getFullName()`은 작동해요. 이것은 왜 유익할까요? 이 메소드를 생성자 자체에 추가했다고 할게요. 아마도 모든 `Person` 인스턴스는 이 메소드를 필요로 하지 않을 수도 있어요. 그 경우 그들은 계속해서 속성을 갖고 있기 때문에, 각각의 인스턴스를 위한 메모리 공간을 소비하게 되어, 많은 메모리 공간을 낭비하게 될 거예요. 대신에, 프로토타입을 추가하는 것만으로, 메모리의 한 지점을 가지지만, 모든 것들은 그것에 접근 할 수 있어요.
 
 </p>
 </details>
@@ -405,9 +402,9 @@ console.log(sarah);
 
 #### 정답: A
 
-`sarah`를 위해, `new`키워드를 사용하지 않았어요. `new`를 사용한 경우, 이것은 우리가 만든 새로운 빈 객체를 참조해요. 그러나, `new`를 추가하지 않으면 **전역변수**를 참조해요!
+`sarah`에게 `new`키워드를 사용하지 않았어요. `new`를 사용한 경우, 이것은 우리가 만든 새로운 빈 객체를 참조해요. 그러나, `new`를 추가하지 않으면 **전역변수**를 참조해요!
 
-`this.firstName`에 `"Sarah"`을 대입하고, `this.lastName`에 `"Smith"`을 대입했다고 말했었어요. (그렇지만) 우리는 실제로, `global.firstName = 'Sarah'` 그리고 `global.lastName = 'Smith'`를 정의해요. `sarah` 자체는 `undefined`로 남아있어요.
+`this.firstName`은 `"Sarah"`이고, `this.lastName`은 `"Smith"`이리고 말했었어요. (그렇지만) 우리는 실제로 한 일은 `global.firstName = 'Sarah'` 그리고 `global.lastName = 'Smith'`를 정의하는 것이에요. `sarah` 자체는 `undefined`로 남아있어요.
 
 </p>
 </details>
@@ -445,7 +442,7 @@ console.log(sarah);
 
 #### 정답: B
 
-**기본 객체**를 제외한, 모든 객체는 프로토타입을 가져요. 기본 객체는 사용자에 의해 만들어지거나 `new`키워드를 사용하여 만들어져요. 기본 객체는 `.toString`와 같은 몇 개의 메소드와 속성에 접근할 수 있어요. 이것이 내장 JavaScript 메소드를 사용할 수 있는 이유죠! 이러한 모든 메소드는 프로토 타입에서 이용할 수 있어요. JavaScript가 당신의 객체를 직접 찾을 수 없더라도, 당신이 접근할 수 있도록, 프로토타입 체인으로 내려가서 찾을거에요.
+**기본 객체**를 제외한, 모든 객체는 프로토타입을 가져요. 기본 객체는 사용자에 의해 만들어지거나 `new`키워드를 사용하여 만들어져요. 기본 객체는 `.toString`와 같은 몇 개의 메소드와 속성에 접근할 수 있어요. 이것이 내장 JavaScript 메소드를 사용할 수 있는 이유죠! 이러한 모든 메소드는 프로토 타입에서 이용할 수 있어요. JavaScript가 당신의 객체를 직접 찾을 수 없더라도, 당신이 접근할 수 있도록 프로토타입 체인으로 내려가서 찾을거에요.
 
 </p>
 </details>
@@ -663,7 +660,7 @@ const sum = eval("10*10+5");
 
 ---
 
-###### 22. cool_secret에 몇시간 접근이 가능 할까요 ?
+###### 22. cool_secret에 몇 시간이나 접근이 가능할까요?
 
 ```javascript
 sessionStorage.setItem("cool_secret", 123);
@@ -672,7 +669,7 @@ sessionStorage.setItem("cool_secret", 123);
 - A: 영원히, 데이터는 사라지지 않아요.
 - B: 사용자가 탭을 닫을 때.
 - C: 사용자가 탭 뿐만 아니라, 브라우저 전체를 닫을 때.
-- D: 사용자가 자신의 컴퓨터를 종료시켰을때.
+- D: 사용자가 자신의 컴퓨터를 종료시켰을 때.
 
 <details><summary><b>정답</b></summary>
 <p>
@@ -738,7 +735,7 @@ set.has(1);
 
 #### 정답: C
 
-모든 객체 키는(심볼 제외) 문자열로 직접 입력하지 않아도, 내부적으로는 문자열이에요. 이것이 `obj.hasOwnProperty('1')` 또한 true를 리턴하는 이유죠.
+모든 객체 키는(심볼 제외) 문자열로 직접 입력하지 않아도, 내부적으로는 문자열이에요. 이것이 `obj.hasOwnProperty('1')`도 true를 리턴하는 이유죠.
 
 set에서는 작동하지 않아요. set에는 `'1'`이 없어요: `set.has('1')`는 `false`를 리턴해요. 그것은 수형인 `1`을 가지고 있어, `set.has(1)`은 `true`를 리턴해요.
 
@@ -764,7 +761,7 @@ console.log(obj);
 
 #### 정답: C
 
-같은 이름의 키를 두 개 가지고 있다면, 첫 번째 위치에서, 마지막에 지정된 값으로 대체될 거예요.
+같은 이름의 키를 두 개 가지고 있다면, 여전히 첫 번째 위치에 있지만, 마지막에 지정된 값으로 대체될 거예요.
 
 </p>
 </details>
@@ -775,14 +772,14 @@ console.log(obj);
 
 - A: true
 - B: false
-- C: it depends
+- C: 경우에 따라 달라요
 
 <details><summary><b>정답</b></summary>
 <p>
 
 #### 정답: A
 
-기본적인 execution context는 전역 실행 문장이에요: 당신의 코드 모든 곳에서 접근할 수 있어요.
+기본적인 실행 콘텍스트는 전역 실행 문장이에요: 당신의 코드 모든 곳에서 접근할 수 있어요.
 
 </p>
 </details>
@@ -960,7 +957,7 @@ WebAPI는 준비가 될 때마다 stack에 항목을 추가할 수 없어요. �
 
 ---
 
-###### 32. p태그를 클릭하면 로그의 출력은 무엇일까요 ?
+###### 32. p태그를 클릭하면 로그의 출력은 무엇일까요?
 
 ```html
 <div onclick="console.log('div')">
@@ -980,7 +977,7 @@ WebAPI는 준비가 될 때마다 stack에 항목을 추가할 수 없어요. �
 
 #### 정답: A
 
-`p`를 클릭하면, 2개의 로그를 볼 수 있어요: `p` 그리고 `div`. 이벤트의 전파 중에는 3 단계가 있어요: 캡처링, 타겟, 버블링. 기본적으로, 이벤트 핸들러는 버블링 단계에서 시작돼요. (`useCapture`를 `true`로 설정하지 않는 한). 가장 깊게 중첩된 요소로부터 바깥쪽으로 나가요.
+`p`를 클릭하면, 2개의 로그를 볼 수 있어요: `p` 그리고 `div`. 이벤트의 전파 중에는 3 단계가 있어요: 캡처링, 타겟, 버블링. 기본적으로, 이벤트 핸들러는 버블링 단계에서 시작돼요. (`useCapture`를 `true`로 설정하지 않는 한). 가장 깊게 중첩된 요소로부터 바깥쪽으로 나가요.
 
 </p>
 </details>
@@ -1012,7 +1009,7 @@ sayHi.bind(person, 21);
 
 두 개 모두, `this`키워드를 참조하고자 하는 객체로 보낼 수 있어요. 그러나, `.call`은 _즉시 실행돼요_!
 
-`.bind.`는 함수의 _복사본_ 을 리턴하지만, 바인딩 콘텍스트죠! 이건 즉시 실행되지 않아요.
+`.bind.`는 함수의 _복사본_ 을 리턴하지만, 바인딩 콘텍스트죠! 이건 즉시 실행되지 않아요.
 
 </p>
 </details>
@@ -1041,7 +1038,7 @@ console.log(typeof sayHi());
 
 `sayHi`함수는 즉시 호출 함수(IIFE)로서 리턴된 값을 리턴해요. 이 함수는 `0`을 리턴하고, 형은 `"number"`이에요.
 
-참고: 단 7개의 내장형이 있어요: `null`, `undefined`, `boolean`, `number`, `string`, `object` 그리고 `symbol`. `"function"`은 객체이기 때문에 형이 아니라 `"object"` 형이에요.
+참고: 단 7개의 내장형이 있어요: `null`, `undefined`, `boolean`, `number`, `string`, `object` 그리고 `symbol`. `"function"`은 객체이기 때문에 형이 아니라 `"object"`형이에요.
 
 </p>
 </details>
@@ -1332,7 +1329,7 @@ console.log(gen.next().value);
 
 우선, 제너레이터 함수에서 `i`를 `10`로 초기화해요. `next()` 메소드를 사용해 제너레이터 함수를 호출해요. 처음에 제너레이터 함수를 호출하면, `i`은 `10`이에요. 첫 번째 `yield` 키워드를 만났어요: 그것은 `i`의 값을 넘겨줘요. 이제 제너레이터는 "멈추고", `10`을 출력해요.
 
-그 후, `next()` 메소드를 사용해 다시 한번 함수를 호출해요. `i`는 여전히 `10`이에요. 이제, 다음 `yield` 키워드를 만나 `i * 2`를 넘겨줘요. `i`는 `10`이므로, `10 * 2`, 즉 `20`을 리턴해요. 결과는 `10, 20`이에요.
+그 후, `next()` 메소드를 사용해 다시 한번 함수를 호출해요. `i`는 여전히 `10`이에요. 이제, 다음 `yield` 키워드를 만나 `i * 2`를 넘겨줘요. `i`는 `10`이므로, `10 * 2`, 즉 `20`을 리턴해요. 결과는 `10, 20`이에요.
 
 </p>
 </details>
@@ -1363,7 +1360,7 @@ Promise.race([firstPromise, secondPromise]).then(res => console.log(res));
 
 #### 정답: B
 
-복수의 프로미스를 `Promise.race` 메소드에 넘겨주면, _최초_ 의 프로미스를 해결/거부 해요. `setTimeout` 메소드에 타이머를 전달해요: 첫번째 프로미스(`firstPromise`)에는 500ms, 두번째 프로미스(`secondPromise`)에는 100ms. 이것은 `'two'`의 값을 가진 `secondPromise`가 최초로 해결한다는 것을 의미해요. 이제 `res`는 `'two'`의 값을 유지하고 출력되요.
+복수의 프로미스를 `Promise.race` 메소드에 넘겨주면, _최초_ 의 프로미스를 해결/거부 해요. `setTimeout` 메소드에 타이머를 전달해요: 첫번째 프로미스(`firstPromise`)에는 500ms, 두번째 프로미스(`secondPromise`)에는 100ms. 이것은 `'two'`의 값을 가진 `secondPromise`가 최초로 해결한다는 것을 의미해요. 이제 `res`는 `'two'`의 값을 유지하고 출력되요.
 
 </p>
 </details>
@@ -1402,7 +1399,7 @@ console.log(members);
 
 <img src="https://i.imgur.com/sYjcsMT.png" width="300">
 
-배열의 첫 번째 요소는 객체에 대한 다른 (복사된) 참조를 가지고 있기 때문에, `person` 변수의 값만 변경하고, 배열의 첫번째 요소는 변경할 수 없어요. `members`의 첫 번째 요소는 여전히 원본 객체에 대한 참조를 유지하고 있어요. `members` 배열을 출력할 때, 첫 번째 요소는 여전히 객체의 값을 유지하고 있어 로그가 출력돼요.
+배열의 첫 번째 요소는 객체에 대한 다른 (복사된) 참조를 가지고 있기 때문에, `person` 변수의 값만 변경하고, 배열의 첫번째 요소는 변경할 수 없어요. `members`의 첫 번째 요소는 여전히 원본 객체에 대한 참조를 유지하고 있어요. `members` 배열을 출력할 때, 첫 번째 요소는 여전히 객체의 값을 유지하고 있어 로그가 출력돼요.
 
 </p>
 </details>
@@ -1432,7 +1429,7 @@ for (const item in person) {
 
 #### 정답: B
 
-`for-in` 루프를 사용하면, 객체 키를 통해서 반복할 수 있는데, 이경우에서는 `name` 그리고 `age`에요. 내부적으로, 객체 키는 문자열이에요 (심볼이 아니라면 말이죠). 모든 루프에서, `item`의 값은 반복되어 있는 현재의 키 값으로 설정해요. 우선, `item`은 `name`가 대입되어, 로그로 출력돼요. 그 후, `item`은 `age`가 대입되어, 로그로 출력돼요.
+`for-in` 루프를 사용하면, 객체 키를 통해서 반복할 수 있는데, 이경우에서는 `name` 그리고 `age`에요. 내부적으로, 객체 키는 문자열이에요 (심볼이 아니라면 말이죠). 모든 루프에서, `item`의 값은 반복되어 있는 현재의 키 값으로 설정해요. 우선, `item`은 `name`로 출력돼요. 그 후, `item`은 `age`로 출력돼요.
 
 </p>
 </details>
@@ -1459,7 +1456,7 @@ console.log(3 + 4 + "5");
 
 처음으로 `3 + 4`가 평가되요. 결과는 숫자 `7`이에요.
 
-`7 + '5'`의 결과는 강제성 때문에 `"75"`가 돼요. JavaScript는 숫자 `7`을 문자열로 변환하고, (자세한 내용은)질문 15를 보세요. `+` 연산자를 사용해서 두 개의 문자열을 연결할 수 있어요. `"7" + "5"`의 결과는 `"75"`이에요.
+`7 + '5'`의 결과는 강제성 때문에 `"75"`가 돼요. JavaScript는 숫자 `7`을 문자열로 변환하고, (자세한 내용은)질문 15를 보세요. `+` 연산자를 사용해서 두 개의 문자열을 연결할 수 있어요. `"7" + "5"`의 결과는 `"75"`이에요.
 
 </p>
 </details>
@@ -1482,7 +1479,7 @@ const num = parseInt("7*6", 10);
 
 #### 정답: C
 
-문자열의 첫 번째 숫자만 리턴돼요. _진법_ 에 근거하여 (파싱 하고자 하는 숫자의 기준을 명시하기 위한 두 번째 인수: 기본적인 10진수, 6진수, 8진수, 2진수 등), `parseInt`는 문자열 내의 문자가 타당한지 여부를 확인해요. 진수에 유효한 숫자가 아닌 문자를 만나면, 파싱을 멈추고, 다음 문자를 무시해요.
+문자열의 첫 번째 숫자만 리턴돼요. _진법_ 에 근거하여 (파싱 하고자 하는 숫자의 기준을 명시하기 위한 두 번째 인수: 기본적인 10진수, 6진수, 8진수, 2진수 등), `parseInt`는 문자열 내의 문자가 타당한지 여부를 확인해요. 진수에 유효한 숫자가 아닌 문자를 만나면, 파싱을 멈추고, 다음 문자를 무시해요.
 
 `*`은 유요한 숫자가 아니에요. `"7"`만 십진수의 `7`으로 파싱 돼요. 이제 `num`은 `7`의 값을 유지해요.
 
@@ -1524,7 +1521,7 @@ const num = parseInt("7*6", 10);
 ```javascript
 function getInfo(member, year) {
   member.name = "Lydia";
-  year = 1998;
+  year = "1998";
 }
 
 const person = { name: "Sarah" };
@@ -1545,11 +1542,11 @@ console.log(person, birthYear);
 
 #### 정답: A
 
-인수들의 값이 객체가 아닌 한 _값_ 에 의해 전달되요. 그 후 _참조_ 에 의해 전달되요. `birthYear`는 객체가 아니라 문자열이기 때문에 값에 의해 전달되요. 값으로 전달하면 값의 _복사본_ 이 만들어 져요(질문 46을 보세요).
+인수들의 값이 객체가 아닌 한 _값_ 에 의해 전달되요. 그 후 _참조_ 에 의해 전달되요. `birthYear`는 객체가 아니라 문자열이기 때문에 값에 의해 전달되요. 값으로 전달하면 값의 _복사본_ 이 만들어 져요(질문 46을 보세요).
 
-변수 `birthYear`는 `"1997"`값에 대한 참조를 가져요. 인수 `year` 또한 `"1997"`에 대한 참조를 가지지만, `birthYear`가 가진 참조값과는 달라요. `year`에 `"1997"`을 대입하여 `year`의 값을 업데이트할 때, `year`의 값만 업데이트해요. `birthYear`는 여전히 `"1997"`이에요.
+변수 `birthYear`는 `"1997"`값에 대한 참조를 가져요. 인수 `year` 또한 `"1997"`에 대한 참조를 가지지만, `birthYear`가 가진 참조값과는 달라요. `year`에 `"1998"`을 대입하여 `year`의 값을 업데이트할 때, `year`의 값만 업데이트해요. `birthYear`는 여전히 `"1997"`이에요.
 
-`person`의 값은 객체예요. 인수 `member`는 _같은_ 객체의 (복사된) 참조값을 가져요. `member`객체의 속성이 갖는 참조를 변경하면, 두 개 모두 같은 객체를 참조 값을 가지고 있기 때문에, `person`의 값 또한 변경돼요. 이제 `person`'의 `name` 속성은 값 `"Lydia"`와 같아요.
+`person`의 값은 객체예요. 인수 `member`는 _같은_ 객체의 (복사된) 참조값을 가져요. `member`객체의 속성이 갖는 참조를 변경하면, 두 개 모두 같은 객체를 참조 값을 가지고 있기 때문에, `person`의 값 또한 변경돼요. 이제 `person`'의 `name` 속성은 값 `"Lydia"`에요.
 
 </p>
 </details>
@@ -1587,7 +1584,7 @@ sayHi();
 
 `throw`문을 사용해, 커스텀 에러를 만들 수 있어요. 이 표현식을 사용해, 예외를 던질 수 있어요. 예외는 <b>string</b>, a <b>number</b>, a <b>boolean</b> or an <b>object</b>이 될 수 있어요. 이 경우, 예외는 `'Hello world'` 문자열이에요.
 
-`catch` 문을 사용해, `try` 블록에서 예외가 던져졌을 경우에 어떻게 할지 명시할 수 있어요. 예외가 던져졌어요: 문자열 `'Hello world'`. `e`는 이제 문자열이고, 그것을 출력해요. 결과는 `'Oh an error: Hello world'`이에요.
+`catch` 문을 사용해, `try` 블록에서 예외가 던져졌을 경우에 무엇을 할지 명시할 수 있어요. 예외가 던져졌어요: 문자열 `'Hello world'`. `e`는 이제 문자열이고, 그것을 출력해요. 결과는 `'Oh an error: Hello world'`예요.
 
 </p>
 </details>
@@ -1656,6 +1653,305 @@ let x = y;
 그 후, 변수 `x`를 `10`인 `y`를 값으로 선언해요. `let`키워드로 선언된 변수는 _블록 스코프_ 로, 선언된 블록 내에서만 정의돼요: 이경우 즉시 호출 함수예요(IIFE). `typeof`연산자를 사용할 때, 피연산자 `x`는 정의되지 않았어요: 선언된 블록 밖에서 접근하려 했어요. 이것은 `x`가 선언되지 않음을 의미해요. 값을 할당하거나 선언하지 않은 변수는 `"undefined"` 형이에요. `console.log(typeof x)`는 `"undefined"`를 리턴해요.
 
 그러나, `y`를 `10`으로 설정할 때 전역 변수 `y`를 만들었어요. 이 값은 코드 내 어디에서나 접근할 수 있어요. `y`는 정의되었고, `"number"`형의 값을 유지해요. `console.log(typeof y)`는 `"number"`을 리턴해요.
+
+</p>
+</details>
+
+---
+
+###### 55. 무엇이 출력 될까요?
+
+```javascript
+class Dog {
+  constructor(name) {
+    this.name = name;
+  }
+}
+
+Dog.prototype.bark = function() {
+  console.log(`Woof I am ${this.name}`);
+};
+
+const pet = new Dog("Mara");
+
+pet.bark();
+
+delete Dog.prototype.bark;
+
+pet.bark();
+```
+
+- A: `"Woof I am Mara"`, `TypeError`
+- B: `"Woof I am Mara"`,`"Woof I am Mara"`
+- C: `"Woof I am Mara"`, `undefined`
+- D: `TypeError`, `TypeError`
+
+<details><summary><b>Answer</b></summary>
+<p>
+
+#### Answer: A
+
+프로토타입에서도 `delete`키워드를 사용해, 객체로부터 속성을 삭제할 수 있어요. 프로토타입에서 속성을 삭제하면, 프로토타입 체인에서 더 이상 사용할 수 없게 돼요. 이경우, `bark`함수는 `delete Dog.prototype.bark` 후에 프로토타입에서 더 이상 사용할 수 없게 되지만, 그래도 여전히 그것에 접근하려고 해요.
+
+함수가 아닌 것을 호출하려고 할 때, `TypeError`가 던져져요. 이경우 `pet.bark`은 `undefined`이기 때문에, `TypeError: pet.bark is not a function`예요.
+
+</p>
+</details>
+
+---
+
+###### 56. 무엇이 출력 될까요?
+
+```javascript
+const set = new Set([1, 1, 2, 3, 4]);
+
+console.log(set);
+```
+
+- A: `[1, 1, 2, 3, 4]`
+- B: `[1, 2, 3, 4]`
+- C: `{1, 1, 2, 3, 4}`
+- D: `{1, 2, 3, 4}`
+
+<details><summary><b>Answer</b></summary>
+<p>
+
+#### Answer: D
+
+`Set`는 _unique_ 값의 집합 객체예요: 값은 set 내에서 단 한 번만 발생해요.
+
+중복 값 `1`을 가진 반복 가능한 `[1, 1, 2, 3, 4]`을 전달하기 때문에, 그들 중 하나는 삭제돼요. 이것은 결과적으로 `{1, 2, 3, 4}`돼요.
+
+</p>
+</details>
+
+---
+
+###### 57. 무엇이 출력 될까요?
+
+```javascript
+// counter.js
+let counter = 10;
+export default counter;
+```
+
+```javascript
+// index.js
+import myCounter from "./counter";
+
+myCounter += 1;
+
+console.log(myCounter);
+```
+
+- A: `10`
+- B: `11`
+- C: `Error`
+- D: `NaN`
+
+<details><summary><b>Answer</b></summary>
+<p>
+
+#### Answer: C
+
+import 된 모듈은 _read-only_ 예요 : import 된 모듈은 수정할 수 없어요. export 한 모듈만 값을 변경할 수 있어요.
+
+`myCounter`의 값을 증가 시키려고 할 때, 에러를 던져요: `myCounter`은 read-only이고 수정할 수 없어요.
+
+</p>
+</details>
+
+---
+
+###### 58. 무엇이 출력 될까요?
+
+```javascript
+const name = "Lydia";
+age = 21;
+
+console.log(delete name);
+console.log(delete age);
+```
+
+- A: `false`, `true`
+- B: `"Lydia"`, `21`
+- C: `true`, `true`
+- D: `undefined`, `undefined`
+
+<details><summary><b>Answer</b></summary>
+<p>
+
+#### Answer: A
+
+`delete`연산자는 불린 값을 리턴해요: 성공적으로 삭제를 한 경우 `true`를, 그렇지 않다면 `false`를 리턴해요. 그러나, `var`, `const` 또는 `let` 키워드로 선언된 변수들은 `delete`연산자를 사용해서 삭제될 수 없어요.
+
+`name` 변수는 `const`키워드로 선언되었기 때문에, 삭제에 실패해요. `age`를 `21`로 설정할 때, 실제로는 `age`라는 속성을 전역 객체에 추가한 거죠. 이 방법으로 객체, 전역 객체의 속성들을 성공적으로 삭제할 수 있어요. `delete age`는 `true`을 리턴해요.
+
+</p>
+</details>
+
+---
+
+###### 59. 무엇이 출력 될까요?
+
+```javascript
+const numbers = [1, 2, 3, 4, 5];
+const [y] = numbers;
+
+console.log(y);
+```
+
+- A: `[[1, 2, 3, 4, 5]]`
+- B: `[1, 2, 3, 4, 5]`
+- C: `1`
+- D: `[1]`
+
+<details><summary><b>Answer</b></summary>
+<p>
+
+#### Answer: C
+
+구조 분해 할당을 통해 객체의 배열 또는 속성들로부터 변수를 해체할 수 있어요. 예를 들어:
+
+```javascript
+[a, b] = [1, 2];
+```
+
+<img src="https://i.imgur.com/ADFpVop.png" width="200">
+
+`a`는 이제 `1`이고, `b`는 이제 `2`예요. 질문에서 실제로 한 건 다음과 같아요:
+
+```javascript
+[y] = [1, 2, 3, 4, 5];
+```
+
+<img src="https://i.imgur.com/NzGkMNk.png" width="200">
+
+이것은 `y`의 값은 숫자 `1`인 배열의 첫번째 값과 같다는 것을 의미하죠. `y`를 출력하면 `1`이 리턴돼요.
+
+</p>
+</details>
+
+---
+
+###### 60. 무엇이 출력 될까요?
+
+```javascript
+const user = { name: "Lydia", age: 21 };
+const admin = { admin: true, ...user };
+
+console.log(admin);
+```
+
+- A: `{ admin: true, user: { name: "Lydia", age: 21 } }`
+- B: `{ admin: true, name: "Lydia", age: 21 }`
+- C: `{ admin: true, user: ["Lydia", 21] }`
+- D: `{ admin: true }`
+
+<details><summary><b>Answer</b></summary>
+<p>
+
+#### Answer: B
+
+스프레드 연산자 `...`를 사용해 객체를 결합할 수 있어요. 이것은 하나의 객체의 키/값의 쌍들을 복사본들을 만들어, 다른 객체에 추가해요. 이 경우, `user` 객체의 복사 본들을 만들어, `admin` 객체에 추가해요. `admin` 객체는 이제 복사된 키/값의 쌍들이 들어있고, 결과는 `{ admin: true, name: "Lydia", age: 21 }`예요.
+
+</p>
+</details>
+
+---
+
+###### 61. 무엇이 출력 될까요?
+
+```javascript
+const person = { name: "Lydia" };
+
+Object.defineProperty(person, "age", { value: 21 });
+
+console.log(person);
+console.log(Object.keys(person));
+```
+
+- A: `{ name: "Lydia", age: 21 }`, `["name", "age"]`
+- B: `{ name: "Lydia", age: 21 }`, `["name"]`
+- C: `{ name: "Lydia"}`, `["name", "age"]`
+- D: `{ name: "Lydia"}`, `["age"]`
+
+<details><summary><b>Answer</b></summary>
+<p>
+
+#### Answer: B
+
+`defineProperty`메소드로, 객체에 새로운 속성들을 추가하거나, 기존 것을 수정할 수 있어요. `defineProperty` 메소드를 사용해 객체의 속성을 추가할 때, 기본적으로 객체의 속성들은 _비 열거자_ 예요. `Object.keys`메소드는 모든 _열거자_ 객체의 속성 이름들을 리턴하는데, 이 경우는 `"name"` 뿐이에요.
+
+`defineProperty`를 사용해 추가된 속성들은 기본적으로 변경할 수 없어요. `writable`, `configurable` 그리고 `enumerable` 속성들을 사용해 덮어쓰기 할 수 있어요. `defineProperty`메소드의 방법은 객체에 추가할 속성들을 훨씬 더 정교 하게 제어하도록 해줘요.
+
+</p>
+</details>
+
+---
+
+###### 62. 무엇이 출력 될까요?
+
+```javascript
+const settings = {
+  username: "lydiahallie",
+  level: 19,
+  health: 90
+};
+
+const data = JSON.stringify(settings, ["level", "health"]);
+console.log(data);
+```
+
+- A: `"{"level":19, "health":90}"`
+- B: `"{"username": "lydiahallie"}"`
+- C: `"["level", "health"]"`
+- D: `"{"username": "lydiahallie", "level":19, "health":90}"`
+
+<details><summary><b>Answer</b></summary>
+<p>
+
+#### Answer: A
+
+`JSON.stringify` 두번째 인수는 _replacer_ 예요. replacer는 함수 또는 배열 둘 중 하나가 될 수 있고, stringify 할 대상과 방법을 제어 할 수 있게 해줘요.
+
+replacer가 _배열_ 이라면, 배열에 이름이 포함된 속성만 JSON 문자열에 추가될 거에요. 이 경우, 이름을 가진 `"level"` 그리고 `"health"`속성들만 포함되고, `"username"`은 제외되요. `data` 은 이제 `"{"level":19, "health":90}"`에요.
+
+replacer가 _함수_ 라면, stringifying 할 객체의 모든 속성에 호출돼요. 이 함수로부터 리턴된 값은 JSON 문자열에 추가될 때 속성의 값이 될 거에요. 만약 값이 `undefined`라면, 이 속성은 JSON 문자열로부터 제외돼요.
+
+</p>
+</details>
+
+---
+
+###### 63. 무엇이 출력 될까요?
+
+```javascript
+let num = 10;
+
+const increaseNumber = () => num++;
+const increasePassedNumber = number => number++;
+
+const num1 = increaseNumber();
+const num2 = increasePassedNumber(num1);
+
+console.log(num1);
+console.log(num2);
+```
+
+- A: `10`, `10`
+- B: `10`, `11`
+- C: `11`, `11`
+- D: `11`, `12`
+
+<details><summary><b>Answer</b></summary>
+<p>
+
+#### Answer: A
+
+단항 연산자 `++`는 _우선_ 피연산자의 값을 _리턴하고_, _그 후_ 피연산자의 값을 _증가해요_. `increaseNumber` 함수이 처음으로 리턴 한 `num`의 값은 `10` 이기 때문에, `num1`의 값은 `10`이고, 그 후엔 `num`의 값만 증가해요.
+
+`num1`을 `increasePassedNumber`로 전달했기 때문에, `num2`는 `10`이에요. `number`는 `10`이에요(`num1`의 값은, 다시 한번, 단항 연산자가 `++`는 _우선_ 피연산자의 값을 _리턴하고_, _그 후_ 피연산자의 값을 _증가해요_. `number`의 값은 `10`이에요 즉, `num2`는 `10`이죠.
 
 </p>
 </details>
