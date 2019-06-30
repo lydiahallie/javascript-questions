@@ -1811,7 +1811,7 @@ console.log(y);
 
 #### Answer: C
 
-We can unpack values from arrays or properties from objects through destructing. For example:
+We can unpack values from arrays or properties from objects through destructuring. For example:
 
 ```javascript
 [a, b] = [1, 2];
