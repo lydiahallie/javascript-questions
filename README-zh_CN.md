@@ -977,14 +977,14 @@ WebAPI 不能随时向栈内添加内容。相反，它将回调函数推到名�
 ###### 33. 输出是什么？
 
 ```javascript
-const person = { name: 'Lydia' }
+const person = { name: "Lydia" };
 
 function sayHi(age) {
-  console.log(`${this.name} is ${age}`)
+  return `${this.name} is ${age}`;
 }
 
-sayHi.call(person, 21)
-sayHi.bind(person, 21)
+console.log(sayHi.call(person, 21));
+console.log(sayHi.bind(person, 21));
 ```
 
 - A: `undefined is 21` `Lydia is 21`

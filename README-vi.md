@@ -984,11 +984,11 @@ Nếu ta click vào `p`, ta sẽ thấy hai log: `p` và `div`. Trong chuỗi ev
 const person = { name: "Lydia" };
 
 function sayHi(age) {
-  console.log(`${this.name} is ${age}`);
+  return `${this.name} is ${age}`;
 }
 
-sayHi.call(person, 21);
-sayHi.bind(person, 21);
+console.log(sayHi.call(person, 21));
+console.log(sayHi.bind(person, 21));
 ```
 
 - A: `undefined is 21` `Lydia is 21`

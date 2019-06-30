@@ -990,11 +990,11 @@ WebAPI는 준비가 될 때마다 stack에 항목을 추가할 수 없어요. �
 const person = { name: "Lydia" };
 
 function sayHi(age) {
-  console.log(`${this.name} is ${age}`);
+  return `${this.name} is ${age}`;
 }
 
-sayHi.call(person, 21);
-sayHi.bind(person, 21);
+console.log(sayHi.call(person, 21));
+console.log(sayHi.bind(person, 21));
 ```
 
 - A: `undefined is 21` `Lydia is 21`
