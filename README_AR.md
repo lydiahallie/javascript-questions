@@ -1732,3 +1732,305 @@ let x = y;
 </p>
 </details>
 </div>
+
+---
+
+55. ماهو الناتج؟
+
+```javascript
+class Dog {
+  constructor(name) {
+    this.name = name;
+  }
+}
+
+Dog.prototype.bark = function() {
+  console.log(`Woof I am ${this.name}`);
+};
+
+const pet = new Dog("Mara");
+
+pet.bark();
+
+delete Dog.prototype.bark;
+
+pet.bark();
+```
+
+- A: `"Woof I am Mara"`, `TypeError`
+- B: `"Woof I am Mara"`,`"Woof I am Mara"`
+- C: `"Woof I am Mara"`, `undefined`
+- D: `TypeError`, `TypeError`
+
+<details><summary><b>الإجابة</b></summary>
+<p>
+<div dir='rtl'>
+الجواب هو الخيار الأول: A
+  
+بإمكاننا مسح خصائص object معين عن طريق استخدام الكلمة المفتاحية `delete`, أيضا يمكن فعل هذا في ال prototype. بمسح خاصية معينة من الprototype,  فهي سيتم مسحها وبالتالي لن تكون موجودة في سلسلة الprototype. في هذه الحالة فإن الدالة `bark`  لن تكون موجودة بعد الآن في الprototype بعد `delete Dog.prototype.bark`, ولكن بالرغم من هذا فنحن نحاول الوصول إليها.   
+
+عندما نحاول أن ننادي شيئا ما في دالة و هو ليس موجود في هذه الدالة, فإننا سنتحصل على الخطأ `TypeError`, و في هذه الحالة `TypeError: pet.bark is not a function` بما أن `pet.bark` هي `undefined`.   
+</p>
+</details>
+</div>
+
+---
+
+56. ماهو الناتج؟
+
+```javascript
+const set = new Set([1, 1, 2, 3, 4]);
+
+console.log(set);
+```
+
+- A: `[1, 1, 2, 3, 4]`
+- B: `[1, 2, 3, 4]`
+- C: `{1, 1, 2, 3, 4}`
+- D: `{1, 2, 3, 4}`
+
+<details><summary><b>الإجابة</b></summary>
+<p>
+<div dir='rtl'>
+الجواب هو الخيار الرابع: D
+
+ال object `Set` هو مجموعة من القيم الفريدة, أي القيمة بإمكانها أن تتواجد مرة واحدة فقط في المجموعة. 
+
+نقوم بتمرير التكراري أي نعني الiterable `[1, 1, 2, 3, 4]`  بوجود قيمة مكررة ألا وهي `1` . بما أننا لا يمكن أن نضع قيمة واحدة مرتين في مجموعة, فإن واحدة من القيم المكررة سيتم إزالتها, و سيكون الناتج: `{1, 2, 3, 4}`. 
+</p>
+</details>
+</div>
+
+---
+
+57. ماهو الناتج؟
+
+```javascript
+// counter.js
+let counter = 10;
+export default counter;
+```
+
+```javascript
+// index.js
+import myCounter from "./counter";
+
+myCounter += 1;
+
+console.log(myCounter);
+```
+
+- A: `10`
+- B: `11`
+- C: `Error`
+- D: `NaN`
+
+<details><summary><b>الإجابة</b></summary>
+<p>
+<div dir='rtl'>
+الجواب هو الخيار الثالث: C
+
+هنا يوجد لدينا module مستورد وهو قابل للقراءة فقط, ليس بإمكانك تعديل او تحديث الmodule المستورد, أي imported module. فقط الmodule الذي قام بتصديره هو القادر على تغيير قيمته.
+
+عندما نحاول أن نزيد قيمة المتغير `myCounter`, سنتحصل على الخطأ `myCounter` هو قابل للقراءة فقط و ليس من الممكن تعديله.  
+</p>
+</details>
+</div>
+
+---
+
+58. ماهو الناتج؟
+
+```javascript
+const name = "Lydia";
+age = 21;
+
+console.log(delete name);
+console.log(delete age);
+```
+
+- A: `false`, `true`
+- B: `"Lydia"`, `21`
+- C: `true`, `true`
+- D: `undefined`, `undefined`
+
+<details><summary><b>الإجابة</b></summary>
+<p>
+<div dir='rtl'>
+الجواب هو الخيار الأول: A
+  
+العامل `delete` تقوم بإرجاع قيمة boolen و هي `true` عندما تتم عملية المسح بنجاح, خلاف ذلك ستقوم بإرجاع `false`, ولكن المتغيرات المعرفة بالكلمات المفتاحية `var`, `const` أو `let` ليس بالإمكان مسحها بإستخدام العامل `delete`.        
+
+المتغير `name` تم تعريفه باستخدام الكلمة المفتاحية `const`, لهذا فإن عملية مسحه لم تتم بنجاح, وتم إرجاع القيمة `false`, عندما نقوم بضبط المتغير `age` ليساوي القيمة `21` فإننا فعليا نقوم بإضافة خاصية تسمى `age` للglopal object. بإمكانك أن تمسح خصائص من الobjects بنجاح بإستخدام هذه الطريقة , أيضا الglopal objects, لذا فإن `delete age` تقوم بإرجاع `true`.         
+</p>
+</details>
+
+---
+
+59. ماهو الناتج؟
+
+```javascript
+const numbers = [1, 2, 3, 4, 5];
+const [y] = numbers;
+
+console.log(y);
+```
+
+- A: `[[1, 2, 3, 4, 5]]`
+- B: `[1, 2, 3, 4, 5]`
+- C: `1`
+- D: `[1]`
+
+<details><summary><b>الإجابة</b></summary>
+<p>
+<div dir='rtl'>
+الجواب هو الخيار الثالث: C
+
+بإمكاننا إستخراج أو استخلاص القيم من arrays أو من objects عن طريق إستخدام الdestructing, على سبيل المثال: 
+</div>
+
+```javascript
+[a, b] = [1, 2];
+```
+
+<div dir='rtl'>
+<img src="https://i.imgur.com/ADFpVop.png" width="200">
+
+قيمة `a` الآن تساوي `1`, و قيمة `b` الآن تساوي `2`. ماقمنا بفعله حقاً في هذا السؤال هو:     
+</div>
+
+```javascript
+[y] = [1, 2, 3, 4, 5];
+```
+
+<div dir='rtl'>
+<img src="https://i.imgur.com/NzGkMNk.png" width="200">
+
+هذا يعني أن قيمة `y` هي مساوية للقيمة الأولى في الarray, والتي هي عبارة عن نوع رقم يساوي `1`, عندما نقوم بطباعة `y` عن طريق الlog, فإن القيمة `1` هي التي يتم إرجاعها.     
+</p>
+</details>
+</div>
+
+---
+
+60. ماهو الناتج؟
+
+```javascript
+const user = { name: "Lydia", age: 21 };
+const admin = { admin: true, ...user };
+
+console.log(admin);
+```
+
+- A: `{ admin: true, user: { name: "Lydia", age: 21 } }`
+- B: `{ admin: true, name: "Lydia", age: 21 }`
+- C: `{ admin: true, user: ["Lydia", 21] }`
+- D: `{ admin: true }`
+
+<details><summary><b>الإجابة</b></summary>
+<p>
+<div dir='rtl'>
+الجواب هو الخيار الثاني: B
+
+من الممكن دمج الobjects بإستخدام العامل spread `...`. هي تمكنك من إنشاء نسخ من أزواج ال key/value أي أزواج المفاتيح و القيم التي تنتمي الى object معين, و إضافتهم الى object آخر. في هذه الحالة, نحن نقوم بعمل نسخ من الobject `user`, و من ثم إضافتهم الى ال obejct `admin`. ال object `admin` الآن يتضمن نسخ عبارة عن أزواج مفاتيح و قيم, و هذا ما سبب في إعطاء النتيجة `{ admin: true, name: "Lydia", age: 21 }`.  
+</p>
+</details>
+</div>
+
+---
+
+61. ماهو الناتج؟
+
+```javascript
+const person = { name: "Lydia" };
+
+Object.defineProperty(person, "age", { value: 21 });
+
+console.log(person);
+console.log(Object.keys(person));
+```
+
+- A: `{ name: "Lydia", age: 21 }`, `["name", "age"]`
+- B: `{ name: "Lydia", age: 21 }`, `["name"]`
+- C: `{ name: "Lydia"}`, `["name", "age"]`
+- D: `{ name: "Lydia"}`, `["age"]`
+
+<details><summary><b>الإجابة</b></summary>
+<p>
+<div dir='rtl'>
+الجواب هو الخيار الثاني: B
+
+مع إستخدام  `defineProperty` method, بإمكاننا إضافة خصائص جديدة لobject معين,أو تعديل خصائصه الحالية,. عندما نقوم بإضافة خاصية لobject بإستخدام `defineProperty` method, ف هي بطبيعة الحال ليست enumerable. ال `Object.keys` method تقوم بإرجاع جميع أسامي الخصائص من object معين و التي هي جميعها enumerable, في هذه الحالة `"name"` فقط.       
+
+الخصائص التي تم إضافتها بإستخدام `defineProperty` method هي بطبيعة الحال غير قابلة للتغيير أو التعديل. بإمكانك عمل override بإستخدام الخصائص `writable`, `configurable` و `enumerable`.  بهذه الطريقة, ال `defineProperty` method ستعطيك تحكم أكثر بكثير على الخصائص التي قمت بإضافتها الى object معين.  
+</p>
+</details>
+</div>
+
+---
+
+62. ماهو الناتج؟
+
+```javascript
+const settings = {
+  username: "lydiahallie",
+  level: 19,
+  health: 90
+};
+
+const data = JSON.stringify(settings, ["level", "health"]);
+console.log(data);
+```
+
+- A: `"{"level":19, "health":90}"`
+- B: `"{"username": "lydiahallie"}"`
+- C: `"["level", "health"]"`
+- D: `"{"username": "lydiahallie", "level":19, "health":90}"`
+
+<details><summary><b>الإجابة</b></summary>
+<p>
+<div dir='rtl'>
+الجواب هو الخيار الأول : A
+
+ال argument الثاني من `JSON.stringify` هو replacer أي حالٍ محل شيء آخر, الreplacer إما أن يكون دالة أو يكون array, و سيمكنك من التحكم في كيفية و ماهية امكانية عمل stringified للقيم, أي تحويلها الى string.   
+
+إذا كان الreplacer هو عبارة عن array, فإن الخصائص التي أساميها مضمنة في الarray هي فقط التي يمكن إضافتها الى ال JSON string. في هذه الحالة, الخصائص التي تحمل الأسامي `"level"` و `"health"` فقط هي المضمنة, `"username"` غير مضمنة. `data` الآن تساوي `"{"level":19, "health":90}"`.   
+
+إذا كان الreplacer عبارة عن دالة, فإن هذه الدالة يتم مناداتها عند أي خاصية في الobject أنت تقوم بعمل stringifying لها.القيمة المرجعة من هذه الدالة ستكون قيمة الخاصية عندما تم إضافتها ل JSON string. إذا كانت القيمة `undefined`, فإن هذه الخاصية سيتم إستبعادها من الJSON string.  
+</p>
+</details>
+</div>
+
+---
+
+63. ماهو الناتج؟
+
+```javascript
+let num = 10;
+
+const increaseNumber = () => num++;
+const increasePassedNumber = number => number++;
+
+const num1 = increaseNumber();
+const num2 = increasePassedNumber(num1);
+
+console.log(num1);
+console.log(num2);
+```
+
+- A: `10`, `10`
+- B: `10`, `11`
+- C: `11`, `11`
+- D: `11`, `12`
+
+<details><summary><b>الإجابة</b></summary>
+<p>
+<div dir='rtl'>
+الجواب هو الخيار الأول : A
+
+العامل الأحادي `++` يقوم أولا بإرجاع قيمة المعامل, ثم يقوم بزيادة قيمة هذا المعامل. قيمة `num1` تساوي `10`, و بما أن دالة `increaseNumber` أولا تقوم بإرجاع قيمة `num` و التي هي تساوي `10`, و تقوم بزيادة قيمة `num` لاحقاً فقط.       
+
+`num2` تساوي`10`, وبما أننا نقوم بتمرير `num1` ل `increasePassedNumber`. فإن `number` تساوي `10` والتي هي قيمة`num1`. مجدداً, العامل الأحادي `++`, أولاً يقوم بإرجاع قيمة المعامل, و من ثم زيادة قيمة المعامل. قيمة `number` تساوي`10`, إذاً `num2` تساوي `10`.         
+</p>
+</details>
+</div>
