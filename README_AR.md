@@ -18,12 +18,13 @@
 * [中文版本](./README-zh_CN.md)
 * [Versión en español](./README-ES.md)
 * [日本語](./README-ja_JA.md)  
+* [한국어](./README-ko_KR.md) 
 * [Русский](./README_ru-RU.md)  
 * [Western Balkan](./README-bs_BS.md)  
 * [Deutsch](./README-de_DE.md)  
 * [Tiếng Việt](./README-vi.md)
 * [Українська мова](./README-ua_UA.md)  
-* [Português Brasil](./README_pt_BR.md)  
+* [Português Brasil](./README_pt_BR.md) 
 </div>
 
 ____________
