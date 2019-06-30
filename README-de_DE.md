@@ -6,9 +6,12 @@ Von einfach bis fortgeschritten: teste wie gut du JavaScript kennst, frische dei
 
 Die Antworten sind unterhalb der Fragen versteckt. Du kannst einfach darauf klicken um die Antworten anzuzeigen. Viel Glück :heart:
 
+### Andere verfügbare Sprachen
 [English](./README.md) <br />
 [Bosanski Jezik](./README-bs_BS.md) <br />
 [日本語](./README-ja_JA.md) <br />
+[한국어](./README-ko_KR.md) <br />
+[Português Brasil](./README_pt_BR.md) <br />
 [Русский](./README_ru-RU.md) <br />
 [Українська мова](./README-ua_UA.md) <br />
 [Tiếng Việt](./README-vi.md) <br />
@@ -1650,6 +1653,306 @@ Wenn wir `y` gleich `10` setzen, erstellen wir eigentlich eine Property `y` im g
 Dann erstellen wir eine Variable `x` mit dem Wert von `y` (`10`). Variablen, die mit `let` erstellt werden sind _Block-Scoped_, was bedeutet, dass sie nur in dem Block existieren, wo sie erstellt wurden – der hier erstellte Funktion (IIFE) in diesem Fall. Wenn wir den `typeof` Operator nutzen ist `x` nicht definiert. Wir versuchen auf `x` außerhalb des Scopes zuzugreifen, was bedeutet, dass `x` `"undefined"` ist. `console.log(typeof x)` gibt daher `"undefined"` aus.
 
 Da wir die Variable `y` aber global erstellt haben ist ihr Wert `10` auch hier verfügbar und überall in userem Code aufrufbar. `y` ist definiert und beinhaltet einen Wert vom Typ `"number"`. `console.log(typeof y)` gibt daher `"number"` aus.
+
+</p>
+</details>
+
+
+---
+
+###### 55. Was ist der Output?
+
+```javascript
+class Dog {
+  constructor(name) {
+    this.name = name;
+  }
+}
+
+Dog.prototype.bark = function() {
+  console.log(`Woof I am ${this.name}`);
+};
+
+const pet = new Dog("Mara");
+
+pet.bark();
+
+delete Dog.prototype.bark;
+
+pet.bark();
+```
+
+- A: `"Woof I am Mara"`, `TypeError`
+- B: `"Woof I am Mara"`,`"Woof I am Mara"`
+- C: `"Woof I am Mara"`, `undefined`
+- D: `TypeError`, `TypeError`
+
+<details><summary><b>Antwort</b></summary>
+<p>
+
+#### Antwort: A
+
+Properties von Objekten können mit dem `delete` Keyword entfernt werden, selbst am Prototype. Beim entfernen von Properties am Prototype ist zu beachten, dass diese dann aus der Prototypen-Kette verschwinden. In unserem Fall existiert die `bark` Funktion nicht mehr am Prototype nachdem `delete Dog.prototype.bark` ausgeführt wurde.
+
+Wenn wir versuchen etwas auszuführen, was keine Funktion ist, wird ein `TypeError` ausgeworfen. In diesem Fall `TypeError: pet.bark is not a function`, da `pet.bark` `undefined` ist.
+
+</p>
+</details>
+
+---
+
+###### 56. Was ist der Output?
+
+```javascript
+const set = new Set([1, 1, 2, 3, 4]);
+
+console.log(set);
+```
+
+- A: `[1, 1, 2, 3, 4]`
+- B: `[1, 2, 3, 4]`
+- C: `{1, 1, 2, 3, 4}`
+- D: `{1, 2, 3, 4}`
+
+<details><summary><b>Antwort</b></summary>
+<p>
+
+#### Antwort: D
+
+Das `Set` Objekt ist eine Sammlung von _eindeutigen_ Werten: jeder Wert kann nur ein Mal in einem Set vorkommen.
+
+Wir übergeben `[1, 1, 2, 3, 4]` mit einer doppelten `1`. Da wir keine doppelten Werte in einem Set haben können wird eine `1` entfernt. Das Ergebnis ist `{1, 2, 3, 4}`.
+
+</p>
+</details>
+
+---
+
+###### 57. Was ist der Output?
+
+```javascript
+// counter.js
+let counter = 10;
+export default counter;
+```
+
+```javascript
+// index.js
+import myCounter from "./counter";
+
+myCounter += 1;
+
+console.log(myCounter);
+```
+
+- A: `10`
+- B: `11`
+- C: `Error`
+- D: `NaN`
+
+<details><summary><b>Antwort</b></summary>
+<p>
+
+#### Antwort: C
+
+Ein importiertes Modul ist _read-only_, was bedeutet, dass importierte Module nicht geändert werden können. Nur das Modul, welches diese exportiert kann deren Wert ändern.
+
+Wenn wir also den Wert von `myCounter` erhöhen bekommen wir den Fehler `myCounter is read-only and cannot be modified`.
+
+</p>
+</details>
+
+---
+
+###### 58. Was ist der Output?
+
+```javascript
+const name = "Lydia";
+age = 21;
+
+console.log(delete name);
+console.log(delete age);
+```
+
+- A: `false`, `true`
+- B: `"Lydia"`, `21`
+- C: `true`, `true`
+- D: `undefined`, `undefined`
+
+<details><summary><b>Antwort</b></summary>
+<p>
+
+#### Antwort: A
+
+Der `delete` Operator gibt einen Boolean Wert zurück: `true` bei erfolgreichem entfernen, oder andernfalls `false`. Variablen, die mit `var`, `let` oder `const` deklariert werden, können andererseits  nicht mit `delete` entfernt werden.
+
+Der Wert von `name` wurde mit `const` deklariert, weshalb `delete` nicht möglich ist und `false` zurückgegeben wird. Als wir `age` den Wert `21` zugewiesen haben, haben wir eine Property `age` zum globalen Objekt hinzugefügt. Diese Properties kann man mit `delete` entfernen, sodass `delete age` `true` zurückgibt.
+
+</p>
+</details>
+
+---
+
+###### 59. Was ist der Output?
+
+```javascript
+const numbers = [1, 2, 3, 4, 5];
+const [y] = numbers;
+
+console.log(y);
+```
+
+- A: `[[1, 2, 3, 4, 5]]`
+- B: `[1, 2, 3, 4, 5]`
+- C: `1`
+- D: `[1]`
+
+<details><summary><b>Antwort</b></summary>
+<p>
+
+#### Antwort: C
+
+Wir können durch Destructuring Werte aus Arrays oder Properties aus Objekten entpacken. Zum Beispiel:
+
+```javascript
+[a, b] = [1, 2];
+```
+
+<img src="https://i.imgur.com/ADFpVop.png" width="200">
+
+Der Wert von `a` ist jetzt `1` und der Wert von `b` ist jetzt `2`. Was wir in der Frage eigentlich getan haben ist:
+
+```javascript
+[y] = [1, 2, 3, 4, 5];
+```
+
+<img src="https://i.imgur.com/NzGkMNk.png" width="200">
+
+Das bedeutet, dass der Wert von `y` gleich des ersten Wertes im Array ist, sprich der Zahl `1` entspricht. Wenn wir `y` loggen bekommen wir `1` ausgegeben.
+
+</p>
+</details>
+
+---
+
+###### 60. Was ist der Output?
+
+```javascript
+const user = { name: "Lydia", age: 21 };
+const admin = { admin: true, ...user };
+
+console.log(admin);
+```
+
+- A: `{ admin: true, user: { name: "Lydia", age: 21 } }`
+- B: `{ admin: true, name: "Lydia", age: 21 }`
+- C: `{ admin: true, user: ["Lydia", 21] }`
+- D: `{ admin: true }`
+
+<details><summary><b>Antwort</b></summary>
+<p>
+
+#### Antwort: B
+
+Es ist möglich Objekte mit dem Spread Operator `...` zu verbinden. Dieser erstellt Kopien der Key/Value Paare eines Objektes und fügt diese dem anderen Objekt hinzu. In diesem Fall wird eine Kopie des `user` Objekts erstellt und dem `admin` Objekt zugewiesen. Das `admin` Objekt beinhaltet nun die kopierten Key/Value Paare, sodass das Ergebnis `{ admin: true, name: "Lydia", age: 21 }` ist.
+
+</p>
+</details>
+
+---
+
+###### 61. Was ist der Output?
+
+```javascript
+const person = { name: "Lydia" };
+
+Object.defineProperty(person, "age", { value: 21 });
+
+console.log(person);
+console.log(Object.keys(person));
+```
+
+- A: `{ name: "Lydia", age: 21 }`, `["name", "age"]`
+- B: `{ name: "Lydia", age: 21 }`, `["name"]`
+- C: `{ name: "Lydia"}`, `["name", "age"]`
+- D: `{ name: "Lydia"}`, `["age"]`
+
+<details><summary><b>Antwort</b></summary>
+<p>
+
+#### Antwort: B
+
+Mit der `defineProperty` Methode können wir neue Properties zu einem Objekt hinzufügen oder bestehende modifizieren. Wenn wir mit der `defineProperty` Methode Properties einem Objekt hinzufügen, sind diese standardmäßig _nicht zählbar_. Die `Object.keys` Methode gibt alle _zählbaren_ Property Namen eines Objektes zurück, in diesem Fall nur `"name"`.
+
+Properties, die mit `defineProperty` erstellt wurden sind standardmäßig unveränderbar. Man kann dieses Verhalten mit den `writable`, `configurable` und `enumerable` Properties verändern. Auf diese Art gibt die `defineProperty` Methode mehr Kontrolle über die Properties, die einem Objekt hinzugefügt werden.
+
+</p>
+</details>
+
+---
+
+###### 62. Was ist der Output?
+
+```javascript
+const settings = {
+  username: "lydiahallie",
+  level: 19,
+  health: 90
+};
+
+const data = JSON.stringify(settings, ["level", "health"]);
+console.log(data);
+```
+
+- A: `"{"level":19, "health":90}"`
+- B: `"{"username": "lydiahallie"}"`
+- C: `"["level", "health"]"`
+- D: `"{"username": "lydiahallie", "level":19, "health":90}"`
+
+<details><summary><b>Antwort</b></summary>
+<p>
+
+#### Antwort: A
+
+Das zweite Argument von `JSON.stringify` ist ein _Replacer_. Der Replacer kann entweder eine Funktion oder ein Array sein und gibt uns Kontrolle darüber, wie die Werte in Strings umgewandelt werden sollen.
+
+Wenn der Replacer ein _Array_ ist, werden nur die Properties dem JSON String hinzugefügt, die in dem Array aufgeführt sind. In diesem Fall sind das nur `"level"` und `"health"`. `"username"` ist ausgeschlossen. `data` ist jetzt gleich `"{"level":19, "health":90}"`.
+
+Wenn der Replacer eine _Funktion_ ist, so wird diese Funktion für jede Property im Objekt aufgerufen, die in Strings umgewandelt wird. Der Wert, den die Funktion zurückgibt, ist der Wert der Property, die dem JSON String hinzugefügt wird. Ist der Wert `undefined`, so wird die Property ausgeschlossen.
+
+</p>
+</details>
+
+---
+
+###### 63. Was ist der Output?
+
+```javascript
+let num = 10;
+
+const increaseNumber = () => num++;
+const increasePassedNumber = number => number++;
+
+const num1 = increaseNumber();
+const num2 = increasePassedNumber(num1);
+
+console.log(num1);
+console.log(num2);
+```
+
+- A: `10`, `10`
+- B: `10`, `11`
+- C: `11`, `11`
+- D: `11`, `12`
+
+<details><summary><b>Antwort</b></summary>
+<p>
+
+#### Antwort: A
+
+Der unäre Operator `++` _gibt zuerst_ den Wert des Operanden aus und _erhöht danach_ den Wert des Operanden. Der Wert `num1` ist `10`, da `increaseNumber` zuerst den Wert von `num1` (`10`) ausgibt und ihn danach erhöht.
+
+`num2` ist gleich `10`, da wir `num1` `increasePassedNumber` zugewiesen haben. `number` ist gleich `10` (der Wert von `num1`). Der unäre Operator `++` gibt erneut _zuerst_ den Wert des Operanden aus und _erhöht danach_ den Wert. Der Wert von `number` ist `10`, sodass `num2` ebenfalls `10` ist.
 
 </p>
 </details>
