@@ -1796,7 +1796,7 @@ The `name` variable was declared with a `const` keyword, so its deletion is not 
 
 ```javascript
 const numbers = [1, 2, 3, 4, 5];
-const [y] = numberes;
+const [y] = numbers;
 
 console.log(y);
 ```
