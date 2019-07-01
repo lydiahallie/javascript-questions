@@ -8,6 +8,7 @@ The answers are in the collapsed sections below the questions, simply click on t
 
 
 List of available languages:
+* [English](./README.md)
 * [中文版本](./README-zh_CN.md)
 * [Versión en español](./README-ES.md)
 * [日本語](./README-ja_JA.md)  
@@ -18,6 +19,7 @@ List of available languages:
 * [Tiếng Việt](./README-vi.md)
 * [Українська мова](./README-ua_UA.md)  
 * [Português Brasil](./README_pt_BR.md)  
+* [العربية](./README_AR.md)
 * [اللغة العامية - Egyptian Arabic](./README_ar-EG.md)
 
 
