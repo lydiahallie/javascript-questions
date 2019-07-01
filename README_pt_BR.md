@@ -6,12 +6,12 @@ Do básico ao avançado: Teste quão bem você conhece o JavaScript, refresque u
 
 As respostas estão em seções recolhidas abaixo das questões, basta clicar nelas para expandir. Boa sorte :heart:
 
-[English](./README.md)  
-[中文版本](./README-zh_CN.md)  
-[Русский](./README_ru-RU.md)  
-[Western Balkan](./README-bs.md)  
-[Deutsch](./README-de_DE.md)  
-[Tiếng Việt](./README-vi.md)  
+[English](./README.md)
+[中文版本](./README-zh_CN.md)
+[Русский](./README_ru-RU.md)
+[Western Balkan](./README-bs.md)
+[Deutsch](./README-de_DE.md)
+[Tiếng Việt](./README-vi.md)
 
 
 ---
@@ -132,8 +132,8 @@ Não há `radius` fora de <i>shape</i>, então retorna `undefined`.
 
 O operador unário `+` tenta converter um operando para um número. `true` é `1`, e `false` é `0`.
 
-A string `'Lydia'` tem valor truthy*. O que estamos realmente perguntando é "Esse valor truthy é falsy?". Isso retorna `false`.  
-###### *Nota do tradutor: <i>truthy</i> é um termo único ao JavaScript que denota valores que podem ser convertidos em um booleano `True`. Sua contraparte é <i>falsy</i>, que são valores que podem ser convertidos em um booleano `false`. Para fins de consistência, mantenho os termos originais. 
+A string `'Lydia'` tem valor truthy*. O que estamos realmente perguntando é "Esse valor truthy é falsy?". Isso retorna `false`.
+###### *Nota do tradutor: <i>truthy</i> é um termo único ao JavaScript que denota valores que podem ser convertidos em um booleano `True`. Sua contraparte é <i>falsy</i>, que são valores que podem ser convertidos em um booleano `false`. Para fins de consistência, mantenho os termos originais.
 
 </p>
 </details>
@@ -235,7 +235,7 @@ console.log(b === c);
 
 `new Number()` é uma funcção construtura padrão do JavaScript. Ainda que parece com um número, não é realmente um número: Tem um monte de funções extras e é um objeto.
 
-Quando usamos o operador `==`, só conferimos se ambas tem o mesmo <i>valor</i>. Ambas tem o valor de `3`, então retorna `true`. 
+Quando usamos o operador `==`, só conferimos se ambas tem o mesmo <i>valor</i>. Ambas tem o valor de `3`, então retorna `true`.
 
 Contudo, quando usamos o operador `===`, ambos valor <i>e</i> tipo tem de ser o mesmo. E não são: `new Number()` não é um número, é um **objeto**. Ambos retornam `false`.
 
@@ -444,7 +444,7 @@ Durate a fase do **capturing**, o evento percorre os elementos pais até chegar 
 
 #### Resposta: B
 
-Todos objetos tem protótipos, exceto pelo **base object**. O base object tem acesso à alguns métodos e propriedades, como `.toString`. É o motivo de podermos usar métodos já embutidos no JavaScript! Todos métodos desse tipo já estão embutidos no protótipo. Apesar do JavaScript não encontrar algum método diretamente no seu objeto, ele percorre a cadeia de protótipos até encontrar no base, o que torna acessível para todo objeto. 
+Todos objetos tem protótipos, exceto pelo **base object**. O base object tem acesso à alguns métodos e propriedades, como `.toString`. É o motivo de podermos usar métodos já embutidos no JavaScript! Todos métodos desse tipo já estão embutidos no protótipo. Apesar do JavaScript não encontrar algum método diretamente no seu objeto, ele percorre a cadeia de protótipos até encontrar no base, o que torna acessível para todo objeto.
 
 </p>
 </details>
@@ -773,7 +773,7 @@ Se temos duas chaves com o mesmo nome, a última irá substituir a primeira. Ain
 ###### 26. O contexto glogal de execução do JavaScrit cria duas coisas para você: O objeto glogal, e a palavra-chave `this`.
 
 - A: Verdadeiro
-- B: Falso 
+- B: Falso
 - C: Depende
 
 <details><summary><b>Resposta</b></summary>
@@ -952,7 +952,7 @@ A `WebAPI` não pode simplesmente adicionar coisas ao stack sempre que ficam pro
 
 #### Resposta: C
 
-O elemento mais interno no aninhamento que causou o evento é o alvo do evento. Você pode parar o _bubbling_ com `event.stopPropagation`. 
+O elemento mais interno no aninhamento que causou o evento é o alvo do evento. Você pode parar o _bubbling_ com `event.stopPropagation`.
 
 </p>
 </details>

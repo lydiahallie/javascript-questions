@@ -6,12 +6,12 @@
 
 Відповіді знаходяться в згорнутої секції нижче питань. Просто натисни на відповідь, щоб розгорнути. Успіхів! :heart:
 
-[中文版本](./README-zh_CN.md)  
-[Русский](./README_ru-RU.md)  
-[Western Balkan](./README-bs_BS.md)  
-[Deutsch](./README-de_DE.md)  
-[Tiếng Việt](./README-vi.md)  
-[日本語](./README-ja_JA.md)   
+[中文版本](./README-zh_CN.md)
+[Русский](./README_ru-RU.md)
+[Western Balkan](./README-bs_BS.md)
+[Deutsch](./README-de_DE.md)
+[Tiếng Việt](./README-vi.md)
+[日本語](./README-ja_JA.md)
 
 ---
 

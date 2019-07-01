@@ -6,12 +6,12 @@
 
 Ответы находятся в свернутой секции ниже вопросов. Просто нажми на "Ответ", чтобы развернуть. Удачи! :heart:
 
-[中文版本](./README-zh_CN.md)   
-[Western Balkan](./README-bs_BS.md)  
-[Deutsch](./README-de_DE.md)  
-[Tiếng Việt](./README-vi.md)  
-[日本語](./README-ja_JA.md)  
-[Українська мова](./README-ua_UA.md)  
+[中文版本](./README-zh_CN.md)
+[Western Balkan](./README-bs_BS.md)
+[Deutsch](./README-de_DE.md)
+[Tiếng Việt](./README-vi.md)
+[日本語](./README-ja_JA.md)
+[Українська мова](./README-ua_UA.md)
 
 
 ---
@@ -1170,7 +1170,7 @@ console.log(numbers);
 
 ---
 
-###### 39. Всё в JavaScript это 
+###### 39. Всё в JavaScript это
 
 - A: примитив или объект
 - B: функция или объект

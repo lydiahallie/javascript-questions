@@ -13,12 +13,12 @@ Odgovori su jednostavno dijelovima ispod pitanja
 kliknite na njih da biste ih proširili. Sretno :heart:
 
 
-[Kineski 中文版本](./README-zh_CN.md)  
-[Ruski](./README_ru-RU.md)  
-[Zapadni balkan](./README-bs_BS.md)  
-[Njemački](./README-de_DE.md) <br>
-[Vijetnamski](./README-vi.md)  
-[Українська мова](./README-ua_UA.md)  
+[Kineski 中文版本](./README-zh_CN.md)
+[Ruski](./README_ru-RU.md)
+[Zapadni balkan](./README-bs_BS.md)
+[Njemački](./README-de_DE.md)
+[Vijetnamski](./README-vi.md)
+[Українська мова](./README-ua_UA.md)
 
 * * * * *
 
@@ -321,7 +321,7 @@ freddie.colorChange("orange");
 #### Odgovor: D
 
 function `colorChange` je statična. Namijenjene su statičkim metodama
-žive samo na konstruktoru u kojem su stvoreni i ne mogu biti proslijeđeni 
+žive samo na konstruktoru u kojem su stvoreni i ne mogu biti proslijeđeni
 bilo kojem childu. Budući da je `freddie` child, function je
 nije proslijeđena, i nije dostupan na `freddie` instanci: a
 Izbačen je `TypeError`.

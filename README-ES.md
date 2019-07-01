@@ -1,15 +1,15 @@
 
-# Lista de preguntas (avanzadas) de JavaScript 
+# Lista de preguntas (avanzadas) de JavaScript
 
- Publico diariamente preguntas de opción múltiple en JavaScript en mi [Instagram](https://www.instagram.com/theavocoder), que también publicaré aquí! 
- 
- Desde lo básico a lo avanzado: comprueba si realmente conoces _Javascript_, actualiza tus conocimientos o simplemente prepárate para tu próxima entrevista 💪 
- 
+ Publico diariamente preguntas de opción múltiple en JavaScript en mi [Instagram](https://www.instagram.com/theavocoder), que también publicaré aquí!
+
+ Desde lo básico a lo avanzado: comprueba si realmente conoces _Javascript_, actualiza tus conocimientos o simplemente prepárate para tu próxima entrevista 💪
+
  Actualizaré este repo semanalmente con nuevas preguntas. Las respuestas se encuentran en las secciones contraídas debajo de las preguntas, simplemente haz clic en ellas para expandirlas. Buena suerte ❤️
 
 ---
 Lista de lenguajes disponibles:
-* 🇬🇧[English version](./README.md) 
+* 🇬🇧[English version](./README.md)
 * 🇨🇳[中文版本](./README-zh_CN.md)
 
 
