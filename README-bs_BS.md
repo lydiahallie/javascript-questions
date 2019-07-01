@@ -984,12 +984,12 @@ console.log(a[b]);
 Tipke objekta automatski se pretvaraju u nizove. Pokušavamo
 postavite objekt kao ključ za objekt "a", s vrijednošću "123".
 
-Međutim, kada stringificiramo objekt, on postaje `[objekt Objekt]`. Tako
-ono što ovdje govorimo je da je `a ["[objekt Objekt]"] = 123`. Onda, mi
+Međutim, kada stringificiramo objekt, on postaje `[object Object]`. Tako
+ono što ovdje govorimo je da je `a ["[object Object]"] = 123`. Onda, mi
 može ponovno pokušati učiniti isto. "c" je još jedan objekt koji jesmo
-implicitno ograničavaju. Dakle, `a ["[objekt Objekt]"] = 456`.
+implicitno ograničavaju. Dakle, `a ["[object Object]"] = 456`.
 
-Zatim zapisujemo `a [b]`, što je zapravo `a ["[objekt Objekt]"]`. Upravo smo postavili
+Zatim zapisujemo `a [b]`, što je zapravo `a ["[object Object]"]`. Upravo smo postavili
 da na `456`, tako da se vraća` 456`.
 
 </p>
