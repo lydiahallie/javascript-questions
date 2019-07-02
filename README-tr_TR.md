@@ -404,7 +404,7 @@ console.log(sarah);
 
 ---
 
-###### 13. What are the three phases of event propagation?
+###### 13. Olay silsilesinin (event propagation) üç aşaması nedir?
 
 - A: Target > Capturing > Bubbling
 - B: Bubbling > Target > Capturing
@@ -416,7 +416,7 @@ console.log(sarah);
 
 #### Cevap: D
 
-During the **capturing** phase, the event goes through the ancestor elements down to the target element. It then reaches the **target** element, and **bubbling** begins.
+**capturing** aşaması süresince, olay ata ("ancestor) elemanlardan hedef elemana doğru gider. Daha sonra **target** elemana ulaşır ve **bubbling** başlar. 
 
 <img src="https://i.imgur.com/N18oRgd.png" width="200">
 
@@ -425,18 +425,17 @@ During the **capturing** phase, the event goes through the ancestor elements dow
 
 ---
 
-###### 14. All object have prototypes.
+###### 14. Bütün nesneler prototiplere sahiptir.
 
-- A: true
-- B: false
+- A: doğru
+- B: yanlış
 
 <details><summary><b>Cevap</b></summary>
 <p>
 
 #### Cevap: B
 
-All objects have prototypes, except for the **base object**. The base object is the object created by the user, or an object that is created using the `new` keyword. The base object has access to some methods and properties, such as `.toString`. This is the reason why you can use built-in JavaScript methods! All of such methods are available on the prototype. Although JavaScript can't find it directly on your object, it goes down the prototype chain and finds it there, which makes it accessible for you.
-
+Bütün nesneler prototiplere ("prototypes") sahiptir, **temel nesne**, **base object**, hariç. Temel nesne, kullanıcı tarafından oluşturulmuş nesnedir, ya da `new` anahtar kelimesi kullanarak oluşturulmuş bir nesnedir. Temel nesne bazı method ve özelliklere erişebilir, `.toString` gibi. Yerleşik gelen Javascript methodlarını kullanabilme sebebi budur! Buna benzer tüm methodlar prototip üzerinden erişebilir. Her ne kadar Javascript, methodu direkt olarak nesneniz üzerinden bulamasa da, prototip zinciri üzerinden aşağıya doğru gider ve orada bulur, böylece sizin için erişebilir yapar.
 </p>
 </details>
 
@@ -462,9 +461,9 @@ sum(1, "2");
 
 #### Cevap: C
 
-JavaScript is a **dynamically typed language**: we don't specify what types certain variables are. Values can automatically be converted into another type without you knowing, which is called _implicit type coercion_. **Coercion** is converting from one type into another.
+Javascript **dinamik tipli dil**dir: değişkenlerin hangi tip olduğunu belirtmeyiz. Değerler otomatik olarak diğer tipi bilmeden dönüştürebilir, bu _implicit type coercion_, _örtük tip dönüşümü_, olarak adlandırılır. **Coercion** bir tipi diğer bir tipe dönüştürmektir.
 
-In this example, JavaScript converts the number `1` into a string, in order for the function to make sense and return a value. During the addition of a numeric type (`1`) and a string type (`'2'`), the number is treated as a string. We can concatenate strings like `"Hello" + "World"`, so what's happening here is `"1" + "2"` which returns `"12"`.
+Bu örnekte, JavaScript sayı olan `1`'i string'e dönüştürüyor, fonksiyonun mantıklı olması ve değer döndürmesi için. Sayısal tip (`1`) ve string tip (`2`)'nin toplanması sırasında, sayıya string olarak muamele edilir. Stringleri `"Hello" + "World"` şeklinde birleştirebiliriz, yani burada olan `"1" + "2"` ki bu da `"12"` döndürür.
 
 </p>
 </details>
@@ -490,17 +489,18 @@ console.log(number);
 
 #### Cevap: C
 
-The **postfix** unary operator `++`:
+**son ek**, **postfix**, `++` unary operatörü:
 
-1. Returns the value (this returns `0`)
-2. Increments the value (number is now `1`)
 
-The **prefix** unary operator `++`:
+1. Değer döndürür (`0` döndürür)
+2. Değeri arttırır (sayı şimdi `1`)
 
-1. Increments the value (number is now `2`)
-2. Returns the value (this returns `2`)
+**ön ek**, **prefix**, `++` unary operatörü:
 
-This returns `0 2 2`.
+1. Değeri arttırır (sayı şimdi `2`)
+2. Değeri döndürür (`2` döndürür)
+
+Burada `0 2 2` döner.
 
 </p>
 </details>
