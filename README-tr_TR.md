@@ -324,7 +324,7 @@ bark.animal = "dog";
 
 Javascript'te bu mümkün, çünkü fonksiyonlar nesnedir! (Primitive tiplere nazaran her şey nesnedir)
 
-Fonksiyon özel bir nesne tipidir. The code you write yourself isn't the actual function. The function is an object with properties. This property is invocable.
+Fonksiyon özel bir nesne tipidir. Yazdığınız kod asıl fonksiyon değil. Fonksiyon, özelliklere sahip bir nesnedir. Bu özellik çalıştırabilme kapasitesine sahiptir ("invocable").
 
 </p>
 </details>
