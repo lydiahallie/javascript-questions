@@ -531,7 +531,7 @@ getPersonInfo`${person} is ${age} years old`;
 
 #### Cevap: B
 
-If you use tagged template literals, the value of the first argument is always an array of the string values. The remaining arguments get the values of the passed expressions!
+Eğer "tagged template literals" kullanırsanoz, ilk argumanın değeri her zaman string değerler dizisidir. Geriye kalan argumanlar, ifadeye geçilen değerleri alır.
 
 </p>
 </details>
@@ -563,11 +563,11 @@ checkAge({ age: 18 });
 
 #### Cevap: C
 
-When testing equality, primitives are compared by their _value_, while objects are compared by their _reference_. JavaScript checks if the objects have a reference to the same location in memory.
+Eşitliği test ederken, nesneler _referanslarına_ göre kıyaslanırken primitifler _değerlerine_ göre kıyaslanır. Javascript, nesnelerin referanslarının hafızada aynı konumda olup olmadığını kontrol eder.
 
-The two objects that we are comparing don't have that: the object we passed as a parameter refers to a different location in memory than the object we used in order to check equality.
+Kıyasladığımız iki nesne bu şekilde değilse: parametre olarak geçtiğimiz nesne, hafızada eşitliğini kontrol ettiğimiz nesneden farklı bir konumu referans gösterir.
 
-This is why both `{ age: 18 } === { age: 18 }` and `{ age: 18 } == { age: 18 }` return `false`.
+Bu sebepten, `{ age: 18 } === { age: 18 }` ve `{ age: 18 } == { age: 18 }`, ikisi de `false` döndürür.
 
 </p>
 </details>
@@ -594,7 +594,7 @@ getAge(21);
 
 #### Cevap: C
 
-The spread operator (`...args`.) returns an array with arguments. An array is an object, so `typeof args` returns `"object"`
+Yayma operatorü, "spread operator", (`...args`) argumanların dahil olduğu bir dizi döndürür. Dizi bir nesnedir, bu yüzden `typeof args` `"object"` döndürür.
 
 </p>
 </details>
@@ -623,14 +623,14 @@ getAge();
 
 #### Cevap: C
 
-With `"use strict"`, you can make sure that you don't accidentally declare global variables. We never declared the variable `age`, and since we use `"use strict"`, it will throw a reference error. If we didn't use `"use strict"`, it would have worked, since the property `age` would have gotten added to the global object.
+`"use strict"` ile, yanlışlıkla global değişkenler tanımlamadığınızdan emin olabilirsiniz. `age` değişkenini hiç tanımlamadık ve `"use strict"` kullandığımızdan, referans hatası fırlatacaktır. Eğer `"use strict"` kullanmasaydık, `age` özelliği global nesneye eklenmiş olacağından, çalışmış olacaktı.
 
 </p>
 </details>
 
 ---
 
-###### 21. What's value of `sum`?
+###### 21. `sum`'ın değeri nedir?
 
 ```javascript
 const sum = eval("10*10+5");
@@ -646,32 +646,32 @@ const sum = eval("10*10+5");
 
 #### Cevap: A
 
-`eval` evaluates codes that's passed as a string. If it's an expression, like in this case, it evaluates the expression. The expression is `10 * 10 + 5`. This returns the number `105`.
+`eval`, string olarak geçilen kodu çalıştırır. Eğer bir ifadeyse, bu durumdaki gibi, ifadeyi çalıştırır. İfade `10 * 10 + 5`. Bu `105` sayısını döndürür.
 
 </p>
 </details>
 
 ---
 
-###### 22. How long is cool_secret accessible?
+###### 22. cool_secret ne kadar süre boyunca erişebilinir?
 
 ```javascript
 sessionStorage.setItem("cool_secret", 123);
 ```
 
-- A: Forever, the data doesn't get lost.
-- B: When the user closes the tab.
-- C: When the user closes the entire browser, not only the tab.
-- D: When the user shuts off their computer.
+- A: Sonsuza kadar, veri kaybolmaz.
+- B: Kullanıcı sekmeyi kapatınca.
+- C: Kullanıcı tamamen tarayıcıyı kapattığı zaman, sadece sekmeyi değil.
+- D: Kullanıcı bilgisayarını kapattığı zaman.
 
 <details><summary><b>Cevap</b></summary>
 <p>
 
 #### Cevap: B
 
-The data stored in `sessionStorage` is removed after closing the _tab_.
+`sessionStorage` içinde saklanan veri _sekme_ kapatıldıktan sonra kaldırılır.
 
-If you used `localStorage`, the data would've been there forever, unless for example `localStorage.clear()` is invoked.
+Eğer `localStorage` kullandıysanız, veri sonsuza kadar orada olacaktır, örnek olarak `localStorage.clear()` çalıştırılmadığı sürece. 
 
 </p>
 </details>
@@ -697,9 +697,9 @@ console.log(num);
 
 #### Cevap: B
 
-With the `var` keyword, you can declare multiple variables with the same name. The variable will then hold the latest value.
+`var` anahtar kelimesi ile aynı isme sahip birden çok değişken tanımlayabilirsiniz. O halde değişken son değeri tutacak.
 
-You cannot do this with `let` or `const` since they're block-scoped.
+Bunu `let` ya da `const` ile yapamazsınız, "block-scoped" olduklarından dolayı.
 
 </p>
 </details>
@@ -728,9 +728,9 @@ set.has(1);
 
 #### Cevap: C
 
-All object keys (excluding Symbols) are strings under the hood, even if you don't type it yourself as a string. This is why `obj.hasOwnProperty('1')` also returns true.
+Tüm nesne anahtarları (Symbol'ler hariç) arka planda string'dir, kendiniz string olarak yazmasanız bile. Bu sebepten `obj.hasOwnProperty('1')` da `true` döndürür.
 
-It doesn't work that way for a set. There is no `'1'` in our set: `set.has('1')` returns `false`. It has the numeric type `1`, `set.has(1)` returns `true`.
+Set için bu şekilde çalışmaz. Setimizde `'1'` yok: `set.has('1')` `false` döndürür. Setimiz sayısal tip `1`'e sahip, `set.has(1)` `true` döndürür.
 
 </p>
 </details>
@@ -754,25 +754,25 @@ console.log(obj);
 
 #### Cevap: C
 
-If you have two keys with the same name, the key will be replaced. It will still be in its first position, but with the last specified value.
+Eğer aynı ada sahip iki tane anahtarınız, "key", varsa, anahtar değiştirilecektir. Hala ilk konumunda olacaktır ama son belirtilen değerle birlikte.
 
 </p>
 </details>
 
 ---
 
-###### 26. The JavaScript global execution context creates two things for you: the global object, and the "this" keyword.
+###### 26. JavaScript global yürütme konteksti, "global execution context", sizin için iki şey oluşturur: global nesne, ve "this" anahtar kelimesi.
 
-- A: true
-- B: false
-- C: it depends
+- A: doğru
+- B: yanlış
+- C: değişir
 
 <details><summary><b>Cevap</b></summary>
 <p>
 
 #### Cevap: A
 
-The base execution context is the global execution context: it's what's accessible everywhere in your code.
+Temel yürütme konteksti, global yürütme kontekstidir: kodunuzda her yerde erişilebilir olan şeydir.
 
 </p>
 </details>
@@ -798,7 +798,7 @@ for (let i = 1; i < 5; i++) {
 
 #### Cevap: C
 
-The `continue` statement skips an iteration if a certain condition returns `true`.
+Eğer belirli şart `true` döndürürse, `continue` ifadesi yinelemeyi, "iteration", atlar.
 
 </p>
 </details>
@@ -827,7 +827,7 @@ name.giveLydiaPizza();
 
 #### Cevap: A
 
-`String` is a built-in constructor, which we can add properties to. I just added a method to its prototype. Primitive strings are automatically converted into a string object, generated by the string prototype function. So, all strings (string objects) have access to that method!
+`String`, özellikler de ekleyebileceğimiz tümleşik bir yapıcıdır. Prototipine bir method ekledim sadece. Primitif stringler, string prototip fonksiyonu tarafından üretilen string nesnesine otomatik olarak dönüştürülür. Bu yüzden, tüm stringler (string nesneleri) bu methoda erişebilir!
 
 </p>
 </details>
@@ -857,11 +857,11 @@ console.log(a[b]);
 
 #### Cevap: B
 
-Object keys are automatically converted into strings. We are trying to set an object as a key to object `a`, with the value of `123`.
+Nesne keyleri otomatik olarak stringe dönüştürülür. `a` nesnesine değeri `123` olacak şekilde, bir nesneyi key olarak atamaya çalışıyoruz.
 
-However, when we stringify an object, it becomes `"[Object object]"`. So what we are saying here, is that `a["Object object"] = 123`. Then, we can try to do the same again. `c` is another object that we are implicitly stringifying. So then, `a["Object object"] = 456`.
+Ancak, bir nesnesi string hale getirince, `"[Object object]"` olur. Dolayısıyla burada söylediğimiz, `a["Object object"] = 123`. Sonra, aynı şeyi tekrar yapmayı deniyoruz. `c`, dolaylı olarak string hale getirdiğimiz başka bir nesne. O halde, `a["Object object"] = 456`.
 
-Then, we log `a[b]`, which is actually `a["Object object"]`. We just set that to `456`, so it returns `456`.
+Sonra, `a[b]`'yi logluyoruz, ki aslında o da `a["Object object"]`. Onu da `456` olarak atamıştık, o yüzden `456` döndürür.
 
 </p>
 </details>
@@ -890,38 +890,38 @@ baz();
 
 #### Cevap: B
 
-We have a `setTimeout` function and invoked it first. Yet, it was logged last.
+Bir `setTimeout` fonksiyonumuz var ve ilk onu çalıştırdık. Yine de en son loglandı.
 
-This is because in browsers, we don't just have the runtime engine, we also have something called a `WebAPI`. The `WebAPI` gives us the `setTimeout` function to start with, and for example the DOM.
+Bunun nedeni tarayıcılarda, "runtime engine"'a sahip olmamamızdan, `WebAPI` denilen bir şeye sahibiz. `WebAPI`, örneğin DOM ile çalışması için bize, `setTimeout` fonksiyonunu verir.
 
-After the _callback_ is pushed to the WebAPI, the `setTimeout` function itself (but not the callback!) is popped off the stack.
+_callback_ WebAPI'a eklendikten sonra, `setTimeout` fonksiyonun kendisi (callback hariç!) hafıza bloğundan atılır, "popped off the stack".
 
 <img src="https://i.imgur.com/X5wsHOg.png" width="200">
 
-Now, `foo` gets invoked, and `"First"` is being logged.
+Şimdi, `foo` çalıştı ve `"First"` loglandı.
 
 <img src="https://i.imgur.com/Pvc0dGq.png" width="200">
 
-`foo` is popped off the stack, and `baz` gets invoked. `"Third"` gets logged.
+`foo` hafıza bloğundan atıldı ve `baz` çalıştı. `"Third"` loglandı.
 
 <img src="https://i.imgur.com/WhA2bCP.png" width="200">
 
-The WebAPI can't just add stuff to the stack whenever it's ready. Instead, it pushes the callback function to something called the _queue_.
+WebAPI, her ne zaman bir şeyler hazırsa hafıza bloğuna öylece ekleyemez. Onun yerine callback fonksiyonunu, _queue_ diye adlandıralan bir şeye ekler.
 
 <img src="https://i.imgur.com/NSnDZmU.png" width="200">
 
-This is where an event loop starts to work. An **event loop** looks at the stack and task queue. If the stack is empty, it takes the first thing on the queue and pushes it onto the stack.
+Burası olay döngüsünün çalışmaya başlayacapı yerdir. **olay döngüsü**, **event loop**, hafıza bloğuna ve iş kuyruğuna, "task queue", bakar. Eğer hafıza bloğu boşsa, kuyruktaki ilk şeyi alır ve hafıza bloğuna ekler.
 
 <img src="https://i.imgur.com/uyiScAI.png" width="200">
 
-`bar` gets invoked, `"Second"` gets logged, and it's popped off the stack.
+`bar` çalıştı, `"Second"` loglandı ve hafıza bloğundan atıldı.
 
 </p>
 </details>
 
 ---
 
-###### 31. What is the event.target when clicking the button?
+###### 31. Butona tıklandığında, event.target nedir?
 
 ```html
 <div onclick="console.log('first div')">
@@ -933,24 +933,24 @@ This is where an event loop starts to work. An **event loop** looks at the stack
 </div>
 ```
 
-- A: Outer `div`
-- B: Inner `div`
+- A: Dıştaki `div`
+- B: İçteki `div`
 - C: `button`
-- D: An array of all nested elements.
+- D: İç içe olan tüm elemanlar listesi.
 
 <details><summary><b>Cevap</b></summary>
 <p>
 
 #### Cevap: C
 
-The deepest nested element that caused the event is the target of the event. You can stop bubbling by `event.stopPropagation`
+Olaya sebep olan en derindeki iç eleman, olayın hedefidir ("event.target"). `event.stopPropagation` kullanarak "bubbling"'i durdurabilirsiniz.
 
 </p>
 </details>
 
 ---
 
-###### 32. When you click the paragraph, what's the logged output?
+###### 32. Paragrafa tıkladığınız zaman, çıktı olarak ne loglanır?
 
 ```html
 <div onclick="console.log('div')">
@@ -970,7 +970,7 @@ The deepest nested element that caused the event is the target of the event. You
 
 #### Cevap: A
 
-If we click `p`, we see two logs: `p` and `div`. During event propagation, there are 3 phases: capturing, target, and bubbling. By default, event handlers are executed in the bubbling phase (unless you set `useCapture` to `true`). It goes from the deepest nested element outwards.
+Eğer `p`'ye tıklarsak, iki log görürüz: `p` ve `div`. Olay silsilesi, "event propagation", sırasında, 3 aşama vardır: "capturing", "target", ve "bubbling". Varsayılan olarak, olay işleyiciler, "event handlers", "bubbling" aşamasında (`useCapture`'ı `true` olarak ayarlanmadığı müddetçe) çalıştırılır. En derin elemandan dışa doğru gider.
 
 </p>
 </details>
