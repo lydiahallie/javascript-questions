@@ -1000,9 +1000,9 @@ sayHi.bind(person, 21);
 
 #### Cevap: D
 
-With both, we can pass the object to which we want the `this` keyword to refer to. However, `.call` is also _executed immediately_!
+İkisinde de, `this` anahtar kelimesinin referans olmasını istediğimiz nesneyi geçebiliriz. Ancak, `.call` _anında çalıştırılır_!
 
-`.bind.` returns a _copy_ of the function, but with a bound context! It is not executed immediately.
+`.bind.` fonksiyonun _kopyasını_ döndürür, ama konteksle bağlı şejilde. Anında çalıştırılmaz.
 
 </p>
 </details>
@@ -1029,15 +1029,16 @@ console.log(typeof sayHi());
 
 #### Cevap: B
 
-The `sayHi` function returns the returned value of the immediately invoked function (IIFE). This function returned `0`, which is type `"number"`.
+`sayHi` fonksiyonu, anında çalıştırılan fonksiyonun, "immediately invoked function (IIFE)", döndürdüğü değeri döndürür. Bu fonksiyon `0` döndürdü, k, tipi `"number"`'dır.
 
-FYI: there are only 7 built-in types: `null`, `undefined`, `boolean`, `number`, `string`, `object`, and `symbol`. `"function"` is not a type, since functions are objects, it's of type `"object"`.
+Bilginize; 7 tane tümleşik tip vardır: `null`, `undefined`, `boolean`, `number`, `string`, `object`, ve `symbol`. Fonksiyonlar nesne olduklarından, `"function"` tip değildir. Fonksiyonun tipi `"object"`'dir.
+
 </p>
 </details>
 
 ---
 
-###### 35. Which of these values are falsy?
+###### 35. Bu değerlerden hangileri yanlış-ımsıdır (falsy)?
 
 ```javascript
 0;
@@ -1058,7 +1059,7 @@ undefined;
 
 #### Cevap: A
 
-There are only six falsy values:
+Sadece 6 tane yanlış-ımsı, "falsy", değer vardır:
 
 - `undefined`
 - `null`
@@ -1067,7 +1068,7 @@ There are only six falsy values:
 - `''` (empty string)
 - `false`
 
-Function constructors, like `new Number` and `new Boolean` are truthy.
+Fonksiyon yapıcıları, `new Number` ve `new Boolean` gibi, doğrusaldır.
 
 </p>
 </details>
@@ -1090,8 +1091,8 @@ console.log(typeof typeof 1);
 
 #### Cevap: B
 
-`typeof 1` returns `"number"`.
-`typeof "number"` returns `"string"`
+`typeof 1` `"number"` döndürür.
+`typeof "number"` `"string"` döndürür.
 
 </p>
 </details>
@@ -1116,11 +1117,11 @@ console.log(numbers);
 
 #### Cevap: C
 
-When you set a value to an element in an array that exceeds the length of the array, JavaScript creates something called "empty slots". These actually have the value of `undefined`, but you will see something like:
+Dizi içinde, dizinin uzunluğunu aşan bir elemana değer atadığınızda, JavaScript "boş alanlar, "empty slots", denilen bir şey oluşturur. Bunların değeri aslında `undefined` olsa da şöyle bir şey görürsünüz:
 
 `[1, 2, 3, 7 x empty, 11]`
 
-depending on where you run it (it's different for every browser, node, etc.)
+nerede çalıştırdığınıza bağlı olarak (her tarayıcı, node, vb... için farklıdır.)
 
 </p>
 </details>
@@ -1153,34 +1154,34 @@ depending on where you run it (it's different for every browser, node, etc.)
 
 #### Cevap: A
 
-The `catch` block receives the argument `x`. This is not the same `x` as the variable when we pass arguments. This variable `x` is block-scoped.
+`catch` bloğu `x` argumanını alıyor. Argumanları geçtiğimiz zaman, bu değişken olan `x` ile aynı değildir. Bu `x` değişkeni block-scoped'dur.
 
-Later, we set this block-scoped variable equal to `1`, and set the value of the variable `y`. Now, we log the block-scoped variable `x`, which is equal to `1`.
+Sonra, bu block-scoped değişkeni `1`'e eşit olarak ayarladık ve `y` değişkeninin değerini ayarladık. Block-scoped `x` değişkenini logladık, ki değeri `1`'e eşitti.
 
-Outside of the `catch` block, `x` is still `undefined`, and `y` is `2`. When we want to `console.log(x)` outside of the `catch` block, it returns `undefined`, and `y` returns `2`.
+`catch` bloğunun dışında, `x` hala `undefined`, ve `y` `2`'dir. `catch` bloğunun dışında, `console.log(x)` çalıştırmak istediğimizde `undefined` döndürür ve `y` `2` döndürür.
 
 </p>
 </details>
 
 ---
 
-###### 39. Everything in JavaScript is either a...
+###### 39. JavaScript'teki her şey ya bir...
 
-- A: primitive or object
-- B: function or object
-- C: trick question! only objects
-- D: number or object
+- A: primitifdir ya da nesnedir
+- B: fonksiyondur or nesnedir
+- C: tuzak soru! sadece nesnedir
+- D: sayıdır (number) ya da nesnedir 
 
 <details><summary><b>Cevap</b></summary>
 <p>
 
 #### Cevap: A
 
-JavaScript only has primitive types and objects.
+JavaScript sadece primitif ve nesne tiplerine sahiptir.
 
-Primitive types are `boolean`, `null`, `undefined`, `bigint`, `number`, `string`, and `symbol`.
+Primitif tipler, `boolean`, `null`, `undefined`, `bigint`, `number`, `string`, ve `symbol`.
 
-What differentiates a primitive from an object is that primitives do not have any properties or methods; however, you'll note that `'foo'.toUpperCase()` evaluates to `'FOO'` and does not result in a `TypeError`. This is because when you try to access a property or method on a primitive like a string, JavaScript will implicity wrap the object using one of the wrapper classes, i.e. `String`, and then immediately discard the wrapper after the expression evaluates. All primitives except for `null` and `undefined` exhibit this behaviour.
+Primitif ve nesneyi birbirinden ayıran, primitif tiplerin herhangi bir özelliğie ya da methoda sahip olmamasıdır; ancak, fark edeceğiniz üzere `'foo'.toUpperCase()` `'FOO'` olarak değer döndürür ve `TypeError` ile sonuçlanmaz. Bunun sebebi, string gibi primitif bir tip üzerinde özelliğe ya da methoda erişmeye çalıştığınızda, JavaScript sarıcı sınıflardan, "wrapper classes", birini kullanarak nesneyi dolaylı şekilde sarar, örneğin `String`, ve sonrasında ifade çalıştıktan sonra anında sarıcıyı ayırır. `null` ve `undefined` dışındaki tüm primitifler bu şekilde davranır.
 
 </p>
 </details>
@@ -1208,9 +1209,9 @@ What differentiates a primitive from an object is that primitives do not have an
 
 #### Cevap: C
 
-`[1, 2]` is our initial value. This is the value we start with, and the value of the very first `acc`. During the first round, `acc` is `[1,2]`, and `cur` is `[0, 1]`. We concatenate them, which results in `[1, 2, 0, 1]`.
+`[1, 2]` başlangıç değerimizdir. Başladığımız değer budur ve `acc`'nin en ilk değeridir. İlk tur süresince, `acc` `[1,2]`'dir ve `cur` `[0, 1]`'dir. Onları birleştiririz ve `[1, 2, 0, 1]` olarak sonuçlanır.
 
-Then, `[1, 2, 0, 1]` is `acc` and `[2, 3]` is `cur`. We concatenate them, and get `[1, 2, 0, 1, 2, 3]`
+Sonra, `acc` `[1, 2, 0, 1]`'dir ve `cur` `[2, 3]`'dür. Onları birleştiririz ve `[1, 2, 0, 1, 2, 3]` elde ederiz.
 
 </p>
 </details>
@@ -1235,26 +1236,26 @@ Then, `[1, 2, 0, 1]` is `acc` and `[2, 3]` is `cur`. We concatenate them, and ge
 
 #### Cevap: B
 
-`null` is falsy. `!null` returns `true`. `!true` returns `false`.
+`null` yanlış-ımsıdır, "falsy". `!null` `true` döndürür. `!true` `false` döndürür.
 
-`""` is falsy. `!""` returns `true`. `!true` returns `false`.
+`""` yanlış-ımsıdır. `!""` `true` döndürür. `!true` `false` döndürür.
 
-`1` is truthy. `!1` returns `false`. `!false` returns `true`.
+`1` doğrusaldır. `!1` `false` döndürür. `!false` `true` döndürür.
 
 </p>
 </details>
 
 ---
 
-###### 42. What does the `setInterval` method return in the browser?
+###### 42. `setInterval` methodu tarayıcıda ne döndürür?
 
 ```javascript
 setInterval(() => console.log("Hi"), 1000);
 ```
 
-- A: a unique id
-- B: the amount of milliseconds specified
-- C: the passed function
+- A: benzersiz bir id
+- B: belirtilen milisayine tutarı
+- C: gönderilen fonksiyon
 - D: `undefined`
 
 <details><summary><b>Cevap</b></summary>
@@ -1262,14 +1263,14 @@ setInterval(() => console.log("Hi"), 1000);
 
 #### Cevap: A
 
-It returns a unique id. This id can be used to clear that interval with the `clearInterval()` function.
+Benzersiz bir id döndürür. Bu id, süre aralığını, "interval", `clearInterval()` fonksiyonu ile temizlemek için kullanılabilinir.
 
 </p>
 </details>
 
 ---
 
-###### 43. What does this return?
+###### 43. Ne döndürür?
 
 ```javascript
 [..."Lydia"];
@@ -1285,7 +1286,7 @@ It returns a unique id. This id can be used to clear that interval with the `cle
 
 #### Cevap: A
 
-A string is an iterable. The spread operator maps every character of an iterable to one element.
+String, yinelenebilirdir, "iterable". Yayma operatörü, yenilenebilirin her bir karakterini bir elemana eşler.
 
 </p>
 </details>
@@ -1316,18 +1317,18 @@ console.log(gen.next().value);
 
 #### Cevap: C
 
-Regular functions cannot be stopped mid-way after invocation. However, a generator function can be "stopped" midway, and later continue from where it stopped. Every time a generator function encounters a `yield` keyword, the function yields the value specified after it. Note that the generator function in that case doesn’t _return_ the value, it _yields_ the value.
+Sıradan fonksiyonlar yürütmenin başlamasının ardından yarı yolda durdurulamaz. Ancak, bir generator fonksiyon yarı yolda "durdurabilir" ve sonra nerede kaldıysa devam edebilir. Bir generator fonksiyon ne zaman `yield` anahtar kelimesiyle karşılaşsa, yield'de belirtilen değeri verir. Dikkat edin, generator fonksiyon değeri _döndürmez_ (_return_), değeri _verir_ (_yield_). 
 
-First, we initialize the generator function with `i` equal to `10`. We invoke the generator function using the `next()` method. The first time we invoke the generator function, `i` is equal to `10`. It encounters the first `yield` keyword: it yields the value of `i`. The generator is now "paused", and `10` gets logged.
+Önce, generator fonksiyonu `i`'yi `10`'a eşitleyerek başlatıyoruz. `next()` methodunu kullanarak generator fonksiyonu çalıştırıyoruz. İlk kez generator fonksiyonu çalıştırdığımızda, `i` `10`'a eşit. Fonksiyon ilk `yield` anahtar kelimesi ile karşılaşıyor: `i`'nin değerini veriyor. Generatır şimdi "durdu", ve `10` loglandı.
 
-Then, we invoke the function again with the `next()` method. It starts to continue where it stopped previously, still with `i` equal to `10`. Now, it encounters the next `yield` keyword, and yields `i * 2`. `i` is equal to `10`, so it returns `10 * 2`, which is `20`. This results in `10, 20`.
+Sonra, `next()` methodunu kullanarak fonksiyonu tekrar çalıştırıyoruz. Fonksiyon önceki kaldığı yerden çalışmaya devam ediyor, `i` hala `10`'a eşit. Şimdi, fonksiyon sıraki `yield` anahtar kelimesi ile karşılaşıyor, ve `i * 2`'yi veriyor, yani fonksiyon `10 * 2` veriyor, ki o da `20`'dir. `10, 20` şeklinde sonuçlanıyor.
 
 </p>
 </details>
 
 ---
 
-###### 45. What does this return?
+###### 45. Ne döndürür?
 
 ```javascript
 const firstPromise = new Promise((res, rej) => {
@@ -1351,7 +1352,7 @@ Promise.race([firstPromise, secondPromise]).then(res => console.log(res));
 
 #### Cevap: B
 
-When we pass multiple promises to the `Promise.race` method, it resolves/rejects the _first_ promise that resolves/rejects. To the `setTimeout` method, we pass a timer: 500ms for the first promise (`firstPromise`), and 100ms for the second promise (`secondPromise`). This means that the `secondPromise` resolves first with the value of `'two'`. `res` now holds the value of `'two'`, which gets logged.
+`Promise.race` methoduna birçok promise geçtiğimiz zaman, _ilk_ çözümlenen/reddedilen, "resolves/rejects", promise'i çözümler/reddeder . `setTimeout` methoduna, zamanlayıcı, "timer", geçtik: ilk promise (`firstPromise`) için 500ms, ve ikinci promise (`secondPromise`) için 100ms. Bu demektir ki `secondPromise` `'two'` değeriyle birlikte önce çözümlenir. `res` sakladığı `'two'` değeriyle loglanır.
 
 </p>
 </details>
@@ -1378,19 +1379,19 @@ console.log(members);
 
 #### Cevap: D
 
-First, we declare a variable `person` with the value of an object that has a `name` property.
+Önce, `person` değişkenini, `name` özelliğine sahip bir nesne değeriyle birlikte tanımlarız.
 
 <img src="https://i.imgur.com/TML1MbS.png" width="200">
 
-Then, we declare a variable called `members`. We set the first element of that array equal to the value of the `person` variable. Objects interact by _reference_ when setting them equal to each other. When you assign a reference from one variable to another, you make a _copy_ of that reference. (note that they don't have the _same_ reference!)
+Sonra, `members` olarak adlandırdığımız değişkeni tanımlarız. Bu dizinin ilk elemanını, `person` değişkeninin değerine eşit olarak ayarlarız. Nesneler, birbirlerine eşitlendiklerinde, _referans_ üzerinden etkileşime girer. Bir referansı, bir değişkenden diğerine atadığınız zaman, o referansın _kopyasını_ oluşturursunuz. (değişkenlerin _aynı_ referansa sahip olmadığına dikkat edin!)
 
 <img src="https://i.imgur.com/FSG5K3F.png" width="300">
 
-Then, we set the variable `person` equal to `null`.
+Sonra, `person` değişkenini `null`'a eşit olarak ayarlarız.
 
 <img src="https://i.imgur.com/sYjcsMT.png" width="300">
 
-We are only modifying the value of the `person` variable, and not the first element in the array, since that element has a different (copied) reference to the object. The first element in `members` still holds its reference to the original object. When we log the `members` array, the first element still holds the value of the object, which gets logged.
+Sadece `person` değişkeninin değerini değiştiriyoruz, dizideki ilk elemanı değil, ilk eleman nesneyi gösteren farklı (kopyalanmış) bir referansa sahip. `members` içindeki ilk eleman hala orijinal nesneyi gösteren referansını saklıyor. `members` dizisini logladığımız zaman, ilk elemanın hala sakladığı nesnenin değeri loglanır.  
 
 </p>
 </details>
