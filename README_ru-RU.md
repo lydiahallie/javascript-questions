@@ -7,7 +7,7 @@
 Ответы находятся в свернутой секции ниже вопросов. Просто нажми на "Ответ", чтобы развернуть. Удачи! :heart:
 
 
-List of available languages:
+Список доступных переводов:
 * [English](./README.md)
 * [中文版本](./README-zh_CN.md)
 * [Versión en español](./README-ES.md)
