@@ -20,7 +20,7 @@
 * [Українська мова](./README-ua_UA.md)
 * [Português Brasil](./README_pt_BR.md)
 * [العربية](./README_AR.md)
-* [اللغة العامية - Egyptian Arabic](./README_ar-EG.md
+* [اللغة العامية - Egyptian Arabic](./README_ar-EG.md)
 
 
 ---
