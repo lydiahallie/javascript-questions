@@ -294,7 +294,7 @@ console.log(greetign);
 
 #### Réponse: A
 
-Il affiche l'objet, car on a juste créé un objet vide dnas l'objet global ! Quand on écrit mal `greeting` en `greetign`, JaveScript l'interprète comme il le voit `global.greetign = {}` (ou `window.greetign = {}` dans le navigateur).
+Il affiche l'objet, car on a juste créé un objet vide dans l'objet global ! Quand on écrit mal `greeting` en `greetign`, JavaScript l'interprète comme il le voit `global.greetign = {}` (ou `window.greetign = {}` dans le navigateur).
 
 Pour éviter cela, on peut utiliser `"use strict"`. Cela nous assure de devoir déclarer la variable avant de lui assigné une valeur.
 
