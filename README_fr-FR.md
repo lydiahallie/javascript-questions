@@ -656,7 +656,7 @@ const sum = eval("10*10+5");
 
 ---
 
-###### 22. Pendant combien de temps `cool_secret` sera-t'il accessible ?
+###### 22. Pendant combien de temps `cool_secret` sera-t-il accessible ?
 
 ```javascript
 sessionStorage.setItem("cool_secret", 123);
