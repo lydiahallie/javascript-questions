@@ -768,7 +768,7 @@ Si vous avez deux clés portant le même nom, la clé sera remplacée. Elle sera
 
 - A: Vrai
 - B: Faux
-- C: Ça dépends
+- C: Ça dépend
 
 <details><summary><b>Réponse</b></summary>
 <p>
