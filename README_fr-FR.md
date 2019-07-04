@@ -303,7 +303,7 @@ Pour éviter cela, on peut utiliser `"use strict"`. Cela nous assure de devoir d
 
 ---
 
-###### 10. Que ce passe-t-il lorsque nous faisons ça ?
+###### 10. Que se passe-t-il lorsque nous faisons ça ?
 
 ```javascript
 function bark() {
