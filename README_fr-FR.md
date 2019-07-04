@@ -1005,7 +1005,7 @@ sayHi.bind(person, 21);
 
 Avec les deux, nous pouvons transmettre l'objet auquel nous voulons que le mot clé `this` fasse référence. Cependant, `.call` est aussi _exécuté immédiatement_ !
 
-`.bind.` renvoie une copie de la fonction, mais avec un contexte lié ! Elle n'est pas exécuté immédiatement.
+`.bind.` renvoie une copie de la fonction, mais avec un contexte lié ! Elle n'est pas exécutée immédiatement.
 
 </p>
 </details>
