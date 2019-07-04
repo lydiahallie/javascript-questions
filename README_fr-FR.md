@@ -775,7 +775,7 @@ Si vous avez deux clés portant le même nom, la clé sera remplacée. Elle sera
 
 #### Réponse: A
 
-Le contexte d'exécution de base est le contexte d'exécution global: c'est ce qui est accessible partout dans votre code.
+Le contexte d'exécution de base est le contexte d'exécution global : c'est ce qui est accessible partout dans votre code.
 
 </p>
 </details>
