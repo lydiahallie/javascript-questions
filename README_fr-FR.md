@@ -4,7 +4,7 @@ Je poste quotidiennement des questions à choix multiple sur mon [Instagram](htt
 
 Des basiques au avancée : testez votre compréhension de JavaScript, rafraîchissez vos connaissances, ou préparez-vous pour un entretien technique ! :muscle: :rocket: Je mets à jour ce dépôt chaque semaine avec des nouvelles questions. Dernière mise à jour : <a href=#20190629><b>29 juin</b></a>
 
-Les réponses se trouvent dans les sections fermées en dessous des questions, cliquez simplement dessus pour les faire apparaitre. Bonne chance :heart:
+Les réponses se trouvent dans les sections repliées en dessous des questions, cliquez simplement dessus pour les faire apparaître. Bonne chance :heart:
 
 [English](./README.md)
 [中文版本](./README-zh_CN.md)
