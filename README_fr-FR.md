@@ -196,7 +196,7 @@ console.log(d.greeting);
 
 #### Réponse: A
 
-En JavaScript, tous les object intéragisent par _référence_ en plaçant égaux les uns aux autres.
+En JavaScript, tous les objets interagissent par _référence_ lorsqu'on les définit égaux les uns aux autres.
 
 Premièrement, la variable `c` contaient une valeur d'objet. Plus tard, nous assignons `d` avec la même réference que `c` à l'objet.
 
