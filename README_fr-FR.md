@@ -702,7 +702,7 @@ console.log(num);
 
 Avec le mot clé `var`, vous pouvez déclarer plusieurs variables avec le même nom. La variable aura pour valeur la dernière assignée.
 
-Vous ne pouvez par faire cela avec `let` ou `const` puisqu'ils ont une portée de bloc.
+Vous ne pouvez pas faire cela avec `let` ou `const` puisqu'ils ont une portée de bloc.
 
 </p>
 </details>
