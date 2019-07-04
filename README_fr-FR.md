@@ -366,7 +366,7 @@ Person.prototype.getFullName = function() {
 };
 ```
 
-rendra fonctionnel `member.getFullName`. Pourquoi est-ce benifique ? Disons que nous ajoutons cette méthode au constructeur directement. Peut-être que toutes les instances de `Person` n'ont pas besoin de cette méthode. Cela fera perdre de l'espace mémoire, car elles auront tous cette propriété, ce qui prendra de l'espace mémoire pour chaque instance. Alors que, si nous ajoutons la méthode au prototype uniquement, nous n'utilisons qu'un seul slot mémoire, et ils y auront tous accès !
+rendra fonctionnel `member.getFullName`. Pourquoi est-ce bénéfique ? Disons que nous ajoutons cette méthode au constructeur directement. Peut-être que toutes les instances de `Person` n'ont pas besoin de cette méthode. Cela fera perdre de l'espace mémoire, car elles auront tous cette propriété, ce qui prendra de l'espace mémoire pour chaque instance. Alors que, si nous ajoutons la méthode au prototype uniquement, nous n'utilisons qu'un seul slot mémoire, et ils y auront tous accès !
 
 </p>
 </details>
