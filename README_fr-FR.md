@@ -358,7 +358,7 @@ console.log(member.getFullName());
 
 #### Réponse: A
 
-Vous ne pouvez pas ajouter de propriétés à un constructeur comme pour des objets normaux. Si vous voulez ajouter une fonctionnalité pour tout les objets en une fois, vous devez utiliser le prototype. Donc dans ce cas,
+Vous ne pouvez pas ajouter de propriétés à un constructeur comme pour des objets normaux. Si vous voulez ajouter une fonctionnalité pour tous les objets en une fois, vous devez utiliser le prototype. Donc dans ce cas,
 
 ```js
 Person.prototype.getFullName = function() {
