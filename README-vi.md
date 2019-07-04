@@ -6,8 +6,20 @@ Các câu hỏi sẽ từ cơ bản đến nâng cao: kiểm tra trình độ Ja
 
 Các đáp án được đặt dưới mỗi câu hỏi, hãy click để tham khảo chúng. Chúc may mắn :heart:
 
-[English Version](./README.md)  
-[Українська мова](./README-ua_UA.md)  
+Danh sách các ngôn ngữ khác:
+* [English](./README.md)
+* [中文版本](./README-zh_CN.md)
+* [Versión en español](./README-ES.md)
+* [日本語](./README-ja_JA.md)  
+* [한국어](./README-ko_KR.md) 
+* [Русский](./README_ru-RU.md)  
+* [Western Balkan](./README-bs_BS.md)  
+* [Deutsch](./README-de_DE.md)  
+* [Tiếng Việt](./README-vi.md)
+* [Українська мова](./README-ua_UA.md)  
+* [Português Brasil](./README_pt_BR.md)  
+* [العربية](./README_AR.md)
+* [اللغة العامية - Egyptian Arabic](./README_ar-EG.md)
 
 ---
 
