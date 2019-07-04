@@ -1961,7 +1961,7 @@ The unary operator `++` _first returns_ the value of the operand, _then incremen
 </p>
 </details>
 
-###### 65. What's the output?
+###### 64. What's the output?
 
 ```javascript
 const val1 = null
