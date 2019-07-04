@@ -566,7 +566,7 @@ checkAge({ age: 18 });
 
 #### Réponse: C
 
-Lorsque l'on teste une égalité, les primitifs sont comparés par leur valeur, alors que les objet sont comparés par leur _référence_. JavaScript vérifie si les objets ont une référence à la même zone de la mémoire.=
+Lorsque l'on teste une égalité, les primitifs sont comparés par leur valeur, alors que les objets sont comparés par leur _référence_. JavaScript vérifie si les objets ont une référence à la même zone de la mémoire.=
 
 Les 2 objets que nous comparons n'ont pas ça : l'objet passé en paramètre fait référence à une zone mémoire différente que l'objet que nous utilisons pour faire la comparaison.
 
