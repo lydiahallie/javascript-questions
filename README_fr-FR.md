@@ -1289,7 +1289,7 @@ Il retourne un identifiant unique. Cet identifiant peut être utilisé pour effa
 
 #### Réponse: A
 
-Une chaîne de caractère est itérable. L'opérateur de desconstruction transforme chaque caractère d'un itérable en un élément.
+Une chaîne de caractère est itérable. L'opérateur de déconstruction transforme chaque caractère d'un itérable en un élément.
 
 </p>
 </details>
