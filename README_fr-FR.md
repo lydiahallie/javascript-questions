@@ -4,7 +4,7 @@ Je poste quotidiennement des questions à choix multiple sur mon [Instagram](htt
 
 De la base aux subtilités du langage : testez votre compréhension de JavaScript, rafraîchissez vos connaissances, ou préparez-vous pour un entretien technique ! :muscle: :rocket: Je mets à jour ce dépôt chaque semaine avec des nouvelles questions. Dernière mise à jour : [**29 juin**](#20190629)
 
-Les réponses se trouvent dans les sections fermées en dessous des questions, cliquez simplement dessus pour les faire apparaitre. Bonne chance :heart:
+Les réponses se trouvent dans les sections repliées en dessous des questions, cliquez simplement dessus pour les faire apparaître. Bonne chance :heart:
 
 [English](./README.md)
 [中文版本](./README-zh_CN.md)
@@ -38,7 +38,7 @@ sayHi();
 
 Dans la fonction, nous déclarons en premier la variable `name` grâce au mot clé `var`. Cela signifie que la variable est "levée" _(hoisted)_ (l'espace mémoire est définie à la phase de création) avec pour valeur par défaut `undefined`, jusqu'à ce que le script atteigne la ligne de définition de la variable. Nous n'avons pas encore défini la variable lorsque nous essayons d'afficher la variable `name`, donc elle a toujours la valeur `undefined`.
 
-Les variables avec le mot clé `let` (et `const`) sont "levées" _(hoisted)_, mais contrairement à `var`, elle n'est pas <i>initialisée</i>. Elles ne sont pas accessible avant la ligne qui les declare (initialise). C'est appelé la "zone morte temporaire". Lorsque nous essayons d'accéder aux variables avant leur déclaration, JavaScript renvoit une `ReferenceError`.
+Les variables avec le mot clé `let` (et `const`) sont "levées" _(hoisted)_, mais contrairement à `var`, elle n'est pas <i>initialisée</i>. Elles ne sont pas accessible avant la ligne qui les déclare (initialise). C'est appelé la "zone morte temporaire". Lorsque nous essayons d'accéder aux variables avant leur déclaration, JavaScript renvoie une `ReferenceError`.
 
 </p>
 </details>
@@ -102,7 +102,7 @@ shape.perimeter();
 
 Notez que la valeur de `diameter` est une fonction régulière, alors que celle de `perimeter` est une fonction fléchée.
 
-Avec les fonctions fléchée, le mot clé `this` réfère à son périmètre actuel, contrairement au fonctions régulières ! Cela signifie que lorsque nous appelons `perimeter`, elle ne réfère pas à l'objet shape, mais à son périmètre actuel (`window` par exemple).
+Avec les fonctions fléchée, le mot clé `this` réfère à son périmètre actuel, contrairement aux fonctions régulières ! Cela signifie que lorsque nous appelons `perimeter`, elle ne réfère pas à l'objet `shape`, mais à son périmètre actuel (`window` par exemple).
 
 Il n'y a pas de valeur `radius` dans cet objet, on retournera `undefined`.
 
@@ -231,11 +231,11 @@ console.log(b === c);
 
 #### Réponse: C
 
-`new Number()` est une fonction globale. Bien qu'il ressemble à un nombre, ce n'en est pas vraiment un : il a une poignée de fonctionnalités supplémentaire and est un objet.
+`new Number()` est une fonction globale. Bien qu'il ressemble à un nombre, ce n'en est pas vraiment un : il a une poignée de fonctionnalités supplémentaire et est un objet.
 
 Quand nous utilisons l'opérateur `==`, il vérifie seulement qu'il s'agisse de la même _valeur_. Les deux ont pour valeur `3`, donc il retourne `true`.
 
-Cependant, quand on utilise l'opérateur `===`, les 2 valeurs _et_ type doivent être les même. `new Number()` n'est pas un nombre, c'est un **objet**, il retourne `false`.
+Cependant, quand on utilise l'opérateur `===`, les 2 valeurs _et_ types doivent être les mêmes. `new Number()` n'est pas un nombre, c'est un **objet**, il retourne `false`.
 
 </p>
 </details>
@@ -270,7 +270,7 @@ freddie.colorChange("orange");
 
 #### Réponse: D
 
-La fonction `colorChange` est statique. Les méthodes statiques sont désignée pour vivre seulement dans le constructeur qui les a créer et ne peuvent pas être transférer aux enfants. Comme `freddie` est un enfant, la fonction n'est pas transférée et non disponible dans l'instance de `freddie` : une erreur `TypeError` est renvoyée.
+La fonction `colorChange` est statique. Les méthodes statiques sont désignées pour vivre seulement dans le constructeur qui les a créé et ne peuvent pas être transférer aux enfants. Comme `freddie` est un enfant, la fonction n'est pas transférée et n'est pas disponible dans l'instance de `freddie` : une erreur `TypeError` est renvoyée.
 
 </p>
 </details>
@@ -294,16 +294,16 @@ console.log(greetign);
 
 #### Réponse: A
 
-Il affiche l'objet, car on a juste créé un objet vide dnas l'objet global ! Quand on écrit mal `greeting` en `greetign`, JaveScript l'interprète comme il le voit `global.greetign = {}` (ou `window.greetign = {}` dans le navigateur).
+Il affiche l'objet, car on a juste créé un objet vide dans l'objet global ! Quand on écrit mal `greeting` en `greetign`, JavaScript l'interprète comme il le voit `global.greetign = {}` (ou `window.greetign = {}` dans le navigateur).
 
-Pour éviter cela, on peut utiliser `"use strict"`. Cela nous assure de devoir déclarer la variable avant de lui assigné une valeur.
+Pour éviter cela, on peut utiliser `"use strict"`. Cela nous assure de devoir déclarer la variable avant de lui assigner une valeur.
 
 </p>
 </details>
 
 ---
 
-###### 10. Que ce passe-t-il lorsque nous faisons ça ?
+###### 10. Que se passe-t-il lorsque nous faisons ça ?
 
 ```javascript
 function bark() {
@@ -325,7 +325,7 @@ bark.animal = "dog";
 
 C'est possible en JavaScript, car les fonctions sont des objets ! (Tout ce qui n'est pas de type primitif est un objet)
 
-Une fonction est un type special d'objet. Le code que vous écrivez vous-même n'est pas la fonction. La fonction est un objet avec des propriétées. Cette propriétée est invocable.
+Une fonction est un type spécial d'objet. Le code que vous écrivez vous-même n'est pas la fonction. La fonction est un objet avec des propriétés. Cette propriété est invocable.
 
 </p>
 </details>
@@ -358,7 +358,7 @@ console.log(member.getFullName());
 
 #### Réponse: A
 
-Vous ne pouvez pas ajouter de propriétés à un constructeur comme pour des objets normaux. Si vous voulez ajouter une fonctionnalité pour tout les objets en une fois, vous devez utiliser le prototype. Donc dans ce cas,
+Vous ne pouvez pas ajouter de propriétés à un constructeur comme pour des objets normaux. Si vous voulez ajouter une fonctionnalité pour tous les objets en une fois, vous devez utiliser le prototype. Donc dans ce cas,
 
 ```js
 Person.prototype.getFullName = function() {
@@ -366,7 +366,7 @@ Person.prototype.getFullName = function() {
 };
 ```
 
-rendra fonctionnel `member.getFullName`. Pourquoi est-ce benifique ? Disons que nous ajoutons cette méthode au constructeur directement. Peut-être que toutes les instances de `Person` n'ont pas besoin de cette méthode. Cela fera perdre de l'espace mémoire, car elles auront tous cette propriété, ce qui prendra de l'espace mémoire pour chaque instance. Alors que, si nous ajoutons la méthode au prototype uniquement, nous n'utilisons qu'un seul slot mémoire, et ils y auront tous accès !
+rendra fonctionnel `member.getFullName`. Pourquoi est-ce bénéfique ? Disons que nous ajoutons cette méthode au constructeur directement. Peut-être que toutes les instances de `Person` n'ont pas besoin de cette méthode. Cela fera perdre de l'espace mémoire, car elles auront tous cette propriété, ce qui prendra de l'espace mémoire pour chaque instance. Alors que, si nous ajoutons la méthode au prototype uniquement, nous n'utilisons qu'un seul slot mémoire, et ils y auront tous accès !
 
 </p>
 </details>
@@ -398,7 +398,7 @@ console.log(sarah);
 
 #### Réponse: A
 
-Pour `sarah`, nous n'avons pas utilisé le mot clé `new`. Quand nous utilisons `new`, il fait référence à un nouvel objet vide que nous créons. Cependant so nous n'ajoutons pas `new` il réfère à **l'objet global** !
+Pour `sarah`, nous n'avons pas utilisé le mot clé `new`. Quand nous utilisons `new`, il fait référence à un nouvel objet vide que nous créons. Cependant, nous n'ajoutons pas `new`. Il réfère à **l'objet global** !
 
 Nous disons que `this.firstName` est égal à `"Sarah"` et que `this.lastName` est égal à `Smith`. Ce que nous faisons c'est définir `global.firstName = 'Sarah'` et `global.lastName = 'Smith'`. La variable `sarah` elle-même reste à `undefined`.
 
@@ -419,7 +419,7 @@ Nous disons que `this.firstName` est égal à `"Sarah"` et que `this.lastName` e
 
 #### Réponse: D
 
-Durant la phase de **capture** _(capturing)_, l'événement passe par les événements parent jusqu'à l'élément ciblé. Il attient ensuite l'élément **ciblé** _(target)_, et commence à **bouillonner** _(bubbling)_.
+Durant la phase de **capture** _(capturing)_, l'événement passe par les éléments parents jusqu'à l'élément ciblé. Il atteint ensuite l'élément **ciblé** _(target)_, et commence à **bouillonner** _(bubbling)_.
 
 <img src="https://i.imgur.com/N18oRgd.png" width="200">
 
@@ -428,7 +428,7 @@ Durant la phase de **capture** _(capturing)_, l'événement passe par les évén
 
 ---
 
-###### 14. Tous les objects ont des prototypes.
+###### 14. Tous les objets ont des prototypes.
 
 - A: vrai
 - B: faux
@@ -438,7 +438,7 @@ Durant la phase de **capture** _(capturing)_, l'événement passe par les évén
 
 #### Réponse: B
 
-Tous les objets ont des prototypes, excepté pour les **objets standards**. Les objets standards ont accès à certaines méthodes et propriétés, comme `.toString`. C'est pour cette raison que vous pouvez utiliser les méthodes natives de JavaScript ! Toutes ces méthodes sont disponibles dans le prototype. Bien que JavaScript ne trouve pas la fonction dans l'objet, il parcours le prototype et la méthode afin de la rendre accessible.
+Tous les objets ont des prototypes, excepté pour les **objets standards**. Les objets standards ont accès à certaines méthodes et propriétés, comme `.toString`. C'est pour cette raison que vous pouvez utiliser les méthodes natives de JavaScript ! Toutes ces méthodes sont disponibles dans le prototype. Bien que JavaScript ne trouve pas la fonction dans l'objet, il parcourt le prototype et la méthode afin de la rendre accessible.
 
 </p>
 </details>
@@ -465,9 +465,9 @@ sum(1, "2");
 
 #### Réponse: C
 
-JavaScript est un **langage à types dynamiques** : nous n'avons pas besoin de spécifier le types des variables. Les valeurs peuvent être automatiquement convertir vers les autres types sans que vous le sachiez, c'est ce que l'on appelle _la conversion de types implicites_ _(implicit type coercion)_.
+JavaScript est un **langage à types dynamiques** : nous n'avons pas besoin de spécifier le types des variables. Les valeurs peuvent être automatiquement converties vers les autres types sans que vous le sachiez, c'est ce que l'on appelle _la conversion de types implicites_ _(implicit type coercion)_.
 
-Dans cette exemple, JavaScript convertit le nombre `1` en un chaine de caractère, afin que la fonction est du sens et puisse renvoyer un valeur. Durant l'addition d'un type numérique (`1`) et d'un type chaine de caractère (`'2'`), le nombre est traité comme une chaine de caractère. Nous pouvons concaténer les chaines de caractères comme `"Hello" + "World"`, c'est donc ce qui arrive ici avec `"1" + "2"` qui retourne `"12"`.
+Dans cette exemple, JavaScript convertit le nombre `1` en un chaine de caractère, afin que la fonction ait du sens et puisse renvoyer une valeur. Durant l'addition d'un type numérique (`1`) et d'un type chaine de caractère (`'2'`), le nombre est traité comme une chaine de caractère. Nous pouvons concaténer les chaines de caractères comme `"Hello" + "World"`, c'est donc ce qui arrive ici avec `"1" + "2"` qui retourne `"12"`.
 
 </p>
 </details>
@@ -534,7 +534,7 @@ getPersonInfo`${person} is ${age} years old`;
 
 #### Réponse: B
 
-Si vous utilisez les template de chaine de caractère, la valeur du premier argument sera toujours un tableau de valeurs des chaines de caractère. Le reste des arguments seront les valeurs des expressions utilisées !
+Si vous utilisez les littéraux de gabarits, la valeur du premier argument sera toujours un tableau de valeurs des chaines de caractère. Le reste des arguments seront les valeurs des expressions utilisées !
 
 </p>
 </details>
@@ -566,7 +566,7 @@ checkAge({ age: 18 });
 
 #### Réponse: C
 
-Lorsque l'on teste une égalité, les primitifs sont comparés par leur valeur, alors que les objet sont comparés par leur _référence_. JavaScript vérifie si les objets ont une référence à la même zone de la mémoire.=
+Lorsque l'on teste une égalité, les primitifs sont comparés par leur valeur, alors que les objets sont comparés par leur _référence_. JavaScript vérifie si les objets ont une référence à la même zone de la mémoire.=
 
 Les 2 objets que nous comparons n'ont pas ça : l'objet passé en paramètre fait référence à une zone mémoire différente que l'objet que nous utilisons pour faire la comparaison.
 
@@ -597,7 +597,7 @@ getAge(21);
 
 #### Réponse: C
 
-L'opérateur de destructuration _(spread operator)_ (`...args`) retourne un tableau avec les arguments. Un tableau est un objet, donc `typeof args` retournera `"object"`.
+L'opérateur de déstructuration _(spread operator)_ (`...args`) retourne un tableau avec les arguments. Un tableau est un objet, donc `typeof args` retournera `"object"`.
 
 </p>
 </details>
@@ -649,14 +649,14 @@ const sum = eval("10*10+5");
 
 #### Réponse: A
 
-`eval` évalue les codes que nous passons en paramétre de type chaine de caractères. Si c'est une expression, comme dans notre cas, il évaluera l'expression. L'expression est `10 * 10 + 5`, ce qui retourne le nombre `105`.
+`eval` évalue les codes que nous passons en paramètre de type chaîne de caractères. Si c'est une expression, comme dans notre cas, il évaluera l'expression. L'expression est `10 * 10 + 5`, ce qui retourne le nombre `105`.
 
 </p>
 </details>
 
 ---
 
-###### 22. Pendant combien de temps `cool_secret` sera-t'il accessible ?
+###### 22. Pendant combien de temps `cool_secret` sera-t-il accessible ?
 
 ```javascript
 sessionStorage.setItem("cool_secret", 123);
@@ -702,7 +702,7 @@ console.log(num);
 
 Avec le mot clé `var`, vous pouvez déclarer plusieurs variables avec le même nom. La variable aura pour valeur la dernière assignée.
 
-Vous ne pouvez par faire cela avec `let` ou `const` puisqu'ils ont une portée de bloc.
+Vous ne pouvez pas faire cela avec `let` ou `const` puisqu'ils ont une portée de bloc.
 
 </p>
 </details>
@@ -768,14 +768,14 @@ Si vous avez deux clés portant le même nom, la clé sera remplacée. Elle sera
 
 - A: Vrai
 - B: Faux
-- C: Ça dépends
+- C: Ça dépend
 
 <details><summary><b>Réponse</b></summary>
 <p>
 
 #### Réponse: A
 
-Le contexte d'exécution de base est le contexte d'exécution global: c'est ce qui est accessible partout dans votre code.
+Le contexte d'exécution de base est le contexte d'exécution global : c'est ce qui est accessible partout dans votre code.
 
 </p>
 </details>
@@ -830,7 +830,7 @@ name.giveLydiaPizza();
 
 #### Réponse: A
 
-`String` est un constructeur intégré, auquel nous pouvons ajouter des propriétés. Je viens d'ajouter une méthode à son prototype. Les chaînes de caratère primitives sont automatiquement converties en un objet chaîne, généré par la fonction prototype de chaîne. Ainsi, toutes les chaînes (objets de chaîne) ont accès à cette méthode !
+`String` est un constructeur intégré, auquel nous pouvons ajouter des propriétés. Je viens d'ajouter une méthode à son prototype. Les chaînes de caractère primitives sont automatiquement converties en un objet chaîne, généré par la fonction prototype de chaîne. Ainsi, toutes les chaînes (objets de chaîne) ont accès à cette méthode !
 
 </p>
 </details>
@@ -924,7 +924,7 @@ C'est ici qu'une boucle d'événement commence à fonctionner. La **boucle d'év
 
 ---
 
-###### 31. Quel est l'élément ciblé _(event.target)_ au click sur le bouton _(button)_ ?
+###### 31. Quel est l'élément ciblé _(event.target)_ au clic sur le bouton _(button)_ ?
 
 ```html
 <div onclick="console.log('first div')">
@@ -1005,7 +1005,7 @@ sayHi.bind(person, 21);
 
 Avec les deux, nous pouvons transmettre l'objet auquel nous voulons que le mot clé `this` fasse référence. Cependant, `.call` est aussi _exécuté immédiatement_ !
 
-`.bind.` renvoie une copie de la fonction, mais avec un contexte lié ! Elle n'est pas exécuté immédiatement.
+`.bind.` renvoie une copie de la fonction, mais avec un contexte lié ! Elle n'est pas exécutée immédiatement.
 
 </p>
 </details>
@@ -1184,7 +1184,7 @@ JavaScript n'a que des types et des objets primitifs.
 
 Les types primitifs sont `boolean`, `null`, `undefined`, `bigint`, `number`, `string` et `symbol`.
 
-Ce qui différencie une primitive d'un objet, c'est que les primitives n'ont aucune propriété ou méthode. Cependant, vous remarquerez que  `'foo'.toUpperCase()` est évalué à `'FOO'` et n'entraîne pas de `TypeError`. En effet, lorsque vous essayez d'accéder à une propriété ou à une méthode sur une primitive telle qu'une chaîne, JavaScript encapsule implicitement l'objet à l'aide de l'une des classes d'encapsuleur, à savoir `String`, puis supprime immédiatement l'encapsuleur après l'évaluation de l'expression. Toutes les primitives à l'exception de `null` et` undefined` présentent ce comportement.
+Ce qui différencie une primitive d'un objet, c'est que les primitives n'ont aucune propriété ou méthode. Cependant, vous remarquerez que  `'foo'.toUpperCase()` est évalué à `'FOO'` et n'entraîne pas de `TypeError`. En effet, lorsque vous essayez d'accéder à une propriété ou à une méthode sur une primitive telle qu'une chaîne, JavaScript encapsule implicitement l'objet à l'aide de l'une des classes d'encapsulation, à savoir `String`, puis supprime immédiatement l'encapsulation après l'évaluation de l'expression. Toutes les primitives à l'exception de `null` et` undefined` présentent ce comportement.
 
 </p>
 </details>
@@ -1289,7 +1289,7 @@ Il retourne un identifiant unique. Cet identifiant peut être utilisé pour effa
 
 #### Réponse: A
 
-Une chaîne de caractère est itérable. L'opérateur de desconstruction transforme chaque caractère d'un itérable en un élément.
+Une chaîne de caractère est itérable. L'opérateur de déconstruction transforme chaque caractère d'un itérable en un élément.
 
 </p>
 </details>
