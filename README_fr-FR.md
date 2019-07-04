@@ -924,7 +924,7 @@ C'est ici qu'une boucle d'événement commence à fonctionner. La **boucle d'év
 
 ---
 
-###### 31. Quel est l'élément ciblé _(event.target)_ au click sur le bouton _(button)_ ?
+###### 31. Quel est l'élément ciblé _(event.target)_ au clic sur le bouton _(button)_ ?
 
 ```html
 <div onclick="console.log('first div')">
