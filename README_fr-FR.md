@@ -1184,7 +1184,7 @@ JavaScript n'a que des types et des objets primitifs.
 
 Les types primitifs sont `boolean`, `null`, `undefined`, `bigint`, `number`, `string` et `symbol`.
 
-Ce qui différencie une primitive d'un objet, c'est que les primitives n'ont aucune propriété ou méthode. Cependant, vous remarquerez que  `'foo'.toUpperCase()` est évalué à `'FOO'` et n'entraîne pas de `TypeError`. En effet, lorsque vous essayez d'accéder à une propriété ou à une méthode sur une primitive telle qu'une chaîne, JavaScript encapsule implicitement l'objet à l'aide de l'une des classes d'encapsuleur, à savoir `String`, puis supprime immédiatement l'encapsuleur après l'évaluation de l'expression. Toutes les primitives à l'exception de `null` et` undefined` présentent ce comportement.
+Ce qui différencie une primitive d'un objet, c'est que les primitives n'ont aucune propriété ou méthode. Cependant, vous remarquerez que  `'foo'.toUpperCase()` est évalué à `'FOO'` et n'entraîne pas de `TypeError`. En effet, lorsque vous essayez d'accéder à une propriété ou à une méthode sur une primitive telle qu'une chaîne, JavaScript encapsule implicitement l'objet à l'aide de l'une des classes d'encapsulation, à savoir `String`, puis supprime immédiatement l'encapsulation après l'évaluation de l'expression. Toutes les primitives à l'exception de `null` et` undefined` présentent ce comportement.
 
 </p>
 </details>
