@@ -270,7 +270,7 @@ freddie.colorChange("orange");
 
 #### Réponse: D
 
-La fonction `colorChange` est statique. Les méthodes statiques sont désignée pour vivre seulement dans le constructeur qui les a créer et ne peuvent pas être transférer aux enfants. Comme `freddie` est un enfant, la fonction n'est pas transférée et non disponible dans l'instance de `freddie` : une erreur `TypeError` est renvoyée.
+La fonction `colorChange` est statique. Les méthodes statiques sont désignées pour vivre seulement dans le constructeur qui les a créé et ne peuvent pas être transférer aux enfants. Comme `freddie` est un enfant, la fonction n'est pas transférée et n'est pas disponible dans l'instance de `freddie` : une erreur `TypeError` est renvoyée.
 
 </p>
 </details>
