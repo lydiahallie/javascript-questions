@@ -325,7 +325,7 @@ bark.animal = "dog";
 
 C'est possible en JavaScript, car les fonctions sont des objets ! (Tout ce qui n'est pas de type primitif est un objet)
 
-Une fonction est un type special d'objet. Le code que vous écrivez vous-même n'est pas la fonction. La fonction est un objet avec des propriétées. Cette propriétée est invocable.
+Une fonction est un type spécial d'objet. Le code que vous écrivez vous-même n'est pas la fonction. La fonction est un objet avec des propriétés. Cette propriété est invocable.
 
 </p>
 </details>
