@@ -764,7 +764,7 @@ Si vous avez deux clés portant le même nom, la clé sera remplacée. Elle sera
 
 ---
 
-###### 26. Le contexte global d'exécution de JavaScript créait 2 choses pour vous : l'objet global and le mot clé `this`.
+###### 26. Le contexte global d'exécution de JavaScript crée 2 choses pour vous : l'objet global and le mot-clé `this`.
 
 - A: Vrai
 - B: Faux
