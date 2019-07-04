@@ -235,7 +235,7 @@ console.log(b === c);
 
 Quand nous utilisons l'opérateur `==`, il vérifie seulement qu'il s'agisse de la même _valeur_. Les deux ont pour valeur `3`, donc il retourne `true`.
 
-Cependant, quand on utilise l'opérateur `===`, les 2 valeurs _et_ type doivent être les même. `new Number()` n'est pas un nombre, c'est un **objet**, il retourne `false`.
+Cependant, quand on utilise l'opérateur `===`, les 2 valeurs _et_ types doivent être les mêmes. `new Number()` n'est pas un nombre, c'est un **objet**, il retourne `false`.
 
 </p>
 </details>
