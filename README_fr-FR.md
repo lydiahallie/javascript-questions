@@ -860,7 +860,7 @@ console.log(a[b]);
 
 #### Réponse: B
 
-Les clés d'objet sont automatiquement converties en chaînes de caractère. Nous essayons de définir un objet en tant que clé de l'objet `a`, avec la valeur `123`.
+Les clés d'objet sont automatiquement converties en chaînes de caractères. Nous essayons de définir un objet en tant que clé de l'objet `a`, avec la valeur `123`.
 
 Cependant, lorsque nous transformons un objet en chaine de caractère, il devient `"[Objet objet]"`. Donc, ce que nous disons ici, c'est que un `a["Objet objet"] = 123`. Ensuite, nous pouvons essayer de refaire la même chose. `c` est un autre objet que nous sommes implicitement en train de transformer en chaine de carctère. Donc, `a["Objet objet"] = 456`.
 
