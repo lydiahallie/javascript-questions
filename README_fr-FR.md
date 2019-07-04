@@ -830,7 +830,7 @@ name.giveLydiaPizza();
 
 #### Réponse: A
 
-`String` est un constructeur intégré, auquel nous pouvons ajouter des propriétés. Je viens d'ajouter une méthode à son prototype. Les chaînes de caratère primitives sont automatiquement converties en un objet chaîne, généré par la fonction prototype de chaîne. Ainsi, toutes les chaînes (objets de chaîne) ont accès à cette méthode !
+`String` est un constructeur intégré, auquel nous pouvons ajouter des propriétés. Je viens d'ajouter une méthode à son prototype. Les chaînes de caractère primitives sont automatiquement converties en un objet chaîne, généré par la fonction prototype de chaîne. Ainsi, toutes les chaînes (objets de chaîne) ont accès à cette méthode !
 
 </p>
 </details>
