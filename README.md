@@ -2,11 +2,13 @@
 
 I post daily multiple choice JavaScript questions on my [Instagram](https://www.instagram.com/theavocoder), which I'll also post here!
 
-From basic to advanced: test how well you know JavaScript, refresh your knowledge a bit, or prepare for your coding interview! :muscle: :rocket: I update this repo weekly with new questions. Last update: <b>June 29th</b>
+From basic to advanced: test how well you know JavaScript, refresh your knowledge a bit, or prepare for your coding interview! :muscle: :rocket: I update this repo weekly with new questions. Last update: <a href=#20190629><b>June 29th</b></a>
 
 The answers are in the collapsed sections below the questions, simply click on them to expand it. Good luck :heart:
 
+
 List of available languages:
+* [English](./README.md)
 * [中文版本](./README-zh_CN.md)
 * [Versión en español](./README-ES.md)
 * [日本語](./README-ja_JA.md)  
@@ -17,6 +19,8 @@ List of available languages:
 * [Tiếng Việt](./README-vi.md)
 * [Українська мова](./README-ua_UA.md)  
 * [Português Brasil](./README_pt_BR.md)  
+* [العربية](./README_AR.md)
+* [اللغة العامية - Egyptian Arabic](./README_ar-EG.md)
 * [Français](./README_fr-FR.md)
 
 ---
@@ -1660,7 +1664,7 @@ However, we created a global variable `y` when setting `y` equal to `10`. This v
 
 ---
 
-###### 55. What's the output?
+###### <a name=20190629></a>55. What's the output?
 
 ```javascript
 class Dog {
@@ -1784,7 +1788,7 @@ console.log(delete age);
 
 #### Answer: A
 
-The `delete` operator returns a boolena value: `true` on a successful deletion, else it'll return `false`. However, variables declared with the `var`, `const` or `let` keyword cannot be deleted using the `delete` operator.
+The `delete` operator returns a boolean value: `true` on a successful deletion, else it'll return `false`. However, variables declared with the `var`, `const` or `let` keyword cannot be deleted using the `delete` operator.
 
 The `name` variable was declared with a `const` keyword, so its deletion is not successful: `false` is returned. When we set `age` equal to `21`, we actually added a property called `age` to the global object. You can successfully delete properties from objects this way, also the global object, so `delete age` returns `true`.
 
@@ -1797,7 +1801,7 @@ The `name` variable was declared with a `const` keyword, so its deletion is not 
 
 ```javascript
 const numbers = [1, 2, 3, 4, 5];
-const [y] = numberes;
+const [y] = numbers;
 
 console.log(y);
 ```
@@ -1812,7 +1816,7 @@ console.log(y);
 
 #### Answer: C
 
-We can unpack values from arrays or properties from objects through destructing. For example:
+We can unpack values from arrays or properties from objects through destructuring. For example:
 
 ```javascript
 [a, b] = [1, 2];
