@@ -1421,7 +1421,7 @@ for (const item in person) {
 
 #### Cevap: B
 
-With a `for-in` loop, we can iterate through object keys, in this case `name` and `age`. Under the hood, object keys are strings (if they're not a Symbol). On every loop, we set the value of `item`equal to the current key it’s iterating over. First, `item` is equal to `name`, and gets logged. Then, `item` is equal to `age`, which gets logged.
+`for-in` döngüsüyle, nesne keyleri boyunca ileryebiliriz, bu durumda `name` ve `age`. Temelde, nesne keyleri stringdir (eğer Symbol değilse). Her döngüde, `item`'in değerini, döngü sırasındaki geçerli key olarak eşitleriz. Önce, `item` `name`'e eşittir, ve loglanır. Sonra loglanan `item`, `age`'e eşittir.
 
 </p>
 </details>
@@ -1444,18 +1444,18 @@ console.log(3 + 4 + "5");
 
 #### Cevap: B
 
-Operator associativity is the order in which the compiler evaluates the expressions, either left-to-right or right-to-left. This only happens if all operators have the _same_ precedence. We only have one type of operator: `+`. For addition, the associativity is left-to-right.
+Operatör birleşme özelliği, "operator associativity, derleyicinin ifadeleri çalıştırdığı sıradır, ya soldan sağa ya da sağdan soladır. Bu sadece, eğer tüm operatörler _aynı_ önceliğe sahipse gerçekleşir. Sadece tek tip operatörümüz var: `+`. Toplama için birleşme özelliği soldan sağadır.
 
-`3 + 4` gets evaluated first. This results in the number `7`.
+`3 + 4` önce çalıştırılır. `7` sayısı olarak sonuçlanır.
 
-`7 + '5'` results in `"75"` because of coercion. JavaScript converts the number `7` into a string, see question 15. We can concatenate two strings using the `+`operator. `"7" + "5"` results in `"75"`.
+Tip baskısından, "coercion", dolayı `7 + '5'`, `"75"` olarak sonuçlanır. JavaScript `7` sayısını string'e çevirir, 15. soruya bakabilirsiniz. İki string'i `+` operatörünü kullanarak birleştirebiliriz. `"7" + "5"` `"75"` olarak sonuçlanır.
 
 </p>
 </details>
 
 ---
 
-###### 49. What's the value of `num`?
+###### 49. `num` ın değeri nedir?
 
 ```javascript
 const num = parseInt("7*6", 10);
@@ -1471,9 +1471,9 @@ const num = parseInt("7*6", 10);
 
 #### Cevap: C
 
-Only the first numbers in the string is returned. Based on the _radix_ (the second argument in order to specify what type of number we want to parse it to: base 10, hexadecimal, octal, binary, etc.), the `parseInt` checks whether the characters in the string are valid. Once it encounters a character that isn't a valid number in the radix, it stops parsing and ignores the following characters.
+Sadece string içindeki ilk sayılar döndürülür. _Sayı tabanına_ (hangi tipte sayıya çözümlemek istediğimizi belirtmek için geçilen ikinci argüman: 10'lu, onaltılı, sekizli, ikili tabanda vb...) bağlı olarak, `parseInt` string içindeki hangi karakterlerin geçerli olduğunu kontrol eder. Sayı tabanında, geçerli olmayan bir karaktere denk geldiğinde, çözümleyi durdurur ve sonraki gelen karakterleri görmezden gelir.
 
-`*` is not a valid number. It only parses `"7"` into the decimal `7`. `num` now holds the value of `7`.
+`*` geçerli bir sayı değil. `parseInt` sadece `"7"`'yi ondalık sistemde `7`'ye çözümler. `num`, `7` değerini saklıyor artık.
 
 </p>
 </details>
@@ -1499,9 +1499,9 @@ Only the first numbers in the string is returned. Based on the _radix_ (the seco
 
 #### Cevap: C
 
-When mapping over the array, the value of `num` is equal to the element it’s currently looping over. In this case, the elements are numbers, so the condition of the if statement `typeof num === "number"` returns `true`. The map function creates a new array and inserts the values returned from the function.
+Dizi üzerinde eşleme yaparken, `num`'ın değeri, o anda döngüye giren elemanın değerine eşittir. Bu durumda, elemanlar sayı, yani `typeof num === "number"` koşul ifadesi `true` durdurur. map fonksiyonu yeni bir dizi oluşturur ve fonksiyondan dönen değerleri yerleştirir. 
 
-However, we don’t return a value. When we don’t return a value from the function, the function returns `undefined`. For every element in the array, the function block gets called, so for each element we return `undefined`.
+Ancak, biz değer döndürmüyoruz. Bir fonksiyondan değer döndürmediğimiz zaman, fonksiyon `undefined` döndürür. Dizideki her eleman için, fonksiyon bloğu çağrılır, yani her bir eleman için `undefined` döndürürüz.
 
 </p>
 </details>
@@ -1534,11 +1534,11 @@ console.log(person, birthYear);
 
 #### Cevap: A
 
-Arguments are passed by _value_, unless their value is an object, then they're passed by _reference_. `birthYear` is passed by value, since it's a string, not an object. When we pass arguments by value, a _copy_ of that value is created (see question 46).
+Argümanlar _değer_ olarak geçilir, değerleri nesne olmadıkları müddetçe, eğer öyleyse _referans_ olarak geçilir. `birthYear` nesne değil string olduğundan değer olarak geçilir. Argümanları değer olarak geçtiğimizde, o değerin bir _kopyası_ oluşturulur (46. soruya göz atın).
 
-The variable `birthYear` has a reference to the value `"1997"`. The argument `year` also has a reference to the value `"1997"`, but it's not the same value as `birthYear` has a reference to. When we update the value of `year` by setting `year` equal to `"1998"`, we are only updating the value of `year`. `birthYear` is still equal to `"1997"`.
+`birthYear` değişkeni `"1997"` değeri için referansa sahip. `year` argümanı da ayrıca `"1997"` değeri için referansa sahip, ama `birthYear`'ın sahip olduğu referansın değeri ile aynı değer değil. `year`'ın değerini `"1998"`'e eşit olarak ayarlayıp güncellediğimizde, sadece `year`'ın değerini güncelleriz. `birthYear` hala `"1997"`'e eşittir.
 
-The value of `person` is an object. The argument `member` has a (copied) reference to the _same_ object. When we modify a property of the object `member` has a reference to, the value of `person` will also be modified, since they both have a reference to the same object. `person`'s `name` property is now equal to the value `"Lydia"`
+`person`'ın değeri bir nesnedir. `member` argümanı _aynı_ nesne için (kopyalanmış) referansa sahip. `member` nesnesinin özelliğini değiştirdiğimizde, `person`'ın değeri de ayrıca değişmiş olacaktır, ikisi de aynı nesne için referansa sahip olduklarından. `person`'ın `name` özelliği şimdi `"Lydia"` değerine eşittir.
 
 </p>
 </details>
@@ -1574,9 +1574,9 @@ sayHi();
 
 #### Cevap: D
 
-With the `throw` statement, we can create custom errors. With this statement, you can throw exceptions. An exception can be a <b>string</b>, a <b>number</b>, a <b>boolean</b> or an <b>object</b>. In this case, our exception is the string `'Hello world'`.
+`throw` ifadesi ile, özelleştirilmiş hatalar oluşturabiliriz. Bu ifade ile, hatalar fırlatabilirsiniz. Hata durumu, "exception", bir <b>string</b>, <b>sayı</b>, <b>doğru/yanlış</b> ya da <b>nesne</b> olabilir. Bu durumda, bizim hata durumumuz string olan `'Hello world'`.
 
-With the `catch` statement, we can specify what to do if an exception is thrown in the `try` block. An exception is thrown: the string `'Hello world'`. `e` is now equal to that string, which we log. This results in `'Oh an error: Hello world'`.
+`catch` ifadesi ile, eğer `try` bloğunda bir hata durumu fırlatılmışsa ne yapacağımızı belirtebiliriz. Bir hata durumu fırlatıldı: `'Hello world'` string'i. `e` artık bu string'e eşit, ki onu logluyoruz. `'Oh an error: Hello world'` olarak sonuç veriyor.
 
 </p>
 </details>
@@ -1605,7 +1605,7 @@ console.log(myCar.make);
 
 #### Cevap: B
 
-When you return a property, the value of the property is equal to the _returned_ value, not the value set in the constructor function. We return the string `"Maserati"`, so `myCar.make` is equal to `"Maserati"`.
+Bir özellik döndürdüğünüz zaman, özelliğin değeri _döndürülen_ değere eşittir, yapıcı fonksiyon içinde atanmış değere değil. `"Maserati"` string'ini döndürüyoruz, yani `myCar.make` `"Maserati"`'ye eşittir.
 
 </p>
 </details>
@@ -1633,18 +1633,18 @@ console.log(typeof y);
 
 #### Cevap: A
 
-`let x = y = 10;` is actually shorthand for:
+`let x = y = 10;` aslında şunun için kısa yazımdır:
 
 ```javascript
 y = 10;
 let x = y;
 ```
 
-When we set `y` equal to `10`, we actually add a property `y` to the global object (`window` in browser, `global` in Node). In a browser, `window.y` is now equal to `10`.
+`y`'yi `10`'a eşit olarak ayarladığımızda, aslında global nesneye `y` özelliğini ekliyoruz (tarayıcıda `window`, Node içinde `global`). Tarayıcıda, `window.y` artık `10`'a eşit.
 
-Then, we declare a variable `x` with the value of `y`, which is `10`. Variables declared with the `let` keyword are _block scoped_, they are only defined within the block they're declared in; the immediately-invoked function (IIFE) in this case. When we use the `typeof` operator, the operand `x` is not defined: we are trying to access `x` outside of the block it's declared in. This means that `x` is not defined. Values who haven't been assigned a value or declared are of type `"undefined"`. `console.log(typeof x)` returns `"undefined"`.
+Sonra, `x` değişkenini `y`'nin değeri ile birlkte tanımlıyoruz ki o da `10`. `let` anahtar kelimesi ile tanımlanan değişkenler _block scope_'dur, onlar sadece tanımlandıkları blok içinde sınırlıdır; bu durumda anında çalıştırılan fonksiyon, "immediately-invoked function (IIFE)", ile sınırlı. `typeof` operatörünü kullandığımız zaman, `x` operandı tanımlı değil: `x`'e tanımlandığı bloğun dışından erişmeye çalışıyoruz. Bu, `x` tanımlanmadı demektir. Bir değer ataması yapılmamış ya da tanımlanmamış değerlerin tipi `"undefined"`'dır. `console.log(typeof x)` `"undefined"` döndürür.
 
-However, we created a global variable `y` when setting `y` equal to `10`. This value is accessible anywhere in our code. `y` is defined, and holds a value of type `"number"`. `console.log(typeof y)` returns `"number"`.
+Ancak, `y`'yi `10`'a eşitlerken global değişken `y`'yi oluşturduk. Bu değer kodunuzun herhangi bir yerinden erişilebilinir. `y` tanımlı ve `"number"` tipinde değeri saklıyor. `console.log(typeof y)` `"number"` döndürür.
 
 </p>
 </details>
