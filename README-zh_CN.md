@@ -110,8 +110,8 @@ shape.perimeter()
 ###### 4. 输出是什么？
 
 ```javascript
-;+true
-!'Lydia'
++true;
+!"Lydia";
 ```
 
 - A: `1` and `false`
