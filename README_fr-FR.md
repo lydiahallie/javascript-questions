@@ -626,7 +626,7 @@ getAge();
 
 #### Réponse: C
 
-Avec `"use strict"`, vous pouvez êtes sûr de ne pas déclarer accidentellement des variables gloables. Nous ne déclarerons jamais la variable `age`, et temps que nous utiliserons `"use strict"`, cela créera une erreur de référence. Si nous n'utilisons pas `"use strict"`, cela fonctionnera et la variable `age` sont attribué à l'objet global.
+Avec `"use strict"`, vous pouvez êtes sûr de ne pas déclarer accidentellement des variables gloables. Nous ne déclarerons jamais la variable `age`, et temps que nous utiliserons `"use strict"`, cela créera une erreur de référence. Si nous n'utilisons pas `"use strict"`, cela fonctionnera et la variable `age` sera attribué à l'objet global.
 
 </p>
 </details>
