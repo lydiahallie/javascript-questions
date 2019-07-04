@@ -2,7 +2,7 @@
 
 Je poste quotidiennement des questions à choix multiple sur mon [Instagram](https://www.instagram.com/theavocoder), que je posterai aussi ici !
 
-Des basiques au avancée: testez vos connaissances en JavaScript, rafraichissez vos connaissances, ou préparez vous pour un entretien de code ! :muscle: :rocket: Je mets à jour ce dépôt chaque semaine avec des nouvelles questions.
+Des basiques au avancée : testez votre compréhension de JavaScript, rafraîchissez vos connaissances, ou préparez-vous pour un entretien technique ! :muscle: :rocket: Je mets à jour ce dépôt chaque semaine avec des nouvelles questions. Dernière mise à jour : <a href=#20190629><b>29 juin</b></a>
 
 Les réponses se trouvent dans les sections fermées en dessous des questions, cliquez simplement dessus pour les faire apparaitre. Bonne chance :heart:
 
