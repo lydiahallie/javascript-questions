@@ -731,7 +731,7 @@ set.has(1);
 
 #### Réponse: C
 
-Toutes les clés d'objet (à l'exception des symboles) sont des chaînes de caratères sous le capot, même si vous ne les tapez pas vous-même en tant que chaîne. C'est pourquoi `obj.hasOwnProperty('1')` renvoie également la valeur `true`.
+Toutes les clés d'objet (à l'exception des symboles) sont des chaînes de caractères sous le capot, même si vous ne les tapez pas vous-même en tant que chaîne. C'est pourquoi `obj.hasOwnProperty("1")` renvoie également la valeur `true`.
 
 Ça ne marche pas comme ça pour un set. Il n'y a pas de `'1'` dans notre ensemble : `set.has('1')` renvoie `false`. Il a le type numérique `1`, `set.has(1)` renvoie `true`.
 
