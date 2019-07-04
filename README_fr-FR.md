@@ -428,7 +428,7 @@ Durant la phase de **capture** _(capturing)_, l'événement passe par les évén
 
 ---
 
-###### 14. Tous les objects ont des prototypes.
+###### 14. Tous les objets ont des prototypes.
 
 - A: vrai
 - B: faux
