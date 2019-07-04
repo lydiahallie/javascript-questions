@@ -129,7 +129,7 @@ Il n'y a pas de valeur `radius` dans cet objet, on retournera `undefined`.
 
 L'opérateur arithmétique `+` essait de convertir un opérande en une valeur numérique. `true` devient `1`, et `false` devient `0`.
 
-La chaine de caractère `'Lydia'` est une value considérée comme vraie _(truthy)_. Ce que nous sommes actuellement entrain de demander, c'est "est-ce que cette valeur vraie est fausse ?". Ce qui retournera `false`.
+La chaine de caractère `'Lydia'` est une valeur considérée comme vraie _(truthy)_. Ce que nous sommes actuellement en train de demander, c'est "est-ce que cette valeur considérée comme vraie est fausse ?". Ce qui retournera `false`.
 
 </p>
 </details>
