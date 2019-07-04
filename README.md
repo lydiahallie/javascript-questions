@@ -1960,3 +1960,45 @@ The unary operator `++` _first returns_ the value of the operand, _then incremen
 
 </p>
 </details>
+
+###### 65. What's the output?
+
+```javascript
+const val1 = null
+const val2 = 1
+const val3 = ""
+const val4 = "Hello"
+const val5 = "World"
+const newVal = val1 || val2 ? val3 || val4 : val5
+
+console.log(newVal)
+```
+
+- A: 1
+- B: ""
+- C: "Hello"
+- D: "World"
+
+<details><summary><b>Answer</b></summary>
+<p>
+
+#### Answer: C
+
+Ternary operator has higher precedence than logic operator OR (||).
+
+`val1 || val2 ? val3 || val4 : val5` is treated as `(val1 || val2) ? (val3 || val4) : val5` instead of `val1 || (val2 ? (val3 || val4) : val5)`.
+The condition `val1 || val2` is evaluated first, and the result is true because value of `val2` is `1` which is truthy.
+So it proceeds to `val3 || val4`.
+
+Logic operator OR (||) can be used for setting default value when used with non-boolean values.
+
+Because `val3` and `val4` are non-boolean values, so OR (||) is used for setting default value in this case.
+This means if the value before || (`val3` in this case) is falsy, it will default to the value after || (`val4` is this case).
+`val3` is empty string, so it is falsy, thus `val4` will be returned.
+
+</p>
+</details>
+
+
+
+
