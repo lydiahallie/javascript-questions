@@ -597,7 +597,7 @@ getAge(21);
 
 #### Réponse: C
 
-L'opérateur de destructuration _(spread operator)_ (`...args`) retourne un tableau avec les arguments. Un tableau est un objet, donc `typeof args` retournera `"object"`.
+L'opérateur de déstructuration _(spread operator)_ (`...args`) retourne un tableau avec les arguments. Un tableau est un objet, donc `typeof args` retournera `"object"`.
 
 </p>
 </details>
