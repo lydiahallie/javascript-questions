@@ -570,7 +570,7 @@ Lorsque l'on teste une égalité, les primitifs sont comparés par leur valeur, 
 
 Les 2 objets que nous comparons n'ont pas ça : l'objet passé en paramètre fait référence à une zone mémoire différente que l'objet que nous utilisons pour faire la comparaison.
 
-C'est pourquoi l;es 2 conditions `{ ag: 18 } === { age: 18 }` et `{ age: 18 } == { age: 18 }` retournent `false`.
+C'est pourquoi les 2 conditions `{ age: 18 } === { age: 18 }` et `{ age: 18 } == { age: 18 }` retournent `false`.
 
 </p>
 </details>
