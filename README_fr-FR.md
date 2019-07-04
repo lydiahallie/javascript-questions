@@ -534,7 +534,7 @@ getPersonInfo`${person} is ${age} years old`;
 
 #### Réponse: B
 
-Si vous utilisez les template de chaine de caractère, la valeur du premier argument sera toujours un tableau de valeurs des chaines de caractère. Le reste des arguments seront les valeurs des expressions utilisées !
+Si vous utilisez les littéraux de gabarits, la valeur du premier argument sera toujours un tableau de valeurs des chaines de caractère. Le reste des arguments seront les valeurs des expressions utilisées !
 
 </p>
 </details>
