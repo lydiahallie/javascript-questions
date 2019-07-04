@@ -1998,7 +1998,3 @@ This means if the value before || (`val3` in this case) is falsy, it will defaul
 
 </p>
 </details>
-
-
-
-
