@@ -159,7 +159,7 @@ const mouse = {
 
 #### Réponse: A
 
-En JavaScript, toutes les clé d'objet sont des chaines de caractères (sauf si c'est un Symbol). Bien que nous ne puission pas les _typer_ comme des chaines de caractères, elles sont converties en chaines de caractères sous le capot.
+En JavaScript, toutes les clés d'objet sont des chaines de caractères (sauf si c'est un Symbol). Bien que nous ne puissions pas les _typer_ comme des chaines de caractères, elles sont converties en chaines de caractères sous le capot.
 
 JavaScript interprète (ou décompresse) les instructions. Lorsque nous utilisons la notation pas crochet, il voit le premier crochet `[` et continue jusqu'à ce qu'il trouve le crochet fermant `]`. Seulement après, il évalue l'instruction.
 
