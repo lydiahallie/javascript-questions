@@ -649,7 +649,7 @@ const sum = eval("10*10+5");
 
 #### Réponse: A
 
-`eval` évalue les codes que nous passons en paramétre de type chaine de caractères. Si c'est une expression, comme dans notre cas, il évaluera l'expression. L'expression est `10 * 10 + 5`, ce qui retourne le nombre `105`.
+`eval` évalue les codes que nous passons en paramètre de type chaîne de caractères. Si c'est une expression, comme dans notre cas, il évaluera l'expression. L'expression est `10 * 10 + 5`, ce qui retourne le nombre `105`.
 
 </p>
 </details>
