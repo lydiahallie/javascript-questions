@@ -419,7 +419,7 @@ Nous disons que `this.firstName` est égal à `"Sarah"` et que `this.lastName` e
 
 #### Réponse: D
 
-Durant la phase de **capture** _(capturing)_, l'événement passe par les événements parent jusqu'à l'élément ciblé. Il attient ensuite l'élément **ciblé** _(target)_, et commence à **bouillonner** _(bubbling)_.
+Durant la phase de **capture** _(capturing)_, l'événement passe par les éléments parents jusqu'à l'élément ciblé. Il atteint ensuite l'élément **ciblé** _(target)_, et commence à **bouillonner** _(bubbling)_.
 
 <img src="https://i.imgur.com/N18oRgd.png" width="200">
 
