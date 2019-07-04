@@ -66,7 +66,7 @@ for (let i = 0; i < 3; i++) {
 
 #### Réponse: C
 
-À cause du système de queue dans JavaScript, la fonction de rappel _(callback)_ du `setTimeout` est appellée _après_ que la boucle soit exécutée. Comme la variable `i` dans la première boucle est déclarée avec le mot clé `var`, c'est une variable global. Pendant la boucle, nous incrémentons la valeur de `i` par `1` à chaque fois, en utilisant l'opérateur arithmétique `++`. Lorsque la fonction de rappel _(callback)_ du `setTimeout` est invoquée, `i` est égal à `3` dans le premier exemple.
+À cause du système de queue dans JavaScript, la fonction de rappel _(callback)_ du `setTimeout` est appelée _après_ que la boucle soit exécutée. Comme la variable `i` dans la première boucle est déclarée avec le mot-clé `var`, c'est une variable globale. Pendant la boucle, nous incrémentons la valeur de `i` de `1` à chaque fois, en utilisant l'opérateur arithmétique `++`. Lorsque la fonction de rappel _(callback)_ du `setTimeout` est invoquée, `i` est égal à `3` dans le premier exemple.
 
 Dans la seconde boucle, la variable `i` est déclarée avec le mot clé `let` : les variables déclarées avec `let` (et `const`) ont une portée de bloc (tout ce qui est entre `{ }` est considéré comme un bloc). Pendant chaque itération, `i` aura une nouvelle valeur, et chaque valeur sera définie dans la boucle.
 
