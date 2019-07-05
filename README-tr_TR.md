@@ -1683,9 +1683,9 @@ pet.bark();
 
 #### Cevap: A
 
-We can delete properties from objects using the `delete` keyword, also on the prototype. By deleting a property on the prototype, it is not available anymore in the prototype chain. In this case, the `bark` function is not available anymore on the prototype after `delete Dog.prototype.bark`, yet we still try to access it.
+`delete` anahtar kelimesini kullanarak özellikleri hem nesnelerden hem de prototip üzerinden silebiliriz. Prototip üzerindeki bir özellik silindiğinde, artık prototip zincirinde kullanıma müsait değildir. Bu durumda, `bark` fonksiyonu, `delete Dog.prototype.bark` ardından, prototip üzerinden kullanılabilir değildir fakat yine de erişmeye çalışıyoruz.
 
-When we try to invoke something that is not a function, a `TypeError` is thrown. In this case `TypeError: pet.bark is not a function`, since `pet.bark` is `undefined`.
+Fonksiyon olmayan bir şeyi çalıştırmayı denediğimiz zaman, `TypeError` fırlatılır. Bu durumda, `pet.bark` `undefined` olduğundan, `TypeError: pet.bark is not a function` fırlatıldı.
 
 </p>
 </details>
@@ -1710,9 +1710,9 @@ console.log(set);
 
 #### Cevap: D
 
-The `Set` object is a collection of _unique_ values: a value can only occur once in a set.
+`Set` nesnesi _benzersiz_ değerlerin koleksiyonudur: bir değer, set içinde sadece bir kez bulunabilir.
 
-We passed the iterable `[1, 1, 2, 3, 4]` with a duplicate value `1`. Since we cannot have two of the same values in a set, one of them is removed. This results in `{1, 2, 3, 4}`.
+Yinelenebilir `[1, 1, 2, 3, 4]`'i çift `1` değeriyle birlikte geçtik. Set içinde aynı değere iki kere sahip olamayacağımızdan, bir tanesi kaldırıldı. Sonuç, `{1, 2, 3, 4}`.
 
 </p>
 </details>
@@ -1746,9 +1746,9 @@ console.log(myCounter);
 
 #### Cevap: C
 
-An imported module is _read-only_: you cannot modify the imported module. Only the module that exports them can change its value.
+İçe aktarılan, "imported", modul _salt okur_'dur: içe aktarılan modulü değiştiremezsiniz. Sadece, dışa aktarım yapan modul değerini değiştirebilir.
 
-When we try to increment the value of `myCounter`, it throws an error: `myCounter` is read-only and cannot be modified.
+`myCounter`'ın değerini arttırmaya çalıştığımız zaman, hata fırlatır: `myCounter` salt okurdur ve değiştirilemez.
 
 </p>
 </details>
@@ -1775,9 +1775,9 @@ console.log(delete age);
 
 #### Cevap: A
 
-The `delete` operator returns a boolean value: `true` on a successful deletion, else it'll return `false`. However, variables declared with the `var`, `const` or `let` keyword cannot be deleted using the `delete` operator.
+`delete` operatörü doğru/yanlış, "boolean", değer döndürür: silme başarılıysa `true`, değilse `false` döndürecektir. Ancak, `var`, `const` ya da `let` anahtar kelimeleri ile tanımlanan değişkenler, `delete` kullanılarak silinemez.
 
-The `name` variable was declared with a `const` keyword, so its deletion is not successful: `false` is returned. When we set `age` equal to `21`, we actually added a property called `age` to the global object. You can successfully delete properties from objects this way, also the global object, so `delete age` returns `true`.
+`name` değişkeni `const` anahtar kelimesi ile tanımlandı, yani silinme işlemi başarılı değil: `false` döndü. `age`'i `21`'e eşitlediğimizde, global nesneye `age` diye özellik ekledik aslında. Bu yöntemle, sorunsuz şekilde nesnelerden özellikleri silebilirsiniz, böylelikle `delete age` `true` döndürür.
 
 </p>
 </details>
@@ -1803,7 +1803,7 @@ console.log(y);
 
 #### Cevap: C
 
-We can unpack values from arrays or properties from objects through destructuring. For example:
+Listelerden değerleri ya da nesnelerden özellikleri, yıkım yoluyla, "destructuring", çıkarabiliriz. Örneğin:
 
 ```javascript
 [a, b] = [1, 2];
@@ -1811,7 +1811,7 @@ We can unpack values from arrays or properties from objects through destructurin
 
 <img src="https://i.imgur.com/ADFpVop.png" width="200">
 
-The value of `a` is now `1`, and the value of `b` is now `2`. What we actually did in the question, is:
+`a`'nın değeri `1` ve `b`'nin değeri `2`'dir. Bu soruda aslında yaptığımız şuydu:
 
 ```javascript
 [y] = [1, 2, 3, 4, 5];
@@ -1819,7 +1819,7 @@ The value of `a` is now `1`, and the value of `b` is now `2`. What we actually d
 
 <img src="https://i.imgur.com/NzGkMNk.png" width="200">
 
-This means that the value of `y` is equal to the first value in the array, which is the number `1`. When we log `y`, `1` is returned.
+Bu demektir ki, `y`'nin değeri dizideki ilk değere eşit, o da `1` sayısıdır. `y`'yi logladığımız zaman, `1` döndürülür.
 
 </p>
 </details>
@@ -1845,7 +1845,7 @@ console.log(admin);
 
 #### Cevap: B
 
-It's possible to combine objects using the spread operator `...`. It lets you create copies of the key/value pairs of one object, and add them to another object. In this case, we create copies of the `user` object, and add them to the `admin` object. The `admin` object now contains the copied key/value pairs, which results in `{ admin: true, name: "Lydia", age: 21 }`.
+Nesneleri `...` yayma operatörü kullanarak birleştirmek, kombine etmek, mümkündür. Bir nesnenin key/değer kopyasını oluşturmanıza olanak sunar, ve key/değerleri diğer nesneye ekler. Bu durumda, `user` nesnesinin kopyasını oluşturuyoruz, ve onları `admin` nesnesine ekliyoruz. `admin` nesnesi şimdi kopyalanan key/değerleri de içeriyor, ki bu da `{ admin: true, name: "Lydia", age: 21 }` olarak sonuç verir.
 
 </p>
 </details>
@@ -1873,9 +1873,9 @@ console.log(Object.keys(person));
 
 #### Cevap: B
 
-With the `defineProperty` method, we can add new properties to an object, or modify existing ones. When we add a property to an object using the `defineProperty` method, they are by default _not enumerable_. The `Object.keys` method returns all _enumerable_ property names from an object, in this case only `"name"`.
+`defineProperty` methodu ile, nesnelere yeni özellikler ekleyebiliriz, ya da var olanları değiştirebiliriz. `defineProperty` methodu kullanarak bir nesneye özellik eklediğimiz zaman, varsayılan olarak _sıralanabilir değildir_, "_not enumerable_". `Object.keys` methodu, bir nesneden tüm _sıralanabilir_ özelliklerin adını döndürür, bu durumda sadece `"name"`.
 
-Properties added using the `defineProperty` method are immutable by default. You can override this behavior using the `writable`, `configurable` and `enumerable` properties. This way, the `defineProperty` method gives you a lot more control over the properties you're adding to an object.
+`defineProperty` methodu kullanılarak eklenen özellikler, varsayılan olarak değişmezdir. Bu davranışı `writable`, `configurable` ve `enumerable` kullaranak ezebilirsiniz. Bu yöntemle, `defineProperty` methodu nesnelere eklediğiniz özellikler üzerinde size çok daha fazla kontrol verir.
 
 </p>
 </details>
@@ -1905,11 +1905,11 @@ console.log(data);
 
 #### Cevap: A
 
-The second argument of `JSON.stringify` is the _replacer_. The replacer can either be a function or an array, and lets you control what and how the values should be stringified.
+`JSON.stringify`'ın ikinci argumanı _değiştiricidir_, _"replacer"_. Değiştirici bir fonksiyon ya da bir dizi olabilir, ve değerlerin hangilerinin ve nasıl string'e dönüşeceğini kontrol etmenize izin verir.
 
-If the replacer is an _array_, only the properties which names are included in the array will be added to the JSON string. In this case, only the properies with the names `"level"` and `"health"` are included, `"username"` is excluded. `data` is now equal to `"{"level":19, "health":90}"`.
+Eğer değiştirici _dizi_ ise, sadece dizi içinde ismi geçem özellikler JSON string'e dahil edilmiş olur. Bu durumda, sadece  `"level"` ve `"health"` isimli özellikler dahil edildi, `"username"` dışarıda bırakıldı. `data`, `"{"level":19, "health":90}"` eşittir.
 
-If the replacer is a _function_, this function gets called on every property in the object you're stringifying. The value returned from this function will be the value of the property when it's added to the JSON string. If the value is `undefined`, this property is excluded from the JSON string.
+Eğer değiştirici _fonksiyon_ ise, stringe dönüştürülen her özellik için bu fonksiyon çağrılır. Bu fonksiyondan dönen değer, JSON stringe eklenmiş olacak özelliğin değeri olacaktır. Eğer değer `undefined`'sa, bu özellik JSON stringe dahil edilmez.
 
 </p>
 </details>
@@ -1941,9 +1941,9 @@ console.log(num2);
 
 #### Cevap: A
 
-The unary operator `++` _first returns_ the value of the operand, _then increments_ the value of the operand. The value of `num1` is `10`, since the `increaseNumber` function first returns the value of `num`, which is `10`, and only increments the value of `num` afterwards.
+`++` unary operatörü _önce_ operandın değerini döndürür, _sonra_ operandın değerini arttırır. `increaseNumber` fonksiyonu önce değeri `10` olan `num`'ın değerini döndürdüğünden, `num1`'ın değeri `10`'dur, ve `num`'ın değeri ancak bundan sonra artar.
 
-`num2` is `10`, since we passed `num1` to the `increasePassedNumber`. `number` is equal to `10`(the value of `num1`. Again, the unary operator `++` _first returns_ the value of the operand, _then increments_ the value of the operand. The value of `number` is `10`, so `num2` is equal to `10`.
+`increasePassedNumber`'a `num1`'i geçtiğimizden, `num2`'nin değeri `10`'dur. `number` `10`'a eşittir (`num1`'ın değeri. Bir kez daha, `++` operatörü _önce_ operandın değerini döndürür, _sonra_ operandın değerini arttırır. `number`'ın değeri `10`, yani `num2` `10`'a eşittir.)
 
 </p>
 </details>
