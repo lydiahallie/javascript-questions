@@ -15,7 +15,6 @@ Danh sách các ngôn ngữ khác:
 * [Русский](./README_ru-RU.md)  
 * [Western Balkan](./README-bs_BS.md)  
 * [Deutsch](./README-de_DE.md)  
-* [Tiếng Việt](./README-vi.md)
 * [Українська мова](./README-ua_UA.md)  
 * [Português Brasil](./README_pt_BR.md)  
 * [العربية](./README_AR.md)
@@ -23,7 +22,7 @@ Danh sách các ngôn ngữ khác:
 
 ---
 
-###### 1. Ouput là gì?
+###### 1. Output là gì?
 
 ```javascript
 function sayHi() {
@@ -121,7 +120,7 @@ Khi không có giá trị `radius` tại object đó, nó sẽ trả về `undef
 
 ---
 
-###### 4. Ouput là gì?
+###### 4. Output là gì?
 
 ```javascript
 +true;
@@ -183,7 +182,7 @@ Tuy nhiên, khi chúng ta sử dụng dấu chấm `.`, điều trên không cò
 ---
 
 
-###### 6. Ouput là gì?
+###### 6. Output là gì?
 
 ```javascript
 let c = { greeting: "Hey!" };
@@ -218,7 +217,7 @@ Khi ta thay đổi giá trị của object, tất cả các biến tham chiếu 
 
 ---
 
-###### 7. Ouput là gì?
+###### 7. Output là gì?
 
 ```javascript
 let a = 3;
@@ -251,7 +250,7 @@ Tuy nhiên khi sử dụng phép so sánh `===`, cả _giá trị_ và _kiểu_ 
 
 ---
 
-###### 8. Ouput là gì?
+###### 8. Output là gì?
 
 ```javascript
 class Chameleon {
@@ -286,7 +285,7 @@ Hàm `colorChange` là một hàm static (hàm tĩnh). Hàm static được thi�
 
 ---
 
-###### 9. Ouput là gì?
+###### 9. Output là gì?
 
 ```javascript
 let greeting;
@@ -341,7 +340,7 @@ Function là một object đặc biệt. Phần code mà bạn viết không ph�
 
 ---
 
-###### 11. Ouput là gì?
+###### 11. Output là gì?
 
 ```javascript
 function Person(firstName, lastName) {
@@ -382,7 +381,7 @@ khi này `member.getFullName()` sẽ hoạt động. Tại sao nên làm vậy? 
 
 ---
 
-###### 12. Ouput là gì?
+###### 12. Output là gì?
 
 ```javascript
 function Person(firstName, lastName) {
@@ -455,7 +454,7 @@ Tất cả các object đều có prototypes, ngoại trừ **base object**. Obj
 
 ---
 
-###### 15. Ouput là gì?
+###### 15. Output là gì?
 
 ```javascript
 function sum(a, b) {
@@ -484,7 +483,7 @@ Trong ví dụ này, JavaScript sẽ convert số `1` sang dạng string. Mỗi 
 
 ---
 
-###### 16. Ouput là gì?
+###### 16. Output là gì?
 
 ```javascript
 let number = 0;
@@ -520,7 +519,7 @@ Vậy kết quả là `0 2 2`.
 
 ---
 
-###### 17. Ouput là gì?
+###### 17. Output là gì?
 
 ```javascript
 function getPersonInfo(one, two, three) {
@@ -551,7 +550,7 @@ Nếu bạn dùng _tagged template literals_, giá trị của đối số đầ
 
 ---
 
-###### 18. Ouput là gì?
+###### 18. Output là gì?
 
 ```javascript
 function checkAge(data) {
@@ -587,7 +586,7 @@ Hai object chúng ta đang so sánh không có được điều đó: object đ�
 
 ---
 
-###### 19. Ouput là gì?
+###### 19. Output là gì?
 
 ```javascript
 function getAge(...args) {
@@ -614,7 +613,7 @@ _Spread operator_ (`...args`.) sẽ trả về một mảng các đối số. M�
 
 ---
 
-###### 20. Ouput là gì?
+###### 20. Output là gì?
 
 ```javascript
 function getAge() {
@@ -691,7 +690,7 @@ Nếu chúng ta dùng `localStorage`, data sẽ được lưu trữ mãi mãi, t
 
 ---
 
-###### 23. Ouput là gì?
+###### 23. Output là gì?
 
 ```javascript
 var num = 8;
@@ -719,7 +718,7 @@ Bạn không thể làm điều tương tự với `let` hay `const` vì chúng 
 
 ---
 
-###### 24. Ouput là gì?
+###### 24. Output là gì?
 
 ```javascript
 const obj = { 1: "a", 2: "b", 3: "c" };
@@ -750,7 +749,7 @@ Tuy nhiên điều đó không đúng với `set`. Không hề có `'1'` trong s
 
 ---
 
-###### 25. Ouput là gì?
+###### 25. Output là gì?
 
 ```javascript
 const obj = { a: "one", b: "two", a: "three" };
@@ -792,7 +791,7 @@ Ngữ cảnh thực thi cơ bản chính là ngữ cảnh global: nó là thứ 
 
 ---
 
-###### 27. Ouput là gì?
+###### 27. Output là gì?
 
 ```javascript
 for (let i = 1; i < 5; i++) {
@@ -818,7 +817,7 @@ Lệnh `continue` sẽ bỏ qua một vòng lặp nếu điều kiện của nó
 
 ---
 
-###### 28. Ouput là gì?
+###### 28. Output là gì?
 
 ```javascript
 String.prototype.giveLydiaPizza = () => {
@@ -847,7 +846,7 @@ name.giveLydiaPizza();
 
 ---
 
-###### 29. Ouput là gì?
+###### 29. Output là gì?
 
 ```javascript
 const a = {};
@@ -881,7 +880,7 @@ Cuối cùng khi gọi `a[b]`, thực chất chính là gọi `a["Object object"
 
 ---
 
-###### 30. Ouput là gì?
+###### 30. Output là gì?
 
 ```javascript
 const foo = () => console.log("First");
@@ -990,7 +989,7 @@ Nếu ta click vào `p`, ta sẽ thấy hai log: `p` và `div`. Trong chuỗi ev
 
 ---
 
-###### 33. Ouput là gì?
+###### 33. Output là gì?
 
 ```javascript
 const person = { name: "Lydia" };
@@ -1022,7 +1021,7 @@ Với cả hai, chúng ta có thể đưa vào object để sử dụng từ kh�
 
 ---
 
-###### 34. Ouput là gì?
+###### 34. Output là gì?
 
 ```javascript
 function sayHi() {
@@ -1088,7 +1087,7 @@ Function constructors như `new Number` và `new Boolean` đều là _truthy_.
 
 ---
 
-###### 36. Ouput là gì?
+###### 36. Output là gì?
 
 ```javascript
 console.log(typeof typeof 1);
@@ -1112,7 +1111,7 @@ console.log(typeof typeof 1);
 
 ---
 
-###### 37. Ouput là gì?
+###### 37. Output là gì?
 
 ```javascript
 const numbers = [1, 2, 3];
@@ -1141,7 +1140,7 @@ phụ thuộc vào nơi mà chúng ta chạy chúng (có thể khác nhau tùy m
 
 ---
 
-###### 38. Ouput là gì?
+###### 38. Output là gì?
 
 ```javascript
 (() => {
@@ -1201,7 +1200,7 @@ Primitive types là `boolean`, `null`, `undefined`, `bigint`, `number`, `string`
 
 ---
 
-###### 40. Ouput là gì?
+###### 40. Output là gì?
 
 ```javascript
 [[0, 1], [2, 3]].reduce(
@@ -1231,7 +1230,7 @@ Tiếp tục, `[1, 2, 0, 1]` là `acc` và `[2, 3]` là `cur`. Ta nối chúng l
 
 ---
 
-###### 41. Ouput là gì?
+###### 41. Output là gì?
 
 ```javascript
 !!null;
@@ -1306,7 +1305,7 @@ String là một _iterable_. Thế nên _spread operator_ sẽ map toàn bộ c�
 
 ---
 
-###### 44. Ouput là gì?
+###### 44. Output là gì?
 
 ```javascript
 function* generator(i) {
@@ -1323,18 +1322,18 @@ console.log(gen.next().value);
 - A: `[0, 10], [10, 20]`
 - B: `20, 20`
 - C: `10, 20`
-- D: `0, 10 và 10, 20`
+- D: `0, 10 and 10, 20`
 
 <details><summary><b>Đáp án</b></summary>
 <p>
 
 #### Đáp án: C
 
-Regular functions cannot be stopped mid-way after invocation. However, a generator function can be "stopped" midway, and later continue from where it stopped. Every time a generator function encounters a `yield` keyword, the function yields the value specified after it. Note that the generator function in that case doesn’t _return_ the value, it _yields_ the value.
+Một hàm bình thường không thể bị dừng giữa chừng khi được gọi. Tuy nhiên một _generator_ thì khác, nó có thể "dừng lại" được, và sau đó nó sẽ tiếp tục từ vị trí nó dừng lại. Mỗi khi một _generator_ gặp một từ khóa `yield`, nó sẽ sinh ra giá trị ngay phía sau nó. Chú ý là _generator_ không _trả về_ giá trị, nó _sinh ra_ giá trị.
 
-First, we initialize the generator function with `i` equal to `10`. We invoke the generator function using the `next()` method. The first time we invoke the generator function, `i` is equal to `10`. It encounters the first `yield` keyword: it yields the value of `i`. The generator is now "paused", and `10` gets logged.
+Đầu tiên, chúng ta khởi tạo generator với giá trị `i` là `10`. Generator được gọi bằng cách sử dụng phương thức `next()`. Khi lần đầu gọi thì `i` vẫn là `10`. Khi nó bắt gặp từ khóa `yield`: nó sẽ sinh ra giá trị `i`. Generator sẽ được "tạm dừng" tại đây, và ghi ra giá trị `10`.
 
-Then, we invoke the function again with the `next()` method. It starts to continue where it stopped previously, still with `i` equal to `10`. Now, it encounters the next `yield` keyword, and yields `i * 2`. `i` is equal to `10`, so it returns `10 * 2`, which is `20`. This results in `10, 20`.
+Sau đó chung ta tiếp tục gọi generator bằng cách sử dụng tiếp phương thức `next()`. Nó sẽ bắt đầu từ vị trí nó tạm dừng lúc trước, khi `i` vẫn đang là `10`. Và khi nó bắt gặp từ khóa `yield`, nó sẽ sinh ra giá trị `i * 2`. `i` là `10`, nên nó sẽ sinh ra `10 * 2`, tức `20`. Vậy kết quả cuối cùng là `10, 20`.
 
 </p>
 </details>
@@ -1365,14 +1364,14 @@ Promise.race([firstPromise, secondPromise]).then(res => console.log(res));
 
 #### Đáp án: B
 
-When we pass multiple promises to the `Promise.race` method, it resolves/rejects the _first_ promise that resolves/rejects. To the `setTimeout` method, we pass a timer: 500ms for the first promise (`firstPromise`), and 100ms for the second promise (`secondPromise`). This means that the `secondPromise` resolves first with the value of `'two'`. `res` now holds the value of `'two'`, which gets logged.
+Khi chúng ta đưa các promise vào trong một hàm `Promise.race`, nó sẽ chỉ resolves hay rejects promise _đầu tiên_ được resolves/rejects. Với hàm `setTimeout`, chúng ta đưa vào một khoảng thời gian: 500 mili giây cho promise đầu tiên (`firstPromise`), và 100 mili giây cho promise thứ hai (`secondPromise`). Nó có nghĩa là `secondPromise` sẽ hoàn thành trước và trả về giá trị `'two'`. `res` khi này sẽ nhận giá trị `'two'` và được in ra console.
 
 </p>
 </details>
 
 ---
 
-###### 46. Ouput là gì?
+###### 46. Output là gì?
 
 ```javascript
 let person = { name: "Lydia" };
@@ -1392,26 +1391,26 @@ console.log(members);
 
 #### Đáp án: D
 
-First, we declare a variable `person` with the value of an object that has a `name` property.
+Đầu tiên, chúng ta khai báo một biến `person` là một object có thuộc tính `name`.
 
 <img src="https://i.imgur.com/TML1MbS.png" width="200">
 
-Then, we declare a variable called `members`. We set the first element of that array equal to the value of the `person` variable. Objects interact by _reference_ when setting them equal to each other. When you assign a reference from one variable to another, you make a _copy_ of that reference. (note that they don't have the _same_ reference!)
+Sau đó chúng ta khai báo một biến `members`. Ta set giá trị đầu tiên của mảng là giá trị của biến `person`. Khi sử dụng gán bằng, object sẽ được _tham chiếu_ tới object mà nó được gán. Khi ta gán tham chiếu từ một biến sang biến khác, ta tạo ra một bản sao của tham chiếu đó. (nên nhớ rằng đó vẫn là 2 tham chiếu hoàn toàn khác nhau!)
 
 <img src="https://i.imgur.com/FSG5K3F.png" width="300">
 
-Then, we set the variable `person` equal to `null`.
+Sau đó ta set giá trị của `person` bằng `null`.
 
 <img src="https://i.imgur.com/sYjcsMT.png" width="300">
 
-We are only modifying the value of the `person` variable, and not the first element in the array, since that element has a different (copied) reference to the object. The first element in `members` still holds its reference to the original object. When we log the `members` array, the first element still holds the value of the object, which gets logged.
+Chúng ta chỉ đơn thuần là thay đổi giá trị của biến `person` mà thôi, chứ không phải giá trị của phần tử đầu tiên ở trong mảng, vì chúng ta có một tham chiếu khác đến object đó. Phần tử đầu tiên của mảng `members` vẫn giữ tham chiêu đến object gốc. Do vậy, khi chúng ta in ra mảng `members`, phần tử đầu tiên sẽ vẫn in ra giá trị của objet gốc.
 
 </p>
 </details>
 
 ---
 
-###### 47. Ouput là gì?
+###### 47. Output là gì?
 
 ```javascript
 const person = {
@@ -1434,14 +1433,14 @@ for (const item in person) {
 
 #### Đáp án: B
 
-With a `for-in` loop, we can iterate through object keys, in this case `name` and `age`. Under the hood, object keys are strings (if they're not a Symbol). On every loop, we set the value of `item`equal to the current key it’s iterating over. First, `item` is equal to `name`, and gets logged. Then, `item` is equal to `age`, which gets logged.
+Với vòng lặp `for-in` chúng ta sẽ lặp qua tất cả các `keys` của object, trong trường hợp này là `name` và `age`. Về cơ bản, object keys là string (nếu nó không phải là Symbol). Tại mỗi vòng lặp, giá trị của `item` chính là giá trị của key hiện tại trong vòng lặp. Đầu tiên, `item` là `name`, và được in ra. Vòng lặp sau, `item` là `age`, và được in ra.
 
 </p>
 </details>
 
 ---
 
-###### 48. Ouput là gì?
+###### 48. Output là gì?
 
 ```javascript
 console.log(3 + 4 + "5");
@@ -1457,11 +1456,11 @@ console.log(3 + 4 + "5");
 
 #### Đáp án: B
 
-Operator associativity is the order in which the compiler evaluates the expressions, either left-to-right or right-to-left. This only happens if all operators have the _same_ precedence. We only have one type of operator: `+`. For addition, the associativity is left-to-right.
+Compiler sẽ đánh giá biểu thức dựa trên độ ưu tiên giữa các phép toán trong biểu thức đó, từ đó nó sẽ tính toán hoặc trái-sang-phải hoặc phải-qua-trái. Ở đây chúng ta chỉ có một phép toán mà thôi, phép cộng: `+`. Với phép cộng, tính toán sẽ là từ trái-qua-phải.
 
-`3 + 4` gets evaluated first. This results in the number `7`.
+Giá trị `3 + 4` được tính toán trước. Kết quả là `7`.
 
-`7 + '5'` results in `"75"` because of coercion. JavaScript converts the number `7` into a string, see question 15. We can concatenate two strings using the `+`operator. `"7" + "5"` results in `"75"`.
+`7 + '5'` sẽ ra kết quả là `"75"` bởi xuất hiện ép kiểu tại đây. JavaScript sẽ convert `7` sang dạng string, bạn có thể xem thêm tại câu hỏi 15. Và sau đó 2 string sẽ được nối lại với nhau bởi phép toán cộng `+`. Kết quả `"7" + "5"` sẽ là `"75"`.
 
 </p>
 </details>
@@ -1484,16 +1483,16 @@ const num = parseInt("7*6", 10);
 
 #### Đáp án: C
 
-Only the first numbers in the string is returned. Based on the _radix_ (the second argument in order to specify what type of number we want to parse it to: base 10, hexadecimal, octal, binary, etc.), the `parseInt` checks whether the characters in the string are valid. Once it encounters a character that isn't a valid number in the radix, it stops parsing and ignores the following characters.
+Chỉ có số đầu tiên trong chuỗi kí tự được trả về. Hệ cơ số là _hệ thập phân__ (đối số thứ 2 trong hàm chính là cơ số: hệ thập phân, hệ 16, hệ 8, hệ nhị phân, vv.), Hàm `parseInt` sẽ kiểm tra xem các ký tự trong chuỗi có đảm bảo hợp lệ hay không. Một khi chúng tìm ra ký tự không phải là ký tự hợp lệ trong hệ cơ số, nó dừng lại và bỏ qua các ký tự phía sau.
 
-`*` is not a valid number. It only parses `"7"` into the decimal `7`. `num` now holds the value of `7`.
+`*` không phải là một số. Vậy nên nó sẽ chỉ convert ký tự `"7"` sang hệ thập phân là `7`. `num` sẽ có giá trị là `7`.
 
 </p>
 </details>
 
 ---
 
-###### 50. What's the output`?
+###### 50. Output là gì?
 
 ```javascript
 [1, 2, 3].map(num => {
@@ -1512,16 +1511,16 @@ Only the first numbers in the string is returned. Based on the _radix_ (the seco
 
 #### Đáp án: C
 
-When mapping over the array, the value of `num` is equal to the element it’s currently looping over. In this case, the elements are numbers, so the condition of the if statement `typeof num === "number"` returns `true`. The map function creates a new array and inserts the values returned from the function.
+Khi ta tiến hành `map` một mảng, giá trị của `num` sẽ chính là giá trị của phần tử hiện giờ trong vòng lặp. Trong trường hợp này, các phần tử đều là dạng số, tức là `typeof num === "number"` sẽ là `true`. Hàm `map` sẽ tạo ra một mảng mởi từ các giá trị của mảng ban đầu.
 
-However, we don’t return a value. When we don’t return a value from the function, the function returns `undefined`. For every element in the array, the function block gets called, so for each element we return `undefined`.
+Tuy nhiên chúng ta không hề trả về giá trị nào cả. Khi đó, hàm số sẽ mặc định trả về `undefined`. Do đó qua mỗi vòng lặp, ta lại nhận được thêm một giá trị `undefined` nữa.
 
 </p>
 </details>
 
 ---
 
-###### 51. Ouput là gì?
+###### 51. Output là gì?
 
 ```javascript
 function getInfo(member, year) {
@@ -1547,18 +1546,18 @@ console.log(person, birthYear);
 
 #### Đáp án: A
 
-Arguments are passed by _value_, unless their value is an object, then they're passed by _reference_. `birthYear` is passed by value, since it's a string, not an object. When we pass arguments by value, a _copy_ of that value is created (see question 46).
+`Đối số` sẽ được đưa vào hàm dạng _tham trị_, trừ phi nó là object, khi đó nó sẽ được đưa vào hàm dạng _tham chiếu_. `birthYear` là dạng giá trị, vì nó là string chứ không phải object. Khi chúng ta đưa vào dạng giá trị, một bản sao của giá trị đó sẽ được tạo ra (xem thêm câu 46).
 
-The variable `birthYear` has a reference to the value `"1997"`. The argument `year` also has a reference to the value `"1997"`, but it's not the same value as `birthYear` has a reference to. When we update the value of `year` by setting `year` equal to `"1998"`, we are only updating the value of `year`. `birthYear` is still equal to `"1997"`.
+`birthYear` trỏ đến giá trị là `"1997"`. Đối số `year` cũng sẽ rỏ đến giá trị `"1997"`, nhưng giá trị này chỉ là một bản sao của giá trị mà `birthYear` trỏ tới mà thôi, hai giá trị đó hoàn toàn khác nhau. Do đó khi ta thay đổi giá trị `year` bằng `"1998"`, chúng ta chỉ thay đổi giá trị của `year` mà thôi. `birthYear` sẽ vẫn giữ giá trị là `"1997"`.
 
-The value of `person` is an object. The argument `member` has a (copied) reference to the _same_ object. When we modify a property of the object `member` has a reference to, the value of `person` will also be modified, since they both have a reference to the same object. `person`'s `name` property is now equal to the value `"Lydia"`
+`person` là một object. Biến `member` có một tham chiếu tới cùng object mà `person` trỏ tới. Khi chúng ta thay đổi một thuộc tính của object mà `member` trỏ tới, giá trị của `person` cũng sẽ tự động thay đổi theo, vì chúng có chung tham chiếu. `name` của `person` khi này sẽ có giá trị mới là `"Lydia"`.
 
 </p>
 </details>
 
 ---
 
-###### 52. Ouput là gì?
+###### 52. Output là gì?
 
 ```javascript
 function greeting() {
@@ -1587,16 +1586,16 @@ sayHi();
 
 #### Đáp án: D
 
-With the `throw` statement, we can create custom errors. With this statement, you can throw exceptions. An exception can be a <b>string</b>, a <b>number</b>, a <b>boolean</b> or an <b>object</b>. In this case, our exception is the string `'Hello world'`.
+Với lệnh `throw`, chúng ta có thể tạo ra các errors tùy ý. Với câu lệnh đó, chúng ta có thể throw các exception. Một _exeption_ có thể là một <b>chuỗi</b>, một <b>số</b>, một <b>boolean</b> hoặc một <b>object</b>. Trong trường hợp này thì nó là chuỗi `'Hello world'`.
 
-With the `catch` statement, we can specify what to do if an exception is thrown in the `try` block. An exception is thrown: the string `'Hello world'`. `e` is now equal to that string, which we log. This results in `'Oh an error: Hello world'`.
+Với lệnh `catch` chúng ta có thể xử lý những exeption được throw ra khi thực hiện `try`. Một exeption đã được throw ra: chuỗi `'Hello world'`. `e` chính là chuỗi đó và chúng ta sẽ in ra. Kết quả là `'Oh an error: Hello world'`.
 
 </p>
 </details>
 
 ---
 
-###### 53. Ouput là gì?
+###### 53. Output là gì?
 
 ```javascript
 function Car() {
@@ -1618,14 +1617,14 @@ console.log(myCar.make);
 
 #### Đáp án: B
 
-When you return a property, the value of the property is equal to the _returned_ value, not the value set in the constructor function. We return the string `"Maserati"`, so `myCar.make` is equal to `"Maserati"`.
+Khi chúng ta trả về một thuộc tính, giá trị của thuộc tính bằng với giá trị đã được trả về bởi lệnh _return_, chứ không phải giá trị được set trong constructor. Chúng ta trả về giá trị là `"Maserati"`, do đó `myCar.make` sẽ là `"Maserati"`.
 
 </p>
 </details>
 
 ---
 
-###### 54. Ouput là gì?
+###### 54. Output là gì?
 
 ```javascript
 (() => {
@@ -1646,25 +1645,25 @@ console.log(typeof y);
 
 #### Đáp án: A
 
-`let x = y = 10;` is actually shorthand for:
+`let x = y = 10;` chính là cách viết ngắn gọn của:
 
 ```javascript
 y = 10;
 let x = y;
 ```
 
-When we set `y` equal to `10`, we actually add a property `y` to the global object (`window` in browser, `global` in Node). In a browser, `window.y` is now equal to `10`.
+Khi ta set `y` bằng `10`, thực tế chúng ta đã sử dụng biến global `y` (`window` nếu là trên browser, `global` nếu là môi trường Node).Trên browser, `window.y` sẽ là `10`.
 
-Then, we declare a variable `x` with the value of `y`, which is `10`. Variables declared with the `let` keyword are _block scoped_, they are only defined within the block they're declared in; the immediately-invoked function (IIFE) in this case. When we use the `typeof` operator, the operand `x` is not defined: we are trying to access `x` outside of the block it's declared in. This means that `x` is not defined. Values who haven't been assigned a value or declared are of type `"undefined"`. `console.log(typeof x)` returns `"undefined"`.
+Sau đó, chúng ta khai báo giá trị của `x` với giá trị của `y`, tức `10`. Tuy nhiên khi ta khai báo với từ khóa `let` biến x sẽ chỉ tồn tại trong _block scoped_; hay trong trường hợp này là `hàm thực hiện ngay lập tức` (immediately-invoked function - IIFE). Khi ta sử dụng phép toán `typeof`, `x` hoàn toàn chưa được định nghĩa: vì `x` lúc này nằm bên ngoài block nó được định nghĩa lúc trước. Nghĩa là `x` là `undefined`. Do đó `console.log(typeof x)` trả về `"undefined"`.
 
-However, we created a global variable `y` when setting `y` equal to `10`. This value is accessible anywhere in our code. `y` is defined, and holds a value of type `"number"`. `console.log(typeof y)` returns `"number"`.
+Tuy nhiên với `y` thì khác, ta đã có giá trị của `y` khi set `y` bằng `10`. Giá trị đó có thể truy cập được từ bất kì đâu bởi chúng là biến global. `y` được định nghĩa với kiểu là `"number"`. Do đó `console.log(typeof y)` trả về `"number"`.
 
 </p>
 </details>
 
 ---
 
-###### <a name=20190629></a>55. Ouput là gì?
+###### <a name=20190629></a>55. Output là gì?
 
 ```javascript
 class Dog {
@@ -1696,16 +1695,16 @@ pet.bark();
 
 #### Đáp án: A
 
-We can delete properties from objects using the `delete` keyword, also on the prototype. By deleting a property on the prototype, it is not available anymore in the prototype chain. In this case, the `bark` function is not available anymore on the prototype after `delete Dog.prototype.bark`, yet we still try to access it.
+Chúng ta có thể xóa các thuộc tính khỏe object bằng từ khóa `delete`, kể cả với prototype. Khi chúng ta xóa một thuộc tính trên prototype, nó sẽ bị vô hiệu hóa hoàn toàn trong chuỗi prototype. Trong trường hợp này, hàm `bark` sẽ bị vô hiệu hóa ngay sau khi chúng ta thực hiện hàm xóa `delete Dog.prototype.bark`, tất nhiên ta vẫn có thể truy cập vào nó nhưng giá trị sẽ là `undefined`.
 
-When we try to invoke something that is not a function, a `TypeError` is thrown. In this case `TypeError: pet.bark is not a function`, since `pet.bark` is `undefined`.
+Khi chúng ta chạy một thứ không phải là `hàm`, nó sẽ bắn ra một `TypeError`. Trong trường hợp này là `TypeError: pet.bark is not a function`, vì bản thân thuộc tính `pet.bark` là `undefined`.
 
 </p>
 </details>
 
 ---
 
-###### 56. Ouput là gì?
+###### 56. Output là gì?
 
 ```javascript
 const set = new Set([1, 1, 2, 3, 4]);
@@ -1723,16 +1722,16 @@ console.log(set);
 
 #### Đáp án: D
 
-The `Set` object is a collection of _unique_ values: a value can only occur once in a set.
+`Set` là một tập hơp các giá trị _không trùng nhau_.
 
-We passed the iterable `[1, 1, 2, 3, 4]` with a duplicate value `1`. Since we cannot have two of the same values in a set, one of them is removed. This results in `{1, 2, 3, 4}`.
+Chúng ta đưa đầu vào là một mảng `[1, 1, 2, 3, 4]` với giá trị `1` bị trùng. Giá trị trùng đó sẽ bị loại bỏ. Kết quả là `{1, 2, 3, 4}`.
 
 </p>
 </details>
 
 ---
 
-###### 57. Ouput là gì?
+###### 57. Output là gì?
 
 ```javascript
 // counter.js
@@ -1759,16 +1758,16 @@ console.log(myCounter);
 
 #### Đáp án: C
 
-An imported module is _read-only_: you cannot modify the imported module. Only the module that exports them can change its value.
+Một module khi được import sẽ là __read-only__: chúng ta sẽ không thể chỉnh sửa module đó, chỉ có bản thân module đó có thể chỉnh sửa giá trị của nó mà thôi.
 
-When we try to increment the value of `myCounter`, it throws an error: `myCounter` is read-only and cannot be modified.
+Khi ta thay đổi giá trị cuả `myCounter`, nó sẽ throw ra một lỗi: `myCounter` là _read-only_ và không thể thay đổi.
 
 </p>
 </details>
 
 ---
 
-###### 58. Ouput là gì?
+###### 58. Output là gì?
 
 ```javascript
 const name = "Lydia";
@@ -1788,16 +1787,16 @@ console.log(delete age);
 
 #### Đáp án: A
 
-The `delete` operator returns a boolean value: `true` on a successful deletion, else it'll return `false`. However, variables declared with the `var`, `const` or `let` keyword cannot be deleted using the `delete` operator.
+Phép toán `delete` sẽ trả về một giá trị boolean: `true` nếu xóa thành công, `false` nếu thất bại. Tuy nhiên, nếu biến được khai báo với các từ khóa `var`, `const` hay `let` thì nó sẽ không thể bị xóa bởi phép toán `delete`.
 
-The `name` variable was declared with a `const` keyword, so its deletion is not successful: `false` is returned. When we set `age` equal to `21`, we actually added a property called `age` to the global object. You can successfully delete properties from objects this way, also the global object, so `delete age` returns `true`.
+Biến `name` được khai báo với từ khóa `const`, nên nó sẽ không thể bị xóa và trả về `false`. Khi ta set `age` bằng `21`, thực tế là ta đang sử dụng biến global `age`. Ta có thể xóa sử dụng phép toán `delete`, khi này `delete age` trả về `true`.
 
 </p>
 </details>
 
 ---
 
-###### 59. Ouput là gì?
+###### 59. Output là gì?
 
 ```javascript
 const numbers = [1, 2, 3, 4, 5];
@@ -1816,7 +1815,7 @@ console.log(y);
 
 #### Đáp án: C
 
-We can unpack values from arrays or properties from objects through destructuring. For example:
+Chúng ta có thể unpack các giá trị từ mảng hoặc thuộc tính từ objects bằng phương pháp `destructuring`. Ví dụ:
 
 ```javascript
 [a, b] = [1, 2];
@@ -1824,7 +1823,7 @@ We can unpack values from arrays or properties from objects through destructurin
 
 <img src="https://i.imgur.com/ADFpVop.png" width="200">
 
-The value of `a` is now `1`, and the value of `b` is now `2`. What we actually did in the question, is:
+Giá trị của `a` sẽ là `1`, `b` sẽ là `2`. Thực tế, câu hỏi của chúng ta đơn giản là:
 
 ```javascript
 [y] = [1, 2, 3, 4, 5];
@@ -1832,14 +1831,14 @@ The value of `a` is now `1`, and the value of `b` is now `2`. What we actually d
 
 <img src="https://i.imgur.com/NzGkMNk.png" width="200">
 
-This means that the value of `y` is equal to the first value in the array, which is the number `1`. When we log `y`, `1` is returned.
+Có nghĩa là `y` chính là giá trị đầu tiên trong mảng, tức số `1`. Do đó khi ta in ra `y` thì sẽ là`1`.
 
 </p>
 </details>
 
 ---
 
-###### 60. Ouput là gì?
+###### 60. Output là gì?
 
 ```javascript
 const user = { name: "Lydia", age: 21 };
@@ -1858,14 +1857,14 @@ console.log(admin);
 
 #### Đáp án: B
 
-It's possible to combine objects using the spread operator `...`. It lets you create copies of the key/value pairs of one object, and add them to another object. In this case, we create copies of the `user` object, and add them to the `admin` object. The `admin` object now contains the copied key/value pairs, which results in `{ admin: true, name: "Lydia", age: 21 }`.
+Ta có thể kết hợp 2 object sử dụng phép toán `spread operator` `...`. Nó cho phép ta tạo ra bản sao của từng cặp key/values trong từng object và nối chúng lại với nhau thành một object mới. Trong trường hợp này chúng ta tạo ra các bản sao của các cặp key/value của object `user` object, và nối chúng vào object `admin`. `admin` object khi này sẽ trở thành `{ admin: true, name: "Lydia", age: 21 }`.
 
 </p>
 </details>
 
 ---
 
-###### 61. Ouput là gì?
+###### 61. Output là gì?
 
 ```javascript
 const person = { name: "Lydia" };
@@ -1886,16 +1885,16 @@ console.log(Object.keys(person));
 
 #### Đáp án: B
 
-With the `defineProperty` method, we can add new properties to an object, or modify existing ones. When we add a property to an object using the `defineProperty` method, they are by default _not enumerable_. The `Object.keys` method returns all _enumerable_ property names from an object, in this case only `"name"`.
+Với phương thức `defineProperty`, chúng ta có thể thêm các thuộc tính mới, cũng như sửa các thuộc tính sẵn có của object. Khi chúng ta thêm thuộc tính vào object bằng `defineProperty`, chúng sẽ mặc định là thuộc tính _not enumerable_. Phương thức `Object.keys` sẽ trả về tất cả các thuộc tính _enumerable_ của object, trong trường hợp này thì chỉ có `"name"` mà thôi.
 
-Properties added using the `defineProperty` method are immutable by default. You can override this behavior using the `writable`, `configurable` and `enumerable` properties. This way, the `defineProperty` method gives you a lot more control over the properties you're adding to an object.
+Thêm nữa, các thuộc tính được thêm bởi `defineProperty` là mặc định không thể thay đổi được. Tất nhiên ta có thể override các điều đó bằng các thuộc tính như `writable`, `configurable` và `enumerable`. Tức là `defineProperty` là một cách rất mềm dẻo để tạo ra và điều chỉnh thuộc tính của object.
 
 </p>
 </details>
 
 ---
 
-###### 62. Ouput là gì?
+###### 62. Output là gì?
 
 ```javascript
 const settings = {
@@ -1918,18 +1917,18 @@ console.log(data);
 
 #### Đáp án: A
 
-The second argument of `JSON.stringify` is the _replacer_. The replacer can either be a function or an array, and lets you control what and how the values should be stringified.
+Đối số thứ hai của `JSON.stringify` là _replacer_. Replacer Có thể là một hàm hoặc một mảng, nó sẽ quy định xem giá trị nào sẽ được chuỗi hóa ra sao.
 
-If the replacer is an _array_, only the properties which names are included in the array will be added to the JSON string. In this case, only the properies with the names `"level"` and `"health"` are included, `"username"` is excluded. `data` is now equal to `"{"level":19, "health":90}"`.
+Nếu replacer là một _mảng_, chỉ có các thuộc tính có tên trong mảng được convert thành chuỗi JSON. Trong trường hợp này, chỉ có các thuộc tính `"level"` và `"health"` được đưa vào, `"username"` bị loại bỏ. `data` giờ sẽ là `"{"level":19, "health":90}"`.
 
-If the replacer is a _function_, this function gets called on every property in the object you're stringifying. The value returned from this function will be the value of the property when it's added to the JSON string. If the value is `undefined`, this property is excluded from the JSON string.
+Nếu replacer là _function_, hàm này sẽ được gọi trên từng thuộc tính của object được chuỗi hóa. Giá trị trả về sẽ là giá trị được đưa vào chuỗi JSON. Nếu trả về `undefined`, thuộc tính này sẽ bị loại bỏ khỏi chuỗi.
 
 </p>
 </details>
 
 ---
 
-###### 63. Ouput là gì?
+###### 63. Output là gì?
 
 ```javascript
 let num = 10;
@@ -1954,9 +1953,9 @@ console.log(num2);
 
 #### Đáp án: A
 
-The unary operator `++` _first returns_ the value of the operand, _then increments_ the value of the operand. The value of `num1` is `10`, since the `increaseNumber` function first returns the value of `num`, which is `10`, and only increments the value of `num` afterwards.
+Phép toán `++` sẽ _trả về trước_ giá trị của toán hạng, _sau đó tăng_ giá trị của toán hạng lên. Giá trị của `num1` là `10`, vì `increaseNumber` sẽ trả về giá trị của `num`, đang là `10`, và sau đó mới tăng giá trị của `num` lên.
 
-`num2` is `10`, since we passed `num1` to the `increasePassedNumber`. `number` is equal to `10`(the value of `num1`. Again, the unary operator `++` _first returns_ the value of the operand, _then increments_ the value of the operand. The value of `number` is `10`, so `num2` is equal to `10`.
+`num2` cũng là `10`, vì chúng ta đưa `num1` vào `increasePassedNumber`. `number` bằng `10`(tức giá trị của `num1`). Cũng giống như trên, phép toán `++` sẽ _trả về trước_ giá trị của toán hạng, _sau đó tăng_ giá trị của toán hạng lên. Giá trị của `number` là `10`, do đó `num2` cũng sẽ là `10`.
 
 </p>
 </details>
