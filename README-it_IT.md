@@ -1,13 +1,13 @@
-# List of (Advanced) JavaScript Questions
+# Lista di domande (avanzate) su JavaScript
 
-I post daily multiple choice JavaScript questions on my [Instagram](https://www.instagram.com/theavocoder), which I'll also post here!
+Pubblico giornalmente domande a scelta multipla su JavaScript nel mio account [Instagram](https://www.instagram.com/theavocoder), che poi pubblicherò anche qui!
 
-From basic to advanced: test how well you know JavaScript, refresh your knowledge a bit, or prepare for your coding interview! :muscle: :rocket: I update this repo weekly with new questions. Last update: <a href=#20190707><b>July 7th</b></a>
+Domande da livello base ad avanzato: metti alla prova quanto conosci JavaScript, ripassa o preparati per un colloquio tecnico! :muscle: :rocket: Aggiorno questo repository settimanalmente. Ultimo aggiornamento: <a href=#20190629><b>7 Luglio</b></a>
 
-The answers are in the collapsed sections below the questions, simply click on them to expand it. Good luck :heart:
+Le risposte sono nella sezione nascosta sotto le domande, semplicemente clicca su di esse per vederle. Buona fortuna :heart:
 
 
-List of available languages:
+Lista di traduzioni disponibili:
 * [English](./README.md)
 * [العربية](./README_AR.md)
 * [اللغة العامية - Egyptian Arabic](./README_ar-EG.md)
