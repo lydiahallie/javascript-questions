@@ -1040,8 +1040,8 @@ typeof sayHi()
 ```javascript
 0
 new Number(0)
-;('')
-;(' ')
+('')
+(' ')
 new Boolean(false)
 undefined
 ```
@@ -1130,12 +1130,12 @@ console.log(numbers)
 ###### 38. 输出是什么？
 
 ```javascript
-;(() => {
+(() => {
   let x, y
   try {
     throw new Error()
   } catch (x) {
-    ;(x = 1), (y = 2)
+    (x = 1), (y = 2)
     console.log(x)
   }
   console.log(x)
@@ -1188,7 +1188,7 @@ JavaScript 只有基本类型和对象。
 ###### 40. 输出是什么？
 
 ```javascript
-;[[0, 1], [2, 3]].reduce(
+[[0, 1], [2, 3]].reduce(
   (acc, cur) => {
     return acc.concat(cur)
   },
