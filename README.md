@@ -17,6 +17,7 @@ List of available languages:
 * [Tiếng Việt](./README-vi.md)
 * [Українська мова](./README-ua_UA.md)  
 * [Português Brasil](./README_pt_BR.md)  
+* [Türkçe](./README-tr_TR.md)
 
 ---
 
