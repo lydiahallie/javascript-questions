@@ -2,7 +2,7 @@
 
 I post daily multiple choice JavaScript questions on my [Instagram](https://www.instagram.com/theavocoder), which I'll also post here!
 
-From basic to advanced: test how well you know JavaScript, refresh your knowledge a bit, or prepare for your coding interview! :muscle: :rocket: I update this repo weekly with new questions. Last update: <a href=#20190629><b>June 29th</b></a>
+From basic to advanced: test how well you know JavaScript, refresh your knowledge a bit, or prepare for your coding interview! :muscle: :rocket: I update this repo weekly with new questions. Last update: <a href=#20190707><b>July 7th</b></a>
 
 The answers are in the collapsed sections below the questions, simply click on them to expand it. Good luck :heart:
 
@@ -1664,7 +1664,7 @@ However, we created a global variable `y` when setting `y` equal to `10`. This v
 
 ---
 
-###### <a name=20190629></a>55. What's the output?
+###### 55. What's the output?
 
 ```javascript
 class Dog {
@@ -1963,7 +1963,7 @@ The unary operator `++` _first returns_ the value of the operand, _then incremen
 
 ---
 
-###### 64. What's the output?
+###### <a name=20190707></a>64. What's the output?
 
 ```javascript
 const value = { number: 10 };
@@ -2152,8 +2152,8 @@ console.log(name.padStart(2))
 ```
 
 - A: `"Lydia Hallie"`, `"Lydia Hallie"`
-- B: `"           Lydia Hallie"`, `"  Lydia Hallie"`
-- C: `" Lydia Hallie"`, `"Lydia Hallie"`
+- B: `"           Lydia Hallie"`, `"  Lydia Hallie"` (`"[13x whitespace]Lydia Hallie"`, `"[2x whitespace]Lydia Hallie"`)
+- C: `" Lydia Hallie"`, `"Lydia Hallie"` (`"[1x whitespace]Lydia Hallie"`, `"Lydia Hallie"`)
 - D: `"Lydia Hallie"`, `"Lyd"`, 
 
 <details><summary><b>Answer</b></summary>
