@@ -1969,7 +1969,7 @@ The unary operator `++` _first returns_ the value of the operand, _then incremen
 const value = { number: 10 };
 
 const multiply = (x = { ...value }) => {
-  console.log((x.number * 2));
+  console.log((x.number *= 2));
 };
 
 multiply();
@@ -1990,7 +1990,7 @@ multiply(value);
 
 In ES6, we can initialize parameters with a default value. The value of the parameter will be the default value, if no other value has been passed to the function, or if the value of the parameter is `"undefined"`. In this case, we spread the properties of the `value` object into a new object, so `x` has the default value of `{ number: 10 }`.
 
-The defeault argument is evaluated at _call time_! Every time we call the function, a _new_ object is created. We invoke the `multiply` function the first two times without passing a value: `x` has the default value of `{ number: 10 }`. We then log the multiplied value of that number, which is `20`.
+The default argument is evaluated at _call time_! Every time we call the function, a _new_ object is created. We invoke the `multiply` function the first two times without passing a value: `x` has the default value of `{ number: 10 }`. We then log the multiplied value of that number, which is `20`.
 
 The third time we invoke multiply, we do pass an argument: the object valled `value`. The `*=` operator is actually shorthand for `x.number = x.number * 2`: we modify the value of `x.number`, and log the multiplied value `20`. 
 
