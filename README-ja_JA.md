@@ -2,7 +2,7 @@
 
 私は毎日、JavaScriptに関する選択問題を [Instagram](https://www.instagram.com/theavocoder)に投稿していますが、ここにも投稿します。
 
-初級から上級まで： JavaScriptの知識のテストを行ったり、知識を少し深めたり、コーディング面接の準備をしてください。:muscle: :rocket: 私はこのレポを毎週新しい質問で更新します。
+初級から上級まで： JavaScriptの知識のテストを行ったり、知識を少し深めたり、コーディング面接の準備をしてください。:muscle: :rocket: 私はこのレポを毎週新しい質問で更新します。Last update: <a href=#20190629><b>June 29th</b></a>
 
 答えは質問の下の折りたたまれたセクションにあります、クリックすればそれを広げられます。幸運を祈ります。:heart:
 
@@ -1708,6 +1708,312 @@ let x = y;
 値が割り当てられていない、または宣言されていない値は`"undefined"`型となります。なので`console.log(typeof x)`は`"undefined"`を返します。
 
 yに関しては、`y`に`10`を代入するときにグローバル変数`y`を作成しました。この値は、コード内のどこからでもアクセスできます。`y`が定義されていて、`"number"`型の値を保持します。よって`console.log(typeof y)`は`"number"`を返します。
+
+</p>
+</details>
+
+###### <a name=20190629></a>55. 何が出力されるでしょうか？
+
+```javascript
+class Dog {
+  constructor(name) {
+    this.name = name;
+  }
+}
+
+Dog.prototype.bark = function() {
+  console.log(`Woof I am ${this.name}`);
+};
+
+const pet = new Dog("Mara");
+
+pet.bark();
+
+delete Dog.prototype.bark;
+
+pet.bark();
+```
+
+- A: `"Woof I am Mara"`, `TypeError`
+- B: `"Woof I am Mara"`,`"Woof I am Mara"`
+- C: `"Woof I am Mara"`, `undefined`
+- D: `TypeError`, `TypeError`
+
+<details><summary><b>答え</b></summary>
+<p>
+
+#### 答え: A
+
+プロトタイプでも、`delete`キーワードを使ってオブジェクトからプロパティを削除できます。プロトタイプのプロパティを削除すると、プロトタイプチェーンでは使用できなくなります。
+
+この場合、`bark`関数は `delete Dog.prototype.bark`の後のプロトタイプでは、もう利用できず、それでもアクセスし、関数ではない何かを呼び出そうとすると、`TypeError`がスローされます。
+
+関数ではない何かを呼び出そうとすると、`pet.bark`は`undefined`なので、`TypeError`がスローされ、`TypeError: pet.bark is not a function`となります。
+
+</p>
+</details>
+
+---
+
+###### 56. 何が出力されるでしょうか？
+
+```javascript
+const set = new Set([1, 1, 2, 3, 4]);
+
+console.log(set);
+```
+
+- A: `[1, 1, 2, 3, 4]`
+- B: `[1, 2, 3, 4]`
+- C: `{1, 1, 2, 3, 4}`
+- D: `{1, 2, 3, 4}`
+
+<details><summary><b>答え</b></summary>
+<p>
+
+#### 答え: D
+
+
+`Set`オブジェクトは _unique_ の値の集合です: 値は集合の中で一度だけ現れることができます
+
+値`1`が重複したイテラブル`[1、1、2、3、4]`を渡しました。セット内に同じ値を2つ持つことはできないので、そのうちの1つが削除され`{1、2、3、4}`となります。
+
+</p>
+</details>
+
+---
+
+###### 57. 何が出力されるでしょうか？
+
+```javascript
+// counter.js
+let counter = 10;
+export default counter;
+```
+
+```javascript
+// index.js
+import myCounter from "./counter";
+
+myCounter += 1;
+
+console.log(myCounter);
+```
+
+- A: `10`
+- B: `11`
+- C: `Error`
+- D: `NaN`
+
+<details><summary><b>答え</b></summary>
+<p>
+
+#### 答え: C
+
+インポートされたモジュールは読み取り専用です。: インポートされたモジュールを変更することはできません。エクスポートするモジュールだけがその値を変更できます。
+
+`myCounter`の値を増やそうとすると、error: `myCounter` is read-only and cannot be modified. と、エラーがスローされます。
+
+</p>
+</details>
+
+---
+
+###### 58. 何が出力されるでしょうか？
+
+```javascript
+const name = "Lydia";
+age = 21;
+
+console.log(delete name);
+console.log(delete age);
+```
+
+- A: `false`, `true`
+- B: `"Lydia"`, `21`
+- C: `true`, `true`
+- D: `undefined`, `undefined`
+
+<details><summary><b>答え</b></summary>
+<p>
+
+#### 答え: A
+
+`delete`演算子は、ブール値を返します: 正常に削除された場合はtrue、それ以外の場合はfalseを返します。`var`, `const`または`let`キーワードで宣言された変数は`delete`演算子を使って削除することはできません。
+
+`name`変数は`const`キーワードで宣言されているので、削除は成功しません: `false`が返されます。 
+
+`age`を`21`に設定すると、実際にはグローバルオブジェクトに`age`というプロパティを追加されました。グローバルオブジェクトからもプロパティを削除することができますので、`delete age`は`true`を返します。
+
+</p>
+</details>
+
+---
+
+###### 59. 何が出力されるでしょうか？
+
+```javascript
+const numbers = [1, 2, 3, 4, 5];
+const [y] = numbers;
+
+console.log(y);
+```
+
+- A: `[[1, 2, 3, 4, 5]]`
+- B: `[1, 2, 3, 4, 5]`
+- C: `1`
+- D: `[1]`
+
+<details><summary><b>答え</b></summary>
+<p>
+
+#### 答え: C
+
+配列から値を取り出したり、オブジェクトからプロパティを分解して取り出すことができます。 example:
+
+```javascript
+[a, b] = [1, 2];
+```
+
+<img src="https://i.imgur.com/ADFpVop.png" width="200">
+
+`a`の値は`1`となり、`b`の値は`2`となる。実際に問題で行った事は、
+
+```javascript
+[y] = [1, 2, 3, 4, 5];
+```
+
+<img src="https://i.imgur.com/NzGkMNk.png" width="200">
+
+`y`の値が配列の最初の値、つまり`1`に等しいことを意味します。`y`をログ出力すると、`1`が返されます。
+
+</p>
+</details>
+
+---
+
+###### 60. 何が出力されるでしょうか？
+
+```javascript
+const user = { name: "Lydia", age: 21 };
+const admin = { admin: true, ...user };
+
+console.log(admin);
+```
+
+- A: `{ admin: true, user: { name: "Lydia", age: 21 } }`
+- B: `{ admin: true, name: "Lydia", age: 21 }`
+- C: `{ admin: true, user: ["Lydia", 21] }`
+- D: `{ admin: true }`
+
+<details><summary><b>答え</b></summary>
+<p>
+
+#### 答え: B
+
+スプレッド演算子`...`を使ってオブジェクトを結合することができます。あるオブジェクトのキーと値のペアのコピーを作成し、それらを別のオブジェクトに追加することができます。
+
+上記の場合だと、`user`オブジェクトのコピーを作成し、それらを`admin`オブジェクトに追加します。`admin`オブジェクトはコピーされたキーと値のペアを含み、その結果`{admin：true、name： "Lydia"、age：21}`となります。
+
+</p>
+</details>
+
+---
+
+###### 61. 何が出力されるでしょうか？
+
+```javascript
+const person = { name: "Lydia" };
+
+Object.defineProperty(person, "age", { value: 21 });
+
+console.log(person);
+console.log(Object.keys(person));
+```
+
+- A: `{ name: "Lydia", age: 21 }`, `["name", "age"]`
+- B: `{ name: "Lydia", age: 21 }`, `["name"]`
+- C: `{ name: "Lydia"}`, `["name", "age"]`
+- D: `{ name: "Lydia"}`, `["age"]`
+
+<details><summary><b>答え</b></summary>
+<p>
+
+#### 答え: B
+
+`defineProperty`メソッドを使うと、オブジェクトに新しいプロパティを追加したり、既存のプロパティを修正することができます。 `defineProperty`メソッドを使ってオブジェクトにプロパティを追加すると、それらはデフォルトでは _列挙できません_。 
+
+`Object.keys`メソッドはオブジェクトから全ての _enumerable_ （列挙可能）なプロパティ名を返します。上記の場合は`"name"`だけとなります。
+
+`defineProperty`メソッドを使って追加されたプロパティはデフォルトでは不変となります。 この動作は`writable`, `configurable`, `enumerable`プロパティを使って上書きすることができます。このように、`defineProperty`メソッドは、オブジェクトに追加しようとしているプロパティをもっと細かく制御できます。
+
+</p>
+</details>
+
+---
+
+###### 62. 何が出力されるでしょうか？
+
+```javascript
+const settings = {
+  username: "lydiahallie",
+  level: 19,
+  health: 90
+};
+
+const data = JSON.stringify(settings, ["level", "health"]);
+console.log(data);
+```
+
+- A: `"{"level":19, "health":90}"`
+- B: `"{"username": "lydiahallie"}"`
+- C: `"["level", "health"]"`
+- D: `"{"username": "lydiahallie", "level":19, "health":90}"`
+
+<details><summary><b>答え</b></summary>
+<p>
+
+#### 答え: A
+
+`JSON.stringify`の2番目の引数は _replacer_ です。replacerは、関数または配列のいずれかにすることができ、値を文字列化する対象とその方法を制御できます。
+
+replacerが _array_ の場合、名前が配列に含まれるプロパティのみがJSON文字列に追加されます。上記の場合、`"level"`と`"health"`という名前のプロパティだけが含まれ、`"username"`は除外されます。`data`は`"{" level "：19、" health "：90}"`となります。
+
+replacerが _function_ の場合、この関数は文字列化しているオブジェクト内のすべてのプロパティに対して呼び出されます。この関数から返される値は、JSON文字列に追加されたときのプロパティの値になり、値が`undefined`の場合、このプロパティはJSON文字列から除外されます。
+
+</p>
+</details>
+
+---
+
+###### 63. 何が出力されるでしょうか？
+
+```javascript
+let num = 10;
+
+const increaseNumber = () => num++;
+const increasePassedNumber = number => number++;
+
+const num1 = increaseNumber();
+const num2 = increasePassedNumber(num1);
+
+console.log(num1);
+console.log(num2);
+```
+
+- A: `10`, `10`
+- B: `10`, `11`
+- C: `11`, `11`
+- D: `11`, `12`
+
+<details><summary><b>答え</b></summary>
+<p>
+
+#### 答え: A
+
+単項演算子`++`はオペランドの値を _最初に返し_ 、_その後に インクリメント_ します。`num1`の値は`10`となります。 なぜなら`incrementNumber`関数は、最初に`num`の値`10`を返し、その後に`num`の値をインクリメントするだけです。
+
+`num1`を`increPassedNumber`に渡したので、`num2`は`10`です。`number`は`10`（`num1`の値です。繰り返しますが、単項演算子`++`は、オペランドの値を _最初に返し_、_その後に インクリメント_ します。したがって、`num2`は`10`となります。
 
 </p>
 </details>
