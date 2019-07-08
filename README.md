@@ -2080,7 +2080,7 @@ In a derived class, you cannot access the `this` keyword before calling `super`.
 
 With the `super` keyword, we call that parent class's constructor with the given arguments. The parent's constructor receives the `name` argument, so we need to pass `name` to `super`. 
 
-The `Dog` class receives two arguments, `name` since it extends `Animal`, and `size` as an extra property on the `Dog` class. They both need to be passed to the constructor function on `Dog`, which is done correctly  using constructor 2.
+The `Labrador` class receives two arguments, `name` since it extends `Dog`, and `size` as an extra property on the `Labrador` class. They both need to be passed to the constructor function on `Labrador`, which is done correctly  using constructor 2.
 </p>
 </details>
 
