@@ -2086,7 +2086,7 @@ The `Labrador` class receives two arguments, `name` since it extends `Dog`, and 
 
 ---
 
-###### 67. With which constructor can we successfully extend the `Dog` class?
+###### 67. What's the output?
 
 ```javascript
 // index.js
