@@ -26,7 +26,7 @@ Lista di traduzioni disponibili:
 
 ---
 
-###### 1. What's the output?
+###### 1. Qual è l'output?
 
 ```javascript
 function sayHi() {
@@ -39,26 +39,26 @@ function sayHi() {
 sayHi();
 ```
 
-- A: `Lydia` and `undefined`
-- B: `Lydia` and `ReferenceError`
-- C: `ReferenceError` and `21`
-- D: `undefined` and `ReferenceError`
+- A: `Lydia` e `undefined`
+- B: `Lydia` e `ReferenceError`
+- C: `ReferenceError` e `21`
+- D: `undefined` e `ReferenceError`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>Riposta</b></summary>
 <p>
 
-#### Answer: D
+#### Risposta: D
 
-Within the function, we first declare the `name` variable with the `var` keyword. This means that the variable gets hoisted (memory space is set up during the creation phase) with the default value of `undefined`, until we actually get to the line where we define the variable. We haven't defined the variable yet on the line where we try to log the `name` variable, so it still holds the value of `undefined`.
+All'interno della funzione, dichiariamo per prima la variabile `name` con la keyword `var`. Questo significa che la variabile subisce l'hoisting (la memoria viene allocata durante la fase di creazione) con il valore di default `undefined`, finché non viene eseguita la riga in cui la variabile verrà valorizzata. Non abbiamo ancora assegnato un valore alla variabile quando proviamo a stampare a video `name`, per questo il suo valore è ancora `undefined`.
 
-Variables with the `let` keyword (and `const`) are hoisted, but unlike `var`, don't get <i>initialized</i>. They are not accessible before the line we declare (initialize) them. This is called the "temporal dead zone". When we try to access the variables before they are declared, JavaScript throws a `ReferenceError`.
+Anche le variabili con la parola chiave `let` (e `const`) subiscono il processo di hoisting, ma diversamente da `var`, non vengono <i>inizializzate</i>. Loro non sono accessibili prima della dichiarazione (ed inizializzazione in questo caso). Questo funzionamento è chiamato "temporal dead zone". Quando proviamo ad accedere alle variabili prima che siano dichiarate, JavaScript solleverà un errore `ReferenceError`.
 
 </p>
 </details>
 
 ---
 
-###### 2. What's the output?
+###### 2. Qual è l'output?
 
 ```javascript
 for (var i = 0; i < 3; i++) {
@@ -74,21 +74,21 @@ for (let i = 0; i < 3; i++) {
 - B: `0 1 2` and `3 3 3`
 - C: `3 3 3` and `0 1 2`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>Risposta</b></summary>
 <p>
 
-#### Answer: C
+#### Risposta: C
 
-Because of the event queue in JavaScript, the `setTimeout` callback function is called _after_ the loop has been executed. Since the variable `i` in the first loop was declared using the `var` keyword, this value was global. During the loop, we incremented the value of `i` by `1` each time, using the unary operator `++`. By the time the `setTimeout` callback function was invoked, `i` was equal to `3` in the first example.
+A causa della coda degli eventi in JavaScript, la funzione di callback di `setTimeout` è richiamata _dopo_ che il ciclo è stato eseguito. Dal momento che la variabile `i` nel primo ciclo è stata dichiarata utilizzando la keyword `var`, il valore è globale. Durante il ciclo incrementiamo il valore di `i` di `1`, utilizzando l'operatore unario `++`. Successivamente, quando la callback del `setTimeout` viene invocata, `i` è uguale a `3` nel primo esempio.
 
-In the second loop, the variable `i` was declared using the `let` keyword: variables declared with the `let` (and `const`) keyword are block-scoped (a block is anything between `{ }`). During each iteration, `i` will have a new value, and each value is scoped inside the loop.
+Nel secondo ciclo, la variabile `i` è stata dichiarata usando `let`: variabili dichiarate con `let` (e `const`) vivono nel blocco dello _scope_ (lo _scope_ di un blocco è tra `{ }`). Durante ogni iterazione, `i` avrà un nuovo valore, e ogni valore è associato allo _scope_ all'interno del loop.
 
 </p>
 </details>
 
 ---
 
-###### 3. What's the output?
+###### 3. Qual è l'output?
 
 ```javascript
 const shape = {
@@ -108,16 +108,16 @@ console.log(shape.perimeter());
 - C: `20` and `63`
 - D: `NaN` and `63`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>Risposta</b></summary>
 <p>
 
-#### Answer: B
+#### Risposta: B
 
-Note that the value of `diameter` is a regular function, whereas the value of `perimeter` is an arrow function.
+Notate come il valore di `diameter` sia una normale funzione, mentre il valore di `perimeter` è una arrow function.
 
-With arrow functions, the `this` keyword refers to its current surrounding scope, unlike regular functions! This means that when we call `perimeter`, it doesn't refer to the shape object, but to its surrounding scope (window for example).
+Con le arrow functions, la parola chiave `this` si riferisce allo _scope_ corrente, diversamente dalle funzioni! Questo significa che quando richiamiamo `perimeter`, non si riferisce all'oggetto `shape`, ma allo _scope_ in cui si trova (window per esempio).
 
-There is no value `radius` on that object, which returns `undefined`.
+Non c'è nessun valore `radius` in quello _scope_, quindi ritornerà `undefined`.
 
 </p>
 </details>
