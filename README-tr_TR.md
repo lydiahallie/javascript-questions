@@ -2,22 +2,25 @@
 
 [Instagram](https://www.instagram.com/theavocoder) hesabımda, günlük olarak çoktan seçmeli Javascript soruları paylaşıyorum, ayrıca burada da paylaşacağım!
 
-Temelden ileri düzeye: Javascript'i ne kadar iyi bildiğinizi test edin, bilginizi biraz tazeleyin ya da mülakatanıza hazırlanın! :muscle: :rocket: Repoyu haftalık olarak yeni sorularla güncelliyorum. Son güncelleme: <a href=#20190629><b>29 Haziran</b></a>
+Temelden ileri düzeye: Javascript'i ne kadar iyi bildiğinizi test edin, bilginizi biraz tazeleyin ya da mülakatanıza hazırlanın! :muscle: :rocket: Repoyu haftalık olarak yeni sorularla güncelliyorum. Son güncelleme: Last update: <a href=#20190707><b>7 Temmuz</b></a>
 
 Cevaplar, soruların altında gizlenmiştir. Görmek için sadece tıklayın. İyi şanşlar :heart:
 
 Mevcut dillerin listesi:
-* [中文版本](./README-zh_CN.md)
-* [Versión en español](./README-ES.md)
+* [English](./README.md)
+* [العربية](./README_AR.md)
+* [اللغة العامية - Egyptian Arabic](./README_ar-EG.md)
+* [Bosanski](./README-bs_BS.md)  
+* [Deutsch](./README-de_DE.md)  
+* [Español](./README-ES.md)
 * [日本語](./README-ja_JA.md)  
 * [한국어](./README-ko_KR.md) 
-* [Русский](./README_ru-RU.md)  
-* [Western Balkan](./README-bs_BS.md)  
-* [Deutsch](./README-de_DE.md)  
-* [Tiếng Việt](./README-vi.md)
-* [Українська мова](./README-ua_UA.md)  
 * [Português Brasil](./README_pt_BR.md)  
-* [Türkçe](./README-tr_TR.md)  
+* [Русский](./README_ru-RU.md)  
+* [Українська мова](./README-ua_UA.md)  
+* [Tiếng Việt](./README-vi.md)
+* [中文版本](./README-zh_CN.md)
+*[Türkçe](./README-tr_TR.md)
 
 ---
 
@@ -1944,6 +1947,214 @@ console.log(num2);
 `++` unary operatörü _önce_ operandın değerini döndürür, _sonra_ operandın değerini arttırır. `increaseNumber` fonksiyonu önce değeri `10` olan `num`'ın değerini döndürdüğünden, `num1`'ın değeri `10`'dur, ve `num`'ın değeri ancak bundan sonra artar.
 
 `increasePassedNumber`'a `num1`'i geçtiğimizden, `num2`'nin değeri `10`'dur. `number` `10`'a eşittir (`num1`'ın değeri. Bir kez daha, `++` operatörü _önce_ operandın değerini döndürür, _sonra_ operandın değerini arttırır. `number`'ın değeri `10`, yani `num2` `10`'a eşittir.)
+
+</p>
+</details>
+
+---
+
+###### <a name=20190707></a>64. Çıktısı Nedir?
+
+```javascript
+const value = { number: 10 };
+
+const multiply = (x = { ...value }) => {
+  console.log((x.number * 2));
+};
+
+multiply();
+multiply();
+multiply(value);
+multiply(value);
+```
+
+- A: `20`, `40`, `80`, `160`
+- B: `20`, `40`, `20`, `40`
+- C: `20`, `20`, `20`, `40`
+- D: `NaN`, `NaN`, `20`, `40`
+
+<details><summary><b>Cevap</b></summary>
+<p>
+
+#### Answer: C
+
+ES6'da, parametrelere varsayılan değer atayabiliriz. Eğer fonksiyona değer geçilmezse ya da parametrenin değeri `undefined` ise, parametrenin değeri varsayılan değer olacaktır. Bu örnekte, `value` nesnesinin özelliklerini yeni nesneye yaydık, böylece `x` varsayılan değer olarak `{ number: 10}`'a sahip.
+
+Varsayılan argüman _çağrı sırasında_, "_call time_", çalıştırılır. Fonksiyonu her çağırdığımızda, _yeni_ bir nesne oluşturulur. `multiply` fonksiyonunu ilk iki seferde değer geçmeden çağırdık: `x` varsayılan değeri olan `{ number: 10 }`'a sahip. Sonra, bu sayının çarpılmış değerini logluyoruz, o da `20`.
+
+Üçüncü kez, `multiply`'ı çağırdığımız zaman, argüman geçiyoruz: `value` isimli nesne. `*=` operatörü aslında `x.number = x.number * 2` için kısa yazımdır: `x.number`'ın değerini değiştiriyoruz ve çarpılmış değer olan `20`'yi logluyoruz.
+
+Dördüncü kez, `value` nesnesini tekrar geçiyoruz. `x.number` önceden `20`'ye değiştirilmişti, yani `x.number *= 2` `40` loglar.
+
+</p>
+</details>
+
+---
+
+###### 65. Çıktısı Nedir?
+
+```javascript
+[1, 2, 3, 4].reduce((x, y) => console.log(x, y));
+```
+
+- A: `1` `2` and `3` `3` and `6` `4`
+- B: `1` `2` and `2` `3` and `3` `4`
+- C: `1` `undefined` and `2` `undefined` and `3` `undefined` and `4` `undefined`
+- D: `1` `2` and `undefined` `3` and `undefined` `4`
+
+<details><summary><b>Answer</b></summary>
+<p>
+
+#### Answer: D
+
+`reduce` methodunun aldığı ilk argüman _biriktiricidir_, "_accumulator_", bu örnekte `x`. İkinci argüman _o anki değerdir_, `y`. reduce methodu ile, dizideki her eleman üzerinde callback fonksiyonunu çalıştırırız, bu da en sonunda tek bir değer sonuçlanabilir.
+
+Bu örnekte, geriye bir değer döndürmüyoruz, sadece biriktiricinin değerini ve o anki değeri logluyoruz.
+
+Biriktiricinin değeri, bir önceki callback fonksiyonunun dönen değerine eşittir. Eğer, opsiyonel olan `initialValue` agümanını `reduce` methoduna geçmezseniz, biriktiricinin değeri, ilk çağrılışta gelen elemana eşit olur.
+
+İlk çağrılışta, biriktirici (`x`) `1`'dir, ve `y`'nin o anki değeri `2`'dir. callback fonksiyonundan bir şey döndürmüyoruz, biriktiriciyi ve o anki değeri logluyoruz: `1`  ve `2` loglanır.
+
+Eğer bir fonksiyondan değer döndürmezseniz, fonksiyon `undefined` döndürür. Sonraki çağrılışta, biriktirici `undefined`, ve o anki geçerli değer `3`'tür. `undefined` ve `3` loglanır.
+
+Dördündü çağrıda, tekrar callback fonksiyonundan değer döndürmüyoruz. Biriktirici tekrar `undefined`, ve o anki geçerli değer `4`. `undefined` ve `4` loglanır.
+
+</p>
+</details>
+  
+---
+
+###### 66. With which constructor can we successfully extend the `Dog` class?
+
+```javascript
+class Dog {
+  constructor(name) {
+    this.name = name;
+  }
+};
+
+class Labrador extends Dog {
+  // 1 
+  constructor(name, size) {
+    this.size = size;
+  }
+  // 2
+  constructor(name, size) {
+    super(name);
+    this.size = size;
+  }
+  // 3
+  constructor(size) {
+    super(name);
+    this.size = size;
+  }
+  // 4 
+  constructor(name, size) {
+    this.name = name;
+    this.size = size;
+  }
+
+};
+```
+
+- A: 1
+- B: 2
+- C: 3
+- D: 4
+
+<details><summary><b>Answer</b></summary>
+<p>
+
+#### Answer: B
+
+In a derived class, you cannot access the `this` keyword before calling `super`. If you try to do that, it will throw a ReferenceError: 1 and 4 would throw a reference error.
+
+With the `super` keyword, we call that parent class's constructor with the given arguments. The parent's constructor receives the `name` argument, so we need to pass `name` to `super`. 
+
+The `Dog` class receives two arguments, `name` since it extends `Animal`, and `size` as an extra property on the `Dog` class. They both need to be passed to the constructor function on `Dog`, which is done correctly  using constructor 2.
+</p>
+</details>
+
+---
+
+###### 67. With which constructor can we successfully extend the `Dog` class?
+
+```javascript
+// index.js
+console.log('running index.js);
+import { sum } from './sum.js';
+console.log(sum(1, 2));
+
+// sum.js
+console.log('running sum.js');
+export const sum = (a, b) => a + b;
+```
+
+- A: `running index.js`, `running sum.js`, `3`
+- B: `running sum.js`, `running index.js`, `3`
+- C: `running sum.js`, `3`, `running index.js`
+- D: `running index.js`, `undefined`, `running sum.js`
+
+<details><summary><b>Answer</b></summary>
+<p>
+
+#### Answer: B
+
+With the `import` keyword, all imported modules are _pre-parsed_. This means that the imported modules get run _first_, the code in the file which imports the module gets executed _after_.
+
+This is a difference between `require()` in CommonJS and `import`! With `require()`, you can load dependencies on demand while the code is being run. If we would have used `require` instead of `import`, `running index.js`, `running sum.js`, `3` would have been logged to the console. 
+
+</p>
+</details>
+
+---
+
+###### 68. Çıktısı Nedir?
+
+```javascript
+console.log(Number(2) === Number(2))
+console.log(Boolean(false) === Boolean(false))
+console.log(Symbol('foo') === Symbol('foo'))
+```
+
+- A: `true`, `true`, `false`
+- B: `false`, `true`, `false`
+- C: `true`, `false`, `true`
+- D: `true`, `true`, `true`
+
+<details><summary><b>Answer</b></summary>
+<p>
+
+#### Answer: A
+
+Every Symbol is entirely unique.The purpose of the argument passed to the Symbol, is to give the Symbol a description. The value of the Symbol is not dependent on the passed argument. As we test equality, we are creating two entirely new symbols: the first `Symbol('foo')`, and the second `Symbol('foo')`. These two values are unique and not equal to each other, `Symbol('foo') === Symbol('foo')` returns `false`. 
+
+</p>
+</details>
+
+---
+
+###### 69. Çıktısı Nedir?
+
+```javascript
+const name = "Lydia Hallie"
+console.log(name.padStart(13))
+console.log(name.padStart(2))
+```
+
+- A: `"Lydia Hallie"`, `"Lydia Hallie"`
+- B: `"           Lydia Hallie"`, `"  Lydia Hallie"` (`"[13x whitespace]Lydia Hallie"`, `"[2x whitespace]Lydia Hallie"`)
+- C: `" Lydia Hallie"`, `"Lydia Hallie"` (`"[1x whitespace]Lydia Hallie"`, `"Lydia Hallie"`)
+- D: `"Lydia Hallie"`, `"Lyd"`, 
+
+<details><summary><b>Answer</b></summary>
+<p>
+
+#### Answer: C
+
+With the `padStart` method, we can add padding to the beginning of a string. The value passed to this method is the _total_ length of the string together with the padding. The string `"Lydia Hallie"` has a length of `12`. `name.padStart(13)` inserts 1 space at the start of the string, because 12 + 1 is 13.
+
+If the argument passed to the `padStart` method is smaller than the length of the array, no padding will be added.
 
 </p>
 </details>
