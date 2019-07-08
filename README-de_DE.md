@@ -7,15 +7,19 @@ Von einfach bis fortgeschritten: teste wie gut du JavaScript kennst, frische dei
 Die Antworten sind unterhalb der Fragen versteckt. Du kannst einfach darauf klicken um die Antworten anzuzeigen. Viel Glück :heart:
 
 ### Andere verfügbare Sprachen
-[English](./README.md) <br />
-[Bosanski Jezik](./README-bs_BS.md) <br />
-[日本語](./README-ja_JA.md) <br />
-[한국어](./README-ko_KR.md) <br />
-[Português Brasil](./README_pt_BR.md) <br />
-[Русский](./README_ru-RU.md) <br />
-[Українська мова](./README-ua_UA.md) <br />
-[Tiếng Việt](./README-vi.md) <br />
-[中文版本](./README-zh_CN.md) <br />
+* [English](./README.md)
+* [العربية](./README_AR.md)
+* [اللغة العامية - Egyptian Arabic](./README_ar-EG.md)
+* [Bosanski](./README-bs_BS.md)
+* [Deutsch](./README-de_DE.md)
+* [Español](./README-ES.md)
+* [日本語](./README-ja_JA.md)
+* [한국어](./README-ko_KR.md)
+* [Português Brasil](./README_pt_BR.md)
+* [Русский](./README_ru-RU.md)
+* [Українська мова](./README-ua_UA.md)
+* [Tiếng Việt](./README-vi.md)
+* [中文版本](./README-zh_CN.md)
 
 ---
 

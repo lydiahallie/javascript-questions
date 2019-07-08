@@ -12,13 +12,20 @@ Ovaj tjedni repo ažuriram s novim pitanjima.
 Odgovori su jednostavno dijelovima ispod pitanja
 kliknite na njih da biste ih proširili. Sretno :heart:
 
-
-[Kineski 中文版本](./README-zh_CN.md)  
-[Ruski](./README_ru-RU.md)  
-[Zapadni balkan](./README-bs_BS.md)  
-[Njemački](./README-de_DE.md) <br>
-[Vijetnamski](./README-vi.md)  
-[Українська мова](./README-ua_UA.md)  
+List of available languages:
+* [English](./README.md)
+* [العربية](./README_AR.md)
+* [اللغة العامية - Egyptian Arabic](./README_ar-EG.md)
+* [Bosanski](./README-bs_BS.md)
+* [Deutsch](./README-de_DE.md)
+* [Español](./README-ES.md)
+* [日本語](./README-ja_JA.md)
+* [한국어](./README-ko_KR.md)
+* [Português Brasil](./README_pt_BR.md)
+* [Русский](./README_ru-RU.md)
+* [Українська мова](./README-ua_UA.md)
+* [Tiếng Việt](./README-vi.md)
+* [中文版本](./README-zh_CN.md)
 
 * * * * *
 

@@ -7,6 +7,21 @@
 
 答案在问题下方的折叠部分，点击即可展开问题。祝你好运 :heart:
 
+List of available languages:
+* [English](./README.md)
+* [العربية](./README_AR.md)
+* [اللغة العامية - Egyptian Arabic](./README_ar-EG.md)
+* [Bosanski](./README-bs_BS.md)
+* [Deutsch](./README-de_DE.md)
+* [Español](./README-ES.md)
+* [日本語](./README-ja_JA.md)
+* [한국어](./README-ko_KR.md)
+* [Português Brasil](./README_pt_BR.md)
+* [Русский](./README_ru-RU.md)
+* [Українська мова](./README-ua_UA.md)
+* [Tiếng Việt](./README-vi.md)
+* [中文版本](./README-zh_CN.md)
+
 ---
 
 ###### 1. 输出是什么？

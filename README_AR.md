@@ -15,16 +15,18 @@
 اللغات المتوفرة:
 
 * [English](./README.md)
-* [中文版本](./README-zh_CN.md)
-* [Versión en español](./README-ES.md)
-* [日本語](./README-ja_JA.md)  
-* [한국어](./README-ko_KR.md) 
-* [Русский](./README_ru-RU.md)  
-* [Western Balkan](./README-bs_BS.md)  
-* [Deutsch](./README-de_DE.md)  
+* [العربية](./README_AR.md)
+* [اللغة العامية - Egyptian Arabic](./README_ar-EG.md)
+* [Bosanski](./README-bs_BS.md)
+* [Deutsch](./README-de_DE.md)
+* [Español](./README-ES.md)
+* [日本語](./README-ja_JA.md)
+* [한국어](./README-ko_KR.md)
+* [Português Brasil](./README_pt_BR.md)
+* [Русский](./README_ru-RU.md)
+* [Українська мова](./README-ua_UA.md)
 * [Tiếng Việt](./README-vi.md)
-* [Українська мова](./README-ua_UA.md)  
-* [Português Brasil](./README_pt_BR.md) 
+* [中文版本](./README-zh_CN.md)
 </div>
 
 ____________

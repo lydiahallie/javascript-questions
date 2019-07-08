@@ -6,12 +6,20 @@ Do básico ao avançado: Teste quão bem você conhece o JavaScript, refresque u
 
 As respostas estão em seções recolhidas abaixo das questões, basta clicar nelas para expandir. Boa sorte :heart:
 
-[English](./README.md)  
-[中文版本](./README-zh_CN.md)  
-[Русский](./README_ru-RU.md)  
-[Western Balkan](./README-bs.md)  
-[Deutsch](./README-de_DE.md)  
-[Tiếng Việt](./README-vi.md)  
+List of available languages:
+* [English](./README.md)
+* [العربية](./README_AR.md)
+* [اللغة العامية - Egyptian Arabic](./README_ar-EG.md)
+* [Bosanski](./README-bs_BS.md)
+* [Deutsch](./README-de_DE.md)
+* [Español](./README-ES.md)
+* [日本語](./README-ja_JA.md)
+* [한국어](./README-ko_KR.md)
+* [Português Brasil](./README_pt_BR.md)
+* [Русский](./README_ru-RU.md)
+* [Українська мова](./README-ua_UA.md)
+* [Tiếng Việt](./README-vi.md)
+* [中文版本](./README-zh_CN.md)
 
 
 ---
