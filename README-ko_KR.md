@@ -2,7 +2,7 @@
 
 JavaScript 에 관한 객관식 문제를 [Instagram](https://www.instagram.com/theavocoder)에 매일 게시하고 있어요, 물론 여기에도 게시할 거예요!
 
-초급부터 고급까지: JavaScript를 얼마나 잘 알고 있는지 테스트하거나, 지식을 조금 더 새롭게 하거나, 코딩 면접을 준비하세요! :muscle: :rocket: 이 기록을 매주 새로운 질문으로 업데이트해요. 마지막 업데이트: <b>6월 29일</b>
+초급부터 고급까지: JavaScript를 얼마나 잘 알고 있는지 테스트하거나, 지식을 조금 더 새롭게 하거나, 코딩 면접을 준비하세요! :muscle: :rocket: 이 기록을 매주 새로운 질문으로 업데이트해요. 마지막 업데이트: <a href=#20190707><b>7월 7일</b></a>
 
 정답은 질문 아래 접힌 부분에 있어요, 그냥 클릭하면 펼칠 수 있어요. 행운을 빌어요 :heart:
 
@@ -1952,6 +1952,215 @@ console.log(num2);
 단항 연산자 `++`는 _우선_ 피연산자의 값을 _리턴하고_, _그 후_ 피연산자의 값을 _증가해요_. `increaseNumber` 함수가 처음으로 리턴 한 `num`의 값은 `10` 이기 때문에, `num1`의 값은 `10`이고, 그 후엔 `num`의 값만 증가해요.
 
 `num1`을 `increasePassedNumber`로 전달했기 때문에, `num2`는 `10`이에요. `number`는 `10`이에요(`num1`의 값은, 다시 한번, 단항 연산자가 `++`는 _우선_ 피연산자의 값을 _리턴하고_, _그 후_ 피연산자의 값을 _증가해요_. `number`의 값은 `10`이에요 즉, `num2`는 `10`이죠.
+
+</p>
+</details>
+
+---
+
+###### <a name=20190707></a>64. 무엇이 출력 될까요?
+
+```javascript
+const value = { number: 10 };
+
+const multiply = (x = { ...value }) => {
+  console.log(x.number *= 2);
+};
+
+multiply();
+multiply();
+multiply(value);
+multiply(value);
+```
+
+- A: `20`, `40`, `80`, `160`
+- B: `20`, `40`, `20`, `40`
+- C: `20`, `20`, `20`, `40`
+- D: `NaN`, `NaN`, `20`, `40`
+
+<details><summary><b>정답</b></summary>
+<p>
+
+#### 정답: C
+
+ES6에서는, 기본값으로 파라미터를 초기화할 수 있어요. 함수에 값이 없이 전달되거나, 파라미터의 값이 `"undefined"`라면, 파라미터의 값은 기본값이 될 거예요. 이 경우, `value` 객체의 속성들을 새로운 객체 안으로 전개해요. 따라서 `x`는 `{ number: 10 }`을 기본값으로 가져요.
+
+기본 인수는 _호출 시점_ 에 평가돼요! 함수를 부를 때마다, _새로운_ 객체를 만들어요. 처음에 두 번은 값 전달 없이 `multiply` 함수를 호출해요: `x`는 `{ number: 10 }`의 기본값을 가져요. 그다음 그 숫자를 곱셈한 값인 `20`을 출력해요.
+
+세 번째로 곱셈을 호출할 때, 인수를 전달해요: 그 객체는 `value`를 불러요. `*=` 연산자는 실제로는 `x.number = x.number * 2`의 줄임말이에요: `x.number`의 값을 변경하고, 곱셈한 값 `20`을 출력해요
+
+네 번째에는, `value` 객체를 다시 한번 전달해요. `x.number`는 이전에 `20`으로 바뀌었기 때문에, `x.number *= 2`는 `40`을 출력해요.
+
+</p>
+</details>
+
+---
+
+###### 65. 무엇이 출력 될까요?
+
+```javascript
+[1, 2, 3, 4].reduce((x, y) => console.log(x, y));
+```
+
+- A: `1` `2` and `3` `3` and `6` `4`
+- B: `1` `2` and `2` `3` and `3` `4`
+- C: `1` `undefined` and `2` `undefined` and `3` `undefined` and `4` `undefined`
+- D: `1` `2` and `undefined` `3` and `undefined` `4`
+
+<details><summary><b>정답</b></summary>
+<p>
+
+#### 정답: D
+
+`reduce` 메소드가 받은 첫 번째 인수는 _누산기_ 예요, 이 경우엔 `x`죠. 두 번째 인수 `y`는 _현재 값_ 예요. reduce 메소드에서, 배열에 있는 모든 요소에 콜백 함수를 실행하므로 궁극적으로는 하나의 값을 얻을 수 있어요.
+
+이 예제에서는, 값을 리턴하지 않고, 단지 누적된 값과 현재 값을 출력해요.
+
+누산기의 값은 콜백 함수가 이전에 리턴한 값이에요. 만약 추가적인 `초기값` 인수를 `reduce` 메소드에 전달하지 않았다면, 누산기는 첫번째 부른 첫 번째 요소와 동일해요.
+
+첫 번째 부를 땐, 누산기 (`x`)는 `1` 이에요, 그리고 현재 값인 (`y`)는 `2`예요. 콜백 함수로부터 리턴되지 않았어요, 누산기와 현재 값을 출력해요: `1` 그리고 `2`가 출력돼요.
+
+함수에서 값을 리턴하지 않았다면, `undefined`를 리턴해요. 다음번에 부를 때, 누산기는 `undefined`고, 그리고 현재 값은 `3`이에요. `undefined` 그리고 `3`이 출력돼요.
+
+네 번째 부를 땐, 또 콜백 함수에서 리턴받지 않았어요. 누산기는 다시 `undefined`고, 현재 값은 `4`예요. `undefined` 그리고 `4`가 출력돼요.
+
+</p>
+</details>
+  
+---
+
+###### 66. `Dog` 클래스를 성공적으로 확장할 수 있는 생성자는 어느 것일까요?
+
+```javascript
+class Animal {
+  constructor(name) {
+    this.name = name;
+  }
+};
+
+class Dog extends Animal {
+  // 1 
+  constructor(name, size) {
+    this.size = size;
+  }
+  // 2
+  constructor(name, size) {
+    super(name);
+    this.size = size;
+  }
+  // 3
+  constructor(size) {
+    super(name);
+    this.size = size;
+  }
+  // 4 
+  constructor(name, size) {
+    this.name = name;
+    this.size = size;
+  }
+
+};
+```
+
+- A: 1
+- B: 2
+- C: 3
+- D: 4
+
+<details><summary><b>정답</b></summary>
+<p>
+
+#### 정답: B
+
+이 파생 클래스에서, `super`를 부르기 전에는 `this` 키워드에 접근할 수 없어요. 그렇게 하려고 한다면, 참조에러를 던질 거에요: 1과 4는 참조 에러를 던져요
+
+`super` 키워드를 가지고, 부모 클래스 생성자에 주어진 인수들을 부를 수 있어요. 부모 생성자는 `name` 인수를 받아요, 그래서 `name`을 `super`로 전달해야 해요. 
+
+`Dog` 클래스는 인수를 2개 받는데, `Animal`로 부터 확장된 `name`과 `Dog` 클래스의 추가 속성인 `size`예요. 그 두 개는 `Dog` 생성자 함수에 전달되어야 하는데, 올바르게 사용된 건 2번째 생성자예요.
+
+</p>
+</details>
+
+---
+
+###### 67. 무엇이 출력 될까요?
+
+```javascript
+// index.js
+console.log('running index.js');
+import { sum } from './sum.js';
+console.log(sum(1, 2));
+
+// sum.js
+console.log('running sum.js');
+export const sum = (a, b) => a + b;
+```
+
+- A: `running index.js`, `running sum.js`, `3`
+- B: `running sum.js`, `running index.js`, `3`
+- C: `running sum.js`, `3`, `running index.js`
+- D: `running index.js`, `undefined`, `running sum.js`
+
+<details><summary><b>정답</b></summary>
+<p>
+
+#### 정답: B
+
+`import` 키워드를 사용하면, 모든 import된 modules은 _우선-파싱_ 되어요. import된 모듈은 _처음에_ 실행되는 것을 의미하고, import한 파일 안에 있는 코드는 _나중에_ 실행돼요.
+
+이것은 CommonJSd의 `require()`와 `import`의 차이예요! `require()`을 사용하면, 런타임 중 코드에서 필요한 시점에 의존성 모듈을 로드 할 수 있어요. 만약 `import` 대신에 `require`을 사용하면, `running index.js`, `running sum.js`, `3`으로 콘솔에 출력될 거에요.
+
+</p>
+</details>
+
+---
+
+###### 68. 무엇이 출력 될까요?
+
+```javascript
+console.log(Number(2) === Number(2))
+console.log(Boolean(false) === Boolean(false))
+console.log(Symbol('foo') === Symbol('foo'))
+```
+
+- A: `true`, `true`, `false`
+- B: `false`, `true`, `false`
+- C: `true`, `false`, `true`
+- D: `true`, `true`, `true`
+
+<details><summary><b>정답</b></summary>
+<p>
+
+#### 정답: A
+
+모든 심볼은 완전히 유니크해요. 심볼에 전달된 인수의 목적은, 심볼에 설명을 제공하는 거에요. 심볼의 값은 전달된 인수에 따라 달라지지 않아요. 동등성을 테스트할 때, 새로운 심볼 객체를 만들어요: 첫번째 `Symbol('foo')`와 두번째 `Symbol('foo')`. 이 두개의 값들은 유니크하며, 서로 같지 않아요, `Symbol('foo') === Symbol('foo')`는 `false`를 리턴해요.
+
+</p>
+</details>
+
+---
+
+###### 69. 무엇이 출력 될까요?
+
+```javascript
+const name = "Lydia Hallie"
+console.log(name.padStart(13))
+console.log(name.padStart(2))
+```
+
+- A: `"Lydia Hallie"`, `"Lydia Hallie"`
+- B: `"           Lydia Hallie"`, `"  Lydia Hallie"` (`"[13x whitespace]Lydia Hallie"`, `"[2x whitespace]Lydia Hallie"`)
+- C: `" Lydia Hallie"`, `"Lydia Hallie"` (`"[1x whitespace]Lydia Hallie"`, `"Lydia Hallie"`)
+- D: `"Lydia Hallie"`, `"Lyd"`, 
+
+<details><summary><b>정답</b></summary>
+<p>
+
+#### 정답: C
+
+`padStart` 메소드를 사용하면, 문자열의 시작 부분에 패딩을 추가해 줄 수 있어요. 이 메소드에 전달된 값은 패딩을 포함한 문자열의 _전체_ 길이예요. 문자열 `"Lydia Hallie"`의 길이는 `12`예요. `name.padStart(13)`은 문자열의 시작점에 1 스페이스를 삽입해요, 따라서 12 + 1 은 13이죠.
+
+`padStart` 메소드에 전달된 인수가 배열의 길이보다 작다면, 패딩은 추가되지 않을 거예요.
 
 </p>
 </details>
