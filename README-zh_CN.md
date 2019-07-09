@@ -2011,7 +2011,7 @@ multiply(value);
 
 `reducer` 函数的返回值将会分配给累计器，该返回值在数组的每个迭代中被记住，并最后成为最终的单个结果值。
 
-`reducer` 函数还有一个可选参数`initialValue`, 该参数将作为第一次调用回调函数时的第一个参数的值。 如果没有提供初始值，则将使用数组中的第一个元素。
+`reducer` 函数还有一个可选参数`initialValue`, 该参数将作为第一次调用回调函数时的第一个参数的值。如果没有提供`initialValue`，则将使用数组中的第一个元素。
 
 在上述例子，`reduce`方法接收的第一个参数(Accumulator)是`x`, 第二个参数(Current Value)是`y`。
  
@@ -2082,7 +2082,7 @@ class Labrador extends Dog {
 
 ```javascript
 // index.js
-console.log('running index.js);
+console.log('running index.js');
 import { sum } from './sum.js';
 console.log(sum(1, 2));
 
