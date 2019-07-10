@@ -2090,7 +2090,7 @@ The `Dog` class receives two arguments, `name` since it extends `Animal`, and `s
 
 ```javascript
 // index.js
-console.log('running index.js);
+console.log('running index.js');
 import { sum } from './sum.js';
 console.log(sum(1, 2));
 
