@@ -2,7 +2,7 @@
 
 I post daily multiple choice JavaScript questions on my [Instagram](https://www.instagram.com/theavocoder), which I'll also post here!
 
-From basic to advanced: test how well you know JavaScript, refresh your knowledge a bit, or prepare for your coding interview! :muscle: :rocket: I update this repo weekly with new questions. Last update: <a href=#20190707><b>July 7th</b></a>
+From basic to advanced: test how well you know JavaScript, refresh your knowledge a bit, or prepare for your coding interview! :muscle: :rocket: I update this repo weekly with new questions. Last update: <a href=#20190714><b>July 14th</b></a>
 
 The answers are in the collapsed sections below the questions, simply click on them to expand it. Good luck :heart:
 
@@ -1963,7 +1963,7 @@ The unary operator `++` _first returns_ the value of the operand, _then incremen
 
 ---
 
-###### <a name=20190707></a>64. What's the output?
+###### 64. What's the output?
 
 ```javascript
 const value = { number: 10 };
@@ -2170,7 +2170,7 @@ If the argument passed to the `padStart` method is smaller than the length of th
 
 ---
 
-###### 70. What's the output?
+###### <a name=20190714></a>70. What's the output?
 
 ```javascript
 console.log("🥑" + "💻");
