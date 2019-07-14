@@ -21,7 +21,6 @@ List of available languages:
 * [Українська мова](./README-ua_UA.md)  
 * [Tiếng Việt](./README-vi.md)
 * [中文版本](./README-zh_CN.md)
-* [Türkçe](./README-tr_TR.md)
 
 
 ---
@@ -1195,7 +1194,7 @@ JavaScript only has primitive types and objects.
 
 Primitive types are `boolean`, `null`, `undefined`, `bigint`, `number`, `string`, and `symbol`.
 
-What differentiates a primitive from an object is that primitives do not have any properties or methods; however, you'll note that `'foo'.toUpperCase()` evaluates to `'FOO'` and does not result in a `TypeError`. This is because when you try to access a property or method on a primitive like a string, JavaScript will implicitly wrap the object using one of the wrapper classes, i.e. `String`, and then immediately discard the wrapper after the expression evaluates. All primitives except for `null` and `undefined` exhibit this behaviour.
+What differentiates a primitive from an object is that primitives do not have any properties or methods; however, you'll note that `'foo'.toUpperCase()` evaluates to `'FOO'` and does not result in a `TypeError`. This is because when you try to access a property or method on a primitive like a string, JavaScript will implicity wrap the object using one of the wrapper classes, i.e. `String`, and then immediately discard the wrapper after the expression evaluates. All primitives except for `null` and `undefined` exhibit this behaviour.
 
 </p>
 </details>
@@ -1435,7 +1434,7 @@ for (const item in person) {
 
 #### Answer: B
 
-With a `for-in` loop, we can iterate through object keys, in this case `name` and `age`. Under the hood, object keys are strings (if they're not a Symbol). On every loop, we set the value of `item` equal to the current key it’s iterating over. First, `item` is equal to `name`, and gets logged. Then, `item` is equal to `age`, which gets logged.
+With a `for-in` loop, we can iterate through object keys, in this case `name` and `age`. Under the hood, object keys are strings (if they're not a Symbol). On every loop, we set the value of `item`equal to the current key it’s iterating over. First, `item` is equal to `name`, and gets logged. Then, `item` is equal to `age`, which gets logged.
 
 </p>
 </details>
@@ -1688,7 +1687,7 @@ pet.bark();
 ```
 
 - A: `"Woof I am Mara"`, `TypeError`
-- B: `"Woof I am Mara"`, `"Woof I am Mara"`
+- B: `"Woof I am Mara"`,`"Woof I am Mara"`
 - C: `"Woof I am Mara"`, `undefined`
 - D: `TypeError`, `TypeError`
 
@@ -1921,7 +1920,7 @@ console.log(data);
 
 The second argument of `JSON.stringify` is the _replacer_. The replacer can either be a function or an array, and lets you control what and how the values should be stringified.
 
-If the replacer is an _array_, only the property names included in the array will be added to the JSON string. In this case, only the properties with the names `"level"` and `"health"` are included, `"username"` is excluded. `data` is now equal to `"{"level":19, "health":90}"`.
+If the replacer is an _array_, only the properties which names are included in the array will be added to the JSON string. In this case, only the properies with the names `"level"` and `"health"` are included, `"username"` is excluded. `data` is now equal to `"{"level":19, "health":90}"`.
 
 If the replacer is a _function_, this function gets called on every property in the object you're stringifying. The value returned from this function will be the value of the property when it's added to the JSON string. If the value is `undefined`, this property is excluded from the JSON string.
 
@@ -1970,7 +1969,7 @@ The unary operator `++` _first returns_ the value of the operand, _then incremen
 const value = { number: 10 };
 
 const multiply = (x = { ...value }) => {
-  console.log((x.number *= 2));
+  console.log((x.number * 2));
 };
 
 multiply();
@@ -1991,9 +1990,9 @@ multiply(value);
 
 In ES6, we can initialize parameters with a default value. The value of the parameter will be the default value, if no other value has been passed to the function, or if the value of the parameter is `"undefined"`. In this case, we spread the properties of the `value` object into a new object, so `x` has the default value of `{ number: 10 }`.
 
-The default argument is evaluated at _call time_! Every time we call the function, a _new_ object is created. We invoke the `multiply` function the first two times without passing a value: `x` has the default value of `{ number: 10 }`. We then log the multiplied value of that number, which is `20`.
+The defeault argument is evaluated at _call time_! Every time we call the function, a _new_ object is created. We invoke the `multiply` function the first two times without passing a value: `x` has the default value of `{ number: 10 }`. We then log the multiplied value of that number, which is `20`.
 
-The third time we invoke multiply, we do pass an argument: the object called `value`. The `*=` operator is actually shorthand for `x.number = x.number * 2`: we modify the value of `x.number`, and log the multiplied value `20`. 
+The third time we invoke multiply, we do pass an argument: the object valled `value`. The `*=` operator is actually shorthand for `x.number = x.number * 2`: we modify the value of `x.number`, and log the multiplied value `20`. 
 
 The fourth time, we pass the `value` object again. `x.number` was previously modified to `20`, so `x.number *= 2` logs `40`. 
 
@@ -2081,17 +2080,17 @@ In a derived class, you cannot access the `this` keyword before calling `super`.
 
 With the `super` keyword, we call that parent class's constructor with the given arguments. The parent's constructor receives the `name` argument, so we need to pass `name` to `super`. 
 
-The `Labrador` class receives two arguments, `name` since it extends `Dog`, and `size` as an extra property on the `Labrador` class. They both need to be passed to the constructor function on `Labrador`, which is done correctly  using constructor 2.
+The `Dog` class receives two arguments, `name` since it extends `Animal`, and `size` as an extra property on the `Dog` class. They both need to be passed to the constructor function on `Dog`, which is done correctly  using constructor 2.
 </p>
 </details>
 
 ---
 
-###### 67. What's the output?
+###### 67. With which constructor can we successfully extend the `Dog` class?
 
 ```javascript
 // index.js
-console.log('running index.js');
+console.log('running index.js);
 import { sum } from './sum.js';
 console.log(sum(1, 2));
 
@@ -2137,7 +2136,7 @@ console.log(Symbol('foo') === Symbol('foo'))
 
 #### Answer: A
 
-Every Symbol is entirely unique. The purpose of the argument passed to the Symbol is to give the Symbol a description. The value of the Symbol is not dependent on the passed argument. As we test equality, we are creating two entirely new symbols: the first `Symbol('foo')`, and the second `Symbol('foo')`. These two values are unique and not equal to each other, `Symbol('foo') === Symbol('foo')` returns `false`. 
+Every Symbol is entirely unique.The purpose of the argument passed to the Symbol, is to give the Symbol a description. The value of the Symbol is not dependent on the passed argument. As we test equality, we are creating two entirely new symbols: the first `Symbol('foo')`, and the second `Symbol('foo')`. These two values are unique and not equal to each other, `Symbol('foo') === Symbol('foo')` returns `false`. 
 
 </p>
 </details>
@@ -2423,11 +2422,11 @@ const add = () => {
   const cache = {};
   return num => {
     if (num in cache) {
-      console.log(`From cache! ${cache[num]}`);
+      return `From cache! ${cache[num]}`;
     } else {
       const result = num + 10;
-      console.log(`Calculated! ${result}`);
       cache[num] = result;
+      return `Calculated! ${result}`;
     }
   };
 };
