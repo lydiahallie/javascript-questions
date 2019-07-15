@@ -2,20 +2,23 @@
 
 JavaScript 에 관한 객관식 문제를 [Instagram](https://www.instagram.com/theavocoder)에 매일 게시하고 있어요, 물론 여기에도 게시할 거예요!
 
-초급부터 고급까지: JavaScript를 얼마나 잘 알고 있는지 테스트하거나, 지식을 조금 더 새롭게 하거나, 코딩 면접을 준비하세요! :muscle: :rocket: 이 기록을 매주 새로운 질문으로 업데이트해요. 마지막 업데이트: <a href=#20190707><b>7월 7일</b></a>
+초급부터 고급까지: JavaScript를 얼마나 잘 알고 있는지 테스트하거나, 지식을 조금 더 새롭게 하거나, 코딩 면접을 준비하세요! :muscle: :rocket: 이 기록을 매주 새로운 질문으로 업데이트해요. 마지막 업데이트: <a href=#20190714><b>7월 14일</b></a>
 
 정답은 질문 아래 접힌 부분에 있어요, 그냥 클릭하면 펼칠 수 있어요. 행운을 빌어요 :heart:
 
-- [English](./README.md)
-- [中文版本](./README-zh_CN.md)
-- [Versión en español](./README-ES.md)
-- [日本語](./README-ja_JA.md)
-- [Русский](./README_ru-RU.md)
-- [Western Balkan](./README-bs_BS.md)
-- [Deutsch](./README-de_DE.md)
-- [Tiếng Việt](./README-vi.md)
-- [Українська мова](./README-ua_UA.md)
-- [Português Brasil](./README_pt_BR.md)
+* [English](./README.md)
+* [العربية](./README_AR.md)
+* [اللغة العامية - Egyptian Arabic](./README_ar-EG.md)
+* [Bosanski](./README-bs_BS.md)  
+* [Deutsch](./README-de_DE.md)  
+* [Español](./README-ES.md)
+* [日本語](./README-ja_JA.md)   
+* [Português Brasil](./README_pt_BR.md)  
+* [Русский](./README_ru-RU.md)  
+* [Українська мова](./README-ua_UA.md)  
+* [Tiếng Việt](./README-vi.md)
+* [中文版本](./README-zh_CN.md)
+* [Türkçe](./README-tr_TR.md)
 
 ---
 
@@ -404,7 +407,7 @@ console.log(sarah);
 
 `sarah`에게 `new` 키워드를 사용하지 않았어요. `new`를 사용한 경우, 이것은 우리가 만든 새로운 빈 객체를 참조해요. 그러나, `new`를 추가하지 않으면 **전역변수**를 참조해요!
 
-`this.firstName`은 `"Sarah"`이고, `this.lastName`은 `"Smith"`이리고 말했었어요. (그렇지만) 우리는 실제로 한 일은 `global.firstName = 'Sarah'` 그리고 `global.lastName = 'Smith'`를 정의하는 것이에요. `sarah` 자체는 `undefined`로 남아있어요.
+`this.firstName`은 `"Sarah"`이고, `this.lastName`은 `"Smith"`이리고 말했었어요. (그렇지만) 우리는 실제로 한 일은 `global.firstName = 'Sarah'` 그리고 `global.lastName = 'Smith'`를 정의하는 것이에요. `sarah` 자체는 `undefined`로 남아있어요. 따라서 `Person`함수의 값을 리턴하지 않아요.
 
 </p>
 </details>
@@ -1682,7 +1685,7 @@ pet.bark();
 ```
 
 - A: `"Woof I am Mara"`, `TypeError`
-- B: `"Woof I am Mara"`,`"Woof I am Mara"`
+- B: `"Woof I am Mara"`, `"Woof I am Mara"`
 - C: `"Woof I am Mara"`, `undefined`
 - D: `TypeError`, `TypeError`
 
@@ -1958,7 +1961,7 @@ console.log(num2);
 
 ---
 
-###### <a name=20190707></a>64. 무엇이 출력 될까요?
+###### 64. 무엇이 출력 될까요?
 
 ```javascript
 const value = { number: 10 };
@@ -2032,13 +2035,13 @@ ES6에서는, 기본값으로 파라미터를 초기화할 수 있어요. 함수
 ###### 66. `Dog` 클래스를 성공적으로 확장할 수 있는 생성자는 어느 것일까요?
 
 ```javascript
-class Animal {
+class Dog {
   constructor(name) {
     this.name = name;
   }
 };
 
-class Dog extends Animal {
+class Labrador extends Dog {
   // 1 
   constructor(name, size) {
     this.size = size;
@@ -2076,7 +2079,7 @@ class Dog extends Animal {
 
 `super` 키워드를 가지고, 부모 클래스 생성자에 주어진 인수들을 부를 수 있어요. 부모 생성자는 `name` 인수를 받아요, 그래서 `name`을 `super`로 전달해야 해요. 
 
-`Dog` 클래스는 인수를 2개 받는데, `Animal`로 부터 확장된 `name`과 `Dog` 클래스의 추가 속성인 `size`예요. 그 두 개는 `Dog` 생성자 함수에 전달되어야 하는데, 올바르게 사용된 건 2번째 생성자예요.
+`Labrador` 클래스는 인수를 2개 받는데, `Dog`로 부터 확장된 `name`과 `Labrador` 클래스의 추가 속성인 `size`예요. 그 두 개는 `Labrador` 생성자 함수에 전달되어야 하는데, 올바르게 사용된 건 2번째 생성자예요.
 
 </p>
 </details>
