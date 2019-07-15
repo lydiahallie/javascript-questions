@@ -2,7 +2,7 @@
 
 [Instagram](https://www.instagram.com/theavocoder) hesabımda, günlük olarak çoktan seçmeli Javascript soruları paylaşıyorum, ayrıca burada da paylaşacağım!
 
-Temelden ileri düzeye: Javascript'i ne kadar iyi bildiğinizi test edin, bilginizi biraz tazeleyin ya da mülakatanıza hazırlanın! :muscle: :rocket: Repoyu haftalık olarak yeni sorularla güncelliyorum. Son güncelleme: Last update: <a href=#20190707><b>7 Temmuz</b></a>
+Temelden ileri düzeye: Javascript'i ne kadar iyi bildiğinizi test edin, bilginizi biraz tazeleyin ya da mülakatanıza hazırlanın! :muscle: :rocket: Repoyu haftalık olarak yeni sorularla güncelliyorum. Son güncelleme: Last update: <a href=#20190714><b>14 Temmuz</b></a>
 
 Cevaplar, soruların altında gizlenmiştir. Görmek için sadece tıklayın. İyi şanşlar :heart:
 
@@ -2157,6 +2157,298 @@ console.log(name.padStart(2))
 `padStart` methoduyla, bir string'in başlangıcına dolgu yapabiliriz. Bu methoda geçilen değer, dolguyla beraber string'in _toplam_ uzunluğudur. `"Lydia Hallie"`'in uzunluğu `12`, `name.padStart(13)` string'in başlangıcına 1 boşluk eker, çünkü 12 + 1 = 13.
 
 Eğer `padStart` methoduna geçilen argüman, string'in uzunluğundan daha azsa, dolgu yapılmaz.
+
+</p>
+</details>
+
+---
+
+###### <a name=20190714></a>70. Çıktısı Nedir?
+
+```javascript
+console.log("🥑" + "💻");
+```
+
+- A: `"🥑💻"`
+- B: `257548`
+- C: A string containing their code points
+- D: Error
+
+<details><summary><b>Cevap</b></summary>
+<p>
+
+#### Cevap: A
+
+`+` operatörü ile stringleri birleştirebilirsiniz. Bu örnekte, `"🥑"` ile `"💻"` birleştiriyoruz, `"🥑💻"` olarak sonuçlanıyor.
+</p>
+</details>
+
+---
+
+###### 71. console.log ifadesinden sonra yorum satırı olarak gelen değerleri nasıl loglayabiliriz?
+
+```javascript
+function* startGame() {
+  const answer = yield "Do you love JavaScript?";
+  if (answer !== "Yes") {
+    return "Oh wow... Guess we're gone here";
+  }
+  return "JavaScript loves you back ❤️";
+}
+
+const game = startGame();
+console.log(/* 1 */); // Do you love JavaScript?
+console.log(/* 2 */); // JavaScript loves you back ❤️
+```
+
+- A: `game.next("Yes").value` and `game.next().value`
+- B: `game.next.value("Yes")` and `game.next.value()`
+- C: `game.next().value` and `game.next("Yes").value`
+- D: `game.next.value()` and `game.next.value("Yes")`
+
+<details><summary><b>Cevap</b></summary>
+<p>
+
+#### Cevap: C
+
+Generator fonksiyon `yield` anahtar kelimesini gördüğünde çalışmasını "durdurur". Öncelikle, fonksiyonun "Do you love JavaScript?" stringini vermesini sağlamamız gerek ki bu `game.next().value` çağrılarak yapılabilir.
+
+İlk `yield` anahtar kelimesi bulunana dek her satır çalıştırılır. Fonksiyonun içinde, ilk satırda `yield` anahtar kelimesi var: çalışma ilk yield ile durur. _Bu demektir ki `answer` değişkeni henüz tanımlanmadı!_
+
+`game.next("Yes").value` çağırdığımız zaman, önceki `yield` `next()` fonksiyonuna geçilen parametlerin değeri ile değiştirilir, bu durumda `"Yes"`. `answer` değişkeninin değeri artık `"Yes"`'e eşit. if ifadesi `false` döndürür, ve `JavaScript loves you back ❤️` loglanır.
+
+</p>
+</details>
+
+---
+
+###### 72. Çıktısı Nedir?
+
+```javascript
+console.log(String.raw`Hello\nworld`);
+```
+
+- A: `Hello world!`
+- B: `Hello` <br />&nbsp; &nbsp; &nbsp;`world`
+- C: `Hello\nworld`
+- D: `Hello\n` <br /> &nbsp; &nbsp; &nbsp;`world`
+
+<details><summary><b>Cevap</b></summary>
+<p>
+
+#### Cevap: C
+
+`String.raw` kaçış karakterlerinin (`\n`, `\v`, `\t` vb.) göz ardı edildiği bir string döndürür. Ters bölü işareti şöyle bir şey gibi sonuçlanabileceğinden sorun olabilir:
+
+`` const path = `C:\Documents\Projects\table.html` ``
+
+Şöyle sonuçlanır:
+
+`"C:DocumentsProjects able.html"`
+
+`String.raw` ile, kaçış karakteri basitçe göz ardı edilir ve yazdırılır:
+
+`C:\Documents\Projects\table.html`
+
+Bu örnekte, string `Hello\nworld`, dolayısıyla `Hello\nworld` olarak loglanır.
+
+</p>
+</details>
+
+---
+
+###### 73. Çıktısı Nedir?
+
+```javascript
+async function getData() {
+  return await Promise.resolve("I made it!");
+}
+
+const data = getData();
+console.log(data);
+```
+
+- A: `"I made it!"`
+- B: `Promise {<resolved>: "I made it!"}`
+- C: `Promise {<pending>}`
+- D: `undefined`
+
+<details><summary><b>Cevap</b></summary>
+<p>
+
+#### Cevap: C
+
+Asenkron bir fonksiyon her zaman promise döndürür. `await` promise'ı çözmek için beklemeli: `getData()`'yı `data`'ya eşitlemek için çağırdığımız zaman bekleyen promise döndürülür.
+
+Çözülmüş değer olan `"I made it"`'e erişmek isteseydik, `data` üzerinde `.then()` methodunu kullanabilirdik:
+
+`data.then(res => console.log(res))`
+
+Bu `"I made it!"` loglardı.
+
+</p>
+</details>
+
+---
+
+###### 74. Çıktısı Nedir?
+
+```javascript
+function addToList(item, list) {
+  return list.push(item);
+}
+
+const result = addToList("apple", ["banana"]);
+console.log(result);
+```
+
+- A: `['apple', 'banana']`
+- B: `2`
+- C: `true`
+- D: `undefined`
+
+<details><summary><b>Cevap</b></summary>
+<p>
+
+#### Cevap: B
+
+`push()` methodu yeni dizinin _uzunluğunu_ döndürür. Önceden, dizi bir eleman içeriyordu (`"banana"`) ve uzunluğu 1'di. Diziye `"apple"`'ı ekledikten sonra, dizi iki eleman içerir ve uzunluğu `2`'dir. `addToList` fonksiyonundan döndürülen budur.
+
+`push` methodu orijinal diziyi değiştirir. Eğer _dizinin uzunluğunu_ değil de _diziyi_ döndürmek isterseniz, `item`'i ekledikten sonra `list`'i döndürmelisiniz.
+
+</p>
+</details>
+
+---
+
+###### 75. Çıktısı Nedir?
+
+```javascript
+const box = { x: 10, y: 20 };
+
+Object.freeze(box);
+
+const shape = box;
+shape.x = 100;
+```
+
+- A: `{ x: 100, y: 20 }`
+- B: `{ x: 10, y: 20 }`
+- C: `{ x: 100 }`
+- D: `ReferenceError`
+
+<details><summary><b>Cevap</b></summary>
+<p>
+
+#### Cevap: B
+
+`Object.freeze` bir nesneye özellik eklemeyi, silmeyi ya da değiştirmeyi olanaksız kılar (özelliğin değeri başka bir nesneye ait olmadıkça)
+
+`shape` değişkenini oluşturup, donmuş `box` nesnesine eşitlediğimiz zaman, `shape` de ayrıca donmuş nesneyi referans eder. `Object.isFrozen` kullanarak bir nesnenin dondurulmuş olup olmadığını kontrol edebilirsiniz. Bu örnekte, `shape` değişkeni donmuş bir nesneyi referans gösterdiğinden, `Object.isFrozen(shape)` `true` döndürür.
+
+`shape` donmuş olduğundan, ve `x`'in değeri bir nesne olmadığından, `x` özelliğini değiştiremeyiz. `x` hala `10`'a eşit, ve `{ x: 10, y: 20 }` loglanır.
+
+</p>
+</details>
+
+---
+
+###### 76. Çıktısı Nedir?
+
+```javascript
+const { name: myName } = { name: "Lydia" };
+
+console.log(name);
+```
+
+- A: `"Lydia"`
+- B: `"myName"`
+- C: `undefined`
+- D: `ReferenceError`
+
+<details><summary><b>Cevap</b></summary>
+<p>
+
+#### Cevap: D
+
+Eşitliğin sağ tarafındaki nesneden `name` özelliğini çıkarttığımız zaman, `myName` isimli değişkene, o özelliğin değeri olan `"Lydia"`'yı atıyoruz.
+
+`{ name: myName }` ile, JavaScript'e diyoruz ki; eşitliğin sağ tarafındaki `name` özelliğinin değeriyle birlikte `myName` diye bir değişken tanımlamak istiyoruz.
+
+`name`'i loglamayı denediğimizden dolayı, ki bu değişken tanımlanmamış, ReferenceError fırlatılır. 
+
+</p>
+</details>
+
+---
+
+###### 77. Bu bir saf (pure) fonksiyon mu?
+
+```javascript
+function sum(a, b) {
+  return a + b;
+}
+```
+
+- A: Yes
+- B: No
+
+<details><summary><b>Cevap</b></summary>
+<p>
+
+#### Cevap: A
+
+Saf fonksiyon, aynı argümanlar geçildiği zaman, _her zaman_ aynı sonucu döndüren fonksiyondur.
+
+`sum` fonksiyonu her zaman aynı sonucu döndürür. Eğer `1` ve `2` geçersek, _her zaman_ `3` döndürecektir. Eğer `5` ve `10` geçersek, _her zaman_ `15` döndürür, bunun gibi devam eder... Saf fonksiyonun tanımlaması budur.
+
+</p>
+</details>
+
+---
+
+###### 78. Çıktısı nedir?
+
+```javascript
+const add = () => {
+  const cache = {};
+  return num => {
+    if (num in cache) {
+      return `From cache! ${cache[num]}`;
+    } else {
+      const result = num + 10;
+      cache[num] = result;
+      return `Calculated! ${result}`;
+    }
+  };
+};
+
+const addFunction = add();
+console.log(addFunction(10));
+console.log(addFunction(10));
+console.log(addFunction(5 * 2));
+```
+
+- A: `Calculated! 20` `Calculated! 20` `Calculated! 20`
+- B: `Calculated! 20` `From cache! 20` `Calculated! 20`
+- C: `Calculated! 20` `From cache! 20` `From cache! 20`
+- D: `Calculated! 20` `From cache! 20` `Error`
+
+<details><summary><b>Cevap</b></summary>
+<p>
+
+#### Cevap: C
+
+`add` fonksiyonu _ezberlenmiş_, "_memoized_", bir fonksiyondur. Ezberleme ile, fonksiyonun sonuçlarını, fonksiyonun daha hızlı çalışması için cache'leyebiliriz. Bu örnekte, önceki dönen değerleri saklayan bir `cache` nesnesi oluşturuyoruz.
+
+Eğer `addFunction` fonksiyonunu aynı argüman ile tekrar çağırırsak, önce cache içinde o değerin hali hazırda olup olmadığını kontrol eder. Eğer varsa, cache değeri döndürülecektir ki böylece çalışma zamanından tasarruf sağlanır. Eğer yoksa, cache'lenmemişse, değeri hesaplayıp ardından saklayacaktır.
+
+`addFunction` fonksiyonunu üç kez aynı değer ile çağırıyoruz: ilk çağırmada, `num` `10`'a eşit olduğu zaman fonksiyonun değeri henüz cache'lenmemiş. `num in cache` if ifadesi `false` döndürür
+ ve else bloğu çalıştırılır: `Calculated! 20` loglanır, ve sonuç cache nesnesine eklenir. `cache` şimdi şuna benziyor; `{ 10: 20 }`
+
+İkincide, `cache` nesnesi `10` için döndürülen değeri içeriyor. `num in cache` if ifadesi `true` döndürür, ve `'From cache! 20'` loglanır. 
+
+Üçüncü sefer de, fonksiyona `5 * 2` geçiyoruz ki bu da `10` olarak değerlendirilir. `cache` nesnesi `10` için döndürülen değeri içeriyor. `num in cache` if ifadesi `true` döndürür, ve `'From cache! 20'` loglanır.
 
 </p>
 </details>
