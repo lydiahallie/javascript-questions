@@ -10,13 +10,13 @@ Danh sách các ngôn ngữ khác:
 * [English](./README.md)
 * [中文版本](./README-zh_CN.md)
 * [Versión en español](./README-ES.md)
-* [日本語](./README-ja_JA.md)  
-* [한국어](./README-ko_KR.md) 
-* [Русский](./README_ru-RU.md)  
-* [Western Balkan](./README-bs_BS.md)  
-* [Deutsch](./README-de_DE.md)  
-* [Українська мова](./README-ua_UA.md)  
-* [Português Brasil](./README_pt_BR.md)  
+* [日本語](./README-ja_JA.md)
+* [한국어](./README-ko_KR.md)
+* [Русский](./README_ru-RU.md)
+* [Western Balkan](./README-bs_BS.md)
+* [Deutsch](./README-de_DE.md)
+* [Українська мова](./README-ua_UA.md)
+* [Português Brasil](./README_pt_BR.md)
 * [العربية](./README_AR.md)
 * [اللغة العامية - Egyptian Arabic](./README_ar-EG.md)
 
@@ -1467,7 +1467,7 @@ Giá trị `3 + 4` được tính toán trước. Kết quả là `7`.
 
 ---
 
-###### 49. What's the value of `num`?
+###### 49. Giá trị của `num` là gì?
 
 ```javascript
 const num = parseInt("7*6", 10);
@@ -1483,7 +1483,7 @@ const num = parseInt("7*6", 10);
 
 #### Đáp án: C
 
-Chỉ có số đầu tiên trong chuỗi kí tự được trả về. Hệ cơ số là _hệ thập phân__ (đối số thứ 2 trong hàm chính là cơ số: hệ thập phân, hệ 16, hệ 8, hệ nhị phân, vv.), Hàm `parseInt` sẽ kiểm tra xem các ký tự trong chuỗi có đảm bảo hợp lệ hay không. Một khi chúng tìm ra ký tự không phải là ký tự hợp lệ trong hệ cơ số, nó dừng lại và bỏ qua các ký tự phía sau.
+Chỉ có số đầu tiên trong chuỗi kí tự được trả về. Hệ cơ số là _hệ thập phân_ (đối số thứ 2 trong hàm chính là cơ số: hệ thập phân, hệ 16, hệ 8, hệ nhị phân, vv.), Hàm `parseInt` sẽ kiểm tra xem các ký tự trong chuỗi có đảm bảo hợp lệ hay không. Một khi chúng tìm ra ký tự không phải là ký tự hợp lệ trong hệ cơ số, nó dừng lại và bỏ qua các ký tự phía sau.
 
 `*` không phải là một số. Vậy nên nó sẽ chỉ convert ký tự `"7"` sang hệ thập phân là `7`. `num` sẽ có giá trị là `7`.
 
