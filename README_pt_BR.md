@@ -770,7 +770,7 @@ Se temos duas chaves com o mesmo nome, a última irá substituir a primeira. Ain
 
 ---
 
-###### 26. O contexto glogal de execução do JavaScrit cria duas coisas para você: O objeto glogal, e a palavra-chave `this`.
+###### 26. O contexto global de execução do JavaScrit cria duas coisas para você: O objeto global, e a palavra-chave `this`.
 
 - A: Verdadeiro
 - B: Falso 
@@ -781,7 +781,7 @@ Se temos duas chaves com o mesmo nome, a última irá substituir a primeira. Ain
 
 #### Resposta: A
 
-O contexto base de execução é o contexto glogal: É aquilo que está acessível em qualquer lugar do código.
+O contexto base de execução é o contexto global: É aquilo que está acessível em qualquer lugar do código.
 
 </p>
 </details>
