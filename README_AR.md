@@ -24,6 +24,7 @@
 * [한국어](./README-ko_KR.md)
 * [Português Brasil](./README_pt_BR.md)
 * [Русский](./README_ru-RU.md)
+* [Türkçe](./README-tr_TR.md)
 * [Українська мова](./README-ua_UA.md)
 * [Tiếng Việt](./README-vi.md)
 * [中文版本](./README-zh_CN.md)
