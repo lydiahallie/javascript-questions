@@ -10,15 +10,15 @@ Die Antworten sind unterhalb der Fragen versteckt. Du kannst einfach darauf klic
 * [English](./README.md)
 * [العربية](./README_AR.md)
 * [اللغة العامية - Egyptian Arabic](./README_ar-EG.md)
-* [Bosanski](./README-bs_BS.md)  
-* [Deutsch](./README-de_DE.md)  
+* [Bosanski](./README-bs_BS.md)
+* [Deutsch](./README-de_DE.md)
 * [Español](./README-ES.md)
-* [日本語](./README-ja_JA.md)  
-* [한국어](./README-ko_KR.md) 
-* [Português Brasil](./README_pt_BR.md)  
-* [Русский](./README_ru-RU.md)  
+* [日本語](./README-ja_JA.md)
+* [한국어](./README-ko_KR.md)
+* [Português Brasil](./README_pt_BR.md)
+* [Русский](./README_ru-RU.md)
 * [Türkçe](./README-tr_TR.md)
-* [Українська мова](./README-ua_UA.md)  
+* [Українська мова](./README-ua_UA.md)
 * [Tiếng Việt](./README-vi.md)
 * [中文版本](./README-zh_CN.md)
 
@@ -2033,7 +2033,7 @@ Wenn wir keinen Wert einer Funktion ausgeben wird `undefined` ausgegeben. Beim n
 Beim vierten Call geben wir wieder nichts aus, sodass der Akkumulator wieder `undefined` ist und der aktuelle Wert `4`. `undefined` und `4` werden geloggt.
 </p>
 </details>
-  
+
 ---
 
 ###### 66. Mit welchem Constructor können wir die `Dog` Klasse erweitern?
@@ -2046,7 +2046,7 @@ class Dog {
 };
 
 class Labrador extends Dog {
-  // 1 
+  // 1
   constructor(name, size) {
     this.size = size;
   }
@@ -2060,7 +2060,7 @@ class Labrador extends Dog {
     super(name);
     this.size = size;
   }
-  // 4 
+  // 4
   constructor(name, size) {
     this.name = name;
     this.size = size;
@@ -2139,7 +2139,7 @@ console.log(Symbol('foo') === Symbol('foo'))
 
 #### Antwort: A
 
-Jedes Symbol ist eindeutig. Der Sinn des Argumentes, welches an das Symbol weitergegeben wird, ist dem Symbol eine Beschreibung zu geben. Der Wert des Symbols hängt nicht von diesem Argument ab. Beim vergleichen der Symbole werden zwei komplett neue Symbole erstellt: das erste `Symbol('foo')` und das zweite `Symbol('foo')`. Diese beiden Werte sind eindeutig und nicht identisch, weshalb `Symbol('foo') === Symbol('foo')` `false` ausgibt. 
+Jedes Symbol ist eindeutig. Der Sinn des Argumentes, welches an das Symbol weitergegeben wird, ist dem Symbol eine Beschreibung zu geben. Der Wert des Symbols hängt nicht von diesem Argument ab. Beim vergleichen der Symbole werden zwei komplett neue Symbole erstellt: das erste `Symbol('foo')` und das zweite `Symbol('foo')`. Diese beiden Werte sind eindeutig und nicht identisch, weshalb `Symbol('foo') === Symbol('foo')` `false` ausgibt.
 
 </p>
 </details>
@@ -2157,7 +2157,7 @@ console.log(name.padStart(2))
 - A: `"Lydia Hallie"`, `"Lydia Hallie"`
 - B: `"           Lydia Hallie"`, `"  Lydia Hallie"` (`"[13x whitespace]Lydia Hallie"`, `"[2x whitespace]Lydia Hallie"`)
 - C: `" Lydia Hallie"`, `"Lydia Hallie"` (`"[1x whitespace]Lydia Hallie"`, `"Lydia Hallie"`)
-- D: `"Lydia Hallie"`, `"Lyd"`, 
+- D: `"Lydia Hallie"`, `"Lyd"`,
 
 <details><summary><b>Antwort</b></summary>
 <p>

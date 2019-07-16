@@ -2375,7 +2375,7 @@ Eşitliğin sağ tarafındaki nesneden `name` özelliğini çıkarttığımız z
 
 `{ name: myName }` ile, JavaScript'e diyoruz ki; eşitliğin sağ tarafındaki `name` özelliğinin değeriyle birlikte `myName` diye bir değişken tanımlamak istiyoruz.
 
-`name`'i loglamayı denediğimizden dolayı, ki bu değişken tanımlanmamış, ReferenceError fırlatılır. 
+`name`'i loglamayı denediğimizden dolayı, ki bu değişken tanımlanmamış, ReferenceError fırlatılır.
 
 </p>
 </details>
@@ -2446,7 +2446,7 @@ Eğer `addFunction` fonksiyonunu aynı argüman ile tekrar çağırırsak, önce
 `addFunction` fonksiyonunu üç kez aynı değer ile çağırıyoruz: ilk çağırmada, `num` `10`'a eşit olduğu zaman fonksiyonun değeri henüz cache'lenmemiş. `num in cache` if ifadesi `false` döndürür
  ve else bloğu çalıştırılır: `Calculated! 20` loglanır, ve sonuç cache nesnesine eklenir. `cache` şimdi şuna benziyor; `{ 10: 20 }`
 
-İkincide, `cache` nesnesi `10` için döndürülen değeri içeriyor. `num in cache` if ifadesi `true` döndürür, ve `'From cache! 20'` loglanır. 
+İkincide, `cache` nesnesi `10` için döndürülen değeri içeriyor. `num in cache` if ifadesi `true` döndürür, ve `'From cache! 20'` loglanır.
 
 Üçüncü sefer de, fonksiyona `5 * 2` geçiyoruz ki bu da `10` olarak değerlendirilir. `cache` nesnesi `10` için döndürülen değeri içeriyor. `num in cache` if ifadesi `true` döndürür, ve `'From cache! 20'` loglanır.
 
