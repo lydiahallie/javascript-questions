@@ -2159,3 +2159,303 @@ console.log(name.padStart(2))
 
 </p>
 </details>
+
+---
+
+###### 70. 输出什么?
+
+```javascript
+console.log("🥑" + "💻");
+```
+
+- A: `"🥑💻"`
+- B: `257548`
+- C: A string containing their code points
+- D: Error
+
+<details><summary><b>答案</b></summary>
+<p>
+
+#### 答案: A
+
+使用`+`运算符，您可以连接字符串。 上述情况，我们将字符串`“🥑”`与字符串`”💻“`连接起来，产生`”🥑💻“`。
+
+</p>
+</details>
+
+---
+
+###### 71. 如何能打印出`console.log`语句后注释掉的值？
+
+```javascript
+function* startGame() {
+  const answer = yield "Do you love JavaScript?";
+  if (answer !== "Yes") {
+    return "Oh wow... Guess we're gone here";
+  }
+  return "JavaScript loves you back ❤️";
+}
+
+const game = startGame();
+console.log(/* 1 */); // Do you love JavaScript?
+console.log(/* 2 */); // JavaScript loves you back ❤️
+```
+
+- A: `game.next("Yes").value` and `game.next().value`
+- B: `game.next.value("Yes")` and `game.next.value()`
+- C: `game.next().value` and `game.next("Yes").value`
+- D: `game.next.value()` and `game.next.value("Yes")`
+
+<details><summary><b>答案</b></summary>
+<p>
+
+#### 答案: C
+
+`generator`函数在遇到`yield`关键字时会“暂停”其执行。 首先，我们需要让函数产生字符串`Do you love JavaScript?`，这可以通过调用`game.next().value`来完成。上述函数的第一行就有一个`yield`关键字，那么运行立即停止了，`yield`表达式本身没有返回值，或者说总是返回`undefined`, 这意味着此时变量 `answer` 为`undefined`
+
+`next`方法可以带一个参数，该参数会被当作上一个 `yield` 表达式的返回值。当我们调用`game.next("Yes").value`时，先前的 `yield` 的返回值将被替换为传递给`next()`函数的参数`"Yes"`。此时变量 `answer` 被赋值为 `"Yes"`，`if`语句返回`false`，所以`JavaScript loves you back ❤️`被打印。
+
+</p>
+</details>
+
+---
+
+###### 72. 输出什么?
+
+```javascript
+console.log(String.raw`Hello\nworld`);
+```
+
+- A: `Hello world!`
+- B: `Hello` <br />&nbsp; &nbsp; &nbsp;`world`
+- C: `Hello\nworld`
+- D: `Hello\n` <br /> &nbsp; &nbsp; &nbsp;`world`
+
+<details><summary><b>答案</b></summary>
+<p>
+
+#### 答案: C
+
+`String.raw`函数是用来获取一个模板字符串的原始字符串的，它返回一个字符串，其中忽略了转义符（`\n`，`\v`，`\t`等）。但反斜杠可能造成问题，因为你可能会遇到下面这种类似情况：
+
+```javascript
+const path = `C:\Documents\Projects\table.html`
+String.raw`${path}`
+```
+
+这将导致：
+
+`"C:DocumentsProjects able.html"`
+
+直接使用`String.raw`
+```javascript
+String.raw`C:\Documents\Projects\table.html`
+```
+它会忽略转义字符并打印：`C:\Documents\Projects\table.html`
+
+上述情况，字符串是`Hello\nworld`被打印出。
+
+</p>
+</details>
+
+---
+
+###### 73. 输出什么?
+
+```javascript
+async function getData() {
+  return await Promise.resolve("I made it!");
+}
+
+const data = getData();
+console.log(data);
+```
+
+- A: `"I made it!"`
+- B: `Promise {<resolved>: "I made it!"}`
+- C: `Promise {<pending>}`
+- D: `undefined`
+
+<details><summary><b>答案</b></summary>
+<p>
+
+#### 答案: C
+
+异步函数始终返回一个promise。`await`仍然需要等待promise的解决：当我们调用`getData()`并将其赋值给`data`，此时`data`为`getData`方法返回的一个挂起的promise，该promise并没有解决。
+
+如果我们想要访问已解决的值`"I made it!"`，可以在`data`上使用`.then()`方法：
+
+`data.then(res => console.log(res))`
+
+这样将打印 `"I made it!"`
+
+</p>
+</details>
+
+---
+
+###### 74. 输出什么?
+
+```javascript
+function addToList(item, list) {
+  return list.push(item);
+}
+
+const result = addToList("apple", ["banana"]);
+console.log(result);
+```
+
+- A: `['apple', 'banana']`
+- B: `2`
+- C: `true`
+- D: `undefined`
+
+<details><summary><b>答案</b></summary>
+<p>
+
+#### 答案: B
+
+`push()`方法返回新数组的长度。一开始，数组包含一个元素（字符串`"banana"`），长度为1。 在数组中添加字符串`"apple"`后，长度变为2，并将从`addToList`函数返回。
+
+`push`方法修改原始数组，如果你想从函数返回数组而不是数组长度，那么应该在push `item`之后返回`list`。
+
+</p>
+</details>
+
+---
+
+###### 75. 输出什么?
+
+```javascript
+const box = { x: 10, y: 20 };
+
+Object.freeze(box);
+
+const shape = box;
+shape.x = 100;
+console.log(shape)
+```
+
+- A: `{ x: 100, y: 20 }`
+- B: `{ x: 10, y: 20 }`
+- C: `{ x: 100 }`
+- D: `ReferenceError`
+
+<details><summary><b>答案</b></summary>
+<p>
+
+#### 答案: B
+
+`Object.freeze`使得无法添加、删除或修改对象的属性（除非属性的值是另一个对象）。
+
+当我们创建变量`shape`并将其设置为等于冻结对象`box`时，`shape`指向的也是冻结对象。你可以使用`Object.isFrozen`检查一个对象是否被冻结，上述情况，`Object.isFrozen（shape）`将返回`true`。
+
+由于`shape`被冻结，并且`x`的值不是对象，所以我们不能修改属性`x`。 `x`仍然等于`10`，`{x：10，y：20}`被打印。
+
+注意，上述例子我们对属性`x`进行修改，可能会导致抛出TypeError异常（最常见但不仅限于严格模式下时）。
+
+</p>
+</details>
+
+---
+
+###### 76. 输出什么?
+
+```javascript
+const { name: myName } = { name: "Lydia" };
+
+console.log(name);
+```
+
+- A: `"Lydia"`
+- B: `"myName"`
+- C: `undefined`
+- D: `ReferenceError`
+
+<details><summary><b>答案</b></summary>
+<p>
+
+#### 答案: D
+
+当我们从右侧的对象解构属性`name`时，我们将其值`Lydia`分配给名为`myName`的变量。
+
+使用`{name：myName}`，我们是在告诉JavaScript我们要创建一个名为`myName`的新变量，并且其值是右侧对象的`name`属性的值。
+
+当我们尝试打印`name`，一个未定义的变量时，就会引发`ReferenceError`。
+
+</p>
+</details>
+
+---
+
+###### 77. 以下是个纯函数么?
+
+```javascript
+function sum(a, b) {
+  return a + b;
+}
+```
+
+- A: Yes
+- B: No
+
+<details><summary><b>答案</b></summary>
+<p>
+
+#### 答案: A
+
+纯函数一种若输入参数相同，则永远会得到相同输出的函数。
+
+`sum`函数总是返回相同的结果。 如果我们传递`1`和`2`，它将总是返回`3`而没有副作用。 如果我们传递`5`和`10`，它将总是返回`15`，依此类推，这是纯函数的定义。
+
+</p>
+</details>
+
+---
+
+###### 78. 输出什么?
+
+```javascript
+const add = () => {
+  const cache = {};
+  return num => {
+    if (num in cache) {
+      return `From cache! ${cache[num]}`;
+    } else {
+      const result = num + 10;
+      cache[num] = result;
+      return `Calculated! ${result}`;
+    }
+  };
+};
+
+const addFunction = add();
+console.log(addFunction(10));
+console.log(addFunction(10));
+console.log(addFunction(5 * 2));
+```
+
+- A: `Calculated! 20` `Calculated! 20` `Calculated! 20`
+- B: `Calculated! 20` `From cache! 20` `Calculated! 20`
+- C: `Calculated! 20` `From cache! 20` `From cache! 20`
+- D: `Calculated! 20` `From cache! 20` `Error`
+
+<details><summary><b>答案</b></summary>
+<p>
+
+#### 答案: C
+
+`add`函数是一个记忆函数。 通过记忆化，我们可以缓存函数的结果，以加快其执行速度。上述情况，我们创建一个`cache`对象，用于存储先前返回过的值。
+
+如果我们使用相同的参数多次调用`addFunction`函数，它首先检查缓存中是否已有该值，如果有，则返回缓存值，这将节省执行时间。如果没有，那么它将计算该值，并存储在缓存中。
+
+我们用相同的值三次调用了`addFunction`函数：
+
+在第一次调用，`num`等于`10`时函数的值尚未缓存，if语句`num in cache`返回`false`，else块的代码被执行：`Calculated! 20`，并且其结果被添加到缓存对象，`cache`现在看起来像`{10：20}`。
+
+第二次，`cache`对象包含`10`的返回值。 if语句 `num in cache` 返回`true`，`From cache! 20`被打印。
+
+第三次，我们将`5 * 2`(值为10)传递给函数。 `cache`对象包含`10`的返回值。 if语句 `num in cache` 返回`true`，`From cache! 20`被打印。
+
+</p>
+</details>

@@ -6,16 +6,21 @@ Von einfach bis fortgeschritten: teste wie gut du JavaScript kennst, frische dei
 
 Die Antworten sind unterhalb der Fragen versteckt. Du kannst einfach darauf klicken um die Antworten anzuzeigen. Viel Glück :heart:
 
-### Andere verfügbare Sprachen
-[English](./README.md) <br />
-[Bosanski Jezik](./README-bs_BS.md) <br />
-[日本語](./README-ja_JA.md) <br />
-[한국어](./README-ko_KR.md) <br />
-[Português Brasil](./README_pt_BR.md) <br />
-[Русский](./README_ru-RU.md) <br />
-[Українська мова](./README-ua_UA.md) <br />
-[Tiếng Việt](./README-vi.md) <br />
-[中文版本](./README-zh_CN.md) <br />
+### Alle verfügbaren Sprachen
+* [English](./README.md)
+* [العربية](./README_AR.md)
+* [اللغة العامية - Egyptian Arabic](./README_ar-EG.md)
+* [Bosanski](./README-bs_BS.md)  
+* [Deutsch](./README-de_DE.md)  
+* [Español](./README-ES.md)
+* [日本語](./README-ja_JA.md)  
+* [한국어](./README-ko_KR.md) 
+* [Português Brasil](./README_pt_BR.md)  
+* [Русский](./README_ru-RU.md)  
+* [Türkçe](./README-tr_TR.md)
+* [Українська мова](./README-ua_UA.md)  
+* [Tiếng Việt](./README-vi.md)
+* [中文版本](./README-zh_CN.md)
 
 ---
 
@@ -1953,6 +1958,215 @@ console.log(num2);
 Der unäre Operator `++` _gibt zuerst_ den Wert des Operanden aus und _erhöht danach_ den Wert des Operanden. Der Wert `num1` ist `10`, da `increaseNumber` zuerst den Wert von `num1` (`10`) ausgibt und ihn danach erhöht.
 
 `num2` ist gleich `10`, da wir `num1` `increasePassedNumber` zugewiesen haben. `number` ist gleich `10` (der Wert von `num1`). Der unäre Operator `++` gibt erneut _zuerst_ den Wert des Operanden aus und _erhöht danach_ den Wert. Der Wert von `number` ist `10`, sodass `num2` ebenfalls `10` ist.
+
+</p>
+</details>
+
+
+
+---
+
+###### <a name=20190707></a>64. Was ist der Output?
+
+```javascript
+const value = { number: 10 };
+
+const multiply = (x = { ...value }) => {
+  console.log((x.number * 2));
+};
+
+multiply();
+multiply();
+multiply(value);
+multiply(value);
+```
+
+- A: `20`, `40`, `80`, `160`
+- B: `20`, `40`, `20`, `40`
+- C: `20`, `20`, `20`, `40`
+- D: `NaN`, `NaN`, `20`, `40`
+
+<details><summary><b>Antwort</b></summary>
+<p>
+
+#### Antwort: C
+
+In ES6 können wir Parameter mit einem Standardwert initialisieren. Der Wert des Parameters wird als Standard gesetzt, wenn kein anderer Wert übergeben wird oder der Wert des Parameters `"undefined"` ist. In diesem Fall verteilen wir die Properties von `value` in einem neuen Objekt, sodass `x` den Standardwert `{ number: 10 }` bekommt.
+
+Das Standard Argument wird beim _Aufruf_ evaluiert. Jedes Mal, wenn wir die Funktion aufrufen, wird ein _neues_ Objekt erstellt. Wir rufen die `multiply` Funktion die ersten beiden Male auf ohne einen Wert zu übergeben: `x` hat daher den Standardwert `{ number: 10 }`. Wir loggen dann den multiplizierten Wert davon, sodass wir `20` bekommen.
+
+Beim dritten Mal wird die `multiply` Funktion mit einem Argument für `value` aufgerufen. Der `*=` Operator ist kurz für `x.number = x.number * 2`: wir ändern den Wert von `x.number` und loggen den multiplizierten Wert `20`.
+
+Beim vierten Mal übergeben wir wieder eine `value`. `x.number` wurde zuvor in `20` geändert, sodass `x.number *= 2` jetzt `40` loggt.
+
+</p>
+</details>
+
+---
+
+###### 65. Was ist der Output?
+
+```javascript
+[1, 2, 3, 4].reduce((x, y) => console.log(x, y));
+```
+
+- A: `1` `2` and `3` `3` and `6` `4`
+- B: `1` `2` and `2` `3` and `3` `4`
+- C: `1` `undefined` and `2` `undefined` and `3` `undefined` and `4` `undefined`
+- D: `1` `2` and `undefined` `3` and `undefined` `4`
+
+<details><summary><b>Antwort</b></summary>
+<p>
+
+#### Antwort: D
+
+Das erste Argument, welches die `reduce` Methode erhält ist der _Akkumulator_ `x`. Das zweite Argument ist der _aktuelle Wert_, `y`. Durch die `reduce` Methode führen wir eine Callback Funktion an jedem Element des Arrays aus, was im Endeffekt einen einzelnen Wert ausgibt.
+
+In diesem Beispiel geben wir nicht irgendwelche Werte aus, sondern loggen einfach nur den Akkumulator und den momentanen Wert.
+
+Der Wert des Akkumulators ist gleich dem vorhergehenden Wert der Callback Funktion. Wenn wir `initialValue` nicht an die `reduce` Methode übergeben bleibt der Akkumulator gleich dem ersten Element des ersten Calls.
+
+Beim ersten Call ist der Akkumulator (`x`) gleich `1` und der aktuelle Wert (`y`) ist `2`. Da wir in der Callback Funktion bleiben loggen wir den Akkumulator und den aktuellen Wert: `1` und `2`.
+
+Wenn wir keinen Wert einer Funktion ausgeben wird `undefined` ausgegeben. Beim nächsten Call ist der Akkumulator daher `undefined` und der aktuelle Wert ist `3`. `undefined` und `3` werden geloggt.
+
+Beim vierten Call geben wir wieder nichts aus, sodass der Akkumulator wieder `undefined` ist und der aktuelle Wert `4`. `undefined` und `4` werden geloggt.
+</p>
+</details>
+  
+---
+
+###### 66. Mit welchem Constructor können wir die `Dog` Klasse erweitern?
+
+```javascript
+class Dog {
+  constructor(name) {
+    this.name = name;
+  }
+};
+
+class Labrador extends Dog {
+  // 1 
+  constructor(name, size) {
+    this.size = size;
+  }
+  // 2
+  constructor(name, size) {
+    super(name);
+    this.size = size;
+  }
+  // 3
+  constructor(size) {
+    super(name);
+    this.size = size;
+  }
+  // 4 
+  constructor(name, size) {
+    this.name = name;
+    this.size = size;
+  }
+
+};
+```
+
+- A: 1
+- B: 2
+- C: 3
+- D: 4
+
+<details><summary><b>Antwort</b></summary>
+<p>
+
+#### Antwort: B
+
+In einer abgeleiteten Klasse kann das `this` Keyword nicht aufgerufen werden, bevor `super` aufgerufen wurde. Wenn man das versucht wird ein ReferenceError ausgeworfen: 1 und 4 würden daher einen Referenz-Fehler ausgeben.
+
+Mit dem `super` Keyword können wir den Constructor der Elternklasse mit gegebenen Argumenten aufrufen. Der Constructor der Elternklasse erhält das `name` Argument, sodass wir `name` an `super` übergeben müssen.
+
+Die `Dog` Klasse erhält zwei Argumente, `name` da es `Animal` erweitert und `size` als extra Property der `Dog` Klasse. Beide müssen an die Constructor Funktion von `Dog` übergeben werden, was nur bei Constructor 2 richtig ist.
+</p>
+</details>
+
+---
+
+###### 67. Mit welchem Constructor können wir die `Dog` Klasse erweitern?
+
+```javascript
+// index.js
+console.log('running index.js);
+import { sum } from './sum.js';
+console.log(sum(1, 2));
+
+// sum.js
+console.log('running sum.js');
+export const sum = (a, b) => a + b;
+```
+
+- A: `running index.js`, `running sum.js`, `3`
+- B: `running sum.js`, `running index.js`, `3`
+- C: `running sum.js`, `3`, `running index.js`
+- D: `running index.js`, `undefined`, `running sum.js`
+
+<details><summary><b>Antwort</b></summary>
+<p>
+
+#### Antwort: B
+
+Mit dem `import` Keyword werden alle importierten Module _vorgeparsed_. Das bedeutet, dass importierte Module _zuerst_ ausgeführt werden, der Code in der eigentlichen Datei wird _danach_ ausgeführt.
+
+Das ist der große Unterschied zwischen `require()` in CommonJS und `import`. Mit `require()` können Dependencies bei Bedarf geladen werden, während der Code ausgeführt wird. Hätten wir `require()` anstelle von `import` verwendet, wäre `running index.js`, `running sum.js`, `3` in der Konsole geloggt worden.
+
+</p>
+</details>
+
+---
+
+###### 68. Was ist der Output?
+
+```javascript
+console.log(Number(2) === Number(2))
+console.log(Boolean(false) === Boolean(false))
+console.log(Symbol('foo') === Symbol('foo'))
+```
+
+- A: `true`, `true`, `false`
+- B: `false`, `true`, `false`
+- C: `true`, `false`, `true`
+- D: `true`, `true`, `true`
+
+<details><summary><b>Antwort</b></summary>
+<p>
+
+#### Antwort: A
+
+Jedes Symbol ist eindeutig. Der Sinn des Argumentes, welches an das Symbol weitergegeben wird, ist dem Symbol eine Beschreibung zu geben. Der Wert des Symbols hängt nicht von diesem Argument ab. Beim vergleichen der Symbole werden zwei komplett neue Symbole erstellt: das erste `Symbol('foo')` und das zweite `Symbol('foo')`. Diese beiden Werte sind eindeutig und nicht identisch, weshalb `Symbol('foo') === Symbol('foo')` `false` ausgibt. 
+
+</p>
+</details>
+
+---
+
+###### 69. Was ist der Output?
+
+```javascript
+const name = "Lydia Hallie"
+console.log(name.padStart(13))
+console.log(name.padStart(2))
+```
+
+- A: `"Lydia Hallie"`, `"Lydia Hallie"`
+- B: `"           Lydia Hallie"`, `"  Lydia Hallie"` (`"[13x whitespace]Lydia Hallie"`, `"[2x whitespace]Lydia Hallie"`)
+- C: `" Lydia Hallie"`, `"Lydia Hallie"` (`"[1x whitespace]Lydia Hallie"`, `"Lydia Hallie"`)
+- D: `"Lydia Hallie"`, `"Lyd"`, 
+
+<details><summary><b>Antwort</b></summary>
+<p>
+
+#### Antwort: C
+
+Mit der `padStart` Methode können wir Padding am Anfang des Strings hinzufügen. Der Wert, der an die Methode übergeben wird ist die _absolute_ Länge des Strings mit dem Padding. Der String `"Lydia Hallie"` hat eine Länge von `12`. `name.padStart(13)` fügt ein Leerzeichen am Anfang des Strings ein, weil 12 + 1 = 13 ist.
+
+Falls der Wert, der an `padStart` übergeben wurde kleiner ist, als die Länge des Arrays, so wird kein Padding hinzugefügt.
 
 </p>
 </details>
