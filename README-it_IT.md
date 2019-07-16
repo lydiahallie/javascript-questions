@@ -124,32 +124,32 @@ Non c'è nessun valore `radius` in quello _scope_, quindi ritornerà `undefined`
 
 ---
 
-###### 4. What's the output?
+###### 4. Qual è l'output?
 
 ```javascript
 +true;
 !"Lydia";
 ```
 
-- A: `1` and `false`
-- B: `false` and `NaN`
-- C: `false` and `false`
+- A: `1` e `false`
+- B: `false` e `NaN`
+- C: `false` e `false`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>Risposta</b></summary>
 <p>
 
-#### Answer: A
+#### Risposta: A
 
-The unary plus tries to convert an operand to a number. `true` is `1`, and `false` is `0`.
+L'operatore unario `+` prova a convertire l'operando in un numero. `true` è `1`, e `false` è `0`.
 
-The string `'Lydia'` is a truthy value. What we're actually asking, is "is this truthy value falsy?". This returns `false`.
+La stringa `'Lydia'` è un valore _truthy_. La condizione di negazione può essere esplicitatata come: "questo valore _truthy_ è _falsy_?". Il risultato perciò è `false`.
 
 </p>
 </details>
 
 ---
 
-###### 5. Which one is true?
+###### 5. Qual è vero?
 
 ```javascript
 const bird = {
@@ -162,23 +162,23 @@ const mouse = {
 };
 ```
 
-- A: `mouse.bird.size` is not valid
-- B: `mouse[bird.size]` is not valid
-- C: `mouse[bird["size"]]` is not valid
-- D: All of them are valid
+- A: `mouse.bird.size` non è valido
+- B: `mouse[bird.size]` non è valido
+- C: `mouse[bird["size"]]` non è valido
+- D: Tutte le risposte sono valide
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>Risposta</b></summary>
 <p>
 
-#### Answer: A
+#### Risposta: A
 
-In JavaScript, all object keys are strings (unless it's a Symbol). Even though we might not _type_ them as strings, they are always converted into strings under the hood.
+In JavaScript, tutte le chiavi degli oggetti sono stringhe (a meno che non siano `Symbol`). Anche se non definiamo il _type_ come stringa, loro sono sempre convertite in stringhe.
 
-JavaScript interprets (or unboxes) statements. When we use bracket notation, it sees the first opening bracket `[` and keeps going until it finds the closing bracket `]`. Only then, it will evaluate the statement.
+JavaScript interpreta le dichiarazioni: quando usiamo la notazione con le parentesi, vede la prima parentesi `[` e continua a leggere finché non trova la parentesi di chiusura `]`. Solo ad allora valuterà l'espressione.
 
-`mouse[bird.size]`: First it evaluates `bird.size`, which is `"small"`. `mouse["small"]` returns `true`
+`mouse[bird.size]`: prima elavora `bird.size`, che corrisponde a `"small"`. `mouse["small"]` ritorna `true`
 
-However, with dot notation, this doesn't happen. `mouse` does not have a key called `bird`, which means that `mouse.bird` is `undefined`. Then, we ask for the `size` using dot notation: `mouse.bird.size`. Since `mouse.bird` is `undefined`, we're actually asking `undefined.size`. This isn't valid, and will throw an error similar to `Cannot read property "size" of undefined`.
+Comunque, con la notazione con il punto, questo non succede. `mouse` non ha una chiave che si chiama `bird`, ciò significa che `mouse.bird` è `undefined`. Poi richiediamo la proprietà `size` usando la notazione con il punto: `mouse.bird.size`. Siccome `mouse.bird` è `undefined`, stiamo eseguendo `undefined.size`. Questo non è valido, e solleverà un errore simile a `Cannot read property "size" of undefined`.
 
 </p>
 </details>
@@ -186,7 +186,7 @@ However, with dot notation, this doesn't happen. `mouse` does not have a key cal
 ---
 
 
-###### 6. What's the output?
+###### 6. Qual è l'output?
 
 ```javascript
 let c = { greeting: "Hey!" };
@@ -203,18 +203,18 @@ console.log(d.greeting);
 - D: `ReferenceError`
 - E: `TypeError`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>Risposta</b></summary>
 <p>
 
-#### Answer: A
+#### Risposta: A
 
-In JavaScript, all objects interact by _reference_ when setting them equal to each other.
+In JavaScript, tutti gli oggetti sono passati per riferimento (_reference_) quando assegnati.
 
-First, variable `c` holds a value to an object. Later, we assign `d` with the same reference that `c` has to the object.
+Per primo, la variabile `c` punta ad un oggetto. Poi, assegnamo `d` allo stesso riferimento di `c`.
 
 <img src="https://i.imgur.com/ko5k0fs.png" width="200">
 
-When you change one object, you change all of them.
+Quando modifichi un oggetto, cambi tutte le variabili che si riferiscono ad esso.
 
 </p>
 </details>
