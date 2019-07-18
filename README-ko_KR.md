@@ -2167,3 +2167,297 @@ console.log(name.padStart(2))
 
 </p>
 </details>
+
+---
+
+###### <a name=20190714></a>70. 무엇이 출력 될까요?
+
+```javascript
+console.log("🥑" + "💻");
+```
+
+- A: `"🥑💻"`
+- B: `257548`
+- C: 해당 코드 주소를 포함하는 문자열
+- D: 에러
+
+<details><summary><b>정답</b></summary>
+<p>
+
+#### 정답: A
+
+`+` 연산자를 가지고, 문자열을 연결 시킬 수 있어요. 이 경우에는, 문자열 `"🥑"`과 문자열 `"💻"`을 연결해, 결과 `"🥑💻"`를 얻었어요.
+
+</p>
+</details>
+
+---
+
+###### 71. console.log 표현식 뒤에 언급된 값을 어떻게 출력할 수 있을까요?
+
+```javascript
+function* startGame() {
+  const answer = yield "Do you love JavaScript?";
+  if (answer !== "Yes") {
+    return "Oh wow... Guess we're gone here";
+  }
+  return "JavaScript loves you back ❤️";
+}
+
+const game = startGame();
+console.log(/* 1 */); // Do you love JavaScript?
+console.log(/* 2 */); // JavaScript loves you back ❤️
+```
+
+- A: `game.next("Yes").value` 그리고 `game.next().value`
+- B: `game.next.value("Yes")` 그리고 `game.next.value()`
+- C: `game.next().value` 그리고 `game.next("Yes").value`
+- D: `game.next.value()` 그리고 `game.next.value("Yes")`
+
+<details><summary><b>정답</b></summary>
+<p>
+
+#### 정답: C
+
+제너레이터 함수는 `yield` 키워드를 보면 실행을 "멈춰"요. 첫 번째로, `game.next().value`를 불러, 함수가 "Do you love JavaScript?" 문자열을 넘겨주도록 할 수 있어요.
+
+`yield` 키워드를 처음으로 찾기 전까지, 모든 줄이 실행되요. 첫 번째 줄에 있는 함수는 `yield` 키워드를 가지고 있어요: 첫 번째 yield으로 실행을 멈춰요! _이것은 `answer` 변수가 아직 정의되지 않았는 뜻이에요_
+
+`game.next("Yes").value`을 부를때, `"Yes"`의 경우에서 이전 `yield`는 `next()` 함수가 전달한 파라미터의 값으로 대체돼요. `answer` 변수의 값은 이제 `"Yes"`에요. if문의 조건은 `false`를 리턴해, `JavaScript loves you back ❤️`를 출력돼요
+
+</p>
+</details>
+
+---
+
+###### 72. 무엇이 출력 될까요?
+
+```javascript
+console.log(String.raw`Hello\nworld`);
+```
+
+- A: `Hello world!`
+- B: `Hello` <br />&nbsp; &nbsp; &nbsp;`world`
+- C: `Hello\nworld`
+- D: `Hello\n` <br /> &nbsp; &nbsp; &nbsp;`world`
+
+<details><summary><b>정답</b></summary>
+<p>
+
+#### 정답: C
+
+`String.raw`는 escapes (`\n`, `\v`, `\t` 등.)에서의 문자열을 무시해요! 백슬래시는 다음과 같이 끝나면 문제가 될 수 있어요
+
+``console.log(`C:\Documents\Projects\table.html`)``
+
+이렇게 될 거예요:
+
+`C:DocumentsProjects able.html`
+
+`String.raw`을 사용하면, 간단하게 escape를 무시하고 출력해요:
+
+`C:\Documents\Projects\table.html`
+
+이 경우, 문자열은 `Hello\nworld`이 출력되요.
+
+</p>
+</details>
+
+---
+
+###### 73. 무엇이 출력 될까요?
+
+```javascript
+async function getData() {
+  return await Promise.resolve("I made it!");
+}
+
+const data = getData();
+console.log(data);
+```
+
+- A: `"I made it!"`
+- B: `Promise {<resolved>: "I made it!"}`
+- C: `Promise {<pending>}`
+- D: `undefined`
+
+<details><summary><b>정답</b></summary>
+<p>
+
+#### 정답: C
+
+async 함수는 항상 promise를 리턴해요. `await`는 promise가 resolve 할 때까지 기다려야 해요: pending promise는 `data`를 설정하기 위해 부른 `getData()`가 리턴한 것을 가져요.
+
+resolve된 값 `"I made it"`에 접근하고 싶다면, `data`에 `.then()` 메소드를 사용해야해요.
+
+`data.then(res => console.log(res))`
+
+이건 `"I made it!"`을 출력할 거예요.
+
+</p>
+</details>
+
+---
+
+###### 74. 무엇이 출력 될까요?
+
+```javascript
+function addToList(item, list) {
+  return list.push(item);
+}
+
+const result = addToList("apple", ["banana"]);
+console.log(result);
+```
+
+- A: `['banana', 'apple']`
+- B: `2`
+- C: `true`
+- D: `undefined`
+
+<details><summary><b>정답</b></summary>
+<p>
+
+#### 정답: B
+
+`.push()`메소드는 새로운 배열의 _길이_ 를 리턴해요! 이전에, 배열은 한 개의 요소(문자열 `"banana"`)를 포함되어있고 길이는 `1`예요. 배열에 문자열 `"apple"`을 추가한 후, 배열은 두 개 요소를 포함하고, 그리고 길이 `2`를 가져요. `addToList` 함수로부터 리턴돼요.
+
+`push` 메소드는 원본 배열을 수정해요. 만약 함수로부터 _배열의 길이_ 대신에 _배열_ 을 리턴하고 싶다면, `item`을 푸시한 후 `list`를 리턴해야해요.
+
+</p>
+</details>
+
+---
+
+###### 75. 무엇이 출력 될까요?
+
+```javascript
+const box = { x: 10, y: 20 };
+
+Object.freeze(box);
+
+const shape = box;
+shape.x = 100;
+
+console.log(shape);
+```
+
+- A: `{ x: 100, y: 20 }`
+- B: `{ x: 10, y: 20 }`
+- C: `{ x: 100 }`
+- D: `ReferenceError`
+
+<details><summary><b>정답</b></summary>
+<p>
+
+#### 정답: B
+
+`Object.freeze`는 객체의 속성들을 추가, 삭제 혹은 수정하는 걸 불가능하게 만들어요(다른 객체로서의 속성들의 값이 아닌 한).
+
+변수 `shape`을 생성할 때, 동결 객체 `box`와 동일하게 설정했고, `shape` 역시 동결 객체를 참조해요. `Object.isFrozen`을 사용해 객체의 동결 여부를 확인할 수 있어요. 이 경우, `Object.isFrozen(shape)`은 참을 리턴하고, 따라서 변수 `shape`는 동결 객체 참조를 가져요.
+
+`shape`가 동결 상태이므로, `x`의 값은 객체가 아니며, `x`의 속성을 수정할 수 없어요. `x`는 여전히 `10`이고, `{ x: 10, y: 20 }`가 출력돼요.
+
+</p>
+</details>
+
+---
+
+###### 76. 무엇이 출력 될까요?
+
+```javascript
+const { name: myName } = { name: "Lydia" };
+
+console.log(name);
+```
+
+- A: `"Lydia"`
+- B: `"myName"`
+- C: `undefined`
+- D: `ReferenceError`
+
+<details><summary><b>정답</b></summary>
+<p>
+
+#### 정답: D
+
+오른쪽에 있는 객체로부터 속성 `name`을 unpack할 때, `myName`라는 이름을 가진 변수에 값 `"Lydia"`을 할당해요.
+
+`{ name: myName }`은, JavaScript에게 오른쪽에 있는 `name`속성 값을 가진 `myName`이라고 불리는 새로운 변수를 만든다고 말하는 거예요.
+
+`name`을 출력하려고 하면, 변수는 정의되지 않아, ReferenceError를 던질거예요.
+
+</p>
+</details>
+
+---
+
+###### 77. 이것은 pure 함수 일까요?
+
+```javascript
+function sum(a, b) {
+  return a + b;
+}
+```
+
+- A: Yes
+- B: No
+
+<details><summary><b>정답</b></summary>
+<p>
+
+#### 정답: A
+
+pure 함수는 _항상_ 같은 결과를 리턴하는 함수예요, 만약 같은 인수가 전달 된다면 말이죠.
+
+`sum` 함수는 항상 같은 결과를 리턴해요. 만약 `1`과 `2`를 전달하면, _항상_ 부작용 없이 `3`을 리턴할 거예요. `5`와 `10`을 전달하면, _항상_ `15`를 리턴할 거예요. 이게 pure 함수의 정의예요.
+
+</p>
+</details>
+
+---
+
+###### 78. 무엇이 출력 될까요?
+
+```javascript
+const add = () => {
+  const cache = {};
+  return num => {
+    if (num in cache) {
+      return `From cache! ${cache[num]}`;
+    } else {
+      const result = num + 10;
+      cache[num] = result;
+      return `Calculated! ${result}`;
+    }
+  };
+};
+
+const addFunction = add();
+console.log(addFunction(10));
+console.log(addFunction(10));
+console.log(addFunction(5 * 2));
+```
+
+- A: `Calculated! 20` `Calculated! 20` `Calculated! 20`
+- B: `Calculated! 20` `From cache! 20` `Calculated! 20`
+- C: `Calculated! 20` `From cache! 20` `From cache! 20`
+- D: `Calculated! 20` `From cache! 20` `Error`
+
+<details><summary><b>정답</b></summary>
+<p>
+
+#### 정답: C
+
+`add`함수는 _memoization_ 함수예요. memoization으로, 함수 실행 속도를 높이기 위해 함수의 결과를 캐시에 저장할 수 있어요. 이 경우, 이전에 리턴된 값을 저장한 `cache` 객체를 만들어요.
+
+같은 인수로 `addFunction` 함수를 다시 부르면, 우선 cache 안에 값을 갖고 있는지 확인해요. 만약 그렇다면, 캐시에 저장된 값이 리턴되어, 실행시간이 절약돼요. 캐시에 저장되지 않았다면, 값을 계산하고 나중에 저장해요.
+
+같은 값으로 `addFunction`함수를 세 번 불러요: 첫 번째 호출 때에는, `num`가 `10`일 때 함수의 값은 아직 저장되지 않았어요. if문의 조건 `num in cache` 은 `false`을 리턴하고, else 블록이 실행돼요: `Calculated! 20`을 출력하고, 결과 값은 cache 객체에 추가돼요. `cache` 이제 `{ 10: 20 }`와 같아요.
+
+두 번째엔, `cache`객체는 `10`을 위해 리턴될 값을 포함하고 있어요. if문의 조건 `num in cache`은 `true`를 리턴하고, `'From cache! 20'`이 출력돼요.
+
+세 번째에는, `5 * 2`을 `10`으로 평가하여 함수에 전달해요. `cache` 객체는 `10`을 위해 리턴될 값을 포함하고 있어요. if문의 조건 `num in cache`은 `true`를 리턴하고, `'From cache! 20'`이 출력돼요.
+
+</p>
+</details>
