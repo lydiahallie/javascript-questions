@@ -2339,6 +2339,8 @@ Object.freeze(box);
 
 const shape = box;
 shape.x = 100;
+
+console.log(shape);
 ```
 
 - A: `{ x: 100, y: 20 }`
