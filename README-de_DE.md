@@ -1972,7 +1972,7 @@ Der unäre Operator `++` _gibt zuerst_ den Wert des Operanden aus und _erhöht d
 const value = { number: 10 };
 
 const multiply = (x = { ...value }) => {
-  console.log((x.number * 2));
+  console.log((x.number *= 2));
 };
 
 multiply();
