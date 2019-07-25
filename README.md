@@ -14,6 +14,7 @@ List of available languages:
 * [Bosanski](./README-bs_BS.md)  
 * [Deutsch](./README-de_DE.md)  
 * [Español](./README-ES.md)
+* [فارسی - Persian](./README-fa_IR.md)
 * [日本語](./README-ja_JA.md)  
 * [한국어](./README-ko_KR.md) 
 * [Português Brasil](./README_pt_BR.md)  
