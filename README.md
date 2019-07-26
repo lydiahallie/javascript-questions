@@ -6,6 +6,9 @@ From basic to advanced: test how well you know JavaScript, refresh your knowledg
 
 The answers are in the collapsed sections below the questions, simply click on them to expand it. Good luck :heart:
 
+Want to get an email whenever I've added more questions? <br />
+<a target="_blank" href="https://www.theavocoder.com/subscribe"><b>✨✉Subscribe to email updates✉✨</b></a>
+
 
 List of available languages:
 * [English](./README.md)
@@ -2695,6 +2698,8 @@ Then, we set `city` equal to the string `"Amsterdam"`. This doesn't change the p
 When logging the `person` object, the unmodified object gets returend. 
 
 </p>
+</details>
+
 
 ---
 
@@ -2727,6 +2732,8 @@ console.log(checkAge(21))
 Variables with the `const` and `let` keyword are _block-scoped_. A block is anything between curly brackets (`{ }`). In this case, the curly brackets of the if/else statements. You cannot reference a variable outside of the block it's declared in, a ReferenceError gets thrown.
 
 </p>
+</details>
+
 
 ---
 
@@ -2751,6 +2758,8 @@ fetch('https://www.website.com/api/user/1')
 The value of `res` in the second `.then` is equal to the returned value of the previous `.then`. You can keep chaining `.then`s like this, where the value is passed to the next handler.
 
 </p>
+</details>
+
 
 ---
 
@@ -2781,3 +2790,4 @@ By setting `hasName` equal to `name`, you set `hasName` equal to whatever value 
 `name.length` returns the length of the passed argument, not whether it's `true`.
 
 </p>
+</details>
