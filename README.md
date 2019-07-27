@@ -2227,7 +2227,7 @@ A generator function "pauses" its execution when it sees the `yield` keyword. Fi
 
 Every line is executed, until it finds the first `yield` keyword. There is a `yield` keyword on the first line within the function: the execution stops with the first yield! _This means that the variable `answer` is not defined yet!_
 
-When we call `game.next("Yes").value`, the previous `yield` is replaced with the value of the parameters passed to the `next()` function, `"Yes"` in this case. The value of the variable `answer` is now equal to `"Yes"`. The condition of the if-statemnet returns `false`, and `JavaScript loves you back ❤️` gets logged.
+When we call `game.next("Yes").value`, the previous `yield` is replaced with the value of the parameters passed to the `next()` function, `"Yes"` in this case. The value of the variable `answer` is now equal to `"Yes"`. The condition of the if-statement returns `false`, and `JavaScript loves you back ❤️` gets logged.
 
 </p>
 </details>
@@ -2354,7 +2354,7 @@ shape.x = 100;
 
 #### Answer: B
 
-`Object.freeze` makes it impossible to add, remove, or modify properties of an object (unless the property's value os another object).
+`Object.freeze` makes it impossible to add, remove, or modify properties of an object (unless the property's value is another object).
 
 When we create the variable `shape` and set it equal to the frozen object `box`, `shape` also refers to a frozen object. You can check whether an object is frozen by using `Object.isFrozen`. In this case, `Object.isFrozen(shape)` returns true, since the variable `shape` has a reference to a frozen object.
 
@@ -2494,7 +2494,7 @@ With a _for-in_ loop, we can iterate over **enumerable** properties. In an array
 
 `{0: "☕", 1: "💻", 2: "🍷", 3: "🍫"}`
 
-Where the keys are the enumerable propreties. `0` `1` `2` `3` get logged.
+Where the keys are the enumerable properties. `0` `1` `2` `3` get logged.
 
 With a _for-of_ loop, we can iterate over **iterables**. An array is an iterable. When we iterate over the array, the variable "item" is equal to the element it's currently iterating over, `"☕"` ` "💻"` `"🍷"` `"🍫"` get logged.
 
@@ -2532,32 +2532,6 @@ The element will be equal to the returned value.  `1 + 2` returns `3`, `1 * 2` r
 ###### 81. What is the output?
 
 ```javascript
-const list = [1 + 2, 1 * 2, 1 / 2]
-console.log(list)
-```
-
-- A: `["1 + 2", "1 * 2", "1 / 2"]`
-- B: `["12", 2, 0.5]`
-- C: `[3, 2, 0.5]`
-- D:  `[1, 1, 1]`
-
-<details><summary><b>Answer</b></summary>
-<p>
-
-#### Answer: C
-
-Array elements can hold any value. Numbers, strings, objects, other arrays, null, boolean values, undefined, and other expressions such as dates, functions, and calculations.
-
-The element will be equal to the returned value.  `1 + 2` returns `3`, `1 * 2` returns `2`, and `1 / 2` returns `0.5`.
-
-</p>
-</details>
-
----
-
-###### 82. What is the output?
-
-```javascript
 function sayHi(name) {
   return `Hi there, ${name}`
 }
@@ -2565,9 +2539,9 @@ function sayHi(name) {
 console.log(sayHi())
 ```
 
-- A: `Hello there, `
-- B: `Hello there, undefined`
-- C: `Hello there, null`
+- A: `Hi there, `
+- B: `Hi there, undefined`
+- C: `Hi there, null`
 - D:  `ReferenceError`
 
 <details><summary><b>Answer</b></summary>
@@ -2588,7 +2562,7 @@ In this case, if we didn't pass a value or if we passed `undefined`, `name` woul
 
 ---
 
-###### 83. What is the output?
+###### 82. What is the output?
 
 ```javascript
 var status = "😎"
@@ -2628,82 +2602,44 @@ With the `call` method, we can change the object to which the `this` keyword ref
 
 ---
 
+###### 83. What is the output?
+
+```javascript
+const person = {
+  name: "Lydia",
+  age: 21
+}
+
+let city = person.city
+city = "Amsterdam"
+
+console.log(person)
+```
+
+- A: `{ name: "Lydia", age: 21 }`
+- B: `{ name: "Lydia", age: 21, city: "Amsterdam" }`
+- C: `{ name: "Lydia", age: 21, city: undefined }`
+- D: `"Amsterdam"`
+
+<details><summary><b>Answer</b></summary>
+<p>
+
+#### Answer: A
+
+We set the variable `city` equal to the value of the property called `city` on the `person` object. There is no property on this object called `city`, so the variable `city` has the value of `undefined`. 
+
+Note that we are _not_ referencing the `person` object itself! We simply set the variable `city` equal to the current value of the `city` property on the `person` object.
+
+Then, we set `city` equal to the string `"Amsterdam"`. This doesn't change the person object: there is no reference to that object.
+
+When logging the `person` object, the unmodified object gets returned. 
+
+</p>
+</details>
+
+---
+
 ###### 84. What is the output?
-
-```javascript
-const person = {
-  name: "Lydia",
-  age: 21
-}
-
-let city = person.city
-city = "Amsterdam"
-
-console.log(person)
-```
-
-- A: `{ name: "Lydia", age: 21 }`
-- B: `{ name: "Lydia", age: 21, city: "Amsterdam" }`
-- C: `{ name: "Lydia", age: 21, city: undefined }`
-- D: `"Amsterdam"`
-
-<details><summary><b>Answer</b></summary>
-<p>
-
-#### Answer: A
-
-We set the variable `city` equal to the value of the property called `city` on the `person` object. There is no property on this object called `city`, so the variable `city` has the value of `undefined`. 
-
-Note that we are _not_ referencing the `person` object itself! We simply set the variable `city` equal to the current value of the `city` property on the `person` object.
-
-Then, we set `city` equal to the string `"Amsterdam"`. This doesn't change the person object: there is no reference to that object.
-
-When logging the `person` object, the unmodified object gets returend. 
-
-</p>
-</details>
-
----
-
-###### 85. What is the output?
-
-```javascript
-const person = {
-  name: "Lydia",
-  age: 21
-}
-
-let city = person.city
-city = "Amsterdam"
-
-console.log(person)
-```
-
-- A: `{ name: "Lydia", age: 21 }`
-- B: `{ name: "Lydia", age: 21, city: "Amsterdam" }`
-- C: `{ name: "Lydia", age: 21, city: undefined }`
-- D: `"Amsterdam"`
-
-<details><summary><b>Answer</b></summary>
-<p>
-
-#### Answer: A
-
-We set the variable `city` equal to the value of the property called `city` on the `person` object. There is no property on this object called `city`, so the variable `city` has the value of `undefined`. 
-
-Note that we are _not_ referencing the `person` object itself! We simply set the variable `city` equal to the current value of the `city` property on the `person` object.
-
-Then, we set `city` equal to the string `"Amsterdam"`. This doesn't change the person object: there is no reference to that object.
-
-When logging the `person` object, the unmodified object gets returend. 
-
-</p>
-</details>
-
-
----
-
-###### 86. What is the output?
 
 ```javascript
 function checkAge(age) {
@@ -2734,10 +2670,9 @@ Variables with the `const` and `let` keyword are _block-scoped_. A block is anyt
 </p>
 </details>
 
-
 ---
 
-###### 87. What kind of information would get logged?
+###### 85. What kind of information would get logged?
 
 ```javascript
 fetch('https://www.website.com/api/user/1')
@@ -2760,10 +2695,9 @@ The value of `res` in the second `.then` is equal to the returned value of the p
 </p>
 </details>
 
-
 ---
 
-###### 88. Which option is a way to set hasName equal to `true`, provided you cannot pass `true` as an argument?
+###### 86. Which option is a way to set `hasName` equal to `true`, provided you cannot pass `true` as an argument?
 
 ```javascript
 function getName(name) {
