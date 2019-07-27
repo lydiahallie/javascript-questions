@@ -2227,7 +2227,7 @@ A generator function "pauses" its execution when it sees the `yield` keyword. Fi
 
 Every line is executed, until it finds the first `yield` keyword. There is a `yield` keyword on the first line within the function: the execution stops with the first yield! _This means that the variable `answer` is not defined yet!_
 
-When we call `game.next("Yes").value`, the previous `yield` is replaced with the value of the parameters passed to the `next()` function, `"Yes"` in this case. The value of the variable `answer` is now equal to `"Yes"`. The condition of the if-statemnet returns `false`, and `JavaScript loves you back ❤️` gets logged.
+When we call `game.next("Yes").value`, the previous `yield` is replaced with the value of the parameters passed to the `next()` function, `"Yes"` in this case. The value of the variable `answer` is now equal to `"Yes"`. The condition of the if-statement returns `false`, and `JavaScript loves you back ❤️` gets logged.
 
 </p>
 </details>
@@ -2354,7 +2354,7 @@ shape.x = 100;
 
 #### Answer: B
 
-`Object.freeze` makes it impossible to add, remove, or modify properties of an object (unless the property's value os another object).
+`Object.freeze` makes it impossible to add, remove, or modify properties of an object (unless the property's value is another object).
 
 When we create the variable `shape` and set it equal to the frozen object `box`, `shape` also refers to a frozen object. You can check whether an object is frozen by using `Object.isFrozen`. In this case, `Object.isFrozen(shape)` returns true, since the variable `shape` has a reference to a frozen object.
 
@@ -2494,7 +2494,7 @@ With a _for-in_ loop, we can iterate over **enumerable** properties. In an array
 
 `{0: "☕", 1: "💻", 2: "🍷", 3: "🍫"}`
 
-Where the keys are the enumerable propreties. `0` `1` `2` `3` get logged.
+Where the keys are the enumerable properties. `0` `1` `2` `3` get logged.
 
 With a _for-of_ loop, we can iterate over **iterables**. An array is an iterable. When we iterate over the array, the variable "item" is equal to the element it's currently iterating over, `"☕"` ` "💻"` `"🍷"` `"🍫"` get logged.
 
@@ -2539,9 +2539,9 @@ function sayHi(name) {
 console.log(sayHi())
 ```
 
-- A: `Hello there, `
-- B: `Hello there, undefined`
-- C: `Hello there, null`
+- A: `Hi there, `
+- B: `Hi there, undefined`
+- C: `Hi there, null`
 - D:  `ReferenceError`
 
 <details><summary><b>Answer</b></summary>
@@ -2632,7 +2632,7 @@ Note that we are _not_ referencing the `person` object itself! We simply set the
 
 Then, we set `city` equal to the string `"Amsterdam"`. This doesn't change the person object: there is no reference to that object.
 
-When logging the `person` object, the unmodified object gets returend. 
+When logging the `person` object, the unmodified object gets returned. 
 
 </p>
 </details>
