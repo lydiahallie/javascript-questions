@@ -2642,44 +2642,6 @@ When logging the `person` object, the unmodified object gets returned.
 ###### 84. What is the output?
 
 ```javascript
-const person = {
-  name: "Lydia",
-  age: 21
-}
-
-let city = person.city
-city = "Amsterdam"
-
-console.log(person)
-```
-
-- A: `{ name: "Lydia", age: 21 }`
-- B: `{ name: "Lydia", age: 21, city: "Amsterdam" }`
-- C: `{ name: "Lydia", age: 21, city: undefined }`
-- D: `"Amsterdam"`
-
-<details><summary><b>Answer</b></summary>
-<p>
-
-#### Answer: A
-
-We set the variable `city` equal to the value of the property called `city` on the `person` object. There is no property on this object called `city`, so the variable `city` has the value of `undefined`. 
-
-Note that we are _not_ referencing the `person` object itself! We simply set the variable `city` equal to the current value of the `city` property on the `person` object.
-
-Then, we set `city` equal to the string `"Amsterdam"`. This doesn't change the person object: there is no reference to that object.
-
-When logging the `person` object, the unmodified object gets returend. 
-
-</p>
-</details>
-
-
----
-
-###### 85. What is the output?
-
-```javascript
 function checkAge(age) {
   if (age < 18) {
     const message = "Sorry, you're too young."
@@ -2708,10 +2670,9 @@ Variables with the `const` and `let` keyword are _block-scoped_. A block is anyt
 </p>
 </details>
 
-
 ---
 
-###### 86. What kind of information would get logged?
+###### 85. What kind of information would get logged?
 
 ```javascript
 fetch('https://www.website.com/api/user/1')
@@ -2734,10 +2695,9 @@ The value of `res` in the second `.then` is equal to the returned value of the p
 </p>
 </details>
 
-
 ---
 
-###### 87. Which option is a way to set hasName equal to `true`, provided you cannot pass `true` as an argument?
+###### 86. Which option is a way to set `hasName` equal to `true`, provided you cannot pass `true` as an argument?
 
 ```javascript
 function getName(name) {
