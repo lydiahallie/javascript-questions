@@ -2585,10 +2585,9 @@ setTimeout(() => {
 
 #### Cevap: B
 
-The value of the `this` keyword is dependent on where you use it. In a **method**, like the `getStatus` method, the `this` keyword refers to _the object that the method belongs to_. The method belongs to the `data` object, so `this` refers to the `data` object. When we log `this.status`, the `status` property on the `data` object gets logged, which is `"🥑"`.
+`this` anahtar kelimesinin değeri, onu nerede kullandığınıza bağlıdır. **method** içinde, `getStatus` methodu gibi, `this` anahtar kelimesi _methodun bağlı olduğu nesneyi_ referans gösterir. Method `data` nesnesine ait, bu yüzden `this` `data` nesnesini referans gösterir. `this.status`'ü logladığımız zaman, `data` nesnesindeki `status` özelliği loglanır, ki o da `"🥑"`.
 
-With the `call` method, we can change the object to which the `this` keyword refers. In **functions**, the `this` keyword refers to the _the object that the function belongs to_. We declared the `setTimeout` function on the _global object_, so within the `setTimeout` function, the `this` keyword refers to the _global object_. On the global object, there is a variable called _status_ with the value of `"😎"`. When logging `this.status`, `"😎"` gets logged.
-
+`call` methodu ile, `this` anahtar kelimesinin referans gösterdiği nesneyi değiştirebiliriz. **fonksiyon** içinde, `this` anahtar kelimesi _fonksiyonun ait olduğu nesneyi_ referans gösterir. _global nesne_ üzerinde `setTimeout` fonksiyonu tanımladık, yani `setTimeout` fonksiyonu içinde, `this` anahtar kelimesi _global nesneyi_ referans gösterir. Global nesnede, değeri `"😎"` olan _status_ olarak adlandırılmış bir değişken var. `this.status`'ü logladığımız zaman, `"😎"` loglanır.
 
 </p>
 </details>
@@ -2618,14 +2617,14 @@ console.log(person)
 <p>
 
 #### Cevap: A
+ 
+`city` değişkenini, `person` nesnesindeki `city` özelliğinin değerine eşitledik. `person` nesnesinde `city` diye isimlendirilmiş bir özellik yok, bu yüzden `city` değişkeni `undefined` değerine sahip olur.
 
-We set the variable `city` equal to the value of the property called `city` on the `person` object. There is no property on this object called `city`, so the variable `city` has the value of `undefined`. 
+`person` nesnesinin kendisini referans _göstermediğimize_ dikkat edin! Sadece `city` değişkenini, `person` nesnesindeki `city` özelliğinin o andaki değerine eşitledik.
 
-Note that we are _not_ referencing the `person` object itself! We simply set the variable `city` equal to the current value of the `city` property on the `person` object.
-
-Then, we set `city` equal to the string `"Amsterdam"`. This doesn't change the person object: there is no reference to that object.
-
-When logging the `person` object, the unmodified object gets returned. 
+Sonra, `city`'i `"Amsterdam"` string'ine eşitledik. Bu `person` nesnesini değiştirmez: bu nesneye referans yok.
+  
+`person` nesnesini logladığımız zaman, değişikliğe uğramamış nesne döndürülür.
 
 </p>
 </details>
@@ -2658,14 +2657,14 @@ console.log(checkAge(21))
 
 #### Cevap: C
 
-Variables with the `const` and `let` keyword are _block-scoped_. A block is anything between curly brackets (`{ }`). In this case, the curly brackets of the if/else statements. You cannot reference a variable outside of the block it's declared in, a ReferenceError gets thrown.
+`const` ve `let` anahtar kelimesine sahip değişkenler _block-scoped_'dur. Blok süslü parantezler (`{}`) arasındaki herhangi bir şeydir. Bu örnekte, if/else ifadesindeki süslü parantezlerdir. Bir değişkene, tanımlandığı blok dışından erişemezsiniz, ReferenceError fırlatılır.
 
 </p>
 </details>
 
 ---
 
-###### 85. What kind of information would get logged?
+###### 85. Loglanacak değer ne tür olur?
 
 ```javascript
 fetch('https://www.website.com/api/user/1')
@@ -2673,24 +2672,24 @@ fetch('https://www.website.com/api/user/1')
   .then(res => console.log(res))
 ```
 
-- A: The result of the `fetch` method.
-- B: The result of the second invocation of the `fetch` method.
-- C: The result of the callback in the previous `.then()`.
-- D: It would always be undefined. 
+- A: `fetch` methodunun sonucu.
+- B: `fetch` methodunun ikinci kez çağrılmasından dönen sonuç.
+- C: Bir önceki `.then()`'in sonucu.
+- D: Her zaman `undefined` olacaktır. 
 
 <details><summary><b>Cevap</b></summary>
 <p>
 
 #### Cevap: C
 
-The value of `res` in the second `.then` is equal to the returned value of the previous `.then`. You can keep chaining `.then`s like this, where the value is passed to the next handler.
+İkinci `.then` içindeki `res`'in değeri bir önceki `.then`'den dönen değere eşittir. Bunun gibi, değerlerin bir sonraki yöneticiye (handler) geçileceği şekilde, `.then`'leri birbirlerine bağlayabilirsiniz,
 
 </p>
 </details>
 
 ---
 
-###### 86. Which option is a way to set `hasName` equal to `true`, provided you cannot pass `true` as an argument?
+###### 86. `true`'yu argüman olarak geçemediğiniz durumda, hangi seçenek `hasName`'i `true`'ya eşitlemenin yoludur?
 
 ```javascript
 function getName(name) {
@@ -2708,13 +2707,13 @@ function getName(name) {
 
 #### Cevap: A
 
-With `!!name`, we determine whether the value of `name` is truthy or falsey. If name is truthy, which we want to test for, `!name` returns `false`. `!false` (which is what `!!name` practically is) returns `true`.
+`!!name` ile, `name`'in değerinin doğrusal ya da yanlış-ımsı olup olmadığını belirleriz. Eğer `name` doğrusalsa, ki test etmek istediğimiz bu, `!name` `false` döndürür. `!false` (bu da `!!name` ne demekse o demektir gerçekte) `true` döndürür.
 
-By setting `hasName` equal to `name`, you set `hasName` equal to whatever value you passed to the `getName` function, not the boolean value `true`.
+`hasName`'i `name`'e eşitleyerek, `hasName`'i `getName` fonksiyonuna hangi değeri geçtiyseniz ona eşitlersiniz, `true` değerine değil.
 
-`new Boolean(true)` returns an object wrapper, not the boolean value itself.
+`new Boolean(true)` nesne (object wrapper) döndürür, doğru/yanlış (boolean) değerinin kendisini değil.
 
-`name.length` returns the length of the passed argument, not whether it's `true`.
+`name.length` geçilen argümanın uzunluğunu döndürür, `true` olup olmadığını değil.
 
 </p>
 </details>
