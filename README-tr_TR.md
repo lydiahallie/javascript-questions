@@ -2,9 +2,13 @@
 
 [Instagram](https://www.instagram.com/theavocoder) hesabımda, günlük olarak çoktan seçmeli Javascript soruları paylaşıyorum, ayrıca burada da paylaşacağım!
 
-Temelden ileri düzeye: Javascript'i ne kadar iyi bildiğinizi test edin, bilginizi biraz tazeleyin ya da mülakatanıza hazırlanın! :muscle: :rocket: Repoyu haftalık olarak yeni sorularla güncelliyorum. Son güncelleme: Last update: <a href=#20190714><b>14 Temmuz</b></a>
+Temelden ileri düzeye: Javascript'i ne kadar iyi bildiğinizi test edin, bilginizi biraz tazeleyin ya da mülakatanıza hazırlanın! :muscle: :rocket: Repoyu haftalık olarak yeni sorularla güncelliyorum. Son güncelleme: <a href=#20190726><b>26 Temmuz</b></a>
 
 Cevaplar, soruların altında gizlenmiştir. Görmek için sadece tıklayın. İyi şanşlar :heart:
+
+Daha fazla soru eklendikçe eposta almak ister misiniz?<br />
+<a target="_blank" href="https://www.theavocoder.com/subscribe"><b>✨✉Eposta bildirimlerine abone olun✉✨</b></a>
+
 
 Mevcut dillerin listesi:
 
@@ -2171,8 +2175,8 @@ console.log("🥑" + "💻");
 
 - A: `"🥑💻"`
 - B: `257548`
-- C: A string containing their code points
-- D: Error
+- C: Emojilerin kod numaralarını gösteren string
+- D: Hata
 
 <details><summary><b>Cevap</b></summary>
 <p>
@@ -2201,10 +2205,10 @@ console.log(/* 1 */); // Do you love JavaScript?
 console.log(/* 2 */); // JavaScript loves you back ❤️
 ```
 
-- A: `game.next("Yes").value` and `game.next().value`
-- B: `game.next.value("Yes")` and `game.next.value()`
-- C: `game.next().value` and `game.next("Yes").value`
-- D: `game.next.value()` and `game.next.value("Yes")`
+- A: `game.next("Yes").value` ve `game.next().value`
+- B: `game.next.value("Yes")` ve `game.next.value()`
+- C: `game.next().value` ve `game.next("Yes").value`
+- D: `game.next.value()` ve `game.next.value("Yes")`
 
 <details><summary><b>Cevap</b></summary>
 <p>
@@ -2390,8 +2394,8 @@ function sum(a, b) {
 }
 ```
 
-- A: Yes
-- B: No
+- A: Evet
+- B: Hayır
 
 <details><summary><b>Cevap</b></summary>
 <p>
@@ -2449,6 +2453,268 @@ Eğer `addFunction` fonksiyonunu aynı argüman ile tekrar çağırırsak, önce
 İkincide, `cache` nesnesi `10` için döndürülen değeri içeriyor. `num in cache` if ifadesi `true` döndürür, ve `'From cache! 20'` loglanır. 
 
 Üçüncü sefer de, fonksiyona `5 * 2` geçiyoruz ki bu da `10` olarak değerlendirilir. `cache` nesnesi `10` için döndürülen değeri içeriyor. `num in cache` if ifadesi `true` döndürür, ve `'From cache! 20'` loglanır.
+
+</p>
+</details>
+
+---
+
+###### <a name=20190726></a>79. Çıktısı Nedir?
+
+```javascript
+const myLifeSummedUp = ["☕", "💻", "🍷", "🍫"]
+
+for (let item in myLifeSummedUp) {
+  console.log(item)
+}
+
+for (let item of myLifeSummedUp) {
+  console.log(item)
+}
+```
+
+- A: `0` `1` `2` `3` ve `"☕"` ` "💻"` `"🍷"` `"🍫"`
+- B: `"☕"` ` "💻"` `"🍷"` `"🍫"` ve `"☕"` ` "💻"` `"🍷"` `"🍫"`
+- C: `"☕"` ` "💻"` `"🍷"` `"🍫"` ve `0` `1` `2` `3`
+- D:  `0` `1` `2` `3` ve `{0: "☕", 1: "💻", 2: "🍷", 3: "🍫"}`
+
+<details><summary><b>Cevap</b></summary>
+<p>
+
+#### Cevap: A
+
+_for-in_ döngüsü ile, **sayılabilir** (**enumerable**) özellikler üzerinde iterasyon yapabiliriz. Dizilerde, sayılabilir özellikler dizi elemanlarının "keyleridir", ki bu keyler aslında dizinin indeksidir. Diziyi şöyle görebilirsiniz:
+
+`{0: "☕", 1: "💻", 2: "🍷", 3: "🍫"}`
+
+Burada keyler, sayılabilir özelliklerdir. `0` `1` `2` `3` loglanır.
+
+_for-of_ döngüsü ile, **yinelenebilirler** (**iterables**) üzerinde iterasyon yapabiliriz. Dizi, yinelebilirdir. Dizi üzerinde iterasyon yaptığımız zaman, `item` değişkeni o anda iterasyon yapılan elemana eşittir, `"☕"` ` "💻"` `"🍷"` `"🍫"` loglanır.
+
+</p>
+</details>
+
+---
+
+###### 80. Çıktısı Nedir?
+
+```javascript
+const list = [1 + 2, 1 * 2, 1 / 2]
+console.log(list)
+```
+
+- A: `["1 + 2", "1 * 2", "1 / 2"]`
+- B: `["12", 2, 0.5]`
+- C: `[3, 2, 0.5]`
+- D:  `[1, 1, 1]`
+
+<details><summary><b>Cevap</b></summary>
+<p>
+
+#### Cevap: C
+
+Dizi elemanları herhangi bir değeri tutabilir. Sayılar, stringler, nesneler, başka diziler, null, doğru/yanlış değerler, undefined, ve date, fonksiyonlar, hesaplamalar gibi başka ifadeler.
+
+Eleman dönen değere eşit olacaktır. `1 + 2` `3` döndürür, `1 * 2` `2` döndürür, ve `1 / 2` `0.5` döndürür.
+
+</p>
+</details>
+
+---
+
+###### 81. Çıktısı Nedir?
+
+```javascript
+function sayHi(name) {
+  return `Hi there, ${name}`
+}
+
+console.log(sayHi())
+```
+
+- A: `Hi there, `
+- B: `Hi there, undefined`
+- C: `Hi there, null`
+- D:  `ReferenceError`
+
+<details><summary><b>Cevap</b></summary>
+<p>
+
+#### Cevap: B
+
+Varsayılan olarak, fonksiyona bir değer geçilmedikçe, argümanlar `undefined` değerine sahiptir. Bu örnekte, `name` argümanı için bir değer geçmedik.
+
+ES6'da, bu varsayılan `undefined` değerini varsayılan parametreler ile ezebiliriz. Örneğin;
+
+`function sayHi(name = "Lydia") { ... }`
+
+Bu örnekte, eğer bir değer geçmeseydik ya da `undefined` geçseydik, `name` her zaman `Lydia`'a eşit olacaktı.
+
+</p>
+</details>
+
+---
+
+###### 82. Çıktısı Nedir?
+
+```javascript
+var status = "😎"
+
+setTimeout(() => {
+  const status = "😍"
+
+  const data = {
+    status: "🥑",
+    getStatus() {
+      return this.status
+    }
+  }
+
+  console.log(data.getStatus())
+  console.log(data.getStatus.call(this))
+}, 0)
+```
+
+- A: `"🥑"` ve `"😍"`
+- B: `"🥑"` ve `"😎"`
+- C: `"😍"` ve `"😎"`
+- D: `"😎"` ve `"😎"`
+
+<details><summary><b>Cevap</b></summary>
+<p>
+
+#### Cevap: B
+
+The value of the `this` keyword is dependent on where you use it. In a **method**, like the `getStatus` method, the `this` keyword refers to _the object that the method belongs to_. The method belongs to the `data` object, so `this` refers to the `data` object. When we log `this.status`, the `status` property on the `data` object gets logged, which is `"🥑"`.
+
+With the `call` method, we can change the object to which the `this` keyword refers. In **functions**, the `this` keyword refers to the _the object that the function belongs to_. We declared the `setTimeout` function on the _global object_, so within the `setTimeout` function, the `this` keyword refers to the _global object_. On the global object, there is a variable called _status_ with the value of `"😎"`. When logging `this.status`, `"😎"` gets logged.
+
+
+</p>
+</details>
+
+---
+
+###### 83. Çıktısı Nedir?
+
+```javascript
+const person = {
+  name: "Lydia",
+  age: 21
+}
+
+let city = person.city
+city = "Amsterdam"
+
+console.log(person)
+```
+
+- A: `{ name: "Lydia", age: 21 }`
+- B: `{ name: "Lydia", age: 21, city: "Amsterdam" }`
+- C: `{ name: "Lydia", age: 21, city: undefined }`
+- D: `"Amsterdam"`
+
+<details><summary><b>Cevap</b></summary>
+<p>
+
+#### Cevap: A
+
+We set the variable `city` equal to the value of the property called `city` on the `person` object. There is no property on this object called `city`, so the variable `city` has the value of `undefined`. 
+
+Note that we are _not_ referencing the `person` object itself! We simply set the variable `city` equal to the current value of the `city` property on the `person` object.
+
+Then, we set `city` equal to the string `"Amsterdam"`. This doesn't change the person object: there is no reference to that object.
+
+When logging the `person` object, the unmodified object gets returned. 
+
+</p>
+</details>
+
+---
+
+###### 84. Çıktısı Nedir?
+
+```javascript
+function checkAge(age) {
+  if (age < 18) {
+    const message = "Sorry, you're too young."
+  } else {
+    const message = "Yay! You're old enough!"
+  }
+
+  return message
+}
+
+console.log(checkAge(21))
+```
+
+- A: `"Sorry, you're too young."`
+- B: `"Yay! You're old enough!"`
+- C: `ReferenceError`
+- D: `undefined`
+
+<details><summary><b>Cevap</b></summary>
+<p>
+
+#### Cevap: C
+
+Variables with the `const` and `let` keyword are _block-scoped_. A block is anything between curly brackets (`{ }`). In this case, the curly brackets of the if/else statements. You cannot reference a variable outside of the block it's declared in, a ReferenceError gets thrown.
+
+</p>
+</details>
+
+---
+
+###### 85. What kind of information would get logged?
+
+```javascript
+fetch('https://www.website.com/api/user/1')
+  .then(res => res.json())
+  .then(res => console.log(res))
+```
+
+- A: The result of the `fetch` method.
+- B: The result of the second invocation of the `fetch` method.
+- C: The result of the callback in the previous `.then()`.
+- D: It would always be undefined. 
+
+<details><summary><b>Cevap</b></summary>
+<p>
+
+#### Cevap: C
+
+The value of `res` in the second `.then` is equal to the returned value of the previous `.then`. You can keep chaining `.then`s like this, where the value is passed to the next handler.
+
+</p>
+</details>
+
+---
+
+###### 86. Which option is a way to set `hasName` equal to `true`, provided you cannot pass `true` as an argument?
+
+```javascript
+function getName(name) {
+  const hasName = //
+}
+```
+
+- A: `!!name`
+- B: `name`
+- C: `new Boolean(name)`
+- D: `name.length`
+
+<details><summary><b>Cevap</b></summary>
+<p>
+
+#### Cevap: A
+
+With `!!name`, we determine whether the value of `name` is truthy or falsey. If name is truthy, which we want to test for, `!name` returns `false`. `!false` (which is what `!!name` practically is) returns `true`.
+
+By setting `hasName` equal to `name`, you set `hasName` equal to whatever value you passed to the `getName` function, not the boolean value `true`.
+
+`new Boolean(true)` returns an object wrapper, not the boolean value itself.
+
+`name.length` returns the length of the passed argument, not whether it's `true`.
 
 </p>
 </details>
