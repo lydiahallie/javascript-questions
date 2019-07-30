@@ -7,16 +7,20 @@ De la base aux subtilités du langage : testez votre compréhension de JavaScrip
 Les réponses se trouvent dans les sections repliées en dessous des questions, cliquez simplement dessus pour les faire apparaître. Bonne chance :heart:
 
 * [English](./README.md)
-* [中文版本](./README-zh_CN.md)
-* [Versión en español](./README-ES.md)
-* [日本語](./README-ja_JA.md)  
-* [한국어](./README-ko_KR.md) 
-* [Русский](./README_ru-RU.md)  
-* [Western Balkan](./README-bs_BS.md)  
-* [Deutsch](./README-de_DE.md)  
+* [العربية](./README_AR.md)
+* [اللغة العامية - Egyptian Arabic](./README_ar-EG.md)
+* [Bosanski](./README-bs_BS.md)
+* [Deutsch](./README-de_DE.md)
+* [Español](./README-ES.md)
+* [Français](./README_fr-FR.md)
+* [日本語](./README-ja_JA.md)
+* [한국어](./README-ko_KR.md)
+* [Português Brasil](./README_pt_BR.md)
+* [Русский](./README_ru-RU.md)
+* [Türkçe](./README-tr_TR.md)
+* [Українська мова](./README-ua_UA.md)
 * [Tiếng Việt](./README-vi.md)
-* [Українська мова](./README-ua_UA.md)  
-* [Português Brasil](./README_pt_BR.md)  
+* [中文版本](./README-zh_CN.md)
 
 ---
 

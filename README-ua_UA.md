@@ -13,6 +13,7 @@ List of available languages:
 * [Bosanski](./README-bs_BS.md)
 * [Deutsch](./README-de_DE.md)
 * [Español](./README-ES.md)
+* [Français](./README_fr-FR.md)
 * [日本語](./README-ja_JA.md)
 * [한국어](./README-ko_KR.md)
 * [Português Brasil](./README_pt_BR.md)
@@ -20,7 +21,7 @@ List of available languages:
 * [Türkçe](./README-tr_TR.md)
 * [Українська мова](./README-ua_UA.md)
 * [Tiếng Việt](./README-vi.md)
-* [中文版本](./README-zh_CN.md)
+* [中文版本](./README-zh_CN.md))
 
 ---
 
