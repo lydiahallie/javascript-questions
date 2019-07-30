@@ -2,9 +2,13 @@
 
 [Instagram](https://www.instagram.com/theavocoder) hesabımda, günlük olarak çoktan seçmeli Javascript soruları paylaşıyorum, ayrıca burada da paylaşacağım!
 
-Temelden ileri düzeye: Javascript'i ne kadar iyi bildiğinizi test edin, bilginizi biraz tazeleyin ya da mülakatanıza hazırlanın! :muscle: :rocket: Repoyu haftalık olarak yeni sorularla güncelliyorum. Son güncelleme: Last update: <a href=#20190714><b>14 Temmuz</b></a>
+Temelden ileri düzeye: Javascript'i ne kadar iyi bildiğinizi test edin, bilginizi biraz tazeleyin ya da mülakatanıza hazırlanın! :muscle: :rocket: Repoyu haftalık olarak yeni sorularla güncelliyorum. Son güncelleme: <a href=#20190726><b>26 Temmuz</b></a>
 
 Cevaplar, soruların altında gizlenmiştir. Görmek için sadece tıklayın. İyi şanşlar :heart:
+
+Daha fazla soru eklendikçe eposta almak ister misiniz?<br />
+<a target="_blank" href="https://www.theavocoder.com/subscribe"><b>✨✉Eposta bildirimlerine abone olun✉✨</b></a>
+
 
 Mevcut dillerin listesi:
 
@@ -2171,8 +2175,8 @@ console.log("🥑" + "💻");
 
 - A: `"🥑💻"`
 - B: `257548`
-- C: A string containing their code points
-- D: Error
+- C: Emojilerin kod numaralarını gösteren string
+- D: Hata
 
 <details><summary><b>Cevap</b></summary>
 <p>
@@ -2201,10 +2205,10 @@ console.log(/* 1 */); // Do you love JavaScript?
 console.log(/* 2 */); // JavaScript loves you back ❤️
 ```
 
-- A: `game.next("Yes").value` and `game.next().value`
-- B: `game.next.value("Yes")` and `game.next.value()`
-- C: `game.next().value` and `game.next("Yes").value`
-- D: `game.next.value()` and `game.next.value("Yes")`
+- A: `game.next("Yes").value` ve `game.next().value`
+- B: `game.next.value("Yes")` ve `game.next.value()`
+- C: `game.next().value` ve `game.next("Yes").value`
+- D: `game.next.value()` ve `game.next.value("Yes")`
 
 <details><summary><b>Cevap</b></summary>
 <p>
@@ -2390,8 +2394,8 @@ function sum(a, b) {
 }
 ```
 
-- A: Yes
-- B: No
+- A: Evet
+- B: Hayır
 
 <details><summary><b>Cevap</b></summary>
 <p>
@@ -2449,6 +2453,267 @@ Eğer `addFunction` fonksiyonunu aynı argüman ile tekrar çağırırsak, önce
 İkincide, `cache` nesnesi `10` için döndürülen değeri içeriyor. `num in cache` if ifadesi `true` döndürür, ve `'From cache! 20'` loglanır. 
 
 Üçüncü sefer de, fonksiyona `5 * 2` geçiyoruz ki bu da `10` olarak değerlendirilir. `cache` nesnesi `10` için döndürülen değeri içeriyor. `num in cache` if ifadesi `true` döndürür, ve `'From cache! 20'` loglanır.
+
+</p>
+</details>
+
+---
+
+###### <a name=20190726></a>79. Çıktısı Nedir?
+
+```javascript
+const myLifeSummedUp = ["☕", "💻", "🍷", "🍫"]
+
+for (let item in myLifeSummedUp) {
+  console.log(item)
+}
+
+for (let item of myLifeSummedUp) {
+  console.log(item)
+}
+```
+
+- A: `0` `1` `2` `3` ve `"☕"` ` "💻"` `"🍷"` `"🍫"`
+- B: `"☕"` ` "💻"` `"🍷"` `"🍫"` ve `"☕"` ` "💻"` `"🍷"` `"🍫"`
+- C: `"☕"` ` "💻"` `"🍷"` `"🍫"` ve `0` `1` `2` `3`
+- D:  `0` `1` `2` `3` ve `{0: "☕", 1: "💻", 2: "🍷", 3: "🍫"}`
+
+<details><summary><b>Cevap</b></summary>
+<p>
+
+#### Cevap: A
+
+_for-in_ döngüsü ile, **sayılabilir** (**enumerable**) özellikler üzerinde iterasyon yapabiliriz. Dizilerde, sayılabilir özellikler dizi elemanlarının "keyleridir", ki bu keyler aslında dizinin indeksidir. Diziyi şöyle görebilirsiniz:
+
+`{0: "☕", 1: "💻", 2: "🍷", 3: "🍫"}`
+
+Burada keyler, sayılabilir özelliklerdir. `0` `1` `2` `3` loglanır.
+
+_for-of_ döngüsü ile, **yinelenebilirler** (**iterables**) üzerinde iterasyon yapabiliriz. Dizi, yinelebilirdir. Dizi üzerinde iterasyon yaptığımız zaman, `item` değişkeni o anda iterasyon yapılan elemana eşittir, `"☕"` ` "💻"` `"🍷"` `"🍫"` loglanır.
+
+</p>
+</details>
+
+---
+
+###### 80. Çıktısı Nedir?
+
+```javascript
+const list = [1 + 2, 1 * 2, 1 / 2]
+console.log(list)
+```
+
+- A: `["1 + 2", "1 * 2", "1 / 2"]`
+- B: `["12", 2, 0.5]`
+- C: `[3, 2, 0.5]`
+- D:  `[1, 1, 1]`
+
+<details><summary><b>Cevap</b></summary>
+<p>
+
+#### Cevap: C
+
+Dizi elemanları herhangi bir değeri tutabilir. Sayılar, stringler, nesneler, başka diziler, null, doğru/yanlış değerler, undefined, ve date, fonksiyonlar, hesaplamalar gibi başka ifadeler.
+
+Eleman dönen değere eşit olacaktır. `1 + 2` `3` döndürür, `1 * 2` `2` döndürür, ve `1 / 2` `0.5` döndürür.
+
+</p>
+</details>
+
+---
+
+###### 81. Çıktısı Nedir?
+
+```javascript
+function sayHi(name) {
+  return `Hi there, ${name}`
+}
+
+console.log(sayHi())
+```
+
+- A: `Hi there, `
+- B: `Hi there, undefined`
+- C: `Hi there, null`
+- D:  `ReferenceError`
+
+<details><summary><b>Cevap</b></summary>
+<p>
+
+#### Cevap: B
+
+Varsayılan olarak, fonksiyona bir değer geçilmedikçe, argümanlar `undefined` değerine sahiptir. Bu örnekte, `name` argümanı için bir değer geçmedik.
+
+ES6'da, bu varsayılan `undefined` değerini varsayılan parametreler ile ezebiliriz. Örneğin;
+
+`function sayHi(name = "Lydia") { ... }`
+
+Bu örnekte, eğer bir değer geçmeseydik ya da `undefined` geçseydik, `name` her zaman `Lydia`'a eşit olacaktı.
+
+</p>
+</details>
+
+---
+
+###### 82. Çıktısı Nedir?
+
+```javascript
+var status = "😎"
+
+setTimeout(() => {
+  const status = "😍"
+
+  const data = {
+    status: "🥑",
+    getStatus() {
+      return this.status
+    }
+  }
+
+  console.log(data.getStatus())
+  console.log(data.getStatus.call(this))
+}, 0)
+```
+
+- A: `"🥑"` ve `"😍"`
+- B: `"🥑"` ve `"😎"`
+- C: `"😍"` ve `"😎"`
+- D: `"😎"` ve `"😎"`
+
+<details><summary><b>Cevap</b></summary>
+<p>
+
+#### Cevap: B
+
+`this` anahtar kelimesinin değeri, onu nerede kullandığınıza bağlıdır. **method** içinde, `getStatus` methodu gibi, `this` anahtar kelimesi _methodun bağlı olduğu nesneyi_ referans gösterir. Method `data` nesnesine ait, bu yüzden `this` `data` nesnesini referans gösterir. `this.status`'ü logladığımız zaman, `data` nesnesindeki `status` özelliği loglanır, ki o da `"🥑"`.
+
+`call` methodu ile, `this` anahtar kelimesinin referans gösterdiği nesneyi değiştirebiliriz. **fonksiyon** içinde, `this` anahtar kelimesi _fonksiyonun ait olduğu nesneyi_ referans gösterir. _global nesne_ üzerinde `setTimeout` fonksiyonu tanımladık, yani `setTimeout` fonksiyonu içinde, `this` anahtar kelimesi _global nesneyi_ referans gösterir. Global nesnede, değeri `"😎"` olan _status_ olarak adlandırılmış bir değişken var. `this.status`'ü logladığımız zaman, `"😎"` loglanır.
+
+</p>
+</details>
+
+---
+
+###### 83. Çıktısı Nedir?
+
+```javascript
+const person = {
+  name: "Lydia",
+  age: 21
+}
+
+let city = person.city
+city = "Amsterdam"
+
+console.log(person)
+```
+
+- A: `{ name: "Lydia", age: 21 }`
+- B: `{ name: "Lydia", age: 21, city: "Amsterdam" }`
+- C: `{ name: "Lydia", age: 21, city: undefined }`
+- D: `"Amsterdam"`
+
+<details><summary><b>Cevap</b></summary>
+<p>
+
+#### Cevap: A
+ 
+`city` değişkenini, `person` nesnesindeki `city` özelliğinin değerine eşitledik. `person` nesnesinde `city` diye isimlendirilmiş bir özellik yok, bu yüzden `city` değişkeni `undefined` değerine sahip olur.
+
+`person` nesnesinin kendisini referans _göstermediğimize_ dikkat edin! Sadece `city` değişkenini, `person` nesnesindeki `city` özelliğinin o andaki değerine eşitledik.
+
+Sonra, `city`'i `"Amsterdam"` string'ine eşitledik. Bu `person` nesnesini değiştirmez: bu nesneye referans yok.
+  
+`person` nesnesini logladığımız zaman, değişikliğe uğramamış nesne döndürülür.
+
+</p>
+</details>
+
+---
+
+###### 84. Çıktısı Nedir?
+
+```javascript
+function checkAge(age) {
+  if (age < 18) {
+    const message = "Sorry, you're too young."
+  } else {
+    const message = "Yay! You're old enough!"
+  }
+
+  return message
+}
+
+console.log(checkAge(21))
+```
+
+- A: `"Sorry, you're too young."`
+- B: `"Yay! You're old enough!"`
+- C: `ReferenceError`
+- D: `undefined`
+
+<details><summary><b>Cevap</b></summary>
+<p>
+
+#### Cevap: C
+
+`const` ve `let` anahtar kelimesine sahip değişkenler _block-scoped_'dur. Blok süslü parantezler (`{}`) arasındaki herhangi bir şeydir. Bu örnekte, if/else ifadesindeki süslü parantezlerdir. Bir değişkene, tanımlandığı blok dışından erişemezsiniz, ReferenceError fırlatılır.
+
+</p>
+</details>
+
+---
+
+###### 85. Loglanacak değer ne tür olur?
+
+```javascript
+fetch('https://www.website.com/api/user/1')
+  .then(res => res.json())
+  .then(res => console.log(res))
+```
+
+- A: `fetch` methodunun sonucu.
+- B: `fetch` methodunun ikinci kez çağrılmasından dönen sonuç.
+- C: Bir önceki `.then()`'in sonucu.
+- D: Her zaman `undefined` olacaktır. 
+
+<details><summary><b>Cevap</b></summary>
+<p>
+
+#### Cevap: C
+
+İkinci `.then` içindeki `res`'in değeri bir önceki `.then`'den dönen değere eşittir. Bunun gibi, değerlerin bir sonraki yöneticiye (handler) geçileceği şekilde, `.then`'leri birbirlerine bağlayabilirsiniz,
+
+</p>
+</details>
+
+---
+
+###### 86. `true`'yu argüman olarak geçemediğiniz durumda, hangi seçenek `hasName`'i `true`'ya eşitlemenin yoludur?
+
+```javascript
+function getName(name) {
+  const hasName = //
+}
+```
+
+- A: `!!name`
+- B: `name`
+- C: `new Boolean(name)`
+- D: `name.length`
+
+<details><summary><b>Cevap</b></summary>
+<p>
+
+#### Cevap: A
+
+`!!name` ile, `name`'in değerinin doğrusal ya da yanlış-ımsı olup olmadığını belirleriz. Eğer `name` doğrusalsa, ki test etmek istediğimiz bu, `!name` `false` döndürür. `!false` (bu da `!!name` ne demekse o demektir gerçekte) `true` döndürür.
+
+`hasName`'i `name`'e eşitleyerek, `hasName`'i `getName` fonksiyonuna hangi değeri geçtiyseniz ona eşitlersiniz, `true` değerine değil.
+
+`new Boolean(true)` nesne (object wrapper) döndürür, doğru/yanlış (boolean) değerinin kendisini değil.
+
+`name.length` geçilen argümanın uzunluğunu döndürür, `true` olup olmadığını değil.
 
 </p>
 </details>
