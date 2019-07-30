@@ -7,12 +7,21 @@
 答えは質問の下の折りたたまれたセクションにあります、クリックすればそれを広げられます。幸運を祈ります。:heart:
 
 
-[中文版本](./README-zh_CN.md)  
-[Русский](./README_ru-RU.md)  
-[Western Balkan](./README-bs_BS.md)  
-[Deutsch](./README-de_DE.md)  
-[Tiếng Việt](./README-vi.md)  
-[日本語](./README-ja_JA.md)
+利用可能な言語リスト:
+* [English](./README.md)
+* [العربية](./README_AR.md)
+* [اللغة العامية - Egyptian Arabic](./README_ar-EG.md)
+* [Bosanski](./README-bs_BS.md)  
+* [Deutsch](./README-de_DE.md)  
+* [Español](./README-ES.md)
+* [日本語](./README-ja_JA.md)  
+* [한국어](./README-ko_KR.md) 
+* [Português Brasil](./README_pt_BR.md)  
+* [Русский](./README_ru-RU.md)  
+* [Українська мова](./README-ua_UA.md)  
+* [Tiếng Việt](./README-vi.md)
+* [中文版本](./README-zh_CN.md)
+* [Türkçe](./README-tr_TR.md)
 
 ---
 
@@ -2014,6 +2023,802 @@ console.log(num2);
 単項演算子`++`はオペランドの値を _最初に返し_ 、_その後に インクリメント_ します。`num1`の値は`10`となります。 なぜなら`incrementNumber`関数は、最初に`num`の値`10`を返し、その後に`num`の値をインクリメントするだけです。
 
 `num1`を`increPassedNumber`に渡したので、`num2`は`10`です。`number`は`10`（`num1`の値です。繰り返しますが、単項演算子`++`は、オペランドの値を _最初に返し_、_その後に インクリメント_ します。したがって、`num2`は`10`となります。
+
+</p>
+</details>
+
+---
+
+###### 64. 何が出力されるでしょうか？
+
+```javascript
+const value = { number: 10 };
+
+const multiply = (x = { ...value }) => {
+  console.log((x.number *= 2));
+};
+
+multiply();
+multiply();
+multiply(value);
+multiply(value);
+```
+
+- A: `20`, `40`, `80`, `160`
+- B: `20`, `40`, `20`, `40`
+- C: `20`, `20`, `20`, `40`
+- D: `NaN`, `NaN`, `20`, `40`
+
+<details><summary><b>答え</b></summary>
+<p>
+
+#### 答え: C
+
+
+ES6では、パラメータをデフォルト値で初期化できます。値が関数に渡されていない場合やパラメータの値が `"undefined"`の場合、パラメータの値はデフォルト値になります。上記の場合、`value`オブジェクトのプロパティを新しいオブジェクトに分割代入されるので、`x`のデフォルト値は`{number：10}`になります。
+
+デフォルトの引数は、_呼び出し時_ に評価されます。関数を呼び出すたびに、_新しい_ オブジェクトが作成されます。
+
+最初に値を渡さずに2回、`multiply`関数を呼び出します: `x`のデフォルト値は `{number：10}`となり、その数の乗算された値、つまり `20`を出力します。
+
+3回目のmultiplyを呼び出すとき、引数を渡します: `value`というオブジェクトです。
+
+`*=`演算子は`x.number = x.number * 2`の省略形となります: `x.number`の値は乗算した値に修正され、`20`を出力します。
+
+4回目は、`value`オブジェクトをもう一度渡します。`x.number`は以前は`20`に修正されているので、`x.number *= 2`は`40`を出力します。
+
+</p>
+</details>
+
+---
+
+###### 65. 何が出力されるでしょうか？
+
+```javascript
+[1, 2, 3, 4].reduce((x, y) => console.log(x, y));
+```
+
+- A: `1` `2` and `3` `3` and `6` `4`
+- B: `1` `2` and `2` `3` and `3` `4`
+- C: `1` `undefined` and `2` `undefined` and `3` `undefined` and `4` `undefined`
+- D: `1` `2` and `undefined` `3` and `undefined` `4`
+
+<details><summary><b>答え</b></summary>
+<p>
+
+#### 答え: D
+
+
+`reduce`メソッドが受け取る最初の引数は _アキュムレータ_ となります。この場合は`x`です。 2番目の引数は、_現在の値_ `y`です。 reduceメソッドでは、配列内のすべての要素に対してコールバック関数を実行します。これにより、最終的に1つの値が得られます。
+
+上記の例では、値を返していません。単にアキュムレータの値と現在の値を記録しています。
+
+アキュムレータの値は、以前に返されたコールバック関数の値と同じです。オプションの`initialValue`引数を`reduce`メソッドに渡さないと、アキュムレータは最初の呼び出しの最初の要素に等しくなります。
+
+最初の呼び出しでは、アキュムレータ(`x`)は`1`であり、現在値(`y`)は`2`となります。コールバック関数からは戻らないので、アキュムレータと現在の値を出力します: `1`と`2`が出力されます。
+
+関数から値を返さなければ、`undefined`を返します。次の呼び出しでは、アキュムレータは`undefined`で、現在の値は`3`です。`undefined`と`3`が出力されます。
+
+4回目の呼び出しでも、コールバック関数からは戻りません。アキュムレータもまた`undefined`であり、現在の値は`4`となり、`undefined`と`4`が出力されます。
+
+</p>
+</details>
+  
+---
+
+###### 66. どのコンストラクタを使えば `Dog` classを継承できるでしょうか？
+
+```javascript
+class Dog {
+  constructor(name) {
+    this.name = name;
+  }
+};
+
+class Labrador extends Dog {
+  // 1 
+  constructor(name, size) {
+    this.size = size;
+  }
+  // 2
+  constructor(name, size) {
+    super(name);
+    this.size = size;
+  }
+  // 3
+  constructor(size) {
+    super(name);
+    this.size = size;
+  }
+  // 4 
+  constructor(name, size) {
+    this.name = name;
+    this.size = size;
+  }
+
+};
+```
+
+- A: 1
+- B: 2
+- C: 3
+- D: 4
+
+<details><summary><b>答え</b></summary>
+<p>
+
+#### 答え: B
+
+派生クラスでは、`super`を呼び出す前に、`this`キーワードにアクセスすることはできません。そうしようとすると、ReferenceErrorがスローされます: 1と4は参照エラーをスローします。
+
+`super`キーワードを使って、与えられた引数で、その親クラスのコンストラクタを呼び出します。親のコンストラクタは`name`引数を受け取るので、`name`を`super`に渡す必要があります。
+
+`Labrador`クラスは2つの引数、`Dog`を拡張するための`name`と、`Labrador`クラスの追加のプロパティとしての`size`を受け取ります。
+
+両方とも`Labrador`のコンストラクタ関数に渡す必要があります。これはコンストラクタ2を使って正しく実行されます。
+</p>
+</details>
+
+---
+
+###### 67. 何が出力されるでしょうか？
+
+```javascript
+// index.js
+console.log('running index.js');
+import { sum } from './sum.js';
+console.log(sum(1, 2));
+
+// sum.js
+console.log('running sum.js');
+export const sum = (a, b) => a + b;
+```
+
+- A: `running index.js`, `running sum.js`, `3`
+- B: `running sum.js`, `running index.js`, `3`
+- C: `running sum.js`, `3`, `running index.js`
+- D: `running index.js`, `undefined`, `running sum.js`
+
+<details><summary><b>答え</b></summary>
+<p>
+
+#### 答え: B
+
+`import`キーワードを使うと、全てのインポートされたモジュールは _事前解析_ されます。これは、インポートされたモジュールが _最初_ に実行され、_その後_ モジュールをインポートしたファイル内のコードが実行されることを意味します。
+
+これはCommonJSの`require()`と`import`の違いです。`require()`を使うと、コードが実行されている間に依存関係をオンデマンドでロードすることができます。 
+
+`import`の代わりに`require`を使用したとしたら、`running index.js`, `running sum.js`, `3`が出力されているはずです。 
+
+</p>
+</details>
+
+---
+
+###### 68. 何が出力されるでしょうか？
+
+```javascript
+console.log(Number(2) === Number(2))
+console.log(Boolean(false) === Boolean(false))
+console.log(Symbol('foo') === Symbol('foo'))
+```
+
+- A: `true`, `true`, `false`
+- B: `false`, `true`, `false`
+- C: `true`, `false`, `true`
+- D: `true`, `true`, `true`
+
+<details><summary><b>答え</b></summary>
+<p>
+
+#### 答え: A
+
+すべてのシンボルは完全にユニークです。シンボルに渡される引数の目的は、シンボルに説明を与えることです。Symbolの値は渡された引数に依存しません。
+
+等価性をテストしているので、2つのまったく新しいシンボルを作成します: 最初の`Symbol('foo')`と、2番目の`Symbol('foo')`です。これら2つの値は一意であり、互いに等しくはありません、なので`Symbol('foo') === Symbol('foo')`は`false`を返します。
+
+</p>
+</details>
+
+---
+
+###### 69. 何が出力されるでしょうか？
+
+```javascript
+const name = "Lydia Hallie"
+console.log(name.padStart(13))
+console.log(name.padStart(2))
+```
+
+- A: `"Lydia Hallie"`, `"Lydia Hallie"`
+- B: `"           Lydia Hallie"`, `"  Lydia Hallie"` (`"[13x whitespace]Lydia Hallie"`, `"[2x whitespace]Lydia Hallie"`)
+- C: `" Lydia Hallie"`, `"Lydia Hallie"` (`"[1x whitespace]Lydia Hallie"`, `"Lydia Hallie"`)
+- D: `"Lydia Hallie"`, `"Lyd"`, 
+
+<details><summary><b>答え</b></summary>
+<p>
+
+#### 答え: C
+
+`padStart`メソッドを使うと、文字列の先頭にパディングを追加できます。このメソッドに渡される値は、パディングとともに文字列の長さの _合計_ です。文字列`"Lydia Hallie"`の長さは`12`です。 `name.padStart(13)`は、12 + 1が13であるため、文字列の先頭に1スペースを挿入されます。
+
+`padStart`メソッドに渡された引数が、配列の長さよりも小さい場合、パディングは追加されません。
+
+</p>
+</details>
+
+---
+
+###### <a name=20190714></a>70. 何が出力されるでしょうか？
+
+```javascript
+console.log("🥑" + "💻");
+```
+
+- A: `"🥑💻"`
+- B: `257548`
+- C: A string containing their code points
+- D: Error
+
+<details><summary><b>答え</b></summary>
+<p>
+
+#### 答え: A
+
+
+`+`演算子を使うと、文字列を連結することができます。この場合、文字列`"🥑"`を文字列`"💻"`と連結して、結果として`"🥑💻"`となります。
+
+</p>
+</details>
+
+---
+
+###### 71. console.logステートメントの後にコメントアウトされている値を、ログ出力する方法を教えてください。
+
+```javascript
+function* startGame() {
+  const answer = yield "Do you love JavaScript?";
+  if (answer !== "Yes") {
+    return "Oh wow... Guess we're gone here";
+  }
+  return "JavaScript loves you back ❤️";
+}
+
+const game = startGame();
+console.log(/* 1 */); // Do you love JavaScript?
+console.log(/* 2 */); // JavaScript loves you back ❤️
+```
+
+- A: `game.next("Yes").value` and `game.next().value`
+- B: `game.next.value("Yes")` and `game.next.value()`
+- C: `game.next().value` and `game.next("Yes").value`
+- D: `game.next.value()` and `game.next.value("Yes")`
+
+<details><summary><b>答え</b></summary>
+<p>
+
+#### 答え: C
+
+ジェネレータ関数は、`yield`キーワードを見るとその実行を「一時停止」します。まず、関数に文字列 "Do you love JavaScript?" を返させる必要があります。これは `game.next().value`を呼び出すことによって行うことができます。
+
+最初の`yield`キーワードが見つかるまで、すべての行が実行されます。関数内の最初の行に`yield`キーワードがあります: 実行は最初のyieldで停止します！ _これは変数 `answer`がまだ定義されていないことを意味します！_
+
+`game.next("Yes").value`を呼び出すと、前の`yield`は`next()`関数に渡されたパラメータの値、この場合は`"Yes"`に置き換えられます。変数`answer`の値は現在`"Yes"`となります。 
+
+if-statemnetの条件は`false`を返し、`JavaScript loves you back ❤️`が、出力されます。
+
+</p>
+</details>
+
+---
+
+###### 72. 何が出力されるでしょうか？
+
+```javascript
+console.log(String.raw`Hello\nworld`);
+```
+
+- A: `Hello world!`
+- B: `Hello` <br />&nbsp; &nbsp; &nbsp;`world`
+- C: `Hello\nworld`
+- D: `Hello\n` <br /> &nbsp; &nbsp; &nbsp;`world`
+
+<details><summary><b>答え</b></summary>
+<p>
+
+#### 答え: C
+
+`String.raw`はエスケープ(`\n`, `\v`, `\t` など)を無視した文字列を返します。バックスラッシュは問題になる可能性があります:
+
+`` const path = `C:\Documents\Projects\table.html` ``
+
+これは次のようになります:
+
+`"C:DocumentsProjects able.html"`
+
+`String.raw`は、単にエスケープを無視して出力するだけです:
+
+`C:\Documents\Projects\table.html`
+
+上記の場合、文字列は`Hello\nworld`と出力されます。
+
+</p>
+</details>
+
+---
+
+###### 73. 何が出力されるでしょうか？
+
+```javascript
+async function getData() {
+  return await Promise.resolve("I made it!");
+}
+
+const data = getData();
+console.log(data);
+```
+
+- A: `"I made it!"`
+- B: `Promise {<resolved>: "I made it!"}`
+- C: `Promise {<pending>}`
+- D: `undefined`
+
+<details><summary><b>答え</b></summary>
+<p>
+
+#### 答え: C
+
+非同期関数は常に、promiseを返します。`await`はpromiseが解決されるのを待たなければなりません: `getData()`を呼び出すと、`data`は保留中のpromiseが返されます。
+
+解決した値`"I made it"`にアクセスしたい場合は、`data`に対して`.then()`メソッドを使用することができます:
+
+`data.then(res => console.log(res))`
+
+これは`"I made it!"`と出力するでしょう。
+
+</p>
+</details>
+
+---
+
+###### 74. 何が出力されるでしょうか？
+
+```javascript
+function addToList(item, list) {
+  return list.push(item);
+}
+
+const result = addToList("apple", ["banana"]);
+console.log(result);
+```
+
+- A: `['apple', 'banana']`
+- B: `2`
+- C: `true`
+- D: `undefined`
+
+<details><summary><b>答え</b></summary>
+<p>
+
+#### 答え: B
+
+`.push（）`メソッドは新しい配列の長さを返します。以前は、配列は1つの要素（文字列 `" banana "`）を含み、長さは `1`でした。文字列 `" apple "`を配列に追加した後、配列は2つの要素を含み、長さは `2`になります。これは `addToList`関数から返されます。
+The `.push()` method returns the _length_ of the new array! Previously, the array contained one element (the string `"banana"`) and had a length of `1`. After adding the string `"apple"` to the array, the array contains two elements, and has a length of `2`. This gets returned from the `addToList` function.
+
+`push`メソッドは元の配列を修正します。配列の長さではなく関数から配列を返したい場合は、itemをプッシュした後にlistを返すべきです。
+The `push` method modifies the original array. If you wanted to return the _array_ from the function rather than the _length of the array_, you should have returned `list` after pushing `item` to it.
+
+</p>
+</details>
+
+---
+
+###### 75. 何が出力されるでしょうか？
+
+```javascript
+const box = { x: 10, y: 20 };
+
+Object.freeze(box);
+
+const shape = box;
+shape.x = 100;
+
+console.log(shape);
+```
+
+- A: `{ x: 100, y: 20 }`
+- B: `{ x: 10, y: 20 }`
+- C: `{ x: 100 }`
+- D: `ReferenceError`
+
+<details><summary><b>答え</b></summary>
+<p>
+
+#### 答え: B
+
+`Object.freeze`は、オブジェクトのプロパティを追加、削除、変更することを不可能にします（プロパティの値が他のオブジェクトのものでない限り）。
+
+変数`shape`を作成し、フリーズしたオブジェクト`box`に代入すると、`shape`はフリーズしたオブジェクトとなります。オブジェクトがフリーズしているかどうかは `Object.isFrozen`を使って確認できます。
+
+この場合、変数`shape`はフリーズしたオブジェクトへの参照を持っているので、`Object.isFrozen(shape)`はtrueを返します。
+
+`shape`はフリーズされており、`x`の値はオブジェクトではないので、プロパティ`x`を変更することはできません。
+
+`x`は`10`のままとなり、`{ x: 10, y: 20 }`と出力されます。
+
+</p>
+</details>
+
+---
+
+###### 76. 何が出力されるでしょうか？
+
+```javascript
+const { name: myName } = { name: "Lydia" };
+
+console.log(name);
+```
+
+- A: `"Lydia"`
+- B: `"myName"`
+- C: `undefined`
+- D: `ReferenceError`
+
+<details><summary><b>答え</b></summary>
+<p>
+
+#### 答え: D
+
+右側のオブジェクトからプロパティ`name`をアンパックするとき、その値`"Lydia"`を`myName`という名前の変数に代入します。
+
+`{name：myName}`を使って、右側の `name`プロパティの値で`myName`という新しい変数を作りたいことをJavaScriptに伝えます。
+
+定義されていない変数`name`を出力しようとしているので、ReferenceErrorが投げられます。
+
+</p>
+</details>
+
+---
+
+###### 77. これは純粋関数でしょうか？
+
+```javascript
+function sum(a, b) {
+  return a + b;
+}
+```
+
+- A: Yes
+- B: No
+
+<details><summary><b>答え</b></summary>
+<p>
+
+#### 答え: A
+
+純粋な関数は、同じ引数が渡された場合、_常に_ 同じ結果を返す関数です。
+
+`sum`関数は常に同じ結果を返します。`1`と`2`を渡すと、副作用なしに _常に_ `3` を返します。`5`と`10`を渡すと、_常に_ `15`が返され、以下同様に続きます。これが純粋関数の定義です。
+
+</p>
+</details>
+
+---
+
+###### 78. 何が出力されるでしょうか？
+
+```javascript
+const add = () => {
+  const cache = {};
+  return num => {
+    if (num in cache) {
+      return `From cache! ${cache[num]}`;
+    } else {
+      const result = num + 10;
+      cache[num] = result;
+      return `Calculated! ${result}`;
+    }
+  };
+};
+
+const addFunction = add();
+console.log(addFunction(10));
+console.log(addFunction(10));
+console.log(addFunction(5 * 2));
+```
+
+- A: `Calculated! 20` `Calculated! 20` `Calculated! 20`
+- B: `Calculated! 20` `From cache! 20` `Calculated! 20`
+- C: `Calculated! 20` `From cache! 20` `From cache! 20`
+- D: `Calculated! 20` `From cache! 20` `Error`
+
+<details><summary><b>答え</b></summary>
+<p>
+
+#### 答え: C
+
+`add`関数は _memoized_ 関数です。メモ化により、実行速度を上げるために関数の結果をキャッシュすることができます。上記の場合、以前に返された値を格納する`cache`オブジェクトを作成します。
+
+同じ引数を指定してもう一度`addFunction`関数を呼び出すと、最初にキャッシュ内でその値がすでに取得されているかどうかを調べます。
+
+この場合、cachesの値が返され、実行時間が短縮されます。そうでなくキャッシュされていなければ、値を計算した後にそれを格納します。
+
+同じ値で3回`addFunction`関数を呼び出します: 最初の呼び出しでは、`num`に`10`を代入した時、関数の値はまだキャッシュされていません。 
+
+ifステートメントの`num in cache`の条件は`false`を返し、elseブロックが実行されます: `Calculated! 20`が出力され、結果の値がキャッシュオブジェクトに追加されます。 `cache`は現在 `{ 10: 20 }`となります。
+
+2回目は、`cache`オブジェクトは`10`に対して返される値を含みます。 ifステートメントの`num in cache`の条件は`true`となり、`'From cache! 20'`を返します。 よって`'From cache! 20'`が出力されます。
+
+3回目は、`10`に評価される関数に`5 * 2`を渡します。`cache`オブジェクトは`10`に対して返される値を含みます。ifステートメントの`num in cache`の条件は`true`となり、`'From cache! 20'`を返します。 よって`'From cache! 20'`が出力されます。
+
+</p>
+</details>
+
+---
+
+###### <a name=20190726></a>79. 何が出力されるでしょうか？
+
+```javascript
+const myLifeSummedUp = ["☕", "💻", "🍷", "🍫"]
+
+for (let item in myLifeSummedUp) {
+  console.log(item)
+}
+
+for (let item of myLifeSummedUp) {
+  console.log(item)
+}
+```
+
+- A: `0` `1` `2` `3` and `"☕"` ` "💻"` `"🍷"` `"🍫"`
+- B: `"☕"` ` "💻"` `"🍷"` `"🍫"` and `"☕"` ` "💻"` `"🍷"` `"🍫"`
+- C: `"☕"` ` "💻"` `"🍷"` `"🍫"` and `0` `1` `2` `3`
+- D:  `0` `1` `2` `3` and `{0: "☕", 1: "💻", 2: "🍷", 3: "🍫"}`
+
+<details><summary><b>答え</b></summary>
+<p>
+
+#### 答え: A
+
+_for-in_ ループを使うと、**列挙可能な**プロパティを繰り返し処理できます。配列では、列挙可能なプロパティは配列要素の「キー」です。これはそれらのインデックスとなり、配列は次のようになります:
+
+`{0: "☕", 1: "💻", 2: "🍷", 3: "🍫"}`
+
+キーが列挙可能なプロパティであるので、`0` `1` `2` `3`が出力されます。
+
+_for-of_ ループを使うと、**反復可能オブジェクト**を繰り返し処理できます。
+
+配列はイテラブルです。配列を反復処理するとき、変数 "item"は、現在反復処理している要素となるので、`"☕"` ` "💻"` `"🍷"` `"🍫"`が出力されます。
+
+</p>
+</details>
+
+---
+
+###### 80. 何が出力されるでしょうか？
+
+```javascript
+const list = [1 + 2, 1 * 2, 1 / 2]
+console.log(list)
+```
+
+- A: `["1 + 2", "1 * 2", "1 / 2"]`
+- B: `["12", 2, 0.5]`
+- C: `[3, 2, 0.5]`
+- D:  `[1, 1, 1]`
+
+<details><summary><b>答え</b></summary>
+<p>
+
+#### 答え: C
+
+配列要素は任意の値を保持できます。数値、文字列、オブジェクト、その他の配列、null、ブール値、undefined、および日付、関数、計算などのその他の式。
+
+要素は戻り値と等しくなります。`1 + 2`は`3`を返し、`1 * 2`は`2`を返し、`1 / 2`は`0.5`を返します。
+
+</p>
+</details>
+
+---
+
+###### 81. 何が出力されるでしょうか？
+
+```javascript
+function sayHi(name) {
+  return `Hi there, ${name}`
+}
+
+console.log(sayHi())
+```
+
+- A: `Hi there, `
+- B: `Hi there, undefined`
+- C: `Hi there, null`
+- D:  `ReferenceError`
+
+<details><summary><b>答え</b></summary>
+<p>
+
+#### 答え: B
+
+関数に値が渡されていない限り、引数はデフォルトで`undefined`の値を持ちます。上記の場合、`name`引数に値を渡さなかったので、`name`は`undefined`となり出力されます。
+
+ES6では、このデフォルトの`undefined`値を、デフォルトパラメータで上書きすることができます。例:
+
+`function sayHi(name = "Lydia") { ... }`
+
+上記の場合、値を渡さなかった場合や、`undefined`を渡した場合は、`name`は常に文字列`Lydia`となります。
+
+</p>
+</details>
+
+---
+
+###### 82. 何が出力されるでしょうか？
+
+```javascript
+var status = "😎"
+
+setTimeout(() => {
+  const status = "😍"
+
+  const data = {
+    status: "🥑",
+    getStatus() {
+      return this.status
+    }
+  }
+
+  console.log(data.getStatus())
+  console.log(data.getStatus.call(this))
+}, 0)
+```
+
+- A: `"🥑"` and `"😍"`
+- B: `"🥑"` and `"😎"`
+- C: `"😍"` and `"😎"`
+- D: `"😎"` and `"😎"`
+
+<details><summary><b>答え</b></summary>
+<p>
+
+#### 答え: B
+
+`this`キーワードの値は使う場所に依存します。 **メソッド**の中では、`getStatus`メソッドのように、`this`キーワードは _メソッドが属するオブジェクトを参照します_ 。
+
+メソッドは`data`オブジェクトに属しているので、`this`は `data`オブジェクトを参照します。 `this.status`をログ出力すると、`data`オブジェクトの`status`プロパティの`"🥑"`がログ出力されます。
+
+`call`メソッドを使うと、`this`キーワードが参照するオブジェクトを変更することができます。 **関数**では、`this`キーワードは _その関数が属するオブジェクトを参照します_ 。 
+
+_グローバルオブジェクトで_ `setTimeout`関数を宣言したので、`setTimeout`関数内では、 `this`キーワードは _グローバルオブジェクト_ を参照します。
+
+グローバルオブジェクト上には、値`"😎"`を持つ _status_ という変数があります。`this.status`を出力すると、`"😎"`が出力されます。
+
+</p>
+</details>
+
+---
+
+###### 83. 何が出力されるでしょうか？
+
+```javascript
+const person = {
+  name: "Lydia",
+  age: 21
+}
+
+let city = person.city
+city = "Amsterdam"
+
+console.log(person)
+```
+
+- A: `{ name: "Lydia", age: 21 }`
+- B: `{ name: "Lydia", age: 21, city: "Amsterdam" }`
+- C: `{ name: "Lydia", age: 21, city: undefined }`
+- D: `"Amsterdam"`
+
+<details><summary><b>答え</b></summary>
+<p>
+
+#### 答え: A
+
+変数`city`に、`person`オブジェクトの`city`という名前のプロパティの値を代入します。このオブジェクトには`city`という名前のプロパティはないので、変数`city`は`undefined`の値を持ちます。
+
+我々は`person`オブジェクト自身を参照して _いない_ ことに注意してください。`person`オブジェクトの`city`プロパティを、変数`city`に代入するだけです。
+
+それから、`city`に、文字列`"Amsterdam"`を代入しますこれは personオブジェクトを変更しません: そのオブジェクトへの参照はありません。
+
+`person`オブジェクトをログ出力するとき、未修正のオブジェクトが返されます。
+
+</p>
+</details>
+
+---
+
+###### 84. 何が出力されるでしょうか？
+
+```javascript
+function checkAge(age) {
+  if (age < 18) {
+    const message = "Sorry, you're too young."
+  } else {
+    const message = "Yay! You're old enough!"
+  }
+
+  return message
+}
+
+console.log(checkAge(21))
+```
+
+- A: `"Sorry, you're too young."`
+- B: `"Yay! You're old enough!"`
+- C: `ReferenceError`
+- D: `undefined`
+
+<details><summary><b>答え</b></summary>
+<p>
+
+#### 答え: C
+
+`const`と`let`キーワードを持つ変数は _ブロックスコープ_ です。ブロックは中括弧(`{ }`)で囲まれたものです。上記の場合、if/elseステートメントが中括弧となります。宣言されたブロックの外側で変数を参照することはできません。ReferenceError がスローされます。
+
+</p>
+</details>
+
+---
+
+###### 85. どのような情報が出力されますか？
+
+```javascript
+fetch('https://www.website.com/api/user/1')
+  .then(res => res.json())
+  .then(res => console.log(res))
+```
+
+- A: `fetch`メソッドの結果
+- B: 2回目の `fetch`メソッド呼び出しの結果
+- C: 前の`.then()`でのコールバックの結果
+- D: 常に undefined. 
+
+<details><summary><b>答え</b></summary>
+<p>
+
+#### 答え: C
+
+2番目の`.then`の`res`の値は、前の`.then`の戻り値と同じとなります。値が次のハンドラに渡されるように、`.then`を連鎖させることができます。
+
+</p>
+</details>
+
+---
+
+###### 86. 引数としてtrueを渡すことができない場合、どのオプションが`hasName`を`true`に設定するための方法ですか？
+
+```javascript
+function getName(name) {
+  const hasName = //
+}
+```
+
+- A: `!!name`
+- B: `name`
+- C: `new Boolean(name)`
+- D: `name.length`
+
+<details><summary><b>答え</b></summary>
+<p>
+
+#### 答え: A
+
+`!!name`を使って、`name`の値が、truthyか falseyかを判断します。nameがtruthyであり、これをテストしたい場合、`!name`は`false`を返します。`!false`（これは実際には`!!name`です）は`true`を返します。
+
+`hasName`に`name`を代入することで、`getName`関数に渡されたどんな値も`hasName`に代入されます。ブール値`true`は設定できません。
+
+`new Boolean(true)`は、ブール値そのものではなく、オブジェクトラッパーを返します。
+
+`name.length`は渡された引数の長さを返します。それが`true`であるかどうかではありません。
 
 </p>
 </details>
