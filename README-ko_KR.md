@@ -9,13 +9,13 @@ JavaScript 에 관한 객관식 문제를 [Instagram](https://www.instagram.com/
 * [English](./README.md)
 * [العربية](./README_AR.md)
 * [اللغة العامية - Egyptian Arabic](./README_ar-EG.md)
-* [Bosanski](./README-bs_BS.md)  
-* [Deutsch](./README-de_DE.md)  
+* [Bosanski](./README-bs_BS.md)
+* [Deutsch](./README-de_DE.md)
 * [Español](./README-ES.md)
-* [日本語](./README-ja_JA.md)   
-* [Português Brasil](./README_pt_BR.md)  
-* [Русский](./README_ru-RU.md)  
-* [Українська мова](./README-ua_UA.md)  
+* [日本語](./README-ja_JA.md)
+* [Português Brasil](./README_pt_BR.md)
+* [Русский](./README_ru-RU.md)
+* [Українська мова](./README-ua_UA.md)
 * [Tiếng Việt](./README-vi.md)
 * [中文版本](./README-zh_CN.md)
 * [Türkçe](./README-tr_TR.md)
@@ -2029,7 +2029,7 @@ ES6에서는, 기본값으로 파라미터를 초기화할 수 있어요. 함수
 
 </p>
 </details>
-  
+
 ---
 
 ###### 66. `Dog` 클래스를 성공적으로 확장할 수 있는 생성자는 어느 것일까요?
@@ -2042,7 +2042,7 @@ class Dog {
 };
 
 class Labrador extends Dog {
-  // 1 
+  // 1
   constructor(name, size) {
     this.size = size;
   }
@@ -2056,7 +2056,7 @@ class Labrador extends Dog {
     super(name);
     this.size = size;
   }
-  // 4 
+  // 4
   constructor(name, size) {
     this.name = name;
     this.size = size;
@@ -2077,7 +2077,7 @@ class Labrador extends Dog {
 
 이 파생 클래스에서, `super`를 부르기 전에는 `this` 키워드에 접근할 수 없어요. 그렇게 하려고 한다면, 참조에러를 던질 거에요: 1과 4는 참조 에러를 던져요
 
-`super` 키워드를 가지고, 부모 클래스 생성자에 주어진 인수들을 부를 수 있어요. 부모 생성자는 `name` 인수를 받아요, 그래서 `name`을 `super`로 전달해야 해요. 
+`super` 키워드를 가지고, 부모 클래스 생성자에 주어진 인수들을 부를 수 있어요. 부모 생성자는 `name` 인수를 받아요, 그래서 `name`을 `super`로 전달해야 해요.
 
 `Labrador` 클래스는 인수를 2개 받는데, `Dog`로 부터 확장된 `name`과 `Labrador` 클래스의 추가 속성인 `size`예요. 그 두 개는 `Labrador` 생성자 함수에 전달되어야 하는데, 올바르게 사용된 건 2번째 생성자예요.
 
@@ -2154,7 +2154,7 @@ console.log(name.padStart(2))
 - A: `"Lydia Hallie"`, `"Lydia Hallie"`
 - B: `"           Lydia Hallie"`, `"  Lydia Hallie"` (`"[13x whitespace]Lydia Hallie"`, `"[2x whitespace]Lydia Hallie"`)
 - C: `" Lydia Hallie"`, `"Lydia Hallie"` (`"[1x whitespace]Lydia Hallie"`, `"Lydia Hallie"`)
-- D: `"Lydia Hallie"`, `"Lyd"`, 
+- D: `"Lydia Hallie"`, `"Lyd"`,
 
 <details><summary><b>정답</b></summary>
 <p>

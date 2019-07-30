@@ -2617,13 +2617,13 @@ console.log(person)
 <p>
 
 #### Cevap: A
- 
+
 `city` değişkenini, `person` nesnesindeki `city` özelliğinin değerine eşitledik. `person` nesnesinde `city` diye isimlendirilmiş bir özellik yok, bu yüzden `city` değişkeni `undefined` değerine sahip olur.
 
 `person` nesnesinin kendisini referans _göstermediğimize_ dikkat edin! Sadece `city` değişkenini, `person` nesnesindeki `city` özelliğinin o andaki değerine eşitledik.
 
 Sonra, `city`'i `"Amsterdam"` string'ine eşitledik. Bu `person` nesnesini değiştirmez: bu nesneye referans yok.
-  
+
 `person` nesnesini logladığımız zaman, değişikliğe uğramamış nesne döndürülür.
 
 </p>
@@ -2675,7 +2675,7 @@ fetch('https://www.website.com/api/user/1')
 - A: `fetch` methodunun sonucu.
 - B: `fetch` methodunun ikinci kez çağrılmasından dönen sonuç.
 - C: Bir önceki `.then()`'in sonucu.
-- D: Her zaman `undefined` olacaktır. 
+- D: Her zaman `undefined` olacaktır.
 
 <details><summary><b>Cevap</b></summary>
 <p>

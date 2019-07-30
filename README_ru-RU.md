@@ -2685,7 +2685,7 @@ fetch('https://www.website.com/api/user/1')
 - A: The result of the `fetch` method.
 - B: The result of the second invocation of the `fetch` method.
 - C: The result of the callback in the previous `.then()`.
-- D: It would always be undefined. 
+- D: It would always be undefined.
 
 <details><summary><b>Ответ</b></summary>
 <p>
