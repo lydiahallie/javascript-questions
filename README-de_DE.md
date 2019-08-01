@@ -2170,3 +2170,197 @@ Falls der Wert, der an `padStart` übergeben wurde kleiner ist, als die Länge d
 
 </p>
 </details>
+
+---
+
+###### 70. Was ist der Output?
+
+```javascript
+console.log("🥑" + "💻");
+```
+
+- A: `"🥑💻"`
+- B: `257548`
+- C: Ein String, der den Emoji Code beinhaltet
+- D: Error
+
+<details><summary><b>Antwort</b></summary>
+<p>
+
+#### Antwort: A
+
+Mit dem `+` Operator können Strings zusammengesetzt werden. In diesem Fall werden die Strings `"🥑"` und `"💻"` zusammengesetzt, was `"🥑💻"` ergibt.
+
+</p>
+</details>
+
+---
+
+###### 71. Wie können wir die Werte loggen, die nach dem `console.log` auskommentiert wurden?
+
+```javascript
+function* startGame() {
+  const Answer = yield "Do you love JavaScript?";
+  if (Answer !== "Yes") {
+    return "Oh wow... Guess we're gone here";
+  }
+  return "JavaScript loves you back ❤️";
+}
+
+const game = startGame();
+console.log(/* 1 */); // Do you love JavaScript?
+console.log(/* 2 */); // JavaScript loves you back ❤️
+```
+
+- A: `game.next("Yes").value` und `game.next().value`
+- B: `game.next.value("Yes")` und `game.next.value()`
+- C: `game.next().value` und `game.next("Yes").value`
+- D: `game.next.value()` und `game.next.value("Yes")`
+
+<details><summary><b>Antwort</b></summary>
+<p>
+
+#### Antwort: C
+
+Eine Generator Funktion pausiert die Ausführung, wenn das `yield` Keyword vorliegt. Zuerst müssen wir den String "Do you love JavaScript?" abwarten, was mit `game.next().value` möglich ist.
+
+Jede Zeile wird ausgeführt, bis das erste `yield` Keyword auftritt. Da auf der ersten Zeile ein `yield` in der Funktion vorliegt wird die Ausführung damit angehalten. Das bedeutet, dass die Variable `Answer` _noch nicht definiert_ wurde.
+
+Wenn wir `game.next("Yes").value` aufrufen wird das vorhergehende `yield` durch den Wert des Parameters ersetzt, der an `next()` übergeben wird - `"Yes"` in diesem Fall. Der Wert der Variable `Answer` ist jetzt gleich `"Yes"`. Das if-Statement gibt `false` aus und `JavaScript loves you back ❤️` wird geloggt.
+
+</p>
+</details>
+
+---
+
+###### 72. Was ist der Output?
+
+```javascript
+console.log(String.raw`Hello\nworld`);
+```
+
+- A: `Hello world!`
+- B: `Hello` <br />&nbsp; &nbsp; &nbsp;`world`
+- C: `Hello\nworld`
+- D: `Hello\n` <br /> &nbsp; &nbsp; &nbsp;`world`
+
+<details><summary><b>Antwort</b></summary>
+<p>
+
+#### Antwort: C
+
+`String.raw` gibt einen String aus, in dem die Escapes (`\n`, `\v`, `\t` etc.) ignoriert werden! Backslashes sind problematisch, weil man mit sowas in der Art rechnen muss:
+
+`` const path = `C:\Documents\Projects\table.html` ``
+
+Das würde dann wiefolgt gerendert werden:
+
+`"C:DocumentsProjects able.html"`
+
+Mit `String.raw` werden diese ignoriert und das Ergebnis ist:
+
+`C:\Documents\Projects\table.html`
+
+In unserem Fall ist das Ergebnis `Hello\nworld`, was geloggt wird.
+
+</p>
+</details>
+
+---
+
+###### 73. Was ist der Output?
+
+```javascript
+async function getData() {
+  return await Promise.resolve("I made it!");
+}
+
+const data = getData();
+console.log(data);
+```
+
+- A: `"I made it!"`
+- B: `Promise {<resolved>: "I made it!"}`
+- C: `Promise {<pending>}`
+- D: `undefined`
+
+<details><summary><b>Antwort</b></summary>
+<p>
+
+#### Antwort: C
+
+Eine `async` Funktion gibt immer ein Promise zurück. Mit `await` wird das Ergebnis des Promises abgewartet und ein ausstehendes Promise wird ausgegeben, wenn wir `getData()` aufrufen um `data` gleich zu setzen.
+
+Wenn wir auf den finalen Wert `"I made it"` zugreifen wollen, nutzen wir die `.then()` Methode an `data`:
+
+`data.then(res => console.log(res))`
+
+Das hätte `"I made it!"` ausgegeben.
+
+</p>
+</details>
+
+---
+
+###### 74. Was ist der Output?
+
+```javascript
+function addToList(item, list) {
+  return list.push(item);
+}
+
+const result = addToList("apple", ["banana"]);
+console.log(result);
+```
+
+- A: `['apple', 'banana']`
+- B: `2`
+- C: `true`
+- D: `undefined`
+
+<details><summary><b>Antwort</b></summary>
+<p>
+
+#### Antwort: B
+
+Die `.push()` Methode gibt die _Länge_ des Arrays aus! Das Array beinhaltete zuerst ein einziges Element (`"banana"`) und hatte eine Länge von `1`. Nachdem wir `"apple"` hinzugefügt haben beinhaltet das Array zwei Elemente und hat eine Länge von `2`. Das wird letztlich von der `addToList` Funktion ausgegeben.
+
+Die `push` Methode verändert das ursprüngliche Array. Wenn wir das _Array_ der Funktion anstelle der _Länge des Arrays_ ausgeben möchten, hätten wir `list` ausgeben müssen.
+
+</p>
+</details>
+
+---
+
+###### 75. Was ist der Output?
+
+```javascript
+const box = { x: 10, y: 20 };
+
+Object.freeze(box);
+
+const shape = box;
+shape.x = 100;
+
+console.log(shape);
+```
+
+- A: `{ x: 100, y: 20 }`
+- B: `{ x: 10, y: 20 }`
+- C: `{ x: 100 }`
+- D: `ReferenceError`
+
+<details><summary><b>Antwort</b></summary>
+<p>
+
+#### Antwort: B
+
+`Object.freeze` macht es unmöglich das Objekt zu verändern (hinzufügen, entfernen, verändern), es sei denn der Wert ist ein weiteres Objekt.
+
+Wenn wir die Variable `shape` erstellen und gleich dem eingefrorenen Objekt `box` setzen, ist `shape` ebenso eingefroren. Man kann mit `Object.isFrozen` prüfen, ob ein Objekt eingefroren ist.
+In unserem Fall gibt `Object.isFrozen(shape)` `true` zurück, da die Variable `shape` eine Referenz zu einem eingefrorenen Objekt ist.
+
+Da `shape` eingefroren ist und der Wert von `x` kein Objekt ist, können wir den Wert von `x` nicht verändern. `x` ist immernoch gleich `10` und `{ x: 10, y: 20 }` wird geloggt.
+
+</p>
+</details>
