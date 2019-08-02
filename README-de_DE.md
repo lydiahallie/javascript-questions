@@ -13,6 +13,7 @@ Die Antworten sind unterhalb der Fragen versteckt. Du kannst einfach darauf klic
 * [Bosanski](./README-bs_BS.md)  
 * [Deutsch](./README-de_DE.md)  
 * [Español](./README-ES.md)
+* [Français](./README_fr-FR.md)
 * [日本語](./README-ja_JA.md)  
 * [한국어](./README-ko_KR.md) 
 * [Português Brasil](./README_pt_BR.md)  
@@ -2362,5 +2363,367 @@ In unserem Fall gibt `Object.isFrozen(shape)` `true` zurück, da die Variable `s
 
 Da `shape` eingefroren ist und der Wert von `x` kein Objekt ist, können wir den Wert von `x` nicht verändern. `x` ist immernoch gleich `10` und `{ x: 10, y: 20 }` wird geloggt.
 
+</p>
+</details>
+
+---
+
+###### 76. Was ist der Output?
+
+```javascript
+const { name: myName } = { name: "Lydia" };
+
+console.log(name);
+```
+
+- A: `"Lydia"`
+- B: `"myName"`
+- C: `undefined`
+- D: `ReferenceError`
+
+<details><summary><b>Antwort</b></summary>
+<p>
+
+#### Antwort: D
+
+Wenn wir die Property `name` aus dem Objekt auf der rechten Seite destructuren, weisen wir den Wert einer neuen Variable `myName` zu.
+
+Mit `{ name: myName }` sagen wir JavaScript, dass wir eine neue Variable mit dem Namen `myName` erstellen möchten und den Wert von `name` zuweisen.
+
+Da `name` nicht definiert ist, wird ein ReferenceError ausgeworfen.
+
+</p>
+</details>
+
+---
+
+###### 77. Is this a pure function?
+
+```javascript
+function sum(a, b) {
+  return a + b;
+}
+```
+
+- A: Ja
+- B: Nein
+
+<details><summary><b>Antwort</b></summary>
+<p>
+
+#### Antwort: A
+
+Eine pure Funktion ist eine Funktion, die _immer_ das gleiche Ergebnis zurück gibt, wenn die gleichen Argumente eingegeben werden.
+
+Die `sum` Funktion gibt daher immer das gleiche Ergebnis aus. Wenn wir `1` und `2` eingeben wird _immer_ `3` ausgegeben. Wenn wir `5` und `10` eingeben wird _immer_ `15` ausgegeben usw. Das ist die Definition einer puren Funktion.
+
+</p>
+</details>
+
+---
+
+###### 78. Was ist der Output?
+
+```javascript
+const add = () => {
+  const cache = {};
+  return num => {
+    if (num in cache) {
+      return `From cache! ${cache[num]}`;
+    } else {
+      const result = num + 10;
+      cache[num] = result;
+      return `Calculated! ${result}`;
+    }
+  };
+};
+
+const addFunction = add();
+console.log(addFunction(10));
+console.log(addFunction(10));
+console.log(addFunction(5 * 2));
+```
+
+- A: `Calculated! 20` `Calculated! 20` `Calculated! 20`
+- B: `Calculated! 20` `From cache! 20` `Calculated! 20`
+- C: `Calculated! 20` `From cache! 20` `From cache! 20`
+- D: `Calculated! 20` `From cache! 20` `Error`
+
+<details><summary><b>Antwort</b></summary>
+<p>
+
+#### Antwort: C
+
+Die `add` Funktion ist _memoized_. Mit Memoization können wir Ergebnisse einer Funktion cachen, um die Performance zu beschleunigen. In diesem Fall erstellen wir ein `cache` Objekt, welches die zuvor ausgegebenen Werte speichert.
+
+Wenn wir die `addFunction` Funktion erneut mit den gleichen Argumenten aufrufen wird zuerst geprüft, ob der Wert bereits im Cache vorhanden sind. Ist das der Fall, so wird der Cache diesen Wert ausgeben und damit Ausführzeit sparen. Wenn der Wert nicht gecached ist wird der neue Wert berechnet und danach im Cache gespeichert.
+
+Wir rufen die `addFunction` Funktion drei mal mit dem gleichen Wert auf: bei der ersten Ausführung. ist der Wert der Funktion `10` nicht im Cache. Die Kondition des if-Statements `num in cache` gibt `false` aus und der else Block wird ausgeführt: `Calculated! 20` wird geloggt und der Wert des Ergebnisses wird dem Cache Objekt hinzugefügt. `cache` sieht jetzt wiefolgt aus: `{ 10: 20 }`.
+
+Bei der zweiten Ausführung beinhaltet das `cache` Objekt den Wert `10`. Die Kondition des if-Statements `num in cache` gibt `true` aus und `'From cache! 20'` wird geloggt.
+
+Beim dritten Mal geben wir `5 * 2` als Argument in die Funktion ein, was `10` ergibt. Das `cache` Objekt beinhaltet den Wert `10` und das if-Statement `num in cache` gibt wieder `true` aus und `'From cache! 20'` wird geloggt.
+
+</p>
+</details>
+
+---
+
+###### <a name=20190726></a>79. Was ist der Output?
+
+```javascript
+const myLifeSummedUp = ["☕", "💻", "🍷", "🍫"]
+
+for (let item in myLifeSummedUp) {
+  console.log(item)
+}
+
+for (let item of myLifeSummedUp) {
+  console.log(item)
+}
+```
+
+- A: `0` `1` `2` `3` und `"☕"` ` "💻"` `"🍷"` `"🍫"`
+- B: `"☕"` ` "💻"` `"🍷"` `"🍫"` und `"☕"` ` "💻"` `"🍷"` `"🍫"`
+- C: `"☕"` ` "💻"` `"🍷"` `"🍫"` und `0` `1` `2` `3`
+- D:  `0` `1` `2` `3` und `{0: "☕", 1: "💻", 2: "🍷", 3: "🍫"}`
+
+<details><summary><b>Antwort</b></summary>
+<p>
+
+#### Antwort: A
+
+Mit einer _for-in_ Schleife können wir über **zählbare** Properties iterieren. In einem Array sind die zählbaren Properties die "Keys" des Array Elements, sprich deren Indexe. Ein Array könnte man also wiefolgt sehen:
+
+`{0: "☕", 1: "💻", 2: "🍷", 3: "🍫"}`
+
+Daher werden die zählbaren Properties `0` `1` `2` `3` geloggt.
+
+Mit einer _for-of_ Schleife können wir über **wiederholbare** Elemente iterieren. Ein Array ist wiederholbar. Wenn wir also über das Array iterieren, ist die Variable "item" gleich dem Element, welches momentan iteriert wird: `"☕"` ` "💻"` `"🍷"` `"🍫"` wird geloggt.
+
+</p>
+</details>
+
+---
+
+###### 80. Was ist der Output?
+
+```javascript
+const list = [1 + 2, 1 * 2, 1 / 2]
+console.log(list)
+```
+
+- A: `["1 + 2", "1 * 2", "1 / 2"]`
+- B: `["12", 2, 0.5]`
+- C: `[3, 2, 0.5]`
+- D:  `[1, 1, 1]`
+
+<details><summary><b>Antwort</b></summary>
+<p>
+
+#### Antwort: C
+
+Array Elemente können jeden Wert halten: Nummern, Strings, Objekte, andere Arrays, null, Booleans, undefined und andere Expressions wie Funktionen, Berechnungen oder ein Datum.
+
+Das Element ist gleich dem ausgegebenen Wert. `1 + 2` ergibt `3`, `1 * 2` ergibt `2`, und `1 / 2` ergibt `0.5`.
+
+</p>
+</details>
+
+---
+
+###### 81. Was ist der Output?
+
+```javascript
+function sayHi(name) {
+  return `Hi there, ${name}`
+}
+
+console.log(sayHi())
+```
+
+- A: `Hi there, `
+- B: `Hi there, undefined`
+- C: `Hi there, null`
+- D:  `ReferenceError`
+
+<details><summary><b>Antwort</b></summary>
+<p>
+
+#### Antwort: B
+
+Standardmäßig haben Argumente den Wert `undefined`, es sei denn der Funktion wurde ein Wert zugewiesen. In diesem Fall haben wir dem `name` Argument keinen Wert zugewiesen, weshalb `name` `undefined` ist.
+
+In ES6 können wir diesen Standardwert `undefined` mit Standard Parametern überschreiben, zum Beispiel:
+
+`function sayHi(name = "Lydia") { ... }`
+
+In diesem Fall, falls wir kein Argument oder `undefined` eingeben ist `name` immer `Lydia`.
+
+</p>
+</details>
+
+---
+
+###### 82. Was ist der Output?
+
+```javascript
+var status = "😎"
+
+setTimeout(() => {
+  const status = "😍"
+
+  const data = {
+    status: "🥑",
+    getStatus() {
+      return this.status
+    }
+  }
+
+  console.log(data.getStatus())
+  console.log(data.getStatus.call(this))
+}, 0)
+```
+
+- A: `"🥑"` und `"😍"`
+- B: `"🥑"` und `"😎"`
+- C: `"😍"` und `"😎"`
+- D: `"😎"` und `"😎"`
+
+<details><summary><b>Antwort</b></summary>
+<p>
+
+#### Antwort: B
+
+Der Wert des `this` Keywords hängt davon ab, wo es verwendet wird. In einer **Methode**, wie `getStatus` bezieht sich das `this` Keyword auf das _Objekt, zu dem die Methode gehört_. Die Methode gehört zum `data` Objekt, sodass `this` sich auf das `data` Objekt bezieht. Wenn wir `this.status` loggen wird die `status` Property des `data` Objekts geloggt, was `"🥑"` ist.
+
+Mit der `call` Methode können wir das Objekt, auf welches sich das `this` Keyword bezieht ändern. In **Funktionen** bezieht sich `this` auf das _Objekt, zu dem die Funktion gehört_. Wir erklären die `setTimeout` Funktion im _globalen Objekt_, sodass sich `this` in `setTimeout` auf das _globale Objekt_ bezieht. Im globalen Objekt gibt es _status_ mit dem Wert `"😎"`, was geloggt wird.
+
+
+</p>
+</details>
+
+---
+
+###### 83. Was ist der Output?
+
+```javascript
+const person = {
+  name: "Lydia",
+  age: 21
+}
+
+let city = person.city
+city = "Amsterdam"
+
+console.log(person)
+```
+
+- A: `{ name: "Lydia", age: 21 }`
+- B: `{ name: "Lydia", age: 21, city: "Amsterdam" }`
+- C: `{ name: "Lydia", age: 21, city: undefined }`
+- D: `"Amsterdam"`
+
+<details><summary><b>Antwort</b></summary>
+<p>
+
+#### Antwort: A
+
+Wir setzen die Variable `city` gleich dem Wert der Property `city` am `person` Objekt. Da am `person` Objekt keine Property namens `city` existiert wird der Wert gleich `undefined` gesetzt.
+
+Da wir _nicht_ das `person` Objekt selbst referenzieren, sondern einfach die Variable `city` gleich dem aktuellen Wert von `city` am `person` Objekt setzen bleibt dieses `undefined`.
+
+Dann setzen wir `city` gleich dem String `"Amsterdam"`. Das verändert aber nicht das `person` Objekt, da es keine Referenz dazu am Objekt gibt.
+
+Wenn wir `person` loggen bekommen wir daher das unveränderte Objekt angezeigt.
+
+</p>
+</details>
+
+---
+
+###### 84. Was ist der Output?
+
+```javascript
+function checkAge(age) {
+  if (age < 18) {
+    const message = "Sorry, you're too young."
+  } else {
+    const message = "Yay! You're old enough!"
+  }
+
+  return message
+}
+
+console.log(checkAge(21))
+```
+
+- A: `"Sorry, you're too young."`
+- B: `"Yay! You're old enough!"`
+- C: `ReferenceError`
+- D: `undefined`
+
+<details><summary><b>Antwort</b></summary>
+<p>
+
+#### Antwort: C
+
+Variablen mit dem `const` und `let` Keyword sind _block-scoped_. Ein Block ist alles zwischen geschweiften Klammern (`{ }`), in diesem Fall die geschweiften Klammern des if/else Statements. Es ist nicht möglich eine solche Variable außerhalb des Blocks in dem sie erklärt wurde aufzurufen, daher wird ein ReferenceError ausgegeben.
+
+</p>
+</details>
+
+---
+
+###### 85. Welche Information wird geloggt?
+
+```javascript
+fetch('https://www.website.com/api/user/1')
+  .then(res => res.json())
+  .then(res => console.log(res))
+```
+
+- A: Das Ergebnis der `fetch` Methode.
+- B: Das Ergebnis des zweiten Aufrufs der `fetch` Methode.
+- C: Das Ergebnis des Callbacks im vorhergehenden `.then()`.
+- D: Immer `undefined`. 
+
+<details><summary><b>Antwort</b></summary>
+<p>
+
+#### Antwort: C
+
+Der Wert von `res` im zweiten `.then` ist gleich dem ausgegebenen Wert des vorhergehenden `.then`. Man kann soviele `.then`s aneinander reihen, wie man möchte und der Wert wird immer an den nächsten Handler übergeben.
+
+</p>
+</details>
+
+---
+
+###### 86. Wie können wir `hasName` gleich `true` setzen, vorausgesetzt wir können `true` nicht als Argument übergeben?
+
+```javascript
+function getName(name) {
+  const hasName = //
+}
+```
+
+- A: `!!name`
+- B: `name`
+- C: `new Boolean(name)`
+- D: `name.length`
+
+<details><summary><b>Antwort</b></summary>
+<p>
+
+#### Antwort: A
+
+Mit `!!name` können wir feststellen, ob `name` truthy oder falsey ist. Ist `name` truthy, so würde `!name` `false` ausgeben. `!false` (das Gleiche wie `!!name`) ergibt `true`.
+
+Wenn wir `hasName` gleich `name` setzen, so beinhaltet `hasName` den Wert von `name`, nicht den Boolean Wert `true`.
+
+`new Boolean(true)` gibt einen Objekt Wrapper aus, nicht ein Boolean ansich.
+
+`name.length` gibt die Länge des Arguments aus, nicht den Boolean Wert.
 </p>
 </details>
