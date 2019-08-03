@@ -1327,7 +1327,7 @@ console.log(gen.next().value);
 - A: `[0, 10], [10, 20]`
 - B: `20, 20`
 - C: `10, 20`
-- D: `0, 10 and 10, 20`
+- D: `0, 10` 그리고 `10, 20`
 
 <details><summary><b>정답</b></summary>
 <p>
@@ -1503,7 +1503,7 @@ const num = parseInt("7*6", 10);
 [1, 2, 3].map(num => {
   if (typeof num === "number") return;
   return num * 2;
-});
+  });
 ```
 
 - A: `[]`
@@ -2011,10 +2011,10 @@ ES6에서는, 기본값으로 파라미터를 초기화할 수 있어요. 함수
 [1, 2, 3, 4].reduce((x, y) => console.log(x, y));
 ```
 
-- A: `1` `2` and `3` `3` and `6` `4`
-- B: `1` `2` and `2` `3` and `3` `4`
-- C: `1` `undefined` and `2` `undefined` and `3` `undefined` and `4` `undefined`
-- D: `1` `2` and `undefined` `3` and `undefined` `4`
+- A: `1` `2` 그리고 `3` `3` 그리고 `6` `4`
+- B: `1` `2` 그리고 `2` `3` 그리고 `3` `4`
+- C: `1` `undefined` 그리고 `2` `undefined` 그리고 `3` `undefined` 그리고 `4` `undefined`
+- D: `1` `2` 그리고 `undefined` `3` 그리고 `undefined` `4`
 
 <details><summary><b>정답</b></summary>
 <p>
@@ -2470,48 +2470,48 @@ console.log(addFunction(5 * 2));
 
 ---
 
-###### <a name=20190726></a>79. What is the output?
+###### <a name=20190726></a>79. 무엇이 출력 될까요?
 
 ```javascript
 const myLifeSummedUp = ["☕", "💻", "🍷", "🍫"]
 
 for (let item in myLifeSummedUp) {
-  console.log(item)
+  console.log(item);
 }
 
 for (let item of myLifeSummedUp) {
-  console.log(item)
+  console.log(item);
 }
 ```
 
-- A: `0` `1` `2` `3` and `"☕"` ` "💻"` `"🍷"` `"🍫"`
-- B: `"☕"` ` "💻"` `"🍷"` `"🍫"` and `"☕"` ` "💻"` `"🍷"` `"🍫"`
-- C: `"☕"` ` "💻"` `"🍷"` `"🍫"` and `0` `1` `2` `3`
-- D:  `0` `1` `2` `3` and `{0: "☕", 1: "💻", 2: "🍷", 3: "🍫"}`
+- A: `0` `1` `2` `3` 그리고 `"☕"` ` "💻"` `"🍷"` `"🍫"`
+- B: `"☕"` ` "💻"` `"🍷"` `"🍫"` 그리고 `"☕"` ` "💻"` `"🍷"` `"🍫"`
+- C: `"☕"` ` "💻"` `"🍷"` `"🍫"` 그리고 `0` `1` `2` `3`
+- D:  `0` `1` `2` `3` 그리고 `{0: "☕", 1: "💻", 2: "🍷", 3: "🍫"}`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>정답</b></summary>
 <p>
 
 #### Answer: A
 
-With a _for-in_ loop, we can iterate over **enumerable** properties. In an array, the enumerable properties are the "keys" of array elements, which are actually their indexes. You could see an array as:
+_for-in_ 루프에서는, **열거 가능한** 속성들에 대해 반복 할 수 있어요. 배열에서, 열거 가능한 속성들은 배열 요소들의 "키"이고, 실제로는 그들의 인덱스죠. 배열을 다음과 같이 볼 수 있어요:
 
 `{0: "☕", 1: "💻", 2: "🍷", 3: "🍫"}`
 
-Where the keys are the enumerable properties. `0` `1` `2` `3` get logged.
+여기서 키는 열거 가능한 속성이에요. `0` `1` `2` `3`이 출력되죠.
 
-With a _for-of_ loop, we can iterate over **iterables**. An array is an iterable. When we iterate over the array, the variable "item" is equal to the element it's currently iterating over, `"☕"` ` "💻"` `"🍷"` `"🍫"` get logged.
+_for-of_ 루프에서는, **반복 가능한** 속성을 가진 요소에 대해 반복 할 수 있어요. 배열은 반복 가능해요. 배열을 반복할 때, "item" 변수는 현재 반복중인 요소로, `"☕"` ` "💻"` `"🍷"` `"🍫"`이 출력돼요.
 
 </p>
 </details>
 
 ---
 
-###### 80. What is the output?
+###### 80. 무엇이 출력 될까요?
 
 ```javascript
 const list = [1 + 2, 1 * 2, 1 / 2]
-console.log(list)
+console.log(list);
 ```
 
 - A: `["1 + 2", "1 * 2", "1 / 2"]`
@@ -2519,28 +2519,28 @@ console.log(list)
 - C: `[3, 2, 0.5]`
 - D:  `[1, 1, 1]`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>정답</b></summary>
 <p>
 
 #### Answer: C
 
-Array elements can hold any value. Numbers, strings, objects, other arrays, null, boolean values, undefined, and other expressions such as dates, functions, and calculations.
+배열 요소들은 모든 값을 포함 할 수 있어요. Numbers, strings, objects, 다른 arrays, null, boolean 값, undefined, 그리고 자료형, 함수, 연산자와 같은 표현식들
 
-The element will be equal to the returned value.  `1 + 2` returns `3`, `1 * 2` returns `2`, and `1 / 2` returns `0.5`.
+요소는 리턴된 값과 같아질 거예요. `1 + 2`는 `3`을 리턴하고, `1 * 2`는 `2`를 리턴하고, `1 / 2` 는 `0.5`을 리턴해요.
 
 </p>
 </details>
 
 ---
 
-###### 81. What is the output?
+###### 81. 무엇이 출력 될까요?
 
 ```javascript
 function sayHi(name) {
   return `Hi there, ${name}`
 }
 
-console.log(sayHi())
+console.log(sayHi());
 ```
 
 - A: `Hi there, `
@@ -2548,76 +2548,75 @@ console.log(sayHi())
 - C: `Hi there, null`
 - D:  `ReferenceError`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>정답</b></summary>
 <p>
 
 #### Answer: B
 
-By default, arguments have the value of `undefined`, unless a value has been passed to the function. In this case, we didn't pass a value for the `name` argument. `name` is equal to `undefined` which gets logged.
+기본값으로, 함수에 값이 전달되지 않으면, 인수는 `undefined` 값을 가져요. 이 경우, `name` 인수를 위한 값을 전달하지 않았어요. `name`은 `undefined`로 출력돼요.
 
-In ES6, we can overwrite this default `undefined` value with default parameters. For example:
+ES6에서, 기본값 `undefined` 값을 기본값 파라미터로 덮어쓸 수 있어요. 예를 들면:
 
 `function sayHi(name = "Lydia") { ... }`
 
-In this case, if we didn't pass a value or if we passed `undefined`, `name` would always be equal to the string `Lydia`
+이 경우, 값을 전달하지 않거나 `undefined`를 전달하면, `name`은 항상 문자열 `Lydia`가 될 거예요.
 
 </p>
 </details>
 
 ---
 
-###### 82. What is the output?
+###### 82. 무엇이 출력 될까요?
 
 ```javascript
-var status = "😎"
+var status = "😎";
 
 setTimeout(() => {
-  const status = "😍"
+  const status = "😍";
 
   const data = {
     status: "🥑",
     getStatus() {
-      return this.status
+      return this.status;
     }
-  }
+  };
 
-  console.log(data.getStatus())
-  console.log(data.getStatus.call(this))
-}, 0)
+  console.log(data.getStatus());
+  console.log(data.getStatus.call(this));
+}, 0);
 ```
 
-- A: `"🥑"` and `"😍"`
-- B: `"🥑"` and `"😎"`
-- C: `"😍"` and `"😎"`
-- D: `"😎"` and `"😎"`
+- A: `"🥑"` 그리고 `"😍"`
+- B: `"🥑"` 그리고 `"😎"`
+- C: `"😍"` 그리고 `"😎"`
+- D: `"😎"` 그리고 `"😎"`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>정답</b></summary>
 <p>
 
 #### Answer: B
 
-The value of the `this` keyword is dependent on where you use it. In a **method**, like the `getStatus` method, the `this` keyword refers to _the object that the method belongs to_. The method belongs to the `data` object, so `this` refers to the `data` object. When we log `this.status`, the `status` property on the `data` object gets logged, which is `"🥑"`.
+`this`키워드의 값은 사용하는 곳에 따라 달라요. **메소드**에서 `getStatus`메소드 처럼, `this`키워드는 _메소드가 속한 객체_ 를 참조해요. 이 메소드는 `data` 객체에 속해 있어, `this`는 `data`객체를 참조해요. `this.status`를 출력할 때, `data`객체의 `status` 속성 `"🥑"`이 출력돼요.
 
-With the `call` method, we can change the object to which the `this` keyword refers. In **functions**, the `this` keyword refers to the _the object that the function belongs to_. We declared the `setTimeout` function on the _global object_, so within the `setTimeout` function, the `this` keyword refers to the _global object_. On the global object, there is a variable called _status_ with the value of `"😎"`. When logging `this.status`, `"😎"` gets logged.
-
+`call` 메소드에서는, `this` 키워드가 참조하는 객체를 바꿀 수 있어요. **함수**에서, `this` 키워드는 _함수가 속한 객체_ 를 참조해요. `setTimeout` 함수를 _전역 객체_ 에 선언했고, `setTimeout` 함수 안에서, `this`키워드는 _전역 객체_ 를 참조해요. 전역 객체에서, 변수는 `"😎"`값을 가진 _status_ 를 부르죠. `this.status`를 출력하면, `"😎"`이 출력돼요.
 
 </p>
 </details>
 
 ---
 
-###### 83. What is the output?
+###### 83. 무엇이 출력 될까요?
 
 ```javascript
 const person = {
   name: "Lydia",
   age: 21
-}
+};
 
-let city = person.city
-city = "Amsterdam"
+let city = person.city;
+city = "Amsterdam";
 
-console.log(person)
+console.log(person);
 ```
 
 - A: `{ name: "Lydia", age: 21 }`
@@ -2625,38 +2624,38 @@ console.log(person)
 - C: `{ name: "Lydia", age: 21, city: undefined }`
 - D: `"Amsterdam"`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>정답</b></summary>
 <p>
 
 #### Answer: A
 
-We set the variable `city` equal to the value of the property called `city` on the `person` object. There is no property on this object called `city`, so the variable `city` has the value of `undefined`. 
+`city` 변수를 `person` rorcpdml `city`라고 불리는 속성 값으로 설정 했어요. 이 객체에서는 `city`라고 불리는 속성이 없기 때문에, `city`는 `undefined`의 값을 가져요. 
 
-Note that we are _not_ referencing the `person` object itself! We simply set the variable `city` equal to the current value of the `city` property on the `person` object.
+`person`객체 자체를 참조 _하지않는_ 다는 걸 참고해요! 변수 `city`는 `person` 객체의 `city` 현재 속성 값으로 설정 했을 뿐이죠.
 
-Then, we set `city` equal to the string `"Amsterdam"`. This doesn't change the person object: there is no reference to that object.
+그러므로, 우리는 `city`를 문자열 `"Amsterdam"`로 설정 했어요. 이건 person 객체를 바꾸지 않아요: 여기서 객체를 참조하는 건 없어요.
 
-When logging the `person` object, the unmodified object gets returned. 
+`person`객체를 출력할 때, 수정되지 않은 객체가 리턴 받아요.
 
 </p>
 </details>
 
 ---
 
-###### 84. What is the output?
+###### 84. 무엇이 출력 될까요?
 
 ```javascript
 function checkAge(age) {
   if (age < 18) {
-    const message = "Sorry, you're too young."
+    const message = "Sorry, you're too young.";
   } else {
-    const message = "Yay! You're old enough!"
+    const message = "Yay! You're old enough!";
   }
 
-  return message
+  return message;
 }
 
-console.log(checkAge(21))
+console.log(checkAge(21));
 ```
 
 - A: `"Sorry, you're too young."`
@@ -2664,44 +2663,44 @@ console.log(checkAge(21))
 - C: `ReferenceError`
 - D: `undefined`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>정답</b></summary>
 <p>
 
 #### Answer: C
 
-Variables with the `const` and `let` keyword are _block-scoped_. A block is anything between curly brackets (`{ }`). In this case, the curly brackets of the if/else statements. You cannot reference a variable outside of the block it's declared in, a ReferenceError gets thrown.
+`const`와 `let` 키워드를 사용한 변수는 _블록-스코프_ 예요. 블록은 중괄호 (`{ }`) 사이에 있는 것이죠. 이 경우, if/else 표현식의 중괄호를 의미해요. 블록 안에 선언된 건 블록 밖의 변수들을 참조하지 못해, ReferenceError를 던져요.
 
 </p>
 </details>
 
 ---
 
-###### 85. What kind of information would get logged?
+###### 85. 어떤 종류의 정보가 출력될까요?
 
 ```javascript
 fetch('https://www.website.com/api/user/1')
   .then(res => res.json())
-  .then(res => console.log(res))
+  .then(res => console.log(res));
 ```
 
-- A: The result of the `fetch` method.
-- B: The result of the second invocation of the `fetch` method.
-- C: The result of the callback in the previous `.then()`.
-- D: It would always be undefined. 
+- A: `fetch` 메소드의 결과
+- B: `fetch` 메소드의 두번째 호출 결과
+- C: 이전 `.then()`에서 callback된 결과
+- D: 항상 undefined
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>정답</b></summary>
 <p>
 
 #### Answer: C
 
-The value of `res` in the second `.then` is equal to the returned value of the previous `.then`. You can keep chaining `.then`s like this, where the value is passed to the next handler.
+두번째 `.then`에서의 `res`의 값은 이전`.then`에서 리턴된 값이에요. 이것 처럼 `.then`을 계속해서 연결할 수 있고, 값은 계속해서 다음 핸들러로 전달 돼요.
 
 </p>
 </details>
 
 ---
 
-###### 86. Which option is a way to set `hasName` equal to `true`, provided you cannot pass `true` as an argument?
+###### 86. `true`를 인수로 전달 할 수 없도록 주어졌을 때, `hasName`을 `true`로 세팅할 수 있는 방법은 어느 것 일까요?
 
 ```javascript
 function getName(name) {
@@ -2714,18 +2713,18 @@ function getName(name) {
 - C: `new Boolean(name)`
 - D: `name.length`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>정답</b></summary>
 <p>
 
 #### Answer: A
 
-With `!!name`, we determine whether the value of `name` is truthy or falsey. If name is truthy, which we want to test for, `!name` returns `false`. `!false` (which is what `!!name` practically is) returns `true`.
+`!!name`에서, 우리는 `name`의 값이 참 같은지 거짓 같은지 결정해요. 만약 테스트 하려는 name이 참 같다면, `!name`은 `false`를 리턴해요. `!false` (실제로는 `!!name`)는 `true`를 리턴해요.
 
-By setting `hasName` equal to `name`, you set `hasName` equal to whatever value you passed to the `getName` function, not the boolean value `true`.
+`hasName`을 `name`으로 설정하면, `hasName`은 불린 값 `true`가 아니라, `getName` 함수에 전달된 값으로 설정해요.
 
-`new Boolean(true)` returns an object wrapper, not the boolean value itself.
+`new Boolean(true)`은 불린 값 자체가 아닌, 감싼 객체를 리턴해요.
 
-`name.length` returns the length of the passed argument, not whether it's `true`.
+`name.length`은 그것의 `true`의 여부가 아닌, 전달된 인수의 길이를 리턴해요.
 
 </p>
 </details>
