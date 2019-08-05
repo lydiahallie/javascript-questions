@@ -2728,3 +2728,291 @@ By setting `hasName` equal to `name`, you set `hasName` equal to whatever value 
 
 </p>
 </details>
+
+---
+
+###### 87. What's the output?
+
+```javascript
+console.log("I want pizza"[0])
+```
+
+- A: `"""`
+- B: `"I"`
+- C: `SyntaxError`
+- D: `undefined`
+
+<details><summary><b>Answer</b></summary>
+<p>
+
+#### Answer: B
+
+In order to get an character on a specific index in a string, you can use bracket notation. The first character in the string has index 0, and so on. In this case we want to get the element which index is 0, the character `"I'`, which gets logged.
+
+Note that this method is not supported in IE7 and below. In that case, use `.charAt()`
+
+</p>
+</details>
+
+---
+
+###### 88. What's the output?
+
+```javascript
+function sum(num1, num2 = num1) {
+  console.log(num1 + num2)
+}
+
+sum(10)
+```
+
+- A: `NaN`
+- B: `20`
+- C: `ReferenceError`
+- D: `undefined`
+
+<details><summary><b>Answer</b></summary>
+<p>
+
+#### Answer: B
+
+You can set a default parameter's value equal to another parameter of the function, as long as they've been defined _before_ the default parameter. We pass the value `10` to the `sum` function. If the `sum` function only receives 1 argument, it means that the value for `num2` is not passed, amd the value of `num1` is equal to the passed value `10` in this case. The default value of `num2` is the value of `num1`, which is `10`.  `num1 + num2` returns `20`.
+
+If you're trying to set a default parameter's value equal to a parameter which is defined _after_ (to the right), the parameter's value hasn't been initialized yet, which will throw an error. 
+
+</p>
+</details>
+
+---
+
+###### 89. What's the output?
+
+```javascript
+// module.js 
+export default () => "Hello world"
+export const name = "Lydia"
+
+// index.js 
+import * as data from "./module"
+
+console.log(data)
+```
+
+- A: `{ default: function default(), name: "Lydia" }`
+- B: `{ default: function default() }`
+- C: `{ default: "Hello world", name: "Lydia" }`
+- D: Global object of `module.js`
+
+<details><summary><b>Answer</b></summary>
+<p>
+
+#### Answer: A
+
+With the `import * as name` syntax, we import _all exports_ from the `module.js` file into the `index.js` file as a new object called `data` is created. In the `module.js` file, there are two exports: the default export, and a named export. The default export is a function which returns the string `"Hello World"`, and the named export is a variable called `name` which has the value of the string `"Lydia"`. 
+
+The `data` object has a `default` property for the default export, other properties have the names of the named exports and their corresponding values. 
+
+</p>
+</details>
+
+---
+
+###### 90. What's the output?
+
+```javascript
+class Person {
+  constructor(name) {
+    this.name = name
+  }
+}
+
+const member = new Person("John")
+console.log(typeof member)
+```
+
+- A: `"class"`
+- B: `"function"`
+- C: `"object"`
+- D: `"string"`
+
+<details><summary><b>Answer</b></summary>
+<p>
+
+#### Answer: B
+
+Classes are syntactical sugar for function constructors. The equivalent of the `Person` class as a function constructor would be:
+
+```javascript
+function Person() {
+  this.name = name
+}
+```
+
+Which results in the same value. A class is a function under the hood, the `typeof` keyword returns `"function"` for functions. `typeof Person` returns `"function"`. 
+
+</p>
+</details>
+
+---
+
+###### 91. What's the output?
+
+```javascript
+let newList = [1, 2, 3].push(4)
+
+console.log(newList.push(5))
+```
+
+- A: `[1, 2, 3, 4, 5]`
+- B: `[1, 2, 3, 5]`
+- C: `[1, 2, 3, 4]`
+- D: `Error`
+
+<details><summary><b>Answer</b></summary>
+<p>
+
+#### Answer: D
+
+The `.push` method returns the _new length_ of the array, not the array itself! By setting `newList` equal to `[1, 2, 3].push(4)`, we set `newList` equal to the new length of the array: `4`. 
+
+Then, we try to use the `.push` method on `newList`. Since `newList` is the numerical value `4`, we cannot use the `.push` method: a TypeError is thrown.
+
+</p>
+</details>
+
+---
+
+###### 92. What's the output?
+
+```javascript
+function giveLydiaPizza() {
+  return "Here is pizza!"
+}
+
+function giveLydiaChocolate() {
+  return "Here's chocolate... now go hit the gym already."
+}
+
+console.log(giveLydiaPizza.prototype)
+console.log(giveLydiaChocolate.prototype)
+```
+
+- A: `{ constructor: ...}` `{ constructor: ...}` 
+- B: `{}` `{ constructor: ...}` 
+- C: `{ constructor: ...}` `{}`
+- D: `{ constructor: ...}` `undefined`
+
+<details><summary><b>Answer</b></summary>
+<p>
+
+#### Answer: D
+
+Regular functions, such as the `giveLydiaPizza` function, have a `prototype` property, which is an object (prototype object) with a `constructor` property. Arrow functions however, such as the `giveLydiaChocolate` function, do not have this `prototype` property. `undefined` gets returned when trying to access the `prototype` property using `giveLydiaChocolate.prototype`. 
+
+</p>
+</details>
+
+---
+
+###### 93. What's the output?
+
+```javascript
+function giveLydiaPizza() {
+  return "Here is pizza!"
+}
+
+function giveLydiaChocolate() {
+  return "Here's chocolate... now go hit the gym already."
+}
+
+console.log(giveLydiaPizza.prototype)
+console.log(giveLydiaChocolate.prototype)
+```
+
+- A: `{ constructor: ...}` `{ constructor: ...}` 
+- B: `{}` `{ constructor: ...}` 
+- C: `{ constructor: ...}` `{}`
+- D: `{ constructor: ...}` `undefined`
+
+<details><summary><b>Answer</b></summary>
+<p>
+
+#### Answer: D
+
+Regular functions, such as the `giveLydiaPizza` function, have a `prototype` property, which is an object (prototype object) with a `constructor` property. Arrow functions however, such as the `giveLydiaChocolate` function, do not have this `prototype` property. `undefined` gets returned when trying to access the `prototype` property using `giveLydiaChocolate.prototype`. 
+
+</p>
+</details>
+
+---
+
+###### 94. What's the output?
+
+```javascript
+const person = {
+  name: "Lydia",
+  age: 21
+}
+
+for (const [x, y] of Object.entries(person)) {
+  console.log(x, y)
+}
+```
+
+- A: `name` `Lydia` and `age` `21`
+- B: `["name", "Lydia"]` and `["age", 21]` 
+- C: `["name", "age"]` and `undefined`
+- D: `Error`
+
+<details><summary><b>Answer</b></summary>
+<p>
+
+#### Answer: A
+
+`Object.entries(person)` returns an array of nested arrays, containing the keys and objects:
+
+`[ [ 'name', 'Lydia' ], [ 'age', 21 ] ]` 
+
+Using the `for-of` loop, we can iterate over each element in the array, the subarrays in this case. We can destructure the subarrays instantly in the for-of loop, using `const [x, y]`. `x` is equal to the first element in the subarray, `y` is equal to the second element in the subarray. 
+
+The first subarray is `[ "name", "Lydia" ]`, with `x` equal to `"name"`, and `y` equal to `"Lydia"`, which get logged.
+The second subarray is `[ "age", 21 ]`, with `x` equal to `"age"`, and `y` equal to `21`, which get logged.
+
+</p>
+</details>
+
+---
+
+###### 95. What's the output?
+
+```javascript
+function getItems(fruitList, ...args, favoriteFruit) {
+  return [...fruitList, ...args, favoriteFruit]
+}
+
+getItems(["banana", "apple"], "pear", "orange")
+```
+
+- A: `["banana", "apple", "pear", "orange"]`
+- B: `[["banana", "apple"], "pear", "orange"]` 
+- C: `["banana", "apple", ["pear"], "orange"]`
+- D: `SyntaxError`
+
+<details><summary><b>Answer</b></summary>
+<p>
+
+#### Answer: D
+
+`...args` is a rest parameter. The rest parameter's value is an array containing all remaining arguments, **and can only be the last parameter**! In this example, the rest parameter was the second parameter. This is not possible, and will throw a syntax error. 
+
+```javascript
+function getItems(fruitList, favoriteFruit, ...args) {
+  return [...fruitList, ...args, favoriteFruit]
+}
+
+getItems(["banana", "apple"], "pear", "orange")
+```
+
+The above example works. This returns the array `[ 'banana', 'apple', 'orange', 'pear' ]`
+</p>
+</details>
