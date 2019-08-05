@@ -2,7 +2,7 @@
 
 I post daily multiple choice JavaScript questions on my [Instagram](https://www.instagram.com/theavocoder), which I'll also post here!
 
-From basic to advanced: test how well you know JavaScript, refresh your knowledge a bit, or prepare for your coding interview! :muscle: :rocket: I update this repo weekly with new questions. Last update: <a href=#20190726><b>July 26th</b></a>
+From basic to advanced: test how well you know JavaScript, refresh your knowledge a bit, or prepare for your coding interview! :muscle: :rocket: I update this repo weekly with new questions. Last update: <a href=#20190805><b>August 5th</b></a>
 
 The answers are in the collapsed sections below the questions, simply click on them to expand it. Good luck :heart:
 
@@ -2469,7 +2469,7 @@ The third time, we pass `5 * 2` to the function which gets evaluated to `10`. Th
 
 ---
 
-###### <a name=20190726></a>79. What is the output?
+###### 79. What is the output?
 
 ```javascript
 const myLifeSummedUp = ["☕", "💻", "🍷", "🍫"]
@@ -2731,7 +2731,7 @@ By setting `hasName` equal to `name`, you set `hasName` equal to whatever value 
 
 ---
 
-###### 87. What's the output?
+###### <a name=20190805></a>87. What's the output?
 
 ```javascript
 console.log("I want pizza"[0])
