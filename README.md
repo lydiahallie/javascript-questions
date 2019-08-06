@@ -2826,7 +2826,7 @@ class Person {
   }
 }
 
-const member = new Person("John")
+const member = Person("John")
 console.log(typeof member)
 ```
 
@@ -2838,7 +2838,7 @@ console.log(typeof member)
 <details><summary><b>Answer</b></summary>
 <p>
 
-#### Answer: B
+#### Answer: C
 
 Classes are syntactical sugar for function constructors. The equivalent of the `Person` class as a function constructor would be:
 
@@ -2848,7 +2848,7 @@ function Person() {
 }
 ```
 
-Which results in the same value. A class is a function under the hood, the `typeof` keyword returns `"function"` for functions. `typeof Person` returns `"function"`. 
+Calling a function constructor with `new` results in the creation of an instance of `Person`, `typeof` keyword returns `"object"` for an instance. `typeof member` returns `"object"`. 
 
 </p>
 </details>
