@@ -2728,3 +2728,257 @@ function getName(name) {
 
 </p>
 </details>
+
+---
+
+###### <a name=20190805></a>87. Какой будет вывод?
+
+```javascript
+console.log("I want pizza"[0])
+```
+
+- A: `"""`
+- B: `"I"`
+- C: `SyntaxError`
+- D: `undefined`
+
+<details><summary><b>Ответ</b></summary>
+<p>
+
+#### Ответ: B
+
+Чтобы получить символ по определенному индексу в строке, вы можете использовать скобочную нотацию. Первый символ в строке имеет индекс 0 и т.д. В этом случае мы хотим получить элемент с индексом 0, символ `'I'`, который выводится в лог.
+
+Обратите внимание, что этот метод не поддерживается в IE7 и ниже. В этом случае используйте `.charAt()`
+
+</p>
+</details>
+
+---
+
+###### 88. Какой будет вывод?
+
+```javascript
+function sum(num1, num2 = num1) {
+  console.log(num1 + num2)
+}
+
+sum(10)
+```
+
+- A: `NaN`
+- B: `20`
+- C: `ReferenceError`
+- D: `undefined`
+
+<details><summary><b>Ответ</b></summary>
+<p>
+
+#### Ответ: B
+
+Вы можете установить значение параметра по умолчанию равным другому параметру функции, если они были определены _до_ параметров по умолчанию. Мы передаем значение `10` в функцию `sum`. Если функция `sum` принимает только один аргумент, это означает, что значение для `num2` не передано, и в этом случае значение `num1` равно переданному значению `10`. Значением по умолчанию `num2` является значение `num1`, которое равно `10`. `num1 + num2` возвращает `20`.
+
+Если вы пытаетесь установить значение параметра по умолчанию равным параметру, который определен _после_ (справа), то значение параметра еще не было инициализировано; это приведет к ошибке.
+
+</p>
+</details>
+
+---
+
+###### 89. Какой будет вывод?
+
+```javascript
+// module.js 
+export default () => "Hello world"
+export const name = "Lydia"
+
+// index.js 
+import * as data from "./module"
+
+console.log(data)
+```
+
+- A: `{ default: function default(), name: "Lydia" }`
+- B: `{ default: function default() }`
+- C: `{ default: "Hello world", name: "Lydia" }`
+- D: Global object of `module.js`
+
+<details><summary><b>Ответ</b></summary>
+<p>
+
+#### Ответ: A
+
+С синтаксисом `import * as name` мы импортируем _все exports_ из файла `module.js` в файл `index.js`, тогда и создается новый объект с именем `data`. В файле `module.js` есть два экспорта: экспорт по умолчанию и именованный экспорт. Экспорт по умолчанию - это функция, которая возвращает строку `"Hello World"`, а именованный экспорт - это переменная с именем `name`, которая имеет значение строки `"Lydia"`.
+
+Объект `data` имеет свойство `default` для экспорта по умолчанию, другие свойства имеют имена именованных экспортов и их соответствующие значения.
+
+</p>
+</details>
+
+---
+
+###### 90. Какой будет вывод?
+
+```javascript
+class Person {
+  constructor(name) {
+    this.name = name
+  }
+}
+
+const member = Person("John")
+console.log(typeof member)
+```
+
+- A: `"class"`
+- B: `"function"`
+- C: `"object"`
+- D: `"string"`
+
+<details><summary><b>Ответ</b></summary>
+<p>
+
+#### Ответ: C
+
+Классы являются синтаксическим сахаром для конструкторов функций. Эквивалентом класса `Person` в качестве конструктора функции будет:
+
+```javascript
+function Person() {
+  this.name = name
+}
+```
+
+Вызов конструктора функции с `new` приводит к созданию экземпляра `Person`, ключевое слово `typeof` возвращает `"object"` для экземпляра. `typeof member` возвращает `"объект"`.
+
+</p>
+</details>
+
+---
+
+###### 91. Какой будет вывод?
+
+```javascript
+let newList = [1, 2, 3].push(4)
+
+console.log(newList.push(5))
+```
+
+- A: `[1, 2, 3, 4, 5]`
+- B: `[1, 2, 3, 5]`
+- C: `[1, 2, 3, 4]`
+- D: `Error`
+
+<details><summary><b>Ответ</b></summary>
+<p>
+
+#### Ответ: D
+
+Метод `.push` возвращает _новую длину_ массива, а не сам массив! Устанавливая `newList` равным `[1, 2, 3].push(4)`, мы устанавливаем `newList` равным новой длине массива: `4`.
+
+Затем мы пытаемся использовать метод `.push` для `newList`. Поскольку `newList` является числовым значением `4`, мы не можем использовать метод `.push`: выдается ошибка TypeError.
+
+</p>
+</details>
+
+---
+
+###### 92. Какой будет вывод?
+
+```javascript
+function giveLydiaPizza() {
+  return "Here is pizza!"
+}
+
+const giveLydiaChocolate = () => "Here's chocolate... now go hit the gym already."
+
+console.log(giveLydiaPizza.prototype)
+console.log(giveLydiaChocolate.prototype)
+```
+
+- A: `{ constructor: ...}` `{ constructor: ...}` 
+- B: `{}` `{ constructor: ...}` 
+- C: `{ constructor: ...}` `{}`
+- D: `{ constructor: ...}` `undefined`
+
+<details><summary><b>Ответ</b></summary>
+<p>
+
+#### Ответ: D
+
+Обычные функции, такие как функция `giveLydiaPizza`, имеют свойство `prototype`, которое является объектом (прототипом объекта) со свойством `constructor`. Однако функции со стрелками, такие как функция `giveLydiaChocolate`, не имеют этого свойства `prototype`. `undefined` возвращается при попытке доступа к свойству `prototype` с использованием `giveLydiaChocolate.prototype`.
+
+</p>
+</details>
+
+---
+
+###### 93. Какой будет вывод?
+
+```javascript
+const person = {
+  name: "Lydia",
+  age: 21
+}
+
+for (const [x, y] of Object.entries(person)) {
+  console.log(x, y)
+}
+```
+
+- A: `name` `Lydia` and `age` `21`
+- B: `["name", "Lydia"]` and `["age", 21]` 
+- C: `["name", "age"]` and `undefined`
+- D: `Error`
+
+<details><summary><b>Ответ</b></summary>
+<p>
+
+#### Ответ: A
+
+`Object.entries (person)` возвращает массив вложенных массивов, содержащий ключи и объекты:
+
+`[ [ 'name', 'Lydia' ], [ 'age', 21 ] ]` 
+
+Используя цикл `for-of`, мы можем перебирать каждый элемент массива, в данном случае подмассивы. Мы можем мгновенно деструктурировать подмассивы в цикле for, используя `const [x, y]`. `x` равен первому элементу в подмассиве, `y` равен второму элементу в подмассиве.
+
+Первым подмассивом является `[ "name", "Lydia" ]`, где `x` равно `"name"`, и `y` равно `"Lydia"`, которые выводятся в лог.
+Вторым подмассивом является `[ "age", 21 ]`, где `x` равно `"age"`, и `y` равно `21`, которые выводятся в лог.
+
+</p>
+</details>
+
+---
+
+###### 94. Какой будет вывод?
+
+```javascript
+function getItems(fruitList, ...args, favoriteFruit) {
+  return [...fruitList, ...args, favoriteFruit]
+}
+
+getItems(["banana", "apple"], "pear", "orange")
+```
+
+- A: `["banana", "apple", "pear", "orange"]`
+- B: `[["banana", "apple"], "pear", "orange"]` 
+- C: `["banana", "apple", ["pear"], "orange"]`
+- D: `SyntaxError`
+
+<details><summary><b>Ответ</b></summary>
+<p>
+
+#### Ответ: D
+
+`... args` - прочие параметры. Значение прочих параметров - это массив, содержащий все оставшиеся аргументы **и может быть передан только последним**! В этом примере прочие параметры были вторым аргументом. Это невозможно, и это приведет к синтаксической ошибке.
+
+```javascript
+function getItems(fruitList, favoriteFruit, ...args) {
+  return [...fruitList, ...args, favoriteFruit]
+}
+
+getItems(["banana", "apple"], "pear", "orange")
+```
+
+Приведенный выше пример работает. Это возвращает массив `[ 'banana', 'apple', 'orange', 'pear' ]`
+</p>
+</details>
