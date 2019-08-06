@@ -2889,9 +2889,7 @@ function giveLydiaPizza() {
   return "Here is pizza!"
 }
 
-function giveLydiaChocolate() {
-  return "Here's chocolate... now go hit the gym already."
-}
+const giveLydiaChocolate = () => "Here's chocolate... now go hit the gym already."
 
 console.log(giveLydiaPizza.prototype)
 console.log(giveLydiaChocolate.prototype)
@@ -2915,38 +2913,6 @@ Regular functions, such as the `giveLydiaPizza` function, have a `prototype` pro
 ---
 
 ###### 93. What's the output?
-
-```javascript
-function giveLydiaPizza() {
-  return "Here is pizza!"
-}
-
-function giveLydiaChocolate() {
-  return "Here's chocolate... now go hit the gym already."
-}
-
-console.log(giveLydiaPizza.prototype)
-console.log(giveLydiaChocolate.prototype)
-```
-
-- A: `{ constructor: ...}` `{ constructor: ...}` 
-- B: `{}` `{ constructor: ...}` 
-- C: `{ constructor: ...}` `{}`
-- D: `{ constructor: ...}` `undefined`
-
-<details><summary><b>Answer</b></summary>
-<p>
-
-#### Answer: D
-
-Regular functions, such as the `giveLydiaPizza` function, have a `prototype` property, which is an object (prototype object) with a `constructor` property. Arrow functions however, such as the `giveLydiaChocolate` function, do not have this `prototype` property. `undefined` gets returned when trying to access the `prototype` property using `giveLydiaChocolate.prototype`. 
-
-</p>
-</details>
-
----
-
-###### 94. What's the output?
 
 ```javascript
 const person = {
@@ -2983,7 +2949,7 @@ The second subarray is `[ "age", 21 ]`, with `x` equal to `"age"`, and `y` equal
 
 ---
 
-###### 95. What's the output?
+###### 94. What's the output?
 
 ```javascript
 function getItems(fruitList, ...args, favoriteFruit) {
