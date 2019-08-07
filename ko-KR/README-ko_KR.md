@@ -2700,7 +2700,7 @@ fetch('https://www.website.com/api/user/1')
 
 ---
 
-###### 86. `true`를 인수로 전달 할 수 없도록 주어졌을 때, `hasName`을 `true`로 세팅할 수 있는 방법은 어느 것 일까요?
+###### 86. `true`를 인수로 전달 할 수 없도록 주어졌을 때, `hasName`을 `true`로 설정할 수 있는 방법은 어느 것 일까요?
 
 ```javascript
 function getName(name) {
