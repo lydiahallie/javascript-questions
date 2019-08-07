@@ -15,7 +15,7 @@ List of available languages:
 * [العربية](./ar-AR/README_AR.md)
 * [اللغة العامية - Egyptian Arabic](./ar-EG/README_ar-EG.md)
 * [Bosanski](./bs-BS/README-bs_BS.md)  
-* [Deutsch](./de-DE/README-de_DE.md)  
+* [Deutsch](./de-DE/README.md)  
 * [Español](./es-ES/README-ES.md)
 * [Français](./fr-FR/README_fr-FR.md)
 * [日本語](./ja-JA/README-ja_JA.md)  
@@ -2826,7 +2826,7 @@ class Person {
   }
 }
 
-const member = Person("John")
+const member = new Person("John")
 console.log(typeof member)
 ```
 
