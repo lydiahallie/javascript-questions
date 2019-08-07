@@ -2826,7 +2826,7 @@ class Person {
   }
 }
 
-const member = Person("John")
+const member = new Person("John")
 console.log(typeof member)
 ```
 
