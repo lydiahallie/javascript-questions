@@ -1573,9 +1573,9 @@ function greeting() {
 function sayHi() {
   try {
     const data = greeting();
-    console.log("It worked!", data);
+    console.log("It worked! ", data);
   } catch (e) {
-    console.log("Oh no an error!", e);
+    console.log("Oh no an error! ", e);
   }
 }
 
