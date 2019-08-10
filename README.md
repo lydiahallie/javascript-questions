@@ -2982,3 +2982,29 @@ getItems(["banana", "apple"], "pear", "orange")
 The above example works. This returns the array `[ 'banana', 'apple', 'orange', 'pear' ]`
 </p>
 </details>
+
+---
+
+###### 95. What's the output?
+
+```javascript
+let result = (1,2,3);
+
+console.log(result);
+```
+
+- A: `1`
+- B: `2` 
+- C: `3`
+- D: `undefined`
+
+<details><summary><b>Answer</b></summary>
+<p>
+
+#### Answer: C
+
+The comma operator evaluates each of its operands (from left to right) and returns the value of the last operand.
+The comma operator is fully different from the comma within arrays, objects, and function arguments and parameters.
+
+</p>
+</details>
