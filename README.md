@@ -2982,3 +2982,42 @@ getItems(["banana", "apple"], "pear", "orange")
 The above example works. This returns the array `[ 'banana', 'apple', 'orange', 'pear' ]`
 </p>
 </details>
+
+
+
+
+---
+
+###### 95. What's the output?
+
+```javascript
+const sentence = "Hello world!!!";
+const updatedSentence = sentence.replace(/(o)/g, "$1".toUpperCase());
+
+console.log(updatedsetence);
+```
+
+- A: `HellO wOrld!!!`
+- B: `HellO world!!!` 
+- C: `Hello world!!!`
+- D: `SyntaxError`
+
+<details><summary><b>Answer</b></summary>
+<p>
+
+#### Answer: C
+
+The Interpreter first parses the expression in the second parameter of replace(), so that it knows what to pass to replace.
+"$1".toUpperCase() is still "$1". Therefore, the code:
+
+```javascript
+const res = str.replace(/(o)/g, "$1".toUpperCase());
+```
+is similar to:
+```javascript
+const res = str.replace(/(o)/g, "$1");
+```
+So, all the matches of character "o" in sentence is replaced by itself, therefore, the answer is "Hello world!!!" which is what gets logged finally.
+</p>
+</details>
+
