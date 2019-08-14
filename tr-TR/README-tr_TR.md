@@ -2765,9 +2765,9 @@ sum(10)
 
 #### Cevap: B
 
-You can set a default parameter's value equal to another parameter of the function, as long as they've been defined _before_ the default parameter. We pass the value `10` to the `sum` function. If the `sum` function only receives 1 argument, it means that the value for `num2` is not passed, amd the value of `num1` is equal to the passed value `10` in this case. The default value of `num2` is the value of `num1`, which is `10`.  `num1 + num2` returns `20`.
-
-If you're trying to set a default parameter's value equal to a parameter which is defined _after_ (to the right), the parameter's value hasn't been initialized yet, which will throw an error. 
+Varsayılan parametrenin değerini fonksiyonun başka parametresine eşitleyebilirsiniz, varsayılan parametreden _önce_ tanımladıkları müddetçe. `sum` fonksiyonuna `10` değerini geçtik. Eğer `sum` fonksiyonu sadece 1 argüman alırsa, `num2` değeri geçilmedi demektir, ve `num1`'ın değeri geçtiğimiz `10` değerine eşittir bu durumda. `num2`'nun varsayılan değeri `num1`'dır ki o da `10`'dur. `num1 + num2` `20` döndürür.
+ 
+Eğer varsayılan parametrenin değerini, _sonrasında_ (sağında) tanımlanmış bir parametreye eşitlemeye çalışıyorsanız, parametrenin değeri henüz oluşturulmamıştır, hata fırlatacaktır.
 
 </p>
 </details>
@@ -2790,16 +2790,16 @@ console.log(data)
 - A: `{ default: function default(), name: "Lydia" }`
 - B: `{ default: function default() }`
 - C: `{ default: "Hello world", name: "Lydia" }`
-- D: Global object of `module.js`
+- D: `module.js`'e ait global nesne
 
 <details><summary><b>Cevap</b></summary>
 <p>
 
 #### Cevap: A
 
-With the `import * as name` syntax, we import _all exports_ from the `module.js` file into the `index.js` file as a new object called `data` is created. In the `module.js` file, there are two exports: the default export, and a named export. The default export is a function which returns the string `"Hello World"`, and the named export is a variable called `name` which has the value of the string `"Lydia"`. 
+`import * as name` yazımı ile, `module.js` dosyası içindeki _tüm `export`'ları_ `index.js` dosyası içinde `data` olarak adlandırdığımız yeni bir nesneye aktarıyoruz. `module.js` dosyası içinde, iki `export` var: varsayılan export ve isimlendirilmiş export. Varsayılan export `"Hello World"` string'i döndüren bir fonksiyon ve isimlendirilmiş export `"Lydia"` değerine sahip `name` olarak isimlendirilmiş değişken.
 
-The `data` object has a `default` property for the default export, other properties have the names of the named exports and their corresponding values. 
+`data` nesnesi varsayılan exportlar için `default` özelliğine, isilendirilmiş exportlar için isimlendirilmiş export'un ismi olan ve değeri isimlendirilmiş export'un değeri olan özelliklere sahiptir.
 
 </p>
 </details>
@@ -2829,7 +2829,7 @@ console.log(typeof member)
 
 #### Cevap: C
 
-Classes are syntactical sugar for function constructors. The equivalent of the `Person` class as a function constructor would be:
+Sınıflar fonksiyon yapıcıları için "syntactical sugar"dır. `Person` sınıfına denk olan sınıf yapıcısı şöyle olabilirdi:
 
 ```javascript
 function Person() {
@@ -2837,7 +2837,7 @@ function Person() {
 }
 ```
 
-Calling a function constructor with `new` results in the creation of an instance of `Person`, `typeof` keyword returns `"object"` for an instance. `typeof member` returns `"object"`. 
+Bir fonksiyon yapıcısını `new` ile çağırmak `Person` "instance" oluşturur, `typeof` anahtar kelimesi instance için `"object"` döndürür. `typeof member` `"object"` döndürür.
 
 </p>
 </details>
@@ -2862,9 +2862,9 @@ console.log(newList.push(5))
 
 #### Cevap: D
 
-The `.push` method returns the _new length_ of the array, not the array itself! By setting `newList` equal to `[1, 2, 3].push(4)`, we set `newList` equal to the new length of the array: `4`. 
+`.push` methodu dizinin _yeni uzunluğunu_ döndürür, dizinin kendisini değil! `newList`'i  `[1, 2, 3].push(4)`'a eşitleyerek, `newList`'i dizinin yeni uzunluğuna eşitledik: `4`.
 
-Then, we try to use the `.push` method on `newList`. Since `newList` is the numerical value `4`, we cannot use the `.push` method: a TypeError is thrown.
+Sonra, `.push` methodunu `newList` üzerinde kullanmayo denedik. `newList` sayısal değer `4` olduğundan, `.push` methodunu kullanamayız: TypeError fırlatılır.
 
 </p>
 </details>
