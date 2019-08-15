@@ -2894,7 +2894,7 @@ console.log(giveLydiaChocolate.prototype)
 
 #### Cevap: D
 
-Regular functions, such as the `giveLydiaPizza` function, have a `prototype` property, which is an object (prototype object) with a `constructor` property. Arrow functions however, such as the `giveLydiaChocolate` function, do not have this `prototype` property. `undefined` gets returned when trying to access the `prototype` property using `giveLydiaChocolate.prototype`. 
+Sıradan fonksiyonlar, `giveLydiaPizza` gibi, `constructor` özelliği olan `prototype` nesnesi özelliğine sahiptir. Ancak ok fonksiyonlar (arrow functions), `giveLydiaChocolate` gibi, bu `prototype` özelliğine sahip değildir. `giveLydiaChocolate.prototype` ile `prototype` özelliğine erişmeye çalışıldığında `undefined` döndürülür. 
 
 </p>
 </details>
@@ -2924,14 +2924,14 @@ for (const [x, y] of Object.entries(person)) {
 
 #### Cevap: A
 
-`Object.entries(person)` returns an array of nested arrays, containing the keys and objects:
+`Object.entries(person)` key ve nesneleri içeren dizilerden oluşan dizi döndürür:
 
 `[ [ 'name', 'Lydia' ], [ 'age', 21 ] ]` 
 
-Using the `for-of` loop, we can iterate over each element in the array, the subarrays in this case. We can destructure the subarrays instantly in the for-of loop, using `const [x, y]`. `x` is equal to the first element in the subarray, `y` is equal to the second element in the subarray. 
+`for-of` döngüsünü kullanarak, dizi içindeki her bir elemanı gezebiliriz, alt dizileri bu örnekte. for-of döngüsü içinde alt dizileri `const [x, y]` kullanarak parçalayabiliriz. `x` alt dizideki ilk elemana, `y` alt dizideki ikinci elemana eşittir.
 
-The first subarray is `[ "name", "Lydia" ]`, with `x` equal to `"name"`, and `y` equal to `"Lydia"`, which get logged.
-The second subarray is `[ "age", 21 ]`, with `x` equal to `"age"`, and `y` equal to `21`, which get logged.
+İlk alt dizi `[ "name", "Lydia" ]`, `x` `"name"`'e ve `y` `"Lydia"`'ya eşittir.
+İkinci alt dizi `[ "age", 21 ]`, `x` `"age"`'e ve `y` `21`'a eşittir.
 
 </p>
 </details>
@@ -2958,7 +2958,7 @@ getItems(["banana", "apple"], "pear", "orange")
 
 #### Cevap: D
 
-`...args` is a rest parameter. The rest parameter's value is an array containing all remaining arguments, **and can only be the last parameter**! In this example, the rest parameter was the second parameter. This is not possible, and will throw a syntax error. 
+`...args` bir "rest" parametredir. "Rest" parametresinin değeri geriye kalan tüm argümanları içeren bir dizidir, ve **sadece son parametre olabilir.** Bu örnekte, rest parametresi ikindi parametreydi. Bu mümkün değildir ve syntax hatası fırlatılacaktır.
 
 ```javascript
 function getItems(fruitList, favoriteFruit, ...args) {
@@ -2968,6 +2968,7 @@ function getItems(fruitList, favoriteFruit, ...args) {
 getItems(["banana", "apple"], "pear", "orange")
 ```
 
-The above example works. This returns the array `[ 'banana', 'apple', 'orange', 'pear' ]`
+Yukarıdaki örnek çalışır. `[ 'banana', 'apple', 'orange', 'pear' ]` dizisini döndürür.
+
 </p>
 </details>
