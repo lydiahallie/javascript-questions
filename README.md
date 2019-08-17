@@ -15,7 +15,7 @@ List of available languages:
 * [العربية](./ar-AR/README_AR.md)
 * [اللغة العامية - Egyptian Arabic](./ar-EG/README_ar-EG.md)
 * [Bosanski](./bs-BS/README-bs_BS.md)  
-* [Deutsch](./de-DE/README-de_DE.md)  
+* [Deutsch](./de-DE/README.md)  
 * [Español](./es-ES/README-ES.md)
 * [Français](./fr-FR/README_fr-FR.md)
 * [日本語](./ja-JA/README-ja_JA.md)  
@@ -2469,7 +2469,7 @@ The third time, we pass `5 * 2` to the function which gets evaluated to `10`. Th
 
 ---
 
-###### <a name=20190726></a>79. What is the output?
+###### 79. What is the output?
 
 ```javascript
 const myLifeSummedUp = ["☕", "💻", "🍷", "🍫"]
@@ -2731,7 +2731,7 @@ By setting `hasName` equal to `name`, you set `hasName` equal to whatever value 
 
 ---
 
-###### 87. What's the output?
+###### <a name=20190805></a>87. What's the output?
 
 ```javascript
 console.log("I want pizza"[0])
@@ -2838,7 +2838,7 @@ console.log(typeof member)
 <details><summary><b>Answer</b></summary>
 <p>
 
-#### Answer: B
+#### Answer: C
 
 Classes are syntactical sugar for function constructors. The equivalent of the `Person` class as a function constructor would be:
 
@@ -2848,7 +2848,7 @@ function Person() {
 }
 ```
 
-Which results in the same value. A class is a function under the hood, the `typeof` keyword returns `"function"` for functions. `typeof Person` returns `"function"`. 
+Calling a function constructor with `new` results in the creation of an instance of `Person`, `typeof` keyword returns `"object"` for an instance. `typeof member` returns `"object"`. 
 
 </p>
 </details>
@@ -2889,9 +2889,7 @@ function giveLydiaPizza() {
   return "Here is pizza!"
 }
 
-function giveLydiaChocolate() {
-  return "Here's chocolate... now go hit the gym already."
-}
+const giveLydiaChocolate = () => "Here's chocolate... now go hit the gym already."
 
 console.log(giveLydiaPizza.prototype)
 console.log(giveLydiaChocolate.prototype)
@@ -2915,38 +2913,6 @@ Regular functions, such as the `giveLydiaPizza` function, have a `prototype` pro
 ---
 
 ###### 93. What's the output?
-
-```javascript
-function giveLydiaPizza() {
-  return "Here is pizza!"
-}
-
-function giveLydiaChocolate() {
-  return "Here's chocolate... now go hit the gym already."
-}
-
-console.log(giveLydiaPizza.prototype)
-console.log(giveLydiaChocolate.prototype)
-```
-
-- A: `{ constructor: ...}` `{ constructor: ...}` 
-- B: `{}` `{ constructor: ...}` 
-- C: `{ constructor: ...}` `{}`
-- D: `{ constructor: ...}` `undefined`
-
-<details><summary><b>Answer</b></summary>
-<p>
-
-#### Answer: D
-
-Regular functions, such as the `giveLydiaPizza` function, have a `prototype` property, which is an object (prototype object) with a `constructor` property. Arrow functions however, such as the `giveLydiaChocolate` function, do not have this `prototype` property. `undefined` gets returned when trying to access the `prototype` property using `giveLydiaChocolate.prototype`. 
-
-</p>
-</details>
-
----
-
-###### 94. What's the output?
 
 ```javascript
 const person = {
@@ -2983,7 +2949,7 @@ The second subarray is `[ "age", 21 ]`, with `x` equal to `"age"`, and `y` equal
 
 ---
 
-###### 95. What's the output?
+###### 94. What's the output?
 
 ```javascript
 function getItems(fruitList, ...args, favoriteFruit) {
