@@ -19,6 +19,7 @@ Danh sách các ngôn ngữ khác:
 * [Português Brasil](./README_pt_BR.md)  
 * [العربية](./README_AR.md)
 * [اللغة العامية - Egyptian Arabic](./README_ar-EG.md)
+* [فارسی - Persian](./fa-IR/README-fa_IR.md)
 
 ---
 
