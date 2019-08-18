@@ -25,6 +25,7 @@
 * [Tiếng Việt](./README-vi.md)
 * [Українська мова](./README-ua_UA.md)  
 * [Português Brasil](./README_pt_BR.md) 
+* [فارسی - Persian](./fa-IR/README-fa_IR.md)
 </div>
 
 ____________
