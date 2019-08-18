@@ -26,6 +26,7 @@
 * [Tiếng Việt](./README-vi.md)
 * [中文版本](./README-zh_CN.md)
 * [Türkçe](./README-tr_TR.md)
+* [فارسی - Persian](./fa-IR/README-fa_IR.md)
 
 
 ---
