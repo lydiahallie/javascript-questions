@@ -12,6 +12,7 @@
 [Deutsch](./README-de_DE.md)  
 [Tiếng Việt](./README-vi.md)  
 [日本語](./README-ja_JA.md)   
+[فارسی - Persian](./fa-IR/README-fa_IR.md)
 
 ---
 
