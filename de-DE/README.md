@@ -22,7 +22,7 @@ Die Antworten sind unterhalb der Fragen versteckt. Du kannst einfach darauf klic
 * [Українська мова](../ua-UA/README-ua_UA.md)  
 * [Tiếng Việt](../vi-VI/README-vi.md)
 * [中文版本](../zh-CN/README-zh_CN.md)
-
+* [فارسی - Persian](./fa-IR/README-fa_IR.md)
 ---
 
 ###### 1. Was ist der Output?
