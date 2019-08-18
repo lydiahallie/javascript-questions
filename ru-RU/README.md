@@ -2686,7 +2686,7 @@ fetch('https://www.website.com/api/user/1')
 - A: The result of the `fetch` method.
 - B: The result of the second invocation of the `fetch` method.
 - C: The result of the callback in the previous `.then()`.
-- D: It would always be undefined. 
+- D: It would always be undefined.
 
 <details><summary><b>Ответ</b></summary>
 <p>
@@ -2788,11 +2788,11 @@ sum(10)
 ###### 89. Какой будет вывод?
 
 ```javascript
-// module.js 
+// module.js
 export default () => "Hello world"
 export const name = "Lydia"
 
-// index.js 
+// index.js
 import * as data from "./module"
 
 console.log(data)
@@ -2895,8 +2895,8 @@ console.log(giveLydiaPizza.prototype)
 console.log(giveLydiaChocolate.prototype)
 ```
 
-- A: `{ constructor: ...}` `{ constructor: ...}` 
-- B: `{}` `{ constructor: ...}` 
+- A: `{ constructor: ...}` `{ constructor: ...}`
+- B: `{}` `{ constructor: ...}`
 - C: `{ constructor: ...}` `{}`
 - D: `{ constructor: ...}` `undefined`
 
@@ -2926,7 +2926,7 @@ for (const [x, y] of Object.entries(person)) {
 ```
 
 - A: `name` `Lydia` and `age` `21`
-- B: `["name", "Lydia"]` and `["age", 21]` 
+- B: `["name", "Lydia"]` and `["age", 21]`
 - C: `["name", "age"]` and `undefined`
 - D: `Error`
 
@@ -2937,7 +2937,7 @@ for (const [x, y] of Object.entries(person)) {
 
 `Object.entries (person)` возвращает массив вложенных массивов, содержащий ключи и объекты:
 
-`[ [ 'name', 'Lydia' ], [ 'age', 21 ] ]` 
+`[ [ 'name', 'Lydia' ], [ 'age', 21 ] ]`
 
 Используя цикл `for-of`, мы можем перебирать каждый элемент массива, в данном случае подмассивы. Мы можем мгновенно деструктурировать подмассивы в цикле for, используя `const [x, y]`. `x` равен первому элементу в подмассиве, `y` равен второму элементу в подмассиве.
 
@@ -2960,7 +2960,7 @@ getItems(["banana", "apple"], "pear", "orange")
 ```
 
 - A: `["banana", "apple", "pear", "orange"]`
-- B: `[["banana", "apple"], "pear", "orange"]` 
+- B: `[["banana", "apple"], "pear", "orange"]`
 - C: `["banana", "apple", ["pear"], "orange"]`
 - D: `SyntaxError`
 
@@ -2992,9 +2992,9 @@ function nums(a, b) {
   if
   (a > b)
   console.log('a is bigger')
-  else 
+  else
   console.log('b is bigger')
-  return 
+  return
   a + b
 }
 
