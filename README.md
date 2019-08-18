@@ -2,7 +2,7 @@
 
 I post daily multiple choice JavaScript questions on my [Instagram](https://www.instagram.com/theavocoder), which I'll also post here!
 
-From basic to advanced: test how well you know JavaScript, refresh your knowledge a bit, or prepare for your coding interview! :muscle: :rocket: I update this repo weekly with new questions. Last update: <a href=#20190805><b>August 5th</b></a>
+From basic to advanced: test how well you know JavaScript, refresh your knowledge a bit, or prepare for your coding interview! :muscle: :rocket: I update this repo weekly with new questions. Last update: <a href=#20190817><b>August 17th</b></a>
 
 The answers are in the collapsed sections below the questions, simply click on them to expand it. Good luck :heart:
 
@@ -1575,17 +1575,17 @@ function sayHi() {
     const data = greeting();
     console.log("It worked!", data);
   } catch (e) {
-    console.log("Oh no an error!", e);
+    console.log("Oh no an error:", e);
   }
 }
 
 sayHi();
 ```
 
-- A: `"It worked! Hello world!"`
-- B: `"Oh no an error: undefined`
+- A: `It worked! Hello world!`
+- B: `Oh no an error: undefined`
 - C: `SyntaxError: can only throw Error objects`
-- D: `"Oh no an error: Hello world!`
+- D: `Oh no an error: Hello world!`
 
 <details><summary><b>Answer</b></summary>
 <p>
@@ -2980,5 +2980,245 @@ getItems(["banana", "apple"], "pear", "orange")
 ```
 
 The above example works. This returns the array `[ 'banana', 'apple', 'orange', 'pear' ]`
+</p>
+</details>
+
+---
+
+###### <a name=20190817></a>95. What's the output?
+
+```javascript
+function nums(a, b) {
+  if
+  (a > b)
+  console.log('a is bigger')
+  else 
+  console.log('b is bigger')
+  return 
+  a + b
+}
+
+console.log(nums(4, 2))
+console.log(nums(1, 2))
+```
+
+- A: `a is bigger`, `6` and `b is bigger`, `3`
+- B: `a is bigger`, `undefined` and `b is bigger`, `undefined`
+- C: `undefined` and `undefined`
+- D: `SyntaxError`
+
+<details><summary><b>Answer</b></summary>
+<p>
+
+#### Answer: B
+
+In JavaScript, we don't _have_ to write the semicolon (`;`) explicitly, however the JavaScript engine still adds them after statements. This is called **Automatic Semicolon Insertion**. A statement can for example be variables, or keywords like `throw`, `return`, `break`, etc. 
+
+Here, we wrote a `return` statement, and another value `a + b` on a _new line_. However, since it's a new line, the engine doesn't know that it's actually the value that we wanted to return. Instead, it automatically added a semicolon after `return`. You could see this as:
+
+```javascript
+  return;
+  a + b
+```
+
+This means that `a + b` is never reached, since a function stops running after the `return` keyword. If no value gets returned, like here, the function returns `undefined`. Note that there is no automatic insertion after `if/else` statements!
+
+</p>
+</details>
+
+---
+
+###### 96. What's the output?
+
+```javascript
+class Person {
+  constructor() {
+    this.name = "Lydia"
+  }
+}
+
+Person = class AnotherPerson {
+  constructor() {
+    this.name = "Sarah"
+  }
+}
+
+const member = new Person()
+console.log(member.name)
+```
+
+- A: `"Lydia"`
+- B: `"Sarah"`
+- C: `Error: cannot redeclare Person`
+- D: `SyntaxError`
+
+<details><summary><b>Answer</b></summary>
+<p>
+
+#### Answer: B
+
+We can set classes equal to other classes/function constructors. In this case, we set `Person` equal to `AnotherPerson`. The name on this constructor is `Sarah`, so the name property on the new `Person` instance `member` is `"Sarah"`.
+
+</p>
+</details>
+
+---
+
+###### 97. What's the output?
+
+```javascript
+const info = {
+  [Symbol('a')]: 'b'
+}
+
+console.log(info)
+console.log(Object.keys(info))
+```
+
+- A: `{Symbol('a'): 'b'}` and `["{Symbol('a')"]`
+- B: `{}` and `[]`
+- C: `{ a: "b" }` and `["a"]`
+- D: `{Symbol('a'): 'b'}` and `[]`
+
+<details><summary><b>Answer</b></summary>
+<p>
+
+#### Answer: D
+
+A Symbol is not _enumerable_. The Object.keys method returns all _enumerable_ key properties on an object. The Symbol won't be visible, and an empty array is returned. When logging the entire object, all properties will be visible, even non-enumerable ones.
+
+This is one of the many qualities of a symbol: besides representing an entirely unique value (which prevents accidental name collision on objects, for example when working with 2 libraries that want to add properties to the same object), you can also "hide" properties on objects this way (although not entirely. You can still access symbols using the `Object.getOwnPropertySymbols()` method).
+
+</p>
+</details>
+
+---
+
+###### 98. What's the output?
+
+```javascript
+const getList = ([x, ...y]) => [x, y]
+const getUser = user => { name: user.name, age: user.age }
+
+const list = [1, 2, 3, 4]
+const user = { name: "Lydia", age: 21 }
+
+console.log(getList(list))
+console.log(getUser(user))
+```
+
+- A: `[1, [2, 3, 4]]` and `undefined`
+- B: `[1, [2, 3, 4]]` and `{ name: "Lydia", age: 21 }`
+- C: `[1, 2, 3, 4]` and `{ name: "Lydia", age: 21 }`
+- D: `Error` and `{ name: "Lydia", age: 21 }`
+
+<details><summary><b>Answer</b></summary>
+<p>
+
+#### Answer: A
+
+The `getList` function receives an array as its argument. Between the parentheses of the `getList` function, we destructure this array right away. You could see this as:
+
+ `[x, ...y] = [1, 2, 3, 4]`
+
+ With the rest parameter `...y`, we put all "remaining" arguments in an array. The remaining arguments are `2`, `3` and `4` in this case. The value of `y` is an array, containig all the rest parameters. The value of `x` is equal to `1` in this case, so when we log `[x, y]`, `[1, [2, 3, 4]]` gets logged.
+
+ The `getUser` function receives an object. With arrow functions, we don't _have_ to write curly brackets if we just return one value. However, if you want to return an _object_ from an arrow function, you have to write it between parentheses, otherwise no value gets returned! The following function would have returned an object:
+
+```const getUser = user => ({ name: user.name, age: user.age })```
+
+Since no value gets returned in this case, the function returns `undefined`.
+
+</p>
+</details>
+
+---
+
+###### 99. What's the output?
+
+```javascript
+const name = "Lydia"
+
+console.log(name())
+```
+
+- A: `SyntaxError`
+- B: `ReferenceError`
+- C: `TypeError`
+- D: `undefined`
+
+<details><summary><b>Answer</b></summary>
+<p>
+
+#### Answer: C
+
+The variable `name` holds the value of a string, which is not a function, thus cannot invoke. 
+
+TypeErrors get thrown wehn a value is not of the expected type. JavaScript expected `name` to be a function since we're trying to invoke it. It was a string however, so a TypeError gets thrown: name is not a function!
+
+SyntaxErrors get thrown when you've written something that isn't valid JavaScript, for example when you've written the word `return` as `retrun`. 
+ReferenceErrors get thrown when JavaScript isn't able to find a reference to a value that you're trying to access.
+
+</p>
+</details>
+
+---
+
+###### 100. What's the value of output?
+
+```javascript
+// 🎉✨ This is my 100th question! ✨🎉
+
+const output = `${[] && 'Im'}possible!
+You should${'' && `n't`} see a therapist after so much JavaScript lol`
+```
+
+- A: `possible! You should see a therapist after so much JavaScript lol`
+- B: `Impossible! You should see a therapist after so much JavaScript lol`
+- C: `possible! You shouldn't see a therapist after so much JavaScript lol`
+- D: `Impossible! You shouldn't see a therapist after so much JavaScript lol`
+
+<details><summary><b>Answer</b></summary>
+<p>
+
+#### Answer: B
+
+`[]` is a truthy value. With the `&&` operator, the right-hand value will be returned if the left-hand value is a truthy value. In this case, the left-hand value `[]` is a truthy value, so `"Im'` gets returned.
+
+`""` is a falsy value. If the left-hand value is falsy, nothing gets returned. `n't` doesn't get returned.
+
+</p>
+</details>
+
+---
+
+###### 101. What's the value of output?
+
+```javascript
+const one = (false || {} || null)
+const two = (null || false || "")
+const three = ([] || 0 || true)
+
+console.log(one, two, three)
+```
+
+- A: `false` `null` `[]`
+- B: `null` `""` `true`
+- C: `{}` `""` `[]`
+- D: `null` `null` `true`
+
+<details><summary><b>Answer</b></summary>
+<p>
+
+#### Answer: C
+
+With the `||` operator, we can return the first truthy operand. If all values are falsy, the last operand gets returned.
+
+`(false || {} || null)`: the empty object `{}` is a truthy value. This is the first (and only) truthy value, which gets returned. `one` is equal to `{}`.
+
+`(null || false || "")`: all operands are falsy values. This means that the past operand, `""` gets returned. `two` is equal to `""`.
+
+`([] || 0 || "")`: the empty array`[]` is a truthy value. This is the first truthy value, which gets returned. `three` is equal to `[]`.
+
 </p>
 </details>
