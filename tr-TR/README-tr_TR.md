@@ -3065,19 +3065,19 @@ console.log(info)
 console.log(Object.keys(info))
 ```
 
-- A: `{Symbol('a'): 'b'}` and `["{Symbol('a')"]`
-- B: `{}` and `[]`
-- C: `{ a: "b" }` and `["a"]`
-- D: `{Symbol('a'): 'b'}` and `[]`
+- A: `{Symbol('a'): 'b'}` ve `["{Symbol('a')"]`
+- B: `{}` ve `[]`
+- C: `{ a: "b" }` ve `["a"]`
+- D: `{Symbol('a'): 'b'}` ve `[]`
 
 <details><summary><b>Cevap</b></summary>
 <p>
 
 #### Cevap: D
 
-A Symbol is not _enumerable_. The Object.keys method returns all _enumerable_ key properties on an object. The Symbol won't be visible, and an empty array is returned. When logging the entire object, all properties will be visible, even non-enumerable ones.
+Symbol _sayılabilir_, "_enumerable_" değildir. Object.keys methodu nesne üzerindeki tüm _sayılabilir_ özellikleri döndürür. Symbol gizli kalır ve boş bir dizi döndürülür. Tüm nesne loglandığı zaman, bütün özellikler görülebilir, sayılabilir olmayanlar bile.
 
-This is one of the many qualities of a symbol: besides representing an entirely unique value (which prevents accidental name collision on objects, for example when working with 2 libraries that want to add properties to the same object), you can also "hide" properties on objects this way (although not entirely. You can still access symbols using the `Object.getOwnPropertySymbols()` method).
+Bu symbol'ün birçok  özelliğinden birisidir: tamamen benzersiz bir değer temsil etmenin yanında (ki nesneler üzerindeki kazara isim çakışmasını önler, örneğin aynı nesneye özellikler eklemek isteyen 2 kütüphaneyle çalışırken), ayrıca bu yolla nesne üzerindeki özellikleri "saklayabilirsiniz" (gerçi tamamen değil. `Object.getOwnPropertySymbols()` methodunu kullanarak symbol'lere hala erişebilirsiniz).
 
 </p>
 </details>
@@ -3097,27 +3097,27 @@ console.log(getList(list))
 console.log(getUser(user))
 ```
 
-- A: `[1, [2, 3, 4]]` and `undefined`
-- B: `[1, [2, 3, 4]]` and `{ name: "Lydia", age: 21 }`
-- C: `[1, 2, 3, 4]` and `{ name: "Lydia", age: 21 }`
-- D: `Error` and `{ name: "Lydia", age: 21 }`
+- A: `[1, [2, 3, 4]]` ve `undefined`
+- B: `[1, [2, 3, 4]]` ve `{ name: "Lydia", age: 21 }`
+- C: `[1, 2, 3, 4]` ve `{ name: "Lydia", age: 21 }`
+- D: `Error` ve `{ name: "Lydia", age: 21 }`
 
 <details><summary><b>Cevap</b></summary>
 <p>
 
 #### Cevap: A
 
-The `getList` function receives an array as its argument. Between the parentheses of the `getList` function, we destructure this array right away. You could see this as:
+`getList` fonksiyonu argüman olarak bir dizi alır. `getList` fonksiyonunun parentezleri arasında, bu diziyi anında parçalıyoruz. Şu şekilde görebilirsiniz:
 
  `[x, ...y] = [1, 2, 3, 4]`
 
- With the rest parameter `...y`, we put all "remaining" arguments in an array. The remaining arguments are `2`, `3` and `4` in this case. The value of `y` is an array, containig all the rest parameters. The value of `x` is equal to `1` in this case, so when we log `[x, y]`, `[1, [2, 3, 4]]` gets logged.
+ `...y` rest parametresi ile, dizi içinde "geriye kalan" tüm argümanları topluyoruz. Geriye kalan argümanlar `2`, `3`, ve `4` bu durumda. `y`'nin değeri tüm rest parametleri içeren bir dizi. `x`'in değeri `1`'a eşit, yani `[x, y]` logladığımız zaman, `[1, [2, 3, 4]]` loglanır.
 
- The `getUser` function receives an object. With arrow functions, we don't _have_ to write curly brackets if we just return one value. However, if you want to return an _object_ from an arrow function, you have to write it between parentheses, otherwise no value gets returned! The following function would have returned an object:
+ `getUser` fonksiyonu bir nesne alıyor. Ok fonksiyonlar ile, eğer sadece bir değer döndürmek istiyorsak süslü parentezleri yazmak _zorunda değiliz._ Ancak, bir ok fonksiyondan bir _nesne_ döndürmek istiyorsanız, parentezler arasında yazmak zorundasınız, aksi halde değer döndürülmez! Aşağıdaki fonksiyon bir nesne döndürecektir:
 
 ```const getUser = user => ({ name: user.name, age: user.age })```
 
-Since no value gets returned in this case, the function returns `undefined`.
+Bu örnekte değer döndürülmediği için, fonksiyon `undefined` döndürür.
 
 </p>
 </details>
@@ -3142,22 +3142,23 @@ console.log(name())
 
 #### Cevap: C
 
-The variable `name` holds the value of a string, which is not a function, thus cannot invoke. 
+ `name` değişkeni string bir değer saklıyor, ki bu bir fonksiyon değil, bu yüzden çağrılamaz.
 
-TypeErrors get thrown wehn a value is not of the expected type. JavaScript expected `name` to be a function since we're trying to invoke it. It was a string however, so a TypeError gets thrown: name is not a function!
+TypeError'lar bir değer beklenilen tipte olmadığı zaman fırlatılır. `name`'i çağırmaya çalıştığımızdan, JavaScript `name`'in bir fonksiyon olmasını bekliyor. Ancak o bir string, bu yüzden TypeError fırlatılır: name is not a function! 
 
-SyntaxErrors get thrown when you've written something that isn't valid JavaScript, for example when you've written the word `return` as `retrun`. 
-ReferenceErrors get thrown when JavaScript isn't able to find a reference to a value that you're trying to access.
+SyntaxError'lar JavaScript'in geçerli olmadığı bir şeyler yazdığız zaman fırlatılır, örneğin `return`'ü `retrun` olarak yazdığınız zaman.  
+
+ReferenceError'lar erişmeye çalıştığınız değer için JavaScript referans bulamadığı zaman fırlatılır.
 
 </p>
 </details>
 
 ---
 
-###### 100. What's the value of output?
+###### 100. Çıktısı Nedir?
 
 ```javascript
-// 🎉✨ This is my 100th question! ✨🎉
+// 🎉✨ 100. soru! ✨🎉
 
 const output = `${[] && 'Im'}possible!
 You should${'' && `n't`} see a therapist after so much JavaScript lol`
@@ -3173,16 +3174,16 @@ You should${'' && `n't`} see a therapist after so much JavaScript lol`
 
 #### Cevap: B
 
-`[]` is a truthy value. With the `&&` operator, the right-hand value will be returned if the left-hand value is a truthy value. In this case, the left-hand value `[]` is a truthy value, so `"Im'` gets returned.
+`[]` doğrusal bir değerdir. `&&` operatörü ile, eğer soldaki değer doğrusal bir değerse sağdaki değer döndürülür. Bu örnekte, soldaki değer `[]` doğrusal bir değerdir, böylece `"Im"` döndürülür.
 
-`""` is a falsy value. If the left-hand value is falsy, nothing gets returned. `n't` doesn't get returned.
+`""` yanlış-ımsı bir değerdir. Eğer soldaki değer yanlış-ımsı ise, bir şey döndürülmez. `n't` döndürülmedi. 
 
 </p>
 </details>
 
 ---
 
-###### 101. What's the value of output?
+###### 101. Çıktısı Nedir?
 
 ```javascript
 const one = (false || {} || null)
@@ -3202,13 +3203,13 @@ console.log(one, two, three)
 
 #### Cevap: C
 
-With the `||` operator, we can return the first truthy operand. If all values are falsy, the last operand gets returned.
+`||` operatörü ile, ile doğrusal operand'ı döndürebiliriz. Eğer tüm değerler yanlış-ımsı ise, son operand döndürülür.
 
-`(false || {} || null)`: the empty object `{}` is a truthy value. This is the first (and only) truthy value, which gets returned. `one` is equal to `{}`.
+`(false || {} || null)`: boş nesne `{}` doğrusal bir değerdir. İlk (ve tek) doğrusal değer, döndürülür. `one` `{}` eşittir.
 
-`(null || false || "")`: all operands are falsy values. This means that the past operand, `""` gets returned. `two` is equal to `""`.
+`(null || false || "")`: tüm operand'lar yanlış-ımsı. Bu demektir ki son operand, `""` döndürülür. `two` `""` eşittir.
 
-`([] || 0 || "")`: the empty array`[]` is a truthy value. This is the first truthy value, which gets returned. `three` is equal to `[]`.
+`([] || 0 || "")`: boş dizi `[]` doğrusal bir değerdir. Bu ilk doğrusal değer, döndürülür. `three` `[]` eşittir.
 
 </p>
 </details>
