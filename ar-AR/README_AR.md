@@ -19,7 +19,7 @@
 * [Versión en español](./README-ES.md)
 * [日本語](./README-ja_JA.md)  
 * [한국어](./README-ko_KR.md) 
-* [Русский](./README_ru-RU.md)  
+* [Русский](./ru-RU/README.md)
 * [Western Balkan](./README-bs_BS.md)  
 * [Deutsch](./README-de_DE.md)  
 * [Tiếng Việt](./README-vi.md)
