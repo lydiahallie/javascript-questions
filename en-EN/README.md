@@ -128,11 +128,11 @@ There is no value `radius` on that object, which returns `undefined`.
 
 ---
 
-###### 4. What's the output?
+###### 4. What's printed on console?
 
 ```javascript
-+true;
-!"Lydia";
+console.log(+true);
+console.log(!"Lydia");
 ```
 
 - A: `1` and `false`
