@@ -19,7 +19,7 @@ Lista de lenguajes disponibles:
 * [日本語](./ja-JA/README-ja_JA.md)  
 * [한국어](./ko-KR/README-ko_KR.md) 
 * [Português Brasil](./pt-BR/README_pt_BR.md)  
-* [Русский](./ru-RU/README_ru-RU.md)  
+* [Русский](./ru-RU/README.md)
 * [Українська мова](./ua-UA/README-ua_UA.md)  
 * [Tiếng Việt](./vi-VI/README-vi.md)
 * [中文版本](./zh-CN/README-zh_CN.md)

@@ -10,21 +10,22 @@ JavaScript 에 관한 객관식 문제를 [Instagram](https://www.instagram.com/
 <a target="_blank" href="https://www.theavocoder.com/subscribe"><b>✨✉이메일 업데이트 구독 ✉✨</b></a>
 
 사용 가능한 언어 목록:
-* [English](./README.md)
-* [العربية](./README_AR.md)
-* [اللغة العامية - Egyptian Arabic](./README_ar-EG.md)
-* [Bosanski](./README-bs_BS.md)
-* [Deutsch](./README-de_DE.md)
-* [Español](./README-ES.md)
-* [Français](./README_fr-FR.md)
-* [日本語](./README-ja_JA.md)
-* [한국어](./README-ko_KR.md)
-* [Português Brasil](./README_pt_BR.md)
-* [Русский](./README_ru-RU.md)
-* [Українська мова](./README-ua_UA.md)
-* [Tiếng Việt](./README-vi.md)
-* [中文版本](./README-zh_CN.md)
-* [Türkçe](./README-tr_TR.md)
+* [English](../en-EN/README.md)
+* [العربية](../ar-AR/README_AR.md)
+* [اللغة العامية - Egyptian Arabic](../ar-EG/README_ar-EG.md)
+* [Bosanski](../bs-BS/README-bs_BS.md)  
+* [Deutsch](../de-DE/README.md)  
+* [Español](../es-ES/README-ES.md)
+* [Français](../fr-FR/README_fr-FR.md)
+* [日本語](../ja-JA/README-ja_JA.md)  
+* [한국어](../ko-KR/README-ko_KR.md) 
+* [Português Brasil](../pt-BR/README_pt_BR.md)  
+* [Русский](../ru-RU/README.md)
+* [Українська мова](../ua-UA/README-ua_UA.md)  
+* [Tiếng Việt](../vi-VI/README-vi.md)
+* [中文版本](../zh-CN/README-zh_CN.md)
+* [Türkçe](../tr-TR/README-tr_TR.md)
+
 
 ---
 
@@ -1574,7 +1575,7 @@ function sayHi() {
     const data = greeting();
     console.log("It worked!", data);
   } catch (e) {
-    console.log("Oh no an error!", e);
+    console.log("Oh no an error:", e);
   }
 }
 
@@ -1582,9 +1583,9 @@ sayHi();
 ```
 
 - A: `"It worked! Hello world!"`
-- B: `"Oh no an error! undefined"`
+- B: `"Oh no an error: undefined"`
 - C: `SyntaxError: can only throw Error objects`
-- D: `"Oh no an error! Hello world!"`
+- D: `"Oh no an error: Hello world!"`
 
 <details><summary><b>정답</b></summary>
 <p>
