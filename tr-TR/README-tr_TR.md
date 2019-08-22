@@ -2,7 +2,7 @@
 
 [Instagram](https://www.instagram.com/theavocoder) hesabımda, günlük olarak çoktan seçmeli Javascript soruları paylaşıyorum, ayrıca burada da paylaşacağım!
 
-Temelden ileri düzeye: Javascript'i ne kadar iyi bildiğinizi test edin, bilginizi biraz tazeleyin ya da mülakatanıza hazırlanın! :muscle: :rocket: Repoyu haftalık olarak yeni sorularla güncelliyorum. Son güncelleme: <a href=#20190805><b>5 Ağustos</b></a>
+Temelden ileri düzeye: Javascript'i ne kadar iyi bildiğinizi test edin, bilginizi biraz tazeleyin ya da mülakatanıza hazırlanın! :muscle: :rocket: Repoyu haftalık olarak yeni sorularla güncelliyorum. Son güncelleme: <a href=#20190817><b>17 Ağustos</b></a>
 
 Cevaplar, soruların altında gizlenmiştir. Görmek için sadece tıklayın. İyi şanşlar :heart:
 
@@ -2969,6 +2969,247 @@ getItems(["banana", "apple"], "pear", "orange")
 ```
 
 Yukarıdaki örnek çalışır. `[ 'banana', 'apple', 'orange', 'pear' ]` dizisini döndürür.
+
+</p>
+</details>
+
+---
+
+###### <a name=20190817></a>95. Çıktısı Nedir?
+
+```javascript
+function nums(a, b) {
+  if
+  (a > b)
+  console.log('a is bigger')
+  else 
+  console.log('b is bigger')
+  return 
+  a + b
+}
+
+console.log(nums(4, 2))
+console.log(nums(1, 2))
+```
+
+- A: `a is bigger`, `6` ve `b is bigger`, `3`
+- B: `a is bigger`, `undefined` ve `b is bigger`, `undefined`
+- C: `undefined` ve `undefined`
+- D: `SyntaxError`
+
+<details><summary><b>Cevap</b></summary>
+<p>
+
+#### Cevap: B
+
+JavaScript'te, noktalı virgülü (`;`) özellikle yazmak _zorunda değiliz_, ancak JavaScript motoru ifadelerden sonra noktalı virgül eklemektedir. bu **Automatic Semicolon Insertion**, **Otomatik Noktalı Virgül Ekleme**, olarak adlandırılır. İfade, örneğin, değişkenler ya da `throw`, `return`, `break`, vb. gibi anahtar kelimeler olabilir. 
+
+Burada, bir `return` ifadesi yazdık, ve _yeni bir satırda_ başka bir değer olarak `a + b`. Ancak, `a + b` yeni satırda olduğundan, JavaScript motoru onun aslında bizim döndürmek istediğimiz değer olduğunu bilmiyor. Onun yerine, `return`'den sonra otomatik olarak noktalı virgül ekliyor. Şöyle düşünebilirsiniz: 
+  
+```javascript
+  return;
+  a + b
+```
+
+Fonksiyon `return` anahtar kelimesinden sonra çalışmayı durduracağından, `a + b` asla ulaşılamaz demektir. Eğer hiçbir değer döndürülmezse, fonksiyon `undefined` döndürür. Dikkat etmeniz gereken, `if/else` ifadelerinden sonra otomatik ekleme yapılmadığıdır!
+
+</p>
+</details>
+
+---
+
+###### 96. Çıktısı Nedir?
+
+```javascript
+class Person {
+  constructor() {
+    this.name = "Lydia"
+  }
+}
+
+Person = class AnotherPerson {
+  constructor() {
+    this.name = "Sarah"
+  }
+}
+
+const member = new Person()
+console.log(member.name)
+```
+
+- A: `"Lydia"`
+- B: `"Sarah"`
+- C: `Error: cannot redeclare Person`
+- D: `SyntaxError`
+
+<details><summary><b>Cevap</b></summary>
+<p>
+
+#### Cevap: B
+
+Sınıfları diğer sınıf/fonksiyon yapıcılara eşitleyebiliriz. Bu örnekte, `Person`'ı `AnotherPerson`'a eşitliyoruz. Bu yapıcıdaki `name` `Sarah`'dır, yani `Person` instance'ı olan `member` üzerindeki `name` özelliği `"Sarah"`'tır.
+
+</p>
+</details>
+
+---
+
+###### 97. Çıktısı Nedir?
+
+```javascript
+const info = {
+  [Symbol('a')]: 'b'
+}
+
+console.log(info)
+console.log(Object.keys(info))
+```
+
+- A: `{Symbol('a'): 'b'}` ve `["{Symbol('a')"]`
+- B: `{}` ve `[]`
+- C: `{ a: "b" }` ve `["a"]`
+- D: `{Symbol('a'): 'b'}` ve `[]`
+
+<details><summary><b>Cevap</b></summary>
+<p>
+
+#### Cevap: D
+
+Symbol _sayılabilir_, "_enumerable_" değildir. Object.keys methodu nesne üzerindeki tüm _sayılabilir_ özellikleri döndürür. Symbol gizli kalır ve boş bir dizi döndürülür. Tüm nesne loglandığı zaman, bütün özellikler görülebilir, sayılabilir olmayanlar bile.
+
+Bu symbol'ün birçok  özelliğinden birisidir: tamamen benzersiz bir değer temsil etmenin yanında (ki nesneler üzerindeki kazara isim çakışmasını önler, örneğin aynı nesneye özellikler eklemek isteyen 2 kütüphaneyle çalışırken), ayrıca bu yolla nesne üzerindeki özellikleri "saklayabilirsiniz" (gerçi tamamen değil. `Object.getOwnPropertySymbols()` methodunu kullanarak symbol'lere hala erişebilirsiniz).
+
+</p>
+</details>
+
+---
+
+###### 98. Çıktısı Nedir?
+
+```javascript
+const getList = ([x, ...y]) => [x, y]
+const getUser = user => { name: user.name, age: user.age }
+
+const list = [1, 2, 3, 4]
+const user = { name: "Lydia", age: 21 }
+
+console.log(getList(list))
+console.log(getUser(user))
+```
+
+- A: `[1, [2, 3, 4]]` ve `undefined`
+- B: `[1, [2, 3, 4]]` ve `{ name: "Lydia", age: 21 }`
+- C: `[1, 2, 3, 4]` ve `{ name: "Lydia", age: 21 }`
+- D: `Error` ve `{ name: "Lydia", age: 21 }`
+
+<details><summary><b>Cevap</b></summary>
+<p>
+
+#### Cevap: A
+
+`getList` fonksiyonu argüman olarak bir dizi alır. `getList` fonksiyonunun parentezleri arasında, bu diziyi anında parçalıyoruz. Şu şekilde görebilirsiniz:
+
+ `[x, ...y] = [1, 2, 3, 4]`
+
+ `...y` rest parametresi ile, dizi içinde "geriye kalan" tüm argümanları topluyoruz. Geriye kalan argümanlar `2`, `3`, ve `4` bu durumda. `y`'nin değeri tüm rest parametleri içeren bir dizi. `x`'in değeri `1`'a eşit, yani `[x, y]` logladığımız zaman, `[1, [2, 3, 4]]` loglanır.
+
+ `getUser` fonksiyonu bir nesne alıyor. Ok fonksiyonlar ile, eğer sadece bir değer döndürmek istiyorsak süslü parentezleri yazmak _zorunda değiliz._ Ancak, bir ok fonksiyondan bir _nesne_ döndürmek istiyorsanız, parentezler arasında yazmak zorundasınız, aksi halde değer döndürülmez! Aşağıdaki fonksiyon bir nesne döndürecektir:
+
+```const getUser = user => ({ name: user.name, age: user.age })```
+
+Bu örnekte değer döndürülmediği için, fonksiyon `undefined` döndürür.
+
+</p>
+</details>
+
+---
+
+###### 99. Çıktısı Nedir?
+
+```javascript
+const name = "Lydia"
+
+console.log(name())
+```
+
+- A: `SyntaxError`
+- B: `ReferenceError`
+- C: `TypeError`
+- D: `undefined`
+
+<details><summary><b>Cevap</b></summary>
+<p>
+
+#### Cevap: C
+
+ `name` değişkeni string bir değer saklıyor, ki bu bir fonksiyon değil, bu yüzden çağrılamaz.
+
+TypeError'lar bir değer beklenilen tipte olmadığı zaman fırlatılır. `name`'i çağırmaya çalıştığımızdan, JavaScript `name`'in bir fonksiyon olmasını bekliyor. Ancak o bir string, bu yüzden TypeError fırlatılır: name is not a function! 
+
+SyntaxError'lar JavaScript'in geçerli olmadığı bir şeyler yazdığız zaman fırlatılır, örneğin `return`'ü `retrun` olarak yazdığınız zaman.  
+
+ReferenceError'lar erişmeye çalıştığınız değer için JavaScript referans bulamadığı zaman fırlatılır.
+
+</p>
+</details>
+
+---
+
+###### 100. Çıktısı Nedir?
+
+```javascript
+// 🎉✨ 100. soru! ✨🎉
+
+const output = `${[] && 'Im'}possible!
+You should${'' && `n't`} see a therapist after so much JavaScript lol`
+```
+
+- A: `possible! You should see a therapist after so much JavaScript lol`
+- B: `Impossible! You should see a therapist after so much JavaScript lol`
+- C: `possible! You shouldn't see a therapist after so much JavaScript lol`
+- D: `Impossible! You shouldn't see a therapist after so much JavaScript lol`
+
+<details><summary><b>Cevap</b></summary>
+<p>
+
+#### Cevap: B
+
+`[]` doğrusal bir değerdir. `&&` operatörü ile, eğer soldaki değer doğrusal bir değerse sağdaki değer döndürülür. Bu örnekte, soldaki değer `[]` doğrusal bir değerdir, böylece `"Im"` döndürülür.
+
+`""` yanlış-ımsı bir değerdir. Eğer soldaki değer yanlış-ımsı ise, bir şey döndürülmez. `n't` döndürülmedi. 
+
+</p>
+</details>
+
+---
+
+###### 101. Çıktısı Nedir?
+
+```javascript
+const one = (false || {} || null)
+const two = (null || false || "")
+const three = ([] || 0 || true)
+
+console.log(one, two, three)
+```
+
+- A: `false` `null` `[]`
+- B: `null` `""` `true`
+- C: `{}` `""` `[]`
+- D: `null` `null` `true`
+
+<details><summary><b>Cevap</b></summary>
+<p>
+
+#### Cevap: C
+
+`||` operatörü ile, ile doğrusal operand'ı döndürebiliriz. Eğer tüm değerler yanlış-ımsı ise, son operand döndürülür.
+
+`(false || {} || null)`: boş nesne `{}` doğrusal bir değerdir. İlk (ve tek) doğrusal değer, döndürülür. `one` `{}` eşittir.
+
+`(null || false || "")`: tüm operand'lar yanlış-ımsı. Bu demektir ki son operand, `""` döndürülür. `two` `""` eşittir.
+
+`([] || 0 || "")`: boş dizi `[]` doğrusal bir değerdir. Bu ilk doğrusal değer, döndürülür. `three` `[]` eşittir.
 
 </p>
 </details>
