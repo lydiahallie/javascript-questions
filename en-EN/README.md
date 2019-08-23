@@ -128,7 +128,7 @@ There is no value `radius` on that object, which returns `undefined`.
 
 ---
 
-###### 4. What's printed on console?
+###### 4. What's the output?
 
 ```javascript
 console.log(+true);
