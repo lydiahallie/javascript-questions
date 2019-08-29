@@ -1959,3 +1959,339 @@ Phép toán `++` sẽ _trả về trước_ giá trị của toán hạng, _sau 
 
 </p>
 </details>
+
+---
+
+###### 64. Output là gì?
+
+```javascript
+const value = { number: 10 };
+
+const multiply = (x = { ...value }) => {
+  console.log((x.number *= 2));
+};
+
+multiply();
+multiply();
+multiply(value);
+multiply(value);
+```
+
+- A: `20`, `40`, `80`, `160`
+- B: `20`, `40`, `20`, `40`
+- C: `20`, `20`, `20`, `40`
+- D: `NaN`, `NaN`, `20`, `40`
+
+<details><summary><b>Đáp án</b></summary>
+<p>
+
+#### Đáp án: C
+
+Trong ES6 thì chúng ta có thể khởi tạo tham số với giá trị mặc định. Giá trị của tham số sẽ là giá trị mặc định nếu ta không truyền gì vào hàm, hoặc khi giá trị truyền vào là `"undefined"`. Trong trường hợp này, ta dùng `spread operator` (toán tử mở rộng) để biến `value` thành một object mới, do đó `x` sẽ có giá trị mặc định là `{ number: 10 }`.
+
+Chú ý một điều là đối số sẽ được xét giá trị tại _call time_! Có nghĩa là mỗi khi chúng ta gọi hàm, một _object mới_ sẽ được tạo ra. Chúng ta gọi hàm `multiply` hai lần mà không truyền vào đối số nào cả: `x` sẽ nhận giá trị mặc định `{ number: 10 }`. Sau đó chúng ta sẽ ghi ra giá trị là `20`.
+
+Lần gọi thứ ba chúng ta truyền vào một đối số: chính là `value`. Toán tử `*=` chính là cách viết gọn của `x.number = x.number * 2`: chúng ta thay đổi giá trị của `x.number`, và ghi ra giá trị `20`. 
+
+Tại lần gọi thứ tư, chúng ta truyền vào `value` một lần nữa. `x.number` trước đó đã bị thay đổi thành `20`, nên `x.number *= 2` sẽ ghi ra `40`. 
+
+</p>
+</details>
+
+---
+
+###### 65. Output là gì?
+
+```javascript
+[1, 2, 3, 4].reduce((x, y) => console.log(x, y));
+```
+
+- A: `1` `2` and `3` `3` and `6` `4`
+- B: `1` `2` and `2` `3` and `3` `4`
+- C: `1` `undefined` and `2` `undefined` and `3` `undefined` and `4` `undefined`
+- D: `1` `2` and `undefined` `3` and `undefined` `4`
+
+<details><summary><b>Đáp án</b></summary>
+<p>
+
+#### Đáp án: D
+
+Đối số đầu tiên của hàm `reduce` chính là _accumulator_ (tổng tích lũy), trong trường hợp này là `x`. Đối số thứ 2 chính là _giá trị hiện tại_, tức `y`. Với hàm reduce, ta sẽ gọi callback trên mỗi phần tử của mảng, cứ vậy cho tới khi ra đến một giá trị cuối cùng. 
+
+Trong trường hợp này, chúng ta không trả về bất cứ giá trị nào cả, mà đơn thuần chỉ là ghi ra giá trị của _tổng tích lũy_ và _giá trị hiện tại_ mà thôi.
+
+Giá trị của tổng tích lũy chính là giá trị được hàm callback trả về tại vòng lặp trước đó. Nếu ta không đặt giá trị khởi tạo cho đối số trong hàm `reduce`, thì tổng tích lũy sẽ chính bằng giá trị đầu tiên tại lời gọi đầu tiên.
+
+Trong lời gọi đầu tiên, tổng tích lũy (`x`) là `1`, và giá trị hiện tại (`y`) là `2`. Chúng ta không trả về giá trị cho hàm callback, mà đơn thuần chỉ ghi chúng ta, vậy nên `1` và `2` được ghi ra.  
+
+Nếu ta không trả về giá trị trong một function, thì nó sẽ mặc định trả về là `undefined`. Do đó trong lời gọi tiếp theo tổng tích lũy sẽ là `undefined`, và giá trị hiện tại là `3`. `undefined` và `3` sẽ được ghi ra. 
+
+Tiếp tục như vậy, trong lời gọi thứ tư thì tổng tích lũy sẽ vẫn là `undefined`, giá trị hiện tại là `4`. `undefined` và `4` sẽ được ghi ra.
+</p>
+</details>
+  
+---
+
+###### 66. Với cách nào chúng ta có thể kế thừa `Dog` class?
+
+```javascript
+class Dog {
+  constructor(name) {
+    this.name = name;
+  }
+};
+
+class Labrador extends Dog {
+  // 1 
+  constructor(name, size) {
+    this.size = size;
+  }
+  // 2
+  constructor(name, size) {
+    super(name);
+    this.size = size;
+  }
+  // 3
+  constructor(size) {
+    super(name);
+    this.size = size;
+  }
+  // 4 
+  constructor(name, size) {
+    this.name = name;
+    this.size = size;
+  }
+
+};
+```
+
+- A: 1
+- B: 2
+- C: 3
+- D: 4
+
+<details><summary><b>Đáp án</b></summary>
+<p>
+
+#### Đáp án: B
+
+Trong class dẫn xuất, ta không thể truy cập từ khóa `this` trước khi gọi `super`. Nếu bạn chạy thử, nó sẽ throw ra một `ReferenceError`, do đó 1 và 4 sẽ throw ra reference error.
+
+Với việc gọi `super`, chúng ta đã gọi hàm constructor của class cha với tham số truyền vào. Trong trường hợp này, class cha nhận `name` làm đối số trong constructor, do đó chúng cần đưa `name` vào hàm `super`. 
+
+`Labrador` class nhận vào hai đối số, `name` vì nó kế thừa `Dog`, và `size` - một thuộc tính của `Labrador` class. Cả hai đều cần thiết để đưa vào trong constructor của class `Labrador`, do đó cách khởi tạo đúng là 2.
+</p>
+</details>
+
+---
+
+###### 67. Output là gì?
+
+```javascript
+// index.js
+console.log('running index.js');
+import { sum } from './sum.js';
+console.log(sum(1, 2));
+
+// sum.js
+console.log('running sum.js');
+export const sum = (a, b) => a + b;
+```
+
+- A: `running index.js`, `running sum.js`, `3`
+- B: `running sum.js`, `running index.js`, `3`
+- C: `running sum.js`, `3`, `running index.js`
+- D: `running index.js`, `undefined`, `running sum.js`
+
+<details><summary><b>Đáp án</b></summary>
+<p>
+
+#### Đáp án: B
+
+Với `import`, tất cả các module import vào đều sẽ được _pre-parsed_ (đánh giá trước). Có nghĩa là những module được import vào sẽ được _chạy trước_, còn code trong file sẽ _chạy sau_.
+
+Đó chính là điều khác biệt giữa `require()` trong CommonJS và `import`! Với `require()`, ta có thể load các dependencies tại bất cứ khi nào ta cần. Nếu ta sử dụng `require` thay thế cho `import` thì `running index.js`, `running sum.js`, `3` sẽ được ghi ra. 
+
+</p>
+</details>
+
+---
+
+###### 68. Output là gì?
+
+```javascript
+console.log(Number(2) === Number(2))
+console.log(Boolean(false) === Boolean(false))
+console.log(Symbol('foo') === Symbol('foo'))****
+```
+
+- A: `true`, `true`, `false`
+- B: `false`, `true`, `false`
+- C: `true`, `false`, `true`
+- D: `true`, `true`, `true`
+
+<details><summary><b>Đáp án</b></summary>
+<p>
+
+#### Đáp án: A
+
+Mỗi Symbol là một thứ hoàn toàn khác biệt. Giá trị truyền vào làm đối số trong Symbol chỉ đơn thuần là phần giải thích cho Symbol đó mà thôi, và nó không liên quan gì tới giá trị của Symbol đó cả. Chúng ta kiểm tra tính bằng nhau của hai Symbol hoàn toàn khác biệt: `Symbol('foo')` thứ nhất, và `Symbol('foo')` thứ hai. Mỗi giá trị đều là riêng biệt và duy nhất, nên `Symbol('foo') === Symbol('foo')` sẽ trả về `false`. 
+
+</p>
+</details>
+
+---
+
+###### 69. Output là gì?
+
+```javascript
+const name = "Lydia Hallie"
+console.log(name.padStart(13))
+console.log(name.padStart(2))
+```
+
+- A: `"Lydia Hallie"`, `"Lydia Hallie"`
+- B: `"           Lydia Hallie"`, `"  Lydia Hallie"` (`"[13x whitespace]Lydia Hallie"`, `"[2x whitespace]Lydia Hallie"`)
+- C: `" Lydia Hallie"`, `"Lydia Hallie"` (`"[1x whitespace]Lydia Hallie"`, `"Lydia Hallie"`)
+- D: `"Lydia Hallie"`, `"Lyd"`, 
+
+<details><summary><b>Đáp án</b></summary>
+<p>
+
+#### Đáp án: C
+
+Với hàm `padStart` chúng ta có thể thêm vào khoảng trắng đằng trước mỗi chuỗi. Giá trị đưa vào trong hàm là _tổng độ dài_ của chuỗi sau khi thêm vào khoảng trắng. Chuỗi `"Lydia Hallie"` có độ dài là `12` nên `name.padStart(13)` sẽ thêm vào một khoảng trắng đằng trước chuỗi.
+
+Nếu đối số truyền vào cho hàm `padStart` nhỏ hơn độ dài của chuỗi, không có khoảng trắng nào được thêm vào.
+
+</p>
+</details>
+
+---
+
+###### 70. Output là gì?
+
+```javascript
+console.log("🥑" + "💻");
+```
+
+- A: `"🥑💻"`
+- B: `257548`
+- C: A string containing their code points
+- D: Error
+
+<details><summary><b>Đáp án</b></summary>
+<p>
+
+#### Đáp án: A
+
+Với phép toán `+`, ta có thể nối các xâu chuỗi. Trong trường hợp này, ta nối chuỗi `"🥑"` với chuỗi `"💻"`, kết quả tạo ra `"🥑💻"`.
+
+</p>
+</details>
+
+---
+
+###### 71. Làm thế nào có thể ghi ra giá trị giống như trong comment khi console.log?
+
+```javascript
+function* startGame() {
+  const answer = yield "Do you love JavaScript?";
+  if (answer !== "Yes") {
+    return "Oh wow... Guess we're gone here";
+  }
+  return "JavaScript loves you back ❤️";
+}
+
+const game = startGame();
+console.log(/* 1 */); // Do you love JavaScript?
+console.log(/* 2 */); // JavaScript loves you back ❤️
+```
+
+- A: `game.next("Yes").value` and `game.next().value`
+- B: `game.next.value("Yes")` and `game.next.value()`
+- C: `game.next().value` and `game.next("Yes").value`
+- D: `game.next.value()` and `game.next.value("Yes")`
+
+<details><summary><b>Đáp án</b></summary>
+<p>
+
+#### Đáp án: C
+
+Một _generator_ sẽ "tạm dừng" khi nhìn thấy từ khóa `yield`. Đầu tiên ra sẽ đưa ra chuỗi "Do you love JavaScript?", bằng cách gọi `game.next().value`.
+
+Chương trình sẽ chạy từng dòng, cho tới khi nó tìm thấy từ khóa `yield`. Có một từ khóa `yield` tại dòng đầu tiên của hàm: chương trình sẽ dừng tại đâ! _Điều đó có nghĩa là biến `answer` chưa hề được định nghĩa!_
+
+Khi ta gọi `game.next("Yes").value`, `yield` trước đó sẽ được thay thế bởi giá trị được truyền vào hàm `next()`, trong trường hợp này là`"Yes"`. Theo đó giá trị của biến `answer` giờ sẽ là `"Yes"`. Điều kiện if sẽ trả về `false`, và `JavaScript loves you back ❤️` sẽ được ghi ra.
+
+</p>
+</details>
+
+---
+****
+###### 72. Output là gì?
+
+```javascript
+console.log(String.raw`Hello\nworld`);
+```
+
+- A: `Hello world!`
+- B: `Hello` <br />&nbsp; &nbsp; &nbsp;`world`
+- C: `Hello\nworld`
+- D: `Hello\n` <br /> &nbsp; &nbsp; &nbsp;`world`
+
+<details><summary><b>Đáp án</b></summary>
+<p>
+
+#### Đáp án: C
+
+`String.raw` trả về chuỗi nguyên bản, các ký tự (`\n`, `\v`, `\t` etc.) sẽ vẫn là nguyên bản và không biến thành xuống dòng hay khoảng trắng! Nếu ta không để là chuỗi nguyên bản, sẽ có trường hợp xảy ra lỗi không mong muốn, ví dụ với đường dẫn:
+
+`` const path = `C:\Documents\Projects\table.html` ``
+
+Sẽ cho ta chuỗi là:
+
+`"C:DocumentsProjects able.html"`
+
+Với `String.raw`, nó sẽ trả về là:
+
+`C:\Documents\Projects\table.html`
+
+Do đó, trong trường hợp này `Hello\nworld` sẽ được ghi ra.
+
+</p>
+</details>
+
+---
+
+###### 73. Output là gì?
+
+```javascript
+async function getData() {
+  return await Promise.resolve("I made it!");
+}
+
+const data = getData();
+console.log(data);
+```
+
+- A: `"I made it!"`
+- B: `Promise {<resolved>: "I made it!"}`
+- C: `Promise {<pending>}`
+- D: `undefined`
+
+<details><summary><b>Đáp án</b></summary>
+<p>
+
+#### Đáp án: C
+
+Một hàm `async` luôn luôn trả về một `promise`. `await` sẽ chờ cho tới khi promise đó được hoàn thành: một pending promise sẽ được trả về khi ta gọi `getData()` bằng cách gán nó cho biến `data`.
+
+Nếu ta muốn truy cập giá trị đã hoàn thành của promise, trong trường hợp này là `"I made it"`, ta có thể sử dụng hàm `.then()` ngay sau `data` như sau:
+
+`data.then(res => console.log(res))`
+
+Khi này nó sẽ ghi ra `"I made it!"`
+
+</p>
+</details>
