@@ -2295,3 +2295,340 @@ Khi này nó sẽ ghi ra `"I made it!"`
 
 </p>
 </details>
+
+---
+
+###### 74. Output là gì?
+
+```javascript
+function addToList(item, list) {
+  return list.push(item);
+}
+
+const result = addToList("apple", ["banana"]);
+console.log(result);
+```
+
+- A: `['apple', 'banana']`
+- B: `2`
+- C: `true`
+- D: `undefined`
+
+<details><summary><b>Đáp án</b></summary>
+<p>
+
+#### Đáp án: B
+
+Hàm `.push()` trả về _độ dài_ của mảng mới! Trước đó, mảng chỉ hồm một phần tử là `"banana"` và có độ dài là `1`. Sau khi thêm chuỗi `"apple"` vào mảng, mảng lúc này có hai chuỗi và có độ dài là `2`. Do đó hàm `addToList` sẽ trả về 2.
+
+Hàm `push` sẽ thay đổi chính bản thân mảng truyền vào. Do đó nếu chúng ta muốn trả về _mảng_ thay vì chỉ trả về _độ dài_, chúng ta nên trả về trực tiếp mảng `list` sau khi đã thêm `item` vào đó.
+
+</p>
+</details>
+
+---
+
+###### 75. Output là gì?
+
+```javascript
+const box = { x: 10, y: 20 };
+
+Object.freeze(box);
+
+const shape = box;
+shape.x = 100;
+
+console.log(shape);
+```
+
+- A: `{ x: 100, y: 20 }`
+- B: `{ x: 10, y: 20 }`
+- C: `{ x: 100 }`
+- D: `ReferenceError`
+
+<details><summary><b>Đáp án</b></summary>
+<p>
+
+#### Đáp án: B
+
+`Object.freeze` khiến cho chúng ta không thể thêm vào, xóa đi hay thay đổi bất kì thuộc tính nào của object (trừ phi giá trị của thuộc tính lại chính là một object khác).
+
+Khi chúng ta tạo ra biến `shape` và set cho nó giá trị bằng với một object đã được đóng băng là `box`, thì `shape` cũng sẽ trỏ tới một object đã được đóng băng. Ta có thể check một object có đang bị đóng băng hay không bằng `Object.isFrozen`. Trong trường hợp này, `Object.isFrozen(shape)` trả về true, vì `shape` đang trỏ tới một object bị đóng băng.
+
+Do đó, cộng với việc `x` không phải là object, ta sẽ không thể thay đổi giá trị của `x`. `x` sẽ vẫn là `10`, và `{ x: 10, y: 20 }` được ghi ra.
+
+</p>
+</details>
+
+---
+
+###### 76. Output là gì?
+
+```javascript
+const { name: myName } = { name: "Lydia" };
+
+console.log(name);
+```
+
+- A: `"Lydia"`
+- B: `"myName"`
+- C: `undefined`
+- D: `ReferenceError`
+
+<details><summary><b>Đáp án</b></summary>
+<p>
+
+#### Đáp án: D
+
+Khi ta tiến hành unpack giá trị `name` từ object ở phía bên phải, ta đã gán giá trị `"Lydia"` của nó cho biến có tên là `myName`.
+
+Với cú pháp `{ name: myName }`, chúng ta muốn khai báo một biến `myName` với giá trị là giá trị của thuộc tính `name` trong object phía bên phải.
+
+Do `name` chưa được định nghĩa, nên ghi log ra, nó sẽ throw ra một ReferenceError.
+
+</p>
+</details>
+
+---
+
+###### 77. Đây có phải là một pure function không?
+
+```javascript
+function sum(a, b) {
+  return a + b;
+}
+```
+
+- A: Yes
+- B: No
+
+<details><summary><b>Đáp án</b></summary>
+<p>
+
+#### Đáp án: A
+
+Một hàm được gọi là _pure function_ khi nó luôn luôn trả về một giá trị giống nhau, nếu đối số đưa vào là giống nhau.
+
+Hàm `sum` luôn trả về giá trị giống nhau. Nếu ta đưa vào `1` và `2`, nó sẽ _luôn_ trả về `3`. Nếu ta đưa vào `5` và `10`, nó _luôn_ trả về `15`. Cứ như vậy, đây là một _pure function_.
+
+</p>
+</details>
+
+---
+
+###### 78. Output là gì?
+
+```javascript
+const add = () => {
+  const cache = {};
+  return num => {
+    if (num in cache) {
+      return `From cache! ${cache[num]}`;
+    } else {
+      const result = num + 10;
+      cache[num] = result;
+      return `Calculated! ${result}`;
+    }
+  };
+};
+
+const addFunction = add();
+console.log(addFunction(10));
+console.log(addFunction(10));
+console.log(addFunction(5 * 2));
+```
+
+- A: `Calculated! 20` `Calculated! 20` `Calculated! 20`
+- B: `Calculated! 20` `From cache! 20` `Calculated! 20`
+- C: `Calculated! 20` `From cache! 20` `From cache! 20`
+- D: `Calculated! 20` `From cache! 20` `Error`
+
+<details><summary><b>Đáp án</b></summary>
+<p>
+
+#### Đáp án: C
+
+Hàm `add` chính là một hàm _memoized_ (hàm có nhớ). Với việc có nhớ, chúng ta có thể cache lại kết quả của function để tăng tốc độ tính toán lên. Trong trường hợp này, chúng ta tạo ra một `cache` object để lưu trữ những kết quả tính toán trước đó.
+
+Mỗi lần chúng ta gọi hàm `addFunction` với đối số giống nhau, đầu tiên nó sẽ check xem đối số đó có tồn tại trong cache hay không. Nếu có, giá trị trong cache sẽ được trả về luôn, tiết kiệm thời gian tính toán. Còn nếu không thì nó sẽ tiến hành tính toán kết quả và tiếp tục lưu vào cache.
+
+Chúng ta gọi hàm `addFunction` ba lần với cùng một đối số: trong lần gọi đầu tiên, giá trị của `num` là `10` và chưa có mặt trong cache. Do đó `num in cache` trả về `false`, và sẽ chạy vào else block: `Calculated! 20` sẽ được ghi ra, và 10 sẽ được đưa vào cạche. `cache` khi này sẽ là `{ 10: 20 }`.
+
+Tại lần gọi thứ hai, `cache` object đã có giá trị `10`. `num in cache` trả về `true`, và `'From cache! 20'` được ghi ra.
+
+Tại lần gọi thứ ba, ta đưa vào `5 * 2`, tức `10` vào hàm. Tiếp tục giống như trên, `'From cache! 20'` sẽ được ghi ra.
+
+</p>
+</details>
+
+---
+
+###### 79. Output là gì?
+
+```javascript
+const myLifeSummedUp = ["☕", "💻", "🍷", "🍫"]
+
+for (let item in myLifeSummedUp) {
+  console.log(item)
+}
+
+for (let item of myLifeSummedUp) {
+  console.log(item)
+}
+```
+
+- A: `0` `1` `2` `3` and `"☕"` ` "💻"` `"🍷"` `"🍫"`
+- B: `"☕"` ` "💻"` `"🍷"` `"🍫"` and `"☕"` ` "💻"` `"🍷"` `"🍫"`
+- C: `"☕"` ` "💻"` `"🍷"` `"🍫"` and `0` `1` `2` `3`
+- D:  `0` `1` `2` `3` and `{0: "☕", 1: "💻", 2: "🍷", 3: "🍫"}`
+
+<details><summary><b>Đáp án</b></summary>
+<p>
+
+#### Đáp án: A
+
+Với vòng lặp _for-in_, chúng ta có thể duyệt qua các thuộc tính **enumerable** của object. Với mảng, thuộc tính enumerable chính là các "key" của mảng, hay chính là các index của mảng đó. Ta có thể coi mảng như là:
+
+`{0: "☕", 1: "💻", 2: "🍷", 3: "🍫"}`
+
+Do đó `0` `1` `2` `3` được ghi ra.
+
+Với vòng lặp _for-of_, chúng ta sẽ duyệt qua các phần tử của một **iterable**. Một mảng chính là một iterable. Khi chúng ta duyệt qua mảng, biến "item" chính là phần tử mà nó đang duyệt qua, do đó `"☕"` ` "💻"` `"🍷"` `"🍫"` được ghi ra.
+
+</p>
+</details>
+
+---
+
+###### 80. Output là gì?
+
+```javascript
+const list = [1 + 2, 1 * 2, 1 / 2]
+console.log(list)
+```
+
+- A: `["1 + 2", "1 * 2", "1 / 2"]`
+- B: `["12", 2, 0.5]`
+- C: `[3, 2, 0.5]`
+- D:  `[1, 1, 1]`
+
+<details><summary><b>Đáp án</b></summary>
+<p>
+
+#### Đáp án: C
+
+Mảng có thể nhận bất cứ giá trị nào. Số, chuỗi, objects, mảng khác, null, boolean, undefined, và nhiều dạng biểu thức nữa như ngày tháng, hàm, và các tính toán.
+
+Giá trị của phần tử chính là giá trị trả về.  `1 + 2` trả về `3`, `1 * 2` trả về `2`, và `1 / 2` trả về `0.5`.
+
+</p>
+</details>
+
+---
+
+###### 81. Output là gì?
+
+```javascript
+function sayHi(name) {
+  return `Hi there, ${name}`
+}
+
+console.log(sayHi())
+```
+
+- A: `Hi there, `
+- B: `Hi there, undefined`
+- C: `Hi there, null`
+- D:  `ReferenceError`
+
+<details><summary><b>Đáp án</b></summary>
+<p>
+
+#### Đáp án: B
+
+Mặc định, đối số sẽ có giá trị là `undefined`, trừ phi ta gán giá trị cho nó khi đưa vào hàm. Trong trường hợp này, ta không đưa vào giá trị nào cho đối số `name` cả. Do đó `name` sẽ là `undefined` và được ghi ra.
+
+Với cú pháp ES6, ta có thể thay đổi giá trị mặc định `undefined` bằng một giá trị mặc định khác. Ví dụ:
+
+`function sayHi(name = "Lydia") { ... }`
+
+Trong trường hợp này, nếu ta không đưa giá trị nào vào hoặc đưa vào `undefined`, `name` cũng sẽ nhận giá trị mặc định là `Lydia`.
+
+</p>
+</details>
+
+---
+
+###### 82. Output là gì?
+
+```javascript
+var status = "😎"
+
+setTimeout(() => {
+  const status = "😍"
+
+  const data = {
+    status: "🥑",
+    getStatus() {
+      return this.status
+    }
+  }
+
+  console.log(data.getStatus())
+  console.log(data.getStatus.call(this))
+}, 0)
+```
+
+- A: `"🥑"` and `"😍"`
+- B: `"🥑"` and `"😎"`
+- C: `"😍"` and `"😎"`
+- D: `"😎"` and `"😎"`
+
+<details><summary><b>Đáp án</b></summary>
+<p>
+
+#### Đáp án: B
+
+Giá trị của `this` phụ thuộc vào vị trí mà nó được gọi. Trong một **phương thức**, ví dụ `getStatus`, `this` trỏ tới _object chứa phương thức đó_. Phương thức này thuộc `data` object, do đó `this` trỏ tới `data` object. Khi chúng ta gọi `this.status` thì thuộc tính `status` của `data` sẽ được ghi ra, chính là `"🥑"`.
+
+Với phương thức `call`, chúng ta thay đổi tham chiếu mà `this` trỏ tới. Trong **hàm**, từ khóa `this` trỏ tới _object chứa hàm đó_. Chúng ta khai báo hàm `setTimeout` trong _global object_, do đó bên trong hàm `setTimeout` thì `this` sẽ trỏ tới _global object_. Tại biến global object, có một biến _status_ với giá trị `"😎"`. Do đó khi gọi `this.status`, `"😎"` sẽ được ghi ra.
+
+</p>
+</details>
+
+---
+
+###### 83. Output là gì?
+
+```javascript
+const person = {
+  name: "Lydia",
+  age: 21
+}
+
+let city = person.city
+city = "Amsterdam"
+
+console.log(person)
+```
+
+- A: `{ name: "Lydia", age: 21 }`
+- B: `{ name: "Lydia", age: 21, city: "Amsterdam" }`
+- C: `{ name: "Lydia", age: 21, city: undefined }`
+- D: `"Amsterdam"`
+
+<details><summary><b>Đáp án</b></summary>
+<p>
+
+#### Đáp án: A
+
+Chúng ta set biến `city` bằng với giá trị của thuộc tính `city` của object `person`. Nhưng object này không có thuộc tính nào là `city` cả, nên giá trị của biến `city` sẽ là `undefined`. 
+
+Chú ý là chúng ta _không tham chiếu_ tới bản thân object `person`! Chúng ta chỉ đơn giản là set giá trị của biến `city` bằng với giá trị của thuộc tính `city` trong object `person` mà thôi.
+
+Sau đó chúng ta set biến `city` bằng với chuỗi `"Amsterdam"`. Điều này không hề ảnh hưởng gì tới object person vì không có tham chiếu nào ở đây cả.
+
+Do đó khi ghi object `person` ra, Tất cả các thuộc tính vẫn như cũ không hề thay đổi gì cả. 
+
+</p>
+</details>
