@@ -2688,7 +2688,6 @@ fetch('https://www.website.com/api/user/1')
 
 #### Đáp án: C
 
-The value of `res` in the second `.then` is equal to the returned value of the previous `.then`. You can keep chaining `.then`s like this, where the value is passed to the next handler.
 Giá trị của `res` trong `.then` thứ hai chính là giá trị trả về từ `.then` trước đó. Chúng ta có thể thực hiện `.then` liên tiếp như vậy, các giá trị sẽ liên tiếp được truyền tới hàm xử lý tiếp theo.
 
 </p>
@@ -2836,7 +2835,6 @@ console.log(typeof member)
 
 #### Đáp án: C
 
-Classes are syntactical sugar for function constructors. The equivalent of the `Person` class as a function constructor would be:
 Classes chỉ đơn thuần là `syntactical sugar` (cú pháp đặc biệt) của function constructors mà thôi. Nó tương đương với việc ta viết một function thế này:
 
 ```javascript
@@ -2922,9 +2920,9 @@ for (const [x, y] of Object.entries(person)) {
 }
 ```
 
-- A: `name` `Lydia` and `age` `21`
-- B: `["name", "Lydia"]` and `["age", 21]` 
-- C: `["name", "age"]` and `undefined`
+- A: `name` `Lydia` và `age` `21`
+- B: `["name", "Lydia"]` và `["age", 21]` 
+- C: `["name", "age"]` và `undefined`
 - D: `Error`
 
 <details><summary><b>Đáp án</b></summary>
@@ -2944,3 +2942,279 @@ Mảng con thứ hai là `[ "age", 21 ]`, nên `x` sẽ là `"age"`, và `y` s�
 </p>
 </details>
 
+---
+
+###### 94. Output là gì?
+
+```javascript
+function getItems(fruitList, ...args, favoriteFruit) {
+  return [...fruitList, ...args, favoriteFruit]
+}
+
+getItems(["banana", "apple"], "pear", "orange")
+```
+
+- A: `["banana", "apple", "pear", "orange"]`
+- B: `[["banana", "apple"], "pear", "orange"]` 
+- C: `["banana", "apple", ["pear"], "orange"]`
+- D: `SyntaxError`
+
+<details><summary><b>Đáp án</b></summary>
+<p>
+
+#### Đáp án: D
+
+`...args` là cú pháp tham số cuối cùng. Giá trị của tham số cuối cùng chính là toàn bộ các đối số còn lại, **và nó là tham số cuối cùng duy nhất**! Trong trường hợp này, tham số cuối cùng lại là tham số thứ hai. Điều đó là không thể được, và sẽ throw ra một lỗi cú pháp. 
+
+```javascript
+function getItems(fruitList, favoriteFruit, ...args) {
+  return [...fruitList, ...args, favoriteFruit]
+}
+
+getItems(["banana", "apple"], "pear", "orange")
+```
+
+Nếu ta code như thế này thì lại đúng. Giá trị trả về sẽ là `[ 'banana', 'apple', 'orange', 'pear' ]`
+</p>
+</details>
+
+---
+
+###### <a name=20190817></a>95. Output là gì?
+
+```javascript
+function nums(a, b) {
+  if
+  (a > b)
+  console.log('a is bigger')
+  else 
+  console.log('b is bigger')
+  return 
+  a + b
+}
+
+console.log(nums(4, 2))
+console.log(nums(1, 2))
+```
+
+- A: `a is bigger`, `6` và `b is bigger`, `3`
+- B: `a is bigger`, `undefined` và `b is bigger`, `undefined`
+- C: `undefined` và `undefined`
+- D: `SyntaxError`
+
+<details><summary><b>Đáp án</b></summary>
+<p>
+
+#### Đáp án: B
+
+Với JavaScript, ta _không bắt buộc_ phải viết dấu chấm phẩy (`;`), JavaScript engine sẽ tự động thêm vào sau mỗi câu lệnh. Nó gọi là **Automatic Semicolon Insertion**. Một câu lệnh có thể là khai báo biến, hoặc từ khóa như `throw`, `return`, `break`, vv. 
+
+Ở đây ta sử dụng câu lệnh `return` ở một dòng và giá trị `a + b` ở một _dòng khác_. Tuy nhiên do khác dòng nên JS engine không thể biết đâu là giá trị ta thực sự muốn trả về. Thay vì thế, nó sẽ tự động thêm vào dấu chấm phẩy ngay sau `return` giống như này:
+
+```javascript
+  return;
+  a + b
+```
+
+Có nghĩa là `a + b` sẽ không bao giờ được thực hiện, vì hàm đã được `return` rồi. Do không giá trị nào được trả về, nên giá trị trả về của hàm sẽ là `undefined`. Lưu ý là sẽ không tự động thêm dấu chấm phẩy ngay sau `if/else` đâu nhé!
+
+</p>
+</details>
+
+---
+
+###### 96. Output là gì?
+
+```javascript
+class Person {
+  constructor() {
+    this.name = "Lydia"
+  }
+}
+
+Person = class AnotherPerson {
+  constructor() {
+    this.name = "Sarah"
+  }
+}
+
+const member = new Person()
+console.log(member.name)
+```
+
+- A: `"Lydia"`
+- B: `"Sarah"`
+- C: `Error: cannot redeclare Person`
+- D: `SyntaxError`
+
+<details><summary><b>Đáp án</b></summary>
+<p>
+
+#### Đáp án: B
+
+Chúng ta có thể set một class với giá trị là một classes/function constructor khác. Trong trường hợp này, ta set `Person` bằng với `AnotherPerson`. Trong constructor, `this.name` là `Sarah`, do đó giá trị của thuộc tính này trong instance `member` chính là `"Sarah"`.
+
+</p>
+</details>
+
+---
+
+###### 97. Output là gì?
+
+```javascript
+const info = {
+  [Symbol('a')]: 'b'
+}
+
+console.log(info)
+console.log(Object.keys(info))
+```
+
+- A: `{Symbol('a'): 'b'}` và `["{Symbol('a')"]`
+- B: `{}` và `[]`
+- C: `{ a: "b" }` và `["a"]`
+- D: `{Symbol('a'): 'b'}` và `[]`
+
+<details><summary><b>Đáp án</b></summary>
+<p>
+
+#### Đáp án: D
+
+Phương thức `Object.keys` sẽ trả về toàn bộ những key của các thuộc tính _enumerable_ trên một object. Nhưng Symbol không phải dạng _enumerable_. do đó nó sẽ trả về một mảng rỗng. Tuy nhiên khi ta log ra toàn bộ object, thì ta sẽ ghi ra toàn bộ các thuộc tính, cho dù đó có là thuộc tính _enumerable_ hay không.
+
+Đó chính là một đặc trưng của Symbol: Bên cạnh việc nó biểu diễn một giá trị duy nhất (tránh việc xảy ra xung đột tên gọi, ví dụ khi ta sử dụng 2 thư viện mà muốn thêm thuộc tính vào cho cùng một object chẳng hạn), nó còn giúp "ẩn" thuộc tính đó đi (dù không hoàn toàn, ta vẫn có thể truy cập được bằng cách sử dụng phương thức `Object.getOwnPropertySymbols()`).
+
+</p>
+</details>
+
+---
+
+###### 98. Output là gì?
+
+```javascript
+const getList = ([x, ...y]) => [x, y]
+const getUser = user => { name: user.name, age: user.age }
+
+const list = [1, 2, 3, 4]
+const user = { name: "Lydia", age: 21 }
+
+console.log(getList(list))
+console.log(getUser(user))
+```
+
+- A: `[1, [2, 3, 4]]` và `undefined`
+- B: `[1, [2, 3, 4]]` và `{ name: "Lydia", age: 21 }`
+- C: `[1, 2, 3, 4]` và `{ name: "Lydia", age: 21 }`
+- D: `Error` và `{ name: "Lydia", age: 21 }`
+
+<details><summary><b>Đáp án</b></summary>
+<p>
+
+#### Đáp án: A
+
+Hàm `getList` nhận vào một mảng các đối số, và tiến hành xử lý mảng đó luôn khi đưa vào hàm:
+
+ `[x, ...y] = [1, 2, 3, 4]`
+
+ Với việc sử dụng cú pháp tham số cuối cùng `...y`, chúng ta đưa toàn bộ "những đối số còn lại" vào một mảng y. Trong trường hợp này đó là mảng gồm các phần tử `2`, `3` và `4`. Do đó giá trị của `y` lúc này chính là mảng `[2, 3, 4]`. Giá trị của `x` là `1`, nên khi ghi `[x, y]` ra, kết quả sẽ là `[1, [2, 3, 4]]`.
+
+Hàm `getUser` nhận vào một object. Với cú pháp arrow function, chúng ta sẽ không phải viết trong ngoặc nhọn `{}` nữa nếu ta chỉ muốn đơn thuần trả về giá trị. Tuy nhiên, nếu ta muốn trả về một _object_ t arrow function, ta sẽ phải viết chúng trong dấu ngoặc tròn `()`, nếu không thì sẽ không có giá trị nào được trả về! Ví dụ như sau:
+
+```const getUser = user => ({ name: user.name, age: user.age })```
+
+Do không giá trị nào được trả về, kết quả sẽ là `undefined`.
+
+</p>
+</details>
+
+---
+
+###### 99. Output là gì?
+
+```javascript
+const name = "Lydia"
+
+console.log(name())
+```
+
+- A: `SyntaxError`
+- B: `ReferenceError`
+- C: `TypeError`
+- D: `undefined`
+
+<details><summary><b>Đáp án</b></summary>
+<p>
+
+#### Đáp án: C
+
+Biến `name` có giá trị là một chuỗi, không phải hàm, vì thế không thể gọi được. 
+
+TypeErrors sẽ được throw ra nếu một giá trị không được sử dụng đúng kiểu. JavaScript muốn `name` là một hàm khi ta tiến hành gọi nó. Nhưng nó là chuỗi, nên sẽ throw ra một TypeError.
+
+SyntaxErrors sẽ được throw khi ta viết code không đúng cú pháp của JavaScript, ví dụ thay vì `return` ta viết `retrun`. 
+
+ReferenceErrors sẽ được throw ra khi Javascript không thể tìm được tham chiếu nào đến giá trị mà ta đang cố truy cập.
+
+</p>
+</details>
+
+---
+
+###### 100. Output là gì?
+
+```javascript
+// 🎉✨ Đây là câu hỏi thứ 100 của tôi! ✨🎉
+
+const output = `${[] && 'Im'}possible!
+You should${'' && `n't`} see a therapist after so much JavaScript lol`
+```
+
+- A: `possible! You should see a therapist after so much JavaScript lol`
+- B: `Impossible! You should see a therapist after so much JavaScript lol`
+- C: `possible! You shouldn't see a therapist after so much JavaScript lol`
+- D: `Impossible! You shouldn't see a therapist after so much JavaScript lol`
+
+<details><summary><b>Đáp án</b></summary>
+<p>
+
+#### Đáp án: B
+
+`[]` là một giá trị truthy. Với phép toán `&&` , giá trị bên phải sẽ được trả về nếu giá trị bên trái là truthy. Trong trường hợp này giá trị bên trái `[]` là truthy, nên `"Im'` sẽ được trả về.
+
+`""` là một giá trị falsy. Nếu giá trị bên trái là falsy, không có gì được trả về cả. Do đó `n't` sẽ không được trả về.
+
+</p>
+</details>
+
+---
+
+###### 101. Output là gì?
+
+```javascript
+const one = (false || {} || null)
+const two = (null || false || "")
+const three = ([] || 0 || true)
+
+console.log(one, two, three)
+```
+
+- A: `false` `null` `[]`
+- B: `null` `""` `true`
+- C: `{}` `""` `[]`
+- D: `null` `null` `true`
+
+<details><summary><b>Đáp án</b></summary>
+<p>
+
+#### Đáp án: C
+
+Với phép toán `||`, ta sẽ trả về giá trị truethy đầu tiên. Nếu tất cả đều là falsy, giá trị cuối cùng sẽ được trả về.
+
+`(false || {} || null)`: object rỗng `{}` là một giá trị truthy. Nó là giá trị truethy đầu tiên và duy nhất nên sẽ được trả về. Do đó `one` sẽ là `{}`.
+
+`(null || false || "")`: Tất cả toán hạng đều là falsy. Có nghĩa là toán hạng cuối cùng `""` sẽ được trả về. Do đó `two` sẽ là `""`.
+
+`([] || 0 || "")`: mảng rỗng `[]` là một giá trị truthy. Nó là giá trị truthy đầu tiên nên sẽ được trả về. Do đó `three` sẽ là `[]`.
+
+</p>
+</details>
