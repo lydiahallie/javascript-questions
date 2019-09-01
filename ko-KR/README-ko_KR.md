@@ -2,7 +2,7 @@
 
 JavaScript 에 관한 객관식 문제를 [Instagram](https://www.instagram.com/theavocoder)에 매일 게시하고 있어요, 물론 여기에도 게시할 거예요!
 
-초급부터 고급까지: JavaScript를 얼마나 잘 알고 있는지 테스트하거나, 지식을 조금 더 새롭게 하거나, 코딩 면접을 준비하세요! :muscle: :rocket: 이 기록을 매주 새로운 질문으로 업데이트해요. 마지막 업데이트: <a href=#20190726><b>7월 26일</b></a>
+초급부터 고급까지: JavaScript를 얼마나 잘 알고 있는지 테스트하거나, 지식을 조금 더 새롭게 하거나, 코딩 면접을 준비하세요! :muscle: :rocket: 이 기록을 매주 새로운 질문으로 업데이트해요. 마지막 업데이트: <a href=#20190817><b>8월 17일</b></a>
 
 정답은 질문 아래 접힌 부분에 있어요, 그냥 클릭하면 펼칠 수 있어요. 행운을 빌어요 :heart:
 
@@ -2471,7 +2471,7 @@ console.log(addFunction(5 * 2));
 
 ---
 
-###### <a name=20190726></a>79. 무엇이 출력 될까요?
+###### 79. 무엇이 출력 될까요?
 
 ```javascript
 const myLifeSummedUp = ["☕", "💻", "🍷", "🍫"]
@@ -2493,7 +2493,7 @@ for (let item of myLifeSummedUp) {
 <details><summary><b>정답</b></summary>
 <p>
 
-#### Answer: A
+#### 정답: A
 
 _for-in_ 루프에서는, **열거 가능한** 속성들에 대해 반복 할 수 있어요. 배열에서, 열거 가능한 속성들은 배열 요소들의 "키"이고, 실제로는 그들의 인덱스죠. 배열을 다음과 같이 볼 수 있어요:
 
@@ -2523,7 +2523,7 @@ console.log(list);
 <details><summary><b>정답</b></summary>
 <p>
 
-#### Answer: C
+#### 정답: C
 
 배열 요소들은 모든 값을 포함 할 수 있어요. Numbers, strings, objects, 다른 arrays, null, boolean 값, undefined, 그리고 자료형, 함수, 연산자와 같은 표현식들
 
@@ -2552,7 +2552,7 @@ console.log(sayHi());
 <details><summary><b>정답</b></summary>
 <p>
 
-#### Answer: B
+#### 정답: B
 
 기본값으로, 함수에 값이 전달되지 않으면, 인수는 `undefined` 값을 가져요. 이 경우, `name` 인수를 위한 값을 전달하지 않았어요. `name`은 `undefined`로 출력돼요.
 
@@ -2595,7 +2595,7 @@ setTimeout(() => {
 <details><summary><b>정답</b></summary>
 <p>
 
-#### Answer: B
+#### 정답: B
 
 `this`키워드의 값은 사용하는 곳에 따라 달라요. **메소드**에서 `getStatus`메소드 처럼, `this`키워드는 _메소드가 속한 객체_ 를 참조해요. 이 메소드는 `data` 객체에 속해 있어, `this`는 `data`객체를 참조해요. `this.status`를 출력할 때, `data`객체의 `status` 속성 `"🥑"`이 출력돼요.
 
@@ -2628,7 +2628,7 @@ console.log(person);
 <details><summary><b>정답</b></summary>
 <p>
 
-#### Answer: A
+#### 정답: A
 
 `city` 변수를 `person` rorcpdml `city`라고 불리는 속성 값으로 설정 했어요. 이 객체에서는 `city`라고 불리는 속성이 없기 때문에, `city`는 `undefined`의 값을 가져요. 
 
@@ -2667,7 +2667,7 @@ console.log(checkAge(21));
 <details><summary><b>정답</b></summary>
 <p>
 
-#### Answer: C
+#### 정답: C
 
 `const`와 `let` 키워드를 사용한 변수는 _블록-스코프_ 예요. 블록은 중괄호 (`{ }`) 사이에 있는 것이죠. 이 경우, if/else 표현식의 중괄호를 의미해요. 블록 안에 선언된 건 블록 밖의 변수들을 참조하지 못해, ReferenceError를 던져요.
 
@@ -2692,7 +2692,7 @@ fetch('https://www.website.com/api/user/1')
 <details><summary><b>정답</b></summary>
 <p>
 
-#### Answer: C
+#### 정답: C
 
 두번째 `.then`에서의 `res`의 값은 이전`.then`에서 리턴된 값이에요. 이것 처럼 `.then`을 계속해서 연결할 수 있고, 값은 계속해서 다음 핸들러로 전달 돼요.
 
@@ -2717,7 +2717,7 @@ function getName(name) {
 <details><summary><b>정답</b></summary>
 <p>
 
-#### Answer: A
+#### 정답: A
 
 `!!name`에서, 우리는 `name`의 값이 참 같은지 거짓 같은지 결정해요. 만약 테스트 하려는 name이 참 같다면, `!name`은 `false`를 리턴해요. `!false` (실제로는 `!!name`)는 `true`를 리턴해요.
 
@@ -2726,6 +2726,500 @@ function getName(name) {
 `new Boolean(true)`은 불린 값 자체가 아닌, 감싼 객체를 리턴해요.
 
 `name.length`은 그것의 `true`의 여부가 아닌, 전달된 인수의 길이를 리턴해요.
+
+</p>
+</details>
+
+---
+
+###### 87. 무엇이 출력 될까요?
+
+```javascript
+console.log("I want pizza"[0]);
+```
+
+- A: `"""`
+- B: `"I"`
+- C: `SyntaxError`
+- D: `undefined`
+
+<details><summary><b>정답</b></summary>
+<p>
+
+#### 정답: B
+
+문자열의 특정 인덱스의 문자를 얻으려면, 대괄호 표기법을 사용하면 돼요. 문자열의 첫 번째 문자는 인덱스 0과 기타등등을 가지고 있어요. 이 경우 문자 `"I'`인 인덱스 0이 출력되는 요소를 갖길 원해요.
+
+이 방법은 IE7 이하에서는 지원되지 않는다는 것을 유의하세요. 이 경우, `.charAt()`를 사용하세요.
+
+</p>
+</details>
+
+---
+
+###### 88. 무엇이 출력 될까요?
+
+```javascript
+function sum(num1, num2 = num1) {
+  console.log(num1 + num2)
+}
+
+sum(10)
+```
+
+- A: `NaN`
+- B: `20`
+- C: `ReferenceError`
+- D: `undefined`
+
+<details><summary><b>정답</b></summary>
+<p>
+
+#### 정답: B
+
+기본 파라미터의 값은 기본 파라미터를 정의하기 _전_ 이라면, 함수의 다른 파라미터와 같게 설정 할 수 있어요. 우리는 `sum` 함수에 값 `10`을 전달 했어요. 만약 `sum` 함수에 인수의 값을 하나만 받았다면, `num2`를 위한 값은 전달되지 않고, `num1`은 전달된 값과 같다는 의미에요. `num1`의 기본값은 `num1`의 값인 `10`과 같아요. `num1 + num2`는 `20`을 리턴해요.
+
+만약 기본 파리미터가 정의된 _후_ (오른쪽에) 기본 파라미터의 값을 설정하려고 시도한다면, 파라미터의 값은 아직 초기화되지 않아, 오류를 던질 거에요.
+
+</p>
+</details>
+
+---
+
+###### 89. 무엇이 출력 될까요?
+
+```javascript
+// module.js 
+export default () => "Hello world"
+export const name = "Lydia"
+
+// index.js 
+import * as data from "./module"
+
+console.log(data)
+```
+
+- A: `{ default: function default(), name: "Lydia" }`
+- B: `{ default: function default() }`
+- C: `{ default: "Hello world", name: "Lydia" }`
+- D: Global object of `module.js`
+
+<details><summary><b>정답</b></summary>
+<p>
+
+#### 정답: A
+
+`import * as name` 신택스를 사용해서, `module.js` 파일에 있는 _모든 exports_ 를 `index.js` 파일 안에 `data`라고 불리는 새로운 객체를 생성해요. `module.js` 파일에는, 2개의 export가 있어요: default export 와 named export. default export는 문자열 `"Hello World"`을 리턴하는 함수고, named export는 문자열 `"Lydia"`의 값을 가진 `name`이라고 불리는 변수예요.
+
+`data` 객체는 default export를 위한 `default` 속성을 가지고, 다른 속성들은 named exports의 이름들과 그에 해당하는 값들을 가져요.
+
+</p>
+</details>
+
+---
+
+###### 90. 무엇이 출력 될까요?
+
+```javascript
+class Person {
+  constructor(name) {
+    this.name = name
+  }
+}
+
+const member = new Person("John")
+console.log(typeof member)
+```
+
+- A: `"class"`
+- B: `"function"`
+- C: `"object"`
+- D: `"string"`
+
+<details><summary><b>정답</b></summary>
+<p>
+
+#### 정답: C
+
+Class는 함수 생성자를 위한 문법적 설탕이에요. 함수 생성자로서 `Person` 클래스와 동등한 것은 다음과 같아요:
+
+```javascript
+function Person() {
+  this.name = name;
+}
+```
+
+`new`와 함께 불려진 함수 생성자는 `Person`의 인스턴스를 생성하고, `typeof` 키워드는 인스턴스의 `"object"`를 리턴해요. `typeof member`는 `"object"`을 리턴해요.
+
+</p>
+</details>
+
+---
+
+###### 91. 무엇이 출력 될까요?
+
+```javascript
+let newList = [1, 2, 3].push(4)
+
+console.log(newList.push(5))
+```
+
+- A: `[1, 2, 3, 4, 5]`
+- B: `[1, 2, 3, 5]`
+- C: `[1, 2, 3, 4]`
+- D: `Error`
+
+<details><summary><b>정답</b></summary>
+<p>
+
+#### 정답: D
+
+`.push` 메소드는 배열 자체가 아니라, 배열의 _새로운 길이_ 를 리턴해요! `newList`를 `[1, 2, 3].push(4)`과 동일하게 설정함으로써, `newList`를 배열의 새로운 길이와 동일하게 설정했어요: `4`.
+
+그리고나서, `.push` 메소드를 `newList`에 사용하려고 했어요. `newList`는 숫자 값 `4` 이기 때문에, `.push` 메소드를 사용할 수 없어요: TypeError가 던져져요.
+
+</p>
+</details>
+
+---
+
+###### 92. 무엇이 출력 될까요?
+
+```javascript
+function giveLydiaPizza() {
+  return "Here is pizza!"
+}
+
+const giveLydiaChocolate = () => "Here's chocolate... now go hit the gym already."
+
+console.log(giveLydiaPizza.prototype)
+console.log(giveLydiaChocolate.prototype)
+```
+
+- A: `{ constructor: ...}` `{ constructor: ...}` 
+- B: `{}` `{ constructor: ...}` 
+- C: `{ constructor: ...}` `{}`
+- D: `{ constructor: ...}` `undefined`
+
+<details><summary><b>정답</b></summary>
+<p>
+
+#### 정답: D
+
+`giveLydiaPizza`와 같은 정규 함수는, `생성자` 속성을 가진 `프로토타입` 객체(프로토타입 객체)를 속성으로 가져요. 그러나 `giveLydiaChocolate` 함수와 같은 화살표 함수에서는, `prototype` 속성을 가지고 있지 않아요. `giveLydiaChocolate.prototype`을 사용해 `prototype` 속성에 접근하려고 할때, `undefined`이 리턴될 거에요.
+
+</p>
+</details>
+
+---
+
+###### 93. 무엇이 출력 될까요?
+
+```javascript
+const person = {
+  name: "Lydia",
+  age: 21
+};
+
+for (const [x, y] of Object.entries(person)) {
+  console.log(x, y)
+}
+```
+
+- A: `name` `Lydia` and `age` `21`
+- B: `["name", "Lydia"]` and `["age", 21]` 
+- C: `["name", "age"]` and `undefined`
+- D: `Error`
+
+<details><summary><b>정답</b></summary>
+<p>
+
+#### 정답: A
+
+`Object.entries(person)`은 키와 값을 세트로 가진 배열의 배열을 리턴해요:
+
+`[ [ 'name', 'Lydia' ], [ 'age', 21 ] ]` 
+
+`for-of` 루프를 사용해서, 배열 안에 각 요소를 계속해서 반복할 수 있는데, 이 경우엔 하위 배열이에요. 하위 배열을 `const [x, y]`을 사용해, for-of 루프에서 즉시 분해할 수 있어요. `x`는 하위 배열의 첫 번째 요소와 같고, `y`는 하위 배열의 두 번째 요소와 같아요.
+
+첫번째 하위요소는 `[ "name", "Lydia" ]`로, `x`는 `"name"`, `y`는 `"Lydia"`을 출력해요.
+두번째 하위요소는 `[ "age", 21 ]`로, `x`는 `"age"`, `y`는 `21`을 출력해요.
+
+</p>
+</details>
+
+---
+
+###### 94. 무엇이 출력 될까요?
+
+```javascript
+function getItems(fruitList, ...args, favoriteFruit) {
+  return [...fruitList, ...args, favoriteFruit]
+}
+
+console.log(getItems(["banana", "apple"], "pear", "orange"))
+```
+
+- A: `["banana", "apple", "pear", "orange"]`
+- B: `[["banana", "apple"], "pear", "orange"]` 
+- C: `["banana", "apple", ["pear"], "orange"]`
+- D: `SyntaxError`
+
+<details><summary><b>정답</b></summary>
+<p>
+
+#### 정답: D
+
+`...args`은 나머지 파라미터예요. 나머지 파라미터의 값은 모든 나머지 인수들을 포함한 배열이며, **마지막 파라미터만 될 수 있어요**! 지금 예시에서는, 나머지 파라미터는 두번째 파라미터예요. 이것은 불가능하고, 신택스 에러를 던지게 될거에요.
+
+```javascript
+function getItems(fruitList, favoriteFruit, ...args) {
+  return [...fruitList, ...args, favoriteFruit]
+}
+
+getItems(["banana", "apple"], "pear", "orange")
+```
+
+The above example works. This returns the array `[ 'banana', 'apple', 'orange', 'pear' ]`
+</p>
+</details>
+
+---
+
+###### <a name=20190817></a>95. 무엇이 출력 될까요?
+
+```javascript
+function nums(a, b) {
+  if
+  (a > b)
+  console.log('a is bigger')
+  else 
+  console.log('b is bigger')
+  return 
+  a + b
+}
+
+console.log(nums(4, 2))
+console.log(nums(1, 2))
+```
+
+- A: `a is bigger`, `6` and `b is bigger`, `3`
+- B: `a is bigger`, `undefined` and `b is bigger`, `undefined`
+- C: `undefined` and `undefined`
+- D: `SyntaxError`
+
+<details><summary><b>정답</b></summary>
+<p>
+
+#### 정답: B
+
+In JavaScript, we don't _have_ to write the semicolon (`;`) explicitly, however the JavaScript engine still adds them after statements. This is called **Automatic Semicolon Insertion**. A statement can for example be variables, or keywords like `throw`, `return`, `break`, etc. 
+
+Here, we wrote a `return` statement, and another value `a + b` on a _new line_. However, since it's a new line, the engine doesn't know that it's actually the value that we wanted to return. Instead, it automatically added a semicolon after `return`. You could see this as:
+
+```javascript
+  return;
+  a + b
+```
+
+This means that `a + b` is never reached, since a function stops running after the `return` keyword. If no value gets returned, like here, the function returns `undefined`. Note that there is no automatic insertion after `if/else` statements!
+
+</p>
+</details>
+
+---
+
+###### 96. 무엇이 출력 될까요?
+
+```javascript
+class Person {
+  constructor() {
+    this.name = "Lydia"
+  }
+}
+
+Person = class AnotherPerson {
+  constructor() {
+    this.name = "Sarah"
+  }
+}
+
+const member = new Person()
+console.log(member.name)
+```
+
+- A: `"Lydia"`
+- B: `"Sarah"`
+- C: `Error: cannot redeclare Person`
+- D: `SyntaxError`
+
+<details><summary><b>정답</b></summary>
+<p>
+
+#### 정답: B
+
+We can set classes equal to other classes/function constructors. In this case, we set `Person` equal to `AnotherPerson`. The name on this constructor is `Sarah`, so the name property on the new `Person` instance `member` is `"Sarah"`.
+
+</p>
+</details>
+
+---
+
+###### 97. 무엇이 출력 될까요?
+
+```javascript
+const info = {
+  [Symbol('a')]: 'b'
+}
+
+console.log(info)
+console.log(Object.keys(info))
+```
+
+- A: `{Symbol('a'): 'b'}` and `["{Symbol('a')"]`
+- B: `{}` and `[]`
+- C: `{ a: "b" }` and `["a"]`
+- D: `{Symbol('a'): 'b'}` and `[]`
+
+<details><summary><b>정답</b></summary>
+<p>
+
+#### 정답: D
+
+A Symbol is not _enumerable_. The Object.keys method returns all _enumerable_ key properties on an object. The Symbol won't be visible, and an empty array is returned. When logging the entire object, all properties will be visible, even non-enumerable ones.
+
+This is one of the many qualities of a symbol: besides representing an entirely unique value (which prevents accidental name collision on objects, for example when working with 2 libraries that want to add properties to the same object), you can also "hide" properties on objects this way (although not entirely. You can still access symbols using the `Object.getOwnPropertySymbols()` method).
+
+</p>
+</details>
+
+---
+
+###### 98. 무엇이 출력 될까요?
+
+```javascript
+const getList = ([x, ...y]) => [x, y]
+const getUser = user => { name: user.name, age: user.age }
+
+const list = [1, 2, 3, 4]
+const user = { name: "Lydia", age: 21 }
+
+console.log(getList(list))
+console.log(getUser(user))
+```
+
+- A: `[1, [2, 3, 4]]` and `undefined`
+- B: `[1, [2, 3, 4]]` and `{ name: "Lydia", age: 21 }`
+- C: `[1, 2, 3, 4]` and `{ name: "Lydia", age: 21 }`
+- D: `Error` and `{ name: "Lydia", age: 21 }`
+
+<details><summary><b>정답</b></summary>
+<p>
+
+#### 정답: A
+
+The `getList` function receives an array as its argument. Between the parentheses of the `getList` function, we destructure this array right away. You could see this as:
+
+ `[x, ...y] = [1, 2, 3, 4]`
+
+ With the rest parameter `...y`, we put all "remaining" arguments in an array. The remaining arguments are `2`, `3` and `4` in this case. The value of `y` is an array, containig all the rest parameters. The value of `x` is equal to `1` in this case, so when we log `[x, y]`, `[1, [2, 3, 4]]` gets logged.
+
+ The `getUser` function receives an object. With arrow functions, we don't _have_ to write curly brackets if we just return one value. However, if you want to return an _object_ from an arrow function, you have to write it between parentheses, otherwise no value gets returned! The following function would have returned an object:
+
+```const getUser = user => ({ name: user.name, age: user.age })```
+
+Since no value gets returned in this case, the function returns `undefined`.
+
+</p>
+</details>
+
+---
+
+###### 99. 무엇이 출력 될까요?
+
+```javascript
+const name = "Lydia"
+
+console.log(name())
+```
+
+- A: `SyntaxError`
+- B: `ReferenceError`
+- C: `TypeError`
+- D: `undefined`
+
+<details><summary><b>정답</b></summary>
+<p>
+
+#### 정답: C
+
+The variable `name` holds the value of a string, which is not a function, thus cannot invoke. 
+
+TypeErrors get thrown wehn a value is not of the expected type. JavaScript expected `name` to be a function since we're trying to invoke it. It was a string however, so a TypeError gets thrown: name is not a function!
+
+SyntaxErrors get thrown when you've written something that isn't valid JavaScript, for example when you've written the word `return` as `retrun`. 
+ReferenceErrors get thrown when JavaScript isn't able to find a reference to a value that you're trying to access.
+
+</p>
+</details>
+
+---
+
+###### 100. What's the value of output?
+
+```javascript
+// 🎉✨ This is my 100th question! ✨🎉
+
+const output = `${[] && 'Im'}possible!
+You should${'' && `n't`} see a therapist after so much JavaScript lol`
+```
+
+- A: `possible! You should see a therapist after so much JavaScript lol`
+- B: `Impossible! You should see a therapist after so much JavaScript lol`
+- C: `possible! You shouldn't see a therapist after so much JavaScript lol`
+- D: `Impossible! You shouldn't see a therapist after so much JavaScript lol`
+
+<details><summary><b>정답</b></summary>
+<p>
+
+#### 정답: B
+
+`[]` is a truthy value. With the `&&` operator, the right-hand value will be returned if the left-hand value is a truthy value. In this case, the left-hand value `[]` is a truthy value, so `"Im'` gets returned.
+
+`""` is a falsy value. If the left-hand value is falsy, nothing gets returned. `n't` doesn't get returned.
+
+</p>
+</details>
+
+---
+
+###### 101. What's the value of output?
+
+```javascript
+const one = (false || {} || null)
+const two = (null || false || "")
+const three = ([] || 0 || true)
+
+console.log(one, two, three)
+```
+
+- A: `false` `null` `[]`
+- B: `null` `""` `true`
+- C: `{}` `""` `[]`
+- D: `null` `null` `true`
+
+<details><summary><b>정답</b></summary>
+<p>
+
+#### 정답: C
+
+With the `||` operator, we can return the first truthy operand. If all values are falsy, the last operand gets returned.
+
+`(false || {} || null)`: the empty object `{}` is a truthy value. This is the first (and only) truthy value, which gets returned. `one` is equal to `{}`.
+
+`(null || false || "")`: all operands are falsy values. This means that the past operand, `""` gets returned. `two` is equal to `""`.
+
+`([] || 0 || "")`: the empty array`[]` is a truthy value. This is the first truthy value, which gets returned. `three` is equal to `[]`.
 
 </p>
 </details>
