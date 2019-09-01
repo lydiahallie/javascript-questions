@@ -3013,16 +3013,16 @@ console.log(nums(1, 2))
 
 #### 정답: B
 
-In JavaScript, we don't _have_ to write the semicolon (`;`) explicitly, however the JavaScript engine still adds them after statements. This is called **Automatic Semicolon Insertion**. A statement can for example be variables, or keywords like `throw`, `return`, `break`, etc. 
+자바스크립트에서, 세미콜론을 (`;`)을 명시적으로 포함하여 쓰지 _않_ 더라도, 자바스크립트 엔진은 여전히 문 뒤에 그들을 추가해줘요. 이것은 **자동 세미콜론 삽입**이라고 불려요. 예를 들어 문은 변수, 또는 `throw`, `return`, `break` 등과 같은 키워드가 될 수도 있어요.
 
-Here, we wrote a `return` statement, and another value `a + b` on a _new line_. However, since it's a new line, the engine doesn't know that it's actually the value that we wanted to return. Instead, it automatically added a semicolon after `return`. You could see this as:
+여기, `return`문을 썼고, 다른 값 `a + b`은 _새로운 줄_ 에 쓰였어요. 그러나, 새로운 줄이기 때문에, 엔진은 실제로 그 값이 리턴되길 바라는지 알 수 없어요. 대신에, 자동적으로 `return` 뒤에 세미콜론을 더해줘요. 이것을 볼 수 있을거에요:
 
 ```javascript
   return;
   a + b
 ```
 
-This means that `a + b` is never reached, since a function stops running after the `return` keyword. If no value gets returned, like here, the function returns `undefined`. Note that there is no automatic insertion after `if/else` statements!
+`return` 키워드 뒤에 함수가 실행되는 것이 중단되기 때문에, `a + b`의 의미는 도달되지 않아요. 여기서 처럼, 만약 아무 값도 리턴되지 않는다면, 함수는 `undefined`를 리턴할 거예요. `if/else`문 뒤에는 자동으로 삽입되는 게 없다는 걸 유의해요!
 
 </p>
 </details>
@@ -3058,7 +3058,7 @@ console.log(member.name)
 
 #### 정답: B
 
-We can set classes equal to other classes/function constructors. In this case, we set `Person` equal to `AnotherPerson`. The name on this constructor is `Sarah`, so the name property on the new `Person` instance `member` is `"Sarah"`.
+다른 클래스/함수 생성자로 클래스를 설정할 수 있어요. 이 경우, `Person`을 `AnotherPerson`로 설정했어요. 이 생성자의 name은 `Sarah`예요, 따라서 새로운 `Person`의 인스턴스 `member`의 name 속성은 `"Sarah"`예요.
 
 </p>
 </details>
@@ -3086,9 +3086,9 @@ console.log(Object.keys(info))
 
 #### 정답: D
 
-A Symbol is not _enumerable_. The Object.keys method returns all _enumerable_ key properties on an object. The Symbol won't be visible, and an empty array is returned. When logging the entire object, all properties will be visible, even non-enumerable ones.
+심볼은 _열거 가능_ 하지 않아요. Object.keys 메소드는 객체의 모든 _열거 가능_ 한 키 속성들을 리턴해요. 심볼은 보이지 않고, 빈 객체가 리턴돼요. 객체 전체를 출력할때, 모든 속성들은 보여요, 심지어 열거 불가능한 것이라해도.
 
-This is one of the many qualities of a symbol: besides representing an entirely unique value (which prevents accidental name collision on objects, for example when working with 2 libraries that want to add properties to the same object), you can also "hide" properties on objects this way (although not entirely. You can still access symbols using the `Object.getOwnPropertySymbols()` method).
+이것은 심볼의 많은 특성 중 하나에요: 완전히 고유한 값(예를들어 2개의 라이브러리를 같은 객체의 속성으로 추가하고 싶을때, 객체의 우연한 이름 충돌을 방지해요)을 나타내는 것 외에, 이 방법으로 객체의 속성을 "숨길" 수 있어요(비록 완전히는 아닐지라도. 여전히 `Object.getOwnPropertySymbols()` 메소드를 사용해 심볼에 접근 할 수 있어요).
 
 </p>
 </details>
