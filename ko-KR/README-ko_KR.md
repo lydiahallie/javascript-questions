@@ -2926,9 +2926,9 @@ for (const [x, y] of Object.entries(person)) {
 }
 ```
 
-- A: `name` `Lydia` and `age` `21`
-- B: `["name", "Lydia"]` and `["age", 21]` 
-- C: `["name", "age"]` and `undefined`
+- A: `name` `Lydia` 그리고 `age` `21`
+- B: `["name", "Lydia"]` 그리고 `["age", 21]` 
+- C: `["name", "age"]` 그리고 `undefined`
 - D: `Error`
 
 <details><summary><b>정답</b></summary>
@@ -3003,9 +3003,9 @@ console.log(nums(4, 2))
 console.log(nums(1, 2))
 ```
 
-- A: `a is bigger`, `6` and `b is bigger`, `3`
-- B: `a is bigger`, `undefined` and `b is bigger`, `undefined`
-- C: `undefined` and `undefined`
+- A: `a is bigger`, `6` 그리고 `b is bigger`, `3`
+- B: `a is bigger`, `undefined` 그리고 `b is bigger`, `undefined`
+- C: `undefined` 그리고 `undefined`
 - D: `SyntaxError`
 
 <details><summary><b>정답</b></summary>
@@ -3013,7 +3013,7 @@ console.log(nums(1, 2))
 
 #### 정답: B
 
-자바스크립트에서, 세미콜론을 (`;`)을 명시적으로 포함하여 쓰지 _않_ 더라도, 자바스크립트 엔진은 여전히 문 뒤에 그들을 추가해줘요. 이것은 **자동 세미콜론 삽입**이라고 불려요. 예를 들어 문은 변수, 또는 `throw`, `return`, `break` 등과 같은 키워드가 될 수도 있어요.
+JavaScript에서, 세미콜론을 (`;`)을 명시적으로 포함하여 쓰지 _않_ 더라도, JavaScript 엔진은 여전히 문 뒤에 그들을 추가해줘요. 이것은 **자동 세미콜론 삽입**이라고 불려요. 예를 들어 문은 변수, 또는 `throw`, `return`, `break` 등과 같은 키워드가 될 수도 있어요.
 
 여기, `return`문을 썼고, 다른 값 `a + b`은 _새로운 줄_ 에 쓰였어요. 그러나, 새로운 줄이기 때문에, 엔진은 실제로 그 값이 리턴되길 바라는지 알 수 없어요. 대신에, 자동적으로 `return` 뒤에 세미콜론을 더해줘요. 이것을 볼 수 있을거에요:
 
@@ -3076,17 +3076,17 @@ console.log(info)
 console.log(Object.keys(info))
 ```
 
-- A: `{Symbol('a'): 'b'}` and `["{Symbol('a')"]`
-- B: `{}` and `[]`
-- C: `{ a: "b" }` and `["a"]`
-- D: `{Symbol('a'): 'b'}` and `[]`
+- A: `{Symbol('a'): 'b'}` 그리고 `["{Symbol('a')"]`
+- B: `{}` 그리고 `[]`
+- C: `{ a: "b" }` 그리고 `["a"]`
+- D: `{Symbol('a'): 'b'}` 그리고 `[]`
 
 <details><summary><b>정답</b></summary>
 <p>
 
 #### 정답: D
 
-심볼은 _열거 가능_ 하지 않아요. Object.keys 메소드는 객체의 모든 _열거 가능_ 한 키 속성들을 리턴해요. 심볼은 보이지 않고, 빈 객체가 리턴돼요. 객체 전체를 출력할때, 모든 속성들은 보여요, 심지어 열거 불가능한 것이라해도.
+심볼은 _열거 불가능_ 해요. Object.keys 메소드는 객체의 모든 _열거 가능_ 한 키 속성들을 리턴해요. 심볼은 보이지 않고, 빈 객체가 리턴돼요. 객체 전체를 출력할때, 모든 속성들은 보여요, 심지어 열거 불가능한 것이라해도.
 
 이것은 심볼의 많은 특성 중 하나에요: 완전히 고유한 값(예를들어 2개의 라이브러리를 같은 객체의 속성으로 추가하고 싶을때, 객체의 우연한 이름 충돌을 방지해요)을 나타내는 것 외에, 이 방법으로 객체의 속성을 "숨길" 수 있어요(비록 완전히는 아닐지라도. 여전히 `Object.getOwnPropertySymbols()` 메소드를 사용해 심볼에 접근 할 수 있어요).
 
@@ -3108,27 +3108,27 @@ console.log(getList(list))
 console.log(getUser(user))
 ```
 
-- A: `[1, [2, 3, 4]]` and `undefined`
-- B: `[1, [2, 3, 4]]` and `{ name: "Lydia", age: 21 }`
-- C: `[1, 2, 3, 4]` and `{ name: "Lydia", age: 21 }`
-- D: `Error` and `{ name: "Lydia", age: 21 }`
+- A: `[1, [2, 3, 4]]` 그리고 `undefined`
+- B: `[1, [2, 3, 4]]` 그리고 `{ name: "Lydia", age: 21 }`
+- C: `[1, 2, 3, 4]` 그리고 `{ name: "Lydia", age: 21 }`
+- D: `Error` 그리고 `{ name: "Lydia", age: 21 }`
 
 <details><summary><b>정답</b></summary>
 <p>
 
 #### 정답: A
 
-The `getList` function receives an array as its argument. Between the parentheses of the `getList` function, we destructure this array right away. You could see this as:
+`getList`함수는 배열을 인수로 받았어요. `getList` 함수의 괄호 사이에 있는 배열을 즉시 분해 했어요:
 
  `[x, ...y] = [1, 2, 3, 4]`
 
- With the rest parameter `...y`, we put all "remaining" arguments in an array. The remaining arguments are `2`, `3` and `4` in this case. The value of `y` is an array, containig all the rest parameters. The value of `x` is equal to `1` in this case, so when we log `[x, y]`, `[1, [2, 3, 4]]` gets logged.
+나머지 파라미터를 사용해 `...y`에 모든 "남은" 인수들을 배열에 넣었어요. 이 경우에서 남아있는 인수는 `2`, `3` 그리고 `4`예요. `y`의 값은 배열이고, 모든 나머지 파라미터를 포함하고 있어요. 이 경우 `x`의 값은 `1`이기 때문에, `[x, y]`는 `[1, [2, 3, 4]]`로 출력돼요.
 
- The `getUser` function receives an object. With arrow functions, we don't _have_ to write curly brackets if we just return one value. However, if you want to return an _object_ from an arrow function, you have to write it between parentheses, otherwise no value gets returned! The following function would have returned an object:
+`getUser` 함수는 배열을 받았어요. 화살표 함수에서, 우리가 한개의 값을 리턴한다면 중괄호를 사용할 _필요_ 가 없어요. 그러나, 만약 화살표 함수에서 _객체_ 를 리턴하고 싶다면, 괄호 사이에 리턴할 값을 써야해요, 그렇지 않다면 아무 값도 리턴받을 수 없어요! 다음 함수에서는 객체가 리턴 될 거에요:
 
 ```const getUser = user => ({ name: user.name, age: user.age })```
 
-Since no value gets returned in this case, the function returns `undefined`.
+이 경우 값이 리턴되는 값이 없으므로, 함수는 `undefined`을 리턴할거에요.
 
 </p>
 </details>
@@ -3153,22 +3153,23 @@ console.log(name())
 
 #### 정답: C
 
-The variable `name` holds the value of a string, which is not a function, thus cannot invoke. 
+변수 `name`은 문자열을 값으로 가지고 있고, 함수가 아니죠, 따라서 호출할 수 없어요.
 
-TypeErrors get thrown wehn a value is not of the expected type. JavaScript expected `name` to be a function since we're trying to invoke it. It was a string however, so a TypeError gets thrown: name is not a function!
+TypeErrors는 값이 예상된 유형이 아닐 경우 던져져요. JavaScript는 `name`을 호출하려고 했기 때문에 함수일거라 예상했어요. 그러나 문자열이였기 때문에, TypeError가 던져져요: name은 함수가 아니죠!
 
-SyntaxErrors get thrown when you've written something that isn't valid JavaScript, for example when you've written the word `return` as `retrun`. 
-ReferenceErrors get thrown when JavaScript isn't able to find a reference to a value that you're trying to access.
+SyntaxErrors는 어떤 것을 썼을때 JavaScript에서 유효하지 않을 때 던져져요, 예를들어 `return`을 `retrun`로 썼을때 말이죠.
+
+ReferenceErrors는 JavaScript가 접근하려고 하는 값의 참조를 찾을 수 없을 때 던져져요.
 
 </p>
 </details>
 
 ---
 
-###### 100. What's the value of output?
+###### 100. output의 값은 무엇일까요?
 
 ```javascript
-// 🎉✨ This is my 100th question! ✨🎉
+// 🎉✨ 이번이 내 100번째 질문이에요! ✨🎉
 
 const output = `${[] && 'Im'}possible!
 You should${'' && `n't`} see a therapist after so much JavaScript lol`
@@ -3184,16 +3185,16 @@ You should${'' && `n't`} see a therapist after so much JavaScript lol`
 
 #### 정답: B
 
-`[]` is a truthy value. With the `&&` operator, the right-hand value will be returned if the left-hand value is a truthy value. In this case, the left-hand value `[]` is a truthy value, so `"Im'` gets returned.
+`[]`은 참 같은 값이에요. `&&` 연산자를 사용할 때, 만약 왼쪽에 있는 값이 참 같은 값이라면 오른쪽 값은 리턴될 거에요. 이 경우, 왼쪽의 값 `[]`은 참 같은 값이에요, 따라서 `'Im'`은 리턴될 거예요.
 
-`""` is a falsy value. If the left-hand value is falsy, nothing gets returned. `n't` doesn't get returned.
+`""`은 거짓 같은 값이에요. 만약 왼쪽 값이 거짓 같은 값이라면, 리턴되는 것은 없어요. `n't`은 리턴되지 않아요.
 
 </p>
 </details>
 
 ---
 
-###### 101. What's the value of output?
+###### 101. 무엇이 출력 될까요?
 
 ```javascript
 const one = (false || {} || null)
@@ -3213,13 +3214,13 @@ console.log(one, two, three)
 
 #### 정답: C
 
-With the `||` operator, we can return the first truthy operand. If all values are falsy, the last operand gets returned.
+`||` 연산자를 사용하면, 최초의 참 같은 피연산자를 리턴해요. 만약 모든 값이 거짓 같다면, 마지막 피연산자를 리턴해요.
 
-`(false || {} || null)`: the empty object `{}` is a truthy value. This is the first (and only) truthy value, which gets returned. `one` is equal to `{}`.
+`(false || {} || null)`: 빈 객체 `{}`는 진짜 같은 값이에요. 이것은 최초로(그리고 유일하게) 진짜 같은 값이라 리턴돼요. `one`은 `{}`이에요.
 
-`(null || false || "")`: all operands are falsy values. This means that the past operand, `""` gets returned. `two` is equal to `""`.
+`(null || false || "")`: 모든 피연산자는 가짜 같은 값이에요. 이것은 마지막 피연산자 `""`가 리턴된다는 것을 의미해요. `two`는 `""`이에요.
 
-`([] || 0 || "")`: the empty array`[]` is a truthy value. This is the first truthy value, which gets returned. `three` is equal to `[]`.
+`([] || 0 || "")`: 빈 배열 `[]`은 진짜 같은 값이에요. 이것은 최초의 진짜 같은 값이라 리턴돼요. `three`은 `[]`이에요.
 
 </p>
 </details>
