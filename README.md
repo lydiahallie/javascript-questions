@@ -2,7 +2,7 @@
 
 I post daily multiple choice JavaScript questions on my [Instagram](https://www.instagram.com/theavocoder), which I'll also post here!
 
-From basic to advanced: test how well you know JavaScript, refresh your knowledge a bit, or prepare for your coding interview! :muscle: :rocket: I update this repo weekly with new questions. Last update: <a href=#20190817><b>August 17th</b></a>
+From basic to advanced: test how well you know JavaScript, refresh your knowledge a bit, or prepare for your coding interview! :muscle: :rocket: I update this repo weekly with new questions. Last update: <a href=#20190927><b>September 27th</b></a>
 
 The answers are in the collapsed sections below the questions, simply click on them to expand it. Good luck :heart:
 
@@ -2985,7 +2985,7 @@ The above example works. This returns the array `[ 'banana', 'apple', 'orange', 
 
 ---
 
-###### <a name=20190817></a>95. What's the output?
+###### 95. What's the output?
 
 ```javascript
 function nums(a, b) {
@@ -3225,7 +3225,7 @@ With the `||` operator, we can return the first truthy operand. If all values ar
 
 ---
 
-###### 102. What's the value of output?
+###### 102. <a name=20190927></a>What's the value of output?
 
 ```javascript
 const myPromise = () => Promise.resolve('I have resolved!')
