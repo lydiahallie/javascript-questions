@@ -2,15 +2,24 @@
 
 I post daily multiple choice JavaScript questions on my [Instagram](https://www.instagram.com/theavocoder), which I'll also post here!
 
-From basic to advanced: test how well you know JavaScript, refresh your knowledge a bit, or prepare for your coding interview! :muscle: :rocket: I update this repo weekly with new questions. Last update: <a href=#20190927><b>September 27th</b></a>
+From basic to advanced: test how well you know JavaScript, refresh your knowledge a bit, or prepare for your coding interview! :muscle: :rocket: I update this repo weekly with new questions. 
+
+<p align="right">
+  <em>Last update: <a href=#20190927><b>September 27th</b></a></em>
+</p>
 
 The answers are in the collapsed sections below the questions, simply click on them to expand it. Good luck :heart:
 
+## Newsletter
+
 Want to get an email whenever I've added more questions? <br />
-<a target="_blank" href="https://www.theavocoder.com/subscribe"><b>✨✉Subscribe to email updates✉✨</b></a>
 
+<a target="_blank" aria-label="subscribe to the avocoder newsletter" href="https://www.theavocoder.com/subscribe">
+  <img src="https://img.shields.io/badge/%E2%9C%A8%E2%9C%89Subscribe%20to%20email%20updates%E2%9C%89%E2%9C%A8-000.svg?style=for-the-badge&labelColor=ff8f8f">
+</a>
 
-List of available languages:
+## Languages
+
 * [English](./en-EN/README.md)
 * [العربية](./ar-AR/README_AR.md)
 * [اللغة العامية - Egyptian Arabic](./ar-EG/README_ar-EG.md)
