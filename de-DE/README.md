@@ -7,21 +7,21 @@ Von einfach bis fortgeschritten: teste wie gut du JavaScript kennst, frische dei
 Die Antworten sind unterhalb der Fragen versteckt. Du kannst einfach darauf klicken um die Antworten anzuzeigen. Viel Glück :heart:
 
 ### Alle verfügbaren Sprachen
-* [English](./README.md)
-* [العربية](./README_AR.md)
-* [اللغة العامية - Egyptian Arabic](./README_ar-EG.md)
-* [Bosanski](./README-bs_BS.md)  
-* [Deutsch](./README-de_DE.md)  
-* [Español](./README-ES.md)
-* [Français](./README_fr-FR.md)
-* [日本語](./README-ja_JA.md)  
-* [한국어](./README-ko_KR.md) 
-* [Português Brasil](./README_pt_BR.md)  
-* [Русский](./README_ru-RU.md)  
-* [Türkçe](./README-tr_TR.md)
-* [Українська мова](./README-ua_UA.md)  
-* [Tiếng Việt](./README-vi.md)
-* [中文版本](./README-zh_CN.md)
+* [English](../en-EN/README.md)
+* [العربية](../ar-AR/README_AR.md)
+* [اللغة العامية](../ar-EG/README_ar-EG.md)
+* [Bosanski](../bs-BS/README-bs_BS.md)  
+* [Deutsch](../de-DE/README.md)  
+* [Español](../es-ES/README-ES.md)
+* [Français](../fr-FR/README_fr-FR.md)
+* [日本語](../ja-JA/README-ja_JA.md)  
+* [한국어](../ko-KR/README-ko_KR.md) 
+* [Português Brasil](../pt-BR/README_pt_BR.md)  
+* [Русский](./ru-RU/README.md)
+* [Türkçe](../tr-TR/README-tr_TR.md)
+* [Українська мова](../ua-UA/README-ua_UA.md)  
+* [Tiếng Việt](../vi-VI/README-vi.md)
+* [中文版本](../zh-CN/README-zh_CN.md)
 
 ---
 
@@ -1324,7 +1324,7 @@ console.log(gen.next().value);
 - A: `[0, 10], [10, 20]`
 - B: `20, 20`
 - C: `10, 20`
-- D: `0, 10 and 10, 20`
+- D: `0, 10 und 10, 20`
 
 <details><summary><b>Antwort</b></summary>
 <p>
@@ -2011,10 +2011,10 @@ Beim vierten Mal übergeben wir wieder eine `value`. `x.number` wurde zuvor in `
 [1, 2, 3, 4].reduce((x, y) => console.log(x, y));
 ```
 
-- A: `1` `2` and `3` `3` and `6` `4`
-- B: `1` `2` and `2` `3` and `3` `4`
-- C: `1` `undefined` and `2` `undefined` and `3` `undefined` and `4` `undefined`
-- D: `1` `2` and `undefined` `3` and `undefined` `4`
+- A: `1` `2` und `3` `3` und `6` `4`
+- B: `1` `2` und `2` `3` und `3` `4`
+- C: `1` `undefined` und `2` `undefined` und `3` `undefined` und `4` `undefined`
+- D: `1` `2` und `undefined` `3` und `undefined` `4`
 
 <details><summary><b>Antwort</b></summary>
 <p>
@@ -2201,8 +2201,8 @@ Mit dem `+` Operator können Strings zusammengesetzt werden. In diesem Fall werd
 
 ```javascript
 function* startGame() {
-  const Answer = yield "Do you love JavaScript?";
-  if (Answer !== "Yes") {
+  const Antwort = yield "Do you love JavaScript?";
+  if (Antwort !== "Yes") {
     return "Oh wow... Guess we're gone here";
   }
   return "JavaScript loves you back ❤️";
@@ -2225,9 +2225,9 @@ console.log(/* 2 */); // JavaScript loves you back ❤️
 
 Eine Generator Funktion pausiert die Ausführung, wenn das `yield` Keyword vorliegt. Zuerst müssen wir den String "Do you love JavaScript?" abwarten, was mit `game.next().value` möglich ist.
 
-Jede Zeile wird ausgeführt, bis das erste `yield` Keyword auftritt. Da auf der ersten Zeile ein `yield` in der Funktion vorliegt wird die Ausführung damit angehalten. Das bedeutet, dass die Variable `Answer` _noch nicht definiert_ wurde.
+Jede Zeile wird ausgeführt, bis das erste `yield` Keyword auftritt. Da auf der ersten Zeile ein `yield` in der Funktion vorliegt wird die Ausführung damit angehalten. Das bedeutet, dass die Variable `Antwort` _noch nicht definiert_ wurde.
 
-Wenn wir `game.next("Yes").value` aufrufen wird das vorhergehende `yield` durch den Wert des Parameters ersetzt, der an `next()` übergeben wird - `"Yes"` in diesem Fall. Der Wert der Variable `Answer` ist jetzt gleich `"Yes"`. Das if-Statement gibt `false` aus und `JavaScript loves you back ❤️` wird geloggt.
+Wenn wir `game.next("Yes").value` aufrufen wird das vorhergehende `yield` durch den Wert des Parameters ersetzt, der an `next()` übergeben wird - `"Yes"` in diesem Fall. Der Wert der Variable `Antwort` ist jetzt gleich `"Yes"`. Das if-Statement gibt `false` aus und `JavaScript loves you back ❤️` wird geloggt.
 
 </p>
 </details>
@@ -2725,5 +2725,503 @@ Wenn wir `hasName` gleich `name` setzen, so beinhaltet `hasName` den Wert von `n
 `new Boolean(true)` gibt einen Objekt Wrapper aus, nicht ein Boolean ansich.
 
 `name.length` gibt die Länge des Arguments aus, nicht den Boolean Wert.
+</p>
+</details>
+
+
+---
+
+###### <a name=20190805></a>87. Was ist der Output?
+
+```javascript
+console.log("I want pizza"[0])
+```
+
+- A: `"""`
+- B: `"I"`
+- C: `SyntaxError`
+- D: `undefined`
+
+<details><summary><b>Antwort</b></summary>
+<p>
+
+#### Antwort: B
+
+Um ein Zeichen an einer bestimmten Stelle eines Strings zu bekommen kann man Bracket Notation verwenden. Das erste Zeichen in einem String hat den Index 0, usw. In diesem Fall möchten wir das Zeichen mit dem Index 0, was das Zeichen `"I"` loggt.
+
+Diese Methode funktioniert nicht in IE7 und davor. Hier muss `.charAt()` verwendet werden.
+
+</p>
+</details>
+
+---
+
+###### 88. Was ist der Output?
+
+```javascript
+function sum(num1, num2 = num1) {
+  console.log(num1 + num2)
+}
+
+sum(10)
+```
+
+- A: `NaN`
+- B: `20`
+- C: `ReferenceError`
+- D: `undefined`
+
+<details><summary><b>Antwort</b></summary>
+<p>
+
+#### Antwort: B
+
+Man kann den Wert eines Standard Parameters gleich einem anderen Parameter in der Funktion setzen, sofern diese _vor_ dem Standard Parameter definiert wurden. Wir übergeben den Wert `10` an die `sum` Funktion. Wenn die `sum` Funktion nur ein Argument übergeben bekommt bedeutet das, dass der Wert für `num2` nicht gesetzt wurde und der Wert von `num1` ist gleich dem Wert `10`. Der Standardwert von `num2` ist gleich dem Wert von `num1`, sprich `10`. `num1 + num2` gibt `20` aus.
+
+Wenn man den Wert des Standard Paramenters gleich dem Parameter setztm der _danach_ definiert wurde, bekommen wir einen Fehler ausgegeben, da der Wert noch nicht initialisiert wurde.
+
+</p>
+</details>
+
+---
+
+###### 89. Was ist der Output?
+
+```javascript
+// module.js 
+export default () => "Hello world"
+export const name = "Lydia"
+
+// index.js 
+import * as data from "./module"
+
+console.log(data)
+```
+
+- A: `{ default: function default(), name: "Lydia" }`
+- B: `{ default: function default() }`
+- C: `{ default: "Hello world", name: "Lydia" }`
+- D: Globales Objekt von `module.js`
+
+<details><summary><b>Antwort</b></summary>
+<p>
+
+#### Antwort: A
+
+Mit `import * as name` importieren wir _alle Exporte_ der `module.js` in `index.js` als `data`. In der Datei `module.js` haben wir zwei Exporte: den Standard Export und einen benannten Export. Der Standard Export ist eine Funktion, die `"Hello World"` ausgibt und der benannte Export ist eine Variable namens `name` mit dem Wert `"Lydia"`.
+
+Das `data` Objekt hat eine Standard Property für alle Standard Exporte, andere Properties haben die Namen des benannten Exports und der entsprechenden Werte.
+
+</p>
+</details>
+
+---
+
+###### 90. Was ist der Output?
+
+```javascript
+class Person {
+  constructor(name) {
+    this.name = name
+  }
+}
+
+const member = new Person("John")
+console.log(typeof member)
+```
+
+- A: `"class"`
+- B: `"function"`
+- C: `"object"`
+- D: `"string"`
+
+<details><summary><b>Antwort</b></summary>
+<p>
+
+#### Antwort: C
+
+Klassen sind syntaktischer Zucker für Funktionskontruktoren. Das Equivalent der `Person` Klasse als Funktionskonstruktor wäre:
+
+```javascript
+function Person() {
+  this.name = name
+}
+```
+
+Das Aufrufen eines Funktionskonstruktors mit `new` hat zur Folge, dass eine Instanz von `Person` erstellt wird. `typeof` gibt `"object"` für die instanz aus. `typeof member` gibt `"object"` aus.
+
+</p>
+</details>
+
+---
+
+###### 91. Was ist der Output?
+
+```javascript
+let newList = [1, 2, 3].push(4)
+
+console.log(newList.push(5))
+```
+
+- A: `[1, 2, 3, 4, 5]`
+- B: `[1, 2, 3, 5]`
+- C: `[1, 2, 3, 4]`
+- D: `Error`
+
+<details><summary><b>Antwort</b></summary>
+<p>
+
+#### Antwort: D
+
+Die `.push` Methode gibt die _neue Länge_ des Arrays aus, nicht die Länge des Arrays selbst. Wenn wir `newList` gleich `[1, 2, 3].push(4)` setzen, setzen wir `newList` auch gleich der Länge des Arrays: `4`.
+
+Dann versuchen wir die `.push` Methode auf `newList` anzuwenden. Da `newList` den numerischen Wert `4` beinhaltet können wir die `.push` Methode nicht anwenden: ein TypeError wird ausgegeben.
+
+</p>
+</details>
+
+---
+
+###### 92. Was ist der Output?
+
+```javascript
+function giveLydiaPizza() {
+  return "Here is pizza!"
+}
+
+const giveLydiaChocolate = () => "Here's chocolate... now go hit the gym already."
+
+console.log(giveLydiaPizza.prototype)
+console.log(giveLydiaChocolate.prototype)
+```
+
+- A: `{ constructor: ...}` `{ constructor: ...}` 
+- B: `{}` `{ constructor: ...}` 
+- C: `{ constructor: ...}` `{}`
+- D: `{ constructor: ...}` `undefined`
+
+<details><summary><b>Antwort</b></summary>
+<p>
+
+#### Antwort: D
+
+Reguläre Funktionen wie `giveLydiaPizza` haben eine `prototype` Property, die ein Objekt (Prototype Object) mit einem `constructor` ist. Arrow Funktionen dagegen (wie `giveLydiaChocolate`) haben keinen `prototype`. `undefined` wird ausgegeben, wenn wir versuchen den `prototype` mit `giveLydiaChocolate.prototype` aufzurufen. 
+
+</p>
+</details>
+
+---
+
+###### 93. Was ist der Output?
+
+```javascript
+const person = {
+  name: "Lydia",
+  age: 21
+}
+
+for (const [x, y] of Object.entries(person)) {
+  console.log(x, y)
+}
+```
+
+- A: `name` `Lydia` und `age` `21`
+- B: `["name", "Lydia"]` und `["age", 21]` 
+- C: `["name", "age"]` und `undefined`
+- D: `Error`
+
+<details><summary><b>Antwort</b></summary>
+<p>
+
+#### Antwort: A
+
+`Object.entries(person)` gibt ein Array mit verschachtelten Arrays der Keys aus:
+
+`[ [ 'name', 'Lydia' ], [ 'age', 21 ] ]` 
+
+Mit der `for-of` Schleife iterieren wir über jedes Element in dem Array, in diesem Fall die verschachtelten Arrays. Wir können die verschachtelten Arrays mit `const [x, y]` in der for-of Schleife destrukturieren. `x` ist gleich dem ersten Element, `y` ist gleich dem zweiten Element in dem verschachtelten Array.
+
+Das erste verschachtelte Array ist `[ "name", "Lydia" ]`. `x` ist gleich `"name"` und `y` gleich `"Lydia"`, was geloggt wird.
+Das zweite verschachtelte Array ist `[ "age", 21 ]`. `x` ist gleich `"age"` und `y` ist gleich `21`, was geloggt wird.
+
+</p>
+</details>
+
+---
+
+###### 94. Was ist der Output?
+
+```javascript
+function getItems(fruitList, ...args, favoriteFruit) {
+  return [...fruitList, ...args, favoriteFruit]
+}
+
+getItems(["banana", "apple"], "pear", "orange")
+```
+
+- A: `["banana", "apple", "pear", "orange"]`
+- B: `[["banana", "apple"], "pear", "orange"]` 
+- C: `["banana", "apple", ["pear"], "orange"]`
+- D: `SyntaxError`
+
+<details><summary><b>Antwort</b></summary>
+<p>
+
+#### Antwort: D
+
+`...args` ist ein Rest-Parameter. Der Wert des Rest-Parameters ist ein Array mit allen weiteren Argumenten **und kann nur der letzte Parameter sein**! In diesem Beispiel war der Rest-Parameter das zweite Argument, was nicht möglich ist und daher einen Syntax Error ausgibt.
+
+```javascript
+function getItems(fruitList, favoriteFruit, ...args) {
+  return [...fruitList, ...args, favoriteFruit]
+}
+
+getItems(["banana", "apple"], "pear", "orange")
+```
+
+Dieses Beispiel würde funktionieren und `[ 'banana', 'apple', 'orange', 'pear' ]` ausgeben.
+</p>
+</details>
+
+---
+
+###### <a name=20190817></a>95. Was ist der Output?
+
+```javascript
+function nums(a, b) {
+  if
+  (a > b)
+  console.log('a is bigger')
+  else 
+  console.log('b is bigger')
+  return 
+  a + b
+}
+
+console.log(nums(4, 2))
+console.log(nums(1, 2))
+```
+
+- A: `a is bigger`, `6` und `b is bigger`, `3`
+- B: `a is bigger`, `undefined` und `b is bigger`, `undefined`
+- C: `undefined` und `undefined`
+- D: `SyntaxError`
+
+<details><summary><b>Antwort</b></summary>
+<p>
+
+#### Antwort: B
+
+In JavaScript muss das Semikolon _nicht_ explizit gesetzt werden, allerdings setzt die JavaScript Engine Semikolons nach Statements. Diesen Vorgang nennt man **automatische Semikolonsetzung**. Ein Statement ist zum Beispiel eine Variable oder ein Keyword wie `throw`, `return`, `break`, usw.
+
+In unserem Beispiel haben wir ein `return` Statement gefolgt von einem anderen Wert `a + b` auf der _nächsten Zeile_. Da es eine neue Zeile ist, weiß JavaScript nicht, dass das der Wert ist, den wir eigentlich ausgeben wollten. Stattdessen wird automatisch ein Semikolon nach `return` gesetzt, was man wiefolgt lesen kann:
+
+```javascript
+  return;
+  a + b
+```
+
+Das bedeutet, dass `a + b` nie erreicht wird, da die Funktion auf der Zeile davor mit dem `return` Keyword endet. Wenn wie hier kein Wert ausgegeben wird, gibt die Funktion `undefined` aus.
+Bedenke: Semikolons werden **nicht** automatisch nach `if/else` Statements gesetzt!
+
+</p>
+</details>
+
+---
+
+###### 96. Was ist der Output?
+
+```javascript
+class Person {
+  constructor() {
+    this.name = "Lydia"
+  }
+}
+
+Person = class AnotherPerson {
+  constructor() {
+    this.name = "Sarah"
+  }
+}
+
+const member = new Person()
+console.log(member.name)
+```
+
+- A: `"Lydia"`
+- B: `"Sarah"`
+- C: `Error: cannot redeclare Person`
+- D: `SyntaxError`
+
+<details><summary><b>Antwort</b></summary>
+<p>
+
+#### Antwort: B
+
+Wir können Klassen gleich anderen Klassen oder Funktions Konstruktoren setzen. In diesem Beispiel setzen wir `Person` gleich `AnotherPerson`. Der Name in diesem Konstruktor ist `Sarah`, sodass die name-Property der neuen `Person` Instanz `member` gleich `"Sarah"` ist.
+
+</p>
+</details>
+
+---
+
+###### 97. Was ist der Output?
+
+```javascript
+const info = {
+  [Symbol('a')]: 'b'
+}
+
+console.log(info)
+console.log(Object.keys(info))
+```
+
+- A: `{Symbol('a'): 'b'}` und `["{Symbol('a')"]`
+- B: `{}` und `[]`
+- C: `{ a: "b" }` und `["a"]`
+- D: `{Symbol('a'): 'b'}` und `[]`
+
+<details><summary><b>Antwort</b></summary>
+<p>
+
+#### Antwort: D
+
+Ein Symbol ist nicht _zählbar_. Die `Object.keys` Methode gibt alle zählbaren Key Properties eines Objekts aus. Das Symbol ist nicht sichtbar, sodass ein leeres Array ausgegeben wird. Wenn wir das gesamte Objekt loggen sind alle Properties sichtbar, auch nicht zählbare.
+
+Das ist einer der vielen Vorteile eines Symbols: nebem einem einzigartigen Wert (welcher verhindert, dass versehentlich zwei Objekte gleiche Namen haben, zum Beispiel wenn wir mit verschiedenen Libraries arbeiten) können Properties von Objekten auf diese Art versteckt werden.
+Bedenke: Man kann die Symbole dennoch mit der `Object.getOwnPropertySymbols()` Methode einsehen.
+
+</p>
+</details>
+
+---
+
+###### 98. Was ist der Output?
+
+```javascript
+const getList = ([x, ...y]) => [x, y]
+const getUser = user => { name: user.name, age: user.age }
+
+const list = [1, 2, 3, 4]
+const user = { name: "Lydia", age: 21 }
+
+console.log(getList(list))
+console.log(getUser(user))
+```
+
+- A: `[1, [2, 3, 4]]` und `undefined`
+- B: `[1, [2, 3, 4]]` und `{ name: "Lydia", age: 21 }`
+- C: `[1, 2, 3, 4]` und `{ name: "Lydia", age: 21 }`
+- D: `Error` und `{ name: "Lydia", age: 21 }`
+
+<details><summary><b>Antwort</b></summary>
+<p>
+
+#### Antwort: A
+
+Die `getList` Funktion bekommt ein Array als Argument zugewiesen. Zwischen den Klammern der `getList` Funktion wird das Array direkt destrukturiert. Man könnte das auch wiefolgt sehen:
+
+ `[x, ...y] = [1, 2, 3, 4]`
+
+Mit dem Rest Parameter `...y` packen wir alle übrigen Argumente in ein Array. Die übrigen Argumente sind in dem Fall `2`, `3` und `4`. Der Wert von `y` ist ein Array mit den restlichen Parametern. Der Wert von `x` ist gleich `1` sodass `[1, [2, 3, 4]]` geloggt wird.
+
+Die `getUser` Funktion bekommt ein Objekt zugewiesen. Bei Arrow Funktionen müssen wir keine geschweiften Klammern verwenden, wenn wir nur einen Wert ausgeben. Wenn wir aber ein _Objekt_ von einer Arrow Funktion ausgeben lassen möchten, so muss dieses zwischen Klammern stehen, ansonsten wird nichts ausgegeben. Die folgende Funktion hätte ein Objekt ausgegeben:
+
+```const getUser = user => ({ name: user.name, age: user.age })```
+
+Da kein Wert ausgegeben wird, gibt die Funktion `undefined` aus.
+
+</p>
+</details>
+
+---
+
+###### 99. Was ist der Output?
+
+```javascript
+const name = "Lydia"
+
+console.log(name())
+```
+
+- A: `SyntaxError`
+- B: `ReferenceError`
+- C: `TypeError`
+- D: `undefined`
+
+<details><summary><b>Antwort</b></summary>
+<p>
+
+#### Antwort: C
+
+Die Variable `name` beinhaltet einen String, welcher logischer Weise keine Funktion ist und daher nicht ausgeführt werden kann.
+
+TypeErrors werden ausgeworfen, wenn ein Wert einen falschen Typ aufweist. JavaScript hat eine Funktion erwartet, da wir `name` ausführen. Da es aber ein String war bekommen wir den TypeError: name is not a function!
+
+SyntaxErrors werden ausgeworfen, wenn wir etwas schreiben, was kein gültiger JavaScript Code ist, zum Beispiel wenn wir uns vertippen und anstatt `return` `retrun` schreiben.
+
+ReferenceErrors werden ausgeworfen, wenn JavaScript eine Referenz zu einem Wert nicht finden kann.
+
+</p>
+</details>
+
+---
+
+###### 100. Was ist der Output?
+
+```javascript
+// 🎉✨ Das ist unsere 100. Frage! ✨🎉
+
+const output = `${[] && 'Im'}possible!
+You should${'' && `n't`} see a therapist after so much JavaScript lol`
+```
+
+- A: `possible! You should see a therapist after so much JavaScript lol`
+- B: `Impossible! You should see a therapist after so much JavaScript lol`
+- C: `possible! You shouldn't see a therapist after so much JavaScript lol`
+- D: `Impossible! You shouldn't see a therapist after so much JavaScript lol`
+
+<details><summary><b>Antwort</b></summary>
+<p>
+
+#### Antwort: B
+
+`[]` ist ein "truthy" Wert. Mit dem `&&` Operator geben wir den rechten Wert aus, wenn der linke truthy ist. In diesem Fall ist `[]` truthy, wodurch `"Im'` ausgegeben wird.
+
+`""` ein ein "falsy" Wert. Wenn der linke Wert falsy ist wird nichts ausgegeben. In diesem Fall wird `n't` _nicht_ ausgegeben.
+
+</p>
+</details>
+
+---
+
+###### 101. Was ist der Output?
+
+```javascript
+const one = (false || {} || null)
+const two = (null || false || "")
+const three = ([] || 0 || true)
+
+console.log(one, two, three)
+```
+
+- A: `false` `null` `[]`
+- B: `null` `""` `true`
+- C: `{}` `""` `[]`
+- D: `null` `null` `true`
+
+<details><summary><b>Antwort</b></summary>
+<p>
+
+#### Antwort: C
+
+Mit dem `||` Operator geben wir den ersten truthy Operand aus. Wenn alle Werte falsy sind wird der letzte Operand ausgegeben.
+
+`(false || {} || null)`: das leere Objekt `{}` ist truthy. Das ist der erste und einzige truthy Wert und wird daher ausgegeben. `one` ist gleich `{}`.
+
+`(null || false || "")`: alle Operanden sind falsy. Das bedeutet, dass der letzte Wert `""` ausgegeben wird. `two` ist gleich `""`.
+
+`([] || 0 || "")`: das leere Array `[]` ist truthy. Das ist der erste truthy Wert, und wird daher ausgegeben. `three` ist gleich `[]`.
+
 </p>
 </details>

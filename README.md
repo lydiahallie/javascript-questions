@@ -15,13 +15,13 @@ List of available languages:
 * [العربية](./ar-AR/README_AR.md)
 * [اللغة العامية - Egyptian Arabic](./ar-EG/README_ar-EG.md)
 * [Bosanski](./bs-BS/README-bs_BS.md)  
-* [Deutsch](./de-DE/README-de_DE.md)  
+* [Deutsch](./de-DE/README.md)  
 * [Español](./es-ES/README-ES.md)
 * [Français](./fr-FR/README_fr-FR.md)
 * [日本語](./ja-JA/README-ja_JA.md)  
 * [한국어](./ko-KR/README-ko_KR.md) 
 * [Português Brasil](./pt-BR/README_pt_BR.md)  
-* [Русский](./ru-RU/README_ru-RU.md)  
+* [Русский](./ru-RU/README.md)
 * [Українська мова](./ua-UA/README-ua_UA.md)  
 * [Tiếng Việt](./vi-VI/README-vi.md)
 * [中文版本](./zh-CN/README-zh_CN.md)
@@ -1575,17 +1575,17 @@ function sayHi() {
     const data = greeting();
     console.log("It worked!", data);
   } catch (e) {
-    console.log("Oh no an error!", e);
+    console.log("Oh no an error:", e);
   }
 }
 
 sayHi();
 ```
 
-- A: `"It worked! Hello world!"`
-- B: `"Oh no an error: undefined`
+- A: `It worked! Hello world!`
+- B: `Oh no an error: undefined`
 - C: `SyntaxError: can only throw Error objects`
-- D: `"Oh no an error: Hello world!`
+- D: `Oh no an error: Hello world!`
 
 <details><summary><b>Answer</b></summary>
 <p>
@@ -2469,7 +2469,7 @@ The third time, we pass `5 * 2` to the function which gets evaluated to `10`. Th
 
 ---
 
-###### <a name=20190726></a>79. What is the output?
+###### 79. What is the output?
 
 ```javascript
 const myLifeSummedUp = ["☕", "💻", "🍷", "🍫"]
@@ -2718,7 +2718,7 @@ function getName(name) {
 
 #### Answer: A
 
-With `!!name`, we determine whether the value of `name` is truthy or falsey. If name is truthy, which we want to test for, `!name` returns `false`. `!false` (which is what `!!name` practically is) returns `true`.
+With `!!name`, we determine whether the value of `name` is truthy or falsy. If name is truthy, which we want to test for, `!name` returns `false`. `!false` (which is what `!!name` practically is) returns `true`.
 
 By setting `hasName` equal to `name`, you set `hasName` equal to whatever value you passed to the `getName` function, not the boolean value `true`.
 
@@ -2731,7 +2731,7 @@ By setting `hasName` equal to `name`, you set `hasName` equal to whatever value 
 
 ---
 
-###### 87. What's the output?
+###### <a name=20190805></a>87. What's the output?
 
 ```javascript
 console.log("I want pizza"[0])
@@ -2838,7 +2838,7 @@ console.log(typeof member)
 <details><summary><b>Answer</b></summary>
 <p>
 
-#### Answer: B
+#### Answer: C
 
 Classes are syntactical sugar for function constructors. The equivalent of the `Person` class as a function constructor would be:
 
@@ -2848,7 +2848,7 @@ function Person() {
 }
 ```
 
-Which results in the same value. A class is a function under the hood, the `typeof` keyword returns `"function"` for functions. `typeof Person` returns `"function"`. 
+Calling a function constructor with `new` results in the creation of an instance of `Person`, `typeof` keyword returns `"object"` for an instance. `typeof member` returns `"object"`. 
 
 </p>
 </details>
@@ -2889,9 +2889,7 @@ function giveLydiaPizza() {
   return "Here is pizza!"
 }
 
-function giveLydiaChocolate() {
-  return "Here's chocolate... now go hit the gym already."
-}
+const giveLydiaChocolate = () => "Here's chocolate... now go hit the gym already."
 
 console.log(giveLydiaPizza.prototype)
 console.log(giveLydiaChocolate.prototype)
@@ -2915,38 +2913,6 @@ Regular functions, such as the `giveLydiaPizza` function, have a `prototype` pro
 ---
 
 ###### 93. What's the output?
-
-```javascript
-function giveLydiaPizza() {
-  return "Here is pizza!"
-}
-
-function giveLydiaChocolate() {
-  return "Here's chocolate... now go hit the gym already."
-}
-
-console.log(giveLydiaPizza.prototype)
-console.log(giveLydiaChocolate.prototype)
-```
-
-- A: `{ constructor: ...}` `{ constructor: ...}` 
-- B: `{}` `{ constructor: ...}` 
-- C: `{ constructor: ...}` `{}`
-- D: `{ constructor: ...}` `undefined`
-
-<details><summary><b>Answer</b></summary>
-<p>
-
-#### Answer: D
-
-Regular functions, such as the `giveLydiaPizza` function, have a `prototype` property, which is an object (prototype object) with a `constructor` property. Arrow functions however, such as the `giveLydiaChocolate` function, do not have this `prototype` property. `undefined` gets returned when trying to access the `prototype` property using `giveLydiaChocolate.prototype`. 
-
-</p>
-</details>
-
----
-
-###### 94. What's the output?
 
 ```javascript
 const person = {
@@ -2983,7 +2949,7 @@ The second subarray is `[ "age", 21 ]`, with `x` equal to `"age"`, and `y` equal
 
 ---
 
-###### 95. What's the output?
+###### 94. What's the output?
 
 ```javascript
 function getItems(fruitList, ...args, favoriteFruit) {
@@ -3155,7 +3121,7 @@ The `getList` function receives an array as its argument. Between the parenthese
 
  `[x, ...y] = [1, 2, 3, 4]`
 
- With the rest parameter `...y`, we put all "remaining" arguments in an array. The remaining arguments are `2`, `3` and `4` in this case. The value of `y` is an array, containig all the rest parameters. The value of `x` is equal to `1` in this case, so when we log `[x, y]`, `[1, [2, 3, 4]]` gets logged.
+ With the rest parameter `...y`, we put all "remaining" arguments in an array. The remaining arguments are `2`, `3` and `4` in this case. The value of `y` is an array, containing all the rest parameters. The value of `x` is equal to `1` in this case, so when we log `[x, y]`, `[1, [2, 3, 4]]` gets logged.
 
  The `getUser` function receives an object. With arrow functions, we don't _have_ to write curly brackets if we just return one value. However, if you want to return an _object_ from an arrow function, you have to write it between parentheses, otherwise no value gets returned! The following function would have returned an object:
 
@@ -3188,7 +3154,7 @@ console.log(name())
 
 The variable `name` holds the value of a string, which is not a function, thus cannot invoke. 
 
-TypeErrors get thrown wehn a value is not of the expected type. JavaScript expected `name` to be a function since we're trying to invoke it. It was a string however, so a TypeError gets thrown: name is not a function!
+TypeErrors get thrown when a value is not of the expected type. JavaScript expected `name` to be a function since we're trying to invoke it. It was a string however, so a TypeError gets thrown: name is not a function!
 
 SyntaxErrors get thrown when you've written something that isn't valid JavaScript, for example when you've written the word `return` as `retrun`. 
 ReferenceErrors get thrown when JavaScript isn't able to find a reference to a value that you're trying to access.

@@ -14,7 +14,7 @@ JavaScript 에 관한 객관식 문제를 [Instagram](https://www.instagram.com/
 * [Español](./README-ES.md)
 * [日本語](./README-ja_JA.md)   
 * [Português Brasil](./README_pt_BR.md)  
-* [Русский](./README_ru-RU.md)  
+* [Русский](./ru-RU/README.md)
 * [Українська мова](./README-ua_UA.md)  
 * [Tiếng Việt](./README-vi.md)
 * [中文版本](./README-zh_CN.md)
