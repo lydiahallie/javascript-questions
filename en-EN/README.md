@@ -3228,17 +3228,20 @@ With the `||` operator, we can return the first truthy operand. If all values ar
 ###### 102. What's the value of output?
 
 ```javascript
-const myPromise = () => Promise.resolve('I have resolved!')
+const myPromise = () => Promise.resolve("I have resolved!");
 
 function firstFunction() {
-  myPromise().then(res => console.log(res))
-  console.log('second')
+  myPromise().then(res => console.log(res));
+  console.log("second");
 }
 
-function secondFunction() {
-  console.log(await myPromise())
-  console.log('second')
+async function secondFunction() {
+  console.log(await myPromise());
+  console.log("second");
 }
+
+firstFunction();
+secondFunction();
 ```
 
 - A: `I have resolved!`, `second` and `I have resolved!`, `second`
