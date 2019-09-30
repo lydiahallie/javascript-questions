@@ -3344,7 +3344,7 @@ function compareMembers(person1, person2 = person) {
 
 const person = { name: "Lydia" }
 
-compareMembers(perosn)
+compareMembers(person)
 ```
 
 - A: `Not the same!`
