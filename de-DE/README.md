@@ -3225,3 +3225,236 @@ Mit dem `||` Operator geben wir den ersten truthy Operand aus. Wenn alle Werte f
 
 </p>
 </details>
+
+---
+
+###### 102. What's the value of output?
+
+```javascript
+const myPromise = () => Promise.resolve('I have resolved!')
+
+function firstFunction() {
+  myPromise().then(res => console.log(res))
+  console.log('second')
+}
+
+async function secondFunction() {
+  console.log(await myPromise())
+  console.log('second')
+}
+```
+
+- A: `I have resolved!`, `second` und `I have resolved!`, `second`
+- B: `second`, `I have resolved!` und `second`, `I have resolved!`
+- C: `I have resolved!`, `second` und `second`, `I have resolved!`
+- D: `second`, `I have resolved!` und `I have resolved!`, `second`
+
+<details><summary><b>Antwort</b></summary>
+<p>
+
+#### Antwort: D
+
+Mit einem Promise sagen wir _Ich möchte diese Funktion ausführen, aber ich lege sie erstmal beiseite, weil sie eine Weile braucht. Erst wenn ein bestimmter Wert ausgegeben (oder rejected) wird und der Call Stack leer ist möchte ich den Wert nutzen._
+
+Wir können auf den Wert mit `.then()` oder `await` in einer `async` Funktion zugreifen, aber `.then()` und `await` unterscheiden sich in einem bestimmten Punkt.
+
+In `firstFunction` legen wir `myPromise` beiseite, während die Funktion durchläuft, aber wir arbeiten anderen Code ab, hier `console.log('second')`. 
+Dann wird die Funktion abgeschlossen und der String `I have resolved` wird ausgegeben, nachdem sich der Call Stack geleert hat. 
+
+Mit dem `await` Keyword in `secondFunction` wird die Funktion gestoppt bis der Wert ausgegeben wurde, erst dann wird die nächste Zeile ausgeführt.
+
+Das bedeutet, dass auf `myPromise` gewartet und dann der Wert `I have resolved` ausgegeben wird und erst dann wird die nächste Zeile ausgeführt und `second` wird geloggt. 
+
+</p>
+</details>
+
+---
+
+###### 103. Was ist der Output?
+
+```javascript
+const set = new Set()
+
+set.add(1)
+set.add("Lydia")
+set.add({ name: "Lydia" })
+
+for (let item of set) {
+  console.log(item + 2)
+}
+```
+
+- A: `3`, `NaN`, `NaN`
+- B: `3`, `7`, `NaN`
+- C: `3`, `Lydia2`, `[Object object]2`
+- D: `"12"`, `Lydia2`, `[Object object]2`
+
+<details><summary><b>Antwort</b></summary>
+<p>
+
+#### Antwort: C
+
+Der `+` Operator wird nicht nur für numerische Werte verwendet, wir können mit ihm ebenso Strings zusammenfügen. Immer, wenn JavaScript merkt, dass mindestens ein Wert keine Nummer ist, wird ein String erstellt.
+
+Der erste Wert ist `1`, was ein numerischer Wert ist. `1 + 2` ergibt die Zahl `3`.
+
+Der zweite Wert hingegen ist der String `"Lydia"`. `"Lydia"` ist ein String und `2` ist eine Nummer: `2` wird in einem String umgewandelt. `"Lydia"` und `"2"` werden zusammengesetzt, was den String `"Lydia2"` ausgibt. 
+
+`{ name: "Lydia" }` ist ein Objekt. Weder eine Nummer, noch ein Objekt sind ein String, aber beide werden zu Strings konvertiert und `"[Object object]"` wird ausgegeben. `"[Object object]"` zusammengesetzt mit `"2"` wird `"[Object object]2"`.
+
+</p>
+</details>
+
+---
+
+###### 104. Was wird ausgegeben?
+
+```javascript
+Promise.resolve(5)
+```
+
+- A: `5`
+- B: `Promise {<pending>: 5}`
+- C: `Promise {<resolved>: 5}`
+- D: `Error`
+
+<details><summary><b>Antwort</b></summary>
+<p>
+
+#### Antwort: C
+
+Wir können jeden Wert an `Promise.resolve` übergeben, es muss nicht unbedingt ein Promise sein. Die Methode selbst gibt ein Promise zurück, was einen Wert ausgibt. Wenn man eine normale Funktion übergibt wird das Promise einen normalen Wert ausgeben. Wenn ein Promise übergeben wird so wird ein Promise gelöst und der Wert des gelösten Promises ausgegeben.
+
+In diesem Fall haben wir nur die Zahl `5` übergeben und diese wird genauso ausgegeben: `5`. 
+
+</p>
+</details>
+
+---
+
+###### 105. Was wird ausgegeben?
+
+```javascript
+function compareMembers(person1, person2 = person) {
+  if (person1 !== person2) {
+    console.log("Not the same!")
+  } else {
+    console.log("They are the same!")
+  }
+}
+
+const person = { name: "Lydia" }
+
+compareMembers(person)
+```
+
+- A: `Not the same!`
+- B: `They are the same!`
+- C: `ReferenceError`
+- D: `SyntaxError`
+
+<details><summary><b>Antwort</b></summary>
+<p>
+
+#### Antwort: B
+
+Objekte werden durch eine Referenz übergeben. Wenn wir Objekte auf strikte Gleichheit (`===`) prüfen, vergleichen wir nur deren Referenz.
+
+Wir setzen den Standardwert für `person2` gleich dem `person` Objekt und übergeben dem `person` Objekt den Wert von `person1`.
+
+Das bedeutet, dass beide Werte eine Referenz zum gleichen Ort im Speicher aufweisen und daher gleich sind.
+
+Der Code im `else` Statement wird aufgerufen und `They are the same!` wird geloggt. 
+
+</p>
+</details>
+
+---
+
+###### 106. Was wird ausgegeben?
+
+```javascript
+const colorConfig = {
+  red: true,
+  blue: false,
+  green: true,
+  black: true,
+  yellow: false,
+}
+
+const colors = ["pink", "red", "blue"]
+
+console.log(colorConfig.colors[1])
+```
+
+- A: `true`
+- B: `false`
+- C: `undefined`
+- D: `TypeError`
+
+<details><summary><b>Antwort</b></summary>
+<p>
+
+#### Antwort: D
+
+In JavaScript gibt es zwei Wege auf Properties an Objekten zuzugreifen: Punkt-Notation oder Klammern-Notation. In diesem Beispiel nutzen wir Punkt-Notation (`colorConfig.colors`) anstelle von Klammern-Notation (`colorConfig["colors"]`). 
+
+Mit Punkt-Notation versucht JavaScript die Property am Objekt mit diesem exakten Namen zu finden. In unserem Beispiel `colors` im `colorConfig` Objekt. Da es keine Property `colorConfig` gibt wird `undefined` ausgegeben. Dann versuchen wir den Wert des ersten Elements mit `[1]` aufzurufen, was an `undefined` nicht möglich ist, wodurch wir `TypeError: Cannot read property '1' of undefined` ausgegeben bekommen.
+
+JavaScript interpretiert Statements. Wenn wir Klammern-Notation verwenden wird die erste Klammer `[` gefunden und JavaScript sucht solange, bis eine schließende Klammer `]` gefunden wird. Erst dann wird das Statement interpretiert. Hätten wir `colorConfig[colors[1]]` verwendet, wäre der Wert `red` ausgegeben worden.
+
+</p>
+</details>
+
+---
+
+###### 107. Was wird ausgegeben?
+
+```javascript
+console.log('❤️' === '❤️')
+```
+
+- A: `true`
+- B: `false`
+
+<details><summary><b>Antwort</b></summary>
+<p>
+
+#### Antwort: A
+
+Emojis sind im Endeffekt nur Unicodes. Der Unicode für das Herz Emoji ist `"U+2764 U+FE0F"`. Dieser ist immer gleich, für das selbe Emoji und daher wird `true` ausgegeben.
+
+</p>
+</details>
+
+---
+
+###### 108. Welche Methode verändert das ursprüngliche Array? 
+
+```javascript
+const emojis = ['✨', '🥑', '😍']
+
+emojis.map(x => x + '✨')
+emojis.filter(x => x !== '🥑')
+emojis.find(x => x !== '🥑')
+emojis.reduce((acc, cur) => acc + '✨')
+emojis.slice(1, 2, '✨') 
+emojis.splice(1, 2, '✨')
+```
+
+- A: `All of them`
+- B: `map` `reduce` `slice` `splice`
+- C: `map` `slice` `splice` 
+- D: `splice`
+
+<details><summary><b>Antwort</b></summary>
+<p>
+
+#### Antwort: D
+
+Mit der `splice` Methode ändern wir das ursprüngliche Array durch löschen, ersetzen oder ergänzen von Elementen. In diesem Fall haben wir 2 Elemente vom Index 1 (`'🥑'` und `'😍'`) entfernt und ✨ stattdessen eingefügt. 
+
+`map`, `filter` und `slice` geben ein neues Array aus, `find` gibt ein Element aus und `reduce` gibt einen neuen Wert aus.
+
+</p>
+</details>
