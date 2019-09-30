@@ -3235,10 +3235,13 @@ function firstFunction() {
   console.log('second')
 }
 
-function secondFunction() {
+async function secondFunction() {
   console.log(await myPromise())
   console.log('second')
 }
+
+firstFunction()
+secondFunction()
 ```
 
 - A: `I have resolved!`, `second` and `I have resolved!`, `second`
@@ -3341,7 +3344,7 @@ function compareMembers(person1, person2 = person) {
 
 const person = { name: "Lydia" }
 
-compareMembers(perosn)
+compareMembers(person)
 ```
 
 - A: `Not the same!`
