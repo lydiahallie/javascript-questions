@@ -2,23 +2,30 @@
 
 JavaScript 에 관한 객관식 문제를 [Instagram](https://www.instagram.com/theavocoder)에 매일 게시하고 있어요, 물론 여기에도 게시할 거예요!
 
-초급부터 고급까지: JavaScript를 얼마나 잘 알고 있는지 테스트하거나, 지식을 조금 더 새롭게 하거나, 코딩 면접을 준비하세요! :muscle: :rocket: 이 기록을 매주 새로운 질문으로 업데이트해요. 마지막 업데이트: <a href=#20190714><b>7월 14일</b></a>
+초급부터 고급까지: JavaScript를 얼마나 잘 알고 있는지 테스트하거나, 지식을 조금 더 새롭게 하거나, 코딩 면접을 준비하세요! :muscle: :rocket: 이 기록을 매주 새로운 질문으로 업데이트해요. 마지막 업데이트: <a href=#20190817><b>8월 17일</b></a>
 
 정답은 질문 아래 접힌 부분에 있어요, 그냥 클릭하면 펼칠 수 있어요. 행운을 빌어요 :heart:
 
-* [English](./README.md)
-* [العربية](./README_AR.md)
-* [اللغة العامية - Egyptian Arabic](./README_ar-EG.md)
-* [Bosanski](./README-bs_BS.md)  
-* [Deutsch](./README-de_DE.md)  
-* [Español](./README-ES.md)
-* [日本語](./README-ja_JA.md)   
-* [Português Brasil](./README_pt_BR.md)  
-* [Русский](./ru-RU/README.md)
-* [Українська мова](./README-ua_UA.md)  
-* [Tiếng Việt](./README-vi.md)
-* [中文版本](./README-zh_CN.md)
-* [Türkçe](./README-tr_TR.md)
+질문이 더 추가될 때마다 이메일을 받고 싶나요? <br />
+<a target="_blank" href="https://www.theavocoder.com/subscribe"><b>✨✉이메일 업데이트 구독 ✉✨</b></a>
+
+사용 가능한 언어 목록:
+* [English](../en-EN/README.md)
+* [العربية](../ar-AR/README_AR.md)
+* [اللغة العامية - Egyptian Arabic](../ar-EG/README_ar-EG.md)
+* [Bosanski](../bs-BS/README-bs_BS.md)  
+* [Deutsch](../de-DE/README.md)  
+* [Español](../es-ES/README-ES.md)
+* [Français](../fr-FR/README_fr-FR.md)
+* [日本語](../ja-JA/README-ja_JA.md)  
+* [한국어](../ko-KR/README-ko_KR.md) 
+* [Português Brasil](../pt-BR/README_pt_BR.md)  
+* [Русский](../ru-RU/README.md)
+* [Українська мова](../ua-UA/README-ua_UA.md)  
+* [Tiếng Việt](../vi-VI/README-vi.md)
+* [中文版本](../zh-CN/README-zh_CN.md)
+* [Türkçe](../tr-TR/README-tr_TR.md)
+
 
 ---
 
@@ -604,7 +611,7 @@ getAge(21);
 
 #### 정답: C
 
-스프레드 연산자 (`...args`.)는 인수를 가진 배열을 리턴해요. 배열은 객체이므로, `typeof args`는 `"object"`를 리턴해요.
+rest 파라미터 (`...args`.)는 모든 남아있는 인수들을 하나의 배열로 "집합" 해요. 배열은 객체이므로, `typeof args`는 `"object"`를 리턴해요.
 
 </p>
 </details>
@@ -1321,7 +1328,7 @@ console.log(gen.next().value);
 - A: `[0, 10], [10, 20]`
 - B: `20, 20`
 - C: `10, 20`
-- D: `0, 10 and 10, 20`
+- D: `0, 10` 그리고 `10, 20`
 
 <details><summary><b>정답</b></summary>
 <p>
@@ -1497,7 +1504,7 @@ const num = parseInt("7*6", 10);
 [1, 2, 3].map(num => {
   if (typeof num === "number") return;
   return num * 2;
-});
+  });
 ```
 
 - A: `[]`
@@ -1568,7 +1575,7 @@ function sayHi() {
     const data = greeting();
     console.log("It worked!", data);
   } catch (e) {
-    console.log("Oh no an error!", e);
+    console.log("Oh no an error:", e);
   }
 }
 
@@ -1576,9 +1583,9 @@ sayHi();
 ```
 
 - A: `"It worked! Hello world!"`
-- B: `"Oh no an error! undefined"`
+- B: `"Oh no an error: undefined"`
 - C: `SyntaxError: can only throw Error objects`
-- D: `"Oh no an error! Hello world!"`
+- D: `"Oh no an error: Hello world!"`
 
 <details><summary><b>정답</b></summary>
 <p>
@@ -2005,10 +2012,10 @@ ES6에서는, 기본값으로 파라미터를 초기화할 수 있어요. 함수
 [1, 2, 3, 4].reduce((x, y) => console.log(x, y));
 ```
 
-- A: `1` `2` and `3` `3` and `6` `4`
-- B: `1` `2` and `2` `3` and `3` `4`
-- C: `1` `undefined` and `2` `undefined` and `3` `undefined` and `4` `undefined`
-- D: `1` `2` and `undefined` `3` and `undefined` `4`
+- A: `1` `2` 그리고 `3` `3` 그리고 `6` `4`
+- B: `1` `2` 그리고 `2` `3` 그리고 `3` `4`
+- C: `1` `undefined` 그리고 `2` `undefined` 그리고 `3` `undefined` 그리고 `4` `undefined`
+- D: `1` `2` 그리고 `undefined` `3` 그리고 `undefined` `4`
 
 <details><summary><b>정답</b></summary>
 <p>
@@ -2170,7 +2177,7 @@ console.log(name.padStart(2))
 
 ---
 
-###### <a name=20190714></a>70. 무엇이 출력 될까요?
+###### 70. 무엇이 출력 될까요?
 
 ```javascript
 console.log("🥑" + "💻");
@@ -2458,6 +2465,762 @@ console.log(addFunction(5 * 2));
 두 번째엔, `cache`객체는 `10`을 위해 리턴될 값을 포함하고 있어요. if문의 조건 `num in cache`은 `true`를 리턴하고, `'From cache! 20'`이 출력돼요.
 
 세 번째에는, `5 * 2`을 `10`으로 평가하여 함수에 전달해요. `cache` 객체는 `10`을 위해 리턴될 값을 포함하고 있어요. if문의 조건 `num in cache`은 `true`를 리턴하고, `'From cache! 20'`이 출력돼요.
+
+</p>
+</details>
+
+---
+
+###### 79. 무엇이 출력 될까요?
+
+```javascript
+const myLifeSummedUp = ["☕", "💻", "🍷", "🍫"]
+
+for (let item in myLifeSummedUp) {
+  console.log(item);
+}
+
+for (let item of myLifeSummedUp) {
+  console.log(item);
+}
+```
+
+- A: `0` `1` `2` `3` 그리고 `"☕"` ` "💻"` `"🍷"` `"🍫"`
+- B: `"☕"` ` "💻"` `"🍷"` `"🍫"` 그리고 `"☕"` ` "💻"` `"🍷"` `"🍫"`
+- C: `"☕"` ` "💻"` `"🍷"` `"🍫"` 그리고 `0` `1` `2` `3`
+- D:  `0` `1` `2` `3` 그리고 `{0: "☕", 1: "💻", 2: "🍷", 3: "🍫"}`
+
+<details><summary><b>정답</b></summary>
+<p>
+
+#### 정답: A
+
+_for-in_ 루프에서는, **열거 가능한** 속성들에 대해 반복 할 수 있어요. 배열에서, 열거 가능한 속성들은 배열 요소들의 "키"이고, 실제로는 그들의 인덱스죠. 배열을 다음과 같이 볼 수 있어요:
+
+`{0: "☕", 1: "💻", 2: "🍷", 3: "🍫"}`
+
+여기서 키는 열거 가능한 속성이에요. `0` `1` `2` `3`이 출력되죠.
+
+_for-of_ 루프에서는, **반복 가능한** 속성을 가진 요소에 대해 반복 할 수 있어요. 배열은 반복 가능해요. 배열을 반복할 때, "item" 변수는 현재 반복중인 요소로, `"☕"` ` "💻"` `"🍷"` `"🍫"`이 출력돼요.
+
+</p>
+</details>
+
+---
+
+###### 80. 무엇이 출력 될까요?
+
+```javascript
+const list = [1 + 2, 1 * 2, 1 / 2]
+console.log(list);
+```
+
+- A: `["1 + 2", "1 * 2", "1 / 2"]`
+- B: `["12", 2, 0.5]`
+- C: `[3, 2, 0.5]`
+- D:  `[1, 1, 1]`
+
+<details><summary><b>정답</b></summary>
+<p>
+
+#### 정답: C
+
+배열 요소들은 모든 값을 포함 할 수 있어요. Numbers, strings, objects, 다른 arrays, null, boolean 값, undefined, 그리고 자료형, 함수, 연산자와 같은 표현식들
+
+요소는 리턴된 값과 같아질 거예요. `1 + 2`는 `3`을 리턴하고, `1 * 2`는 `2`를 리턴하고, `1 / 2` 는 `0.5`을 리턴해요.
+
+</p>
+</details>
+
+---
+
+###### 81. 무엇이 출력 될까요?
+
+```javascript
+function sayHi(name) {
+  return `Hi there, ${name}`
+}
+
+console.log(sayHi());
+```
+
+- A: `Hi there, `
+- B: `Hi there, undefined`
+- C: `Hi there, null`
+- D:  `ReferenceError`
+
+<details><summary><b>정답</b></summary>
+<p>
+
+#### 정답: B
+
+기본값으로, 함수에 값이 전달되지 않으면, 인수는 `undefined` 값을 가져요. 이 경우, `name` 인수를 위한 값을 전달하지 않았어요. `name`은 `undefined`로 출력돼요.
+
+ES6에서, 기본값 `undefined` 값을 기본값 파라미터로 덮어쓸 수 있어요. 예를 들면:
+
+`function sayHi(name = "Lydia") { ... }`
+
+이 경우, 값을 전달하지 않거나 `undefined`를 전달하면, `name`은 항상 문자열 `Lydia`가 될 거예요.
+
+</p>
+</details>
+
+---
+
+###### 82. 무엇이 출력 될까요?
+
+```javascript
+var status = "😎";
+
+setTimeout(() => {
+  const status = "😍";
+
+  const data = {
+    status: "🥑",
+    getStatus() {
+      return this.status;
+    }
+  };
+
+  console.log(data.getStatus());
+  console.log(data.getStatus.call(this));
+}, 0);
+```
+
+- A: `"🥑"` 그리고 `"😍"`
+- B: `"🥑"` 그리고 `"😎"`
+- C: `"😍"` 그리고 `"😎"`
+- D: `"😎"` 그리고 `"😎"`
+
+<details><summary><b>정답</b></summary>
+<p>
+
+#### 정답: B
+
+`this`키워드의 값은 사용하는 곳에 따라 달라요. **메소드**에서 `getStatus`메소드 처럼, `this`키워드는 _메소드가 속한 객체_ 를 참조해요. 이 메소드는 `data` 객체에 속해 있어, `this`는 `data`객체를 참조해요. `this.status`를 출력할 때, `data`객체의 `status` 속성 `"🥑"`이 출력돼요.
+
+`call` 메소드에서는, `this` 키워드가 참조하는 객체를 바꿀 수 있어요. **함수**에서, `this` 키워드는 _함수가 속한 객체_ 를 참조해요. `setTimeout` 함수를 _전역 객체_ 에 선언했고, `setTimeout` 함수 안에서, `this`키워드는 _전역 객체_ 를 참조해요. 전역 객체에서, 변수는 `"😎"`값을 가진 _status_ 를 부르죠. `this.status`를 출력하면, `"😎"`이 출력돼요.
+
+</p>
+</details>
+
+---
+
+###### 83. 무엇이 출력 될까요?
+
+```javascript
+const person = {
+  name: "Lydia",
+  age: 21
+};
+
+let city = person.city;
+city = "Amsterdam";
+
+console.log(person);
+```
+
+- A: `{ name: "Lydia", age: 21 }`
+- B: `{ name: "Lydia", age: 21, city: "Amsterdam" }`
+- C: `{ name: "Lydia", age: 21, city: undefined }`
+- D: `"Amsterdam"`
+
+<details><summary><b>정답</b></summary>
+<p>
+
+#### 정답: A
+
+`city` 변수를 `person` rorcpdml `city`라고 불리는 속성 값으로 설정 했어요. 이 객체에서는 `city`라고 불리는 속성이 없기 때문에, `city`는 `undefined`의 값을 가져요. 
+
+`person`객체 자체를 참조 _하지않는_ 다는 걸 참고해요! 변수 `city`는 `person` 객체의 `city` 현재 속성 값으로 설정 했을 뿐이죠.
+
+그러므로, 우리는 `city`를 문자열 `"Amsterdam"`로 설정 했어요. 이건 person 객체를 바꾸지 않아요: 여기서 객체를 참조하는 건 없어요.
+
+`person`객체를 출력할 때, 수정되지 않은 객체가 리턴 받아요.
+
+</p>
+</details>
+
+---
+
+###### 84. 무엇이 출력 될까요?
+
+```javascript
+function checkAge(age) {
+  if (age < 18) {
+    const message = "Sorry, you're too young.";
+  } else {
+    const message = "Yay! You're old enough!";
+  }
+
+  return message;
+}
+
+console.log(checkAge(21));
+```
+
+- A: `"Sorry, you're too young."`
+- B: `"Yay! You're old enough!"`
+- C: `ReferenceError`
+- D: `undefined`
+
+<details><summary><b>정답</b></summary>
+<p>
+
+#### 정답: C
+
+`const`와 `let` 키워드를 사용한 변수는 _블록-스코프_ 예요. 블록은 중괄호 (`{ }`) 사이에 있는 것이죠. 이 경우, if/else 표현식의 중괄호를 의미해요. 블록 안에 선언된 건 블록 밖의 변수들을 참조하지 못해, ReferenceError를 던져요.
+
+</p>
+</details>
+
+---
+
+###### 85. 어떤 종류의 정보가 출력될까요?
+
+```javascript
+fetch('https://www.website.com/api/user/1')
+  .then(res => res.json())
+  .then(res => console.log(res));
+```
+
+- A: `fetch` 메소드의 결과
+- B: `fetch` 메소드의 두번째 호출 결과
+- C: 이전 `.then()`에서 callback된 결과
+- D: 항상 undefined
+
+<details><summary><b>정답</b></summary>
+<p>
+
+#### 정답: C
+
+두번째 `.then`에서의 `res`의 값은 이전`.then`에서 리턴된 값이에요. 이것 처럼 `.then`을 계속해서 연결할 수 있고, 값은 계속해서 다음 핸들러로 전달 돼요.
+
+</p>
+</details>
+
+---
+
+###### 86. `true`를 인수로 전달 할 수 없도록 주어졌을 때, `hasName`을 `true`로 설정할 수 있는 방법은 어느 것 일까요?
+
+```javascript
+function getName(name) {
+  const hasName = //
+}
+```
+
+- A: `!!name`
+- B: `name`
+- C: `new Boolean(name)`
+- D: `name.length`
+
+<details><summary><b>정답</b></summary>
+<p>
+
+#### 정답: A
+
+`!!name`에서, 우리는 `name`의 값이 참 같은지 거짓 같은지 결정해요. 만약 테스트 하려는 name이 참 같다면, `!name`은 `false`를 리턴해요. `!false` (실제로는 `!!name`)는 `true`를 리턴해요.
+
+`hasName`을 `name`으로 설정하면, `hasName`은 불린 값 `true`가 아니라, `getName` 함수에 전달된 값으로 설정해요.
+
+`new Boolean(true)`은 불린 값 자체가 아닌, 감싼 객체를 리턴해요.
+
+`name.length`은 그것의 `true`의 여부가 아닌, 전달된 인수의 길이를 리턴해요.
+
+</p>
+</details>
+
+---
+
+###### 87. 무엇이 출력 될까요?
+
+```javascript
+console.log("I want pizza"[0]);
+```
+
+- A: `"""`
+- B: `"I"`
+- C: `SyntaxError`
+- D: `undefined`
+
+<details><summary><b>정답</b></summary>
+<p>
+
+#### 정답: B
+
+문자열의 특정 인덱스의 문자를 얻으려면, 대괄호 표기법을 사용하면 돼요. 문자열의 첫 번째 문자는 인덱스 0과 기타등등을 가지고 있어요. 이 경우 문자 `"I'`인 인덱스 0이 출력되는 요소를 갖길 원해요.
+
+이 방법은 IE7 이하에서는 지원되지 않는다는 것을 유의하세요. 이 경우, `.charAt()`를 사용하세요.
+
+</p>
+</details>
+
+---
+
+###### 88. 무엇이 출력 될까요?
+
+```javascript
+function sum(num1, num2 = num1) {
+  console.log(num1 + num2)
+}
+
+sum(10)
+```
+
+- A: `NaN`
+- B: `20`
+- C: `ReferenceError`
+- D: `undefined`
+
+<details><summary><b>정답</b></summary>
+<p>
+
+#### 정답: B
+
+기본 파라미터의 값은 기본 파라미터를 정의하기 _전_ 이라면, 함수의 다른 파라미터와 같게 설정 할 수 있어요. 우리는 `sum` 함수에 값 `10`을 전달 했어요. 만약 `sum` 함수에 인수의 값을 하나만 받았다면, `num2`를 위한 값은 전달되지 않고, `num1`은 전달된 값과 같다는 의미에요. `num1`의 기본값은 `num1`의 값인 `10`과 같아요. `num1 + num2`는 `20`을 리턴해요.
+
+만약 기본 파리미터가 정의된 _후_ (오른쪽에) 기본 파라미터의 값을 설정하려고 시도한다면, 파라미터의 값은 아직 초기화되지 않아, 오류를 던질 거에요.
+
+</p>
+</details>
+
+---
+
+###### 89. 무엇이 출력 될까요?
+
+```javascript
+// module.js 
+export default () => "Hello world"
+export const name = "Lydia"
+
+// index.js 
+import * as data from "./module"
+
+console.log(data)
+```
+
+- A: `{ default: function default(), name: "Lydia" }`
+- B: `{ default: function default() }`
+- C: `{ default: "Hello world", name: "Lydia" }`
+- D: Global object of `module.js`
+
+<details><summary><b>정답</b></summary>
+<p>
+
+#### 정답: A
+
+`import * as name` 신택스를 사용해서, `module.js` 파일에 있는 _모든 exports_ 를 `index.js` 파일 안에 `data`라고 불리는 새로운 객체를 생성해요. `module.js` 파일에는, 2개의 export가 있어요: default export 와 named export. default export는 문자열 `"Hello World"`을 리턴하는 함수고, named export는 문자열 `"Lydia"`의 값을 가진 `name`이라고 불리는 변수예요.
+
+`data` 객체는 default export를 위한 `default` 속성을 가지고, 다른 속성들은 named exports의 이름들과 그에 해당하는 값들을 가져요.
+
+</p>
+</details>
+
+---
+
+###### 90. 무엇이 출력 될까요?
+
+```javascript
+class Person {
+  constructor(name) {
+    this.name = name
+  }
+}
+
+const member = new Person("John")
+console.log(typeof member)
+```
+
+- A: `"class"`
+- B: `"function"`
+- C: `"object"`
+- D: `"string"`
+
+<details><summary><b>정답</b></summary>
+<p>
+
+#### 정답: C
+
+Class는 함수 생성자를 위한 문법적 설탕이에요. 함수 생성자로서 `Person` 클래스와 동등한 것은 다음과 같아요:
+
+```javascript
+function Person() {
+  this.name = name;
+}
+```
+
+`new`와 함께 불려진 함수 생성자는 `Person`의 인스턴스를 생성하고, `typeof` 키워드는 인스턴스의 `"object"`를 리턴해요. `typeof member`는 `"object"`을 리턴해요.
+
+</p>
+</details>
+
+---
+
+###### 91. 무엇이 출력 될까요?
+
+```javascript
+let newList = [1, 2, 3].push(4)
+
+console.log(newList.push(5))
+```
+
+- A: `[1, 2, 3, 4, 5]`
+- B: `[1, 2, 3, 5]`
+- C: `[1, 2, 3, 4]`
+- D: `Error`
+
+<details><summary><b>정답</b></summary>
+<p>
+
+#### 정답: D
+
+`.push` 메소드는 배열 자체가 아니라, 배열의 _새로운 길이_ 를 리턴해요! `newList`를 `[1, 2, 3].push(4)`과 동일하게 설정함으로써, `newList`를 배열의 새로운 길이와 동일하게 설정했어요: `4`.
+
+그리고나서, `.push` 메소드를 `newList`에 사용하려고 했어요. `newList`는 숫자 값 `4` 이기 때문에, `.push` 메소드를 사용할 수 없어요: TypeError가 던져져요.
+
+</p>
+</details>
+
+---
+
+###### 92. 무엇이 출력 될까요?
+
+```javascript
+function giveLydiaPizza() {
+  return "Here is pizza!"
+}
+
+const giveLydiaChocolate = () => "Here's chocolate... now go hit the gym already."
+
+console.log(giveLydiaPizza.prototype)
+console.log(giveLydiaChocolate.prototype)
+```
+
+- A: `{ constructor: ...}` `{ constructor: ...}` 
+- B: `{}` `{ constructor: ...}` 
+- C: `{ constructor: ...}` `{}`
+- D: `{ constructor: ...}` `undefined`
+
+<details><summary><b>정답</b></summary>
+<p>
+
+#### 정답: D
+
+`giveLydiaPizza`와 같은 정규 함수는, `생성자` 속성을 가진 `프로토타입` 객체(프로토타입 객체)를 속성으로 가져요. 그러나 `giveLydiaChocolate` 함수와 같은 화살표 함수에서는, `prototype` 속성을 가지고 있지 않아요. `giveLydiaChocolate.prototype`을 사용해 `prototype` 속성에 접근하려고 할때, `undefined`이 리턴될 거에요.
+
+</p>
+</details>
+
+---
+
+###### 93. 무엇이 출력 될까요?
+
+```javascript
+const person = {
+  name: "Lydia",
+  age: 21
+};
+
+for (const [x, y] of Object.entries(person)) {
+  console.log(x, y)
+}
+```
+
+- A: `name` `Lydia` 그리고 `age` `21`
+- B: `["name", "Lydia"]` 그리고 `["age", 21]` 
+- C: `["name", "age"]` 그리고 `undefined`
+- D: `Error`
+
+<details><summary><b>정답</b></summary>
+<p>
+
+#### 정답: A
+
+`Object.entries(person)`은 키와 값을 세트로 가진 배열의 배열을 리턴해요:
+
+`[ [ 'name', 'Lydia' ], [ 'age', 21 ] ]` 
+
+`for-of` 루프를 사용해서, 배열 안에 각 요소를 계속해서 반복할 수 있는데, 이 경우엔 하위 배열이에요. 하위 배열을 `const [x, y]`을 사용해, for-of 루프에서 즉시 분해할 수 있어요. `x`는 하위 배열의 첫 번째 요소와 같고, `y`는 하위 배열의 두 번째 요소와 같아요.
+
+첫번째 하위요소는 `[ "name", "Lydia" ]`로, `x`는 `"name"`, `y`는 `"Lydia"`을 출력해요.
+두번째 하위요소는 `[ "age", 21 ]`로, `x`는 `"age"`, `y`는 `21`을 출력해요.
+
+</p>
+</details>
+
+---
+
+###### 94. 무엇이 출력 될까요?
+
+```javascript
+function getItems(fruitList, ...args, favoriteFruit) {
+  return [...fruitList, ...args, favoriteFruit]
+}
+
+console.log(getItems(["banana", "apple"], "pear", "orange"))
+```
+
+- A: `["banana", "apple", "pear", "orange"]`
+- B: `[["banana", "apple"], "pear", "orange"]` 
+- C: `["banana", "apple", ["pear"], "orange"]`
+- D: `SyntaxError`
+
+<details><summary><b>정답</b></summary>
+<p>
+
+#### 정답: D
+
+`...args`은 나머지 파라미터예요. 나머지 파라미터의 값은 모든 나머지 인수들을 포함한 배열이며, **마지막 파라미터만 될 수 있어요**! 지금 예시에서는, 나머지 파라미터는 두번째 파라미터예요. 이것은 불가능하고, 신택스 에러를 던지게 될거에요.
+
+```javascript
+function getItems(fruitList, favoriteFruit, ...args) {
+  return [...fruitList, ...args, favoriteFruit]
+}
+
+getItems(["banana", "apple"], "pear", "orange")
+```
+
+The above example works. This returns the array `[ 'banana', 'apple', 'orange', 'pear' ]`
+</p>
+</details>
+
+---
+
+###### <a name=20190817></a>95. 무엇이 출력 될까요?
+
+```javascript
+function nums(a, b) {
+  if
+  (a > b)
+  console.log('a is bigger')
+  else 
+  console.log('b is bigger')
+  return 
+  a + b
+}
+
+console.log(nums(4, 2))
+console.log(nums(1, 2))
+```
+
+- A: `a is bigger`, `6` 그리고 `b is bigger`, `3`
+- B: `a is bigger`, `undefined` 그리고 `b is bigger`, `undefined`
+- C: `undefined` 그리고 `undefined`
+- D: `SyntaxError`
+
+<details><summary><b>정답</b></summary>
+<p>
+
+#### 정답: B
+
+JavaScript에서, 세미콜론을 (`;`)을 명시적으로 포함하여 쓰지 _않_ 더라도, JavaScript 엔진은 여전히 문 뒤에 그들을 추가해줘요. 이것은 **자동 세미콜론 삽입**이라고 불려요. 예를 들어 문은 변수, 또는 `throw`, `return`, `break` 등과 같은 키워드가 될 수도 있어요.
+
+여기, `return`문을 썼고, 다른 값 `a + b`은 _새로운 줄_ 에 쓰였어요. 그러나, 새로운 줄이기 때문에, 엔진은 실제로 그 값이 리턴되길 바라는지 알 수 없어요. 대신에, 자동적으로 `return` 뒤에 세미콜론을 더해줘요. 이것을 볼 수 있을거에요:
+
+```javascript
+  return;
+  a + b
+```
+
+`return` 키워드 뒤에 함수가 실행되는 것이 중단되기 때문에, `a + b`의 의미는 도달되지 않아요. 여기서 처럼, 만약 아무 값도 리턴되지 않는다면, 함수는 `undefined`를 리턴할 거예요. `if/else`문 뒤에는 자동으로 삽입되는 게 없다는 걸 유의해요!
+
+</p>
+</details>
+
+---
+
+###### 96. 무엇이 출력 될까요?
+
+```javascript
+class Person {
+  constructor() {
+    this.name = "Lydia"
+  }
+}
+
+Person = class AnotherPerson {
+  constructor() {
+    this.name = "Sarah"
+  }
+}
+
+const member = new Person()
+console.log(member.name)
+```
+
+- A: `"Lydia"`
+- B: `"Sarah"`
+- C: `Error: cannot redeclare Person`
+- D: `SyntaxError`
+
+<details><summary><b>정답</b></summary>
+<p>
+
+#### 정답: B
+
+다른 클래스/함수 생성자로 클래스를 설정할 수 있어요. 이 경우, `Person`을 `AnotherPerson`로 설정했어요. 이 생성자의 name은 `Sarah`예요, 따라서 새로운 `Person`의 인스턴스 `member`의 name 속성은 `"Sarah"`예요.
+
+</p>
+</details>
+
+---
+
+###### 97. 무엇이 출력 될까요?
+
+```javascript
+const info = {
+  [Symbol('a')]: 'b'
+}
+
+console.log(info)
+console.log(Object.keys(info))
+```
+
+- A: `{Symbol('a'): 'b'}` 그리고 `["{Symbol('a')"]`
+- B: `{}` 그리고 `[]`
+- C: `{ a: "b" }` 그리고 `["a"]`
+- D: `{Symbol('a'): 'b'}` 그리고 `[]`
+
+<details><summary><b>정답</b></summary>
+<p>
+
+#### 정답: D
+
+심볼은 _열거 불가능_ 해요. Object.keys 메소드는 객체의 모든 _열거 가능_ 한 키 속성들을 리턴해요. 심볼은 보이지 않고, 빈 객체가 리턴돼요. 객체 전체를 출력할때, 모든 속성들은 보여요, 심지어 열거 불가능한 것이라해도.
+
+이것은 심볼의 많은 특성 중 하나에요: 완전히 고유한 값(예를들어 2개의 라이브러리를 같은 객체의 속성으로 추가하고 싶을때, 객체의 우연한 이름 충돌을 방지해요)을 나타내는 것 외에, 이 방법으로 객체의 속성을 "숨길" 수 있어요(비록 완전히는 아닐지라도. 여전히 `Object.getOwnPropertySymbols()` 메소드를 사용해 심볼에 접근 할 수 있어요).
+
+</p>
+</details>
+
+---
+
+###### 98. 무엇이 출력 될까요?
+
+```javascript
+const getList = ([x, ...y]) => [x, y]
+const getUser = user => { name: user.name, age: user.age }
+
+const list = [1, 2, 3, 4]
+const user = { name: "Lydia", age: 21 }
+
+console.log(getList(list))
+console.log(getUser(user))
+```
+
+- A: `[1, [2, 3, 4]]` 그리고 `undefined`
+- B: `[1, [2, 3, 4]]` 그리고 `{ name: "Lydia", age: 21 }`
+- C: `[1, 2, 3, 4]` 그리고 `{ name: "Lydia", age: 21 }`
+- D: `Error` 그리고 `{ name: "Lydia", age: 21 }`
+
+<details><summary><b>정답</b></summary>
+<p>
+
+#### 정답: A
+
+`getList`함수는 배열을 인수로 받았어요. `getList` 함수의 괄호 사이에 있는 배열을 즉시 분해 했어요:
+
+ `[x, ...y] = [1, 2, 3, 4]`
+
+나머지 파라미터를 사용해 `...y`에 모든 "남은" 인수들을 배열에 넣었어요. 이 경우에서 남아있는 인수는 `2`, `3` 그리고 `4`예요. `y`의 값은 배열이고, 모든 나머지 파라미터를 포함하고 있어요. 이 경우 `x`의 값은 `1`이기 때문에, `[x, y]`는 `[1, [2, 3, 4]]`로 출력돼요.
+
+`getUser` 함수는 배열을 받았어요. 화살표 함수에서, 우리가 한개의 값을 리턴한다면 중괄호를 사용할 _필요_ 가 없어요. 그러나, 만약 화살표 함수에서 _객체_ 를 리턴하고 싶다면, 괄호 사이에 리턴할 값을 써야해요, 그렇지 않다면 아무 값도 리턴받을 수 없어요! 다음 함수에서는 객체가 리턴 될 거에요:
+
+```const getUser = user => ({ name: user.name, age: user.age })```
+
+이 경우 값이 리턴되는 값이 없으므로, 함수는 `undefined`을 리턴할거에요.
+
+</p>
+</details>
+
+---
+
+###### 99. 무엇이 출력 될까요?
+
+```javascript
+const name = "Lydia"
+
+console.log(name())
+```
+
+- A: `SyntaxError`
+- B: `ReferenceError`
+- C: `TypeError`
+- D: `undefined`
+
+<details><summary><b>정답</b></summary>
+<p>
+
+#### 정답: C
+
+변수 `name`은 문자열을 값으로 가지고 있고, 함수가 아니죠, 따라서 호출할 수 없어요.
+
+TypeErrors는 값이 예상된 유형이 아닐 경우 던져져요. JavaScript는 `name`을 호출하려고 했기 때문에 함수일거라 예상했어요. 그러나 문자열이였기 때문에, TypeError가 던져져요: name은 함수가 아니죠!
+
+SyntaxErrors는 어떤 것을 썼을때 JavaScript에서 유효하지 않을 때 던져져요, 예를들어 `return`을 `retrun`로 썼을때 말이죠.
+
+ReferenceErrors는 JavaScript가 접근하려고 하는 값의 참조를 찾을 수 없을 때 던져져요.
+
+</p>
+</details>
+
+---
+
+###### 100. output의 값은 무엇일까요?
+
+```javascript
+// 🎉✨ 이번이 내 100번째 질문이에요! ✨🎉
+
+const output = `${[] && 'Im'}possible!
+You should${'' && `n't`} see a therapist after so much JavaScript lol`
+```
+
+- A: `possible! You should see a therapist after so much JavaScript lol`
+- B: `Impossible! You should see a therapist after so much JavaScript lol`
+- C: `possible! You shouldn't see a therapist after so much JavaScript lol`
+- D: `Impossible! You shouldn't see a therapist after so much JavaScript lol`
+
+<details><summary><b>정답</b></summary>
+<p>
+
+#### 정답: B
+
+`[]`은 참 같은 값이에요. `&&` 연산자를 사용할 때, 만약 왼쪽에 있는 값이 참 같은 값이라면 오른쪽 값은 리턴될 거에요. 이 경우, 왼쪽의 값 `[]`은 참 같은 값이에요, 따라서 `'Im'`은 리턴될 거예요.
+
+`""`은 거짓 같은 값이에요. 만약 왼쪽 값이 거짓 같은 값이라면, 리턴되는 것은 없어요. `n't`은 리턴되지 않아요.
+
+</p>
+</details>
+
+---
+
+###### 101. 무엇이 출력 될까요?
+
+```javascript
+const one = (false || {} || null)
+const two = (null || false || "")
+const three = ([] || 0 || true)
+
+console.log(one, two, three)
+```
+
+- A: `false` `null` `[]`
+- B: `null` `""` `true`
+- C: `{}` `""` `[]`
+- D: `null` `null` `true`
+
+<details><summary><b>정답</b></summary>
+<p>
+
+#### 정답: C
+
+`||` 연산자를 사용하면, 최초의 참 같은 피연산자를 리턴해요. 만약 모든 값이 거짓 같다면, 마지막 피연산자를 리턴해요.
+
+`(false || {} || null)`: 빈 객체 `{}`는 진짜 같은 값이에요. 이것은 최초로(그리고 유일하게) 진짜 같은 값이라 리턴돼요. `one`은 `{}`이에요.
+
+`(null || false || "")`: 모든 피연산자는 가짜 같은 값이에요. 이것은 마지막 피연산자 `""`가 리턴된다는 것을 의미해요. `two`는 `""`이에요.
+
+`([] || 0 || "")`: 빈 배열 `[]`은 진짜 같은 값이에요. 이것은 최초의 진짜 같은 값이라 리턴돼요. `three`은 `[]`이에요.
 
 </p>
 </details>
