@@ -3457,3 +3457,35 @@ With `splice` method, we modify the original array by deleting, replacing or add
 
 </p>
 </details>
+
+---
+
+###### 109. What's the output?
+
+```javascript
+var a={},
+    b={key:'b'},
+    c={key:'c'};
+
+a[b]=123;
+a[c]=456;
+
+console.log(a[b]);
+```
+
+- A: `123`
+- B: `456`
+- C: `null` 
+- D: `ReferenceError`
+
+<details><summary><b>Answer</b></summary>
+<p>
+
+#### Answer: B
+
+The output of this code will be `456` (not `123`).
+
+The reason for this is as follows: When setting an object property, JavaScript will implicitly **stringify** the parameter value. In this case, since `b` and `c` are both objects, they will both be converted to `"[object Object]"`. As a result, `a[b]` and `a[c]` are both equivalent to `a["[object Object]"]` and can be used interchangeably. Therefore, setting or referencing `a[c]` is precisely the same as setting or referencing `a[b]`.
+
+</p>
+</details>
