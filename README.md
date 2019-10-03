@@ -26,7 +26,7 @@ List of available languages:
 * [Tiếng Việt](./vi-VI/README-vi.md)
 * [中文版本](./zh-CN/README-zh_CN.md)
 * [Türkçe](./tr-TR/README-tr_TR.md)
-
+* [Indonesia](./id-ID/README-id_ID.md)
 
 ---
 
