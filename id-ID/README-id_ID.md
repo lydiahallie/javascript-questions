@@ -25,6 +25,6 @@ Daftar dari beberapa bahasa yang tersedia:
 - [Tiếng Việt](../vi-VI/README-vi.md)
 - [中文版本](../zh-CN/README-zh_CN.md)
 - [Türkçe](../tr-TR/README-tr_TR.md)
-- [Indonesia](./README.md)
+- [Indonesia](./README-id_ID.md)
 
 ---
