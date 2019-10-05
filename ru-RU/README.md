@@ -3235,10 +3235,13 @@ function firstFunction() {
   console.log('second')
 }
 
-function secondFunction() {
+async function secondFunction() {
   console.log(await myPromise())
   console.log('second')
 }
+
+firstFunction()
+secondFunction()
 ```
 
 - A: `I have resolved!`, `second` and `I have resolved!`, `second`
