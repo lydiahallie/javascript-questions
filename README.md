@@ -3484,3 +3484,25 @@ JavaScript uses event loop to handle asynchronous function calls. When program i
 
 </p>
 </details>
+
+---
+
+###### 110. What's the output?
+
+```javascript
+console.log(typeof null);
+```
+
+- A: `'number'`
+- B: `'undefined'`
+- C: `'string'`
+- D: `'object'`
+
+<details><summary><b>Answer</b></summary>
+
+#### Answer: D
+
+In the first implementation of JavaScript values were represented in 2 parts - a type tag and the actual value. There were 5 type tags that could be used and tag for referencing an object was 0. null value is represented as NULL pointer which was 0x00 for most platforms. So null has 0 type tag which corresponds to object.
+
+</p>
+</details>
