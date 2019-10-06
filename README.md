@@ -3454,3 +3454,33 @@ With `splice` method, we modify the original array by deleting, replacing or add
 
 </p>
 </details>
+
+--- 
+
+###### 109. What is the output produced by the following code? 
+
+```javascript
+let keepGoing = true;
+let callback = () => {
+  keepGoing = false;
+};
+setTimeout(callback, 1000);
+while(keepGoing === true) {
+  console.log('Never Give Up');
+};
+```
+
+- A: `Never Give Up`
+- B: `Reference Error`
+- C: `Never Give Up (printed infinitely)`
+- D: `Syntax Error`
+
+<details><summary><b>Answer</b></summary>
+<p>
+
+#### Answer: C
+
+JavaScript uses event loop to handle asynchronous function calls. When program is run function calls are made and added to a call stack. We don’t have to wait for asynchronous functions like `setTimeout` to do their work as these functions are sent to a separate message queue. The loop gives priority to the call stack, and it first processes everything it finds in the call stack, and once there’s nothing in there, it goes to pick up things in the message queue. Here `callback` is added to the message queue and never gets called as the call stack is never empty because of the infinite `while` loop.
+
+</p>
+</details>
