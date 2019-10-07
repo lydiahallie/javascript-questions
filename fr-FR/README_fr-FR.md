@@ -136,7 +136,7 @@ Il n'y a pas de valeur `radius` dans cet objet, on retournera `undefined`.
 
 L'opérateur arithmétique `+` essait de convertir un opérande en une valeur numérique. `true` devient `1`, et `false` devient `0`.
 
-La chaine de caractère `'Lydia'` est une valeur considérée comme vraie _(truthy)_. Ce que nous sommes actuellement en train de demander, c'est "est-ce que cette valeur considérée comme vraie est fausse ?". Ce qui retournera `false`.
+La chaîne de caractère `'Lydia'` est une valeur considérée comme vraie _(truthy)_. Ce que nous sommes actuellement en train de demander, c'est "est-ce que cette valeur considérée comme vraie est fausse ?". Ce qui retournera `false`.
 
 </p>
 </details>
@@ -166,7 +166,7 @@ const mouse = {
 
 #### Réponse : A
 
-En JavaScript, toutes les clés d'objet sont des chaines de caractères (sauf si c'est un Symbol). Bien que nous ne puissions pas les _typer_ comme des chaines de caractères, elles sont converties en chaines de caractères sous le capot.
+En JavaScript, toutes les clés d'objet sont des chaînes de caractères (sauf si c'est un Symbol). Bien que nous ne puissions pas les _typer_ comme des chaînes de caractères, elles sont converties en chaînes de caractères sous le capot.
 
 JavaScript interprète (ou décompresse) les instructions. Lorsque nous utilisons la notation pas crochet, il voit le premier crochet `[` et continue jusqu'à ce qu'il trouve le crochet fermant `]`. Seulement après, il évalue l'instruction.
 
@@ -205,7 +205,7 @@ console.log(d.greeting);
 
 En JavaScript, tous les objets interagissent par _référence_ lorsqu'on les définit égaux les uns aux autres.
 
-Premièrement, la variable `c` contaient une valeur d'objet. Plus tard, nous assignons `d` avec la même réference que `c` à l'objet.
+Premièrement, la variable `c` contaient une valeur d'objet. Plus tard, nous assignons `d` avec la même référence que `c` à l'objet.
 
 <img src="https://i.imgur.com/ko5k0fs.png" width="200">
 
@@ -474,7 +474,7 @@ sum(1, "2");
 
 JavaScript est un **langage à types dynamiques** : nous n'avons pas besoin de spécifier le types des variables. Les valeurs peuvent être automatiquement converties vers les autres types sans que vous le sachiez, c'est ce que l'on appelle _la conversion de types implicites_ _(implicit type coercion)_.
 
-Dans cette exemple, JavaScript convertit le nombre `1` en un chaine de caractère, afin que la fonction ait du sens et puisse renvoyer une valeur. Durant l'addition d'un type numérique (`1`) et d'un type chaine de caractère (`'2'`), le nombre est traité comme une chaine de caractère. Nous pouvons concaténer les chaines de caractères comme `"Hello" + "World"`, c'est donc ce qui arrive ici avec `"1" + "2"` qui retourne `"12"`.
+Dans cette exemple, JavaScript convertit le nombre `1` en une chaîne de caractère, afin que la fonction ait du sens et puisse renvoyer une valeur. Durant l'addition d'un type numérique (`1`) et d'un type chaîne de caractère (`'2'`), le nombre est traité comme une chaîne de caractère. Nous pouvons concaténer les chaînes de caractères comme `"Hello" + "World"`, c'est donc ce qui arrive ici avec `"1" + "2"` qui retourne `"12"`.
 
 </p>
 </details>
@@ -541,7 +541,7 @@ getPersonInfo`${person} is ${age} years old`;
 
 #### Réponse : B
 
-Si vous utilisez les littéraux de gabarits, la valeur du premier argument sera toujours un tableau de valeurs des chaines de caractère. Le reste des arguments seront les valeurs des expressions utilisées !
+Si vous utilisez les littéraux de gabarits, la valeur du premier argument sera toujours un tableau de valeurs des chaînes de caractère. Le reste des arguments seront les valeurs des expressions utilisées !
 
 </p>
 </details>
@@ -869,7 +869,7 @@ console.log(a[b]);
 
 Les clés d'objet sont automatiquement converties en chaînes de caractères. Nous essayons de définir un objet en tant que clé de l'objet `a`, avec la valeur `123`.
 
-Cependant, lorsque nous transformons un objet en chaine de caractère, il devient `"[Objet objet]"`. Donc, ce que nous disons ici, c'est que un `a["Objet objet"] = 123`. Ensuite, nous pouvons essayer de refaire la même chose. `c` est un autre objet que nous sommes implicitement en train de transformer en chaine de carctère. Donc, `a["Objet objet"] = 456`.
+Cependant, lorsque nous transformons un objet en chaîne de caractère, il devient `"[Objet objet]"`. Donc, ce que nous disons ici, c'est que un `a["Objet objet"] = 123`. Ensuite, nous pouvons essayer de refaire la même chose. `c` est un autre objet que nous sommes implicitement en train de transformer en chaîne de caractère. Donc, `a["Objet objet"] = 456`.
 
 Ensuite, nous affichons `a[b]`, qui est en fait `a["Objet objet"]`. Que nous venons de définir à `456`, nous renvoyons donc `456`.
 
@@ -1075,7 +1075,7 @@ Il n'y a que six valeurs de fausses :
 - `null`
 - `NaN`
 - `0`
-- `''` (chaine de caractère vide)
+- `''` (chaîne de caractère vide)
 - `false`
 
 Les constructeurs de fonctions, comme `new Number` et `new Boolean` sont la vraies.
@@ -1544,7 +1544,7 @@ console.log(person, birthYear);
 
 #### Réponse : A
 
-Les arguments sont passés par _valeur_, à moins que leur valeur ne soit un objet, ils sont passés par _réfèrence_. `birthYear` est passée par valeur, car c'est une chaîne, pas un objet. Lorsque nous passons des arguments par valeur, une copie de cette valeur est créée (voir question 46).
+Les arguments sont passés par _valeur_, à moins que leur valeur ne soit un objet, ils sont passés par _référence_. `birthYear` est passée par valeur, car c'est une chaîne, pas un objet. Lorsque nous passons des arguments par valeur, une copie de cette valeur est créée (voir question 46).
 
 La variable `birthYear` a une référence à la valeur `"1997"`. L'argument `year` fait également référence à la valeur `"1997"`, mais il ne s'agit pas de la même valeur que celle de `birthYear`. Lorsque nous mettons à jour la valeur de `year` en plaçant `year` égal à `"1998"`, nous ne mettons à jour que la valeur de `year`. `birthYear` est toujours égal à `"1997"`.
 
@@ -1919,7 +1919,7 @@ Le second argument de `JSON.stringify` est le _replaçant_. Le remplaçant peut 
 
 Si le remplaçant est un _tableau_, seules les propriétés dont les noms sont inclus dans le tableau seront ajoutées à la chaîne JSON. Dans ce cas, seules les propriétés avec les noms `"level"` et `"health"` sont incluses, `"username"` est exclu. `data` est maintenant égal à `"{"level":19, "health":90}"`.
 
-Si le remplaceur est une _fonction_, cette fonction est appelée sur chaque propriété de l'objet que vous personnalisez. La valeur renvoyée par cette fonction sera la valeur de la propriété lorsqu'elle sera ajoutée à la chaîne JSON. Si la valeur est `undefined`, cette propriété est exclue de la chaîne JSON.
+Si le remplaçant est une _fonction_, cette fonction est appelée sur chaque propriété de l'objet que vous personnalisez. La valeur renvoyée par cette fonction sera la valeur de la propriété lorsqu'elle sera ajoutée à la chaîne JSON. Si la valeur est `undefined`, cette propriété est exclue de la chaîne JSON.
 
 </p>
 </details>
