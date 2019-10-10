@@ -3458,3 +3458,295 @@ Mit der `splice` Methode ändern wir das ursprüngliche Array durch löschen, er
 
 </p>
 </details>
+
+
+---
+
+###### <a name=20191009></a>109. Was ist der Output?
+
+```javascript
+const food = ['🍕', '🍫', '🥑', '🍔']
+const info = { favoriteFood: food[0] }
+
+info.favoriteFood = '🍝'
+
+console.log(food)
+```
+
+- A: `['🍕', '🍫', '🥑', '🍔']`
+- B: `['🍝', '🍫', '🥑', '🍔']`
+- C: `['🍝', '🍕', '🍫', '🥑', '🍔']` 
+- D: `ReferenceError`
+
+<details><summary><b>Antwort</b></summary>
+<p>
+
+#### Antwort: A
+
+In JavaScript interagieren primitive Datentypen (alles außer Objekte) anhand des _Wertes_. In diesem Beispiel setzen wir den Wert von `favoriteFood` am `info` Objekt gleich dem Wert des ersten Elements im `food` Array, in dem Fall ein String mit dem Pizza Emoji (`'🍕'`). Ein String ist ein primitiver Datentyp und agiert daher in JavaScript nach Referenz. (Siehe mein [Blogpost](https://www.theavocoder.com/complete-javascript/2018/12/21/by-value-vs-by-reference) für mehr Informationen)
+
+Dann ändern wir den Wert von `favoriteFood` am `info` Objekt. Das `food` Array hat sich nicht verändert, da der Wert von `favoriteFood` nur eine _Kopie_ des Wertes des ersten Elements im Array war und keine Referenz zum Element `food[0]` im Speicher finden kann. Wenn wir also das Essen loggen ist es immernoch das ursprüngliche Array `['🍕', '🍫', '🥑', '🍔']`.
+
+</p>
+</details>
+
+---
+
+###### 110. Was macht diese Methode?
+
+```javascript
+JSON.parse()
+```
+
+- A: Parsed JSON in einen JavaScript Wert
+- B: Parsed ein JavaScript Objekt zu JSON
+- C: Parsed jegliche JavaScript Werte zu JSON
+- D: Parsed JSON zu jeglichem JavaScript Objekt
+
+<details><summary><b>Antwort</b></summary>
+<p>
+
+#### Antwort: A
+
+Mit der `JSON.parse()` Methode können wir einen JSON String zu einem JavaScript Wert umwandeln.
+
+```javascript
+// Stringifying a number into valid JSON, then parsing the JSON string to a JavaScript value:
+const jsonNumber = JSON.stringify(4) // '4'
+JSON.parse(jsonNumber) // 4
+
+// Stringifying an array value into valid JSON, then parsing the JSON string to a JavaScript value:
+const jsonArray = JSON.stringify([1, 2, 3]) // '[1, 2, 3]'
+JSON.parse(jsonArray) // [1, 2, 3]
+
+// Stringifying an object  into valid JSON, then parsing the JSON string to a JavaScript value:
+const jsonArray = JSON.stringify({ name: "Lydia" }) // '{"name":"Lydia"}'
+JSON.parse(jsonArray) // { name: 'Lydia' }
+```
+
+</p>
+</details>
+
+---
+
+###### 111. Was ist der Output? 
+
+```javascript
+let name = 'Lydia'
+
+function getName() {
+  console.log(name)
+  let name = 'Sarah'
+}
+
+getName()
+```
+
+- A: Lydia
+- B: Sarah
+- C: `undefined`
+- D: `ReferenceError`
+
+<details><summary><b>Antwort</b></summary>
+<p>
+
+#### Antwort: D
+
+Jede Funktion hat ihren eigenen _Ausführungskontext_ (oder _scope_). Die `getName` Funktion sucht zuerst in ihrem eigenen Kontext (scope) um zu sehen, ob sie den Wert `name` finden kann. In diesem Fall beinhaltet die `getName` Funktion ihre eigene Variable `name`: wir setzen die Variable `name` mit dem `let` Keyword und dem Wert `'Sarah'`.
+
+Variablen mit dem `let` und `const` Keyword werden gehoisted, aber entgegen `var` werden diese nicht _initialisiert_. Sie sind nicht aufrufbar, bevor wir sie deklarieren (initialisieren). Das ist eine "vorübergehende tote Zone" (temporal dead zone). Wir bekommen einen `ReferenceError` ausgegeben.
+
+Hätten wir die `name` Variable nicht innerhalb `getName` deklariert, so hätte JavaScript außerhalb der Funktion in der _Scope-Kette_ weitergesucht. Der äußere Scope beinhaltet ebenfalls eine Variable `name` mit dem Wert `'Lydia'`. In diesem Fall wäre `Lydia` geloggt worden.
+
+```javascript
+let name = 'Lydia'
+
+function getName() {
+  console.log(name)
+}
+
+getName() // Lydia
+```
+
+</p>
+</details>
+
+---
+
+###### 112. Was ist der Output?
+
+```javascript
+function* generatorOne() {
+  yield ['a', 'b', 'c'];
+}
+
+function* generatorTwo() {
+  yield* ['a', 'b', 'c'];
+}
+
+const one = generatorOne()
+const two = generatorTwo()
+
+console.log(one.next().value)
+console.log(two.next().value)
+```
+
+- A: `a` and `a`
+- B: `a` and `undefined`
+- C: `['a', 'b', 'c']` and `a`
+- D: `a` and `['a', 'b', 'c']`
+
+<details><summary><b>Antwort</b></summary>
+<p>
+
+#### Antwort: C
+
+Mit dem `yield` Keyword, halten wir Werte in einer Generator-Funktion. Mit dem `yield*` Keyword können wir Werte einer anderen Generator-Funktion oder Objekte und Arrays halten.
+
+In `generatorOne` halten wir das gesamte Array `['a', 'b', 'c']` mit dem `yield` Keyword. Der Wert von `value` am Objekt gibt die `next` Methode an `one` (`one.next().value`) aus, was dem gesamten Array entspricht: `['a', 'b', 'c']`.
+
+```javascript
+console.log(one.next().value) // ['a', 'b', 'c']
+console.log(one.next().value) // undefined
+```
+
+In `generatorTwo` verwenden wir das `yield*` Keyword. Das bedeutet, dass der erste gehaltene Wert von `two` gleich dem ersten gehaltenen Wert ist. Das ist das Array `['a', 'b', 'c']`. Der erste gehaltene Wert ist `a`, was ausgegeben wird.
+
+```javascript
+console.log(two.next().value) // 'a'
+console.log(two.next().value) // 'b'
+console.log(two.next().value) // 'c'
+console.log(two.next().value) // undefined
+```
+
+</p>
+</details>
+
+---
+
+###### 113. Was ist der Output?
+
+```javascript
+console.log(`${(x => x)('I love')} to program`)
+```
+
+- A: `I love to program`
+- B: `undefined to program`
+- C: `${(x => x)('I love') to program`
+- D: `TypeError`
+
+<details><summary><b>Antwort</b></summary>
+<p>
+
+#### Antwort: A
+
+Expressions innerhalb von Template Literals werden zuerst berechnet. Das bedeutet, dass der String den ausgegebenen Wert der Expression beinhaltet, hier die IIFE (immediately invoked Function) `(x => x)('I love')`. Wir geben den Wert `'I love'` als Argument an die `x => x` Arrow Funktion. `x` ist gleich `'I love'` und wird ausgegeben. Das Ergebnis ist `I love to program`. 
+
+</p>
+</details>
+
+---
+
+###### 114. What will happen?
+
+```javascript
+let config = {
+  alert: setInterval(() => {
+    console.log('Alert!)
+  }, 1000)
+}
+
+config = null
+```
+
+- A: Die `setInterval` Callback Funktion wird nicht aufgerufen
+- B: Die `setInterval` Callback Funktion wird ein Mal aufgerufen
+- C: Die `setInterval` Callback Funktion wird weiterhin jede Sekunde aufgerufen
+- D: Wir haben `config.alert()` nie aufgerufen, `config` ist `null`
+
+<details><summary><b>Antwort</b></summary>
+<p>
+
+#### Antwort: C
+
+Wenn wir normalerweise Objekte gleich `null` setzen, werden diese _verworfen_, weil keine Referenz mehr zu ihnen existiert. Da die Callback Funktion in `setInterval` eine Arrow Funktion (und daher an `config` gebunden) ist, hält die Callback Funktion immernoch eine Referenz zum `config` Objekt. Solange eine Referenz besteht, wird das Objekt nicht verworfen und die `setInterval` Funktion wird weiterhin alle 1000ms (1 Sekunde) aufgerufen.
+
+</p>
+</details>
+
+---
+
+###### 115. Welche Methode(n) geben den Wert `'Hello world!'` aus?
+
+```javascript
+const myMap = new Map()
+const myFunc = () => 'greeting'
+
+myMap.set(myFunc, 'Hello world!')
+
+//1
+myMap.get('greeting')
+//2
+myMap.get(myFunc)
+//3
+myMap.get(() => 'greeting'))
+```
+
+- A: 1
+- B: 2
+- C: 2 und 3
+- D: Alle
+
+<details><summary><b>Antwort</b></summary>
+<p>
+
+#### Antwort: B
+
+Beim Setzen eines Key/Wert Paars mit der `set` Methode wird der Key als erstes Argument an die `set` Funktion übergeben und der Wert wird als zweites Argument eingegeben. Der Key ist die _Funktion_ `() => 'greeting'` und der Wert ist `'Hello world'`. `myMap` ist jetzt `{ () => 'greeting' => 'Hello world!' }`. 
+
+1 ist falsch, weil der Key nicht `'greeting'`, sondern `() => 'greeting'` ist.
+3 ist falsch, weil wir eine neue Funktion erstellen, indem wir sie als Argument übergeben. Objekte interagieren anhand von _Referenzen_. Funktionen sind Objekte, weshalb zwei Funktionen streng gesehen nie gleich sind, selbst wenn sie sich nicht unterscheiden.
+
+</p>
+</details>
+
+---
+
+###### 116. Was ist der Output?
+
+```javascript
+const person = {
+  name: "Lydia",
+  age: 21
+}
+
+const changeAge = (x = { ...person }) => x.age += 1
+const changeAgeAndName = (x = { ...person }) => {
+  x.age += 1
+  x.name = "Sarah"
+}
+
+changeAge(person)
+changeAgeAndName()
+
+console.log(person)
+```
+
+- A: `{name: "Sarah", age: 22}`
+- B: `{name: "Sarah", age: 23}`
+- C: `{name: "Lydia", age: 22}`
+- D: `{name: "Lydia", age: 23}`
+
+<details><summary><b>Antwort</b></summary>
+<p>
+
+#### Antwort: C
+
+Beide Funktionen, `changeAge` und `changeAgeAndName`, haben Standard Parameter, nämlich ein neu erstelltes Objekt `{ ...person }`. Dieses Objekt hat Kopien aller Key/Werte Paare im `person` Objekt.
+
+Zuerst führen wir die `changeAge` Funktion aus und übergeben ihr das `person` Objekt als Argument. Daher wird `age` um 1 erhöht. `person` ist jetzt `{ name: "Lydia", age: 22 }`.
+
+Dann führen wir `changeAgeAndName` aus, allerdings ohne Parameter. Stattdessen ist der Wert von `x` gleich dem neuen Objekt `{ ...person }`. Da dies ein neues Objekt ist hat es keinen Einfluss auf die Werte des `person` Objekts. `person` ist immernoch gleich `{ name: "Lydia", age: 22 }`.
+
+</p>
+</details>
