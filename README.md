@@ -3689,7 +3689,7 @@ myMap.get('greeting')
 //2
 myMap.get(myFunc)
 //3
-myMap.get(() => 'greeting'))
+myMap.get(() => 'greeting')
 ```
 
 - A: 1
