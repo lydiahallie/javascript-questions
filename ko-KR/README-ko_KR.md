@@ -2,9 +2,9 @@
 
 JavaScript 에 관한 객관식 문제를 [Instagram](https://www.instagram.com/theavocoder)에 매일 게시하고 있어요, 물론 여기에도 게시할 거예요!
 
-초급부터 고급까지: JavaScript를 얼마나 잘 알고 있는지 테스트하거나, 지식을 조금 더 새롭게 하거나, 코딩 면접을 준비하세요! :muscle: :rocket: 이 기록을 매주 새로운 질문으로 업데이트해요. 마지막 업데이트: <a href=#20190817><b>8월 17일</b></a>
+초급부터 고급까지: JavaScript를 얼마나 잘 알고 있는지 테스트하거나, 지식을 조금 더 새롭게 하거나, 코딩 면접을 준비하세요! :muscle: :rocket: 이 기록을 매주 새로운 질문으로 업데이트해요. 마지막 업데이트: <a href=#20190927><b>9월 27일</b></a>
 
-정답은 질문 아래 접힌 부분에 있어요, 그냥 클릭하면 펼칠 수 있어요. 행운을 빌어요 :heart:
+정답은 질문 아래 접힌 부분에 있고, 간단히 클릭하면 펼칠 수 있어요. 행운을 빌어요 :heart:
 
 질문이 더 추가될 때마다 이메일을 받고 싶나요? <br />
 <a target="_blank" href="https://www.theavocoder.com/subscribe"><b>✨✉이메일 업데이트 구독 ✉✨</b></a>
@@ -3221,6 +3221,241 @@ console.log(one, two, three)
 `(null || false || "")`: 모든 피연산자는 가짜 같은 값이에요. 이것은 마지막 피연산자 `""`가 리턴된다는 것을 의미해요. `two`는 `""`이에요.
 
 `([] || 0 || "")`: 빈 배열 `[]`은 진짜 같은 값이에요. 이것은 최초의 진짜 같은 값이라 리턴돼요. `three`은 `[]`이에요.
+
+</p>
+</details>
+
+---
+
+###### 102. <a name=20190927></a>무엇이 출력 될까요?
+
+```javascript
+const myPromise = () => Promise.resolve('I have resolved!')
+
+function firstFunction() {
+  myPromise().then(res => console.log(res))
+  console.log('second')
+}
+
+async function secondFunction() {
+  console.log(await myPromise())
+  console.log('second')
+}
+
+firstFunction()
+secondFunction()
+```
+
+- A: `I have resolved!`, `second` 그리고 `I have resolved!`, `second`
+- B: `second`, `I have resolved!` 그리고 `second`, `I have resolved!`
+- C: `I have resolved!`, `second` 그리고 `second`, `I have resolved!`
+- D: `second`, `I have resolved!` 그리고 `I have resolved!`, `second`
+
+<details><summary>정답</summary>
+<p>
+
+#### 정답: D
+
+promise를 사용하면, 기본적으로 _이 함수를 실행하고 싶지만, 시간이 좀 걸릴 수 있으니 실행중에 잠시 미뤄둘거에요. 확실한 값이 resoloved(혹은 rejected)로 전달되었을 때와 콜 스택이 비었을 때 이 값을 사용하고 싶어요_ 라고 말해요.
+
+`async` 함수 안에서 `.then`과 `await` 두개의 키워드에서 값을 얻을 수 있어요. 비록  `.then`과 `await`에서 프라미스의 값을 얻을 수 있지만, 그들은 약간 다르게 작동해요.
+
+첫번째 `firstFunction`에서, (뭐랄까) myPromise 함수가 실행되는 것을 미뤘지만, 다른 코드를 계속해서 실행하는데, 이 경우 `console.log('second')`에요. 그리고나서, 함수는 콜스택이 비워져 있는 걸 본 다음 출력된 문자열 `I have resolved`를 resolved로 전달해요.
+
+`secondFunction`에서의 await 키워드를 사용하면, 말 그대로 다음 라인으로 옮기기 전 값이 resoloved함수로 전달될 때 까지 async 함수의 실행을 중단해요.
+
+이것은 `myPromise`이 값 `I have resolved`을 얻을 때 까지 기다린다는 의미이며, 단 한 번 발생하면, 다음라인으로 이동해요: `second`이 출력되죠.
+
+</p>
+</details>
+
+---
+
+###### 103. 무엇이 출력 될까요?
+
+```javascript
+const set = new Set()
+
+set.add(1)
+set.add("Lydia")
+set.add({ name: "Lydia" })
+
+for (let item of set) {
+  console.log(item + 2)
+}
+```
+
+- A: `3`, `NaN`, `NaN`
+- B: `3`, `7`, `NaN`
+- C: `3`, `Lydia2`, `[Object object]2`
+- D: `"12"`, `Lydia2`, `[Object object]2`
+
+<details><summary><b>정답</b></summary>
+<p>
+
+#### 정답: C
+
+`+` 연산자는 숫자로 나타난 값을 더하는데 사용될 뿐만 아니라, 문자열을 연결해주는데 사용 할 수 있어요. JavaScript 엔진은 하나 이상의 값들이 숫자가 아닌 것을 발견 했을 때, 숫자를 문자열로 강제로 변환해요.
+
+첫번째 `1`은, 숫자로된 값이에요. `1 + 2`는 숫자 3을 리턴해요.
+
+그러나, 두번째는 문자열 `"Lydia"`이에요. `"Lydia"`은 문자열이고, `2`는 숫자에요: `2`는 문자열로 강제 변환되어요. `"Lydia"`그리고 `"2"`이 연결되어, 문자열 `"Lydia2"`이 리턴되요.
+
+`{ name: "Lydia" }`은 객체에요. 객체가 아닌 숫자나 객체는 문자열이 아니므로, 둘다 문자화되어요. 정규 객체를 문자화 할때, `"[Object object]"`가 돼요. `"[Object object]"`는 `"2"`와 연결되어 `"[Object object]2"`가 돼요.
+
+</p>
+</details>
+
+---
+
+###### 104. 값은 무엇일까요?
+
+```javascript
+Promise.resolve(5)
+```
+
+- A: `5`
+- B: `Promise {<pending>: 5}`
+- C: `Promise {<resolved>: 5}`
+- D: `Error`
+
+<details><summary><b>정답</b></summary>
+<p>
+
+#### 정답: C
+
+promise이나 non-promise이 아니더라도 값의 모든 타입은 `Promise.resolve`으로 전달 할 수 있어요. 메소드 그 자체는 resolved 값을 가진 promise를 리턴해요. 정규 함수를 전달한다면, 정규 값을 가진 resolved promise를 얻게 될거에요. 만약 promise를 전달한다면, 전달된 promise의 resolved 값과 resolved promise를 얻게 될거에요.
+
+이 경우, 숫자 값 `5`를 전달했어요. 이것은 값 `5`를 가진 resolved promise를 리턴해요.
+
+</p>
+</details>
+
+---
+
+###### 105. 값은 무엇일까요?
+
+```javascript
+function compareMembers(person1, person2 = person) {
+  if (person1 !== person2) {
+    console.log("Not the same!")
+  } else {
+    console.log("They are the same!")
+  }
+}
+
+const person = { name: "Lydia" }
+
+compareMembers(person)
+```
+
+- A: `Not the same!`
+- B: `They are the same!`
+- C: `ReferenceError`
+- D: `SyntaxError`
+
+<details><summary><b>정답</b></summary>
+<p>
+
+#### 정답: B
+
+객체는 참조에 의해 전달되었어요. 엄격한 같은 비교 (`===`)로 객체를 검사한다면, 그들의 참조를 비교할거에요.
+
+`person2`의 기본 값을 `person` 객체와 동일하게 설정 하고, `person` 객체를  `person1`의 값으로 전달 했어요.
+
+이것은 두개의 값은 메모리의 같은 장소의 참조를 가지고 있다는 걸 의미해요, 그렇기 때문에 그들은 같아요.
+
+`else`구문 안에 코드블럭이 실행되면, `They are the same!`을 출력해요.
+
+</p>
+</details>
+
+---
+
+###### 106. 값은 무엇일까요?
+
+```javascript
+const colorConfig = {
+  red: true,
+  blue: false,
+  green: true,
+  black: true,
+  yellow: false,
+}
+
+const colors = ["pink", "red", "blue"]
+
+console.log(colorConfig.colors[1])
+```
+
+- A: `true`
+- B: `false`
+- C: `undefined`
+- D: `TypeError`
+
+<details><summary><b>정답</b></summary>
+<p>
+
+#### 정답: D
+
+JavaScript에서, 객체의 속성에 접근하는 2가지 방법을 가지고 있어요: 괄호 표기법, 또는 점 표기법. 이 예제에서는, 괄호표기법 (`colorConfig["colors"]`) 대신 점 표기법 (`colorConfig.colors`)을 사용 했어요.
+
+점 표기법에서, JavaScript는 정확한 이름을 가진 객체의 속성을 찾으려 해요. 이 예제에서 JavaScript는 `colorConfig` 객체의 `colors`라고 불리는 속성을 찾으려고 했어요. 그곳에는 `colors`라고 불리는 속성이 없어요, 그래서 `undefined`을 리턴해요. 그리고 나서, `[1]`을 사용해서 첫번째 요소의 값에 접근하려고 했어요. `undefined`의 값에는 이것을 할 수 없어요, 그래서 `TypeError`를 던져요: `Cannot read property '1' of undefined`.
+
+JavaScript 문장을 해석(또는 참조형 변수를 원시 데이터 타입으로 만들어 주도록) 해요. 괄호 표기법을 사용할때, 첫번째로 열린 괄호 `[`을 보고 닫힌 괄호 `]`를 찾을 때 까지 계속 진행되는 것으로 보여요. 그러고 나서야, 문장을 평가할거에요. 만약 `colorConfig[colors[1]]`을 사용했다면, `colorConfig` 객체의 속성 `red` 의 값이 리턴될 거에요.
+
+</p>
+</details>
+
+---
+
+###### 107. 값은 무엇일까요?
+
+```javascript
+console.log('❤️' === '❤️')
+```
+
+- A: `true`
+- B: `false`
+
+<details><summary><b>정답</b></summary>
+<p>
+
+#### 정답: A
+
+엔진에서, 이모티콘은 유니코드에요. 하트 이모티콘의 유니코드는 `"U+2764 U+FE0F"`에요. 같은 이모티콘의 유니코드는 항상 같아요, 따라서 각각 다른 두개의 같은 문자열을 비교하는 것이므로 true를 리턴해요.
+
+</p>
+</details>
+
+---
+
+###### 108. 다음 중 원본 배열을 수정하는 method는 무엇일까요?
+
+```javascript
+const emojis = ['✨', '🥑', '😍']
+
+emojis.map(x => x + '✨')
+emojis.filter(x => x !== '🥑')
+emojis.find(x => x !== '🥑')
+emojis.reduce((acc, cur) => acc + '✨')
+emojis.slice(1, 2, '✨') 
+emojis.splice(1, 2, '✨')
+```
+
+- A: `All of them`
+- B: `map` `reduce` `slice` `splice`
+- C: `map` `slice` `splice` 
+- D: `splice`
+
+<details><summary><b>정답</b></summary>
+<p>
+
+#### 정답: D
+
+`splice` method를 사용하면, 요소를 삭제, 대체하거나 추가함으로써 원본 배열을 수정해요. 이 경우에서, 인덱스 1에서 부터 2개의 아이템을 제거했어요. (`'🥑'` 와 `'😍'`를 삭제했어요) 그리고 ✨ 이모티콘을 대신 추가했죠.
+
+`map`, `filter` 그리고 `slice` 는 새로운 배열을 리턴해하고, `find` 요소를 리턴하며,  `reduce` 감소된 값을 리턴해요.
 
 </p>
 </details>
