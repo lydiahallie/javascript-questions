@@ -12,6 +12,7 @@ As respostas estão em seções recolhidas abaixo das questões, basta clicar ne
 [Western Balkan](./README-bs.md)  
 [Deutsch](./README-de_DE.md)  
 [Tiếng Việt](./README-vi.md)  
+[ไทย](../th-TH/README-th_TH.md)
 
 
 ---

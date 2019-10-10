@@ -17,6 +17,7 @@ Les réponses se trouvent dans les sections repliées en dessous des questions, 
 * [Tiếng Việt](./README-vi.md)
 * [Українська мова](./README-ua_UA.md)  
 * [Português Brasil](./README_pt_BR.md)  
+* [ไทย](../th-TH/README-th_TH.md)
 
 ---
 

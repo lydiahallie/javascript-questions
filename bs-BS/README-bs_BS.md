@@ -19,6 +19,7 @@ kliknite na njih da biste ih proširili. Sretno :heart:
 [Njemački](./README-de_DE.md) <br>
 [Vijetnamski](./README-vi.md)  
 [Українська мова](./README-ua_UA.md)  
+[ไทย](../th-TH/README-th_TH.md)
 
 * * * * *
 
