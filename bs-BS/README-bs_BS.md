@@ -12,13 +12,22 @@ Ovaj tjedni repo ažuriram s novim pitanjima.
 Odgovori su jednostavno dijelovima ispod pitanja
 kliknite na njih da biste ih proširili. Sretno :heart:
 
-
-[Kineski 中文版本](./README-zh_CN.md)  
-[Ruski](./README_ru-RU.md)  
-[Zapadni balkan](./README-bs_BS.md)  
-[Njemački](./README-de_DE.md) <br>
-[Vijetnamski](./README-vi.md)  
-[Українська мова](./README-ua_UA.md)  
+* [English](../en-EN/README.md)
+* [العربية](../ar-AR/README_AR.md)
+* [اللغة العامية - Egyptian Arabic](../ar-EG/README_ar-EG.md)
+* [Bosanski](../bs-BS/README-bs_BS.md)  
+* [Deutsch](../de-DE/README.md)  
+* [Español](../es-ES/README-ES.md)
+* [Français](../fr-FR/README_fr-FR.md)
+* [日本語](../ja-JA/README-ja_JA.md)  
+* [한국어](../ko-KR/README-ko_KR.md) 
+* [Português Brasil](../pt-BR/README_pt_BR.md)  
+* [Русский](../ru-RU/README.md)
+* [Українська мова](../ua-UA/README-ua_UA.md)  
+* [Tiếng Việt](../vi-VI/README-vi.md)
+* [中文版本](../zh-CN/README-zh_CN.md)
+* [Türkçe](../tr-TR/README-tr_TR.md)
+* [ไทย](../th-TH/README-th_TH.md)
 
 * * * * *
 

@@ -19,8 +19,10 @@ Danh sách các ngôn ngữ khác:
 * [Português Brasil](../pt-BR/README_pt_BR.md)  
 * [Русский](../ru-RU/README.md)
 * [Українська мова](../ua-UA/README-ua_UA.md)  
+* [Tiếng Việt](../vi-VI/README-vi.md)
 * [中文版本](../zh-CN/README-zh_CN.md)
 * [Türkçe](../tr-TR/README-tr_TR.md)
+* [ไทย](../th-TH/README-th_TH.md)
 
 ---
 
