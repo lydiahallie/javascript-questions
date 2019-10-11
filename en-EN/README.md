@@ -3652,7 +3652,7 @@ Expressions within template literals are evaluated first. This means that the st
 ```javascript
 let config = {
   alert: setInterval(() => {
-    console.log('Alert!)
+    console.log('Alert!')
   }, 1000)
 }
 
@@ -3689,7 +3689,7 @@ myMap.get('greeting')
 //2
 myMap.get(myFunc)
 //3
-myMap.get(() => 'greeting'))
+myMap.get(() => 'greeting')
 ```
 
 - A: 1
