@@ -26,7 +26,7 @@ JavaScript 에 관한 객관식 문제를 [Instagram](https://www.instagram.com/
 * [中文版本](../zh-CN/README-zh_CN.md)
 * [Türkçe](../tr-TR/README-tr_TR.md)
 * [ไทย](../th-TH/README-th_TH.md)
-
+* [فارسی - Persian](../fa-IR/README-fa_IR.md)
 
 ---
 
