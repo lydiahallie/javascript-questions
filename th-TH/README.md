@@ -1,37 +1,36 @@
-# List of (Advanced) JavaScript Questions
+# รายการคำถามเกี่ยวกับ JavaScript (ขั้นสูง)
 
-I post daily multiple choice JavaScript questions on my [Instagram](https://www.instagram.com/theavocoder), which I'll also post here!
+ผมโพสต์โจทย์ JavaScript แบบตัวเลือกทุกวันบน [Instagram](https://www.instagram.com/theavocoder) ของผม ซึ่งผมก็ได้นำมาโพสต์ไว้ที่นี่ด้วย
 
-From basic to advanced: test how well you know JavaScript, refresh your knowledge a bit, or prepare for your coding interview! :muscle: :rocket: I update this repo weekly with new questions. Last update: <a href=#20191009><b>October 9th</b></a>
+จากขั้นพื้นฐานสู่ขั้นสูง มาทดสอบกันว่าคุณมีความรู้เรื่อง JavaScript ดีขนาดไหน มาทบทวนความรู้ของคุณกันหน่อย หรือเตรียมตัวสำหรับการสัมภาษณ์เกี่ยวกับการเขียนโปรแกรม :muscle: :rocket: ผมอัพเดทคำถามใหม่ๆ ใน repo นี้ทุกๆ สัปดาห์ อัพเดทล่าสุดวันที่ <a href=#20190927><b>September 27th</b></a>
 
-The answers are in the collapsed sections below the questions, simply click on them to expand it. Good luck :heart:
+คำตอบจะอยู่ในหมวดที่ซ่อนไว้ใต้คำถาม เพียงแค่คลิก คำตอบก็จะแสดงขึ้นมา ขอให้โชคดีครับ :heart:
 
-Want to get an email whenever I've added more questions? <br />
-<a target="_blank" href="https://www.theavocoder.com/subscribe"><b>✨✉Subscribe to email updates✉✨</b></a>
+หากต้องการได้รับอีเมลล์แจ้งหากผมมีการเพิ่มโจทย์ใหม่ๆ<br />
+<a target="_blank" href="https://www.theavocoder.com/subscribe"><b>✨✉กรุณาลงทะเบียนรับอีเมลล์อัพเดท✉✨</b></a>
 
 
-List of available languages:
-* [English](./en-EN/README.md)
-* [العربية](./ar-AR/README_AR.md)
-* [اللغة العامية - Egyptian Arabic](./ar-EG/README_ar-EG.md)
-* [Bosanski](./bs-BS/README-bs_BS.md)  
-* [Deutsch](./de-DE/README.md)  
-* [Español](./es-ES/README-ES.md)
-* [Français](./fr-FR/README_fr-FR.md)
-* [日本語](./ja-JA/README-ja_JA.md)  
-* [한국어](./ko-KR/README-ko_KR.md) 
-* [Português Brasil](./pt-BR/README_pt_BR.md)  
-* [Русский](./ru-RU/README.md)
-* [Українська мова](./ua-UA/README-ua_UA.md)  
-* [Tiếng Việt](./vi-VI/README-vi.md)
-* [中文版本](./zh-CN/README-zh_CN.md)
-* [Türkçe](./tr-TR/README-tr_TR.md)
-* [ไทย](./th-TH/README-th_TH.md)
+ลิสต์ภาษาอื่นๆ:
+* [English](../en-EN/README.md)
+* [العربية](../ar-AR/README_AR.md)
+* [اللغة العامية - Egyptian Arabic](../ar-EG/README_ar-EG.md)
+* [Bosanski](../bs-BS/README-bs_BS.md)  
+* [Deutsch](../de-DE/README.md)  
+* [Español](../es-ES/README-ES.md)
+* [Français](../fr-FR/README_fr-FR.md)
+* [日本語](../ja-JA/README-ja_JA.md)  
+* [한국어](../ko-KR/README-ko_KR.md) 
+* [Português Brasil](../pt-BR/README_pt_BR.md)  
+* [Русский](../ru-RU/README.md)
+* [Українська мова](../ua-UA/README-ua_UA.md)  
+* [Tiếng Việt](../vi-VI/README-vi.md)
+* [中文版本](../zh-CN/README-zh_CN.md)
+* [Türkçe](../tr-TR/README-tr_TR.md)
 
 
 ---
 
-###### 1. What's the output?
+###### 1. ผลลัพธ์ที่ได้คืออะไร?
 
 ```javascript
 function sayHi() {
@@ -44,15 +43,15 @@ function sayHi() {
 sayHi();
 ```
 
-- A: `Lydia` and `undefined`
-- B: `Lydia` and `ReferenceError`
-- C: `ReferenceError` and `21`
-- D: `undefined` and `ReferenceError`
+- A: `Lydia` และ `undefined`
+- B: `Lydia` และ `ReferenceError`
+- C: `ReferenceError` และ `21`
+- D: `undefined` และ `ReferenceError`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
-#### Answer: D
+#### คำตอบ: D
 
 Within the function, we first declare the `name` variable with the `var` keyword. This means that the variable gets hoisted (memory space is set up during the creation phase) with the default value of `undefined`, until we actually get to the line where we define the variable. We haven't defined the variable yet on the line where we try to log the `name` variable, so it still holds the value of `undefined`.
 
@@ -63,7 +62,7 @@ Variables with the `let` keyword (and `const`) are hoisted, but unlike `var`, do
 
 ---
 
-###### 2. What's the output?
+###### 2. ผลลัพธ์ที่ได้คืออะไร?
 
 ```javascript
 for (var i = 0; i < 3; i++) {
@@ -75,14 +74,14 @@ for (let i = 0; i < 3; i++) {
 }
 ```
 
-- A: `0 1 2` and `0 1 2`
-- B: `0 1 2` and `3 3 3`
-- C: `3 3 3` and `0 1 2`
+- A: `0 1 2` และ `0 1 2`
+- B: `0 1 2` และ `3 3 3`
+- C: `3 3 3` และ `0 1 2`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
-#### Answer: C
+#### คำตอบ: C
 
 Because of the event queue in JavaScript, the `setTimeout` callback function is called _after_ the loop has been executed. Since the variable `i` in the first loop was declared using the `var` keyword, this value was global. During the loop, we incremented the value of `i` by `1` each time, using the unary operator `++`. By the time the `setTimeout` callback function was invoked, `i` was equal to `3` in the first example.
 
@@ -93,7 +92,7 @@ In the second loop, the variable `i` was declared using the `let` keyword: varia
 
 ---
 
-###### 3. What's the output?
+###### 3. ผลลัพธ์ที่ได้คืออะไร?
 
 ```javascript
 const shape = {
@@ -108,15 +107,15 @@ console.log(shape.diameter());
 console.log(shape.perimeter());
 ```
 
-- A: `20` and `62.83185307179586`
-- B: `20` and `NaN`
-- C: `20` and `63`
-- D: `NaN` and `63`
+- A: `20` และ `62.83185307179586`
+- B: `20` และ `NaN`
+- C: `20` และ `63`
+- D: `NaN` และ `63`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
-#### Answer: B
+#### คำตอบ: B
 
 Note that the value of `diameter` is a regular function, whereas the value of `perimeter` is an arrow function.
 
@@ -129,23 +128,23 @@ There is no value `radius` on that object, which returns `undefined`.
 
 ---
 
-###### 4. What's the output?
+###### 4. ผลลัพธ์ที่ได้คืออะไร?
 
 ```javascript
 +true;
 !"Lydia";
 ```
 
-- A: `1` and `false`
-- B: `false` and `NaN`
-- C: `false` and `false`
+- A: `1` และ `false`
+- B: `false` และ `NaN`
+- C: `false` และ `false`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
-#### Answer: A
+#### คำตอบ: A
 
-The unary plus tries to convert an operand to a number. `true` is `1`, and `false` is `0`.
+The unary plus tries to convert an operand to a number. `true` is `1`, และ `false` is `0`.
 
 The string `'Lydia'` is a truthy value. What we're actually asking, is "is this truthy value falsy?". This returns `false`.
 
@@ -154,7 +153,7 @@ The string `'Lydia'` is a truthy value. What we're actually asking, is "is this 
 
 ---
 
-###### 5. Which one is true?
+###### 5. ข้อใดถูกต้อง?
 
 ```javascript
 const bird = {
@@ -172,10 +171,10 @@ const mouse = {
 - C: `mouse[bird["size"]]` is not valid
 - D: All of them are valid
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
-#### Answer: A
+#### คำตอบ: A
 
 In JavaScript, all object keys are strings (unless it's a Symbol). Even though we might not _type_ them as strings, they are always converted into strings under the hood.
 
@@ -191,7 +190,7 @@ However, with dot notation, this doesn't happen. `mouse` does not have a key cal
 ---
 
 
-###### 6. What's the output?
+###### 6. ผลลัพธ์ที่ได้คืออะไร?
 
 ```javascript
 let c = { greeting: "Hey!" };
@@ -208,10 +207,10 @@ console.log(d.greeting);
 - D: `ReferenceError`
 - E: `TypeError`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
-#### Answer: A
+#### คำตอบ: A
 
 In JavaScript, all objects interact by _reference_ when setting them equal to each other.
 
@@ -226,7 +225,7 @@ When you change one object, you change all of them.
 
 ---
 
-###### 7. What's the output?
+###### 7. ผลลัพธ์ที่ได้คืออะไร?
 
 ```javascript
 let a = 3;
@@ -243,10 +242,10 @@ console.log(b === c);
 - C: `true` `false` `false`
 - D: `false` `true` `true`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
-#### Answer: C
+#### คำตอบ: C
 
 `new Number()` is a built-in function constructor. Although it looks like a number, it's not really a number: it has a bunch of extra features and is an object.
 
@@ -259,7 +258,7 @@ However, when we use the `===` operator, both value _and_ type should be the sam
 
 ---
 
-###### 8. What's the output?
+###### 8. ผลลัพธ์ที่ได้คืออะไร?
 
 ```javascript
 class Chameleon {
@@ -282,10 +281,10 @@ console.log(freddie.colorChange("orange"));
 - C: `green`
 - D: `TypeError`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
-#### Answer: D
+#### คำตอบ: D
 
 The `colorChange` function is static. Static methods are designed to live only on the constructor in which they are created, and cannot be passed down to any children. Since `freddie` is a child, the function is not passed down, and not available on the `freddie` instance: a `TypeError` is thrown.
 
@@ -294,7 +293,7 @@ The `colorChange` function is static. Static methods are designed to live only o
 
 ---
 
-###### 9. What's the output?
+###### 9. ผลลัพธ์ที่ได้คืออะไร?
 
 ```javascript
 let greeting;
@@ -306,10 +305,10 @@ console.log(greetign);
 - B: `ReferenceError: greetign is not defined`
 - C: `undefined`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
-#### Answer: A
+#### คำตอบ: A
 
 It logs the object, because we just created an empty object on the global object! When we mistyped `greeting` as `greetign`, the JS interpreter actually saw this as `global.greetign = {}` (or `window.greetign = {}` in a browser).
 
@@ -320,7 +319,7 @@ In order to avoid this, we can use `"use strict"`. This makes sure that you have
 
 ---
 
-###### 10. What happens when we do this?
+###### 10. จะเกิดอะไรขึ้นหากเราทำเช่นนี้?
 
 ```javascript
 function bark() {
@@ -335,10 +334,10 @@ bark.animal = "dog";
 - C: `"Woof"` gets logged.
 - D: `ReferenceError`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
-#### Answer: A
+#### คำตอบ: A
 
 This is possible in JavaScript, because functions are objects! (Everything besides primitive types are objects)
 
@@ -349,7 +348,7 @@ A function is a special type of object. The code you write yourself isn't the ac
 
 ---
 
-###### 11. What's the output?
+###### 11. ผลลัพธ์ที่ได้คืออะไร?
 
 ```javascript
 function Person(firstName, lastName) {
@@ -370,10 +369,10 @@ console.log(member.getFullName());
 - C: `Lydia Hallie`
 - D: `undefined` `undefined`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
-#### Answer: A
+#### คำตอบ: A
 
 You can't add properties to a constructor like you can with regular objects. If you want to add a feature to all objects at once, you have to use the prototype instead. So in this case,
 
@@ -390,7 +389,7 @@ would have made `member.getFullName()` work. Why is this beneficial? Say that we
 
 ---
 
-###### 12. What's the output?
+###### 12. ผลลัพธ์ที่ได้คืออะไร?
 
 ```javascript
 function Person(firstName, lastName) {
@@ -405,36 +404,36 @@ console.log(lydia);
 console.log(sarah);
 ```
 
-- A: `Person {firstName: "Lydia", lastName: "Hallie"}` and `undefined`
-- B: `Person {firstName: "Lydia", lastName: "Hallie"}` and `Person {firstName: "Sarah", lastName: "Smith"}`
-- C: `Person {firstName: "Lydia", lastName: "Hallie"}` and `{}`
-- D:`Person {firstName: "Lydia", lastName: "Hallie"}` and `ReferenceError`
+- A: `Person {firstName: "Lydia", lastName: "Hallie"}` และ `undefined`
+- B: `Person {firstName: "Lydia", lastName: "Hallie"}` และ `Person {firstName: "Sarah", lastName: "Smith"}`
+- C: `Person {firstName: "Lydia", lastName: "Hallie"}` และ `{}`
+- D:`Person {firstName: "Lydia", lastName: "Hallie"}` และ `ReferenceError`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
-#### Answer: A
+#### คำตอบ: A
 
 For `sarah`, we didn't use the `new` keyword. When using `new`, it refers to the new empty object we create. However, if you don't add `new` it refers to the **global object**!
 
-We said that `this.firstName` equals `"Sarah"` and `this.lastName` equals `"Smith"`. What we actually did, is defining `global.firstName = 'Sarah'` and `global.lastName = 'Smith'`. `sarah` itself is left `undefined`, since we don't return a value from the `Person` function.
+We said that `this.firstName` equals `"Sarah"` และ `this.lastName` equals `"Smith"`. What we actually did, is defining `global.firstName = 'Sarah'` และ `global.lastName = 'Smith'`. `sarah` itself is left `undefined`, since we don't return a value from the `Person` function.
 
 </p>
 </details>
 
 ---
 
-###### 13. What are the three phases of event propagation?
+###### 13. อะไรคือ three phases ของ event propagation?
 
 - A: Target > Capturing > Bubbling
 - B: Bubbling > Target > Capturing
 - C: Target > Bubbling > Capturing
 - D: Capturing > Target > Bubbling
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
-#### Answer: D
+#### คำตอบ: D
 
 During the **capturing** phase, the event goes through the ancestor elements down to the target element. It then reaches the **target** element, and **bubbling** begins.
 
@@ -445,15 +444,15 @@ During the **capturing** phase, the event goes through the ancestor elements dow
 
 ---
 
-###### 14. All object have prototypes.
+###### 14. ทุกๆ object มี prototypes.
 
 - A: true
 - B: false
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
-#### Answer: B
+#### คำตอบ: B
 
 All objects have prototypes, except for the **base object**. The base object is the object created by the user, or an object that is created using the `new` keyword. The base object has access to some methods and properties, such as `.toString`. This is the reason why you can use built-in JavaScript methods! All of such methods are available on the prototype. Although JavaScript can't find it directly on your object, it goes down the prototype chain and finds it there, which makes it accessible for you.
 
@@ -462,7 +461,7 @@ All objects have prototypes, except for the **base object**. The base object is 
 
 ---
 
-###### 15. What's the output?
+###### 15. ผลลัพธ์ที่ได้คืออะไร?
 
 ```javascript
 function sum(a, b) {
@@ -477,10 +476,10 @@ sum(1, "2");
 - C: `"12"`
 - D: `3`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
-#### Answer: C
+#### คำตอบ: C
 
 JavaScript is a **dynamically typed language**: we don't specify what types certain variables are. Values can automatically be converted into another type without you knowing, which is called _implicit type coercion_. **Coercion** is converting from one type into another.
 
@@ -491,7 +490,7 @@ In this example, JavaScript converts the number `1` into a string, in order for 
 
 ---
 
-###### 16. What's the output?
+###### 16. ผลลัพธ์ที่ได้คืออะไร?
 
 ```javascript
 let number = 0;
@@ -505,10 +504,10 @@ console.log(number);
 - C: `0` `2` `2`
 - D: `0` `1` `2`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
-#### Answer: C
+#### คำตอบ: C
 
 The **postfix** unary operator `++`:
 
@@ -527,7 +526,7 @@ This returns `0 2 2`.
 
 ---
 
-###### 17. What's the output?
+###### 17. ผลลัพธ์ที่ได้คืออะไร?
 
 ```javascript
 function getPersonInfo(one, two, three) {
@@ -546,10 +545,10 @@ getPersonInfo`${person} is ${age} years old`;
 - B: `["", " is ", " years old"]` `"Lydia"` `21`
 - C: `"Lydia"` `["", " is ", " years old"]` `21`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
-#### Answer: B
+#### คำตอบ: B
 
 If you use tagged template literals, the value of the first argument is always an array of the string values. The remaining arguments get the values of the passed expressions!
 
@@ -558,7 +557,7 @@ If you use tagged template literals, the value of the first argument is always a
 
 ---
 
-###### 18. What's the output?
+###### 18. ผลลัพธ์ที่ได้คืออะไร?
 
 ```javascript
 function checkAge(data) {
@@ -578,23 +577,23 @@ checkAge({ age: 18 });
 - B: `You are still an adult.`
 - C: `Hmm.. You don't have an age I guess`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
-#### Answer: C
+#### คำตอบ: C
 
 When testing equality, primitives are compared by their _value_, while objects are compared by their _reference_. JavaScript checks if the objects have a reference to the same location in memory.
 
 The two objects that we are comparing don't have that: the object we passed as a parameter refers to a different location in memory than the object we used in order to check equality.
 
-This is why both `{ age: 18 } === { age: 18 }` and `{ age: 18 } == { age: 18 }` return `false`.
+This is why both `{ age: 18 } === { age: 18 }` และ `{ age: 18 } == { age: 18 }` return `false`.
 
 </p>
 </details>
 
 ---
 
-###### 19. What's the output?
+###### 19. ผลลัพธ์ที่ได้คืออะไร?
 
 ```javascript
 function getAge(...args) {
@@ -609,10 +608,10 @@ getAge(21);
 - C: `"object"`
 - D: `"NaN"`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
-#### Answer: C
+#### คำตอบ: C
 
 The rest parameter (`...args`.) lets us "collect" all remaining arguments into an array. An array is an object, so `typeof args` returns `"object"`
 
@@ -621,7 +620,7 @@ The rest parameter (`...args`.) lets us "collect" all remaining arguments into a
 
 ---
 
-###### 20. What's the output?
+###### 20. ผลลัพธ์ที่ได้คืออะไร?
 
 ```javascript
 function getAge() {
@@ -638,10 +637,10 @@ getAge();
 - C: `ReferenceError`
 - D: `TypeError`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
-#### Answer: C
+#### คำตอบ: C
 
 With `"use strict"`, you can make sure that you don't accidentally declare global variables. We never declared the variable `age`, and since we use `"use strict"`, it will throw a reference error. If we didn't use `"use strict"`, it would have worked, since the property `age` would have gotten added to the global object.
 
@@ -650,7 +649,7 @@ With `"use strict"`, you can make sure that you don't accidentally declare globa
 
 ---
 
-###### 21. What's value of `sum`?
+###### 21. จากโจทย์ `sum` มีค่าเท่ากับเท่าไหร่?
 
 ```javascript
 const sum = eval("10*10+5");
@@ -661,10 +660,10 @@ const sum = eval("10*10+5");
 - C: `TypeError`
 - D: `"10*10+5"`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
-#### Answer: A
+#### คำตอบ: A
 
 `eval` evaluates codes that's passed as a string. If it's an expression, like in this case, it evaluates the expression. The expression is `10 * 10 + 5`. This returns the number `105`.
 
@@ -673,7 +672,7 @@ const sum = eval("10*10+5");
 
 ---
 
-###### 22. How long is cool_secret accessible?
+###### 22. cool_secret จะถูก accessible ได้นานเท่าไหร่?
 
 ```javascript
 sessionStorage.setItem("cool_secret", 123);
@@ -684,10 +683,10 @@ sessionStorage.setItem("cool_secret", 123);
 - C: When the user closes the entire browser, not only the tab.
 - D: When the user shuts off their computer.
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
-#### Answer: B
+#### คำตอบ: B
 
 The data stored in `sessionStorage` is removed after closing the _tab_.
 
@@ -698,7 +697,7 @@ If you used `localStorage`, the data would've been there forever, unless for exa
 
 ---
 
-###### 23. What's the output?
+###### 23. ผลลัพธ์ที่ได้คืออะไร?
 
 ```javascript
 var num = 8;
@@ -712,10 +711,10 @@ console.log(num);
 - C: `SyntaxError`
 - D: `ReferenceError`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
-#### Answer: B
+#### คำตอบ: B
 
 With the `var` keyword, you can declare multiple variables with the same name. The variable will then hold the latest value.
 
@@ -726,7 +725,7 @@ You cannot do this with `let` or `const` since they're block-scoped.
 
 ---
 
-###### 24. What's the output?
+###### 24. ผลลัพธ์ที่ได้คืออะไร?
 
 ```javascript
 const obj = { 1: "a", 2: "b", 3: "c" };
@@ -743,10 +742,10 @@ set.has(1);
 - C: `true` `true` `false` `true`
 - D: `true` `true` `true` `true`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
-#### Answer: C
+#### คำตอบ: C
 
 All object keys (excluding Symbols) are strings under the hood, even if you don't type it yourself as a string. This is why `obj.hasOwnProperty('1')` also returns true.
 
@@ -757,7 +756,7 @@ It doesn't work that way for a set. There is no `'1'` in our set: `set.has('1')`
 
 ---
 
-###### 25. What's the output?
+###### 25. ผลลัพธ์ที่ได้คืออะไร?
 
 ```javascript
 const obj = { a: "one", b: "two", a: "three" };
@@ -769,10 +768,10 @@ console.log(obj);
 - C: `{ a: "three", b: "two" }`
 - D: `SyntaxError`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
-#### Answer: C
+#### คำตอบ: C
 
 If you have two keys with the same name, the key will be replaced. It will still be in its first position, but with the last specified value.
 
@@ -781,16 +780,16 @@ If you have two keys with the same name, the key will be replaced. It will still
 
 ---
 
-###### 26. The JavaScript global execution context creates two things for you: the global object, and the "this" keyword.
+###### 26. Global execution context ใน JavaScript สร้าง 2 สิ่งคือ: global object และคีย์เวิร์ด "this"
 
 - A: true
 - B: false
 - C: it depends
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
-#### Answer: A
+#### คำตอบ: A
 
 The base execution context is the global execution context: it's what's accessible everywhere in your code.
 
@@ -799,7 +798,7 @@ The base execution context is the global execution context: it's what's accessib
 
 ---
 
-###### 27. What's the output?
+###### 27. ผลลัพธ์ที่ได้คืออะไร?
 
 ```javascript
 for (let i = 1; i < 5; i++) {
@@ -813,10 +812,10 @@ for (let i = 1; i < 5; i++) {
 - C: `1` `2` `4`
 - D: `1` `3` `4`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
-#### Answer: C
+#### คำตอบ: C
 
 The `continue` statement skips an iteration if a certain condition returns `true`.
 
@@ -825,7 +824,7 @@ The `continue` statement skips an iteration if a certain condition returns `true
 
 ---
 
-###### 28. What's the output?
+###### 28. ผลลัพธ์ที่ได้คืออะไร?
 
 ```javascript
 String.prototype.giveLydiaPizza = () => {
@@ -842,10 +841,10 @@ name.giveLydiaPizza();
 - C: `SyntaxError`
 - D: `undefined`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
-#### Answer: A
+#### คำตอบ: A
 
 `String` is a built-in constructor, which we can add properties to. I just added a method to its prototype. Primitive strings are automatically converted into a string object, generated by the string prototype function. So, all strings (string objects) have access to that method!
 
@@ -854,7 +853,7 @@ name.giveLydiaPizza();
 
 ---
 
-###### 29. What's the output?
+###### 29. ผลลัพธ์ที่ได้คืออะไร?
 
 ```javascript
 const a = {};
@@ -872,10 +871,10 @@ console.log(a[b]);
 - C: `undefined`
 - D: `ReferenceError`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
-#### Answer: B
+#### คำตอบ: B
 
 Object keys are automatically converted into strings. We are trying to set an object as a key to object `a`, with the value of `123`.
 
@@ -888,7 +887,7 @@ Then, we log `a[b]`, which is actually `a["Object object"]`. We just set that to
 
 ---
 
-###### 30. What's the output?
+###### 30. ผลลัพธ์ที่ได้คืออะไร?
 
 ```javascript
 const foo = () => console.log("First");
@@ -905,10 +904,10 @@ baz();
 - C: `Second` `First` `Third`
 - D: `Second` `Third` `First`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
-#### Answer: B
+#### คำตอบ: B
 
 We have a `setTimeout` function and invoked it first. Yet, it was logged last.
 
@@ -941,7 +940,7 @@ This is where an event loop starts to work. An **event loop** looks at the stack
 
 ---
 
-###### 31. What is the event.target when clicking the button?
+###### 31. event.target คืออะไรเมื่อคลิก button?
 
 ```html
 <div onclick="console.log('first div')">
@@ -958,10 +957,10 @@ This is where an event loop starts to work. An **event loop** looks at the stack
 - C: `button`
 - D: An array of all nested elements.
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
-#### Answer: C
+#### คำตอบ: C
 
 The deepest nested element that caused the event is the target of the event. You can stop bubbling by `event.stopPropagation`
 
@@ -970,7 +969,7 @@ The deepest nested element that caused the event is the target of the event. You
 
 ---
 
-###### 32. When you click the paragraph, what's the logged output?
+###### 32. เมื่อคุณคลิกที่ paragraph, ผลลัพธ์ที่ได้ใน console log คืออะไร?
 
 ```html
 <div onclick="console.log('div')">
@@ -985,19 +984,19 @@ The deepest nested element that caused the event is the target of the event. You
 - C: `p`
 - D: `div`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
-#### Answer: A
+#### คำตอบ: A
 
-If we click `p`, we see two logs: `p` and `div`. During event propagation, there are 3 phases: capturing, target, and bubbling. By default, event handlers are executed in the bubbling phase (unless you set `useCapture` to `true`). It goes from the deepest nested element outwards.
+If we click `p`, we see two logs: `p` และ `div`. During event propagation, there are 3 phases: capturing, target, and bubbling. By default, event handlers are executed in the bubbling phase (unless you set `useCapture` to `true`). It goes from the deepest nested element outwards.
 
 </p>
 </details>
 
 ---
 
-###### 33. What's the output?
+###### 33. ผลลัพธ์ที่ได้คืออะไร?
 
 ```javascript
 const person = { name: "Lydia" };
@@ -1015,10 +1014,10 @@ sayHi.bind(person, 21);
 - C: `Lydia is 21` `Lydia is 21`
 - D: `Lydia is 21` `function`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
-#### Answer: D
+#### คำตอบ: D
 
 With both, we can pass the object to which we want the `this` keyword to refer to. However, `.call` is also _executed immediately_!
 
@@ -1029,7 +1028,7 @@ With both, we can pass the object to which we want the `this` keyword to refer t
 
 ---
 
-###### 34. What's the output?
+###### 34. ผลลัพธ์ที่ได้คืออะไร?
 
 ```javascript
 function sayHi() {
@@ -1044,20 +1043,20 @@ console.log(typeof sayHi());
 - C: `"function"`
 - D: `"undefined"`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
-#### Answer: B
+#### คำตอบ: B
 
 The `sayHi` function returns the returned value of the immediately invoked function (IIFE). This function returned `0`, which is type `"number"`.
 
-FYI: there are only 7 built-in types: `null`, `undefined`, `boolean`, `number`, `string`, `object`, and `symbol`. `"function"` is not a type, since functions are objects, it's of type `"object"`.
+FYI: there are only 7 built-in types: `null`, `undefined`, `boolean`, `number`, `string`, `object`, และ `symbol`. `"function"` is not a type, since functions are objects, it's of type `"object"`.
 </p>
 </details>
 
 ---
 
-###### 35. Which of these values are falsy?
+###### 35. ค่าใดต่อไปนี้ที่เป็น false?
 
 ```javascript
 0;
@@ -1073,10 +1072,10 @@ undefined;
 - C: `0`, `''`, `new Boolean(false)`, `undefined`
 - D: All of them are falsy
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
-#### Answer: A
+#### คำตอบ: A
 
 There are only six falsy values:
 
@@ -1087,14 +1086,14 @@ There are only six falsy values:
 - `''` (empty string)
 - `false`
 
-Function constructors, like `new Number` and `new Boolean` are truthy.
+Function constructors, like `new Number` และ `new Boolean` are truthy.
 
 </p>
 </details>
 
 ---
 
-###### 36. What's the output?
+###### 36. ผลลัพธ์ที่ได้คืออะไร?
 
 ```javascript
 console.log(typeof typeof 1);
@@ -1105,10 +1104,10 @@ console.log(typeof typeof 1);
 - C: `"object"`
 - D: `"undefined"`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
-#### Answer: B
+#### คำตอบ: B
 
 `typeof 1` returns `"number"`.
 `typeof "number"` returns `"string"`
@@ -1118,7 +1117,7 @@ console.log(typeof typeof 1);
 
 ---
 
-###### 37. What's the output?
+###### 37. ผลลัพธ์ที่ได้คืออะไร?
 
 ```javascript
 const numbers = [1, 2, 3];
@@ -1131,10 +1130,10 @@ console.log(numbers);
 - C: `[1, 2, 3, 7 x empty, 11]`
 - D: `SyntaxError`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
-#### Answer: C
+#### คำตอบ: C
 
 When you set a value to an element in an array that exceeds the length of the array, JavaScript creates something called "empty slots". These actually have the value of `undefined`, but you will see something like:
 
@@ -1147,7 +1146,7 @@ depending on where you run it (it's different for every browser, node, etc.)
 
 ---
 
-###### 38. What's the output?
+###### 38. ผลลัพธ์ที่ได้คืออะไร?
 
 ```javascript
 (() => {
@@ -1168,46 +1167,46 @@ depending on where you run it (it's different for every browser, node, etc.)
 - C: `1` `1` `2`
 - D: `1` `undefined` `undefined`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
-#### Answer: A
+#### คำตอบ: A
 
 The `catch` block receives the argument `x`. This is not the same `x` as the variable when we pass arguments. This variable `x` is block-scoped.
 
 Later, we set this block-scoped variable equal to `1`, and set the value of the variable `y`. Now, we log the block-scoped variable `x`, which is equal to `1`.
 
-Outside of the `catch` block, `x` is still `undefined`, and `y` is `2`. When we want to `console.log(x)` outside of the `catch` block, it returns `undefined`, and `y` returns `2`.
+Outside of the `catch` block, `x` is still `undefined`, และ `y` is `2`. When we want to `console.log(x)` outside of the `catch` block, it returns `undefined`, และ `y` returns `2`.
 
 </p>
 </details>
 
 ---
 
-###### 39. Everything in JavaScript is either a...
+###### 39. ข้อใดคือ JavaScript
 
 - A: primitive or object
 - B: function or object
 - C: trick question! only objects
 - D: number or object
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
-#### Answer: A
+#### คำตอบ: A
 
 JavaScript only has primitive types and objects.
 
-Primitive types are `boolean`, `null`, `undefined`, `bigint`, `number`, `string`, and `symbol`.
+Primitive types are `boolean`, `null`, `undefined`, `bigint`, `number`, `string`, และ `symbol`.
 
-What differentiates a primitive from an object is that primitives do not have any properties or methods; however, you'll note that `'foo'.toUpperCase()` evaluates to `'FOO'` and does not result in a `TypeError`. This is because when you try to access a property or method on a primitive like a string, JavaScript will implicitly wrap the object using one of the wrapper classes, i.e. `String`, and then immediately discard the wrapper after the expression evaluates. All primitives except for `null` and `undefined` exhibit this behaviour.
+What differentiates a primitive from an object is that primitives do not have any properties or methods; however, you'll note that `'foo'.toUpperCase()` evaluates to `'FOO'` and does not result in a `TypeError`. This is because when you try to access a property or method on a primitive like a string, JavaScript will implicitly wrap the object using one of the wrapper classes, i.e. `String`, and then immediately discard the wrapper after the expression evaluates. All primitives except for `null`และd `undefined` exhibit this behaviour.
 
 </p>
 </details>
 
 ---
 
-###### 40. What's the output?
+###### 40. ผลลัพธ์ที่ได้คืออะไร?
 
 ```javascript
 [[0, 1], [2, 3]].reduce(
@@ -1223,21 +1222,21 @@ What differentiates a primitive from an object is that primitives do not have an
 - C: `[1, 2, 0, 1, 2, 3]`
 - D: `[1, 2, 6]`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
-#### Answer: C
+#### คำตอบ: C
 
-`[1, 2]` is our initial value. This is the value we start with, and the value of the very first `acc`. During the first round, `acc` is `[1,2]`, and `cur` is `[0, 1]`. We concatenate them, which results in `[1, 2, 0, 1]`.
+`[1, 2]` is our initial value. This is the value we start with, and the value of the very first `acc`. During the first round, `acc` is `[1,2]`, และ `cur` is `[0, 1]`. We concatenate them, which results in `[1, 2, 0, 1]`.
 
-Then, `[1, 2, 0, 1]` is `acc` and `[2, 3]` is `cur`. We concatenate them, and get `[1, 2, 0, 1, 2, 3]`
+Then, `[1, 2, 0, 1]` is `acc` และ `[2, 3]` is `cur`. We concatenate them, and get `[1, 2, 0, 1, 2, 3]`
 
 </p>
 </details>
 
 ---
 
-###### 41. What's the output?
+###### 41. ผลลัพธ์ที่ได้คืออะไร?
 
 ```javascript
 !!null;
@@ -1250,10 +1249,10 @@ Then, `[1, 2, 0, 1]` is `acc` and `[2, 3]` is `cur`. We concatenate them, and ge
 - C: `false` `true` `true`
 - D: `true` `true` `false`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
-#### Answer: B
+#### คำตอบ: B
 
 `null` is falsy. `!null` returns `true`. `!true` returns `false`.
 
@@ -1266,7 +1265,7 @@ Then, `[1, 2, 0, 1]` is `acc` and `[2, 3]` is `cur`. We concatenate them, and ge
 
 ---
 
-###### 42. What does the `setInterval` method return in the browser?
+###### 42. `setInterval` method ส่งค่าอะไรให้เบราว์เซอร์?
 
 ```javascript
 setInterval(() => console.log("Hi"), 1000);
@@ -1277,10 +1276,10 @@ setInterval(() => console.log("Hi"), 1000);
 - C: the passed function
 - D: `undefined`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
-#### Answer: A
+#### คำตอบ: A
 
 It returns a unique id. This id can be used to clear that interval with the `clearInterval()` function.
 
@@ -1289,7 +1288,7 @@ It returns a unique id. This id can be used to clear that interval with the `cle
 
 ---
 
-###### 43. What does this return?
+###### 43. ผลลัพธ์ทีได้คืออะไร?
 
 ```javascript
 [..."Lydia"];
@@ -1300,10 +1299,10 @@ It returns a unique id. This id can be used to clear that interval with the `cle
 - C: `[[], "Lydia"]`
 - D: `[["L", "y", "d", "i", "a"]]`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
-#### Answer: A
+#### คำตอบ: A
 
 A string is an iterable. The spread operator maps every character of an iterable to one element.
 
@@ -1312,7 +1311,7 @@ A string is an iterable. The spread operator maps every character of an iterable
 
 ---
 
-###### 44. What's the output?
+###### 44. ผลลัพธ์ที่ได้คืออะไร?
 
 ```javascript
 function* generator(i) {
@@ -1331,10 +1330,10 @@ console.log(gen.next().value);
 - C: `10, 20`
 - D: `0, 10 and 10, 20`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
-#### Answer: C
+#### คำตอบ: C
 
 Regular functions cannot be stopped mid-way after invocation. However, a generator function can be "stopped" midway, and later continue from where it stopped. Every time a generator function encounters a `yield` keyword, the function yields the value specified after it. Note that the generator function in that case doesn’t _return_ the value, it _yields_ the value.
 
@@ -1347,7 +1346,7 @@ Then, we invoke the function again with the `next()` method. It starts to contin
 
 ---
 
-###### 45. What does this return?
+###### 45. ผลลัพธ์ทีได้คืออะไร?
 
 ```javascript
 const firstPromise = new Promise((res, rej) => {
@@ -1366,10 +1365,10 @@ Promise.race([firstPromise, secondPromise]).then(res => console.log(res));
 - C: `"two" "one"`
 - D: `"one" "two"`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
-#### Answer: B
+#### คำตอบ: B
 
 When we pass multiple promises to the `Promise.race` method, it resolves/rejects the _first_ promise that resolves/rejects. To the `setTimeout` method, we pass a timer: 500ms for the first promise (`firstPromise`), and 100ms for the second promise (`secondPromise`). This means that the `secondPromise` resolves first with the value of `'two'`. `res` now holds the value of `'two'`, which gets logged.
 
@@ -1378,7 +1377,7 @@ When we pass multiple promises to the `Promise.race` method, it resolves/rejects
 
 ---
 
-###### 46. What's the output?
+###### 46. ผลลัพธ์ที่ได้คืออะไร?
 
 ```javascript
 let person = { name: "Lydia" };
@@ -1393,10 +1392,10 @@ console.log(members);
 - C: `[{}]`
 - D: `[{ name: "Lydia" }]`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
-#### Answer: D
+#### คำตอบ: D
 
 First, we declare a variable `person` with the value of an object that has a `name` property.
 
@@ -1417,7 +1416,7 @@ We are only modifying the value of the `person` variable, and not the first elem
 
 ---
 
-###### 47. What's the output?
+###### 47. ผลลัพธ์ที่ได้คืออะไร?
 
 ```javascript
 const person = {
@@ -1435,19 +1434,19 @@ for (const item in person) {
 - C: `"Lydia", 21`
 - D: `["name", "Lydia"], ["age", 21]`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
-#### Answer: B
+#### คำตอบ: B
 
-With a `for-in` loop, we can iterate through object keys, in this case `name` and `age`. Under the hood, object keys are strings (if they're not a Symbol). On every loop, we set the value of `item` equal to the current key it’s iterating over. First, `item` is equal to `name`, and gets logged. Then, `item` is equal to `age`, which gets logged.
+With a `for-in` loop, we can iterate through object keys, in this case `name` และ `age`. Under the hood, object keys are strings (if they're not a Symbol). On every loop, we set the value of `item` equal to the current key it’s iterating over. First, `item` is equal to `name`, and gets logged. Then, `item` is equal to `age`, which gets logged.
 
 </p>
 </details>
 
 ---
 
-###### 48. What's the output?
+###### 48. ผลลัพธ์ที่ได้คืออะไร?
 
 ```javascript
 console.log(3 + 4 + "5");
@@ -1458,10 +1457,10 @@ console.log(3 + 4 + "5");
 - C: `12`
 - D: `"12"`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
-#### Answer: B
+#### คำตอบ: B
 
 Operator associativity is the order in which the compiler evaluates the expressions, either left-to-right or right-to-left. This only happens if all operators have the _same_ precedence. We only have one type of operator: `+`. For addition, the associativity is left-to-right.
 
@@ -1474,7 +1473,7 @@ Operator associativity is the order in which the compiler evaluates the expressi
 
 ---
 
-###### 49. What's the value of `num`?
+###### 49. `num` เท่ากับเท่าไหร่?
 
 ```javascript
 const num = parseInt("7*6", 10);
@@ -1485,10 +1484,10 @@ const num = parseInt("7*6", 10);
 - C: `7`
 - D: `NaN`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
-#### Answer: C
+#### คำตอบ: C
 
 Only the first numbers in the string is returned. Based on the _radix_ (the second argument in order to specify what type of number we want to parse it to: base 10, hexadecimal, octal, binary, etc.), the `parseInt` checks whether the characters in the string are valid. Once it encounters a character that isn't a valid number in the radix, it stops parsing and ignores the following characters.
 
@@ -1499,7 +1498,7 @@ Only the first numbers in the string is returned. Based on the _radix_ (the seco
 
 ---
 
-###### 50. What's the output`?
+###### 50. ผลลัพธ์ที่ได้คืออะไร?
 
 ```javascript
 [1, 2, 3].map(num => {
@@ -1513,10 +1512,10 @@ Only the first numbers in the string is returned. Based on the _radix_ (the seco
 - C: `[undefined, undefined, undefined]`
 - D: `[ 3 x empty ]`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
-#### Answer: C
+#### คำตอบ: C
 
 When mapping over the array, the value of `num` is equal to the element it’s currently looping over. In this case, the elements are numbers, so the condition of the if statement `typeof num === "number"` returns `true`. The map function creates a new array and inserts the values returned from the function.
 
@@ -1527,7 +1526,7 @@ However, we don’t return a value. When we don’t return a value from the func
 
 ---
 
-###### 51. What's the output?
+###### 51. ผลลัพธ์ที่ได้คืออะไร?
 
 ```javascript
 function getInfo(member, year) {
@@ -1548,10 +1547,10 @@ console.log(person, birthYear);
 - C: `{ name: "Lydia" }, "1998"`
 - D: `{ name: "Sarah" }, "1997"`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
-#### Answer: A
+#### คำตอบ: A
 
 Arguments are passed by _value_, unless their value is an object, then they're passed by _reference_. `birthYear` is passed by value, since it's a string, not an object. When we pass arguments by value, a _copy_ of that value is created (see question 46).
 
@@ -1564,7 +1563,7 @@ The value of `person` is an object. The argument `member` has a (copied) referen
 
 ---
 
-###### 52. What's the output?
+###### 52. ผลลัพธ์ที่ได้คืออะไร?
 
 ```javascript
 function greeting() {
@@ -1588,10 +1587,10 @@ sayHi();
 - C: `SyntaxError: can only throw Error objects`
 - D: `Oh no an error: Hello world!`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
-#### Answer: D
+#### คำตอบ: D
 
 With the `throw` statement, we can create custom errors. With this statement, you can throw exceptions. An exception can be a <b>string</b>, a <b>number</b>, a <b>boolean</b> or an <b>object</b>. In this case, our exception is the string `'Hello world'`.
 
@@ -1602,7 +1601,7 @@ With the `catch` statement, we can specify what to do if an exception is thrown 
 
 ---
 
-###### 53. What's the output?
+###### 53. ผลลัพธ์ที่ได้คืออะไร?
 
 ```javascript
 function Car() {
@@ -1619,10 +1618,10 @@ console.log(myCar.make);
 - C: `ReferenceError`
 - D: `TypeError`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
-#### Answer: B
+#### คำตอบ: B
 
 When you return a property, the value of the property is equal to the _returned_ value, not the value set in the constructor function. We return the string `"Maserati"`, so `myCar.make` is equal to `"Maserati"`.
 
@@ -1631,7 +1630,7 @@ When you return a property, the value of the property is equal to the _returned_
 
 ---
 
-###### 54. What's the output?
+###### 54. ผลลัพธ์ที่ได้คืออะไร?
 
 ```javascript
 (() => {
@@ -1647,10 +1646,10 @@ console.log(typeof y);
 - C: `"object", "number"`
 - D: `"number", "undefined"`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
-#### Answer: A
+#### คำตอบ: A
 
 `let x = y = 10;` is actually shorthand for:
 
@@ -1670,7 +1669,7 @@ However, we created a global variable `y` when setting `y` equal to `10`. This v
 
 ---
 
-###### 55. What's the output?
+###### 55. ผลลัพธ์ที่ได้คืออะไร?
 
 ```javascript
 class Dog {
@@ -1697,10 +1696,10 @@ pet.bark();
 - C: `"Woof I am Mara"`, `undefined`
 - D: `TypeError`, `TypeError`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
-#### Answer: A
+#### คำตอบ: A
 
 We can delete properties from objects using the `delete` keyword, also on the prototype. By deleting a property on the prototype, it is not available anymore in the prototype chain. In this case, the `bark` function is not available anymore on the prototype after `delete Dog.prototype.bark`, yet we still try to access it.
 
@@ -1711,7 +1710,7 @@ When we try to invoke something that is not a function, a `TypeError` is thrown.
 
 ---
 
-###### 56. What's the output?
+###### 56. ผลลัพธ์ที่ได้คืออะไร?
 
 ```javascript
 const set = new Set([1, 1, 2, 3, 4]);
@@ -1724,10 +1723,10 @@ console.log(set);
 - C: `{1, 1, 2, 3, 4}`
 - D: `{1, 2, 3, 4}`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
-#### Answer: D
+#### คำตอบ: D
 
 The `Set` object is a collection of _unique_ values: a value can only occur once in a set.
 
@@ -1738,7 +1737,7 @@ We passed the iterable `[1, 1, 2, 3, 4]` with a duplicate value `1`. Since we ca
 
 ---
 
-###### 57. What's the output?
+###### 57. ผลลัพธ์ที่ได้คืออะไร?
 
 ```javascript
 // counter.js
@@ -1760,10 +1759,10 @@ console.log(myCounter);
 - C: `Error`
 - D: `NaN`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
-#### Answer: C
+#### คำตอบ: C
 
 An imported module is _read-only_: you cannot modify the imported module. Only the module that exports them can change its value.
 
@@ -1774,7 +1773,7 @@ When we try to increment the value of `myCounter`, it throws an error: `myCounte
 
 ---
 
-###### 58. What's the output?
+###### 58. ผลลัพธ์ที่ได้คืออะไร?
 
 ```javascript
 const name = "Lydia";
@@ -1789,10 +1788,10 @@ console.log(delete age);
 - C: `true`, `true`
 - D: `undefined`, `undefined`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
-#### Answer: A
+#### คำตอบ: A
 
 The `delete` operator returns a boolean value: `true` on a successful deletion, else it'll return `false`. However, variables declared with the `var`, `const` or `let` keyword cannot be deleted using the `delete` operator.
 
@@ -1803,7 +1802,7 @@ The `name` variable was declared with a `const` keyword, so its deletion is not 
 
 ---
 
-###### 59. What's the output?
+###### 59. ผลลัพธ์ที่ได้คืออะไร?
 
 ```javascript
 const numbers = [1, 2, 3, 4, 5];
@@ -1817,10 +1816,10 @@ console.log(y);
 - C: `1`
 - D: `[1]`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
-#### Answer: C
+#### คำตอบ: C
 
 We can unpack values from arrays or properties from objects through destructuring. For example:
 
@@ -1845,7 +1844,7 @@ This means that the value of `y` is equal to the first value in the array, which
 
 ---
 
-###### 60. What's the output?
+###### 60. ผลลัพธ์ที่ได้คืออะไร?
 
 ```javascript
 const user = { name: "Lydia", age: 21 };
@@ -1859,10 +1858,10 @@ console.log(admin);
 - C: `{ admin: true, user: ["Lydia", 21] }`
 - D: `{ admin: true }`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
-#### Answer: B
+#### คำตอบ: B
 
 It's possible to combine objects using the spread operator `...`. It lets you create copies of the key/value pairs of one object, and add them to another object. In this case, we create copies of the `user` object, and add them to the `admin` object. The `admin` object now contains the copied key/value pairs, which results in `{ admin: true, name: "Lydia", age: 21 }`.
 
@@ -1871,7 +1870,7 @@ It's possible to combine objects using the spread operator `...`. It lets you cr
 
 ---
 
-###### 61. What's the output?
+###### 61. ผลลัพธ์ที่ได้คืออะไร?
 
 ```javascript
 const person = { name: "Lydia" };
@@ -1887,21 +1886,21 @@ console.log(Object.keys(person));
 - C: `{ name: "Lydia"}`, `["name", "age"]`
 - D: `{ name: "Lydia"}`, `["age"]`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
-#### Answer: B
+#### คำตอบ: B
 
 With the `defineProperty` method, we can add new properties to an object, or modify existing ones. When we add a property to an object using the `defineProperty` method, they are by default _not enumerable_. The `Object.keys` method returns all _enumerable_ property names from an object, in this case only `"name"`.
 
-Properties added using the `defineProperty` method are immutable by default. You can override this behavior using the `writable`, `configurable` and `enumerable` properties. This way, the `defineProperty` method gives you a lot more control over the properties you're adding to an object.
+Properties added using the `defineProperty` method are immutable by default. You can override this behavior using the `writable`, `configurable` และ `enumerable` properties. This way, the `defineProperty` method gives you a lot more control over the properties you're adding to an object.
 
 </p>
 </details>
 
 ---
 
-###### 62. What's the output?
+###### 62. ผลลัพธ์ที่ได้คืออะไร?
 
 ```javascript
 const settings = {
@@ -1919,14 +1918,14 @@ console.log(data);
 - C: `"["level", "health"]"`
 - D: `"{"username": "lydiahallie", "level":19, "health":90}"`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
-#### Answer: A
+#### คำตอบ: A
 
 The second argument of `JSON.stringify` is the _replacer_. The replacer can either be a function or an array, and lets you control what and how the values should be stringified.
 
-If the replacer is an _array_, only the property names included in the array will be added to the JSON string. In this case, only the properties with the names `"level"` and `"health"` are included, `"username"` is excluded. `data` is now equal to `"{"level":19, "health":90}"`.
+If the replacer is an _array_, only the property names included in the array will be added to the JSON string. In this case, only the properties with the names `"level"`และd `"health"` are included, `"username"` is excluded. `data` is now equal to `"{"level":19, "health":90}"`.
 
 If the replacer is a _function_, this function gets called on every property in the object you're stringifying. The value returned from this function will be the value of the property when it's added to the JSON string. If the value is `undefined`, this property is excluded from the JSON string.
 
@@ -1935,7 +1934,7 @@ If the replacer is a _function_, this function gets called on every property in 
 
 ---
 
-###### 63. What's the output?
+###### 63. ผลลัพธ์ที่ได้คืออะไร?
 
 ```javascript
 let num = 10;
@@ -1955,10 +1954,10 @@ console.log(num2);
 - C: `11`, `11`
 - D: `11`, `12`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
-#### Answer: A
+#### คำตอบ: A
 
 The unary operator `++` _first returns_ the value of the operand, _then increments_ the value of the operand. The value of `num1` is `10`, since the `increaseNumber` function first returns the value of `num`, which is `10`, and only increments the value of `num` afterwards.
 
@@ -1969,7 +1968,7 @@ The unary operator `++` _first returns_ the value of the operand, _then incremen
 
 ---
 
-###### 64. What's the output?
+###### 64. ผลลัพธ์ที่ได้คืออะไร?
 
 ```javascript
 const value = { number: 10 };
@@ -1989,10 +1988,10 @@ multiply(value);
 - C: `20`, `20`, `20`, `40`
 - D: `NaN`, `NaN`, `20`, `40`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
-#### Answer: C
+#### คำตอบ: C
 
 In ES6, we can initialize parameters with a default value. The value of the parameter will be the default value, if no other value has been passed to the function, or if the value of the parameter is `"undefined"`. In this case, we spread the properties of the `value` object into a new object, so `x` has the default value of `{ number: 10 }`.
 
@@ -2007,21 +2006,21 @@ The fourth time, we pass the `value` object again. `x.number` was previously mod
 
 ---
 
-###### 65. What's the output?
+###### 65. ผลลัพธ์ที่ได้คืออะไร?
 
 ```javascript
 [1, 2, 3, 4].reduce((x, y) => console.log(x, y));
 ```
 
-- A: `1` `2` and `3` `3` and `6` `4`
-- B: `1` `2` and `2` `3` and `3` `4`
-- C: `1` `undefined` and `2` `undefined` and `3` `undefined` and `4` `undefined`
-- D: `1` `2` and `undefined` `3` and `undefined` `4`
+- A: `1` `2` และ `3` `3` และ `6` `4`
+- B: `1` `2` และ `2` `3` และ `3` `4`
+- C: `1` `undefined` และ `2` `undefined` และ `3` `undefined` และ `4` `undefined`
+- D: `1` `2` และ `undefined` `3` และ `undefined` `4`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
-#### Answer: D
+#### คำตอบ: D
 
 The first argument that the `reduce` method receives is the _accumulator_, `x` in this case. The second argument is the _current value_, `y`. With the reduce method, we execute a callback function on every element in the array, which could ultimately result in one single value. 
 
@@ -2029,17 +2028,17 @@ In this example, we are not returning any values, we are simply logging the valu
 
 The value of the accumulator is equal to the previously returned value of the callback function. If you don't pass the optional `initialValue` argument to the `reduce` method, the accumulator is equal to the first element on the first call.
 
-On the first call, the accumulator (`x`) is `1`, and the current value (`y`) is `2`. We don't return from the callback function, we log the accumulator and current value: `1` and `2` get logged.  
+On the first call, the accumulator (`x`) is `1`, and the current value (`y`) is `2`. We don't return from the callback function, we log the accumulator and current value: `1` และ `2` get logged.  
 
-If you don't return a value from a function, it returns `undefined`. On the next call, the accumulator is `undefined`, and the current value is `3`. `undefined` and `3` get logged. 
+If you don't return a value from a function, it returns `undefined`. On the next call, the accumulator is `undefined`, and the current value is `3`. `undefined` และ `3` get logged. 
 
-On the fourth call, we again don't return from the callback function. The accumulator is again `undefined`, and the current value is `4`. `undefined` and `4` get logged.
+On the fourth call, we again don't return from the callback function. The accumulator is again `undefined`, and the current value is `4`. `undefined` และ `4` get logged.
 </p>
 </details>
   
 ---
 
-###### 66. With which constructor can we successfully extend the `Dog` class?
+###### 66. constructor ไหนที่เราสามารถใช้ extend ให้กับ `Dog` class ได้?
 
 ```javascript
 class Dog {
@@ -2077,22 +2076,22 @@ class Labrador extends Dog {
 - C: 3
 - D: 4
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
-#### Answer: B
+#### คำตอบ: B
 
 In a derived class, you cannot access the `this` keyword before calling `super`. If you try to do that, it will throw a ReferenceError: 1 and 4 would throw a reference error.
 
 With the `super` keyword, we call that parent class's constructor with the given arguments. The parent's constructor receives the `name` argument, so we need to pass `name` to `super`. 
 
-The `Labrador` class receives two arguments, `name` since it extends `Dog`, and `size` as an extra property on the `Labrador` class. They both need to be passed to the constructor function on `Labrador`, which is done correctly  using constructor 2.
+The `Labrador` class receives two arguments, `name` since it extends `Dog`, และ `size` as an extra property on the `Labrador` class. They both need to be passed to the constructor function on `Labrador`, which is done correctly  using constructor 2.
 </p>
 </details>
 
 ---
 
-###### 67. What's the output?
+###### 67. ผลลัพธ์ที่ได้คืออะไร?
 
 ```javascript
 // index.js
@@ -2110,10 +2109,10 @@ export const sum = (a, b) => a + b;
 - C: `running sum.js`, `3`, `running index.js`
 - D: `running index.js`, `undefined`, `running sum.js`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
-#### Answer: B
+#### คำตอบ: B
 
 With the `import` keyword, all imported modules are _pre-parsed_. This means that the imported modules get run _first_, the code in the file which imports the module gets executed _after_.
 
@@ -2124,7 +2123,7 @@ This is a difference between `require()` in CommonJS and `import`! With `require
 
 ---
 
-###### 68. What's the output?
+###### 68. ผลลัพธ์ที่ได้คืออะไร?
 
 ```javascript
 console.log(Number(2) === Number(2))
@@ -2137,10 +2136,10 @@ console.log(Symbol('foo') === Symbol('foo'))
 - C: `true`, `false`, `true`
 - D: `true`, `true`, `true`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
-#### Answer: A
+#### คำตอบ: A
 
 Every Symbol is entirely unique. The purpose of the argument passed to the Symbol is to give the Symbol a description. The value of the Symbol is not dependent on the passed argument. As we test equality, we are creating two entirely new symbols: the first `Symbol('foo')`, and the second `Symbol('foo')`. These two values are unique and not equal to each other, `Symbol('foo') === Symbol('foo')` returns `false`. 
 
@@ -2149,7 +2148,7 @@ Every Symbol is entirely unique. The purpose of the argument passed to the Symbo
 
 ---
 
-###### 69. What's the output?
+###### 69. ผลลัพธ์ที่ได้คืออะไร?
 
 ```javascript
 const name = "Lydia Hallie"
@@ -2162,10 +2161,10 @@ console.log(name.padStart(2))
 - C: `" Lydia Hallie"`, `"Lydia Hallie"` (`"[1x whitespace]Lydia Hallie"`, `"Lydia Hallie"`)
 - D: `"Lydia Hallie"`, `"Lyd"`, 
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
-#### Answer: C
+#### คำตอบ: C
 
 With the `padStart` method, we can add padding to the beginning of a string. The value passed to this method is the _total_ length of the string together with the padding. The string `"Lydia Hallie"` has a length of `12`. `name.padStart(13)` inserts 1 space at the start of the string, because 12 + 1 is 13.
 
@@ -2176,7 +2175,7 @@ If the argument passed to the `padStart` method is smaller than the length of th
 
 ---
 
-###### 70. What's the output?
+###### 70. ผลลัพธ์ที่ได้คืออะไร?
 
 ```javascript
 console.log("🥑" + "💻");
@@ -2187,10 +2186,10 @@ console.log("🥑" + "💻");
 - C: A string containing their code points
 - D: Error
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
-#### Answer: A
+#### คำตอบ: A
 
 With the `+` operator, you can concatenate strings. In this case, we are concatenating the string `"🥑"` with the string `"💻"`, resulting in `"🥑💻"`.
 
@@ -2199,7 +2198,7 @@ With the `+` operator, you can concatenate strings. In this case, we are concate
 
 ---
 
-###### 71. How can we log the values that are commented out after the console.log statement?
+###### 71. ค่าที่แสดงใน log หลังจากที่เรา commented out ใน console.log จะเป็นอย่างไร?
 
 ```javascript
 function* startGame() {
@@ -2215,28 +2214,28 @@ console.log(/* 1 */); // Do you love JavaScript?
 console.log(/* 2 */); // JavaScript loves you back ❤️
 ```
 
-- A: `game.next("Yes").value` and `game.next().value`
-- B: `game.next.value("Yes")` and `game.next.value()`
-- C: `game.next().value` and `game.next("Yes").value`
-- D: `game.next.value()` and `game.next.value("Yes")`
+- A: `game.next("Yes").value` และ `game.next().value`
+- B: `game.next.value("Yes")` และ `game.next.value()`
+- C: `game.next().value` และ `game.next("Yes").value`
+- D: `game.next.value()` และ `game.next.value("Yes")`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
-#### Answer: C
+#### คำตอบ: C
 
 A generator function "pauses" its execution when it sees the `yield` keyword. First, we have to let the function yield the string "Do you love JavaScript?", which can be done by calling `game.next().value`.
 
 Every line is executed, until it finds the first `yield` keyword. There is a `yield` keyword on the first line within the function: the execution stops with the first yield! _This means that the variable `answer` is not defined yet!_
 
-When we call `game.next("Yes").value`, the previous `yield` is replaced with the value of the parameters passed to the `next()` function, `"Yes"` in this case. The value of the variable `answer` is now equal to `"Yes"`. The condition of the if-statement returns `false`, and `JavaScript loves you back ❤️` gets logged.
+When we call `game.next("Yes").value`, the previous `yield` is replaced with the value of the parameters passed to the `next()` function, `"Yes"` in this case. The value of the variable `answer` is now equal to `"Yes"`. The condition of the if-statement returns `false`, และ `JavaScript loves you back ❤️` gets logged.
 
 </p>
 </details>
 
 ---
 
-###### 72. What's the output?
+###### 72. ผลลัพธ์ที่ได้คืออะไร?
 
 ```javascript
 console.log(String.raw`Hello\nworld`);
@@ -2247,10 +2246,10 @@ console.log(String.raw`Hello\nworld`);
 - C: `Hello\nworld`
 - D: `Hello\n` <br /> &nbsp; &nbsp; &nbsp;`world`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
-#### Answer: C
+#### คำตอบ: C
 
 `String.raw` returns a string where the escapes (`\n`, `\v`, `\t` etc.) are ignored! Backslashes can be an issue since you could end up with something like:
 
@@ -2271,7 +2270,7 @@ In this case, the string is `Hello\nworld`, which gets logged.
 
 ---
 
-###### 73. What's the output?
+###### 73. ผลลัพธ์ที่ได้คืออะไร?
 
 ```javascript
 async function getData() {
@@ -2287,10 +2286,10 @@ console.log(data);
 - C: `Promise {<pending>}`
 - D: `undefined`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
-#### Answer: C
+#### คำตอบ: C
 
 An async function always returns a promise. The `await` still has to wait for the promise to resolve: a pending promise gets returned when we call `getData()` in order to set `data` equal to it.
 
@@ -2305,7 +2304,7 @@ This would've logged `"I made it!"`
 
 ---
 
-###### 74. What's the output?
+###### 74. ผลลัพธ์ที่ได้คืออะไร?
 
 ```javascript
 function addToList(item, list) {
@@ -2321,10 +2320,10 @@ console.log(result);
 - C: `true`
 - D: `undefined`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
-#### Answer: B
+#### คำตอบ: B
 
 The `.push()` method returns the _length_ of the new array! Previously, the array contained one element (the string `"banana"`) and had a length of `1`. After adding the string `"apple"` to the array, the array contains two elements, and has a length of `2`. This gets returned from the `addToList` function.
 
@@ -2335,7 +2334,7 @@ The `push` method modifies the original array. If you wanted to return the _arra
 
 ---
 
-###### 75. What's the output?
+###### 75. ผลลัพธ์ที่ได้คืออะไร?
 
 ```javascript
 const box = { x: 10, y: 20 };
@@ -2353,23 +2352,23 @@ console.log(shape);
 - C: `{ x: 100 }`
 - D: `ReferenceError`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
-#### Answer: B
+#### คำตอบ: B
 
 `Object.freeze` makes it impossible to add, remove, or modify properties of an object (unless the property's value is another object).
 
 When we create the variable `shape` and set it equal to the frozen object `box`, `shape` also refers to a frozen object. You can check whether an object is frozen by using `Object.isFrozen`. In this case, `Object.isFrozen(shape)` returns true, since the variable `shape` has a reference to a frozen object.
 
-Since `shape` is frozen, and since the value of `x` is not an object, we cannot modify the property `x`. `x` is still equal to `10`, and `{ x: 10, y: 20 }` gets logged.
+Since `shape` is frozen, and since the value of `x` is not an object, we cannot modify the property `x`. `x` is still equal to `10`, และ `{ x: 10, y: 20 }` gets logged.
 
 </p>
 </details>
 
 ---
 
-###### 76. What's the output?
+###### 76. ผลลัพธ์ที่ได้คืออะไร?
 
 ```javascript
 const { name: myName } = { name: "Lydia" };
@@ -2382,10 +2381,10 @@ console.log(name);
 - C: `undefined`
 - D: `ReferenceError`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
-#### Answer: D
+#### คำตอบ: D
 
 When we unpack the property `name` from the object on the right-hand side, we assign its value `"Lydia"` to a variable with the name `myName`.
 
@@ -2398,7 +2397,7 @@ Since we try to log `name`, a variable that is not defined, a ReferenceError get
 
 ---
 
-###### 77. Is this a pure function?
+###### 77. นี่เป็น pure function หรือไม่?
 
 ```javascript
 function sum(a, b) {
@@ -2409,21 +2408,21 @@ function sum(a, b) {
 - A: Yes
 - B: No
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
-#### Answer: A
+#### คำตอบ: A
 
 A pure function is a function that _always_ returns the same result, if the same arguments are passed.
 
-The `sum` function always returns the same result. If we pass `1` and `2`, it will _always_ return `3` without side effects. If we pass `5` and `10`, it will _always_ return `15`, and so on. This is the definition of a pure function.
+The `sum` function always returns the same result. If we pass `1` และ `2`, it will _always_ return `3` without side effects. If we pass `5` และ `10`, it will _always_ return `15`, and so on. This is the definition of a pure function.
 
 </p>
 </details>
 
 ---
 
-###### 78. What is the output?
+###### 78. ผลลัพธ์ที่ได้คืออะไร?
 
 ```javascript
 const add = () => {
@@ -2450,10 +2449,10 @@ console.log(addFunction(5 * 2));
 - C: `Calculated! 20` `From cache! 20` `From cache! 20`
 - D: `Calculated! 20` `From cache! 20` `Error`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
-#### Answer: C
+#### คำตอบ: C
 
 The `add` function is a _memoized_ function. With memoization, we can cache the results of a function in order to speed up its execution. In this case, we create a `cache` object that stores the previously returned values.
 
@@ -2461,16 +2460,16 @@ If we call the `addFunction` function again with the same argument, it first che
 
 We call the `addFunction` function three times with the same value: on the first invocation, the value of the function when `num` is equal to `10` isn't cached yet. The condition of the if-statement `num in cache` returns `false`, and the else block gets executed: `Calculated! 20` gets logged, and the value of the result gets added to the cache object. `cache` now looks like `{ 10: 20 }`.
 
-The second time, the `cache` object contains the value that gets returned for `10`. The condition of the if-statement `num in cache` returns `true`, and `'From cache! 20'` gets logged.
+The second time, the `cache` object contains the value that gets returned for `10`. The condition of the if-statement `num in cache` returns `true`, และ `'From cache! 20'` gets logged.
 
-The third time, we pass `5 * 2` to the function which gets evaluated to `10`. The `cache` object contains the value that gets returned for `10`. The condition of the if-statement `num in cache` returns `true`, and `'From cache! 20'` gets logged.
+The third time, we pass `5 * 2` to the function which gets evaluated to `10`. The `cache` object contains the value that gets returned for `10`. The condition of the if-statement `num in cache` returns `true`, และ `'From cache! 20'` gets logged.
 
 </p>
 </details>
 
 ---
 
-###### 79. What is the output?
+###### 79. ผลลัพธ์ที่ได้คืออะไร?
 
 ```javascript
 const myLifeSummedUp = ["☕", "💻", "🍷", "🍫"]
@@ -2484,15 +2483,15 @@ for (let item of myLifeSummedUp) {
 }
 ```
 
-- A: `0` `1` `2` `3` and `"☕"` ` "💻"` `"🍷"` `"🍫"`
-- B: `"☕"` ` "💻"` `"🍷"` `"🍫"` and `"☕"` ` "💻"` `"🍷"` `"🍫"`
-- C: `"☕"` ` "💻"` `"🍷"` `"🍫"` and `0` `1` `2` `3`
-- D:  `0` `1` `2` `3` and `{0: "☕", 1: "💻", 2: "🍷", 3: "🍫"}`
+- A: `0` `1` `2` `3` และ `"☕"` ` "💻"` `"🍷"` `"🍫"`
+- B: `"☕"` ` "💻"` `"🍷"` `"🍫"` และ `"☕"` ` "💻"` `"🍷"` `"🍫"`
+- C: `"☕"` ` "💻"` `"🍷"` `"🍫"` และ `0` `1` `2` `3`
+- D:  `0` `1` `2` `3` และ `{0: "☕", 1: "💻", 2: "🍷", 3: "🍫"}`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
-#### Answer: A
+#### คำตอบ: A
 
 With a _for-in_ loop, we can iterate over **enumerable** properties. In an array, the enumerable properties are the "keys" of array elements, which are actually their indexes. You could see an array as:
 
@@ -2507,7 +2506,7 @@ With a _for-of_ loop, we can iterate over **iterables**. An array is an iterable
 
 ---
 
-###### 80. What is the output?
+###### 80. ผลลัพธ์ที่ได้คืออะไร?
 
 ```javascript
 const list = [1 + 2, 1 * 2, 1 / 2]
@@ -2519,21 +2518,21 @@ console.log(list)
 - C: `[3, 2, 0.5]`
 - D:  `[1, 1, 1]`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
-#### Answer: C
+#### คำตอบ: C
 
 Array elements can hold any value. Numbers, strings, objects, other arrays, null, boolean values, undefined, and other expressions such as dates, functions, and calculations.
 
-The element will be equal to the returned value.  `1 + 2` returns `3`, `1 * 2` returns `2`, and `1 / 2` returns `0.5`.
+The element will be equal to the returned value.  `1 + 2` returns `3`, `1 * 2` returns `2`, และ `1 / 2` returns `0.5`.
 
 </p>
 </details>
 
 ---
 
-###### 81. What is the output?
+###### 81. ผลลัพธ์ที่ได้คืออะไร?
 
 ```javascript
 function sayHi(name) {
@@ -2548,10 +2547,10 @@ console.log(sayHi())
 - C: `Hi there, null`
 - D:  `ReferenceError`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
-#### Answer: B
+#### คำตอบ: B
 
 By default, arguments have the value of `undefined`, unless a value has been passed to the function. In this case, we didn't pass a value for the `name` argument. `name` is equal to `undefined` which gets logged.
 
@@ -2566,7 +2565,7 @@ In this case, if we didn't pass a value or if we passed `undefined`, `name` woul
 
 ---
 
-###### 82. What is the output?
+###### 82. ผลลัพธ์ที่ได้คืออะไร?
 
 ```javascript
 var status = "😎"
@@ -2586,15 +2585,15 @@ setTimeout(() => {
 }, 0)
 ```
 
-- A: `"🥑"` and `"😍"`
-- B: `"🥑"` and `"😎"`
-- C: `"😍"` and `"😎"`
-- D: `"😎"` and `"😎"`
+- A: `"🥑"` และ `"😍"`
+- B: `"🥑"` และ `"😎"`
+- C: `"😍"` และ `"😎"`
+- D: `"😎"` และ `"😎"`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
-#### Answer: B
+#### คำตอบ: B
 
 The value of the `this` keyword is dependent on where you use it. In a **method**, like the `getStatus` method, the `this` keyword refers to _the object that the method belongs to_. The method belongs to the `data` object, so `this` refers to the `data` object. When we log `this.status`, the `status` property on the `data` object gets logged, which is `"🥑"`.
 
@@ -2606,7 +2605,7 @@ With the `call` method, we can change the object to which the `this` keyword ref
 
 ---
 
-###### 83. What is the output?
+###### 83. ผลลัพธ์ที่ได้คืออะไร?
 
 ```javascript
 const person = {
@@ -2625,10 +2624,10 @@ console.log(person)
 - C: `{ name: "Lydia", age: 21, city: undefined }`
 - D: `"Amsterdam"`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
-#### Answer: A
+#### คำตอบ: A
 
 We set the variable `city` equal to the value of the property called `city` on the `person` object. There is no property on this object called `city`, so the variable `city` has the value of `undefined`. 
 
@@ -2643,7 +2642,7 @@ When logging the `person` object, the unmodified object gets returned.
 
 ---
 
-###### 84. What is the output?
+###### 84. ผลลัพธ์ที่ได้คืออะไร?
 
 ```javascript
 function checkAge(age) {
@@ -2664,19 +2663,19 @@ console.log(checkAge(21))
 - C: `ReferenceError`
 - D: `undefined`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
-#### Answer: C
+#### คำตอบ: C
 
-Variables with the `const` and `let` keyword are _block-scoped_. A block is anything between curly brackets (`{ }`). In this case, the curly brackets of the if/else statements. You cannot reference a variable outside of the block it's declared in, a ReferenceError gets thrown.
+Variables with the `const` และ `let` keyword are _block-scoped_. A block is anything between curly brackets (`{ }`). In this case, the curly brackets of the if/else statements. You cannot reference a variable outside of the block it's declared in, a ReferenceError gets thrown.
 
 </p>
 </details>
 
 ---
 
-###### 85. What kind of information would get logged?
+###### 85. ข้อมูลแบบไหนที่เราได้ใน log?
 
 ```javascript
 fetch('https://www.website.com/api/user/1')
@@ -2689,10 +2688,10 @@ fetch('https://www.website.com/api/user/1')
 - C: The result of the callback in the previous `.then()`.
 - D: It would always be undefined. 
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
-#### Answer: C
+#### คำตอบ: C
 
 The value of `res` in the second `.then` is equal to the returned value of the previous `.then`. You can keep chaining `.then`s like this, where the value is passed to the next handler.
 
@@ -2701,7 +2700,7 @@ The value of `res` in the second `.then` is equal to the returned value of the p
 
 ---
 
-###### 86. Which option is a way to set `hasName` equal to `true`, provided you cannot pass `true` as an argument?
+###### 86. ข้อไหนคือวิธีที่เราสามารถเซ็ตให้ `hasName` มีค่าเป็น `true` กรณีที่คุณไม่สามารถส่งค่า `true` ใน argument ได้?
 
 ```javascript
 function getName(name) {
@@ -2714,10 +2713,10 @@ function getName(name) {
 - C: `new Boolean(name)`
 - D: `name.length`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
-#### Answer: A
+#### คำตอบ: A
 
 With `!!name`, we determine whether the value of `name` is truthy or falsy. If name is truthy, which we want to test for, `!name` returns `false`. `!false` (which is what `!!name` practically is) returns `true`.
 
@@ -2732,7 +2731,7 @@ By setting `hasName` equal to `name`, you set `hasName` equal to whatever value 
 
 ---
 
-###### 87. What's the output?
+###### <a name=20190805></a>87. ผลลัพธ์ที่ได้คืออะไร?
 
 ```javascript
 console.log("I want pizza"[0])
@@ -2743,10 +2742,10 @@ console.log("I want pizza"[0])
 - C: `SyntaxError`
 - D: `undefined`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
-#### Answer: B
+#### คำตอบ: B
 
 In order to get an character on a specific index in a string, you can use bracket notation. The first character in the string has index 0, and so on. In this case we want to get the element which index is 0, the character `"I'`, which gets logged.
 
@@ -2757,7 +2756,7 @@ Note that this method is not supported in IE7 and below. In that case, use `.cha
 
 ---
 
-###### 88. What's the output?
+###### 88. ผลลัพธ์ที่ได้คืออะไร?
 
 ```javascript
 function sum(num1, num2 = num1) {
@@ -2772,10 +2771,10 @@ sum(10)
 - C: `ReferenceError`
 - D: `undefined`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
-#### Answer: B
+#### คำตอบ: B
 
 You can set a default parameter's value equal to another parameter of the function, as long as they've been defined _before_ the default parameter. We pass the value `10` to the `sum` function. If the `sum` function only receives 1 argument, it means that the value for `num2` is not passed, and the value of `num1` is equal to the passed value `10` in this case. The default value of `num2` is the value of `num1`, which is `10`.  `num1 + num2` returns `20`.
 
@@ -2786,7 +2785,7 @@ If you're trying to set a default parameter's value equal to a parameter which i
 
 ---
 
-###### 89. What's the output?
+###### 89. ผลลัพธ์ที่ได้คืออะไร?
 
 ```javascript
 // module.js 
@@ -2804,10 +2803,10 @@ console.log(data)
 - C: `{ default: "Hello world", name: "Lydia" }`
 - D: Global object of `module.js`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
-#### Answer: A
+#### คำตอบ: A
 
 With the `import * as name` syntax, we import _all exports_ from the `module.js` file into the `index.js` file as a new object called `data` is created. In the `module.js` file, there are two exports: the default export, and a named export. The default export is a function which returns the string `"Hello World"`, and the named export is a variable called `name` which has the value of the string `"Lydia"`. 
 
@@ -2818,7 +2817,7 @@ The `data` object has a `default` property for the default export, other propert
 
 ---
 
-###### 90. What's the output?
+###### 90. ผลลัพธ์ที่ได้คืออะไร?
 
 ```javascript
 class Person {
@@ -2836,10 +2835,10 @@ console.log(typeof member)
 - C: `"object"`
 - D: `"string"`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
-#### Answer: C
+#### คำตอบ: C
 
 Classes are syntactical sugar for function constructors. The equivalent of the `Person` class as a function constructor would be:
 
@@ -2856,7 +2855,7 @@ Calling a function constructor with `new` results in the creation of an instance
 
 ---
 
-###### 91. What's the output?
+###### 91. ผลลัพธ์ที่ได้คืออะไร?
 
 ```javascript
 let newList = [1, 2, 3].push(4)
@@ -2869,10 +2868,10 @@ console.log(newList.push(5))
 - C: `[1, 2, 3, 4]`
 - D: `Error`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
-#### Answer: D
+#### คำตอบ: D
 
 The `.push` method returns the _new length_ of the array, not the array itself! By setting `newList` equal to `[1, 2, 3].push(4)`, we set `newList` equal to the new length of the array: `4`. 
 
@@ -2883,7 +2882,7 @@ Then, we try to use the `.push` method on `newList`. Since `newList` is the nume
 
 ---
 
-###### 92. What's the output?
+###### 92. ผลลัพธ์ที่ได้คืออะไร?
 
 ```javascript
 function giveLydiaPizza() {
@@ -2901,10 +2900,10 @@ console.log(giveLydiaChocolate.prototype)
 - C: `{ constructor: ...}` `{}`
 - D: `{ constructor: ...}` `undefined`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
-#### Answer: D
+#### คำตอบ: D
 
 Regular functions, such as the `giveLydiaPizza` function, have a `prototype` property, which is an object (prototype object) with a `constructor` property. Arrow functions however, such as the `giveLydiaChocolate` function, do not have this `prototype` property. `undefined` gets returned when trying to access the `prototype` property using `giveLydiaChocolate.prototype`. 
 
@@ -2913,7 +2912,7 @@ Regular functions, such as the `giveLydiaPizza` function, have a `prototype` pro
 
 ---
 
-###### 93. What's the output?
+###### 93. ผลลัพธ์ที่ได้คืออะไร?
 
 ```javascript
 const person = {
@@ -2926,15 +2925,15 @@ for (const [x, y] of Object.entries(person)) {
 }
 ```
 
-- A: `name` `Lydia` and `age` `21`
-- B: `["name", "Lydia"]` and `["age", 21]` 
-- C: `["name", "age"]` and `undefined`
+- A: `name` `Lydia` และ `age` `21`
+- B: `["name", "Lydia"]` และ `["age", 21]` 
+- C: `["name", "age"]` และ `undefined`
 - D: `Error`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
-#### Answer: A
+#### คำตอบ: A
 
 `Object.entries(person)` returns an array of nested arrays, containing the keys and objects:
 
@@ -2942,15 +2941,15 @@ for (const [x, y] of Object.entries(person)) {
 
 Using the `for-of` loop, we can iterate over each element in the array, the subarrays in this case. We can destructure the subarrays instantly in the for-of loop, using `const [x, y]`. `x` is equal to the first element in the subarray, `y` is equal to the second element in the subarray. 
 
-The first subarray is `[ "name", "Lydia" ]`, with `x` equal to `"name"`, and `y` equal to `"Lydia"`, which get logged.
-The second subarray is `[ "age", 21 ]`, with `x` equal to `"age"`, and `y` equal to `21`, which get logged.
+The first subarray is `[ "name", "Lydia" ]`, with `x` equal to `"name"`, และ `y` equal to `"Lydia"`, which get logged.
+The second subarray is `[ "age", 21 ]`, with `x` equal to `"age"`, และ `y` equal to `21`, which get logged.
 
 </p>
 </details>
 
 ---
 
-###### 94. What's the output?
+###### 94. ผลลัพธ์ที่ได้คืออะไร?
 
 ```javascript
 function getItems(fruitList, ...args, favoriteFruit) {
@@ -2965,10 +2964,10 @@ getItems(["banana", "apple"], "pear", "orange")
 - C: `["banana", "apple", ["pear"], "orange"]`
 - D: `SyntaxError`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
-#### Answer: D
+#### คำตอบ: D
 
 `...args` is a rest parameter. The rest parameter's value is an array containing all remaining arguments, **and can only be the last parameter**! In this example, the rest parameter was the second parameter. This is not possible, and will throw a syntax error. 
 
@@ -2986,7 +2985,7 @@ The above example works. This returns the array `[ 'banana', 'apple', 'orange', 
 
 ---
 
-###### 95. What's the output?
+###### 95. ผลลัพธ์ที่ได้คืออะไร?
 
 ```javascript
 function nums(a, b) {
@@ -3003,15 +3002,15 @@ console.log(nums(4, 2))
 console.log(nums(1, 2))
 ```
 
-- A: `a is bigger`, `6` and `b is bigger`, `3`
-- B: `a is bigger`, `undefined` and `b is bigger`, `undefined`
-- C: `undefined` and `undefined`
+- A: `a is bigger`, `6` และ `b is bigger`, `3`
+- B: `a is bigger`, `undefined` และ `b is bigger`, `undefined`
+- C: `undefined` และ `undefined`
 - D: `SyntaxError`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
-#### Answer: B
+#### คำตอบ: B
 
 In JavaScript, we don't _have_ to write the semicolon (`;`) explicitly, however the JavaScript engine still adds them after statements. This is called **Automatic Semicolon Insertion**. A statement can for example be variables, or keywords like `throw`, `return`, `break`, etc. 
 
@@ -3029,7 +3028,7 @@ This means that `a + b` is never reached, since a function stops running after t
 
 ---
 
-###### 96. What's the output?
+###### 96. ผลลัพธ์ที่ได้คืออะไร?
 
 ```javascript
 class Person {
@@ -3053,10 +3052,10 @@ console.log(member.name)
 - C: `Error: cannot redeclare Person`
 - D: `SyntaxError`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
-#### Answer: B
+#### คำตอบ: B
 
 We can set classes equal to other classes/function constructors. In this case, we set `Person` equal to `AnotherPerson`. The name on this constructor is `Sarah`, so the name property on the new `Person` instance `member` is `"Sarah"`.
 
@@ -3065,7 +3064,7 @@ We can set classes equal to other classes/function constructors. In this case, w
 
 ---
 
-###### 97. What's the output?
+###### 97. ผลลัพธ์ที่ได้คืออะไร?
 
 ```javascript
 const info = {
@@ -3076,15 +3075,15 @@ console.log(info)
 console.log(Object.keys(info))
 ```
 
-- A: `{Symbol('a'): 'b'}` and `["{Symbol('a')"]`
-- B: `{}` and `[]`
-- C: `{ a: "b" }` and `["a"]`
-- D: `{Symbol('a'): 'b'}` and `[]`
+- A: `{Symbol('a'): 'b'}` และ `["{Symbol('a')"]`
+- B: `{}` และ `[]`
+- C: `{ a: "b" }` และ `["a"]`
+- D: `{Symbol('a'): 'b'}` และ `[]`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
-#### Answer: D
+#### คำตอบ: D
 
 A Symbol is not _enumerable_. The Object.keys method returns all _enumerable_ key properties on an object. The Symbol won't be visible, and an empty array is returned. When logging the entire object, all properties will be visible, even non-enumerable ones.
 
@@ -3095,7 +3094,7 @@ This is one of the many qualities of a symbol: besides representing an entirely 
 
 ---
 
-###### 98. What's the output?
+###### 98. ผลลัพธ์ที่ได้คืออะไร?
 
 ```javascript
 const getList = ([x, ...y]) => [x, y]
@@ -3108,21 +3107,21 @@ console.log(getList(list))
 console.log(getUser(user))
 ```
 
-- A: `[1, [2, 3, 4]]` and `undefined`
-- B: `[1, [2, 3, 4]]` and `{ name: "Lydia", age: 21 }`
-- C: `[1, 2, 3, 4]` and `{ name: "Lydia", age: 21 }`
-- D: `Error` and `{ name: "Lydia", age: 21 }`
+- A: `[1, [2, 3, 4]]` และ `undefined`
+- B: `[1, [2, 3, 4]]` และ `{ name: "Lydia", age: 21 }`
+- C: `[1, 2, 3, 4]` และ `{ name: "Lydia", age: 21 }`
+- D: `Error` และ `{ name: "Lydia", age: 21 }`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
-#### Answer: A
+#### คำตอบ: A
 
 The `getList` function receives an array as its argument. Between the parentheses of the `getList` function, we destructure this array right away. You could see this as:
 
  `[x, ...y] = [1, 2, 3, 4]`
 
- With the rest parameter `...y`, we put all "remaining" arguments in an array. The remaining arguments are `2`, `3` and `4` in this case. The value of `y` is an array, containing all the rest parameters. The value of `x` is equal to `1` in this case, so when we log `[x, y]`, `[1, [2, 3, 4]]` gets logged.
+ With the rest parameter `...y`, we put all "remaining" arguments in an array. The remaining arguments are `2`, `3` และ `4` in this case. The value of `y` is an array, containing all the rest parameters. The value of `x` is equal to `1` in this case, so when we log `[x, y]`, `[1, [2, 3, 4]]` gets logged.
 
  The `getUser` function receives an object. With arrow functions, we don't _have_ to write curly brackets if we just return one value. However, if you want to return an _object_ from an arrow function, you have to write it between parentheses, otherwise no value gets returned! The following function would have returned an object:
 
@@ -3135,7 +3134,7 @@ Since no value gets returned in this case, the function returns `undefined`.
 
 ---
 
-###### 99. What's the output?
+###### 99. ผลลัพธ์ที่ได้คืออะไร?
 
 ```javascript
 const name = "Lydia"
@@ -3148,10 +3147,10 @@ console.log(name())
 - C: `TypeError`
 - D: `undefined`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
-#### Answer: C
+#### คำตอบ: C
 
 The variable `name` holds the value of a string, which is not a function, thus cannot invoke. 
 
@@ -3165,7 +3164,7 @@ ReferenceErrors get thrown when JavaScript isn't able to find a reference to a v
 
 ---
 
-###### 100. What's the value of output?
+###### 100. ผลลัพธ์ที่ได้คืออะไร?
 
 ```javascript
 // 🎉✨ This is my 100th question! ✨🎉
@@ -3179,10 +3178,10 @@ You should${'' && `n't`} see a therapist after so much JavaScript lol`
 - C: `possible! You shouldn't see a therapist after so much JavaScript lol`
 - D: `Impossible! You shouldn't see a therapist after so much JavaScript lol`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
-#### Answer: B
+#### คำตอบ: B
 
 `[]` is a truthy value. With the `&&` operator, the right-hand value will be returned if the left-hand value is a truthy value. In this case, the left-hand value `[]` is a truthy value, so `"Im'` gets returned.
 
@@ -3193,7 +3192,7 @@ You should${'' && `n't`} see a therapist after so much JavaScript lol`
 
 ---
 
-###### 101. What's the value of output?
+###### 101. ผลลัพธ์ที่ได้คืออะไร?
 
 ```javascript
 const one = (false || {} || null)
@@ -3208,10 +3207,10 @@ console.log(one, two, three)
 - C: `{}` `""` `[]`
 - D: `null` `null` `true`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
-#### Answer: C
+#### คำตอบ: C
 
 With the `||` operator, we can return the first truthy operand. If all values are falsy, the last operand gets returned.
 
@@ -3226,7 +3225,7 @@ With the `||` operator, we can return the first truthy operand. If all values ar
 
 ---
 
-###### 102. What's the value of output?
+###### 102. <a name=20190927></a>ผลลัพธ์ที่ได้คืออะไร?
 
 ```javascript
 const myPromise = () => Promise.resolve('I have resolved!')
@@ -3245,19 +3244,19 @@ firstFunction()
 secondFunction()
 ```
 
-- A: `I have resolved!`, `second` and `I have resolved!`, `second`
-- B: `second`, `I have resolved!` and `second`, `I have resolved!`
-- C: `I have resolved!`, `second` and `second`, `I have resolved!`
-- D: `second`, `I have resolved!` and `I have resolved!`, `second`
+- A: `I have resolved!`, `second` และ `I have resolved!`, `second`
+- B: `second`, `I have resolved!` และ `second`, `I have resolved!`
+- C: `I have resolved!`, `second` และ `second`, `I have resolved!`
+- D: `second`, `I have resolved!` และ `I have resolved!`, `second`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
-#### Answer: D
+#### คำตอบ: D
 
 With a promise, we basically say _I want to execute this function, but I'll put it aside for now while it's running since this might take a while. Only when a certain value is resolved (or rejected), and when the call stack is empty, I want to use this value._
 
-We can get this value with both `.then` and the `await` keyword in an `async` function. Although we can get a promise's value with both `.then` and `await`, they work a bit differently. 
+We can get this value with both `.then` and the `await` keyword in an `async` function. Although we can get a promise's value with both `.then` และ `await`, they work a bit differently. 
 
 In the `firstFunction`, we (sort of) put the myPromise function aside while it was running, but continued running the other code, which is `console.log('second')` in this case. Then, the function resolved with the string `I have resolved`, which then got logged after it saw that the callstack was empty. 
 
@@ -3270,7 +3269,7 @@ This means that it waited for the `myPromise` to resolve with the value `I have 
 
 ---
 
-###### 103. What's the value of output?
+###### 103. ผลลัพธ์ที่ได้คืออะไร?
 
 ```javascript
 const set = new Set()
@@ -3289,16 +3288,16 @@ for (let item of set) {
 - C: `3`, `Lydia2`, `[Object object]2`
 - D: `"12"`, `Lydia2`, `[Object object]2`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
-#### Answer: C
+#### คำตอบ: C
 
-The `+` operator is not only used for adding numerical values, but we can also use it to concatenate strings. Whenever the JavaScript engine sees that one or more values are not a number, it coerces the number into a string. 
+The `+` operator is not only used for adding numerica lvalues, but we can also use it to concatenate strings. Whenever the JavaScript engine sees that one or more values are not a number, it coerces the number into a string. 
 
 The first one is `1`, which is a numerical value. `1 + 2` returns the number 3.
 
-However, the second one is a string `"Lydia"`. `"Lydia"` is a string and `2` is a number: `2` gets coerced into a string. `"Lydia"` and `"2"` get concatenated, which results in the string `"Lydia2"`. 
+However, the second one is a string `"Lydia"`. `"Lydia"` is a string and `2` is a number: `2` gets coerced into a string. `"Lydia"` และ `"2"` get concatenated, whic hresults in the string `"Lydia2"`. 
 
 `{ name: "Lydia" }` is an object. Neither a number nor an object is a string, so it stringifies both. Whenever we stringify a regular object, it becomes `"[Object object]"`. `"[Object object]"` concatenated with `"2"` becomes `"[Object object]2"`.
 
@@ -3307,7 +3306,7 @@ However, the second one is a string `"Lydia"`. `"Lydia"` is a string and `2` is 
 
 ---
 
-###### 104. What's its value?
+###### 104. ผลลัพธ์ที่ได้คืออะไร?
 
 ```javascript
 Promise.resolve(5)
@@ -3318,10 +3317,10 @@ Promise.resolve(5)
 - C: `Promise {<resolved>: 5}`
 - D: `Error`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
-#### Answer: C
+#### คำตอบ: C
 
 We can pass any type of value we want to `Promise.resolve`, either a promise or a non-promise. The method itself returns a promise with the resolved value. If you pass a regular function, it'll be a resolved promise with a regular value. If you pass a promise, it'll be a resolved promise with the resolved value of that passed promise.
 
@@ -3332,7 +3331,7 @@ In this case, we just passed the numerical value `5`. It returns a resolved prom
 
 ---
 
-###### 105. What's its value?
+###### 105. ผลลัพธ์ที่ได้คืออะไร?
 
 ```javascript
 function compareMembers(person1, person2 = person) {
@@ -3353,10 +3352,10 @@ compareMembers(person)
 - C: `ReferenceError`
 - D: `SyntaxError`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
-#### Answer: B
+#### คำตอบ: B
 
 Objects are passed by reference. When we check objects for strict equality (`===`), we're comparing their references. 
 
@@ -3371,7 +3370,7 @@ The code block in the `else` statement gets run, and `They are the same!` gets l
 
 ---
 
-###### 106. What's its value?
+###### 106. ผลลัพธ์ที่ได้คืออะไร?
 
 ```javascript
 const colorConfig = {
@@ -3392,14 +3391,14 @@ console.log(colorConfig.colors[1])
 - C: `undefined`
 - D: `TypeError`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
-#### Answer: D
+#### คำตอบ: D
 
 In JavaScript, we have two ways to access properties on an object: bracket notation, or dot notation. In this example, we use dot notation (`colorConfig.colors`) instead of bracket notation (`colorConfig["colors"]`). 
 
-With dot notation, JavaScript tries to find the property on the object with that exact name. In this example, JavaScript tries to find a property called `colors` on the `colorConfig` object. There is no proprety called `colors`, so this returns `undefined`. Then, we try to access the value of the first element by using `[1]`. We cannot do this on a value that's `undefined`, so it throws a `TypeError`: `Cannot read property '1' of undefined`.
+With dot notation, JavaScript tries to find the property on the object with that exact name. In this example, JavaScript tries to find a property called `colors` on the `colorConfig` object. There is no proprety called `colorConfig`, so this returns `undefined`. Then, we try to access the value of the first element by using `[1]`. We cannot do this on a value that's `undefined`, so it throws a `TypeError`: `Cannot read property '1' of undefined`.
 
 JavaScript interprets (or unboxes) statements. When we use bracket notation, it sees the first opening bracket `[` and keeps going until it finds the closing bracket `]`. Only then, it will evaluate the statement. If we would've used `colorConfig[colors[1]]`, it would have returned the value of the `red` property on the `colorConfig` object. 
 
@@ -3408,7 +3407,7 @@ JavaScript interprets (or unboxes) statements. When we use bracket notation, it 
 
 ---
 
-###### 107. What's its value?
+###### 107. ผลลัพธ์ที่ได้คืออะไร?
 
 ```javascript
 console.log('❤️' === '❤️')
@@ -3417,10 +3416,10 @@ console.log('❤️' === '❤️')
 - A: `true`
 - B: `false`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
-#### Answer: A
+#### คำตอบ: A
 
 Under the hood, emojis are unicodes. The unicodes for the heart emoji is `"U+2764 U+FE0F"`. These are always the same for the same emojis, so we're comparing two equal strings to each other, which returns true. 
 
@@ -3447,307 +3446,14 @@ emojis.splice(1, 2, '✨')
 - C: `map` `slice` `splice` 
 - D: `splice`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
-#### Answer: D
+#### คำตอบ: D
 
-With `splice` method, we modify the original array by deleting, replacing or adding elements. In this case, we removed 2 items from index 1 (we removed `'🥑'` and `'😍'`) and added the ✨ emoji instead. 
+With `splice` method, we modify the original array by deleting, replacing or adding elements. In this case, we removed 2 items from index 1 (we removed `'🥑'` และ `'😍'`) and added the ✨ emoji instead. 
 
-`map`, `filter` and `slice` return a new array, `find` returns an element, and `reduce` returns a reduced value.
-
-</p>
-</details>
-
----
-
-###### <a name=20191009></a>109. What's the output?
-
-```javascript
-const food = ['🍕', '🍫', '🥑', '🍔']
-const info = { favoriteFood: food[0] }
-
-info.favoriteFood = '🍝'
-
-console.log(food)
-```
-
-- A: `['🍕', '🍫', '🥑', '🍔']`
-- B: `['🍝', '🍫', '🥑', '🍔']`
-- C: `['🍝', '🍕', '🍫', '🥑', '🍔']` 
-- D: `ReferenceError`
-
-<details><summary><b>Answer</b></summary>
-<p>
-
-#### Answer: A
-
-We set the value of the `favoriteFood` property on the `info` object equal to the string with the pizza emoji, `'🍕'`. A string is a primitive data type. In JavaScript, primitive data types act by reference 
-
-In JavaScript, primitive data types (everything that's not an object) interact by _value_. In this case, we set the value of the `favoriteFood` property on the `info` object equal to the value of the first element in the `food` array, the string with the pizza emoji in this case (`'🍕'`). A string is a primitive data type, and interact by value (see my [blogpost](https://www.theavocoder.com/complete-javascript/2018/12/21/by-value-vs-by-reference) if you're interested in learning more)
-
-Then, we change the value of the `favoriteFood` property on the `info` object. The `food` array hasn't changed, since the value of `favoriteFood` was merely a _copy_ of the value of the first element in the array, and doesn't have a reference to the same spot in memory as the element on `food[0]`. When we log food, it's still the original array, `['🍕', '🍫', '🥑', '🍔']`.
-
-</p>
-</details>
-
----
-
-###### 110. What does this method do?
-
-```javascript
-JSON.parse()
-```
-
-- A: Parses JSON to a JavaScript value
-- B: Parses a JavaScript object to JSON
-- C: Parses any JavaScript value to JSON
-- D: Parses JSON to a JavaScript object only
-
-<details><summary><b>Answer</b></summary>
-<p>
-
-#### Answer: A
-
-With the `JSON.parse()` method, we can parse JSON string to a JavaScript value. 
-
-```javascript
-// Stringifying a number into valid JSON, then parsing the JSON string to a JavaScript value:
-const jsonNumber = JSON.stringify(4) // '4'
-JSON.parse(jsonNumber) // 4
-
-// Stringifying an array value into valid JSON, then parsing the JSON string to a JavaScript value:
-const jsonArray = JSON.stringify([1, 2, 3]) // '[1, 2, 3]'
-JSON.parse(jsonArray) // [1, 2, 3]
-
-// Stringifying an object  into valid JSON, then parsing the JSON string to a JavaScript value:
-const jsonArray = JSON.stringify({ name: "Lydia" }) // '{"name":"Lydia"}'
-JSON.parse(jsonArray) // { name: 'Lydia' }
-```
-
-</p>
-</details>
-
----
-
-###### 111. What's the output? 
-
-```javascript
-let name = 'Lydia'
-
-function getName() {
-  console.log(name)
-  let name = 'Sarah'
-}
-
-getName()
-```
-
-- A: Lydia
-- B: Sarah
-- C: `undefined`
-- D: `ReferenceError`
-
-<details><summary><b>Answer</b></summary>
-<p>
-
-#### Answer: D
-
-Each function has its own _execution context_ (or _scope_). The `getName` function first looks within its own context (scope) to see if it contains the variable `name` we're trying to access. In this case, the `getName` function contains its own `name` variable: we declare the variable `name` with the `let` keyword, and with the value of `'Sarah'`. 
-
-Variables with the `let` keyword (and `const`) are hoisted, but unlike `var`, don't get <i>initialized</i>. They are not accessible before the line we declare (initialize) them. This is called the "temporal dead zone". When we try to access the variables before they are declared, JavaScript throws a `ReferenceError`. 
-
-If we wouldn't have declared the `name` variable within the `getName` function, the javascript engine would've looked down the _scope chain_. The outer scope has a variable called `name` with the value of `Lydia`. In that case, it would've logged `Lydia`. 
-
-```javascript
-let name = 'Lydia'
-
-function getName() {
-  console.log(name)
-}
-
-getName() // Lydia
-```
-
-</p>
-</details>
-
----
-
-###### 112. What's the output?
-
-```javascript
-function* generatorOne() {
-  yield ['a', 'b', 'c'];
-}
-
-function* generatorTwo() {
-  yield* ['a', 'b', 'c'];
-}
-
-const one = generatorOne()
-const two = generatorTwo()
-
-console.log(one.next().value)
-console.log(two.next().value)
-```
-
-- A: `a` and `a`
-- B: `a` and `undefined`
-- C: `['a', 'b', 'c']` and `a`
-- D: `a` and `['a', 'b', 'c']`
-
-<details><summary><b>Answer</b></summary>
-<p>
-
-#### Answer: C
-
-With the `yield` keyword, we `yield` values in a generator function. With the `yield*` keyword, we can yield values from another generator function, or iterable object (for example an array).
-
-In `generatorOne`, we yield the entire array `['a', 'b', 'c']` using the `yield` keyword. The value of `value` property on the object returned by the `next` method on `one` (`one.next().value`) is equal to the entire array `['a', 'b', 'c']`.
-
-```javascript
-console.log(one.next().value) // ['a', 'b', 'c']
-console.log(one.next().value) // undefined
-```
-
-In `generatorTwo`, we use the `yield*` keyword. This means that the first yielded value of `two`, is equal to the first yielded value in the iterator. The iterator is the array `['a', 'b', 'c']`. The first yielded value is `a`, so the first time we call `two.next().value`, `a` is returned. 
-
-```javascript
-console.log(two.next().value) // 'a'
-console.log(two.next().value) // 'b'
-console.log(two.next().value) // 'c'
-console.log(two.next().value) // undefined
-```
-
-</p>
-</details>
-
----
-
-###### 113. What's the output?
-
-```javascript
-console.log(`${(x => x)('I love')} to program`)
-```
-
-- A: `I love to program`
-- B: `undefined to program`
-- C: `${(x => x)('I love') to program`
-- D: `TypeError`
-
-<details><summary><b>Answer</b></summary>
-<p>
-
-#### Answer: A
-
-Expressions within template literals are evaluated first. This means that the string will contain the returned value of the expression, the immediately invoked function `(x => x)('I love')` in this case. We pass the value `'I love'` as an argument to the `x => x` arrow function. `x` is equal to `'I love'`, which gets returned. This results in `I love to program`. 
-
-</p>
-</details>
-
----
-
-###### 114. What will happen?
-
-```javascript
-let config = {
-  alert: setInterval(() => {
-    console.log('Alert!')
-  }, 1000)
-}
-
-config = null
-```
-
-- A: The `setInterval` callback won't be invoked
-- B: The `setInterval` callback gets invoked once
-- C: The `setInterval` callback will still be called every second
-- D: We never invoked `config.alert()`, config is `null`
-
-<details><summary><b>Answer</b></summary>
-<p>
-
-#### Answer: C
-
-Normally when we set objects equal to `null`, those objects get _garbage collected_ as there is no reference anymore to that object. However, since the callback function within `setInterval` is an arrow function (thus bound to the `config` object), the callback function still holds a reference to the `config` object. As long as there is a reference, the object won't get garbage collected. Since it's not garbage collected, the `setInterval` callback function will still get invoked every 1000ms (1s).
-
-</p>
-</details>
-
----
-
-###### 115. Which method(s) will return the value `'Hello world!'`?
-
-```javascript
-const myMap = new Map()
-const myFunc = () => 'greeting'
-
-myMap.set(myFunc, 'Hello world!')
-
-//1
-myMap.get('greeting')
-//2
-myMap.get(myFunc)
-//3
-myMap.get(() => 'greeting')
-```
-
-- A: 1
-- B: 2
-- C: 2 and 3
-- D: All of them
-
-<details><summary><b>Answer</b></summary>
-<p>
-
-#### Answer: B
-
-When adding a key/value pair using the `set` method, the key will be the value of the first argument passed to the `set` function, and the value will be the second argument passed to the `set` function. The key is the _function_ `() => 'greeting'` in this case, and the value `'Hello world'`. `myMap` is now `{ () => 'greeting' => 'Hello world!' }`. 
-
-1 is wrong, since the key is not `'greeting'` but `() => 'greeting'`.
-3 is wrong, since we're creating a new function by passing it as a parameter to the `get` method. Object interact by _reference_. Functions are objects, which is why two functions are never strictly equal, even if they are identical: they have a reference to a different spot in memory. 
-
-</p>
-</details>
-
----
-
-###### 116. What's the output?
-
-```javascript
-const person = {
-  name: "Lydia",
-  age: 21
-}
-
-const changeAge = (x = { ...person }) => x.age += 1
-const changeAgeAndName = (x = { ...person }) => {
-  x.age += 1
-  x.name = "Sarah"
-}
-
-changeAge(person)
-changeAgeAndName()
-
-console.log(person)
-```
-
-- A: `{name: "Sarah", age: 22}`
-- B: `{name: "Sarah", age: 23}`
-- C: `{name: "Lydia", age: 22}`
-- D: `{name: "Lydia", age: 23}`
-
-<details><summary><b>Answer</b></summary>
-<p>
-
-#### Answer: C
-
-Both the `changeAge` and `changeAgeAndName` functions have a default parameter, namely a _newly_ created object `{ ...person }`. This object has copies of all the key/values in the `person` object. 
-
-First, we invoke the `changeAge` function and pass the `person` object as its argument. This function increases the value of the `age` property by 1. `person` is now `{ name: "Lydia", age: 22 }`.
-
-Then, we invoke the `changeAgeAndName` function, however we don't pass a parameter. Instead, the value of `x` is equal to a _new_ object: `{ ...person }`. Since it's a new object, it doesn't affect the values of the properties on the `person` object. `person` is still equal to `{ name: "Lydia", age: 22 }`.
+`map`, `filter` และ `slice` return a new array, `find` returns an element, and `reduce` returns a reduced value.
 
 </p>
 </details>
