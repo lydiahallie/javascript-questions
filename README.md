@@ -1499,7 +1499,7 @@ Only the first numbers in the string is returned. Based on the _radix_ (the seco
 
 ---
 
-###### 50. What's the output`?
+###### 50. What's the output?
 
 ```javascript
 [1, 2, 3].map(num => {
@@ -1593,9 +1593,9 @@ sayHi();
 
 #### Answer: D
 
-With the `throw` statement, we can create custom errors. With this statement, you can throw exceptions. An exception can be a <b>string</b>, a <b>number</b>, a <b>boolean</b> or an <b>object</b>. In this case, our exception is the string `'Hello world'`.
+With the `throw` statement, we can create custom errors. With this statement, you can throw exceptions. An exception can be a <b>string</b>, a <b>number</b>, a <b>boolean</b> or an <b>object</b>. In this case, our exception is the string `'Hello world!'`.
 
-With the `catch` statement, we can specify what to do if an exception is thrown in the `try` block. An exception is thrown: the string `'Hello world'`. `e` is now equal to that string, which we log. This results in `'Oh an error: Hello world'`.
+With the `catch` statement, we can specify what to do if an exception is thrown in the `try` block. An exception is thrown: the string `'Hello world!'`. `e` is now equal to that string, which we log. This results in `'Oh an error: Hello world!'`.
 
 </p>
 </details>
@@ -1652,7 +1652,7 @@ console.log(typeof y);
 
 #### Answer: A
 
-`let x = y = 10;` is actually shorthand for:
+`let x = (y = 10);` is actually shorthand for:
 
 ```javascript
 y = 10;
