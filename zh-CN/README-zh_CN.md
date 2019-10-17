@@ -3225,3 +3225,242 @@ console.log(one, two, three)
 
 </p>
 </details>
+
+---
+
+###### 102. 输出的结果是什么？
+
+```javascript
+const myPromise = () => Promise.resolve('I have resolved!')
+
+function firstFunction() {
+  myPromise().then(res => console.log(res))
+  console.log('second')
+}
+
+async function secondFunction() {
+  console.log(await myPromise())
+  console.log('second')
+}
+
+firstFunction()
+secondFunction()
+```
+
+- A: `I have resolved!`, `second` and `I have resolved!`, `second`
+- B: `second`, `I have resolved!` and `second`, `I have resolved!`
+- C: `I have resolved!`, `second` and `second`, `I have resolved!`
+- D: `second`, `I have resolved!` and `I have resolved!`, `second`
+
+<details><summary><b>答案</b></summary>
+<p>
+
+#### 答案: D
+
+对于promise，我们基本上说 _我想要执行此函数，但是由于执行此函数可能需要一段时间，因此，先暂时将其搁置一旁。仅当某个值被resolved（或rejected）并且调用栈为空时，我才想使用这个值。_
+
+我们可以在异步函数中同时使用`.then`和`await`关键字来获取promise的返回值。尽管我们可以同时使用`.then`和`await`来获得promise的返回值，但它们的运行方式有所不同。
+
+在`firstFunction`函数中，当这个函数运行的时候，代码执行到myPromise函数时，系统会将其放在一边，继续执行下一行代码，在本例中为`console.log('second')`，执行完成之后，myPromise函数返回一个resolved后的字符串'I have resolved!' 在看到调用堆栈为空之后将其记录下来。
+
+由于在`secondFunction`函数中使用了`await`关键字，从字面上暂停了异步函数的执行，程序将会等到myPromise函数返回结果之后，才会执行下一行代码，
+
+This means that it waited for the `myPromise` to resolve with the value `I have resolved`, and only once that happened, we moved to the next line: `second` got logged. 
+
+这意味着，程序在等待`myPromise`的resolved的值`I have resolved！`，只有发生这种情况后，程序才会执行下一行代码：`console.log('second')`
+
+</p>
+</details>
+
+---
+
+###### 103. 输出的结果是什么？
+
+```javascript
+const set = new Set()
+
+set.add(1)
+set.add("Lydia")
+set.add({ name: "Lydia" })
+
+for (let item of set) {
+  console.log(item + 2)
+}
+```
+
+- A: `3`, `NaN`, `NaN`
+- B: `3`, `7`, `NaN`
+- C: `3`, `Lydia2`, `[Object object]2`
+- D: `"12"`, `Lydia2`, `[Object object]2`
+
+<details><summary><b>答案</b></summary>
+<p>
+
+#### 答案: C
+
+“+”运算符不仅用于添加数值，还可以使用它来连接字符串。 每当JavaScript引擎发现一个或多个值不是数字时，就会将数字强制为字符串。 
+
+第一个是数字1。 1 + 2返回数字3。
+
+但是，第二个是字符串“Lydia”。 “Lydia”是一个字符串，2是一个数字：2被强制转换为字符串。 “Lydia”和“2”被连接起来，产生字符串“Lydia2”。
+
+`{name：“ Lydia”}`是一个对象。 数字和对象都不是字符串，因此将二者都字符串化。 每当我们对常规对象进行字符串化时，它就会变成“[Object object]”`。 与“2”串联的“ [Object object]”成为“[Object object]2”。
+
+</p>
+</details>
+
+---
+
+###### 104. 它的值是什么？
+
+```javascript
+Promise.resolve(5)
+```
+
+- A: `5`
+- B: `Promise {<pending>: 5}`
+- C: `Promise {<resolved>: 5}`
+- D: `Error`
+
+<details><summary><b>答案</b></summary>
+<p>
+
+#### 答案: C
+
+我们可以将我们想要的任何类型的值传递给Promise.resolve，无论是Promise还是非Promise。 该方法本身返回带有resolved值的Promise。 
+如果您传递常规函数，它将是具有常规值的resolved的Promise。 如果您传入一个promise，它将是resolved的promise，其中包含已传入promise的resolved值。
+
+在这种情况下，我们只传递了数值 5 。 它返回值为 5 的resolved的promise。
+
+</p>
+</details>
+
+---
+
+###### 105. 它的值是什么？
+
+```javascript
+function compareMembers(person1, person2 = person) {
+  if (person1 !== person2) {
+    console.log("Not the same!")
+  } else {
+    console.log("They are the same!")
+  }
+}
+
+const person = { name: "Lydia" }
+
+compareMembers(person)
+```
+
+- A: `Not the same!`
+- B: `They are the same!`
+- C: `ReferenceError`
+- D: `SyntaxError`
+
+<details><summary><b>答案</b></summary>
+<p>
+
+#### 答案: B
+
+对象通过引用传递。 当我们检查对象的严格相等性（===）时，我们正在比较它们的引用。
+
+我们将“person2”的默认值设置为“person”对象，并将“person”对象作为“person1”的值传递。
+
+这意味着两个值都引用内存中的同一位置，因此它们是相等的。
+
+运行“ else”语句中的代码块，并记录`They are the same!` 。
+
+</p>
+</details>
+
+---
+
+###### 106. 它的值是什么？
+
+```javascript
+const colorConfig = {
+  red: true,
+  blue: false,
+  green: true,
+  black: true,
+  yellow: false,
+}
+
+const colors = ["pink", "red", "blue"]
+
+console.log(colorConfig.colors[1])
+```
+
+- A: `true`
+- B: `false`
+- C: `undefined`
+- D: `TypeError`
+
+<details><summary><b>答案</b></summary>
+<p>
+
+#### 答案: D
+
+在JavaScript中，我们有两种访问对象属性的方法：括号表示法或点表示法。 在此示例中，我们使用点表示法（`colorConfig.colors`）代替括号表示法（`colorConfig [“ colors”]`）。
+
+使用点表示法，JavaScript会尝试使用该确切名称在对象上查找属性。 在此示例中，JavaScript尝试在colorconfig对象上找到名为colors的属性。 没有名为“colors”的属性，因此返回“undefined”。
+然后，我们尝试使用`[1]`访问第一个元素的值。 我们无法对未定义的值执行此操作，因此会抛出`Cannot read property '1' of undefined`。
+
+JavaScript解释（或取消装箱）语句。 当我们使用方括号表示法时，它会看到第一个左方括号`[`并一直进行下去，直到找到右方括号`]`。 只有这样，它才会评估该语句。 如果我们使用了colorConfig [colors [1]]，它将返回colorConfig对象上red属性的值。
+
+</p>
+</details>
+
+---
+
+###### 107. 它的值是什么？
+
+```javascript
+console.log('❤️' === '❤️')
+```
+
+- A: `true`
+- B: `false`
+
+<details><summary><b>答案</b></summary>
+<p>
+
+#### 答案: A
+
+在内部，表情符号是unicode。 heat表情符号的unicode是`“ U + 2764 U + FE0F”`。 对于相同的表情符号，它们总是相同的，因此我们将两个相等的字符串相互比较，这将返回true。
+
+</p>
+</details>
+
+---
+
+###### 108. 以下哪种方法可以修改原始数组？
+
+```javascript
+const emojis = ['✨', '🥑', '😍']
+
+emojis.map(x => x + '✨')
+emojis.filter(x => x !== '🥑')
+emojis.find(x => x !== '🥑')
+emojis.reduce((acc, cur) => acc + '✨')
+emojis.slice(1, 2, '✨') 
+emojis.splice(1, 2, '✨')
+```
+
+- A: `All of them`
+- B: `map` `reduce` `slice` `splice`
+- C: `map` `slice` `splice` 
+- D: `splice`
+
+<details><summary><b>答案</b></summary>
+<p>
+
+#### 答案: D
+
+使用`splice`方法，我们通过删除，替换或添加元素来修改原始数组。 在这种情况下，我们从索引1中删除了2个项目（我们删除了`'🥑'`和`'😍'`），而是添加了✨emoji表情。
+
+“map”，“filter”和“slice”返回一个新数组，“find”返回一个元素，而“reduce”返回一个减小的值。
+
+</p>
+</details>
