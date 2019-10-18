@@ -877,9 +877,9 @@ console.log(a[b]);
 
 객체 키는 자동으로 문자열로 변환돼요. 객체 `a`의 키 값으로 `123`을 세팅하려고 해요.
 
-그러나, 객체를 문자열화 하면 `"[Object object]"`가 돼요. 그래서 여기서 말하고자 하는 건 `a["Object object"] = 123`이라는 거예요. 그 후, 같은 일을 다시 시도해요. `c`는 암묵적으로 문자열화 한 다른 객체에요. 그래서 `a["Object object"] = 456`이 돼요.
+그러나, 객체를 문자열화 하면 `"[object Object]"`가 돼요. 그래서 여기서 말하고자 하는 건 `a["object Object"] = 123`이라는 거예요. 그 후, 같은 일을 다시 시도해요. `c`는 암묵적으로 문자열화 한 다른 객체에요. 그래서 `a["object Object"] = 456`이 돼요.
 
-그 후, `a[b]`는 출력하면 실제로는 `a["Object object"]`에요. 단지 `456`을 설정했기 때문에, `456`을 리턴해요.
+그 후, `a[b]`는 출력하면 실제로는 `a["object Object"]`에요. 단지 `456`을 설정했기 때문에, `456`을 리턴해요.
 
 </p>
 </details>
@@ -3288,8 +3288,8 @@ for (let item of set) {
 
 - A: `3`, `NaN`, `NaN`
 - B: `3`, `7`, `NaN`
-- C: `3`, `Lydia2`, `[Object object]2`
-- D: `"12"`, `Lydia2`, `[Object object]2`
+- C: `3`, `Lydia2`, `[object Object]2`
+- D: `"12"`, `Lydia2`, `[object Object]2`
 
 <details><summary><b>정답</b></summary>
 <p>
@@ -3302,7 +3302,7 @@ for (let item of set) {
 
 그러나, 두번째는 문자열 `"Lydia"`이에요. `"Lydia"`은 문자열이고, `2`는 숫자에요: `2`는 문자열로 강제 변환되어요. `"Lydia"`그리고 `"2"`이 연결되어, 문자열 `"Lydia2"`이 리턴되요.
 
-`{ name: "Lydia" }`은 객체에요. 객체가 아닌 숫자나 객체는 문자열이 아니므로, 둘다 문자화되어요. 정규 객체를 문자화 할때, `"[Object object]"`가 돼요. `"[Object object]"`는 `"2"`와 연결되어 `"[Object object]2"`가 돼요.
+`{ name: "Lydia" }`은 객체에요. 객체가 아닌 숫자나 객체는 문자열이 아니므로, 둘다 문자화되어요. 정규 객체를 문자화 할때, `"[object Object]"`가 돼요. `"[object Object]"`는 `"2"`와 연결되어 `"[object Object]2"`가 돼요.
 
 </p>
 </details>
