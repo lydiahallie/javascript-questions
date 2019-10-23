@@ -3167,3 +3167,31 @@ Se lanzan errores del tipo ReferenceError cuando JavaScript no puede encontrar u
 
 ---
 
+###### 100. ¿Cuál es el valor de la salida?
+
+```javascript
+// 🎉✨ This is my 100th question! ✨🎉
+
+const output = `${[] && 'Im'}possible!
+You should${'' && `n't`} see a therapist after so much JavaScript lol`
+```
+
+- A: `possible! You should see a therapist after so much JavaScript lol`
+- B: `Impossible! You should see a therapist after so much JavaScript lol`
+- C: `possible! You shouldn't see a therapist after so much JavaScript lol`
+- D: `Impossible! You shouldn't see a therapist after so much JavaScript lol`
+
+<details><summary><b>Solución</b></summary>
+<p>
+
+#### Answer: B
+
+`[]` es un valor verdadero (se convierte a un valor verdadero en un contexto booleano). Con el operador `&&`, se devolverá el valor de la derecha si el valor de la izquierda es un valor verdadero. En este caso, el valor de la izquierda `[]` es un valor verdadero, por lo tanto se devuelve `"Im'`.
+
+`""` es un valor falso (se convierte a un valor falso en un contexto booleano). Si el valor de la izquierda es falso, no se devuelve nada. `n't` no se devuelve.
+
+</p>
+</details>
+
+---
+
