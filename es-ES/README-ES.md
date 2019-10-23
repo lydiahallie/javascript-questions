@@ -3195,3 +3195,36 @@ You should${'' && `n't`} see a therapist after so much JavaScript lol`
 
 ---
 
+###### 101. ¿Cuál es el valor de la salida?
+
+```javascript
+const one = (false || {} || null)
+const two = (null || false || "")
+const three = ([] || 0 || true)
+
+console.log(one, two, three)
+```
+
+- A: `false` `null` `[]`
+- B: `null` `""` `true`
+- C: `{}` `""` `[]`
+- D: `null` `null` `true`
+
+<details><summary><b>Solución</b></summary>
+<p>
+
+#### Answer: C
+
+Con el operador `||`, podemos devolver el primer operando verdadero. Si todos los valores son falsos, se devuelve el último operando.
+
+`(false || {} || null)`: el objecto vacío `{}` es un valor verdadero. Este es el primero (y único) valor verdadero, que se devuelve. `one` es igual a `{}`.
+
+`(null || false || "")`: todos los operandos son valores falsos. Esto significa que el último operando, `""` es devuelto. `two` es igual a `""`.
+
+`([] || 0 || "")`: el array vacío `[]` es un valor verdadero. Este es el primer valor verdadero, que se devuelve. `three` es igual a `[]`.
+
+</p>
+</details>
+
+---
+
