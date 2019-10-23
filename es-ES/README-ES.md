@@ -7,7 +7,10 @@
  
  Las respuestas se encuentran en las secciones contraídas debajo de las preguntas, simplemente haz clic en ellas para expandirlas. Buena suerte ❤️
 
----
+¿Quieres recibir un email cada vez que agregue más preguntas? <br />
+<a target="_blank" href="https://www.theavocoder.com/subscribe"><b>✨✉Suscríbete a las actualizaciones por email✉✨</b></a>
+
+
 Lista de lenguajes disponibles:
 * [English](../en-EN/README.md)
 * [العربية](../ar-AR/README_AR.md)
@@ -2982,3 +2985,48 @@ getItems(["banana", "apple"], "pear", "orange")
 El ejemplo de arriba sí que funciona. Devuelve el array `[ 'banana', 'apple', 'orange', 'pear' ]`
 </p>
 </details>
+
+---
+
+###### 95. ¿Cuál es el resultado?
+
+```javascript
+function nums(a, b) {
+  if
+  (a > b)
+  console.log('a is bigger')
+  else 
+  console.log('b is bigger')
+  return 
+  a + b
+}
+
+console.log(nums(4, 2))
+console.log(nums(1, 2))
+```
+
+- A: `a is bigger`, `6` y `b is bigger`, `3`
+- B: `a is bigger`, `undefined` y `b is bigger`, `undefined`
+- C: `undefined` y `undefined`
+- D: `SyntaxError`
+
+<details><summary><b>Solución</b></summary>
+<p>
+
+#### Answer: B
+
+En JavaScript, no _tenemos_ que escribir el punto y coma (`;`) de forma explicita, sin embargo el motor de JavaScript todavía las añade al final de cada sentencia. Esto se denomina **Insercción automática de punto y coma**. Una sentencia puede ser, por ejemplo, variables, o palabras clave como `throw`, `return`, `break`, etc. 
+
+Aqui, escribimos una sentencia `return`, y otra sentencia de valor `a + b` en una _nueva línea_. Sin embargo, como es una línea nueva, el motor no sabe que en realidad es el valor que queríamos devolver. En cambio, añadió automáticamente un punto y coma después de `return`. Puedes ver esto como:
+
+```javascript
+  return;
+  a + b
+```
+
+Esto significa que nunca se alcanza `a + b`, ya que una función deja de ejecutarse después de la palabra clave` return`. Si no se devuelve ningún valor, como aquí, la función devuelve `undefined`. ¡Ten en cuenta que no hay inserción automática después de las sentencias `if/else`!
+
+</p>
+</details>
+
+---
