@@ -3228,3 +3228,46 @@ Con el operador `||`, podemos devolver el primer operando verdadero. Si todos lo
 
 ---
 
+###### 102. ¿Cuál es el valor de la salida?
+
+```javascript
+const myPromise = () => Promise.resolve('I have resolved!')
+
+function firstFunction() {
+  myPromise().then(res => console.log(res))
+  console.log('second')
+}
+
+async function secondFunction() {
+  console.log(await myPromise())
+  console.log('second')
+}
+
+firstFunction()
+secondFunction()
+```
+
+- A: `I have resolved!`, `second` y `I have resolved!`, `second`
+- B: `second`, `I have resolved!` y `second`, `I have resolved!`
+- C: `I have resolved!`, `second` y `second`, `I have resolved!`
+- D: `second`, `I have resolved!` y `I have resolved!`, `second`
+
+<details><summary><b>Solución</b></summary>
+<p>
+
+#### Answer: D
+
+Con una promesa, básicamente decimos _Quiero ejecutar esta función, pero la dejaré a un lado por ahora mientras se está ejecutando, ya que esto puede llevar un tiempo. Solo cuando se resuelve (o se rechaza) un cierto valor, y cuando la pila de llamadas está vacía, quiero usar este valor._
+
+Podemos obtener este valor con las palabras clave `.then` y `await` en una función `async`. Aunque podemos obtener el valor de una promesa tanto con `.then` como con` wait ', funcionan de manera un poco diferente. 
+
+En la función `firstFunction`, dejamos (de algún modo) a un lado la función myPromise mientras se estaba ejecutando, y seguimos ejecutando el otro código, que es `console.log('second')` en este caso. Luego, la función se resolvió con la cadena `I have resolved`, que luego se imprimió una vez que pila de llamadas quedó vacía. 
+
+Con la palabra clave await en `secondFunction`, literalmente hacemos una pausa en la ejecución de una función asíncrona hasta que el valor se haya resuelto antes de pasar a la siguiente línea de código.
+
+Esto significa que se esperó a que `myPromise` resolviera con el valor `I have resolved`, y solo una vez que eso sucedió, pasamos a la siguiente línea: `second` que se imprime. 
+
+</p>
+</details>
+
+---
