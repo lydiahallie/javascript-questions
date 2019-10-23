@@ -2982,3 +2982,81 @@ getItems(["banana", "apple"], "pear", "orange")
 El ejemplo de arriba sí que funciona. Devuelve el array `[ 'banana', 'apple', 'orange', 'pear' ]`
 </p>
 </details>
+
+---
+
+###### 95. ¿Cuál es el resultado?
+
+```javascript
+function nums(a, b) {
+  if
+  (a > b)
+  console.log('a is bigger')
+  else 
+  console.log('b is bigger')
+  return 
+  a + b
+}
+
+console.log(nums(4, 2))
+console.log(nums(1, 2))
+```
+
+- A: `a is bigger`, `6` y `b is bigger`, `3`
+- B: `a is bigger`, `undefined` y `b is bigger`, `undefined`
+- C: `undefined` y `undefined`
+- D: `SyntaxError`
+
+<details><summary><b>Solución</b></summary>
+<p>
+
+#### Respuesta correcta: B
+
+En JavaScript, no es _necesario_ escribir el punto y coma (`;`) de manera explícita; El motor de JavaScript los añadirá luego de las sentencias. Esto se llama **Inserción Automatica de Puntos y Comas**. Una sentencia puede ser, por ejemplo, variables, o palabras reservadas como `throw`, `return`, `break`, entre otras. 
+
+En este ejemplo, escribimos una sentencia `return`, y otro valor `a + b` en una _nueva linea_. Sin embargo, ya que es una nueva linea, el motor no sabe que este es el valor que queriamos devolver; Por consiguiente, automaticamente anadió un punto y coma luego de `return`. Podrías ver esto como:
+
+```javascript
+  return;
+  a + b
+```
+
+Esto significa que `a + b` nunca es alcanzado, ya que una función termina su ejecución luego de la palabra reservada `return`. Si ningún valor es devuelto, como en este caso, la funcion simplemente devuelve `undefined`. Es bueno observar que no hay inserción automatica de puntos y comas luego de sentencias `if/else`!
+</p>
+</details>
+
+---
+
+###### 96. Cuál es el resultado?
+
+```javascript
+class Person {
+  constructor() {
+    this.name = "Lydia"
+  }
+}
+
+Person = class AnotherPerson {
+  constructor() {
+    this.name = "Sarah"
+  }
+}
+
+const member = new Person()
+console.log(member.name)
+```
+
+- A: `"Lydia"`
+- B: `"Sarah"`
+- C: `Error: cannot redeclare Person`
+- D: `SyntaxError`
+
+<details><summary><b>Solución</b></summary>
+<p>
+
+#### Solución: B
+
+Podemos igualar clases a otras clases o funciones. En este caso, igualamos `Person` a `AnotherPerson`. El nombre en este constructor es `Sarah`, así que la propiedad name en la nueva instancia de `Person` llamada `member` es `"Sarah"`.
+
+</p>
+</details>
