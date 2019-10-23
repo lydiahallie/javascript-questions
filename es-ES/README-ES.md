@@ -3097,3 +3097,43 @@ Esta es una de las muchas cualidades de un símbolo: además de representar un v
 
 ---
 
+###### 98. ¿Cuál es el resultado?
+
+```javascript
+const getList = ([x, ...y]) => [x, y]
+const getUser = user => { name: user.name, age: user.age }
+
+const list = [1, 2, 3, 4]
+const user = { name: "Lydia", age: 21 }
+
+console.log(getList(list))
+console.log(getUser(user))
+```
+
+- A: `[1, [2, 3, 4]]` y `undefined`
+- B: `[1, [2, 3, 4]]` y `{ name: "Lydia", age: 21 }`
+- C: `[1, 2, 3, 4]` y `{ name: "Lydia", age: 21 }`
+- D: `Error` y `{ name: "Lydia", age: 21 }`
+
+<details><summary><b>Solución</b></summary>
+<p>
+
+#### Answer: A
+
+La función `getList` recibe un array argumento. Entre los paréntesis de la función `getList`, desestructuramos este array de inmediato. Podrías ver esto como:
+
+ `[x, ...y] = [1, 2, 3, 4]`
+
+Con el parámetro rest `...y`, ponemos todos los argumentos "restantes" en un array. Los argumentos restantes son `2`, `3` and `4` en este caso. El valor de `y` es un array, conteniendo todos los parámetros restantes. El valor de `x` es igual a `1` en este caso, por la tanto cuando registramos `[x, y]`, se imprime `[1, [2, 3, 4]]`.
+
+ La función `getUser` recibe un objeto. Con las funciones flecha, no _tenemos_ que escribir llaves cuando simplemente devolvemos un valor. Sin embargo, si quieres devolver un _objeto_ desde una función llave, tienes que escribir el objeto entre paréntesis, ¡de otra manera no se devuelve ningún valor! La siguiente función habría devuelto un objeto:
+
+```const getUser = user => ({ name: user.name, age: user.age })```
+
+Como no se devuelve ningún valor en este caso, la función devuelve `undefined`.
+
+</p>
+</details>
+
+---
+
