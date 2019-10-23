@@ -3030,3 +3030,40 @@ Esto significa que nunca se alcanza `a + b`, ya que una función deja de ejecuta
 </details>
 
 ---
+
+###### 96. ¿Cuál es el resultado?
+
+```javascript
+class Person {
+  constructor() {
+    this.name = "Lydia"
+  }
+}
+
+Person = class AnotherPerson {
+  constructor() {
+    this.name = "Sarah"
+  }
+}
+
+const member = new Person()
+console.log(member.name)
+```
+
+- A: `"Lydia"`
+- B: `"Sarah"`
+- C: `Error: cannot redeclare Person`
+- D: `SyntaxError`
+
+<details><summary><b>Solución</b></summary>
+<p>
+
+#### Answer: B
+
+Podemos establecer clases iguales a otros constructures de clases/funciones. En este caso, establecemos `Person` igual a `AnotherPerson`. El nombre en este constructor es `Sarah`, por lo que la propiedad nombre en la nueva instancia de `Person` de `member` es `"Sarah"`.
+
+</p>
+</details>
+
+---
+
