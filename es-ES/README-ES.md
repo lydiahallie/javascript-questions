@@ -3067,3 +3067,33 @@ Podemos establecer clases iguales a otros constructures de clases/funciones. En 
 
 ---
 
+###### 97. ¿Cuál es el resultado?
+
+```javascript
+const info = {
+  [Symbol('a')]: 'b'
+}
+
+console.log(info)
+console.log(Object.keys(info))
+```
+
+- A: `{Symbol('a'): 'b'}` y `["{Symbol('a')"]`
+- B: `{}` y `[]`
+- C: `{ a: "b" }` y `["a"]`
+- D: `{Symbol('a'): 'b'}` y `[]`
+
+<details><summary><b>Solución</b></summary>
+<p>
+
+#### Answer: D
+
+Un símbolo no es _enumerable_. El método Object.keys devuelve todas las propiedades _enumerables_ de un objeto. El símbolo no será visible, y un array vacío será devuelto. Cuando se imprime el objeto completo, se mostrarán todas las propiedades, incluidas las no-enumerables.
+
+Esta es una de las muchas cualidades de un símbolo: además de representar un valor completamente único (que evita la colisión accidental de nombres en los objetos, por ejemplo, cuando se utilizan 2 bibliotecas que desean agregar propiedades al mismo objeto), también puedes "ocultar" propiedades en los objetos de esta manera (aunque no del todo. Todavía puedes acceder a los símbolos utilizando el método `Object.getOwnPropertySymbols()`).
+
+</p>
+</details>
+
+---
+
