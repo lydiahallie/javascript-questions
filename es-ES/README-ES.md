@@ -3271,3 +3271,41 @@ Esto significa que se esperó a que `myPromise` resolviera con el valor `I have 
 </details>
 
 ---
+
+###### 103. ¿Cuál es el valor de la salida?
+
+```javascript
+const set = new Set()
+
+set.add(1)
+set.add("Lydia")
+set.add({ name: "Lydia" })
+
+for (let item of set) {
+  console.log(item + 2)
+}
+```
+
+- A: `3`, `NaN`, `NaN`
+- B: `3`, `7`, `NaN`
+- C: `3`, `Lydia2`, `[Object object]2`
+- D: `"12"`, `Lydia2`, `[Object object]2`
+
+<details><summary><b>Solución</b></summary>
+<p>
+
+#### Answer: C
+
+El operador `+` no solo se usa para sumar valores numéricos, sino que también podemos usarlo para concatenar cadenas. Cada vez que el motor de JavaScript ve que uno o más valores no son un número, coerce el número en una cadena. 
+
+El primero es `1`, que es un valor numérico. `1 + 2` devuelve el número 3.
+
+Sin embargo, el segundo es la cadena `"Lydia"`. `"Lydia"` es una cadena y `2` es un número: `2` coerce a una cadena. `"Lydia"` y `"2"` son concatenados, cuyo resultado es la cadena `"Lydia2"`. 
+
+`{ name: "Lydia" }` es un objeto. Ni un número ni un objeto son una cadena, así que se convierten a cadena ambos. Cada vez que convertimos un objeto estandar, se convierte en `"[Object object]"`. `"[Object object]"` concatenado con `"2"` resulta en `"[Object object]2"`.
+
+</p>
+</details>
+
+---
+
