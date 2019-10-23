@@ -3137,3 +3137,33 @@ Como no se devuelve ningún valor en este caso, la función devuelve `undefined`
 
 ---
 
+###### 99. ¿Cuál es el resultado?
+
+```javascript
+const name = "Lydia"
+
+console.log(name())
+```
+
+- A: `SyntaxError`
+- B: `ReferenceError`
+- C: `TypeError`
+- D: `undefined`
+
+<details><summary><b>Solución</b></summary>
+<p>
+
+#### Answer: C
+
+La variable `name` contiene el valor de una cadena, que no es una función, por lo tanto no puede invocar. 
+
+Se genera una excepción de tipo TypeError cuando un valor no es del tipo esperado. JavaScript esperaba que `name` fuera una función ya que estamos intentando invocarla. Era una cadena sin embargo, por lo tanto se lanza una excepción del tipo TypeError: name is not a function!
+
+Se lanzan errores del tipo SyntaxError cuando has escrito algo que no es válido JavaScript, pro ejemplo cuando has escrito `return` como `retrun`. 
+Se lanzan errores del tipo ReferenceError cuando JavaScript no puede encontrar una referencia a un valor al que estás intentando acceder.
+
+</p>
+</details>
+
+---
+
