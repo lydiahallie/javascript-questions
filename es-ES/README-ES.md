@@ -3334,3 +3334,42 @@ En este caso, acabamos de pasar el valor numérico `5`. Devuelve una promesa res
 
 ---
 
+###### 105. ¿Cuál es el valor?
+
+```javascript
+function compareMembers(person1, person2 = person) {
+  if (person1 !== person2) {
+    console.log("Not the same!")
+  } else {
+    console.log("They are the same!")
+  }
+}
+
+const person = { name: "Lydia" }
+
+compareMembers(person)
+```
+
+- A: `Not the same!`
+- B: `They are the same!`
+- C: `ReferenceError`
+- D: `SyntaxError`
+
+<details><summary><b>Solución</b></summary>
+<p>
+
+#### Answer: B
+
+Los objetos se pasan por referencia. Cuando verificamos la igualdad estricta de los objetos (`===`), estamos comparando sus referencias. 
+
+Establecemos el valor por defecto para `person2` igual al objeto `person`, y pasamos el objeto `person` como el valor de `person1`.
+
+Esto significa que ambos valores tienen una referencia al mismo punto en la memoria, por lo tanto, son iguales.
+
+El bloque de código en la instrucción `else` se ejecuta, y se imprime `They are the same!`. 
+
+</p>
+</details>
+
+---
+
