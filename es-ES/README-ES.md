@@ -3410,3 +3410,24 @@ JavaScript interpreta (o descompone) las sentencias. Cuando usamos la notación 
 
 ---
 
+###### 107. ¿Cuál es el valor?
+
+```javascript
+console.log('❤️' === '❤️')
+```
+
+- A: `true`
+- B: `false`
+
+<details><summary><b>Solución</b></summary>
+<p>
+
+#### Answer: A
+
+Bajo el capó, los emojis son caracteres unicode. Los valores unicode para el emoji del corazón son `"U+2764 U+FE0F"`. Estos son siempre los mismos para los mismos emojis, por lo que estamos comparando dos cadenas iguales entre sí, lo que devuelve verdadero. 
+
+</p>
+</details>
+
+---
+
