@@ -3650,3 +3650,32 @@ Las expresiones dentro de las plantillas de cadena de texto se evalúan primero.
 
 ---
 
+###### 114. ¿Qué ocurrirá?
+
+```javascript
+let config = {
+  alert: setInterval(() => {
+    console.log('Alert!')
+  }, 1000)
+}
+
+config = null
+```
+
+- A: The `setInterval` callback won't be invoked
+- B: The `setInterval` callback gets invoked once
+- C: The `setInterval` callback will still be called every second
+- D: We never invoked `config.alert()`, config is `null`
+
+<details><summary><b>Solución</b></summary>
+<p>
+
+#### Answer: C
+
+Normalmente, cuando establecemos objetos iguales a `null`, esos objetos se recogen por el _recolector de basura_ ya que ya no hay ninguna referencia a ese objeto. Sin embargo, dado que la función de devolución de llamada dentro de `setInterval` es una función flecha (por lo tanto vinculada al objeto` config`), la función de devolución de llamada todavía tiene una referencia al objeto `config`. Mientras haya una referencia, el objeto no será recolectado. Como no es recolectado, la función de devolución de llamada `setInterval` aún se invocará cada 1000ms (1s).
+
+</p>
+</details>
+
+---
+
