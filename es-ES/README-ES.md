@@ -3679,3 +3679,39 @@ Normalmente, cuando establecemos objetos iguales a `null`, esos objetos se recog
 
 ---
 
+###### 115. ¿Qué método(s) devolverá el valor `'Hello world!'`?
+
+```javascript
+const myMap = new Map()
+const myFunc = () => 'greeting'
+
+myMap.set(myFunc, 'Hello world!')
+
+//1
+myMap.get('greeting')
+//2
+myMap.get(myFunc)
+//3
+myMap.get(() => 'greeting')
+```
+
+- A: 1
+- B: 2
+- C: 2 and 3
+- D: All of them
+
+<details><summary><b>Solución</b></summary>
+<p>
+
+#### Answer: B
+
+Al agregar un par clave/valor utilizando el método `set`, la clave será el valor del primer argumento pasado a la función `set`, y el valor será el segundo argumento pasado a la función `set`. La clave es la _función_ `() => 'greeting'` en este caso, y el valor `'Hello world'`. `myMap` ahora es `{ () => 'greeting' => 'Hello world!' }`. 
+
+1 es incorrecto, ya que la clave no es `'greeting'` sino `() => 'greeting'`.
+3 es incorrecto, ya que estamos creando una nueva función pasándola como parámetro al método `get`. El objeto interactúa por _referencia_. Las funciones son objetos, por eso dos funciones nunca son estrictamente iguales, aunque sean idénticas: tienen una referencia a un punto diferente en la memoria. 
+
+</p>
+</details>
+
+---
+
