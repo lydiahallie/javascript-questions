@@ -3463,3 +3463,35 @@ Con el método `splice`, modificamos el array original eliminando, reemplazando 
 
 ---
 
+###### <a name=20191009></a>109. ¿Cuál es el resultado?
+
+```javascript
+const food = ['🍕', '🍫', '🥑', '🍔']
+const info = { favoriteFood: food[0] }
+
+info.favoriteFood = '🍝'
+
+console.log(food)
+```
+
+- A: `['🍕', '🍫', '🥑', '🍔']`
+- B: `['🍝', '🍫', '🥑', '🍔']`
+- C: `['🍝', '🍕', '🍫', '🥑', '🍔']` 
+- D: `ReferenceError`
+
+<details><summary><b>Solución</b></summary>
+<p>
+
+#### Answer: A
+
+Establecemos el valor de la propiedad `favoriteFood` en el objeto` info` igual a la cadena con el emoji de la pizza, `'🍕'`. Una cadena es un tipo de dato primitivo. En JavaScript, los tipos de datos primitivos actúan por referencia 
+
+En JavaScript, los tipos de datos primitivos (todo aquello que no es un objeto) interactúan por _valor_. En este caso, establecemos el valor de la propiedad `favoriteFood` en el objeto` info` igual al valor del primer elemento en el array `food`, la cadena del emoji de la pizza en este caso (`'🍕'`). Una cadena es un tipo de datos primitivo e interactúa por valor (consulte mi [artículo](https://www.theavocoder.com/complete-javascript/2018/12/21/by-value-vs-by-reference) si estás interesado en aprender más)
+
+Luego, cambiamos el valor de la propiedad `favoriteFood` en el objeto` info`. El array `food` no cambia, ya que el valor de `favoriteFood` era simplemente una _copia_ del valor del primer elemento del array, y no tiene una referencia al mismo punto en la memoria que el elemento en `food[0]`. Cuando imprimimos food, éste sigue siendo el array original, `['🍕', '🍫', '🥑', '🍔']`.
+
+</p>
+</details>
+
+---
+
