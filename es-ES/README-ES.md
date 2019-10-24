@@ -3373,3 +3373,40 @@ El bloque de código en la instrucción `else` se ejecuta, y se imprime `They ar
 
 ---
 
+###### 106. ¿Cuál es el valor?
+
+```javascript
+const colorConfig = {
+  red: true,
+  blue: false,
+  green: true,
+  black: true,
+  yellow: false,
+}
+
+const colors = ["pink", "red", "blue"]
+
+console.log(colorConfig.colors[1])
+```
+
+- A: `true`
+- B: `false`
+- C: `undefined`
+- D: `TypeError`
+
+<details><summary><b>Solución</b></summary>
+<p>
+
+#### Answer: D
+
+En JavaScript, tenemos dos formas de acceder a las propiedades de un objeto: notación por corchetes o notación por punto. En este ejemplo, usamos la notación por punto (`colorConfig.colors`) en lugar de la notación por corchetes (`colorConfig["colors"]`). 
+
+Con la notación por punto, JavaScript intenta encontrar la propiedad en el objeto con ese nombre exacto. En este ejemplo, JavaScript intenta encontrar una propiedad llamada `colors` en el objeto `colorConfig`. No hay propiedad llamada `colors`, por lo que devuelve `undefined`. Luego, intentamos acceder al valor del primer elemento usando `[1]`. No podemos hacer esto en un valor que sea `undefined`, por lo que lanza una expeción `TypeError`: `Cannot read property '1' of undefined`.
+
+JavaScript interpreta (o descompone) las sentencias. Cuando usamos la notación por corchetes, ve el primer corchete de apertura `[` y continúa hasta que encuentra el corchete de cierre `]`. Solo entonces, evaluará la declaración. Si hubiéramos utilizado `colorConfig[colors[1]]`, habría devuelto el valor de la propiedad `red` del objeto `colorConfig`. 
+
+</p>
+</details>
+
+---
+
