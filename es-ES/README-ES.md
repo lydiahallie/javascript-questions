@@ -3431,3 +3431,35 @@ Bajo el capó, los emojis son caracteres unicode. Los valores unicode para el em
 
 ---
 
+###### 108. ¿Cuál de estos métodos modifica el array original?
+
+```javascript
+const emojis = ['✨', '🥑', '😍']
+
+emojis.map(x => x + '✨')
+emojis.filter(x => x !== '🥑')
+emojis.find(x => x !== '🥑')
+emojis.reduce((acc, cur) => acc + '✨')
+emojis.slice(1, 2, '✨') 
+emojis.splice(1, 2, '✨')
+```
+
+- A: `All of them`
+- B: `map` `reduce` `slice` `splice`
+- C: `map` `slice` `splice` 
+- D: `splice`
+
+<details><summary><b>Solución</b></summary>
+<p>
+
+#### Answer: D
+
+Con el método `splice`, modificamos el array original eliminando, reemplazando o agregando elementos. En este caso, eliminamos 2 elementos desde el índice 1 (eliminamos `'🥑'` y `'😍'`) y agregamos el emoji ✨ en su lugar. 
+
+`map`, `filter` y `slice` devuelven un nuevo array, `find` devuelve un elemento, y `reduce` devuelve un valor reducido.
+
+</p>
+</details>
+
+---
+
