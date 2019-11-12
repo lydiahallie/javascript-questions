@@ -1013,7 +1013,7 @@ sayHi.bind(person, 21);
 - A: `undefined is 21` `Lydia is 21`
 - B: `function` `function`
 - C: `Lydia is 21` `Lydia is 21`
-- D: `Lydia is 21` `function`
+- D: `Lydia is 21`
 
 <details><summary><b>Answer</b></summary>
 <p>
