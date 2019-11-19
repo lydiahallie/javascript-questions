@@ -2979,7 +2979,7 @@ getItems(["banana", "apple"], "pear", "orange")
 </p>
 </details>
 
-
+---
 
 ###### <a name=20190817></a>95. 输出什么?
 
@@ -3228,7 +3228,7 @@ console.log(one, two, three)
 
 ---
 
-###### 102. 输出的结果是什么？
+###### 102. 依次输出什么?
 
 ```javascript
 const myPromise = () => Promise.resolve('I have resolved!')
@@ -3257,24 +3257,22 @@ secondFunction()
 
 #### 答案: D
 
-对于promise，我们基本上说 _我想要执行此函数，但是由于执行此函数可能需要一段时间，因此，先暂时将其搁置一旁。仅当某个值被resolved（或rejected）并且调用栈为空时，我才想使用这个值。_
 
-我们可以在异步函数中同时使用`.then`和`await`关键字来获取promise的返回值。尽管我们可以同时使用`.then`和`await`来获得promise的返回值，但它们的运行方式有所不同。
+有了promise，我们通常会说：当我想要调用某个方法，但是由于它可能需要一段时间，因此暂时将它放在一边。只有当某个值被resolved/rejected，并且执行栈为空时才使用这个值。
 
-在`firstFunction`函数中，当这个函数运行的时候，代码执行到myPromise函数时，系统会将其放在一边，继续执行下一行代码，在本例中为`console.log('second')`，执行完成之后，myPromise函数返回一个resolved后的字符串'I have resolved!' 在看到调用堆栈为空之后将其记录下来。
+我们可以在`async`函数中通过`.then`和`await`关键字获得该值。 尽管我们可以通过`.then`和`await`获得promise的价值，但是它们的工作方式有所不同。
 
-由于在`secondFunction`函数中使用了`await`关键字，从字面上暂停了异步函数的执行，程序将会等到myPromise函数返回结果之后，才会执行下一行代码，
+在 `firstFunction`中，当运行到`myPromise`方法时我们将其放在一边，即promise进入微任务队列，其他后面的代码（`console.log('second')`）照常运行，因此`second`被打印出，`firstFunction`方法到此执行完毕，执行栈中宏任务队列被清空，此时开始执行微任务队列中的任务，`I have resolved`被打印出。
 
-This means that it waited for the `myPromise` to resolve with the value `I have resolved`, and only once that happened, we moved to the next line: `second` got logged. 
+在`secondFunction`方法中，我们通过`await`关键字，暂停了后面代码的执行，直到异步函数的值被解析才开始后面代码的执行。这意味着，它会等着直到 `myPromise` 以值`I have resolved`被解决之后，下一行`second`才开始执行。
 
-这意味着，程序在等待`myPromise`的resolved的值`I have resolved！`，只有发生这种情况后，程序才会执行下一行代码：`console.log('second')`
 
 </p>
 </details>
 
 ---
 
-###### 103. 输出的结果是什么？
+###### 103. 输出什么?
 
 ```javascript
 const set = new Set()
@@ -3304,14 +3302,14 @@ for (let item of set) {
 
 但是，第二个是字符串“Lydia”。 “Lydia”是一个字符串，2是一个数字：2被强制转换为字符串。 “Lydia”和“2”被连接起来，产生字符串“Lydia2”。
 
-`{name：“ Lydia”}`是一个对象。 数字和对象都不是字符串，因此将二者都字符串化。 每当我们对常规对象进行字符串化时，它就会变成“[Object object]”`。 与“2”串联的“ [Object object]”成为“[Object object]2”。
+`{name：“ Lydia”}`是一个对象。 数字和对象都不是字符串，因此将二者都字符串化。 每当我们对常规对象进行字符串化时，它就会变成`[Object object]`。 与“2”串联的“ [Object object]”成为“[Object object]2”。
 
 </p>
 </details>
 
 ---
 
-###### 104. 它的值是什么？
+###### 104. 结果是什么?
 
 ```javascript
 Promise.resolve(5)
@@ -3327,17 +3325,15 @@ Promise.resolve(5)
 
 #### 答案: C
 
-我们可以将我们想要的任何类型的值传递给Promise.resolve，无论是Promise还是非Promise。 该方法本身返回带有resolved值的Promise。 
-如果您传递常规函数，它将是具有常规值的resolved的Promise。 如果您传入一个promise，它将是resolved的promise，其中包含已传入promise的resolved值。
+我们可以将我们想要的任何类型的值传递`Promise.resolve`，无论是否`promise`。 该方法本身返回带有已解析值的`Promise`。 如果您传递常规函数，它将是具有常规值的已解决`promise`。 如果你通过了promise，它将是一个已经resolved的且带有传的值的promise。
 
-在这种情况下，我们只传递了数值 5 。 它返回值为 5 的resolved的promise。
+上述情况，我们传了数字5，因此返回一个resolved状态的promise，resolve值为`5`
 
 </p>
 </details>
 
----
 
-###### 105. 它的值是什么？
+###### 105. 输出什么?
 
 ```javascript
 function compareMembers(person1, person2 = person) {
@@ -3376,7 +3372,8 @@ compareMembers(person)
 
 ---
 
-###### 106. 它的值是什么？
+###### 106. 输出什么?
+
 
 ```javascript
 const colorConfig = {
@@ -3409,12 +3406,13 @@ console.log(colorConfig.colors[1])
 
 JavaScript解释（或取消装箱）语句。 当我们使用方括号表示法时，它会看到第一个左方括号`[`并一直进行下去，直到找到右方括号`]`。 只有这样，它才会评估该语句。 如果我们使用了colorConfig [colors [1]]，它将返回colorConfig对象上red属性的值。
 
+
 </p>
 </details>
 
 ---
 
-###### 107. 它的值是什么？
+###### 107. 输出什么?
 
 ```javascript
 console.log('❤️' === '❤️')
@@ -3435,7 +3433,8 @@ console.log('❤️' === '❤️')
 
 ---
 
-###### 108. 以下哪种方法可以修改原始数组？
+###### 108. 哪些方法修改了原数组?
+
 
 ```javascript
 const emojis = ['✨', '🥑', '😍']
@@ -3458,9 +3457,120 @@ emojis.splice(1, 2, '✨')
 
 #### 答案: D
 
-使用`splice`方法，我们通过删除，替换或添加元素来修改原始数组。 在这种情况下，我们从索引1中删除了2个项目（我们删除了`'🥑'`和`'😍'`），而是添加了✨emoji表情。
+使用`splice`方法，我们通过删除，替换或添加元素来修改原始数组。 在这种情况下，我们从索引1中删除了2个元素（我们删除了`'🥑'`和`'😍'`），同时添加了✨emoji表情。
 
-“map”，“filter”和“slice”返回一个新数组，“find”返回一个元素，而“reduce”返回一个减小的值。
+`map`，`filter`和`slice`返回一个新数组，`find`返回一个元素，而`reduce`返回一个减小的值。
+
+</p>
+</details>
+
+---
+
+###### <a name=20191009></a>109. 输出什么?
+
+```javascript
+const food = ['🍕', '🍫', '🥑', '🍔']
+const info = { favoriteFood: food[0] }
+
+info.favoriteFood = '🍝'
+
+console.log(food)
+```
+
+- A: `['🍕', '🍫', '🥑', '🍔']`
+- B: `['🍝', '🍫', '🥑', '🍔']`
+- C: `['🍝', '🍕', '🍫', '🥑', '🍔']` 
+- D: `ReferenceError`
+
+<details><summary><b>答案</b></summary>
+<p>
+
+#### 答案: A
+
+我们将`info`对象上的`favoriteFood`属性的值设置为披萨表情符号“🍕”的字符串。字符串是原始数据类型。在JavaScript中，原始数据类型通过值起作用
+
+在这种情况下，我们将`info`对象上的`favoriteFood`属性的值设置为等于`food`数组中的第一个元素的值，字符串为披萨表情符号（`'🍕'` ）。字符串是原始数据类型，并且通过值进行交互，我们更改`info`对象上`favoriteFood`属性的值。 food数组没有改变，因为favoriteFood的值只是该数组中第一个元素的值的复制，并且与该元素上的元素没有相同的内存引用食物`[0]`。当我们记录食物时，它仍然是原始数组`['🍕'，'🍫'，'🥑'，'🍔']`。
+
+</p>
+</details>
+
+---
+
+###### 110. 这个函数干了什么?
+
+```javascript
+JSON.parse()
+```
+
+- A: Parses JSON to a JavaScript value
+- B: Parses a JavaScript object to JSON
+- C: Parses any JavaScript value to JSON
+- D: Parses JSON to a JavaScript object only
+
+<details><summary><b>答案</b></summary>
+<p>
+
+#### 答案: A
+
+使用`JSON.parse()`方法，我们可以将JSON字符串解析为JavaScript值。
+
+```javascript
+// 将数字字符串化为有效的JSON，然后将JSON字符串解析为JavaScript值:
+const jsonNumber = JSON.stringify(4) // '4'
+JSON.parse(jsonNumber) // 4
+
+// 将数组值字符串化为有效的JSON，然后将JSON字符串解析为JavaScript值:
+const jsonArray = JSON.stringify([1, 2, 3]) // '[1, 2, 3]'
+JSON.parse(jsonArray) // [1, 2, 3]
+
+// 将对象字符串化为有效的JSON，然后将JSON字符串解析为JavaScript值:
+const jsonArray = JSON.stringify({ name: "Lydia" }) // '{"name":"Lydia"}'
+JSON.parse(jsonArray) // { name: 'Lydia' }
+```
+
+</p>
+</details>
+
+---
+
+###### 111. 输出什么? 
+
+```javascript
+let name = 'Lydia'
+
+function getName() {
+  console.log(name)
+  let name = 'Sarah'
+}
+
+getName()
+```
+
+- A: Lydia
+- B: Sarah
+- C: `undefined`
+- D: `ReferenceError`
+
+<details><summary><b>答案</b></summary>
+<p>
+
+#### 答案: D 
+
+每个函数都有其自己的执行上下文。 `getName`函数首先在其自身的上下文（范围）内查找，以查看其是否包含我们尝试访问的变量`name`。 上述情况，`getName`函数包含其自己的`name`变量：我们用`let`关键字和`Sarah`的值声明变量`name`。
+
+带有`let`关键字（和`const`）的变量被提升，但是与`var`不同，它不会被***初始化***。 在我们声明（初始化）它们之前，无法访问它们。 这称为“暂时性死区”。 当我们尝试在声明变量之前访问变量时，JavaScript会抛出`ReferenceError: Cannot access 'name' before initialization`。
+
+如果我们不在`getName`函数中声明`name`变量，则javascript引擎会查看原型练。会找到其外部作用域有一个名为`name`的变量，其值为`Lydia`。 在这种情况下，它将打印`Lydia`：
+
+```javascript
+let name = 'Lydia'
+
+function getName() {
+  console.log(name)
+}
+
+getName() // Lydia
+```
 
 </p>
 </details>
