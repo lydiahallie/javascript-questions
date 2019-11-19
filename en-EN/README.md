@@ -2,7 +2,7 @@
 
 I post daily multiple choice JavaScript questions on my [Instagram](https://www.instagram.com/theavocoder), which I'll also post here!
 
-From basic to advanced: test how well you know JavaScript, refresh your knowledge a bit, or prepare for your coding interview! :muscle: :rocket: I update this repo weekly with new questions. Last update: <a href=#20191009><b>October 9th</b></a>
+From basic to advanced: test how well you know JavaScript, refresh your knowledge a bit, or prepare for your coding interview! :muscle: :rocket: I update this repo weekly with new questions. Last update: <a href=#20191118><b>November 18th</b></a>
 
 The answers are in the collapsed sections below the questions, simply click on them to expand it. Good luck :heart:
 
@@ -3461,7 +3461,7 @@ With `splice` method, we modify the original array by deleting, replacing or add
 
 ---
 
-###### <a name=20191009></a>109. What's the output?
+###### 109. What's the output?
 
 ```javascript
 const food = ['🍕', '🍫', '🥑', '🍔']
@@ -3752,7 +3752,7 @@ Then, we invoke the `changeAgeAndName` function, however we don't pass a paramet
 </p>
 </details>
 
-###### 117. Which of the following options will return `6`?
+###### <a name=20191118></a>117. Which of the following options will return `6`?
 
 ```javascript
 function sumValues(x, y, z) {
