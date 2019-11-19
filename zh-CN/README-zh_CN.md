@@ -2979,7 +2979,7 @@ getItems(["banana", "apple"], "pear", "orange")
 </p>
 </details>
 
-
+---
 
 ###### <a name=20190817></a>95. 输出什么?
 
@@ -3257,6 +3257,7 @@ secondFunction()
 
 #### 答案: D
 
+
 有了promise，我们通常会说：当我想要调用某个方法，但是由于它可能需要一段时间，因此暂时将它放在一边。只有当某个值被resolved/rejected，并且执行栈为空时才使用这个值。
 
 我们可以在`async`函数中通过`.then`和`await`关键字获得该值。 尽管我们可以通过`.then`和`await`获得promise的价值，但是它们的工作方式有所不同。
@@ -3264,6 +3265,7 @@ secondFunction()
 在 `firstFunction`中，当运行到`myPromise`方法时我们将其放在一边，即promise进入微任务队列，其他后面的代码（`console.log('second')`）照常运行，因此`second`被打印出，`firstFunction`方法到此执行完毕，执行栈中宏任务队列被清空，此时开始执行微任务队列中的任务，`I have resolved`被打印出。
 
 在`secondFunction`方法中，我们通过`await`关键字，暂停了后面代码的执行，直到异步函数的值被解析才开始后面代码的执行。这意味着，它会等着直到 `myPromise` 以值`I have resolved`被解决之后，下一行`second`才开始执行。
+
 
 </p>
 </details>
@@ -3294,13 +3296,13 @@ for (let item of set) {
 
 #### 答案: C
 
-`“+”`运算符不仅用于数值相加，还可以使用它来连接字符串。 每当JavaScript引擎发现一个或多个值不是数字时，就会将数字强制转化为字符串。
+“+”运算符不仅用于添加数值，还可以使用它来连接字符串。 每当JavaScript引擎发现一个或多个值不是数字时，就会将数字强制为字符串。 
 
-第一个是数字`1`, 1 + 2返回数字3。
+第一个是数字1。 1 + 2返回数字3。
 
-但是，第二个是字符串`Lydia`。 `Lydia`是字符串，`2`是数字：`2`被强制转换为字符串。 `Lydia`和`2`被连接起来，产生字符`Lydia2`。
+但是，第二个是字符串“Lydia”。 “Lydia”是一个字符串，2是一个数字：2被强制转换为字符串。 “Lydia”和“2”被连接起来，产生字符串“Lydia2”。
 
-`{name：“Lydia”}`是一个对象。 数字和对象都不是字符串，因此将二者都字符串化。 每当我们对常规对象进行字符串化时，它就会变成`“[Object object]”`。
+`{name：“ Lydia”}`是一个对象。 数字和对象都不是字符串，因此将二者都字符串化。 每当我们对常规对象进行字符串化时，它就会变成`[Object object]`。 与“2”串联的“ [Object object]”成为“[Object object]2”。
 
 </p>
 </details>
@@ -3330,7 +3332,6 @@ Promise.resolve(5)
 </p>
 </details>
 
----
 
 ###### 105. 输出什么?
 
@@ -3360,9 +3361,11 @@ compareMembers(person)
 
 对象通过引用传递。 当我们检查对象的严格相等性（===）时，我们正在比较它们的引用。
 
-我们将`person2`的默认值设置为等于`person`对象，并将`person`对象作为`person1`的值传递。
+我们将“person2”的默认值设置为“person”对象，并将“person”对象作为“person1”的值传递。
 
 这意味着两个值都引用内存中的同一位置，因此它们是相等的。
+
+运行“ else”语句中的代码块，并记录`They are the same!` 。
 
 </p>
 </details>
@@ -3370,6 +3373,7 @@ compareMembers(person)
 ---
 
 ###### 106. 输出什么?
+
 
 ```javascript
 const colorConfig = {
@@ -3395,11 +3399,13 @@ console.log(colorConfig.colors[1])
 
 #### 答案: D
 
-在JavaScript中，我们有两种访问对象属性的方法：括号表示法或点表示法。在此示例中，我们使用点表示法（`colorConfig.colors`）代替括号表示法（`colorConfig ['colors']`）。
+在JavaScript中，我们有两种访问对象属性的方法：括号表示法或点表示法。 在此示例中，我们使用点表示法（`colorConfig.colors`）代替括号表示法（`colorConfig [“ colors”]`）。
 
-使用点表示法，JavaScript会尝试使用该确切名称在对象上查找属性。在此示例中，JavaScript尝试在`colorconfig`对象上找到名为`'colors'`的属性。没有`'colors'`的属性，因此返回`undefined`。然后，我们尝试使用`[1]`访问第一个元素的值。我们无法对`undefined`执行此操作，因此会抛出`TypeError`: `Cannot read property '1' of undefined`
+使用点表示法，JavaScript会尝试使用该确切名称在对象上查找属性。 在此示例中，JavaScript尝试在colorconfig对象上找到名为colors的属性。 没有名为“colors”的属性，因此返回“undefined”。
+然后，我们尝试使用`[1]`访问第一个元素的值。 我们无法对未定义的值执行此操作，因此会抛出`Cannot read property '1' of undefined`。
 
-当我们使用方括号表示法时，JavaScript会看到第一个左方括号`[`，并且一直走到找到右方括号`]`。只有这样，它才会解析该语句。如果我们使用了`colorConfig[colors[1]]`，它将返回`colorConfig`对象上`red`属性的值。
+JavaScript解释（或取消装箱）语句。 当我们使用方括号表示法时，它会看到第一个左方括号`[`并一直进行下去，直到找到右方括号`]`。 只有这样，它才会评估该语句。 如果我们使用了colorConfig [colors [1]]，它将返回colorConfig对象上red属性的值。
+
 
 </p>
 </details>
@@ -3420,7 +3426,7 @@ console.log('❤️' === '❤️')
 
 #### 答案: A
 
-在内部，表情符号是unicode。 心表情符号的unicode是`U+2764 U+FE0F`。 对于相同的表情符号，它们总是相同的，因此我们正在将两个相等的字符串相互比较，这将返回true。
+在内部，表情符号是unicode。 heat表情符号的unicode是`“ U + 2764 U + FE0F”`。 对于相同的表情符号，它们总是相同的，因此我们将两个相等的字符串相互比较，这将返回true。
 
 </p>
 </details>
@@ -3428,6 +3434,7 @@ console.log('❤️' === '❤️')
 ---
 
 ###### 108. 哪些方法修改了原数组?
+
 
 ```javascript
 const emojis = ['✨', '🥑', '😍']
@@ -3450,7 +3457,7 @@ emojis.splice(1, 2, '✨')
 
 #### 答案: D
 
-使用`splice`方法，我们通过删除，替换或添加元素来修改原始数组。 上述情况，我们从索引1中删除了2个元素（删除了'🥑'和'😍'），并添加了✨emoji表情。
+使用`splice`方法，我们通过删除，替换或添加元素来修改原始数组。 在这种情况下，我们从索引1中删除了2个元素（我们删除了`'🥑'`和`'😍'`），同时添加了✨emoji表情。
 
 `map`，`filter`和`slice`返回一个新数组，`find`返回一个元素，而`reduce`返回一个减小的值。
 
@@ -3482,7 +3489,7 @@ console.log(food)
 
 我们将`info`对象上的`favoriteFood`属性的值设置为披萨表情符号“🍕”的字符串。字符串是原始数据类型。在JavaScript中，原始数据类型通过值起作用
 
-在这种情况下，我们将`info`对象上的`favoriteFood`属性的值设置为等于`food`数组中的第一个元素的值，字符串为披萨表情符号（`'🍕'` ）。字符串是原始数据类型，并且通过值进行交互，我们更改`info`对象上`favoriteFood`属性的值。 food数组没有改变，因为favoriteFood的值只是该数组中第一个元素的值的复制，并且与该元素上的元素没有相同的内存引用食物`[0]`。当我们记录食物时，它仍然是原始数组'['🍕'，'🍫'，'🥑'，'🍔']`。
+在这种情况下，我们将`info`对象上的`favoriteFood`属性的值设置为等于`food`数组中的第一个元素的值，字符串为披萨表情符号（`'🍕'` ）。字符串是原始数据类型，并且通过值进行交互，我们更改`info`对象上`favoriteFood`属性的值。 food数组没有改变，因为favoriteFood的值只是该数组中第一个元素的值的复制，并且与该元素上的元素没有相同的内存引用食物`[0]`。当我们记录食物时，它仍然是原始数组`['🍕'，'🍫'，'🥑'，'🍔']`。
 
 </p>
 </details>
