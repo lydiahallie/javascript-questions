@@ -877,7 +877,7 @@ console.log(a[b]);
 
 Las claves se convierten automáticamente en strings. Estamos tratando en este pregunta de establecer un objeto como clave para el objeto `a`, con el valor de `123`.
 
-Sin embargo, cuando se _stringfy_ (compleja traducción) un objeto, se convierte en `"[Object object]"`. Así que lo que estamos diciendo aquí, es que `a["Object object"] = 123`. Entonces, podemos intentar hacer lo mismo de nuevo. `c` es otro objeto que estamos implícitamente encadenando. Entonces, `a["Object object"] = 456`.
+Sin embargo, cuando se _stringfy_ (compleja traducción) un objeto, se convierte en `"[object Object]"`. Así que lo que estamos diciendo aquí, es que `a["object Object"] = 123`. Entonces, podemos intentar hacer lo mismo de nuevo. `c` es otro objeto que estamos implícitamente encadenando. Entonces, `a["object Object"] = 456`.
 
 Para finalizar, registramos `a[b]`, que en realidad es `a["Object"]`. Acabamos de ponerlo en `456`, así que devuelve `456`.
 

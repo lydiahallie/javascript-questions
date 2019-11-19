@@ -874,9 +874,9 @@ console.log(a[b]);
 
 Objekt Keys werden automatisch in Strings umgewandelt. Wir versuchen ein Objekt mit dem Wert `123` als Key dem Objekt `a` zuzuweisen.
 
-Allerdings wird ein Object, wenn es in einen String umgewandelt wird als `"[Object object]"` ausgegeben. Was wir hier also sagen ist, dass `a["Object object"] = 123` ist. Wir versuchen das gleiche erneut - `c` ist ein anderes Objekt, welches wir implizit zu einem String umwandeln, sodass `a["Object object"] = 456` ist.
+Allerdings wird ein Object, wenn es in einen String umgewandelt wird als `"[object Object]"` ausgegeben. Was wir hier also sagen ist, dass `a["object Object"] = 123` ist. Wir versuchen das gleiche erneut - `c` ist ein anderes Objekt, welches wir implizit zu einem String umwandeln, sodass `a["object Object"] = 456` ist.
 
-Dann loggen wir `a[b]`, was eigentlich `a["Object object"]` ist und gerade von uns zu `456` gesetzt wurde, sodass `456` ausgegeben wird.
+Dann loggen wir `a[b]`, was eigentlich `a["object Object"]` ist und gerade von uns zu `456` gesetzt wurde, sodass `456` ausgegeben wird.
 
 </p>
 </details>
@@ -3287,8 +3287,8 @@ for (let item of set) {
 
 - A: `3`, `NaN`, `NaN`
 - B: `3`, `7`, `NaN`
-- C: `3`, `Lydia2`, `[Object object]2`
-- D: `"12"`, `Lydia2`, `[Object object]2`
+- C: `3`, `Lydia2`, `[object Object]2`
+- D: `"12"`, `Lydia2`, `[object Object]2`
 
 <details><summary><b>Antwort</b></summary>
 <p>
@@ -3301,7 +3301,7 @@ Der erste Wert ist `1`, was ein numerischer Wert ist. `1 + 2` ergibt die Zahl `3
 
 Der zweite Wert hingegen ist der String `"Lydia"`. `"Lydia"` ist ein String und `2` ist eine Nummer: `2` wird in einem String umgewandelt. `"Lydia"` und `"2"` werden zusammengesetzt, was den String `"Lydia2"` ausgibt. 
 
-`{ name: "Lydia" }` ist ein Objekt. Weder eine Nummer, noch ein Objekt sind ein String, aber beide werden zu Strings konvertiert und `"[Object object]"` wird ausgegeben. `"[Object object]"` zusammengesetzt mit `"2"` wird `"[Object object]2"`.
+`{ name: "Lydia" }` ist ein Objekt. Weder eine Nummer, noch ein Objekt sind ein String, aber beide werden zu Strings konvertiert und `"[object Object]"` wird ausgegeben. `"[object Object]"` zusammengesetzt mit `"2"` wird `"[object Object]2"`.
 
 </p>
 </details>
