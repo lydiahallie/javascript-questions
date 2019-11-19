@@ -132,7 +132,7 @@ shape.perimeter()
 
 ---
 
-###### 5. 哪一个是无效的？
+###### 5. 哪一个是正确的？
 
 ```javascript
 const bird = {
@@ -145,10 +145,10 @@ const mouse = {
 }
 ```
 
-- A: `mouse.bird.size`
-- B: `mouse[bird.size]`
-- C: `mouse[bird["size"]]`
-- D: All of them are valid
+- A: `mouse.bird.size`是无效的
+- B: `mouse[bird.size]`是无效的
+- C: `mouse[bird["size"]]`是无效的
+- D: 以上三个选项都是有效的
 
 <details><summary><b>答案</b></summary>
 <p>
@@ -1352,7 +1352,6 @@ Promise.race([firstPromise, secondPromise]).then(res => console.log(res));
 </p>
 </details>
 
-
 ---
 
 ###### 46. 输出是什么?
@@ -2014,7 +2013,7 @@ multiply(value);
 `reducer` 函数还有一个可选参数`initialValue`, 该参数将作为第一次调用回调函数时的第一个参数的值。如果没有提供`initialValue`，则将使用数组中的第一个元素。
 
 在上述例子，`reduce`方法接收的第一个参数(Accumulator)是`x`, 第二个参数(Current Value)是`y`。
- 
+
 在第一次调用时，累加器`x`为`1`，当前值`“y”`为`2`，打印出累加器和当前值：`1`和`2`。
 
 例子中我们的回调函数没有返回任何值，只是打印累加器的值和当前值。如果函数没有返回值，则默认返回`undefined`。 在下一次调用时，累加器为`undefined`，当前值为“3”, 因此`undefined`和`3`被打印出。
@@ -2022,7 +2021,7 @@ multiply(value);
 在第四次调用时，回调函数依然没有返回值。 累加器再次为 `undefined` ，当前值为“4”。 `undefined`和`4`被打印出。
 </p>
 </details>
-  
+
 ---
 
 ###### 66. 使用哪个构造函数可以成功继承`Dog`类?
@@ -3120,7 +3119,7 @@ console.log(getUser(user))
 `getList`函数接收一个数组作为其参数。 在`getList`函数的括号之间，我们立即解构这个数组。 您可以将其视为：
 
  `[x, ...y] = [1, 2, 3, 4]`
- 
+
 
 使用剩余的参数`... y`，我们将所有剩余参数放在一个数组中。 在这种情况下，其余的参数是`2`，`3`和`4`。 `y`的值是一个数组，包含所有其余参数。 在这种情况下，`x`的值等于`1`，所以当我们打印`[x，y]`时，会打印`[1，[2,3,4]]`。
 
