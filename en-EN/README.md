@@ -3752,6 +3752,8 @@ Then, we invoke the `changeAgeAndName` function, however we don't pass a paramet
 </p>
 </details>
 
+---
+
 ###### <a name=20191118></a>117. Which of the following options will return `6`?
 
 ```javascript
@@ -3774,6 +3776,8 @@ With the spread operator `...`, we can _spread_ iterables to individual elements
 
 </p>
 </details>
+
+---
 
 ###### 118. What's the output?
 
@@ -3798,6 +3802,8 @@ With the `+=` operand, we're incrementing the value of `num` by `1`. `num` had t
 
 </p>
 </details>
+
+---
 
 ###### 119. What's the output?
 
@@ -3840,6 +3846,8 @@ With the optional chaining operator `?.`, we no longer have to explicitly check 
 </p>
 </details>
 
+---
+
 ###### 120. What's the output?
 
 ```javascript
@@ -3866,6 +3874,8 @@ We passed the condition `groceries.indexOf("banana")` to the if-statement. `groc
 
 </p>
 </details>
+
+---
 
 ###### 121. What's the output?
 
@@ -3895,6 +3905,8 @@ The `language` method is a `setter`. Setters don't hold an actual value, their p
 </p>
 </details>
 
+---
+
 ###### 122. What's the output?
 
 ```javascript
@@ -3921,6 +3933,8 @@ console.log(!typeof name === "string");
 </p>
 </details>
 
+---
+
 ###### 123. What's the output?
 
 ```javascript
@@ -3946,6 +3960,8 @@ The `add` function returns an arrow function, which returns an arrow function, w
 
 </p>
 </details>
+
+---
 
 ###### 124. What's the output?
 
@@ -3979,6 +3995,8 @@ The generator function `range` returns an async object with promises for each it
 </p>
 </details>
 
+---
+
 ###### 125. What's the output?
 
 ```javascript
@@ -4003,6 +4021,8 @@ myFunc(1, 2, 3);
 
 </p>
 </details>
+
+---
 
 ###### 126. What's the output?
 
@@ -4039,6 +4059,8 @@ With the `Intl.NumberFormat` method, we can format numeric values to any locale.
 </p>
 </details>
 
+---
+
 ###### 127. What's the output?
 
 ```javascript
@@ -4051,7 +4073,7 @@ console.log(spookyItems);
 - A: `["👻", "🎃", "🕸"]`
 - B: `["👻", "🎃", "🕸", "💀"]`
 - C: `["👻", "🎃", "🕸", { item: "💀" }]`
-- D: `["👻", "🎃", "🕸", "[Object object]"]`
+- D: `["👻", "🎃", "🕸", "[object Object]"]`
 
 <details><summary><b>Answer</b></summary>
 <p>
@@ -4062,6 +4084,8 @@ By destructuring objects, we can unpack values from the right-hand object, and a
 
 </p>
 </details>
+
+---
 
 ###### 128. What's the output?
 
@@ -4093,6 +4117,8 @@ With the `isNaN` method, you can check if the value you pass is not a number. `n
 </p>
 </details>
 
+---
+
 ###### 129. What's the output?
 
 ```javascript
@@ -4120,6 +4146,8 @@ Variables declared with the `const` keyword are not referencable before their in
 
 </p>
 </details>
+
+---
 
 ###### 130. What's the output?
 
@@ -4151,6 +4179,8 @@ In the `try` block, we're logging the awaited value of the `myPromise` variable:
 
 </p>
 </details>
+
+---
 
 ###### 131. What's the output?
 
