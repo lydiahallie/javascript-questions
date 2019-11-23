@@ -1321,7 +1321,7 @@ Zwraca unikalne id. To id może być wykorzystane do wyczyszczenia interwału pr
 
 #### Odpowiedź: A
 
-String jest iterowalny. Oznacza to, że nasz operator rozproszenia (spread operator) mapuje każdą literę do pojedyńczego elementu.
+String jest iterowalny. Oznacza to, że nasz operator rozproszenia (spread operator) mapuje każdą literę do pojedynczego elementu.
 
 </p>
 </details>
