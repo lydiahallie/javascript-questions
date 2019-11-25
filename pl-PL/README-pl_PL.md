@@ -84,7 +84,7 @@ for (let i = 0; i < 3; i++) {
 
 #### Odpowiedź: C
 
-Kolejka zdarzeń (event queue) w JavaScript powoduje, że funkcja zwrotna `setTimeout` jest wywołana _po_ wykonaniu pętli. Zmienna `i` w pierwszej pętli została zadeklarowana z użyciem słowa kluczowego `var` co sprawia, że zmienna ta jest globalna. Podczas wykonywania pętli wartość `i` jest zwiększana o 1 za każdym razem, przy pomocy operatora `++`. Do momentu wywołania funkcji zwrotnej `setTimeout` w pierwszym przykładzie zmienna `i` ma wartość 3.
+Kolejka zdarzeń (event queue) w JavaScript powoduje, że funkcja zwrotna `setTimeout` jest wywołana _po_ wykonaniu pętli. Zmienna `i` w pierwszej pętli została zadeklarowana z użyciem słowa kluczowego `var` co sprawia, że zmienna ta jest globalna. Podczas wykonywania pętli wartość `i` jest zwiększana o 1 za każdym razem, przy pomocy operatora `++`. Do momentu wywołania funkcji zwrotnej `setTimeout` - w pierwszym przykładzie zmienna `i` ma wartość 3.
 
 W przypadku drugiej pętli, zmienna `i` została zadeklarowana przy użyciu słowa kluczowego `let`: zmienne deklarowane przy pomocy `let` (lub `const`) mają zasięg blokowy (blok to wszystko wewnątrz nawiasów `{ }`). Podczas każdej iteracji, `i` otrzymuje nową wartość, a każda wartość zostaje objęta zakresem pętli.
 
@@ -118,7 +118,7 @@ console.log(shape.perimeter());
 
 #### Odpowiedź: B
 
-Zauważ, że funckja `diameter` jest normalną funkcją, gdzie `perimeter` jest funkcją strzełkową.
+Zauważ, że funckja `diameter` jest normalną funkcją, gdzie `perimeter` jest funkcją strzałkową.
 
 W momencie, gdy korzystamy z funkcji strzałkowej, słowo kluczowe `this` odnosi się do obecnie otaczającego go zakresu. W przypadku zwykłej funkcji jest inaczej! Gdy wywołujemy funkcję `perimeter`, nie odnosi się ona do obiektu shape, ale do otaczającego zakresu (przykładowo window);
 
@@ -180,7 +180,7 @@ const mouse = {
 
 #### Odpowiedź: A
 
-W JavaScript wszystkie klucze obiektów są stringami (chyba, że mamy do czynienia z Symbolami). Normalnie nie zapisujemy ich jako stringi. Klucze są konwertowane na stringi po stronie JS - under the hood.
+W JavaScript wszystkie klucze obiektów są stringami (chyba, że mamy do czynienia z Symbolami). Normalnie nie zapisujemy ich jako stringi. Klucze są konwertowane domyślnie na stringi po stronie JS - under the hood.
 
 JavaScript interpretuje (lub rozkapkowuje) instrukcje.
 W momencie, gdy stosujemy tzw. `brakcet notation` `(object[key])`, JavaScript widzi nawias otwierający `[` i idzie dalej dopóki nie napotka zamykającej części `]`. Dopiero,gdy będzie miał komplet, instrukcja zostanie wykonana.
@@ -380,7 +380,7 @@ console.log(member.getFullName());
 
 #### Odpowiedź: A
 
-Nie możesz dodawać właściwości do kontrucktora tak jak jest to możliwe z normalnymi obiektami. Jeśli chcesz dodać nową funkcjonalność do wszystkich obiektów, musisz skorzystać z prototypu. W tym przypadku,
+Nie możesz dodawać właściwości do kontruktora tak jak jest to możliwe z normalnymi obiektami. Jeśli chcesz dodać nową funkcjonalność do wszystkich obiektów, musisz skorzystać z prototypu. W tym przypadku,
 
 ```js
 Person.prototype.getFullName = function() {
@@ -422,10 +422,10 @@ console.log(sarah);
 
 #### Odpowiedź: A
 
-Dla `sarah` nie zastosowaliśmy sława kluczowego `new` do utworzenia obiektu. Gdy używamy `new` odnosi się to do nowego pustego obiektu, który tworzymy. Jednak, gdy nie zastosujemy słowa kluczowego `new`, odniesienie mamy do **obiektu globalnego**!
+Dla `Sarah` nie zastosowaliśmy słowa kluczowego `new` do utworzenia obiektu. Gdy używamy `new` odnosi się to do nowego pustego obiektu, który tworzymy. Jednak, gdy nie zastosujemy słowa kluczowego `new`, odniesienie mamy do **obiektu globalnego**!
 
 
-W przypadku `sarah` mówimy, że `this.firstName` jest równe `"Sarah"` a `this.lastName` jest równe `"Smith"`. W tym przypadku tak naprawdę zdefiniowaliśmy zmienne globalne: `global.firstName = 'Sarah'` i `global.lastName = 'Smith'`. `sarah` sama w sobie pozostaje `undefined`, ponieważ nasze działanie nie zwróciło wartości z funkcji `Person`.
+W przypadku `sarah` mówimy, że `this.firstName` jest równe `"Sarah"` a `this.lastName` jest równe `"Smith"`. W tym przypadku tak naprawdę zdefiniowaliśmy zmienne globalne: `global.firstName = 'Sarah'` i `global.lastName = 'Smith'`. `Sarah` sama w sobie pozostaje `undefined`, ponieważ nasze działanie nie zwróciło wartości z funkcji `Person`.
 
 </p>
 </details>
@@ -560,7 +560,7 @@ getPersonInfo`${person} is ${age} years old`;
 
 #### Odpowiedź: B
 
-Jeśli używać szablonu łańcuchów z tagami, wiesz że wartość pierwszego argumentu to zawsze tablica z wartościami w postaci stringów. Pozostałe argumenty otrzymują wartości, które przesłaliśmy. Dla uproszczenia: pierwszy argument ot string który przekazaliśmy i zostaje on rozłożony na elementy tablicy: "", "is", "years old". Pozostałe dwa argumenty to person i age.
+Jeśli używałeś/aś szablonu łańcuchów z tagami, wiesz że wartość pierwszego argumentu to zawsze tablica z wartościami w postaci stringów. Pozostałe argumenty otrzymują wartości, które przesłaliśmy. Dla uproszczenia: pierwszy argument to string, który przekazaliśmy i zostaje on rozłożony na elementy tablicy: "", "is", "years old". Pozostałe dwa argumenty to person i age.
 
 </p>
 </details>
@@ -802,8 +802,8 @@ Jeśli mamy dwa klucze o tej samej nazwie, to jeden zostaje nadpisany przez drug
 
 #### Odpowiedź: A
 
-Bazowym kontekst wywoławczy to globalny kontekst wywoławczy: to wszystko co jest dostępne w twoim kodzie.
-
+Bazowy kontekst wywoławczy to globalny kontekst wywoławczy: to wszystko co jest dostępne w twoim kodzie.
+Tworzy dla nas dwie rzeczy: obiekt globalny i słowo kluczowe "this"
 </p>
 </details>
 
@@ -857,7 +857,7 @@ name.giveLydiaPizza();
 
 #### Odpowiedź: A
 
-`String` jest wbudowanym kontruktorem do którego możemy dodać właściwości. Właśnie dodaliśmy metodę do jego prototypu. Prymityw łańcucha znaków jest automatycznie konwertowany na obiekt stringa, generowany przez funkcję jego prototypu. W efekcie, wszystkie stringi (String Objects) mają dostęp do tej metody!
+`String` jest wbudowanym kontruktorem do którego możemy dodać właściwości. Właśnie dodaliśmy metodę do jego prototypu. Prymityw łańcucha znaków jest automatycznie konwertowany na obiekt string, generowany przez funkcję jego prototypu. W efekcie, wszystkie stringi (String Objects) mają dostęp do tej metody!
 
 </p>
 </details>
@@ -1030,7 +1030,7 @@ console.log(sayHi.bind(person, 21));
 
 #### Odpowiedź: D
 
-W tym przypadku, zarówno za pomocą `.call` jak i `.bind` możemy przekazać odniesienie do obiektu, na który będzie wskazywać słowo kluczowe `this`. Jednak `.call` jest wywływane od razu. `.bind` zwraca _kopię_ funkcji, ale z połączonym kontekstem. Nie zostaje wywołana od razu. Musielibyśmy przypisać wywołanie do zmiennej i wtedy ją wywołać.
+W tym przypadku, zarówno za pomocą `.call` jak i `.bind` możemy przekazać odniesienie do obiektu, na który będzie wskazywać słowo kluczowe `this`. Jednak `.call` jest wywływane od razu natomiast `.bind` zwraca _kopię_ funkcji, ale z połączonym kontekstem. Nie zostaje wywołana od razu. Musielibyśmy przypisać wywołanie do zmiennej i wtedy ją wywołać.
 
 ```
 
@@ -1152,7 +1152,7 @@ console.log(numbers);
 
 #### Odpowiedź: C
 
-W przypadku, gdy dodajemy wartość do tablicy i ustawiamy index tego elementu na wartość wyższą niż długość tablicy, JavaScript tworzy coś co nazwyamy "pustym miejscem - emplty slot". Elementy te mają wartość `undefined`, ale gdy zastosujemy console.log na takiej tablicy, otrzymamy:
+W przypadku, gdy dodajemy wartość do tablicy i ustawiamy index tego elementu na wartość wyższą niż długość tablicy, JavaScript tworzy coś co nazwyamy "pustym miejscem - empty slot". Elementy te mają wartość `undefined`, ale gdy zastosujemy console.log na takiej tablicy, otrzymamy:
 
 `[1, 2, 3, 7 x empty, 11]`
 
@@ -1426,7 +1426,7 @@ Następnie przypisujemy zmienną `person` do wartości `null`.
 
 <img src="https://i.imgur.com/sYjcsMT.png" width="300">
 
-My tylko modyfikujemy wartość zmiennej `person` a nie pierwszego elementu tablicy. Element tablicy ma inną (skopiowaną) referencję to obiektu. Pierwszy element w tablicy nadal utrzymuje odniesienie do oryginalnego obiektu. Gdy logujemy tablicę `members`, pierwszy element nadal utryzmuje wartość obiektu, co zostaje pokazane w konsoli.
+My tylko modyfikujemy wartość zmiennej `person` a nie pierwszego elementu tablicy. Element tablicy ma inną (skopiowaną) referencję to obiektu. Pierwszy element w tablicy nadal utrzymuje odniesienie do oryginalnego obiektu. Gdy logujemy tablicę `members`, pierwszy element nadal utrzymuje wartość obiektu, co zostaje pokazane w konsoli.
 
 </p>
 </details>
@@ -1569,7 +1569,7 @@ console.log(person, birthYear);
 
 #### Odpowiedź: A
 
-Argumenty są przekazywane według _wartości_, chyba, że ich wartością jest obiekt, wtedy są przekazywane przez _referencję_. `birthYear` jest przekazane według wartości, ponieważ jest łańcuchem znaków, nie obiektem. Kiedy przekazujemy argumenty według wartości, _kopia_ thej wartości jest tworzona (patrz pytanie 46).
+Argumenty są przekazywane według _wartości_, chyba, że ich wartością jest obiekt, wtedy są przekazywane przez _referencję_. `birthYear` jest przekazane według wartości, ponieważ jest łańcuchem znaków, nie obiektem. Kiedy przekazujemy argumenty według wartości, _kopia_ tej wartości jest tworzona (patrz pytanie 46).
 
 Zmienna `birthYear` ma referencję do wartości `"1997"`. Argument year` również ma referencję do wartości `"1997"`, ale nie jest to ta sama wartość co `birthYear` do której ma odwołanie.
 Gdy aktualizujemy wartość `year` przez przypisanie `"1998"`, aktualizujemy tylko wartość `year`.Sama zmienna `birthYear` ma nadal wartość `"1997"`.
@@ -2435,7 +2435,7 @@ function sum(a, b) {
 
 #### Odpowiedź: A
 
-Funkcja czysto to taka, która _zawsze_ zwraca taki sam wynik, jeśli zostały przekazane takie same argumenty.
+Funkcja czysta (pure function) to taka, która _zawsze_ zwraca taki sam wynik, jeśli zostały przekazane takie same argumenty.
 
 W naszym przypadku funkcja `sum` zawsze zwróci ten sam wynik. Jeśli przekażemy `1` i `2`, to _zawsze_ zwróci nam `3` - bez efektów ubocznych. Jeśli przekażemy `5` i `10` to _zawsze_ zwróci `15`. Jest to definicja funkcji czystych tzw. pure function.
 
@@ -2547,7 +2547,7 @@ console.log(list)
 
 #### Odpowiedź: C
 
-Tablica może przechowywać dowolną wartość. Liczby, ciągi znaków, obiekty, inne tablice, null, wartoci boolean'owskie i inne wyrażenia takie jak daty, funkcje lub obliczenia.
+Tablica może przechowywać dowolną wartość. Liczby, ciągi znaków, obiekty, inne tablice, null, wartości boolean'owskie i inne wyrażenia takie jak daty, funkcje lub obliczenia.
 
 Element będzie miał wartość zwróconego działania. `1 + 2` zwróci `3`, `1 * 2` zwróci `2`, i `1 / 2` zwróci `0.5`.
 
@@ -2687,7 +2687,7 @@ console.log(checkAge(21))
 
 #### Odpowiedź: C
 
-Zmienne deklarowane przy pomocy `const` i `let` mają zasięg blokowy. Blok to wszystk co znajduje się między nawiasami (`{ }`). W tym przypadku nasz blok stanowi instrukcja warunkowa. Nie możemy odnieść się do zmiennej spoza bloku, zostaje wyświetlony błąd ReferenceError.
+Zmienne deklarowane przy pomocy `const` i `let` mają zasięg blokowy. Blok to wszystko co znajduje się między nawiasami (`{ }`). W tym przypadku nasz blok stanowi instrukcja warunkowa. Nie możemy odnieść się do zmiennej spoza bloku, zostaje wyświetlony błąd ReferenceError.
 
 </p>
 </details>
@@ -2924,7 +2924,7 @@ console.log(giveLydiaChocolate.prototype)
 
 #### Odpowiedź: D
 
-Normalne funkcje takie jak `giverLydiaPizza` mają właściwość `prototype`, która jest obiektem (prototype object) z właściwością `constructor`. Funkcje srzałkowem takie jak `giveLydiaChocolate` nie mają takiej właściwości. Dla próby dostania się do właściwości której nie ma otrzymamy `undefined`.
+Normalne funkcje takie jak `giveLydiaPizza` mają właściwość `prototype`, która jest obiektem (prototype object) z właściwością `constructor`. Funkcje srzałkowem takie jak `giveLydiaChocolate` nie mają takiej właściwości. Dla próby dostania się do właściwości której nie ma otrzymamy `undefined`.
 
 </p>
 </details>
