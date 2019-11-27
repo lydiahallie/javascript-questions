@@ -3788,7 +3788,7 @@ const list = ["🥳", "🤠", "🥰", "🤪"];
 console.log(list[(num += 1)]);
 ```
 
-- A: `🤠`
+- A: `🤠"","",""`
 - B: `🥰`
 - C: `SyntaxError`
 - D: `ReferenceError`
