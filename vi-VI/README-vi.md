@@ -875,9 +875,9 @@ console.log(a[b]);
 
 Object keys sẽ tự động được convert sang dạng string. Chúng ta đang set một object như là một key cho object `a`, với giá trị là `123`.
 
-Tuy nhiên khi ta string hóa một object, nó sẽ trở thành `"[Object object]"`. Nên tại đây phép gán này thực chất chính là `a["Object object"] = 123`. Phép gán tiếp theo cũng giống hệt vậy. `c` là một object khác mà chúng ta đang string hóa nó. Theo đó, `a["Object object"] = 456`.
+Tuy nhiên khi ta string hóa một object, nó sẽ trở thành `"[object Object]"`. Nên tại đây phép gán này thực chất chính là `a["object Object"] = 123`. Phép gán tiếp theo cũng giống hệt vậy. `c` là một object khác mà chúng ta đang string hóa nó. Theo đó, `a["object Object"] = 456`.
 
-Cuối cùng khi gọi `a[b]`, thực chất chính là gọi `a["Object object"]`. Giá trị của nó là `456`, nên trả về là `456`.
+Cuối cùng khi gọi `a[b]`, thực chất chính là gọi `a["object Object"]`. Giá trị của nó là `456`, nên trả về là `456`.
 
 </p>
 </details>

@@ -869,9 +869,9 @@ console.log(a[b]);
 
 Nesne keyleri otomatik olarak stringe dönüştürülür. `a` nesnesine değeri `123` olacak şekilde, bir nesneyi key olarak atamaya çalışıyoruz.
 
-Ancak, bir nesnesi string hale getirince, `"[Object object]"` olur. Dolayısıyla burada söylediğimiz, `a["Object object"] = 123`. Sonra, aynı şeyi tekrar yapmayı deniyoruz. `c`, dolaylı olarak string hale getirdiğimiz başka bir nesne. O halde, `a["Object object"] = 456`.
+Ancak, bir nesnesi string hale getirince, `"[object Object]"` olur. Dolayısıyla burada söylediğimiz, `a["object Object"] = 123`. Sonra, aynı şeyi tekrar yapmayı deniyoruz. `c`, dolaylı olarak string hale getirdiğimiz başka bir nesne. O halde, `a["object Object"] = 456`.
 
-Sonra, `a[b]`'yi logluyoruz, ki aslında o da `a["Object object"]`. Onu da `456` olarak atamıştık, o yüzden `456` döndürür.
+Sonra, `a[b]`'yi logluyoruz, ki aslında o da `a["object Object"]`. Onu da `456` olarak atamıştık, o yüzden `456` döndürür.
 
 </p>
 </details>
