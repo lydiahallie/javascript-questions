@@ -132,7 +132,7 @@ shape.perimeter()
 
 ---
 
-###### 5. 哪一个是无效的？
+###### 5. 哪一个是正确的？
 
 ```javascript
 const bird = {
@@ -145,10 +145,10 @@ const mouse = {
 }
 ```
 
-- A: `mouse.bird.size`
-- B: `mouse[bird.size]`
-- C: `mouse[bird["size"]]`
-- D: All of them are valid
+- A: `mouse.bird.size`是无效的
+- B: `mouse[bird.size]`是无效的
+- C: `mouse[bird["size"]]`是无效的
+- D: 以上三个选项都是有效的
 
 <details><summary><b>答案</b></summary>
 <p>
@@ -1352,7 +1352,6 @@ Promise.race([firstPromise, secondPromise]).then(res => console.log(res));
 </p>
 </details>
 
-
 ---
 
 ###### 46. 输出是什么?
@@ -2014,7 +2013,7 @@ multiply(value);
 `reducer` 函数还有一个可选参数`initialValue`, 该参数将作为第一次调用回调函数时的第一个参数的值。如果没有提供`initialValue`，则将使用数组中的第一个元素。
 
 在上述例子，`reduce`方法接收的第一个参数(Accumulator)是`x`, 第二个参数(Current Value)是`y`。
- 
+
 在第一次调用时，累加器`x`为`1`，当前值`“y”`为`2`，打印出累加器和当前值：`1`和`2`。
 
 例子中我们的回调函数没有返回任何值，只是打印累加器的值和当前值。如果函数没有返回值，则默认返回`undefined`。 在下一次调用时，累加器为`undefined`，当前值为“3”, 因此`undefined`和`3`被打印出。
@@ -2022,7 +2021,7 @@ multiply(value);
 在第四次调用时，回调函数依然没有返回值。 累加器再次为 `undefined` ，当前值为“4”。 `undefined`和`4`被打印出。
 </p>
 </details>
-  
+
 ---
 
 ###### 66. 使用哪个构造函数可以成功继承`Dog`类?
@@ -2979,7 +2978,7 @@ getItems(["banana", "apple"], "pear", "orange")
 </p>
 </details>
 
-
+---
 
 ###### <a name=20190817></a>95. 输出什么?
 
@@ -3120,7 +3119,7 @@ console.log(getUser(user))
 `getList`函数接收一个数组作为其参数。 在`getList`函数的括号之间，我们立即解构这个数组。 您可以将其视为：
 
  `[x, ...y] = [1, 2, 3, 4]`
- 
+
 
 使用剩余的参数`... y`，我们将所有剩余参数放在一个数组中。 在这种情况下，其余的参数是`2`，`3`和`4`。 `y`的值是一个数组，包含所有其余参数。 在这种情况下，`x`的值等于`1`，所以当我们打印`[x，y]`时，会打印`[1，[2,3,4]]`。
 
@@ -3222,6 +3221,355 @@ console.log(one, two, three)
 `（null || false ||“”）`：所有值都是假值。 这意味着返回传递的值`""`。 `two`等于`""`。
 
 `（[] || 0 ||“”）`：空数组`[]`是一个真值。 这是第一个返回的真值。 `three`等于`[]`。
+
+</p>
+</details>
+
+---
+
+###### 102. 依次输出什么?
+
+```javascript
+const myPromise = () => Promise.resolve('I have resolved!')
+
+function firstFunction() {
+  myPromise().then(res => console.log(res))
+  console.log('second')
+}
+
+async function secondFunction() {
+  console.log(await myPromise())
+  console.log('second')
+}
+
+firstFunction()
+secondFunction()
+```
+
+- A: `I have resolved!`, `second` and `I have resolved!`, `second`
+- B: `second`, `I have resolved!` and `second`, `I have resolved!`
+- C: `I have resolved!`, `second` and `second`, `I have resolved!`
+- D: `second`, `I have resolved!` and `I have resolved!`, `second`
+
+<details><summary><b>答案</b></summary>
+<p>
+
+#### 答案: D
+
+
+有了promise，我们通常会说：当我想要调用某个方法，但是由于它可能需要一段时间，因此暂时将它放在一边。只有当某个值被resolved/rejected，并且执行栈为空时才使用这个值。
+
+我们可以在`async`函数中通过`.then`和`await`关键字获得该值。 尽管我们可以通过`.then`和`await`获得promise的价值，但是它们的工作方式有所不同。
+
+在 `firstFunction`中，当运行到`myPromise`方法时我们将其放在一边，即promise进入微任务队列，其他后面的代码（`console.log('second')`）照常运行，因此`second`被打印出，`firstFunction`方法到此执行完毕，执行栈中宏任务队列被清空，此时开始执行微任务队列中的任务，`I have resolved`被打印出。
+
+在`secondFunction`方法中，我们通过`await`关键字，暂停了后面代码的执行，直到异步函数的值被解析才开始后面代码的执行。这意味着，它会等着直到 `myPromise` 以值`I have resolved`被解决之后，下一行`second`才开始执行。
+
+
+</p>
+</details>
+
+---
+
+###### 103. 输出什么?
+
+```javascript
+const set = new Set()
+
+set.add(1)
+set.add("Lydia")
+set.add({ name: "Lydia" })
+
+for (let item of set) {
+  console.log(item + 2)
+}
+```
+
+- A: `3`, `NaN`, `NaN`
+- B: `3`, `7`, `NaN`
+- C: `3`, `Lydia2`, `[Object object]2`
+- D: `"12"`, `Lydia2`, `[Object object]2`
+
+<details><summary><b>答案</b></summary>
+<p>
+
+#### 答案: C
+
+“+”运算符不仅用于添加数值，还可以使用它来连接字符串。 每当JavaScript引擎发现一个或多个值不是数字时，就会将数字强制为字符串。 
+
+第一个是数字1。 1 + 2返回数字3。
+
+但是，第二个是字符串“Lydia”。 “Lydia”是一个字符串，2是一个数字：2被强制转换为字符串。 “Lydia”和“2”被连接起来，产生字符串“Lydia2”。
+
+`{name：“ Lydia”}`是一个对象。 数字和对象都不是字符串，因此将二者都字符串化。 每当我们对常规对象进行字符串化时，它就会变成`[Object object]`。 与“2”串联的“ [Object object]”成为“[Object object]2”。
+
+</p>
+</details>
+
+---
+
+###### 104. 结果是什么?
+
+```javascript
+Promise.resolve(5)
+```
+
+- A: `5`
+- B: `Promise {<pending>: 5}`
+- C: `Promise {<resolved>: 5}`
+- D: `Error`
+
+<details><summary><b>答案</b></summary>
+<p>
+
+#### 答案: C
+
+我们可以将我们想要的任何类型的值传递`Promise.resolve`，无论是否`promise`。 该方法本身返回带有已解析值的`Promise`。 如果您传递常规函数，它将是具有常规值的已解决`promise`。 如果你通过了promise，它将是一个已经resolved的且带有传的值的promise。
+
+上述情况，我们传了数字5，因此返回一个resolved状态的promise，resolve值为`5`
+
+</p>
+</details>
+
+
+###### 105. 输出什么?
+
+```javascript
+function compareMembers(person1, person2 = person) {
+  if (person1 !== person2) {
+    console.log("Not the same!")
+  } else {
+    console.log("They are the same!")
+  }
+}
+
+const person = { name: "Lydia" }
+
+compareMembers(person)
+```
+
+- A: `Not the same!`
+- B: `They are the same!`
+- C: `ReferenceError`
+- D: `SyntaxError`
+
+<details><summary><b>答案</b></summary>
+<p>
+
+#### 答案: B
+
+对象通过引用传递。 当我们检查对象的严格相等性（===）时，我们正在比较它们的引用。
+
+我们将“person2”的默认值设置为“person”对象，并将“person”对象作为“person1”的值传递。
+
+这意味着两个值都引用内存中的同一位置，因此它们是相等的。
+
+运行“ else”语句中的代码块，并记录`They are the same!` 。
+
+</p>
+</details>
+
+---
+
+###### 106. 输出什么?
+
+
+```javascript
+const colorConfig = {
+  red: true,
+  blue: false,
+  green: true,
+  black: true,
+  yellow: false,
+}
+
+const colors = ["pink", "red", "blue"]
+
+console.log(colorConfig.colors[1])
+```
+
+- A: `true`
+- B: `false`
+- C: `undefined`
+- D: `TypeError`
+
+<details><summary><b>答案</b></summary>
+<p>
+
+#### 答案: D
+
+在JavaScript中，我们有两种访问对象属性的方法：括号表示法或点表示法。 在此示例中，我们使用点表示法（`colorConfig.colors`）代替括号表示法（`colorConfig [“ colors”]`）。
+
+使用点表示法，JavaScript会尝试使用该确切名称在对象上查找属性。 在此示例中，JavaScript尝试在colorconfig对象上找到名为colors的属性。 没有名为“colors”的属性，因此返回“undefined”。
+然后，我们尝试使用`[1]`访问第一个元素的值。 我们无法对未定义的值执行此操作，因此会抛出`Cannot read property '1' of undefined`。
+
+JavaScript解释（或取消装箱）语句。 当我们使用方括号表示法时，它会看到第一个左方括号`[`并一直进行下去，直到找到右方括号`]`。 只有这样，它才会评估该语句。 如果我们使用了colorConfig [colors [1]]，它将返回colorConfig对象上red属性的值。
+
+
+</p>
+</details>
+
+---
+
+###### 107. 输出什么?
+
+```javascript
+console.log('❤️' === '❤️')
+```
+
+- A: `true`
+- B: `false`
+
+<details><summary><b>答案</b></summary>
+<p>
+
+#### 答案: A
+
+在内部，表情符号是unicode。 heat表情符号的unicode是`“ U + 2764 U + FE0F”`。 对于相同的表情符号，它们总是相同的，因此我们将两个相等的字符串相互比较，这将返回true。
+
+</p>
+</details>
+
+---
+
+###### 108. 哪些方法修改了原数组?
+
+
+```javascript
+const emojis = ['✨', '🥑', '😍']
+
+emojis.map(x => x + '✨')
+emojis.filter(x => x !== '🥑')
+emojis.find(x => x !== '🥑')
+emojis.reduce((acc, cur) => acc + '✨')
+emojis.slice(1, 2, '✨') 
+emojis.splice(1, 2, '✨')
+```
+
+- A: `All of them`
+- B: `map` `reduce` `slice` `splice`
+- C: `map` `slice` `splice` 
+- D: `splice`
+
+<details><summary><b>答案</b></summary>
+<p>
+
+#### 答案: D
+
+使用`splice`方法，我们通过删除，替换或添加元素来修改原始数组。 在这种情况下，我们从索引1中删除了2个元素（我们删除了`'🥑'`和`'😍'`），同时添加了✨emoji表情。
+
+`map`，`filter`和`slice`返回一个新数组，`find`返回一个元素，而`reduce`返回一个减小的值。
+
+</p>
+</details>
+
+---
+
+###### <a name=20191009></a>109. 输出什么?
+
+```javascript
+const food = ['🍕', '🍫', '🥑', '🍔']
+const info = { favoriteFood: food[0] }
+
+info.favoriteFood = '🍝'
+
+console.log(food)
+```
+
+- A: `['🍕', '🍫', '🥑', '🍔']`
+- B: `['🍝', '🍫', '🥑', '🍔']`
+- C: `['🍝', '🍕', '🍫', '🥑', '🍔']` 
+- D: `ReferenceError`
+
+<details><summary><b>答案</b></summary>
+<p>
+
+#### 答案: A
+
+我们将`info`对象上的`favoriteFood`属性的值设置为披萨表情符号“🍕”的字符串。字符串是原始数据类型。在JavaScript中，原始数据类型通过值起作用
+
+在这种情况下，我们将`info`对象上的`favoriteFood`属性的值设置为等于`food`数组中的第一个元素的值，字符串为披萨表情符号（`'🍕'` ）。字符串是原始数据类型，并且通过值进行交互，我们更改`info`对象上`favoriteFood`属性的值。 food数组没有改变，因为favoriteFood的值只是该数组中第一个元素的值的复制，并且与该元素上的元素没有相同的内存引用食物`[0]`。当我们记录食物时，它仍然是原始数组`['🍕'，'🍫'，'🥑'，'🍔']`。
+
+</p>
+</details>
+
+---
+
+###### 110. 这个函数干了什么?
+
+```javascript
+JSON.parse()
+```
+
+- A: Parses JSON to a JavaScript value
+- B: Parses a JavaScript object to JSON
+- C: Parses any JavaScript value to JSON
+- D: Parses JSON to a JavaScript object only
+
+<details><summary><b>答案</b></summary>
+<p>
+
+#### 答案: A
+
+使用`JSON.parse()`方法，我们可以将JSON字符串解析为JavaScript值。
+
+```javascript
+// 将数字字符串化为有效的JSON，然后将JSON字符串解析为JavaScript值:
+const jsonNumber = JSON.stringify(4) // '4'
+JSON.parse(jsonNumber) // 4
+
+// 将数组值字符串化为有效的JSON，然后将JSON字符串解析为JavaScript值:
+const jsonArray = JSON.stringify([1, 2, 3]) // '[1, 2, 3]'
+JSON.parse(jsonArray) // [1, 2, 3]
+
+// 将对象字符串化为有效的JSON，然后将JSON字符串解析为JavaScript值:
+const jsonArray = JSON.stringify({ name: "Lydia" }) // '{"name":"Lydia"}'
+JSON.parse(jsonArray) // { name: 'Lydia' }
+```
+
+</p>
+</details>
+
+---
+
+###### 111. 输出什么? 
+
+```javascript
+let name = 'Lydia'
+
+function getName() {
+  console.log(name)
+  let name = 'Sarah'
+}
+
+getName()
+```
+
+- A: Lydia
+- B: Sarah
+- C: `undefined`
+- D: `ReferenceError`
+
+<details><summary><b>答案</b></summary>
+<p>
+
+#### 答案: D 
+
+每个函数都有其自己的执行上下文。 `getName`函数首先在其自身的上下文（范围）内查找，以查看其是否包含我们尝试访问的变量`name`。 上述情况，`getName`函数包含其自己的`name`变量：我们用`let`关键字和`Sarah`的值声明变量`name`。
+
+带有`let`关键字（和`const`）的变量被提升，但是与`var`不同，它不会被***初始化***。 在我们声明（初始化）它们之前，无法访问它们。 这称为“暂时性死区”。 当我们尝试在声明变量之前访问变量时，JavaScript会抛出`ReferenceError: Cannot access 'name' before initialization`。
+
+如果我们不在`getName`函数中声明`name`变量，则javascript引擎会查看原型练。会找到其外部作用域有一个名为`name`的变量，其值为`Lydia`。 在这种情况下，它将打印`Lydia`：
+
+```javascript
+let name = 'Lydia'
+
+function getName() {
+  console.log(name)
+}
+
+getName() // Lydia
+```
 
 </p>
 </details>

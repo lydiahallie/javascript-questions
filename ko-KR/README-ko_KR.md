@@ -2,7 +2,7 @@
 
 JavaScript 에 관한 객관식 문제를 [Instagram](https://www.instagram.com/theavocoder)에 매일 게시하고 있어요, 물론 여기에도 게시할 거예요!
 
-초급부터 고급까지: JavaScript를 얼마나 잘 알고 있는지 테스트하거나, 지식을 조금 더 새롭게 하거나, 코딩 면접을 준비하세요! :muscle: :rocket: 이 기록을 매주 새로운 질문으로 업데이트해요. 마지막 업데이트: <a href=#20190927><b>9월 27일</b></a>
+초급부터 고급까지: JavaScript를 얼마나 잘 알고 있는지 테스트하거나, 지식을 조금 더 새롭게 하거나, 코딩 면접을 준비하세요! :muscle: :rocket: 이 기록을 매주 새로운 질문으로 업데이트해요. 마지막 업데이트: <a href=#20191009><b>10월 09일</b></a>
 
 정답은 질문 아래 접힌 부분에 있고, 간단히 클릭하면 펼칠 수 있어요. 행운을 빌어요 :heart:
 
@@ -877,9 +877,9 @@ console.log(a[b]);
 
 객체 키는 자동으로 문자열로 변환돼요. 객체 `a`의 키 값으로 `123`을 세팅하려고 해요.
 
-그러나, 객체를 문자열화 하면 `"[Object object]"`가 돼요. 그래서 여기서 말하고자 하는 건 `a["Object object"] = 123`이라는 거예요. 그 후, 같은 일을 다시 시도해요. `c`는 암묵적으로 문자열화 한 다른 객체에요. 그래서 `a["Object object"] = 456`이 돼요.
+그러나, 객체를 문자열화 하면 `"[object Object]"`가 돼요. 그래서 여기서 말하고자 하는 건 `a["object Object"] = 123`이라는 거예요. 그 후, 같은 일을 다시 시도해요. `c`는 암묵적으로 문자열화 한 다른 객체에요. 그래서 `a["object Object"] = 456`이 돼요.
 
-그 후, `a[b]`는 출력하면 실제로는 `a["Object object"]`에요. 단지 `456`을 설정했기 때문에, `456`을 리턴해요.
+그 후, `a[b]`는 출력하면 실제로는 `a["object Object"]`에요. 단지 `456`을 설정했기 때문에, `456`을 리턴해요.
 
 </p>
 </details>
@@ -2987,7 +2987,7 @@ The above example works. This returns the array `[ 'banana', 'apple', 'orange', 
 
 ---
 
-###### <a name=20190817></a>95. 무엇이 출력 될까요?
+###### 95. 무엇이 출력 될까요?
 
 ```javascript
 function nums(a, b) {
@@ -3228,7 +3228,7 @@ console.log(one, two, three)
 
 ---
 
-###### 102. <a name=20190927></a>무엇이 출력 될까요?
+###### 102. 무엇이 출력 될까요?
 
 ```javascript
 const myPromise = () => Promise.resolve('I have resolved!')
@@ -3288,8 +3288,8 @@ for (let item of set) {
 
 - A: `3`, `NaN`, `NaN`
 - B: `3`, `7`, `NaN`
-- C: `3`, `Lydia2`, `[Object object]2`
-- D: `"12"`, `Lydia2`, `[Object object]2`
+- C: `3`, `Lydia2`, `[object Object]2`
+- D: `"12"`, `Lydia2`, `[object Object]2`
 
 <details><summary><b>정답</b></summary>
 <p>
@@ -3302,7 +3302,7 @@ for (let item of set) {
 
 그러나, 두번째는 문자열 `"Lydia"`이에요. `"Lydia"`은 문자열이고, `2`는 숫자에요: `2`는 문자열로 강제 변환되어요. `"Lydia"`그리고 `"2"`이 연결되어, 문자열 `"Lydia2"`이 리턴되요.
 
-`{ name: "Lydia" }`은 객체에요. 객체가 아닌 숫자나 객체는 문자열이 아니므로, 둘다 문자화되어요. 정규 객체를 문자화 할때, `"[Object object]"`가 돼요. `"[Object object]"`는 `"2"`와 연결되어 `"[Object object]2"`가 돼요.
+`{ name: "Lydia" }`은 객체에요. 객체가 아닌 숫자나 객체는 문자열이 아니므로, 둘다 문자화되어요. 정규 객체를 문자화 할때, `"[object Object]"`가 돼요. `"[object Object]"`는 `"2"`와 연결되어 `"[object Object]2"`가 돼요.
 
 </p>
 </details>
@@ -3403,7 +3403,7 @@ JavaScript에서, 객체의 속성에 접근하는 2가지 방법을 가지고 �
 
 점 표기법에서, JavaScript는 정확한 이름을 가진 객체의 속성을 찾으려 해요. 이 예제에서 JavaScript는 `colorConfig` 객체의 `colors`라고 불리는 속성을 찾으려고 했어요. 그곳에는 `colors`라고 불리는 속성이 없어요, 그래서 `undefined`을 리턴해요. 그리고 나서, `[1]`을 사용해서 첫번째 요소의 값에 접근하려고 했어요. `undefined`의 값에는 이것을 할 수 없어요, 그래서 `TypeError`를 던져요: `Cannot read property '1' of undefined`.
 
-JavaScript 문장을 해석(또는 참조형 변수를 원시 데이터 타입으로 만들어 주도록) 해요. 괄호 표기법을 사용할때, 첫번째로 열린 괄호 `[`을 보고 닫힌 괄호 `]`를 찾을 때 까지 계속 진행되는 것으로 보여요. 그러고 나서야, 문장을 평가할거에요. 만약 `colorConfig[colors[1]]`을 사용했다면, `colorConfig` 객체의 속성 `red` 의 값이 리턴될 거에요.
+JavaScript 문장을 해석(또는 참조형 변수를 원시 데이터 타입으로 만들어 주도록) 해요. 괄호 표기법을 사용할때, 첫번째로 열린 괄호 `[`을 보고 닫힌 괄호 `]`를 찾을 때 까지 계속 진행되는 것으로 보여요. 그러고 나서야, 문장을 평가할거에요. 만약 `colorConfig[colors[1]]`을 사용했다면, `colorConfig` 객체의 속성 `red` 의 값이 리턴될 거에요.
 
 </p>
 </details>
@@ -3457,6 +3457,299 @@ emojis.splice(1, 2, '✨')
 `splice` method를 사용하면, 요소를 삭제, 대체하거나 추가함으로써 원본 배열을 수정해요. 이 경우에서, 인덱스 1에서 부터 2개의 아이템을 제거했어요. (`'🥑'` 와 `'😍'`를 삭제했어요) 그리고 ✨ 이모티콘을 대신 추가했죠.
 
 `map`, `filter` 그리고 `slice` 는 새로운 배열을 리턴해하고, `find` 요소를 리턴하며,  `reduce` 감소된 값을 리턴해요.
+
+</p>
+</details>
+
+---
+
+###### <a name=20191009></a>109. 무엇이 출력 될까요?
+
+```javascript
+const food = ['🍕', '🍫', '🥑', '🍔']
+const info = { favoriteFood: food[0] }
+
+info.favoriteFood = '🍝'
+
+console.log(food)
+```
+
+- A: `['🍕', '🍫', '🥑', '🍔']`
+- B: `['🍝', '🍫', '🥑', '🍔']`
+- C: `['🍝', '🍕', '🍫', '🥑', '🍔']` 
+- D: `ReferenceError`
+
+<details><summary><b>정답</b></summary>
+<p>
+
+#### 정답: A
+
+`info` 객체의 `favoriteFood` 속성 값을 피자 이모티콘 `'🍕'`와 같게 설정했어요. 문자는 원시 데이터 형이에요. JavaScript에서, 원시 데이터 형은 (객체가 아닌 모든 것) _값_ 에 의해 상호 작용해요. 이 경우, `info` 객체의 `favoriteFood` 속성 값을 `food` 배열 안의 첫 번째 요소와 같게 설정했어요. 문자열은 원시 데이터 형이므로 값에의해 상호 작용해요. (좀 더 알고싶다면 내 [블로그 포스트](https://www.theavocoder.com/complete-javascript/2018/12/21/by-value-vs-by-reference)를 참고하세요.)
+
+그리고나서, `info` 객체의 `favoriteFood` 속성 값을 바꿨어요. `favoriteFood`의 값은 단지 배열의 첫 번째 요소의 값을 _복사_ 했기 때문에 `food` 배열은 바뀌지 않고, `food[0]` 요소의 메모리 공간과 같은 참조를 갖지 않아요. food를 출력할 때, 여전히 원본 배열 ['🍕', '🍫', '🥑', '🍔']` 이에요.
+
+</p>
+</details>
+
+---
+
+###### 110. 이 메소드는 무엇을 할까요?
+
+```javascript
+JSON.parse()
+```
+
+- A: Parses JSON to a JavaScript value
+- B: Parses a JavaScript object to JSON
+- C: Parses any JavaScript value to JSON
+- D: Parses JSON to a JavaScript object only
+
+<details><summary><b>정답</b></summary>
+<p>
+
+#### 정답: A
+
+`JSON.parse()`메소드를 사용하면, JSON 문자열의 구문을 분석하여 JavaScript 값으로 생성해요.
+With the `JSON.parse()` method, we can parse JSON string to a JavaScript value. 
+
+```javascript
+// 숫자를 유효한 JSON 문자열로 변환해요, 그리고 나서 JSON 문자열의 구문을 분석해 JavaScript 값으로 생성해요.
+const jsonNumber = JSON.stringify(4) // '4'
+JSON.parse(jsonNumber) // 4
+
+// 배열 값을 유효한 JSON 문자열로 변환해요, 그리고 나서 JSON 문자열의 구문을 분석해 JavaScript 값으로 생성해요.
+const jsonArray = JSON.stringify([1, 2, 3]) // '[1, 2, 3]'
+JSON.parse(jsonArray) // [1, 2, 3]
+
+// 객체를 유효한 JSON 문자열로 변환해요, 그리고 나서 JSON 문자열의 구문을 분석해 JavaScript 값으로 생성해요.
+const jsonArray = JSON.stringify({ name: "Lydia" }) // '{"name":"Lydia"}'
+JSON.parse(jsonArray) // { name: 'Lydia' }
+```
+
+</p>
+</details>
+
+---
+
+###### 111. 무엇이 출력 될까요? 
+
+```javascript
+let name = 'Lydia'
+
+function getName() {
+  console.log(name)
+  let name = 'Sarah'
+}
+
+getName()
+```
+
+- A: Lydia
+- B: Sarah
+- C: `undefined`
+- D: `ReferenceError`
+
+<details><summary><b>정답</b></summary>
+<p>
+
+#### 정답: D
+
+각 기능에는 자체 _실행 컨텍스트_ (또는 _범위_)가 있어요. `getName` 함수는 먼저 자체 컨텍스트(범위) 내에서 접근하려고 하는 변수 `name`이 포함되어 있는지 살펴봐요: `let` 키워드와 함께 선언 했기 때문에 `'Sarah'`의 값을 가져요.
+
+`let` 키워드 (그리고 `const`)를 사용한 변수는 끌어올려지지만, `var`와 다르게 <i>초기화</i> 되지는 않아요. 그들을 선언 (초기화) 하는 줄 전에 접근 할 수 없어요. "일시적 사각지대"라고 불려요. 그들을 선언하기 전에 접근하려고 한다면, JavaScript는 `ReferenceError`를 던져요.
+
+`getName` 함수 안에 `name` 변수를 선언하지 않았다면, javaScript 엔진은 _스코프 체인_ 을 내려다 보지 않았을 거예요.  외부 범위에 `Lydia`의 값을 가진 `name` 변수가 있어요. 이 경우엔 `Lydia`를 출력할거예요.
+
+```javascript
+let name = 'Lydia'
+
+function getName() {
+  console.log(name)
+}
+
+getName() // Lydia
+```
+
+</p>
+</details>
+
+---
+
+###### 112. 무엇이 출력 될까요?
+
+```javascript
+function* generatorOne() {
+  yield ['a', 'b', 'c'];
+}
+
+function* generatorTwo() {
+  yield* ['a', 'b', 'c'];
+}
+
+const one = generatorOne()
+const two = generatorTwo()
+
+console.log(one.next().value)
+console.log(two.next().value)
+```
+
+- A: `a` 그리고 `a`
+- B: `a` 그리고 `undefined`
+- C: `['a', 'b', 'c']` 그리고 `a`
+- D: `a` 그리고 `['a', 'b', 'c']`
+
+<details><summary><b>정답</b></summary>
+<p>
+
+#### 정답: C
+
+`yield` 키워드를 사용하면, 제너레이터 함수 안의 값을 `중단` 했어요. `yield`키워드를 사용하면, 다른 제너레이터 함수 또는 반복 가능한 객체(예를들면 배열)의 값을 중단 시킬 수 있어요.
+
+`generatorOne`에서, 전체 배열 `['a', 'b', 'c']`을 `yield` 키워드를 사용해서 중단 했어요. `one` (`one.next().value`)의 `next` 메소드가 리턴 한 객체의 `value`속성 값은 전체 배열 `['a', 'b', 'c']`과 같아요.
+
+```javascript
+console.log(one.next().value) // ['a', 'b', 'c']
+console.log(one.next().value) // undefined
+```
+
+`generatorTwo`에서, `yield*` 키워드를 사용했어요. `two`의 첫번째 값이 중단 되었다는 의미이고, 반복자의 첫번째로 중단된 값과 같아요.반복자는 배열 `['a', 'b', 'c']` 이에요.
+처음으로 중단된 값은 `a`이고, 따라서 첫번째 순서에서 `two.next().value`를 부르면 `a`를 리턴해요.
+
+```javascript
+console.log(two.next().value) // 'a'
+console.log(two.next().value) // 'b'
+console.log(two.next().value) // 'c'
+console.log(two.next().value) // undefined
+```
+
+</p>
+</details>
+
+---
+
+###### 113. 무엇이 출력 될까요?
+
+```javascript
+console.log(`${(x => x)('I love')} to program`)
+```
+
+- A: `I love to program`
+- B: `undefined to program`
+- C: `${(x => x)('I love') to program`
+- D: `TypeError`
+
+<details><summary><b>정답</b></summary>
+<p>
+
+#### 정답: A
+
+템플릿 리터러를 사용한 표현식은 첫번째로 평가돼요. 문자열은 표현식의 리턴된 값을 포함하게 된다는 것을 의미하고, 이 경우 함수 `(x => x)('I love')`는 즉시 호출 돼요. 화살표 함수 `x => x`의 인수 값으로 `I love`를 전달 했어요. `x`는 `'I love'`이고 리턴 될 거에요. 이 결과는 `I love to program` 이에요.
+
+</p>
+</details>
+
+---
+
+###### 114. 무슨일이 발생할까요?
+
+```javascript
+let config = {
+  alert: setInterval(() => {
+    console.log('Alert!')
+  }, 1000)
+}
+
+config = null
+```
+
+- A: `setInterval` 콜백은 호출되지 않을거에요
+- B: `setInterval` 콜백은 한 번만 호출돼요
+- C: `setInterval` 콜백은 여전히 매 초마다 호출돼요
+- D: 결코 `config.alert()`를 호출 하지 않고, config 는 `null`이에요
+
+<details><summary><b>정답</b></summary>
+<p>
+
+#### 정답: C
+
+일반적으로 객체를 `null`로 설정했을때, 객체는 더 이상의 객체 참조가 없어 _쓰레기 수집_ 되어요. 그러나, `setInterval`을 가진 콜백 함수는 화살표 함수 (`config` 객체로 감싸진) 이기 때문에, 콜백 함수는 여전히 `config` 객체의 참조를 갖고 있고, 객체는 쓰레기 수집 되지 않아요. 쓰레기 수집 되지 않았기 때문에, `setInterval` 콜백 함수는 여전히 매 1000ms (1s) 마다 호출 돼요,
+
+</p>
+</details>
+
+---
+
+###### 115. 어느 method가 값 `'Hello world!'`를 리턴 할까요?
+
+```javascript
+const myMap = new Map()
+const myFunc = () => 'greeting'
+
+myMap.set(myFunc, 'Hello world!')
+
+//1
+myMap.get('greeting')
+//2
+myMap.get(myFunc)
+//3
+myMap.get(() => 'greeting')
+```
+
+- A: 1
+- B: 2
+- C: 2 그리고 3
+- D: 모두
+
+<details><summary><b>정답</b></summary>
+<p>
+
+#### 정답: B
+
+`set` 메소드를 사용해서 키/값을 쌍으로 추가할 때, 키는 `set`함수로 전달 된 첫 번째 인수의 값이 되고, 값은 `set`함수로 전달된 두 번째 인수의 값이 될거에요. 이 경우에선 키는 _함수_ `() => 'greeting'`이고, 값은 `'Hello world'` 에요. `myMap`은 이제 `{ () => 'greeting' => 'Hello world!' }` 예요.
+
+1은 틀렸어요, 키는 `'greeting'`가 아니라 `() => 'greeting'`이기 때문이에요.
+3은 틀렸어요, `get`메소드에 새로 생성한 함수를 전달 했기 때문이에요. 객체는 _참조_에 의해 상호작용해요. 함수는 객체이고, 그들이 같다고 하더라도 두 함수가 절대로 같지 않은 이유예요: 메모리 안 다른 장소의 참조를 가지고 있어요.
+
+</p>
+</details>
+
+---
+
+###### 116. 무엇이 출력 될까요?
+
+```javascript
+const person = {
+  name: "Lydia",
+  age: 21
+}
+
+const changeAge = (x = { ...person }) => x.age += 1
+const changeAgeAndName = (x = { ...person }) => {
+  x.age += 1
+  x.name = "Sarah"
+}
+
+changeAge(person)
+changeAgeAndName()
+
+console.log(person)
+```
+
+- A: `{name: "Sarah", age: 22}`
+- B: `{name: "Sarah", age: 23}`
+- C: `{name: "Lydia", age: 22}`
+- D: `{name: "Lydia", age: 23}`
+
+<details><summary><b>정답</b></summary>
+<p>
+
+#### 정답: C
+
+`changeAge`와 `changeAgeAndName`함수 둘다 기본 파라미터를 가지고 있는데 즉, _새롭게_ 만들어진 객체 `{ ...person }`를 가지고 있어요. 이 객체는 `person` 객체의 모든 키/값의 복사본을 가지고 있어요.
+
+첫번째로, `changeAge`함수를 호출 했고, 그것의 인수로 `person` 객체를 전달 했어요. 이 함수는 `age`속성의 값을 1 증가 시켜요. `person`은 이제 `{ name: "Lydia", age: 22 }`이에요.
+
+그리고나서, `changeAgeAndName` 함수를 호출 했지만, 파라미터를 전달하지 않았어요. 대신에, `x`의 값은 _새로운_ 객체와 같아요: `{ ...person }`. 새로운 객체이기 때문에, `person`객체의 속성들의 값에 영향을 주지 않아요. `person`은 여전히 `{ name: "Lydia", age: 22 }`와 같아요.
 
 </p>
 </details>
