@@ -4202,5 +4202,32 @@ console.log(emojis.flat(1));
 
 With the `flat` method, we can create a new, flattened array. The depth of the flattened array depends on the value that we pass. In this case, we passed the value `1` (which we didn't have to, that's the default value), meaning that only the arrays on the first depth will be concatenated. `['🥑']` and `['✨', '✨', ['🍕', '🍕']]` in this case. Concatenating these two arrays results in `['🥑', '✨', '✨', ['🍕', '🍕']]`.
 
+###### 132. What's the output?
+
+```javascript
+let Person = function(name) {
+  this.name = name;
+};  
+let person = new Person('Adi'); 
+let human = Object.create(person); 
+human.name = 'Manav';
+delete human.name; 
+console.log(human.name);
+```
+
+- A: `Manav`
+- B: `Adi`
+- C: `undefined`
+- D: `ReferenceError`
+
+<details><summary><b>Answer</b></summary>
+<p>
+
+#### Answer: B
+
+When we create object using `Object.create` , it follow protoype design pattern.
+First it will try to access , its own variable. If not found, it will follow parent object reference data.
+As we deleted  name variable of `human` object , it will return `person` object's name value.
+
 </p>
 </details>
