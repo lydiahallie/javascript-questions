@@ -1,16 +1,22 @@
-# List of (Advanced) JavaScript Questions
+<div align="center">
+  <img height="60" src="https://img.icons8.com/color/344/javascript.png"> 
+  <h1>JavaScript Questions</h1>
 
-I post daily multiple choice JavaScript questions on my [Instagram](https://www.instagram.com/theavocoder), which I'll also post here!
+  ---
 
-From basic to advanced: test how well you know JavaScript, refresh your knowledge a bit, or prepare for your coding interview! :muscle: :rocket: I update this repo weekly with new questions. Last update: <a href=#20191118><b>November 18th</b></a>
+  <span>I post multiple choice JavaScript questions on my [Instagram](https://www.instagram.com/theavocoder) **stories**, which I'll also post here! Last updated: <a href=#20191224><b>December 24th</b></a>
 
-The answers are in the collapsed sections below the questions, simply click on them to expand it. Good luck :heart:
+  From basic to advanced: test how well you know JavaScript, refresh your knowledge a bit, or prepare for your coding interview! :muscle: :rocket: I update this repo regularly with new questions. I added the answers in the **collapsed sections** below the questions, simply click on them to expand it. It's just for fun, good luck! :heart:</span>
 
-Want to get an email whenever I've added more questions? <br />
-<a target="_blank" href="https://www.theavocoder.com/subscribe"><b>✨✉Subscribe to email updates✉✨</b></a>
+  Feel free to reach out to me! 😊 <br />
+  <a href="https://www.instagram.com/theavocoder">Instagram</a> || <a href="https://www.twitter.com/lydiahallie">Twitter</a> || <a href="https:/www.linkedin.com/in/lydia-hallie">LinkedIn</a> || <a href="www.lydiahallie.dev">Blog</a>
+  </div>
 
+---
 
-List of available languages:
+<details><summary><b> See 16 Available Translations 🇪🇸🇮🇹🇩🇪 🇫🇷🇷🇺🇨🇳🇵🇹</b></summary>
+<p>
+
 * [English](../en-EN/README.md)
 * [العربية](../ar-AR/README_AR.md)
 * [اللغة العامية - Egyptian Arabic](../ar-EG/README_ar-EG.md)
@@ -28,6 +34,8 @@ List of available languages:
 * [Türkçe](../tr-TR/README-tr_TR.md)
 * [ไทย](../th-TH/README-th_TH.md)
 
+</p>
+</details>
 
 ---
 
@@ -3294,11 +3302,11 @@ for (let item of set) {
 
 #### Answer: C
 
-The `+` operator is not only used for adding numerica lvalues, but we can also use it to concatenate strings. Whenever the JavaScript engine sees that one or more values are not a number, it coerces the number into a string. 
+The `+` operator is not only used for adding numerical values, but we can also use it to concatenate strings. Whenever the JavaScript engine sees that one or more values are not a number, it coerces the number into a string. 
 
 The first one is `1`, which is a numerical value. `1 + 2` returns the number 3.
 
-However, the second one is a string `"Lydia"`. `"Lydia"` is a string and `2` is a number: `2` gets coerced into a string. `"Lydia"` and `"2"` get concatenated, whic hresults in the string `"Lydia2"`. 
+However, the second one is a string `"Lydia"`. `"Lydia"` is a string and `2` is a number: `2` gets coerced into a string. `"Lydia"` and `"2"` get concatenated, which results in the string `"Lydia2"`. 
 
 `{ name: "Lydia" }` is an object. Neither a number nor an object is a string, so it stringifies both. Whenever we stringify a regular object, it becomes `"[object Object]"`. `"[object Object]"` concatenated with `"2"` becomes `"[object Object]2"`.
 
@@ -3461,7 +3469,7 @@ With `splice` method, we modify the original array by deleting, replacing or add
 
 ---
 
-###### 109. What's the output?
+###### <a name=20191009></a>109. What's the output?
 
 ```javascript
 const food = ['🍕', '🍫', '🥑', '🍔']
@@ -3754,7 +3762,7 @@ Then, we invoke the `changeAgeAndName` function, however we don't pass a paramet
 
 ---
 
-###### <a name=20191118></a>117. Which of the following options will return `6`?
+###### 117. Which of the following options will return `6`?
 
 ```javascript
 function sumValues(x, y, z) {
@@ -4201,6 +4209,538 @@ console.log(emojis.flat(1));
 #### Answer: B
 
 With the `flat` method, we can create a new, flattened array. The depth of the flattened array depends on the value that we pass. In this case, we passed the value `1` (which we didn't have to, that's the default value), meaning that only the arrays on the first depth will be concatenated. `['🥑']` and `['✨', '✨', ['🍕', '🍕']]` in this case. Concatenating these two arrays results in `['🥑', '✨', '✨', ['🍕', '🍕']]`.
+
+</p>
+</details>
+
+---
+
+###### <a name=20191224></a>132. What's the output?
+
+```javascript
+class Counter {
+	constructor() {
+		this.count = 0;
+	}
+
+	increment() {
+		this.count++;
+	}
+}
+
+const counterOne = new Counter();
+counterOne.increment();
+counterOne.increment();
+
+const counterTwo = counterOne;
+counterTwo.increment();
+
+console.log(counterOne.count);
+```
+
+- A: `0`
+- B: `1`
+- C: `2`
+- D: `3`
+
+<details><summary><b>Answer</b></summary>
+<p>
+
+#### Answer: D
+
+`counterOne` is an instance of the `Counter` class. The counter class contains a `count` property on its constructor, and an `increment` method. First, we invoked the `increment` method twice by calling `counterOne.increment()`. Currently, `counterOne.count` is `2`.
+
+<img src="https://i.imgur.com/KxLlTm9.png" width="400">
+
+Then, we create a new variable `counterTwo`, and set it equal to `counterOne`. Since objects interact by reference, we're just creating a new reference to the same spot in memory that `counterOne` points to. Since it has the same spot in memory, any changes made to the object that `counterTwo` has a reference to, also apply to `counterOne`. Currently, `counterTwo.count` is `2`.
+
+We invoke the `counterTwo.increment()`, which sets the `count` to `3`. Then, we log the count on `counterOne`, which logs `3`.
+
+<img src="https://i.imgur.com/BNBHXmc.png" width="400">
+
+</p>
+</details>
+
+---
+
+###### 133. What's the output?
+
+```javascript
+const myPromise = Promise.resolve(Promise.resolve("Promise!"));
+
+function funcOne() {
+	myPromise.then(res => res).then(res => console.log(res));
+	setTimeout(() => console.log("Timeout!", 0));
+	console.log("Last line!");
+}
+
+async function funcTwo() {
+	const res = await myPromise;
+	console.log(await res);
+	setTimeout(() => console.log("Timeout!", 0));
+	console.log("Last line!");
+}
+
+funcOne();
+funcTwo();
+```
+
+- A: `Promise! Last line! Promise! Last line! Last line! Promise!`
+- B: `Last line! Timeout! Promise! Last line! Timeout! Promise!`
+- C: `Promise! Last line! Last line! Promise! Timeout! Timeout!`
+- D: `Last line! Promise! Promise! Last line! Timeout! Timeout!`
+
+<details><summary><b>Answer</b></summary>
+<p>
+
+#### Answer: D
+
+First, we invoke `funcOne`. On the first line of `funcOne`, we call the `myPromise` promise, which is an _asynchronous_ operation. While the engine is busy completing the promise, it keeps on running the function `funcOne`. The next line is the _asynchronous_ `setTimeout` function, from which the callback is sent to the Web API. (see my article on the event loop here.)
+
+Both the promise and the timeout are asynchronous operations, the function keeps on running while it's busy completing the promise and handling the `setTimeout` callback. This means that `Last line!` gets logged first, since this is not an asynchonous operation. This is the last line of `funcOne`, the promise resolved, and `Promise!` gets logged. However, since we're invoking `funcTwo()`, the call stack isn't empty, and the callback of the `setTimeout` function cannot get added to the callstack yet.
+
+In `funcTwo` we're, first _awaiting_ the myPromise promise. With the `await` keyword, we pause the execution of the function until the promise has resolved (or rejected). Then, we log the awaited value of `res` (since the promise itself returns a promise). This logs `Promise!`.
+
+The next line is the _asynchronous_ `setTimeout` function, from which the callback is sent to the Web API.
+
+We get to the last line of `funcTwo`, which logs `Last line!` to the console. Now, since `funcTwo` popped off the call stack, the call stack is empty. The callbacks waiting in the queue (`() => console.log("Timeout!")` from `funcOne`, and `() => console.log("Timeout!")` from `funcTwo`) get added to the call stack one by one. The first callback logs `Timeout!`, and gets popped off the stack. Then, the second callback logs `Timeout!`, and gets popped off the stack. This logs `Last line! Promise! Promise! Last line! Timeout! Timeout!`
+
+</p>
+</details>
+
+---
+
+###### 134. How can we invoke `sum` in `index.js` from `sum.js?`
+
+```javascript
+// sum.js
+export default function sum(x) {
+	return x + x;
+}
+
+// index.js
+import * as sum from "./sum";
+```
+
+- A: `sum(4)`
+- B: `sum.sum(4)`
+- C: `sum.default(4)`
+- D: Default aren't imported with `*`, only named exports
+
+<details><summary><b>Answer</b></summary>
+<p>
+
+#### Answer: C
+
+With the asterisk `*`, we import all exported values from that file, both default and named. If we had the following file:
+
+```javascript
+// info.js
+export const name = "Lydia";
+export const age = 21;
+export default "I love JavaScript";
+
+// index.js
+import * as info from "./info";
+console.log(info);
+```
+
+The following would get logged:
+
+```javascript
+{
+  default: "I love JavaScript",
+  name: "Lydia",
+  age: 21
+}
+```
+
+For the `sum` example, it means that the imported value `sum` looks like this:
+
+```javascript
+{ default: function sum(x) { return x + x } }
+```
+
+We can invoke this function, by calling `sum.default`
+
+</p>
+</details>
+
+---
+
+###### 135. What's the output?
+
+```javascript
+const handler = {
+	set: () => console.log("Added a new property!"),
+	get: () => console.log("Accessed a property!")
+};
+
+const person = new Proxy({}, handler);
+
+person.name = "Lydia";
+person.name;
+```
+
+- A: `Added a new property!`
+- B: `Accessed a property!`
+- C: `Added a new property!` `Accessed a property!`
+- D: Nothing gets logged
+
+<details><summary><b>Answer</b></summary>
+<p>
+
+#### Answer: C
+
+With a Proxy object, we can add custom behavior to an object that we pass to it as the second argument. In tis case, we pass the `handler` object which contained to properties: `set` and `get`. `set` gets invoked whenever we _set_ property values, `get` gets invoked whenever we _get_ (access) property values.
+
+The first argument is an empty object `{}`, which is the value of `person`. To this object, the custom behavior specified in the `handler` object gets added. If we add a property to the `person` object, `set` will get invoked. If we access a property on the `person` object, `get` gets invoked.
+
+First, we added a new property `name` to the proxy object (`person.name = "Lydia"`). `set` gets invoked, and logs `"Added a new property!"`.
+
+Then, we access a property value on the proxy object, the `get` property on the handler object got invoked. `"Accessed a property!"` gets logged.
+
+</p>
+</details>
+
+---
+
+###### 136. Which of the following will modify the `person` object?
+
+```javascript
+const person = { name: "Lydia Hallie" };
+
+Object.seal(person);
+```
+
+- A: `person.name = "Evan Bacon"`
+- B: `person.age = 21`
+- C: `delete person.name`
+- D: `Object.assign(person, { age: 21 })`
+
+<details><summary><b>Answer</b></summary>
+<p>
+
+#### Answer: A
+
+With `Object.seal` we can prevent new properies from being _added_, or existing properties to be _removed_.
+
+However, you can still modify the value of existing properties.
+
+</p>
+</details>
+
+---
+
+###### 137. Which of the following will modify the `person` object?
+
+```javascript
+const person = {
+	name: "Lydia Hallie",
+	address: {
+		street: "100 Main St"
+	}
+};
+
+Object.freeze(person);
+```
+
+- A: `person.name = "Evan Bacon"`
+- B: `delete person.address`
+- C: `person.address.street = "101 Main St"`
+- D: `person.pet = { name: "Mara" }`
+
+<details><summary><b>Answer</b></summary>
+<p>
+
+#### Answer: C
+
+The `Object.freeze` method _freezes_ an object. No properties can be added, modified, or removed.
+
+However, it only _shallowly_ freezes the object, meaning that only _direct_ properties on the object are frozen. If the property is another object, like `address` in this case, the properties on that object aren't frozen, and can be modified.
+
+</p>
+</details>
+
+---
+
+###### 138. Which of the following will modify the `person` object?
+
+```javascript
+const person = {
+	name: "Lydia Hallie",
+	address: {
+		street: "100 Main St"
+	}
+};
+
+Object.freeze(person);
+```
+
+- A: `person.name = "Evan Bacon"`
+- B: `delete person.address`
+- C: `person.address.street = "101 Main St"`
+- D: `person.pet = { name: "Mara" }`
+
+<details><summary><b>Answer</b></summary>
+<p>
+
+#### Answer: C
+
+The `Object.freeze` method _freezes_ an object. No properties can be added, modified, or removed.
+
+However, it only _shallowly_ freezes the object, meaning that only _direct_ properties on the object are frozen. If the property is another object, like `address` in this case, the properties on that object aren't frozen, and can be modified.
+
+</p>
+</details>
+
+---
+
+###### 139. What's the output?
+
+```javascript
+const add = x => x + x;
+
+function myFunc(num = 2, value = add(num)) {
+	console.log(num, value);
+}
+
+myFunc();
+myFunc(3);
+```
+
+- A: `2` `4` and `3` `6`
+- B: `2` `NaN` and `3` `NaN`
+- C: `2` `Error` and `3` `6`
+- D: `2` `4` and `3` `Error`
+
+<details><summary><b>Answer</b></summary>
+<p>
+
+#### Answer: A
+
+First, we invoked `myFunc()` without passing any arguments. Since we didn't pass arguments, `num` and `value` got their default values: num is `2`, and `value` the returned value of the function `add`. To the `add` function, we pass `num` as an argument, which had the value of `2`. `add` returns `4`, which is the value of `value`.
+
+Then, we invoked `myFunc(3)` and passed the value `3` as the value for the argument `num`. We didn't pass an argument for `value`. Since we didn't pass a value for the `value` argument, it got the default value: the returned value of the `add` function. To `add`, we pass `num`, which has the value of `3`. `add` returns `6`, which is the value of `value`.
+
+</p>
+</details>
+
+---
+
+###### 140. What's the output?
+
+```javascript
+class Counter {
+  #number = 10
+
+  increment() {
+    this.#number++
+  }
+
+  getNum() {
+    return this.#number
+  }
+}
+
+const counter = new Counter()
+counter.increment()
+
+console.log(counter.#number)
+```
+
+- A: `10`
+- B: `11`
+- C: `undefined`
+- D: `SyntaxError`
+
+<details><summary><b>Answer</b></summary>
+<p>
+
+#### Answer: D
+
+In ES2020, we can add private variables in classes by using the `#`. We cannot access these variables outside of the class. When we try to log `counter.#number`, a SyntaxError gets thrown: we cannot acccess it outside the `Counter` class!
+
+</p>
+</details>
+
+---
+
+###### 141. What's the output?
+
+```javascript
+const teams = [
+	{ name: "Team 1", members: ["Paul", "Lisa"] },
+	{ name: "Team 2", members: ["Laura", "Tim"] }
+];
+
+function* getMembers(members) {
+	for (let i = 0; i < members.length; i++) {
+		yield members[i];
+	}
+}
+
+function* getTeams(teams) {
+	for (let i = 0; i < teams.length; i++) {
+		// ✨ SOMETHING IS MISSING HERE ✨
+	}
+}
+
+const obj = getTeams(teams);
+obj.next(); // { value: "Paul", done: false }
+obj.next(); // { value: "Lisa", done: false }
+```
+
+- A: `yield getMembers(teams[i].members)`
+- B: `yield* getMembers(teams[i].members)`
+- C: `return getMembers(teams[i].members)`
+- D: `return yield getMembers(teams[i].members)`
+
+<details><summary><b>Answer</b></summary>
+<p>
+
+#### Answer: B
+
+In order to iterate over the `members` in each element in the `teams` array, we need to pass `teams[i].members` to the `getMembers` generator function. The generator function returns a generator object. In order to iterate over each element in this generator object, we need to use `yield*`.
+
+If we would've written `yield`, `return yield`, or `return`, the entire generator function would've gotten returned the first time we called the `next` method.
+
+</p>
+</details>
+
+---
+
+###### 142. What's the output?
+
+```javascript
+const person = {
+	name: "Lydia Hallie",
+	hobbies: ["coding"]
+};
+
+function addHobby(hobby, hobbies = person.hobbies) {
+	hobbies.push(hobby);
+	return hobbies;
+}
+
+addHobby("running", []);
+addHobby("dancing");
+addHobby("baking", person.hobbies);
+
+console.log(person.hobbies);
+```
+
+- A: `["coding"]`
+- B: `["coding", "dancing"]`
+- C: `["coding", "dancing", "baking"]`
+- D: `["coding", "running", "dancing", "baking"]`
+
+<details><summary><b>Answer</b></summary>
+<p>
+
+#### Answer: C
+
+The `addHobby` function receives two arguments, `hobby` and `hobbies` with the default value of the `hobbies` array on the `person` object.
+
+First, we invoke the `addHobby` function, and pass `"running"` as the value for `hobby` and an empty array as the value for `hobbies`. Since we pass an empty array as the value for `y`, `"running"` gets added to this empty array.
+
+Then, we invoke the `addHobby` function, and pass `"dancing"` as the value for `hobby`. We didn't pass a value for `hobbies`, so it gets the default value, the `hobbies` property on the `person` object. We push the hobby `dancing` to the `person.hobbies` array.
+
+Last, we invoke the `addHobby` function, and pass `"bdaking"` as the value for `hobby`, and the `person.hobbies` array as the value for `hobbies`. We push the hobby `baking` to the `person.hobbies` array.
+
+After pushing `dancing` and `baking`, the value of `person.hobbies` is `["coding", "dancing", "baking"]`
+
+</p>
+</details>
+
+---
+
+###### 143. What's the output?
+
+```javascript
+class Bird {
+	constructor() {
+		console.log("I'm a bird. 🦢");
+	}
+}
+
+class Flamingo extends Bird {
+	constructor() {
+		console.log("I'm pink. 🌸");
+		super();
+	}
+}
+
+const pet = new Flamingo();
+```
+
+- A: `I'm pink. 🌸`
+- B: `I'm pink. 🌸` `I'm a bird. 🦢`
+- C: `I'm a bird. 🦢` `I'm pink. 🌸`
+- D: Nothing, we didn't call any method
+
+<details><summary><b>Answer</b></summary>
+<p>
+
+#### Answer: B
+
+We create the variable `pet` which is an instance of the `Flamingo` class. When we instantiate this instance, the `constructor` on `Flamingo` gets called. First, `"I'm pink. 🌸"` gets logged, after which we call `super()`. `super()` calls the constructor of the parent class, `Bird`. THe constructor in `Bird` gets called, and logs `"I'm a bird. 🦢"`.
+
+</p>
+</details>
+
+---
+
+###### 144. Which of the options result(s) in an error?
+
+```javascript
+const emojis = ["🎄", "🎅🏼", "🎁", "⭐"];
+
+/* 1 */ emojis.push("🦌");
+/* 2 */ emojis.splice(0, 2);
+/* 3 */ emojis = [...emojis, "🥂"];
+/* 4 */ emojis.length = 0;
+```
+
+- A: 1
+- B: 1 and 2
+- C: 3 and 4
+- D: 3
+
+<details><summary><b>Answer</b></summary>
+<p>
+
+#### Answer: D
+
+The `const` keyword simply means we cannot _redeclare_ the value of that variable, it's _read-only_. However, the value itself isn't immutable. The propeties on the `emojis` array can be modified, for example by pushing new values, splicing them, or setting the length of the array to 0.
+
+</p>
+</details>
+
+---
+
+###### 145. What do we need to add to the `person` object to get `["Lydia Hallie", 21]` as the output of `[...person]`?
+
+```javascript
+const person = {
+  name: "Lydia Hallie",
+  age: 21
+}
+
+[...person] // ["Lydia Hallie", 21]
+```
+
+- A: Nothing, object are iterable by default
+- B: `*[Symbol.iterator]() { for (let x in this) yield* this[x] }`
+- C: `*[Symbol.iterator]() { for (let x in this) yield* Object.values(this) }`
+- D: `*[Symbol.iterator]() { for (let x in this) yield this }`
+
+<details><summary><b>Answer</b></summary>
+<p>
+
+#### Answer: C
+
+Objects aren't iterable by default. An iterable is an iterable if the iterator protocol is present. We can add this manually by adding the iterator symbol `[Symbol.iterator]`, which has to return a generator object, for example by making it a generator function `*[Symbol.iterator]() {}`. This generator function has to yield the `Object.values` of the `person` object if we want it to return the array `["Lydia Hallie", 21]`: `yield* Object.values(this)`.
 
 </p>
 </details>
