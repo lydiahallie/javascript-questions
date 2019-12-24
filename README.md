@@ -1,9 +1,10 @@
 <div align="center">
   <img height="60" src="https://img.icons8.com/color/344/javascript.png"> 
   <h1>JavaScript Questions</h1>
+
   ---
 
-  <span>I post multiple choice JavaScript questions on my [Instagram](https://www.instagram.com/theavocoder) **stories**, which I'll also post here!
+  <span>I post multiple choice JavaScript questions on my [Instagram](https://www.instagram.com/theavocoder) **stories**, which I'll also post here! Last updated: <a href=#20191224><b>December 24th</b></a>
 
   From basic to advanced: test how well you know JavaScript, refresh your knowledge a bit, or prepare for your coding interview! :muscle: :rocket: I update this repo regularly with new questions. I added the answers in the **collapsed sections** below the questions, simply click on them to expand it. It's just for fun, good luck! :heart:</span>
 
@@ -36,7 +37,7 @@
 </p>
 </details>
 
-===
+---
 
 ###### 1. What's the output?
 
@@ -4214,7 +4215,7 @@ With the `flat` method, we can create a new, flattened array. The depth of the f
 
 ---
 
-###### 132. What's the output?
+###### <a name=20191224></a>132. What's the output?
 
 ```javascript
 class Counter {
