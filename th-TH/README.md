@@ -878,9 +878,9 @@ console.log(a[b]);
 
 Object keys are automatically converted into strings. We are trying to set an object as a key to object `a`, with the value of `123`.
 
-However, when we stringify an object, it becomes `"[Object object]"`. So what we are saying here, is that `a["Object object"] = 123`. Then, we can try to do the same again. `c` is another object that we are implicitly stringifying. So then, `a["Object object"] = 456`.
+However, when we stringify an object, it becomes `"[object Object]"`. So what we are saying here, is that `a["object Object"] = 123`. Then, we can try to do the same again. `c` is another object that we are implicitly stringifying. So then, `a["object Object"] = 456`.
 
-Then, we log `a[b]`, which is actually `a["Object object"]`. We just set that to `456`, so it returns `456`.
+Then, we log `a[b]`, which is actually `a["object Object"]`. We just set that to `456`, so it returns `456`.
 
 </p>
 </details>
@@ -3285,8 +3285,8 @@ for (let item of set) {
 
 - A: `3`, `NaN`, `NaN`
 - B: `3`, `7`, `NaN`
-- C: `3`, `Lydia2`, `[Object object]2`
-- D: `"12"`, `Lydia2`, `[Object object]2`
+- C: `3`, `Lydia2`, `[object Object]2`
+- D: `"12"`, `Lydia2`, `[object Object]2`
 
 <details><summary><b>คำตอบ</b></summary>
 <p>
@@ -3299,7 +3299,7 @@ The first one is `1`, which is a numerical value. `1 + 2` returns the number 3.
 
 However, the second one is a string `"Lydia"`. `"Lydia"` is a string and `2` is a number: `2` gets coerced into a string. `"Lydia"` และ `"2"` get concatenated, whic hresults in the string `"Lydia2"`. 
 
-`{ name: "Lydia" }` is an object. Neither a number nor an object is a string, so it stringifies both. Whenever we stringify a regular object, it becomes `"[Object object]"`. `"[Object object]"` concatenated with `"2"` becomes `"[Object object]2"`.
+`{ name: "Lydia" }` is an object. Neither a number nor an object is a string, so it stringifies both. Whenever we stringify a regular object, it becomes `"[object Object]"`. `"[object Object]"` concatenated with `"2"` becomes `"[object Object]2"`.
 
 </p>
 </details>
