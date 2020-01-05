@@ -424,8 +424,8 @@ console.log(sarah)
 
 ###### 14. 所有对象都有原型。
 
-- A: true
-- B: false
+- A: 对
+- B: 错
 
 <details><summary><b>答案</b></summary>
 <p>
@@ -760,9 +760,9 @@ console.log(obj)
 
 ###### 26. JavaScript 全局执行上下文为你做了两件事：全局对象和 this 关键字。
 
-- A: true
-- B: false
-- C: it depends
+- A: 对
+- B: 错
+- C: 看情况
 
 <details><summary><b>答案</b></summary>
 <p>
