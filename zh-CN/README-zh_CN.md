@@ -2188,8 +2188,8 @@ console.log("🥑" + "💻");
 
 ```javascript
 function* startGame() {
-  const answer = yield "Do you love JavaScript?";
-  if (answer !== "Yes") {
+  const 答案 = yield "Do you love JavaScript?";
+  if (答案 !== "Yes") {
     return "Oh wow... Guess we're gone here";
   }
   return "JavaScript loves you back ❤️";
@@ -2210,9 +2210,9 @@ console.log(/* 2 */); // JavaScript loves you back ❤️
 
 #### 答案: C
 
-`generator`函数在遇到`yield`关键字时会“暂停”其执行。 首先，我们需要让函数产生字符串`Do you love JavaScript?`，这可以通过调用`game.next().value`来完成。上述函数的第一行就有一个`yield`关键字，那么运行立即停止了，`yield`表达式本身没有返回值，或者说总是返回`undefined`, 这意味着此时变量 `answer` 为`undefined`
+`generator`函数在遇到`yield`关键字时会“暂停”其执行。 首先，我们需要让函数产生字符串`Do you love JavaScript?`，这可以通过调用`game.next().value`来完成。上述函数的第一行就有一个`yield`关键字，那么运行立即停止了，`yield`表达式本身没有返回值，或者说总是返回`undefined`, 这意味着此时变量 `答案` 为`undefined`
 
-`next`方法可以带一个参数，该参数会被当作上一个 `yield` 表达式的返回值。当我们调用`game.next("Yes").value`时，先前的 `yield` 的返回值将被替换为传递给`next()`函数的参数`"Yes"`。此时变量 `answer` 被赋值为 `"Yes"`，`if`语句返回`false`，所以`JavaScript loves you back ❤️`被打印。
+`next`方法可以带一个参数，该参数会被当作上一个 `yield` 表达式的返回值。当我们调用`game.next("Yes").value`时，先前的 `yield` 的返回值将被替换为传递给`next()`函数的参数`"Yes"`。此时变量 `答案` 被赋值为 `"Yes"`，`if`语句返回`false`，所以`JavaScript loves you back ❤️`被打印。
 
 </p>
 </details>
@@ -4184,7 +4184,7 @@ const myPromise = Promise.resolve("Woah some cool data");
 
 ---
 
-###### 131. What's the output?
+###### 131. 输出什么？
 
 ```javascript
 const emojis = ["🥑", ["✨", "✨", ["🍕", "🍕"]]];
@@ -4197,19 +4197,19 @@ console.log(emojis.flat(1));
 - C: `['🥑', ['✨', '✨', '🍕', '🍕']]`
 - D: `['🥑', '✨', '✨', '🍕', '🍕']`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>答案</b></summary>
 <p>
 
-#### Answer: B
+#### 答案: B
 
-With the `flat` method, we can create a new, flattened array. The depth of the flattened array depends on the value that we pass. In this case, we passed the value `1` (which we didn't have to, that's the default value), meaning that only the arrays on the first depth will be concatenated. `['🥑']` and `['✨', '✨', ['🍕', '🍕']]` in this case. Concatenating these two arrays results in `['🥑', '✨', '✨', ['🍕', '🍕']]`.
+通过方法 `flat`， 我们可以创建一个新的, 已被扁平化的数组。被扁平化的深度取决于我们传递的值。在这个case里，我们传递了值 `1` (并不必要，这是默认值)，相当于只有第一层的数组才会被连接。即这个 case 里的 `['🥑']` and `['✨', '✨', ['🍕', '🍕']]`。连接这两个数组得到结果 `['🥑', '✨', '✨', ['🍕', '🍕']]`.
 
 </p>
 </details>
 
 ---
 
-###### <a name=20191224></a>132. What's the output?
+###### <a name=20191224></a>132. 输出什么？
 
 ```javascript
 class Counter {
@@ -4237,18 +4237,18 @@ console.log(counterOne.count);
 - C: `2`
 - D: `3`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>答案</b></summary>
 <p>
 
-#### Answer: D
+#### 答案: D
 
-`counterOne` is an instance of the `Counter` class. The counter class contains a `count` property on its constructor, and an `increment` method. First, we invoked the `increment` method twice by calling `counterOne.increment()`. Currently, `counterOne.count` is `2`.
+`counterOne` 是类 `Counter` 的一个实例。类 Counter 包含一个`count` 属性在它的构造函数里， 和一个 `increment` 方法。首先，我们通过 `counterOne.increment()` 调用方法 `increment` 两次。现在, `counterOne.count` 为 `2`.
 
 <img src="https://i.imgur.com/KxLlTm9.png" width="400">
 
-Then, we create a new variable `counterTwo`, and set it equal to `counterOne`. Since objects interact by reference, we're just creating a new reference to the same spot in memory that `counterOne` points to. Since it has the same spot in memory, any changes made to the object that `counterTwo` has a reference to, also apply to `counterOne`. Currently, `counterTwo.count` is `2`.
+然后，我们创建一个新的变量 `counterTwo` 并将 `counterOne` 的引用地址赋值给它。因为对象受引用地址的影响，我们刚刚创建了一个新的对象，其引用地址和 `counterOne` 的等价。因此它们指向同一块内存地址，任何对其的副作用都会影响 `counterTwo`。现在 `counterTwo.count` 为 `2`。
 
-We invoke the `counterTwo.increment()`, which sets the `count` to `3`. Then, we log the count on `counterOne`, which logs `3`.
+我们调用 `counterTwo.increment()` 将 `count` 的值设为 `3`。然后，我们打印 `counterOne` 里的count，结果为 `3`。
 
 <img src="https://i.imgur.com/BNBHXmc.png" width="400">
 
@@ -4257,7 +4257,7 @@ We invoke the `counterTwo.increment()`, which sets the `count` to `3`. Then, we 
 
 ---
 
-###### 133. What's the output?
+###### 133. 输出什么？
 
 ```javascript
 const myPromise = Promise.resolve(Promise.resolve("Promise!"));
@@ -4284,27 +4284,27 @@ funcTwo();
 - C: `Promise! Last line! Last line! Promise! Timeout! Timeout!`
 - D: `Last line! Promise! Promise! Last line! Timeout! Timeout!`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>答案</b></summary>
 <p>
 
-#### Answer: D
+#### 答案: D
 
-First, we invoke `funcOne`. On the first line of `funcOne`, we call the `myPromise` promise, which is an _asynchronous_ operation. While the engine is busy completing the promise, it keeps on running the function `funcOne`. The next line is the _asynchronous_ `setTimeout` function, from which the callback is sent to the Web API. (see my article on the event loop here.)
+首先，我们调用 `funcOne`。在函数 `funcOne` 的第一行，我们调用`myPromise` promise _异步操作_。当JS引擎在忙于执行 promise，它继续执行函数 `funcOne`。下一行 _异步操作_ `setTimeout`，其回调函数被 Web API 调用。 (详情请参考我关于event loop的文章.)
 
-Both the promise and the timeout are asynchronous operations, the function keeps on running while it's busy completing the promise and handling the `setTimeout` callback. This means that `Last line!` gets logged first, since this is not an asynchonous operation. This is the last line of `funcOne`, the promise resolved, and `Promise!` gets logged. However, since we're invoking `funcTwo()`, the call stack isn't empty, and the callback of the `setTimeout` function cannot get added to the callstack yet.
+promise 和 timeout 都是异步操作，函数继续执行当JS引擎忙于执行promise 和 处理 `setTimeout` 的回调。相当于 `Last line!` 首先被输出， 因为它不是异步操作。执行完 `funcOne` 的最后一行，promise 状态转变为 resolved，`Promise!` 被打印。然而，因为我们调用了 `funcTwo()`, 调用栈不为空，`setTimeout` 的回调仍不能入栈。
 
-In `funcTwo` we're, first _awaiting_ the myPromise promise. With the `await` keyword, we pause the execution of the function until the promise has resolved (or rejected). Then, we log the awaited value of `res` (since the promise itself returns a promise). This logs `Promise!`.
+我们现在处于 `funcTwo`，先 _awaiting_ myPromise。通过 `await` 关键字， 我们暂停了函数的执行直到 promise 状态变为 resolved (或 rejected)。然后，我们输出 `res` 的 awaited 值（因为 promise 本身返回一个 promise）。 接着输出 `Promise!`。
 
-The next line is the _asynchronous_ `setTimeout` function, from which the callback is sent to the Web API.
+下一行就是 _异步操作_ `setTimeout`，其回调函数被 Web API 调用。
 
-We get to the last line of `funcTwo`, which logs `Last line!` to the console. Now, since `funcTwo` popped off the call stack, the call stack is empty. The callbacks waiting in the queue (`() => console.log("Timeout!")` from `funcOne`, and `() => console.log("Timeout!")` from `funcTwo`) get added to the call stack one by one. The first callback logs `Timeout!`, and gets popped off the stack. Then, the second callback logs `Timeout!`, and gets popped off the stack. This logs `Last line! Promise! Promise! Last line! Timeout! Timeout!`
+我们执行到函数 `funcTwo` 的最后一行，输出 `Last line!`。现在，因为 `funcTwo` 出栈，调用栈为空。在事件队列中等待的回调函数（`() => console.log("Timeout!")` from `funcOne`, and `() => console.log("Timeout!")` from `funcTwo`）以此入栈。第一个回调输出 `Timeout!`，并出栈。然后，第二个回调输出 `Timeout!`，并出栈。得到结果 `Last line! Promise! Promise! Last line! Timeout! Timeout!`
 
 </p>
 </details>
 
 ---
 
-###### 134. How can we invoke `sum` in `index.js` from `sum.js?`
+###### 134. 我们怎样才能在 `index.js` 中调用 `sum.js?` 中的 `sum`？
 
 ```javascript
 // sum.js
@@ -4319,14 +4319,14 @@ import * as sum from "./sum";
 - A: `sum(4)`
 - B: `sum.sum(4)`
 - C: `sum.default(4)`
-- D: Default aren't imported with `*`, only named exports
+- D: 默认导出不用 `*` 来导入，只能具名导出
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>答案</b></summary>
 <p>
 
-#### Answer: C
+#### 答案: C
 
-With the asterisk `*`, we import all exported values from that file, both default and named. If we had the following file:
+使用符号 `*`，我们引入文件中的所有值，包括默认和具名。如果我们有以下文件：
 
 ```javascript
 // info.js
@@ -4339,7 +4339,7 @@ import * as info from "./info";
 console.log(info);
 ```
 
-The following would get logged:
+将会输出以下内容：
 
 ```javascript
 {
@@ -4349,20 +4349,20 @@ The following would get logged:
 }
 ```
 
-For the `sum` example, it means that the imported value `sum` looks like this:
+以 `sum` 为例，相当于以下形式引入值 `sum`：
 
 ```javascript
 { default: function sum(x) { return x + x } }
 ```
 
-We can invoke this function, by calling `sum.default`
+我们可以通过调用 `sum.default` 来调用该函数
 
 </p>
 </details>
 
 ---
 
-###### 135. What's the output?
+###### 135. 输出什么？
 
 ```javascript
 const handler = {
@@ -4379,27 +4379,27 @@ person.name;
 - A: `Added a new property!`
 - B: `Accessed a property!`
 - C: `Added a new property!` `Accessed a property!`
-- D: Nothing gets logged
+- D: 没有任何输出
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>答案</b></summary>
 <p>
 
-#### Answer: C
+#### 答案: C
 
-With a Proxy object, we can add custom behavior to an object that we pass to it as the second argument. In tis case, we pass the `handler` object which contained to properties: `set` and `get`. `set` gets invoked whenever we _set_ property values, `get` gets invoked whenever we _get_ (access) property values.
+使用 Proxy 对象，我们可以给一个对象添加自定义行为。在这个 case，我们传递一个包含以下属性的对象 `handler` : `set` and `get`。每当我门 _设置_ 属性值时 `set` 被调用，每当我们 _获取_ 时 `get` 被调用。
 
-The first argument is an empty object `{}`, which is the value of `person`. To this object, the custom behavior specified in the `handler` object gets added. If we add a property to the `person` object, `set` will get invoked. If we access a property on the `person` object, `get` gets invoked.
+第一个参数是一个空对象 `{}`，作为 `person` 的值。对于这个对象，自定义行为被定义在对象 `handler`。如果我们向对象 `person` 添加属性，`set` 将被调用。如果我们获取 `person` 的属性, `get` 将被调用。
 
-First, we added a new property `name` to the proxy object (`person.name = "Lydia"`). `set` gets invoked, and logs `"Added a new property!"`.
+首先，我们向 proxy 对象(`person.name = "Lydia"`)添加一个属性 `name`。`set` 被调用并输出 `"Added a new property!"`。
 
-Then, we access a property value on the proxy object, the `get` property on the handler object got invoked. `"Accessed a property!"` gets logged.
+然后，我们获取 proxy 对象的一个属性，对象 handler 的属性 `get` 被调用。输出 `"Accessed a property!"`。
 
 </p>
 </details>
 
 ---
 
-###### 136. Which of the following will modify the `person` object?
+###### 136. 以下哪一项会对对象 `person` 有副作用？
 
 ```javascript
 const person = { name: "Lydia Hallie" };
@@ -4412,21 +4412,21 @@ Object.seal(person);
 - C: `delete person.name`
 - D: `Object.assign(person, { age: 21 })`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>答案</b></summary>
 <p>
 
-#### Answer: A
+#### 答案: A
 
-With `Object.seal` we can prevent new properies from being _added_, or existing properties to be _removed_.
+使用 `Object.seal` 我们可以防止新属性 _被添加_，或者存在属性 _被移除_.
 
-However, you can still modify the value of existing properties.
+然而，你仍然可以对存在属性进行更改。
 
 </p>
 </details>
 
 ---
 
-###### 137. Which of the following will modify the `person` object?
+###### 137. 以下哪一项会对对象 `person` 有副作用？
 
 ```javascript
 const person = {
@@ -4444,21 +4444,21 @@ Object.freeze(person);
 - C: `person.address.street = "101 Main St"`
 - D: `person.pet = { name: "Mara" }`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>答案</b></summary>
 <p>
 
-#### Answer: C
+#### 答案: C
 
-The `Object.freeze` method _freezes_ an object. No properties can be added, modified, or removed.
+使用方法 `Object.freeze` 对一个对象进行 _冻结_。不能对属性进行添加，修改，删除。
 
-However, it only _shallowly_ freezes the object, meaning that only _direct_ properties on the object are frozen. If the property is another object, like `address` in this case, the properties on that object aren't frozen, and can be modified.
+然而，它仅 对对象进行 _浅_ 冻结，意味着只有 对象中的 _直接_ 属性被冻结。如果属性是另一个 object，像案例中的 `address`，`address` 中的属性没有被冻结，仍然可以被修改。
 
 </p>
 </details>
 
 ---
 
-###### 138. Which of the following will modify the `person` object?
+###### 138. 以下哪一项会对对象 `person` 有副作用？
 
 ```javascript
 const person = {
@@ -4476,21 +4476,21 @@ Object.freeze(person);
 - C: `person.address.street = "101 Main St"`
 - D: `person.pet = { name: "Mara" }`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>答案</b></summary>
 <p>
 
-#### Answer: C
+#### 答案: C
 
-The `Object.freeze` method _freezes_ an object. No properties can be added, modified, or removed.
+使用方法 `Object.freeze` 对一个对象进行 _冻结_。不能对属性进行添加，修改，删除。
 
-However, it only _shallowly_ freezes the object, meaning that only _direct_ properties on the object are frozen. If the property is another object, like `address` in this case, the properties on that object aren't frozen, and can be modified.
+然而，它仅 对对象进行 _浅_ 冻结，意味着只有 对象中的 _直接_ 属性被冻结。如果属性是另一个 object，像案例中的 `address`，`address` 中的属性没有被冻结，仍然可以被修改。
 
 </p>
 </details>
 
 ---
 
-###### 139. What's the output?
+###### 139. 输出什么？
 
 ```javascript
 const add = x => x + x;
@@ -4508,21 +4508,21 @@ myFunc(3);
 - C: `2` `Error` and `3` `6`
 - D: `2` `4` and `3` `Error`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>答案</b></summary>
 <p>
 
-#### Answer: A
+#### 答案: A
 
-First, we invoked `myFunc()` without passing any arguments. Since we didn't pass arguments, `num` and `value` got their default values: num is `2`, and `value` the returned value of the function `add`. To the `add` function, we pass `num` as an argument, which had the value of `2`. `add` returns `4`, which is the value of `value`.
+首先我们不传递任何参数调用 `myFunc()`。因为我们没有传递参数，`num` 和 `value` 获取它们各自的默认值：num 为 `2`, 而 `value` 为函数 `add` 的返回值。对于函数 `add`，我们传递值为2的 `num` 作为参数。函数 `add` 返回 `4` 作为 `value` 的值。
 
-Then, we invoked `myFunc(3)` and passed the value `3` as the value for the argument `num`. We didn't pass an argument for `value`. Since we didn't pass a value for the `value` argument, it got the default value: the returned value of the `add` function. To `add`, we pass `num`, which has the value of `3`. `add` returns `6`, which is the value of `value`.
+然后，我们调用 `myFunc(3)` 并传递值 `3` 参数 `num` 的值。我们没有给 `value` 传递值。因为我们没有给参数 `value` 传递值，它获取默认值：函数 `add` 的返回值。对于函数 `add`，我们传递值为3的 `num`给它。函数 `add` 返回 `6` 作为 `value` 的值。
 
 </p>
 </details>
 
 ---
 
-###### 140. What's the output?
+###### 140. 输出什么？
 
 ```javascript
 class Counter {
@@ -4548,19 +4548,19 @@ console.log(counter.#number)
 - C: `undefined`
 - D: `SyntaxError`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>答案</b></summary>
 <p>
 
-#### Answer: D
+#### 答案: D
 
-In ES2020, we can add private variables in classes by using the `#`. We cannot access these variables outside of the class. When we try to log `counter.#number`, a SyntaxError gets thrown: we cannot acccess it outside the `Counter` class!
+在 ES2020 中，通过 `#` 我们可以给 class 添加私有变量。在 class 的外部我们无法获取该值。当我们尝试输出 `counter.#number`，语法错误被抛出：我们无法在 class `Counter` 外部获取它!
 
 </p>
 </details>
 
 ---
 
-###### 141. What's the output?
+###### 141. 选择哪一个？
 
 ```javascript
 const teams = [
@@ -4590,21 +4590,21 @@ obj.next(); // { value: "Lisa", done: false }
 - C: `return getMembers(teams[i].members)`
 - D: `return yield getMembers(teams[i].members)`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>答案</b></summary>
 <p>
 
-#### Answer: B
+#### 答案: B
 
-In order to iterate over the `members` in each element in the `teams` array, we need to pass `teams[i].members` to the `getMembers` generator function. The generator function returns a generator object. In order to iterate over each element in this generator object, we need to use `yield*`.
+为了遍历 `teams` 数组中对象的属性 `members` 中的每一项，我们需要将 `teams[i].members` 传递给 Generator 函数 `getMembers`。Generator 函数返回一个 generator 对象。为了遍历这个 generator 对象中的每一项，我们需要使用 `yield*`.
 
-If we would've written `yield`, `return yield`, or `return`, the entire generator function would've gotten returned the first time we called the `next` method.
+如果我们没有写 `yield`，`return yield` 或者 `return`，整个 Generator 函数不会第一时间 return 当我们调用 `next` 方法.
 
 </p>
 </details>
 
 ---
 
-###### 142. What's the output?
+###### 142. 输出什么？
 
 ```javascript
 const person = {
@@ -4629,27 +4629,27 @@ console.log(person.hobbies);
 - C: `["coding", "dancing", "baking"]`
 - D: `["coding", "running", "dancing", "baking"]`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>答案</b></summary>
 <p>
 
-#### Answer: C
+#### 答案: C
 
-The `addHobby` function receives two arguments, `hobby` and `hobbies` with the default value of the `hobbies` array on the `person` object.
+函数 `addHobby` 接受两个参数，`hobby` 和有着对象 `person` 中数组 `hobbies` 默认值的 `hobbies`。
 
-First, we invoke the `addHobby` function, and pass `"running"` as the value for `hobby` and an empty array as the value for `hobbies`. Since we pass an empty array as the value for `y`, `"running"` gets added to this empty array.
+首相，我们调用函数 `addHobby`，并给 `hobby` 传递 `"running"` 以及给 `hobbies` 传递一个空数组。因为我们给 `hobbies` 传递了空数组，`"running"` 被添加到这个空数组。
 
-Then, we invoke the `addHobby` function, and pass `"dancing"` as the value for `hobby`. We didn't pass a value for `hobbies`, so it gets the default value, the `hobbies` property on the `person` object. We push the hobby `dancing` to the `person.hobbies` array.
+然后，我们调用函数 `addHobby`，并给 `hobby` 传递 `"dancing"`。我们不向 `hobbies` 传递值，因此它获取其默认值 —— 对象 `person` 的 属性 `hobbies`。我们向数组 `person.hobbies` push `dancing`。
 
-Last, we invoke the `addHobby` function, and pass `"bdaking"` as the value for `hobby`, and the `person.hobbies` array as the value for `hobbies`. We push the hobby `baking` to the `person.hobbies` array.
+最后，我们调用函数 `addHobby`，并向 `hobby` 传递 值 `"bdaking"`，并且向 `hobbies` 传递 `person.hobbies`。我们向数组 `person.hobbies` push `dancing`。
 
-After pushing `dancing` and `baking`, the value of `person.hobbies` is `["coding", "dancing", "baking"]`
+pushing `dancing` 和 `baking` 之后，`person.hobbies` 的值为 `["coding", "dancing", "baking"]`
 
 </p>
 </details>
 
 ---
 
-###### 143. What's the output?
+###### 143. 输出什么？
 
 ```javascript
 class Bird {
@@ -4673,19 +4673,19 @@ const pet = new Flamingo();
 - C: `I'm a bird. 🦢` `I'm pink. 🌸`
 - D: Nothing, we didn't call any method
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>答案</b></summary>
 <p>
 
-#### Answer: B
+#### 答案: B
 
-We create the variable `pet` which is an instance of the `Flamingo` class. When we instantiate this instance, the `constructor` on `Flamingo` gets called. First, `"I'm pink. 🌸"` gets logged, after which we call `super()`. `super()` calls the constructor of the parent class, `Bird`. THe constructor in `Bird` gets called, and logs `"I'm a bird. 🦢"`.
+我们创建了类 `Flamingo` 的实例 `pet`。当我们实例化这个实例，`Flamingo` 中的 `constructor` 被调用。首相，输出 `"I'm pink. 🌸"`, 之后我们调用`super()`。`super()` 调用父类的构造函数，`Bird`。`Bird` 的构造函数被调用，并输出 `"I'm a bird. 🦢"`。
 
 </p>
 </details>
 
 ---
 
-###### 144. Which of the options result(s) in an error?
+###### 144. 哪一个选项会导致报错？
 
 ```javascript
 const emojis = ["🎄", "🎅🏼", "🎁", "⭐"];
@@ -4701,19 +4701,19 @@ const emojis = ["🎄", "🎅🏼", "🎁", "⭐"];
 - C: 3 and 4
 - D: 3
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>答案</b></summary>
 <p>
 
-#### Answer: D
+#### 答案: D
 
-The `const` keyword simply means we cannot _redeclare_ the value of that variable, it's _read-only_. However, the value itself isn't immutable. The propeties on the `emojis` array can be modified, for example by pushing new values, splicing them, or setting the length of the array to 0.
+`const` 关键字意味着我们不能 _重定义_ 变量中的值，它 _仅可读_。而然，值本身不可修改。数组 `emojis` 中的值可被修改，如 push 新的值, 拼接，又或者将数组的长度设置为0。
 
 </p>
 </details>
 
 ---
 
-###### 145. What do we need to add to the `person` object to get `["Lydia Hallie", 21]` as the output of `[...person]`?
+###### 145. 我们需要向对象 `person` 添加什么，以致执行 `[...person]` 时获得形如 `["Lydia Hallie", 21]` 的输出？
 
 ```javascript
 const person = {
@@ -4724,17 +4724,17 @@ const person = {
 [...person] // ["Lydia Hallie", 21]
 ```
 
-- A: Nothing, object are iterable by default
+- A: 不需要，对象默认就是可迭代的
 - B: `*[Symbol.iterator]() { for (let x in this) yield* this[x] }`
 - C: `*[Symbol.iterator]() { for (let x in this) yield* Object.values(this) }`
 - D: `*[Symbol.iterator]() { for (let x in this) yield this }`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>答案</b></summary>
 <p>
 
-#### Answer: C
+#### 答案: C
 
-Objects aren't iterable by default. An iterable is an iterable if the iterator protocol is present. We can add this manually by adding the iterator symbol `[Symbol.iterator]`, which has to return a generator object, for example by making it a generator function `*[Symbol.iterator]() {}`. This generator function has to yield the `Object.values` of the `person` object if we want it to return the array `["Lydia Hallie", 21]`: `yield* Object.values(this)`.
+对象默认并不是可迭代的。如果迭代规则被定义，则一个对象是可迭代的（An iterable is an iterable if the iterator protocol is present）。我们可以通过添加迭代器symbol `[Symbol.iterator]` 来定义迭代规则，其返回一个 generator 对象，比如说构建一个 generator 函数 `*[Symbol.iterator]() {}`。如果我们想要返回数组 `["Lydia Hallie", 21]`: `yield* Object.values(this)`，这个 generator 函数一定要 yield 对象 `person` 的`Object.values`。
 
 </p>
 </details>
