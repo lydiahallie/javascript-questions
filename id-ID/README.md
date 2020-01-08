@@ -1,15 +1,11 @@
-<div align="center">
-  <img height="60" src="https://img.icons8.com/color/344/javascript.png"> 
-  <h1>Pertanyaan JavaScript</h1>
+<h1>Pertannyaan JavaScript</h1>
 
----
+  ---
 
-<span>Saya menerbitkan beberapa pilihan pertanyaan Javascript di akun Instagram Story [Instagram](https://www.instagram.com/theavocoder), yang mana diterbitkan disini juga! Terakhir diperbaharui: <a href=#20191224><b>24 Desember</b></a>
+  <span>Saya post pertanyaan pilihan ganda ke [Instagram](https://www.instagram.com/theavocoder) **stories** saya, yang saya post juga di sini ! update terakhir: <a href=#20191224><b>December 24th</b></a>
 
-From basic to advanced: test how well you know JavaScript, refresh your knowledge a bit, or prepare for your coding interview! :muscle: :rocket: I update this repo regularly with new questions. I added the answers in the **collapsed sections** below the questions, simply click on them to expand it. It's just for fun, good luck! :heart:</span>
-Dari tingkat dasar sampai tingkat lanjut: Menguji seberapa jago Anda di JavaScript, asah pengetahuan Anda, atau untuk persiapan interview tentang pemrograman! :muscle: :rocket: Saya akan memperbaharui jawaban di bagian yang tertutup di bawah pertanyaan, sederhananya tinggal di klik saja yang nantinya jawaban akan muncul disana. Ini hanya untuk bersenang - senang saja, semoga berhasil! :heart:</span>
+  Mulai tingkat dasar ke mahir: tes seberapa paham kamu tentang javascript, segarkan sedikit pengetahuan kamu, atau bersiap-siap untuk coding interview kamu! :muscle: :rocket: Saya update repo ini secara berkala dengan pertanyaan baru. Saya masukkan jawaban dibagian yang **tersembunyi** di bawah pertanyaan, cukup klik pada bagian itu untuk menampilkannya. Pertanyaan ini hanya untuk bersenang-senang, Semoga berhasil :heart:</span>
 
-Feel free to reach out to me! 😊 <br />
 Jangan sungkan untuk terhubung dengan saya! 😊 <br />
 <a href="https://www.instagram.com/theavocoder">Instagram</a> || <a href="https://www.twitter.com/lydiahallie">Twitter</a> || <a href="https:/www.linkedin.com/in/lydia-hallie">LinkedIn</a> || <a href="www.lydiahallie.dev">Blog</a>
 
@@ -66,10 +62,9 @@ sayHi();
 
 #### Jawaban: D
 
-Within the function, we first declare the `name` variable with the `var` keyword. This means that the variable gets hoisted (memory space is set up during the creation phase) with the default value of `undefined`, until we actually get to the line where we define the variable. We haven't defined the variable yet on the line where we try to log the `name` variable, so it still holds the value of `undefined`.
+Di dalam function, kita buat variabel `name` dan variabel declaration-nya menggunakan `var`. Artinya variable tersebut hoisted (dalam fase pembuatan ini menggunakan memory penyimpanan) dengan isi standar-nya `undefined`, hingga kita benar berada di baris code pembuatan variabel-nya. Kita belum membuat variabel tersebut saat kita memanggil variabel `name`, jadi isi dari varabel tersebut masih `undefined`
 
-Variables with the `let` keyword (and `const`) are hoisted, but unlike `var`, don't get <i>initialized</i>. They are not accessible before the line we declare (initialize) them. This is called the "temporal dead zone". When we try to access the variables before they are declared, JavaScript throws a `ReferenceError`.
-
+Variabel declaration yang menggunakan `let` (dan `const`) juga hoisted, tapi tidak seperti `var`, variabel declaration `let` dan `const` tidak ditentukan isi standar-nya. `let` dan `const` tidak bisa diakses sebelum di tentukan dulu isi-nya. Kejadian ini disebut "temporal dead zone". Saat kita mencoba memanggil variabel yang belum ditentukan isi-nya, Javascript mengeluarkan error `ReferenceError`.
 </p>
 </details>
 
