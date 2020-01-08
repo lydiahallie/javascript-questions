@@ -52,10 +52,10 @@ function sayHi() {
 sayHi();
 ```
 
-- A: `Lydia` and `undefined`
-- B: `Lydia` and `ReferenceError`
-- C: `ReferenceError` and `21`
-- D: `undefined` and `ReferenceError`
+- A: `Lydia` dan `undefined`
+- B: `Lydia` dan `ReferenceError`
+- C: `ReferenceError` dan `21`
+- D: `undefined` dan `ReferenceError`
 
 <details><summary><b>Jawaban</b></summary>
 <p>
