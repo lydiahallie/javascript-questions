@@ -1561,9 +1561,9 @@ sayHi();
 ```
 
 - A: `"It worked! Hello world!"`
-- B: `"Oh no an error: undefined`
+- B: `"Oh no an error! undefined`
 - C: `SyntaxError: can only throw Error objects`
-- D: `"Oh no an error: Hello world!`
+- D: `"Oh no an error! Hello world!`
 
 <details><summary><b>答案</b></summary>
 <p>
@@ -1572,7 +1572,7 @@ sayHi();
 
 通过`throw`语句，我么可以创建自定义错误。 而通过它，我们可以抛出异常。异常可以是一个<b>字符串</b>, 一个 <b>数字</b>, 一个 <b>布尔类型</b> 或者是一个 <b>对象</b>。在本例中，我们的异常是字符串`'Hello world'`.
 
-通过 `catch`语句，我们可以设定当`try`语句块中抛出异常后应该做什么处理。在本例中抛出的异常是字符串`'Hello world'`. `e`就是这个字符串，因此被输出。最终结果就是`'Oh an error: Hello world'`.
+通过 `catch`语句，我们可以设定当`try`语句块中抛出异常后应该做什么处理。在本例中抛出的异常是字符串`'Hello world'`. `e`就是这个字符串，因此被输出。最终结果就是`'Oh an error! Hello world'`.
 
 </p>
 </details>
