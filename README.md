@@ -30,7 +30,8 @@
 * [Русский](./ru-RU/README.md)
 * [Українська мова](./ua-UA/README-ua_UA.md)  
 * [Tiếng Việt](./vi-VI/README-vi.md)
-* [中文版本](./zh-CN/README-zh_CN.md)
+* [简体中文](./zh-CN/README-zh_CN.md)
+* [繁體中文](./zh-TW/README_zh-TW.md)
 * [Türkçe](./tr-TR/README-tr_TR.md)
 * [ไทย](./th-TH/README-th_TH.md)
 
