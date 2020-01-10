@@ -3570,7 +3570,7 @@ getName() // Lydia
 
 ---
 
-###### 112. What's the output?
+###### 112. Output là gì?
 
 ```javascript
 function* generatorOne() {
@@ -3598,16 +3598,16 @@ console.log(two.next().value)
 
 #### Đáp án: C
 
-With the `yield` keyword, we `yield` values in a generator function. With the `yield*` keyword, we can yield values from another generator function, or iterable object (for example an array).
+Với từ khóa `yield`, ta sẽ trả về các giá trị trong một `generator`. Với từ khóa `yield*`, ta có thể trả về giá trị từ một `engerator` khác, hoặc một `iterable object` (ví dụ mảng).
 
-In `generatorOne`, we yield the entire array `['a', 'b', 'c']` using the `yield` keyword. The value of `value` property on the object returned by the `next` method on `one` (`one.next().value`) is equal to the entire array `['a', 'b', 'c']`.
+Trong `generatorOne`, ta trả về toàn bộ mảng `['a', 'b', 'c']` sử dụng từ khóa `yield`. Giá trị của thuộc tính `value` trong object thu được bởi phương thức `next` trong `one` (`one.next().value`) là toàn bộ mảng `['a', 'b', 'c']`.
 
 ```javascript
 console.log(one.next().value) // ['a', 'b', 'c']
 console.log(one.next().value) // undefined
 ```
 
-In `generatorTwo`, we use the `yield*` keyword. This means that the first yielded value of `two`, is equal to the first yielded value in the iterator. The iterator is the array `['a', 'b', 'c']`. The first yielded value is `a`, so the first time we call `two.next().value`, `a` is returned. 
+Trong `generatorTwo`, ta sử dụng từ khóa `yield*`. Có nghĩa là giá trị đầu tiên mà `two` trả về là giá trị đầu tiên trong `iterator`. Trong trường hợp này `iterator` của chúng ta là mảng `['a', 'b', 'c']`. Giá trị đầu tiên của mảng là `a`, nên lần đầu tiên khi ta gọi `two.next().value`, `a` sẽ được trả về. 
 
 ```javascript
 console.log(two.next().value) // 'a'
@@ -3621,7 +3621,7 @@ console.log(two.next().value) // undefined
 
 ---
 
-###### 113. What's the output?
+###### 113. Output là gì?
 
 ```javascript
 console.log(`${(x => x)('I love')} to program`)
@@ -3637,14 +3637,14 @@ console.log(`${(x => x)('I love')} to program`)
 
 #### Đáp án: A
 
-Expressions within template literals are evaluated first. This means that the string will contain the returned value of the expression, the immediately invoked function `(x => x)('I love')` in this case. We pass the value `'I love'` as an argument to the `x => x` arrow function. `x` is equal to `'I love'`, which gets returned. This results in `I love to program`. 
+Biểu thức bên trong chuỗi template (tức chuỗi nằm trong hai dấu ``, gọi là `template literals`) sẽ được đánh giá trước. Sau đó kết quả của biểu thức sẽ được đưa vào chuỗi, trong trường hợp này biểu thức là `(x => x)('I love')`. Chúng ta truyền giá trị đối số `'I love'` cho một arrow function `x => x`. `x` lúc này là `'I love'`, và trả về chính nó. Cuối cùng kết quả của chuỗi là `I love to program`. 
 
 </p>
 </details>
 
 ---
 
-###### 114. What will happen?
+###### 114. Điều gì sẽ xảy ra?
 
 ```javascript
 let config = {
@@ -3656,24 +3656,24 @@ let config = {
 config = null
 ```
 
-- A: The `setInterval` callback won't be invoked
-- B: The `setInterval` callback gets invoked once
-- C: The `setInterval` callback will still be called every second
-- D: We never invoked `config.alert()`, config is `null`
+- A: Callback `setInterval` sẽ không được gọi
+- B: Callback `setInterval` sẽ được gọi một lần duy nhất
+- C: Callback `setInterval` vẫn sẽ được gọi mỗi giây một lần
+- D: `config.alert()` không bao giờ được gọi bởi config là `null`
 
 <details><summary><b>Đáp án</b></summary>
 <p>
 
 #### Đáp án: C
 
-Normally when we set objects equal to `null`, those objects get _garbage collected_ as there is no reference anymore to that object. However, since the callback function within `setInterval` is an arrow function (thus bound to the `config` object), the callback function still holds a reference to the `config` object. As long as there is a reference, the object won't get garbage collected. Since it's not garbage collected, the `setInterval` callback function will still get invoked every 1000ms (1s).
+Thông thường khi ta set một object bằng `null`, thì object này sẽ được bộ dọn rác dọn đi do không còn gì reference đến nó nữa (_garbage collected_). Tuy nhiên, do callback trong `setInterval` là một arrow function (do đó nó sẽ gắn với object `config`), nên callback này vẫn sẽ giữ reference đến object `config`. Vì vẫn còn giữ reference, nên object sẽ không bị dọn đi. Do đó nó vẫn sẽ được gọi sau mỗi 1000ms (tức 1 giây).
 
 </p>
 </details>
 
 ---
 
-###### 115. Which method(s) will return the value `'Hello world!'`?
+###### 115. Những hàm nào sẽ trả về `'Hello world!'`?
 
 ```javascript
 const myMap = new Map()
@@ -3691,25 +3691,25 @@ myMap.get(() => 'greeting')
 
 - A: 1
 - B: 2
-- C: 2 and 3
-- D: All of them
+- C: 2 và 3
+- D: Tất cả
 
 <details><summary><b>Đáp án</b></summary>
 <p>
 
 #### Đáp án: B
 
-When adding a key/value pair using the `set` method, the key will be the value of the first argument passed to the `set` function, and the value will be the second argument passed to the `set` function. The key is the _function_ `() => 'greeting'` in this case, and the value `'Hello world'`. `myMap` is now `{ () => 'greeting' => 'Hello world!' }`. 
+Khi ta thêm vào một cặp key/value với từ khóa `set`, key sẽ là đối số đầu tiên đưa vào trong hàm `set` function, và value sẽ là đối số thứ hai.Trong trường hơp này key chính là _hàm_ `() => 'greeting'`, value là `'Hello world'`. `myMap` trở thành `{ () => 'greeting' => 'Hello world!' }`. 
 
-1 is wrong, since the key is not `'greeting'` but `() => 'greeting'`.
-3 is wrong, since we're creating a new function by passing it as a parameter to the `get` method. Object interact by _reference_. Functions are objects, which is why two functions are never strictly equal, even if they are identical: they have a reference to a different spot in memory. 
+1 sai, vì key là `() => 'greeting'` chứ không phải là `'greeting'`.
+3 sai, vì khi chúng ta đưa một hàm vào làm đối số trong phương thức `get`, nó sẽ được đưa vào dưới dạng _reference_. Function vốn là object, do đó 2 hàm sẽ không bao giờ là `strictly equal`, mặc dù chúng có trông giống nhau đi chăng nữa thì chúng vẫn trỏ đến các vùng nhớ khác nhau.
 
 </p>
 </details>
 
 ---
 
-###### 116. What's the output?
+###### 116. Output là gì?
 
 ```javascript
 const person = {
@@ -3739,18 +3739,18 @@ console.log(person)
 
 #### Đáp án: C
 
-Both the `changeAge` and `changeAgeAndName` functions have a default parameter, namely a _newly_ created object `{ ...person }`. This object has copies of all the key/values in the `person` object. 
+Cả hai hàm `changeAge` và `changeAgeAndName` đều có tham số mặc định - nó là một _bản copy_ mới của object `{ ...person }`. Object này sẽ copy tất cả những cặp key/values bên trong object `person`. 
 
-First, we invoke the `changeAge` function and pass the `person` object as its argument. This function increases the value of the `age` property by 1. `person` is now `{ name: "Lydia", age: 22 }`.
+Đầu tiên, chúng ta gọi hàm `changeAge` và đưa chính object `person` vào làm đối số. Hàm này sẽ tăng giá trị của thuộc tính `age` lên 1. `person` lúc này là `{ name: "Lydia", age: 22 }`.
 
-Then, we invoke the `changeAgeAndName` function, however we don't pass a parameter. Instead, the value of `x` is equal to a _new_ object: `{ ...person }`. Since it's a new object, it doesn't affect the values of the properties on the `person` object. `person` is still equal to `{ name: "Lydia", age: 22 }`.
+Sau đó, chúng ta gọi hàm `changeAgeAndName` tuy nhiên không đưa vào đối số nào cả. Do đó giá trị của `x` lúc này sẽ là giá trị mặc định, tức một bản _copy_ của object `{ ...person }`. Do nó chỉ là một bản copy (tức object mới), nên nó không ảnh hưởng gì tới giá trị của object `person` gốc, giá trị của `person` gốc sẽ vẫn là `{ name: "Lydia", age: 22 }`.
 
 </p>
 </details>
 
 ---
 
-###### 117. Which of the following options will return `6`?
+###### 117. Phép tính nào dưới đây trả về `6`?
 
 ```javascript
 function sumValues(x, y, z) {
@@ -3768,14 +3768,14 @@ function sumValues(x, y, z) {
 
 #### Đáp án: C
 
-With the spread operator `...`, we can _spread_ iterables to individual elements. The `sumValues` function receives three arguments: `x`, `y` and `z`. `...[1, 2, 3]` will result in `1, 2, 3`, which we pass to the `sumValues` function.
+Với toán tử ba chấm (`spread operator`) `...`, chúng ta có thể unpack một iterable thành từng các phần tử riêng biệt. Hàm `sumValues` nhận vào 3 giá trị: `x`, `y` và `z`. `...[1, 2, 3]` sẽ trả về `1, 2, 3`, đưa vào `sumValues` sẽ cho ta kết quả là 6.
 
 </p>
 </details>
 
 ---
 
-###### 118. What's the output?
+###### 118. Output là gì?
 
 ```javascript
 let num = 1;
@@ -3794,14 +3794,14 @@ console.log(list[(num += 1)]);
 
 #### Đáp án: B
 
-With the `+=` operand, we're incrementing the value of `num` by `1`. `num` had the initial value `1`, so `1 + 1` is `2`. The item on the second index in the `list` array is 🥰, `console.log(list[2])` prints 🥰.
+Với phép toán `+=`, Ta tăng giá trị của `num` lên `1`. `num` có giá trị khởi tạo là `1`, do đó `1 + 1` là `2`. Phần tử thứ hai của `list` là 🥰, do đó `console.log(list[2])` sẽ in ra 🥰.
 
 </p>
 </details>
 
 ---
 
-###### 119. What's the output?
+###### 119. Output là gì?
 
 ```javascript
 const person = {
@@ -3832,19 +3832,22 @@ console.log(member.getLastName?.());
 
 #### Đáp án: B
 
-With the optional chaining operator `?.`, we no longer have to explicitly check whether the deeper nested values are valid or not. If we're trying to access a property on an `undefined` or `null` value (_nullish_), the expression short-circuits and returns `undefined`.
+Với phép toán optional chaining `?.`, chúng ta sẽ không cần phải check xem giá trị phía sau nó có được phép truy cập hay có tồn tại hay không. Nếu ta cố lấy một thuộc tính của `undefined` hay `null` (_nullish_), biểu thức sẽ dừng lại và trả về `undefined`.
 
-`person.pet?.name`: `person` has a property named `pet`: `person.pet` is not nullish. It has a property called `name`, and returns `Mara`.
-`person.pet?.family?.name`: `person` has a property named `pet`: `person.pet` is not nullish. `pet` does _not_ have a property called `family`, `person.pet.family` is nullish. The expression returns `undefined`.
-`person.getFullName?.()`: `person` has a property named `getFullName`: `person.getFullName()` is not nullish and can get invoked, which returns `Lydia Hallie`.
-`member.getLastName?.()`: `member` is not defined: `member.getLastName()` is nullish. The expression returns `undefined`.
+`person.pet?.name`: `person` có thuộc tính `pet`: do đó `person.pet` không phải là một nullish. Nó có một thuộc tính `name`, với giá trị `Mara`.
+
+`person.pet?.family?.name`: `person` có thuộc tính `pet`: do đó `person.pet` không phải là nullish. Tuy nhiên `pet` không có thuộc tính `family`, nên `person.pet.family` là nullish. Biểu thức sẽ trả về `undefined`.
+
+`person.getFullName?.()`: `person` có thuộc tính `getFullName`: do đó `person.getFullName()` không phải nullish và có thể gọi ra, trả về `Lydia Hallie`.
+
+`member.getLastName?.()`: `member` không được định nghĩa: do đó `member.getLastName()` là nullish. Biểu thức trả về `undefined`.
 
 </p>
 </details>
 
 ---
 
-###### 120. What's the output?
+###### 120. Ouput là gì?
 
 ```javascript
 const groceries = ["banana", "apple", "peanuts"];
@@ -3866,14 +3869,14 @@ if (groceries.indexOf("banana")) {
 
 #### Đáp án: B
 
-We passed the condition `groceries.indexOf("banana")` to the if-statement. `groceries.indexOf("banana")` returns `0`, which is a falsy value. Since the condition in the if-statement is falsy, the code in the `else` block runs, and `We don't have to buy bananas!` gets logged.
+Ta đưa một điều kiện `groceries.indexOf("banana")` vào câu lệnh `if`. `groceries.indexOf("banana")` trả về `0`, là một giá trị `falsy`. Do đó điệu kiện `if` sẽ chạy vào khối `else` và in ra `We don't have to buy bananas!`.
 
 </p>
 </details>
 
 ---
 
-###### 121. What's the output?
+###### 121. Ouput là gì?
 
 ```javascript
 const config = {
@@ -3897,6 +3900,7 @@ console.log(config.language);
 #### Đáp án: D
 
 The `language` method is a `setter`. Setters don't hold an actual value, their purpose is to _modify_ properties. When calling a `setter` method, `undefined` gets returned.
+Phương thức `language` là một `setter`. Setter không mang giá trị, nhiệm vụ của nó chỉ đơn giản là _thay đổi_ thuộc tính. Khi ta gọi một phương thức `setter` nó sẽ trả về `undefined`.
 
 </p>
 </details>
