@@ -102,7 +102,7 @@ In de tweede loop wordt de variabele `i` gedeclareerd met het keyword `let`: var
 
 ---
 
-###### 3. What's the output?
+###### 3. Wat is de uitkomst?
 
 ```javascript
 const shape = {
@@ -117,21 +117,21 @@ console.log(shape.diameter());
 console.log(shape.perimeter());
 ```
 
-- A: `20` and `62.83185307179586`
-- B: `20` and `NaN`
-- C: `20` and `63`
-- D: `NaN` and `63`
+- A: `20` en `62.83185307179586`
+- B: `20` en `NaN`
+- C: `20` en `63`
+- D: `NaN` en `63`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>Antwoord</b></summary>
 <p>
 
-#### Answer: B
+#### Antwoord: B
 
-Note that the value of `diameter` is a regular function, whereas the value of `perimeter` is an arrow function.
+Merk op dat de waarde van `diameter` een gewone functie is, waarbij de waarde van `perimeter` een zogenaamde arrow functie is.
 
-With arrow functions, the `this` keyword refers to its current surrounding scope, unlike regular functions! This means that when we call `perimeter`, it doesn't refer to the shape object, but to its surrounding scope (window for example).
+Bij arrow functies refereert het `this` keyword naar z'n huidige omliggende scope, zo niet bij gewone functie! Dat betekent dat wanneer we `perimeter` aanroepen het niet refereert naar het shape object, maar naar de omliggende scope (window bijvoorbeeld).
 
-There is no value `radius` on that object, which returns `undefined`.
+Er is geen propertie `radius` op dat object, daarom wordt `undefined` teruggegeven.
 
 </p>
 </details>
