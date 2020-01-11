@@ -200,7 +200,7 @@ Echter, met de dot notatie zal dit niet gebeuren. `mouse` heeft geen propertie g
 ---
 
 
-###### 6. What's the output?
+###### 6. Wat is de uitkomst?
 
 ```javascript
 let c = { greeting: "Hey!" };
@@ -217,18 +217,18 @@ console.log(d.greeting);
 - D: `ReferenceError`
 - E: `TypeError`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>Antwoord</b></summary>
 <p>
 
-#### Answer: A
+#### Antwoord: A
 
-In JavaScript, all objects interact by _reference_ when setting them equal to each other.
+In JavaScript worden alle objecten verwerkt _by reference_, ook wanneer we de waarde van een variabele vullen met een ander object.
 
-First, variable `c` holds a value to an object. Later, we assign `d` with the same reference that `c` has to the object.
+In de eerste instantie verwijst de variabele `c` naar een object. Daarna wordt de waarde van de variabele `d` gezet met de waarde van `c`. Daardoor verwijst `d` naar hetzelfde object als `c`.
 
 <img src="https://i.imgur.com/ko5k0fs.png" width="200">
 
-When you change one object, you change all of them.
+Wanneer je één object veranderd, verander je ze allemaal.
 
 </p>
 </details>
