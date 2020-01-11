@@ -2,17 +2,17 @@
   <img height="60" src="https://img.icons8.com/color/344/javascript.png"> 
   <h1>JavaScript 進階題目列表</h1>
 
-  ---
+---
 
-  <span>我會在我的 [Instagram](https://www.instagram.com/theavocoder) 上發布關於 JavaScript 的複選題，同時也會更新到這個 Repo 當中。更新日期： <a href=#20191224><b>2019 年 12 月 24 日</b></a>
+<span>我會在我的 [Instagram](https://www.instagram.com/theavocoder) 上發布關於 JavaScript 的複選題，同時也會更新到這個 Repo 當中。更新日期： <a href=#20191224><b>2019 年 12 月 24 日</b></a>
 
-  從基礎到進階程度，測試你有多了解 JavaScript，不僅更新你的知識，更能幫助你的 coding 面試！
+從基礎到進階程度，測試你有多了解 JavaScript，不僅更新你的知識，更能幫助你的 coding 面試！
 :muscle: :rocket: 我每週都會在這個 Repo 中更新新的題目。
 
 答案在題目下方的摺疊區塊，點擊即可展開答案。祝你好運 :heart:</span>
 
-  歡迎和我聯繫！😊 <br />
-  <a href="https://www.instagram.com/theavocoder">Instagram</a> || <a href="https://www.twitter.com/lydiahallie">Twitter</a> || <a href="https:/www.linkedin.com/in/lydia-hallie">LinkedIn</a> || <a href="www.lydiahallie.dev">Blog</a>
+歡迎和我聯繫！😊 <br />
+<a href="https://www.instagram.com/theavocoder">Instagram</a> || <a href="https://www.twitter.com/lydiahallie">Twitter</a> || <a href="https:/www.linkedin.com/in/lydia-hallie">LinkedIn</a> || <a href="www.lydiahallie.dev">Blog</a>
   </div>
 
 
@@ -476,3 +476,289 @@ JavaScript 是一個**動態型別語言**：我們不指定變數的型別。�
 
 </p>
 </details>
+
+###### 16. 將會輸出什麽內容？
+
+```javascript
+let number = 0;
+console.log(number++);
+console.log(++number);
+console.log(number);
+```
+
+- A: `1` `1` `2`
+- B: `1` `2` `2`
+- C: `0` `2` `2`
+- D: `0` `1` `2`
+
+<details><summary><b>答案</b></summary>
+<p>
+
+#### 答案：C
+
+一元運算子 `++` 加在變數後方:
+
+1. 回傳值 (這個值是 `0`)
+2. 新增值 (變數 `number` 的值現在是 `1`)
+
+一元運算子 `++` 加在變數前方:
+
+1. 新增值 (變數 `number` 的值現在是 `2`)
+2. 回傳值 (這個值是 `2`)
+
+因此答案是 `0 2 2`.
+
+</p>
+</details>
+
+---
+
+###### 17. 將會輸出什麽內容？
+
+```javascript
+function getPersonInfo(one, two, three) {
+  console.log(one);
+  console.log(two);
+  console.log(three);
+}
+
+const person = 'Lydia';
+const age = 21;
+
+getPersonInfo`${person} is ${age} years old`;
+```
+
+- A: `"Lydia"` `21` `["", " is ", " years old"]`
+- B: `["", " is ", " years old"]` `"Lydia"` `21`
+- C: `"Lydia"` `["", " is ", " years old"]` `21`
+
+<details><summary><b>答案</b></summary>
+<p>
+
+#### 答案：B
+
+若你使用標籤樣板字面值（Tagged template literals），第一個參數的值永遠會是一個裝載字串的陣列，函式中的剩下的參數會取得表達式中傳進的變數（`person`、`age`）的值（`'Lydia'`、`21`）！
+
+</p>
+</details>
+
+---
+
+###### 18. 將會輸出什麽內容？
+
+```javascript
+function checkAge(data) {
+  if (data === { age: 18 }) {
+    console.log('You are an adult!');
+  } else if (data == { age: 18 }) {
+    console.log('You are still an adult.');
+  } else {
+    console.log(`Hmm.. You don't have an age I guess`);
+  }
+}
+
+checkAge({ age: 18 });
+```
+
+- A: `You are an adult!`
+- B: `You are still an adult.`
+- C: `Hmm.. You don't have an age I guess`
+
+<details><summary><b>答案</b></summary>
+<p>
+
+#### 答案：C
+
+驗證相等，一般型別只比較「值」，物件型別則是比較他們的「參考」。JavaScript 會確認不同物件的參考是否指向同一個記憶體位置。
+
+題目中，我們比較的兩個物件擁有不同的記憶體位置：一個物件是作為參數傳遞的物件，它的記憶體位置與另一個拿來判斷是否相等的物件並不相同。
+
+這就是 `{ age: 18 } === { age: 18 }` 與 `{ age: 18 } == { age: 18 }` 會回傳 `false` 的原因.
+
+</p>
+</details>
+
+---
+
+###### 19. 將會輸出什麽內容？
+
+```javascript
+function getAge(...args) {
+  console.log(typeof args);
+}
+
+getAge(21);
+```
+
+- A: `"number"`
+- B: `"array"`
+- C: `"object"`
+- D: `"NaN"`
+
+<details><summary><b>答案</b></summary>
+<p>
+
+#### 答案：C
+
+其餘參數（`...args`） 會蒐集傳進來剩下來未使用的參數，成為一個「陣列」。 陣列的型別是「物件」，所以透過 `typeof args` 將會回傳該值的型別，將是 `"object"`。
+
+</p>
+</details>
+
+---
+
+###### 20. 將會輸出什麽內容？
+
+```javascript
+function getAge() {
+  'use strict';
+  age = 21;
+  console.log(age);
+}
+
+getAge();
+```
+
+- A: `21`
+- B: `undefined`
+- C: `ReferenceError`
+- D: `TypeError`
+
+<details><summary><b>答案</b></summary>
+<p>
+
+#### 答案：C
+
+`"use strict"` 可以避免妳意外地宣告全區域變數。使用 `"use strict"` 時，我們若沒有宣告 `age` 這個變數，就直接賦值的話，會拋出 `ReferenceError`，若沒有使用 `"use strict"`，屬性 `age` 就會新增到全域物件上（瀏覽器上的全域物件是 `window`）。
+
+</p>
+</details>
+
+---
+
+###### 21. `sum` 的值會是？
+
+```javascript
+const sum = eval('10*10+5');
+```
+
+- A: `105`
+- B: `"105"`
+- C: `TypeError`
+- D: `"10*10+5"`
+
+<details><summary><b>答案</b></summary>
+<p>
+
+#### 答案：A
+
+`eval` 會去執行傳進去的「字串」。如果該字串是一個表達式，如題目中的程式碼，那麼 `eval` 會自動執行該表達式 `10 * 10 + 5`，所以答案會是 `105`。
+
+</p>
+</details>
+
+---
+
+###### 22. cool_secret 這個資料儲存在瀏覽器，存活時間有多久？
+
+```javascript
+sessionStorage.setItem('cool_secret', 123);
+```
+
+- A: 永遠都可以，資料不會不見。
+- B: 使用者關閉頁籤後，資料才會失效。
+- C: 使用者要關閉一整個瀏覽器，資料才會失效，單純關閉資料不會造成資料消失。
+- D: 使用者關閉電腦後。
+
+<details><summary><b>答案</b></summary>
+<p>
+
+#### 答案：B
+
+儲存在 `sessionStorage` 的資料會在使用者「關閉頁籤」後消失。
+
+若是使用 `localStorage` 來儲存資料的話，資料則會永遠存在瀏覽器端，直到觸發了 `localStorage.clear()` 才可以清除資料。
+
+</p>
+</details>
+
+---
+
+###### 23. 將會輸出什麽內容？
+
+```javascript
+var num = 8;
+var num = 10;
+
+console.log(num);
+```
+
+- A: `8`
+- B: `10`
+- C: `SyntaxError`
+- D: `ReferenceError`
+
+<details><summary><b>答案</b></summary>
+<p>
+
+#### 答案：B
+
+使用 `var` 關鍵字重複宣告的變數，該值會以最新賦予的值作為它的「值」。這件事情在 `let` or `const` 不會發生，因為這兩個關鍵字所宣告的變數作用域是塊級作用域（block-scoped）。
+
+</p>
+</details>
+
+---
+
+###### 24. 將會輸出什麽內容？
+
+```javascript
+const obj = { 1: 'a', 2: 'b', 3: 'c' };
+const set = new Set([1, 2, 3, 4, 5]);
+
+obj.hasOwnProperty('1');
+obj.hasOwnProperty(1);
+set.has('1');
+set.has(1);
+```
+
+- A: `false` `true` `false` `true`
+- B: `false` `true` `true` `true`
+- C: `true` `true` `false` `true`
+- D: `true` `true` `true` `true`
+
+<details><summary><b>答案</b></summary>
+<p>
+
+#### 答案：C
+
+除了 `Symbol` 以外的物件的 `key` 在底層都是字串類別，即使你建立該物件屬性時，並不是以字串來建立的，所以 `obj.hasOwnProperty('1')` 會回傳 `true`。不過 `set` 不是這樣的規則，在題目中的 `set` 並沒有字串 `'1'` 這個屬性名稱，所以 `set.has('1')` 會回傳 `false`，不過是有數字類別 `1` 的屬性值，`set.has(1)` 將會回傳 `true`。
+
+</p>
+</details>
+
+---
+
+###### 25. 將會輸出什麽內容？
+
+```javascript
+const obj = { a: 'one', b: 'two', a: 'three' };
+console.log(obj);
+```
+
+- A: `{ a: "one", b: "two" }`
+- B: `{ b: "two", a: "three" }`
+- C: `{ a: "three", b: "two" }`
+- D: `SyntaxError`
+
+<details><summary><b>答案</b></summary>
+<p>
+
+#### 答案：C
+
+若物件中的屬性有重複名稱者，第一個屬性會保持它的位置，但值會被最後一個重複屬性名稱的值給取代。
+
+</p>
+</details>
+
+---
