@@ -235,7 +235,7 @@ Wanneer je één object veranderd, verander je ze allemaal.
 
 ---
 
-###### 7. What's the output?
+###### 7. Wat is de uitkomst?
 
 ```javascript
 let a = 3;
@@ -252,16 +252,16 @@ console.log(b === c);
 - C: `true` `false` `false`
 - D: `false` `true` `true`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>Antwoord</b></summary>
 <p>
 
-#### Answer: C
+#### Antwoord: C
 
-`new Number()` is a built-in function constructor. Although it looks like a number, it's not really a number: it has a bunch of extra features and is an object.
+`new Number()` is een ingebouwde functie constructor. En ook al lijkt het misschien op een nummer, dat is het niet. Het is een object en bevat ten opzichte van een nummer veel extra opties.
 
-When we use the `==` operator, it only checks whether it has the same _value_. They both have the value of `3`, so it returns `true`.
+Wanneer we de `==` operator gebruiken wordt er alleen op de _waarde_ gecheckt. Zowel `a` als `b` bevatten de waarde `3`, dus geeft dit `true` terug. 
 
-However, when we use the `===` operator, both value _and_ type should be the same. It's not: `new Number()` is not a number, it's an **object**. Both return `false.`
+Echter, wanneer we de `===` operator gebruiken wordt er zowel op de _waarde_ als op het _type_ gecheckt. Omdat `new Number()` een **object** is en geen nummer zal dit `false` teruggeven.
 
 </p>
 </details>
