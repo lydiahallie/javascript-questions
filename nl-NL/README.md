@@ -72,7 +72,7 @@ Variabelen die gedeclareerd worden met het keyword `let` (en `const`) worden ook
 
 ---
 
-###### 2. What's the output?
+###### 2. Wat is de uitkomst?
 
 ```javascript
 for (var i = 0; i < 3; i++) {
@@ -84,18 +84,18 @@ for (let i = 0; i < 3; i++) {
 }
 ```
 
-- A: `0 1 2` and `0 1 2`
-- B: `0 1 2` and `3 3 3`
-- C: `3 3 3` and `0 1 2`
+- A: `0 1 2` en `0 1 2`
+- B: `0 1 2` en `3 3 3`
+- C: `3 3 3` en `0 1 2`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>Antwoord</b></summary>
 <p>
 
-#### Answer: C
+#### Antwoord: C
 
-Because of the event queue in JavaScript, the `setTimeout` callback function is called _after_ the loop has been executed. Since the variable `i` in the first loop was declared using the `var` keyword, this value was global. During the loop, we incremented the value of `i` by `1` each time, using the unary operator `++`. By the time the `setTimeout` callback function was invoked, `i` was equal to `3` in the first example.
+Vanwege de Event Queue in JavaScript wordt de `setTimeout` callback functie aangeroepen _nadat_ de volledige loop is uitgevoerd. Omndat in de eerste loop de variabele `i` gedeclareerd wordt met het keyword `var`, wordt deze global gemaakt. Tijdens de loop verhogen we de waarde van `i` met `1` door middel van de unary operator `++`. Tegen de tijd dat de `setTimeout` callback functie wordt aangeroepen is de waarde van `i` al `3`, zoals te zien is in het eerste voorbeeld.
 
-In the second loop, the variable `i` was declared using the `let` keyword: variables declared with the `let` (and `const`) keyword are block-scoped (a block is anything between `{ }`). During each iteration, `i` will have a new value, and each value is scoped inside the loop.
+In de tweede loop wordt de variabele `i` gedeclareerd met het keyword `let`: variabelen die gedeclareerd worden met het keyword `let` (en `const`) zijn block-scoped (een scope is alles tussen `{ }`). Tijdens elke iteratie zal `i` een nieuwe waarde krijgen, en elke waarde is scoped (te gebruiken tussen `{ }`) in de loop.
 
 </p>
 </details>
