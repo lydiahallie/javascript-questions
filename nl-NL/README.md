@@ -1,20 +1,20 @@
 <div align="center">
   <img height="60" src="https://img.icons8.com/color/344/javascript.png"> 
-  <h1>JavaScript Questions</h1>
+  <h1>JavaScript Vragen</h1>
 
   ---
 
-  <span>I post multiple choice JavaScript questions on my [Instagram](https://www.instagram.com/theavocoder) **stories**, which I'll also post here! Last updated: <a href=#20191224><b>December 24th</b></a>
+  <span>Ik plaats JavaScript meerkeuzevragen op mijn [Instagram](https://www.instagram.com/theavocoder) **stories**, welke ik ook hier zal plaatsen! Laatste update: <a href=#20191224><b>24 december</b></a>
 
-  From basic to advanced: test how well you know JavaScript, refresh your knowledge a bit, or prepare for your coding interview! :muscle: :rocket: I update this repo regularly with new questions. I added the answers in the **collapsed sections** below the questions, simply click on them to expand it. It's just for fun, good luck! :heart:</span>
+  Van beginner naar expert: test hoe goed je JavaScript kent, fris je kennis een beetje op, of bereid je voor op een sollicitatiegesprek! :muscle: :rocket: Ik zal deze repository regelmatig updaten met nieuwe vragen. Ik heb de antwoorden toegevoegd in de **ingeklapte secties** onder een vraag, zodat je er makkelijk op kan klikken om ze uit te klappen. Het is gewoon voor je plezier, veel succes! :heart:</span>
 
-  Feel free to reach out to me! 😊 <br />
+  Voel je vrij om contact met mij op te nemen! 😊 <br />
   <a href="https://www.instagram.com/theavocoder">Instagram</a> || <a href="https://www.twitter.com/lydiahallie">Twitter</a> || <a href="https:/www.linkedin.com/in/lydia-hallie">LinkedIn</a> || <a href="www.lydiahallie.dev">Blog</a>
   </div>
 
 ---
 
-<details><summary><b> See 17 Available Translations 🇪🇸🇮🇹🇩🇪 🇫🇷🇷🇺🇨🇳🇵🇹</b></summary>
+<details><summary><b> Zie alle 17 beschikbare vertalingen</b></summary>
 <p>
 
 * [English](../en-EN/README.md)
