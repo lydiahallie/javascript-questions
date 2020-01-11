@@ -138,25 +138,25 @@ Er is geen propertie `radius` op dat object, daarom wordt `undefined` teruggegev
 
 ---
 
-###### 4. What's the output?
+###### 4. Wat is de uitkomst?
 
 ```javascript
 +true;
 !"Lydia";
 ```
 
-- A: `1` and `false`
-- B: `false` and `NaN`
-- C: `false` and `false`
+- A: `1` en `false`
+- B: `false` en `NaN`
+- C: `false` en `false`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>Antwoord</b></summary>
 <p>
 
-#### Answer: A
+#### Antwoord: A
 
-The unary plus tries to convert an operand to a number. `true` is `1`, and `false` is `0`.
+De unaire plus probeert een operand naar een nummer te converteren. `true` is `1`, en `false` is `0`.
 
-The string `'Lydia'` is a truthy value. What we're actually asking, is "is this truthy value falsy?". This returns `false`.
+De string `'Lydia'` is een truthy waarde. Wat we eigenlijk vragen, is "is deze truthy waarde falsy?". Dit geeft `false` terug.
 
 </p>
 </details>
