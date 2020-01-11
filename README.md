@@ -14,7 +14,7 @@
 
 ---
 
-<details><summary><b> See 16 Available Translations 🇪🇸🇮🇹🇩🇪 🇫🇷🇷🇺🇨🇳🇵🇹</b></summary>
+<details><summary><b> See 17 Available Translations 🇪🇸🇮🇹🇩🇪 🇫🇷🇷🇺🇨🇳🇵🇹</b></summary>
 <p>
 
 * [English](./en-EN/README.md)
@@ -25,7 +25,8 @@
 * [Español](./es-ES/README-ES.md)
 * [Français](./fr-FR/README_fr-FR.md)
 * [日本語](./ja-JA/README-ja_JA.md)  
-* [한국어](./ko-KR/README-ko_KR.md) 
+* [한국어](./ko-KR/README-ko_KR.md)
+* [Nederlands](./nl-NL/README.md)
 * [Português Brasil](./pt-BR/README_pt_BR.md)  
 * [Русский](./ru-RU/README.md)
 * [Українська мова](./ua-UA/README-ua_UA.md)  
