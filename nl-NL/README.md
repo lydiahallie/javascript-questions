@@ -40,7 +40,7 @@
 
 ---
 
-###### 1. What's the output?
+###### 1. Wat is de uitkomst?
 
 ```javascript
 function sayHi() {
@@ -53,19 +53,19 @@ function sayHi() {
 sayHi();
 ```
 
-- A: `Lydia` and `undefined`
-- B: `Lydia` and `ReferenceError`
-- C: `ReferenceError` and `21`
-- D: `undefined` and `ReferenceError`
+- A: `Lydia` en `undefined`
+- B: `Lydia` en `ReferenceError`
+- C: `ReferenceError` en `21`
+- D: `undefined` en `ReferenceError`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>Antwoord</b></summary>
 <p>
 
-#### Answer: D
+#### Antwoord: D
 
-Within the function, we first declare the `name` variable with the `var` keyword. This means that the variable gets hoisted (memory space is set up during the creation phase) with the default value of `undefined`, until we actually get to the line where we define the variable. We haven't defined the variable yet on the line where we try to log the `name` variable, so it still holds the value of `undefined`.
+In de functie declareren we eerst de `name` variabele met het keyword `var`. Dit betekent dat de variabele gehoisted wordt (geheugen wordt vrijgemaakt tijdens de Creation Phase) met de waarde `undefined`, tot het niveau waar we de variabele daadwerkelijk definiëren. We hebben de variable nog niet gedefinieerd tot op de lijn waar we proberen de `name` variabele te loggen naar het console. De variabele is dus wel al aanwezig, maar de waarde is nog steeds `undefined`.
 
-Variables with the `let` keyword (and `const`) are hoisted, but unlike `var`, don't get <i>initialized</i>. They are not accessible before the line we declare (initialize) them. This is called the "temporal dead zone". When we try to access the variables before they are declared, JavaScript throws a `ReferenceError`.
+Variabelen die gedeclareerd worden met het keyword `let` (en `const`) worden ook gehoisted, maar worden niet, in tegenstelling tot `var`, <i>geïnitialiseerd</i>. Ze zijn niet toegankelijk totaan de lijn waarop ze gedeclareerd (geïnitialiseerd) worden. Dit wordt de "temporal dead zone" genoemd. Wanneer we de variabele proberen te benaderen voordat deze gedeclareerd is gooit JavaScript een `ReferenceError`.
 
 </p>
 </details>
