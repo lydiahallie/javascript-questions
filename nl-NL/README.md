@@ -163,7 +163,7 @@ De string `'Lydia'` is een truthy waarde. Wat we eigenlijk vragen, is "is deze t
 
 ---
 
-###### 5. Which one is true?
+###### 5. Welk antwoord is juist?
 
 ```javascript
 const bird = {
@@ -176,23 +176,23 @@ const mouse = {
 };
 ```
 
-- A: `mouse.bird.size` is not valid
-- B: `mouse[bird.size]` is not valid
-- C: `mouse[bird["size"]]` is not valid
-- D: All of them are valid
+- A: `mouse.bird.size` is ongeldig
+- B: `mouse[bird.size]` is ongeldig
+- C: `mouse[bird["size"]]` is ongeldig
+- D: Alle antwoorden zijn geldig
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>Antwoord</b></summary>
 <p>
 
-#### Answer: A
+#### Antwoord: A
 
-In JavaScript, all object keys are strings (unless it's a Symbol). Even though we might not _type_ them as strings, they are always converted into strings under the hood.
+In JavaScript zijn alle object keys strings (tenzij het een Symbol is). En ook al zijn ze niet van het _type_ string, onder de motorkap worden ze altijd geconverteerd naar een string.
 
-JavaScript interprets (or unboxes) statements. When we use bracket notation, it sees the first opening bracket `[` and keeps going until it finds the closing bracket `]`. Only then, it will evaluate the statement.
+JavaScript interpreteert (of unboxed) statements. Wanneer we de bracket notatie gebruiken zal de interpreter de opening bracket `[` zien en net zolang doorgaan tot het een closing bracket `]` vindt. Alleen dan zal het de waarde bepalen van de declaratie.
 
-`mouse[bird.size]`: First it evaluates `bird.size`, which is `"small"`. `mouse["small"]` returns `true`
+`mouse[bird.size]`: Eerst wordt `bird.size` geëvalueerd, wat `"small"` teruggeeft. `mouse["small"]` geeft `true` terug.
 
-However, with dot notation, this doesn't happen. `mouse` does not have a key called `bird`, which means that `mouse.bird` is `undefined`. Then, we ask for the `size` using dot notation: `mouse.bird.size`. Since `mouse.bird` is `undefined`, we're actually asking `undefined.size`. This isn't valid, and will throw an error similar to `Cannot read property "size" of undefined`.
+Echter, met de dot notatie zal dit niet gebeuren. `mouse` heeft geen propertie genaamd `bird`, wat betekent dat `mouse.bird` `undefined` teruggeeft. Daarna vragen we de waarde op van `size` gebruikmakend van de dot notatie. Omdat `mouse.bird` `undefined` is vragen we eigenlijk de waarde op van `undefined.size`. Dit is ongeldig en zal een error gooien gelijk aan ``.
 
 </p>
 </details>
