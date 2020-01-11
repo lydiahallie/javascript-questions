@@ -13,6 +13,7 @@
 
 歡迎和我聯繫！😊 <br />
 <a href="https://www.instagram.com/theavocoder">Instagram</a> || <a href="https://www.twitter.com/lydiahallie">Twitter</a> || <a href="https:/www.linkedin.com/in/lydia-hallie">LinkedIn</a> || <a href="www.lydiahallie.dev">Blog</a>
+
   </div>
 
 
@@ -39,7 +40,7 @@ sayHi()
 <details><summary><b>答案</b></summary>
 <p>
 
-#### 答案: D
+#### 答案：D
 
 在函式內部，我們首先透過 `var` 關鍵字宣告了 `name` 變數。這表示變數被提升了（記憶體位置在創建時期就被設置好了），直到程式執行到定義變數的那行之前，預設值都是 `undefined`。因為當我們印出 `name` 變數時，還沒有執行到定義變數的那一行程式碼，因此變數的值保持為 `undefined`。
 
@@ -69,7 +70,7 @@ for (let i = 0; i < 3; i++) {
 <details><summary><b>答案</b></summary>
 <p>
 
-#### 答案: C
+#### 答案：C
 
 由於 JavaScript 的事件佇列（Event Queue），`setTimeout` 的 `callback` 會在*遍歷結束後*才執行。因為在第一個迴圈中，遍歷 `i` 是透過 `var` 關鍵字宣告的，`var` 屬於 Function scope（需要用 `function() {}` 才能將值鎖在作用域裡面）
 ，所以 `for` 迴圈會造成變數外流，變成全域變數。在遍歷過程中，我們透過一元運算子 `++` 來遞增 `i` 的值。當 `setTimeout` 的 `callback` 執行的時候，`i` 的值等於 3。
@@ -104,7 +105,7 @@ shape.perimeter()
 <details><summary><b>答案</b></summary>
 <p>
 
-#### 答案: B
+#### 答案 B
 
 注意 `diameter` 的值是一個一般的函式，但是 `perimeter` 的值是一個箭頭函式。
 
@@ -131,7 +132,7 @@ shape.perimeter()
 <details><summary><b>答案</b></summary>
 <p>
 
-#### 答案: A
+#### 答案：A
 
 一元運算子加號 `+`，嘗試將 boolean 布林值型別轉為 number 數字型別。`true` 轉為 number 數字型別的話為 `1`，`false` 爲 `0`。
 
@@ -164,7 +165,7 @@ const mouse = {
 <details><summary><b>答案</b></summary>
 <p>
 
-#### 答案: A
+#### 答案：A
 
 在 JavaScript 中，所有物件的 keys 都是字串型別（除非是 Symbol 物件）。儘管我們或許不會定義它們為字串，但它們在底層總會被轉換爲字串。
 
@@ -199,7 +200,7 @@ console.log(d.greeting)
 <details><summary><b>答案</b></summary>
 <p>
 
-#### 答案: A
+#### 答案：A
 
 在 JavaScript 中，當設定兩個物件彼此相等時，它們會經由*引用（reference）*進行互動。
 
@@ -234,7 +235,7 @@ console.log(b === c)
 <details><summary><b>答案</b></summary>
 <p>
 
-#### 答案: C
+#### 答案：C
 
 `new Number()` 是一個内建的函式建構子。它雖然看起來像是個 number，但它實際上並非真正的 number：它有一堆額外的功能，而且它是一個物件。
 
@@ -273,7 +274,7 @@ freddie.colorChange('orange')
 <details><summary><b>答案</b></summary>
 <p>
 
-#### 答案: D
+#### 答案：D
 
 `colorChange` 是一個靜態方法。靜態方法被設計爲只能被創造它們的建構子使用（也就是 `Chameleon` 中的 `constructor` ），並且不能傳遞給實例。因為 `freddie` 是一個實例，而靜態方法不能被實例使用，因此會抛出 `TypeError` 錯誤。
 
@@ -297,7 +298,7 @@ console.log(greetign)
 <details><summary><b>答案</b></summary>
 <p>
 
-#### 答案: A
+#### 答案：A
 
 程式碼印出了一個物件，這是因為我們在全域物件上創建了一個空物件！當我們將 `greeting` 寫錯成 `greetign` 時，JS 解譯器實際上將它視爲 `global.greetign = {}` （或者在瀏覽器中視為 `window.greetign = {}`）。
 
@@ -326,7 +327,7 @@ bark.animal = 'dog'
 <details><summary><b>答案</b></summary>
 <p>
 
-#### 答案: A
+#### 答案：A
 
 這在 JavaScript 中是可以的，因爲函式是物件！（除了基本型別之外其他都是物件）
 
@@ -361,7 +362,7 @@ console.log(member.getFullName());
 <details><summary><b>答案</b></summary>
 <p>
 
-#### 答案: A
+#### 答案：A
 
 你可以為一般物件新增屬性，但建構函式（constructor）無法透過上面的方式來新增屬性。若你想一次性在所有實例上都新增某個屬性，要使用原型的方式。因此本例中，使用以下的方式：
 
@@ -401,7 +402,7 @@ console.log(sarah)
 <details><summary><b>答案</b></summary>
 <p>
 
-#### 答案: A
+#### 答案：A
 
 對 `sarah` 而言，我們沒有使用 `new` 關鍵字。當使用 `new` 時，`this` 引用我們建立的空物件。沒有使用 `new` 的時候，`this` 引用的是**全域物件**（global object）。
 
@@ -422,7 +423,7 @@ console.log(sarah)
 <details><summary><b>答案</b></summary>
 <p>
 
-#### 答案: D
+#### 答案：D
 
 先捕獲，再冒泡！在**捕獲**（capturing）階段中，事件從祖先元素向下傳播到目標元素。當事件到達**目標**（target）元素後，**冒泡**（bubbling）才開始。
 
@@ -441,7 +442,7 @@ console.log(sarah)
 <details><summary><b>答案</b></summary>
 <p>
 
-#### 答案: B
+#### 答案：B
 
 除了**基本物件**（base object，使用 `new` 關鍵字建立的物件）以外，所有物件都有原型。基本物件可以使用一些方法和属性，比如 `.toString`，這就是為什麼你可以使用內建的 JavaScript 方法！所有這類在原型上的方法都是可被使用的。雖然 JavaScript 不能直接在物件上找到這些方法，但 JavaScript 會沿著原型鍊找到它們，以便使用。
 
@@ -468,7 +469,7 @@ sum(1, '2')
 <details><summary><b>答案</b></summary>
 <p>
 
-#### 答案: C
+#### 答案：C
 
 JavaScript 是一個**動態型別語言**：我們不指定變數的型別。值可以在你不知道的情况下自動轉換成另一種型別，稱為**隱含式轉型**（implicit type coercion）。**Coercion** 是指將一種型別轉換成另一種型別。
 
