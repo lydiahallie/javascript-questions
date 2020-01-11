@@ -1966,7 +1966,7 @@ console.log(num2);
 const value = { number: 10 };
 
 const multiply = (x = { ...value }) => {
-  console.log((x.number * 2));
+  console.log((x.number *= 2));
 };
 
 multiply();
@@ -2866,7 +2866,7 @@ console.log(newList.push(5))
 
 `.push` methodu dizinin _yeni uzunluğunu_ döndürür, dizinin kendisini değil! `newList`'i  `[1, 2, 3].push(4)`'a eşitleyerek, `newList`'i dizinin yeni uzunluğuna eşitledik: `4`.
 
-Sonra, `.push` methodunu `newList` üzerinde kullanmayo denedik. `newList` sayısal değer `4` olduğundan, `.push` methodunu kullanamayız: TypeError fırlatılır.
+Sonra, `.push` methodunu `newList` üzerinde kullanmayı denedik. `newList` sayısal değer `4` olduğundan, `.push` methodunu kullanamayız: TypeError fırlatılır.
 
 </p>
 </details>
@@ -2916,9 +2916,9 @@ for (const [x, y] of Object.entries(person)) {
 }
 ```
 
-- A: `name` `Lydia` and `age` `21`
-- B: `["name", "Lydia"]` and `["age", 21]` 
-- C: `["name", "age"]` and `undefined`
+- A: `name` `Lydia` ve `age` `21`
+- B: `["name", "Lydia"]` ve `["age", 21]` 
+- C: `["name", "age"]` ve `undefined`
 - D: `Error`
 
 <details><summary><b>Cevap</b></summary>
