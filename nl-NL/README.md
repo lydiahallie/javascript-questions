@@ -801,7 +801,7 @@ Als je twee properties met dezelfde naam hebt zal de waarde van de al bestaande 
 
 #### Antwoord: A
 
-The base execution context is the global execution context: it's what's accessible everywhere in your code.
+De base execution context is de global execution context: dit is benaderbaar overal in je code.
 
 </p>
 </details>
