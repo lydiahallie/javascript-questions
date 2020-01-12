@@ -623,7 +623,7 @@ getAge(21);
 
 #### Antwoord: C
 
-The rest parameter (`...args`.) lets us "collect" all remaining arguments into an array. An array is an object, so `typeof args` returns `"object"`
+De rest parameter (`...args`.) laat ons alle overgebleven argumenten "verzamelen" in een array. Een array is een object, dus `typeof args` geeft `"object"` terug.
 
 </p>
 </details>
