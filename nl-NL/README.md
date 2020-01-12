@@ -536,7 +536,7 @@ Dit geeft `0 2 2` terug.
 
 ---
 
-###### 17. What's the output?
+###### 17. Wat is de uitkomst?
 
 ```javascript
 function getPersonInfo(one, two, three) {
@@ -555,12 +555,12 @@ getPersonInfo`${person} is ${age} years old`;
 - B: `["", " is ", " years old"]` `"Lydia"` `21`
 - C: `"Lydia"` `["", " is ", " years old"]` `21`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>Antwoord</b></summary>
 <p>
 
-#### Answer: B
+#### Antwoord: B
 
-If you use tagged template literals, the value of the first argument is always an array of the string values. The remaining arguments get the values of the passed expressions!
+Als je gebruik maakt van taggedd template literals is de waarde van het eerste argument altijd een array van de meegegeven string waarden. De overgebleven argumenten krijgen de waarde van de doorgegeven expressies!
 
 </p>
 </details>
