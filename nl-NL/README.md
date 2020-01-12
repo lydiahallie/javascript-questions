@@ -339,19 +339,19 @@ function bark() {
 bark.animal = "dog";
 ```
 
-- A: Nothing, this is totally fine!
-- B: `SyntaxError`. You cannot add properties to a function this way.
-- C: `"Woof"` gets logged.
+- A: Niets, dit is helemaal goed!
+- B: `SyntaxError`. Je kunt op deze manier geen properties toevoegen aan een functie.
+- C: `"Woof"` wordt gelogd.
 - D: `ReferenceError`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>Antwoord</b></summary>
 <p>
 
-#### Answer: A
+#### Antwoord: A
 
-This is possible in JavaScript, because functions are objects! (Everything besides primitive types are objects)
+Dit is mogelijk in JavaScript, omdat functies objecten zijn! (Alles behalve primitives zijn objecten)
 
-A function is a special type of object. The code you write yourself isn't the actual function. The function is an object with properties. This property is invocable.
+Een functie is een speciaal object. De code die je schrijft is niet de uiteindelijke functie. De functie is een object met properties. Deze properties zijn gewoon benaderbaar.
 
 </p>
 </details>
