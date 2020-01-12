@@ -433,19 +433,19 @@ We zeiden dat `this.firstName` gelijk is aan `"Sarah"` en `this.lastName` gelijk
 
 ---
 
-###### 13. What are the three phases of event propagation?
+###### 13. Wat zijn de drie fases van event propagation?
 
 - A: Target > Capturing > Bubbling
 - B: Bubbling > Target > Capturing
 - C: Target > Bubbling > Capturing
 - D: Capturing > Target > Bubbling
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>Antwoord</b></summary>
 <p>
 
-#### Answer: D
+#### Antwoord: D
 
-During the **capturing** phase, the event goes through the ancestor elements down to the target element. It then reaches the **target** element, and **bubbling** begins.
+Tijdens de **capturing** fase gaat het event door alle elementen in de boom naar beneden totaan het target element. Het komt dan bij het **target** element, en **bubbling** begint.
 
 <img src="https://i.imgur.com/N18oRgd.png" width="200">
 
