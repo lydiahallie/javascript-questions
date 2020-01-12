@@ -698,9 +698,9 @@ sessionStorage.setItem("cool_secret", 123);
 
 #### Antwoord: B
 
-The data stored in `sessionStorage` is removed after closing the _tab_.
+De data opgeslagen in `sessionStorage` wordt verwijderd na het sluiten van de _tab_.
 
-If you used `localStorage`, the data would've been there forever, unless for example `localStorage.clear()` is invoked.
+Als je `localStorage` had gebruikt was de data wel voor altijd opgeslagen, zolang bijvoorbeeld `localStorage.clear()` wordt aangeroepen.
 
 </p>
 </details>
