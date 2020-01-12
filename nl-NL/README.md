@@ -757,9 +757,9 @@ set.has(1);
 
 #### Antwoord: C
 
-All object keys (excluding Symbols) are strings under the hood, even if you don't type it yourself as a string. This is why `obj.hasOwnProperty('1')` also returns true.
+Alle object keys (Symbols uitgesloten) zijn onder de motorkap strings, zelfs als je het zelf niet een string gemaakt hebt. Dat is waarom `obj.hasOwnProperty('1')` ook `true` teruggeeft.
 
-It doesn't work that way for a set. There is no `'1'` in our set: `set.has('1')` returns `false`. It has the numeric type `1`, `set.has(1)` returns `true`.
+Dit werkt niet op deze manier voor een set. Er is geen `'1'` in onze set: `set.has('1')` geeft `false` terug. Het heeft de numerieke waarde `1`, `set.has(1)` geeft `true` terug.
 
 </p>
 </details>
