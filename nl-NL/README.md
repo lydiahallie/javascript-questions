@@ -726,9 +726,9 @@ console.log(num);
 
 #### Antwoord: B
 
-With the `var` keyword, you can declare multiple variables with the same name. The variable will then hold the latest value.
+Met het `var` keyword kun je meerdere variabelen met dezelfde naam declareren. De variabele zal dan de laatst gezette waarde bevatten.
 
-You cannot do this with `let` or `const` since they're block-scoped.
+Je kunt dit niet doen met `let` of `const`, omdat deze block-scoped zijn.
 
 </p>
 </details>
