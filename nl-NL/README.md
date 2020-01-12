@@ -399,7 +399,7 @@ Zou `member.getFullName()` aanroepbaar maken. Waarom is dit voordelig? Zeg dat w
 
 ---
 
-###### 12. What's the output?
+###### 12. Wat is de uitkomst?
 
 ```javascript
 function Person(firstName, lastName) {
@@ -414,19 +414,19 @@ console.log(lydia);
 console.log(sarah);
 ```
 
-- A: `Person {firstName: "Lydia", lastName: "Hallie"}` and `undefined`
-- B: `Person {firstName: "Lydia", lastName: "Hallie"}` and `Person {firstName: "Sarah", lastName: "Smith"}`
-- C: `Person {firstName: "Lydia", lastName: "Hallie"}` and `{}`
-- D:`Person {firstName: "Lydia", lastName: "Hallie"}` and `ReferenceError`
+- A: `Person {firstName: "Lydia", lastName: "Hallie"}` en `undefined`
+- B: `Person {firstName: "Lydia", lastName: "Hallie"}` en `Person {firstName: "Sarah", lastName: "Smith"}`
+- C: `Person {firstName: "Lydia", lastName: "Hallie"}` en `{}`
+- D:`Person {firstName: "Lydia", lastName: "Hallie"}` en `ReferenceError`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>Antwoord</b></summary>
 <p>
 
-#### Answer: A
+#### Antwoord: A
 
-For `sarah`, we didn't use the `new` keyword. When using `new`, it refers to the new empty object we create. However, if you don't add `new` it refers to the **global object**!
+Bij het declareren van `sarah` maakte we geen gebruik van het `new` keyword. Wanneer we `new` gebruiken refereert dit naar een nieuw object dat we aan willen maken. Als je geen gebruik maakt van `new` refereert het naar het **global object**!
 
-We said that `this.firstName` equals `"Sarah"` and `this.lastName` equals `"Smith"`. What we actually did, is defining `global.firstName = 'Sarah'` and `global.lastName = 'Smith'`. `sarah` itself is left `undefined`, since we don't return a value from the `Person` function.
+We zeiden dat `this.firstName` gelijk is aan `"Sarah"` en `this.lastName` gelijk is aan `"Smith"`. Wat we eigenlijk deden is `global.firstName = 'Sarah'` en `global.lastName = 'Smith'` defineren. `sarah` zelf blijft `undefined` omdat we geen waarde teruggeven van de `Person` functie.
 
 </p>
 </details>
