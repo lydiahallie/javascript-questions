@@ -500,7 +500,7 @@ In dit voorbeeld wordt het nummer `1` door JavaScript geconverteerd naar een str
 
 ---
 
-###### 16. What's the output?
+###### 16. Wat is de uitkomst?
 
 ```javascript
 let number = 0;
@@ -514,22 +514,22 @@ console.log(number);
 - C: `0` `2` `2`
 - D: `0` `1` `2`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>Antwoord</b></summary>
 <p>
 
-#### Answer: C
+#### Antwoord: C
 
-The **postfix** unary operator `++`:
+De **postfix** unary operator `++`:
 
-1. Returns the value (this returns `0`)
-2. Increments the value (number is now `1`)
+1. Geeft de waarde terug (in dit geval `0`)
+2. Vermeerderd de waarde (number is nu `1`)
 
-The **prefix** unary operator `++`:
+De **prefix** unary operator `++`:
 
-1. Increments the value (number is now `2`)
-2. Returns the value (this returns `2`)
+1. Vermeerderd de waarde (number is nu `2`)
+2. Geeft de waarde terug (in dit geval `2`)
 
-This returns `0 2 2`.
+Dit geeft `0 2 2` terug.
 
 </p>
 </details>
