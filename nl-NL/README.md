@@ -783,7 +783,7 @@ console.log(obj);
 
 #### Antwoord: C
 
-If you have two keys with the same name, the key will be replaced. It will still be in its first position, but with the last specified value.
+Als je twee properties met dezelfde naam hebt zal de waarde van de al bestaande propertie overschreven worden. Het zal dan ook in de eerste positie blijven, maar met de laatste waarde.
 
 </p>
 </details>
