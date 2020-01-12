@@ -471,7 +471,7 @@ Alle objecten bevatten een prototype, behalve het **base object**. Het base obje
 
 ---
 
-###### 15. What's the output?
+###### 15. Wat is de uitkomst?
 
 ```javascript
 function sum(a, b) {
@@ -486,14 +486,14 @@ sum(1, "2");
 - C: `"12"`
 - D: `3`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>Antwoord</b></summary>
 <p>
 
-#### Answer: C
+#### Antwoord: C
 
-JavaScript is a **dynamically typed language**: we don't specify what types certain variables are. Values can automatically be converted into another type without you knowing, which is called _implicit type coercion_. **Coercion** is converting from one type into another.
+JavaScript is een **dynamically typed language**: we specificeren niet van welk type variabelen zijn. Waarden kunnen automatisch worden geconverteerd naar andere typen zonder dat je het weet. Dit wordt _implicit type coercion_ genoemd. **Coercion** is converteren van het ene type naar het andere type.
 
-In this example, JavaScript converts the number `1` into a string, in order for the function to make sense and return a value. During the addition of a numeric type (`1`) and a string type (`'2'`), the number is treated as a string. We can concatenate strings like `"Hello" + "World"`, so what's happening here is `"1" + "2"` which returns `"12"`.
+In dit voorbeeld wordt het nummer `1` door JavaScript geconverteerd naar een string, dit om de functie logisch te maken, en de waarde teruggeven. Tijdens het optellen van het numerieke type (`1`) en een string (`'2'`) wordt het nummer gezien als een string. We kunnen strings aaneenschakelen zoals `"Hello" + "World"`. Wat er dus gebeurt hier is `"1" + "2"` wat `"12"` teruggeeft.
 
 </p>
 </details>
