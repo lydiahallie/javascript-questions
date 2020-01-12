@@ -454,17 +454,17 @@ Tijdens de **capturing** fase gaat het event door alle elementen in de boom naar
 
 ---
 
-###### 14. All object have prototypes.
+###### 14. Alle objecten bevatten prototypes.
 
 - A: true
 - B: false
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>Antwoord</b></summary>
 <p>
 
-#### Answer: B
+#### Antwoord: B
 
-All objects have prototypes, except for the **base object**. The base object is the object created by the user, or an object that is created using the `new` keyword. The base object has access to some methods and properties, such as `.toString`. This is the reason why you can use built-in JavaScript methods! All of such methods are available on the prototype. Although JavaScript can't find it directly on your object, it goes down the prototype chain and finds it there, which makes it accessible for you.
+Alle objecten bevatten een prototype, behalve het **base object**. Het base object is het object aangemaakt door de gebruiker, of een object dat is aangemaakt gebruikmakend van het `new` keyword. Het base object heeft toegang tot sommige methodes en properties, zoals `.toString`. Dit is de reden waarom je gebruik kan maken van ingebouwde JavaScript methodes! Al deze methodes zijn beschikbaar op het prototype. Wanneer JavaScript de methode niet direct kan vinden op het hoofd object zal het door de prototype chain naar beneden zoeken totdat het gevonden worden. Dit maakt het beschikbaar voor jou.
 
 </p>
 </details>
