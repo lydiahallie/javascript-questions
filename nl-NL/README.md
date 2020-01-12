@@ -268,7 +268,7 @@ Echter, wanneer we de `===` operator gebruiken wordt er zowel op de _waarde_ als
 
 ---
 
-###### 8. What's the output?
+###### 8. Wat is de uitkomst?
 
 ```javascript
 class Chameleon {
@@ -291,12 +291,12 @@ console.log(freddie.colorChange("orange"));
 - C: `green`
 - D: `TypeError`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>Antwoord</b></summary>
 <p>
 
-#### Answer: D
+#### Antwoord: D
 
-The `colorChange` function is static. Static methods are designed to live only on the constructor in which they are created, and cannot be passed down to any children. Since `freddie` is a child, the function is not passed down, and not available on the `freddie` instance: a `TypeError` is thrown.
+De `colorChange` functie is static. Static methods zijn alleen toegankelijk binnen de class waarin ze gedefinieerd worden, en zijn niet toegankelijk voor instanties van deze class. Omdat `freddie` een instantie is van `Cameleon` zijn static functies niet beschikbaar op deze instantie: een `TypeError` wordt gegooid.
 
 </p>
 </details>
