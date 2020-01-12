@@ -675,7 +675,7 @@ const sum = eval("10*10+5");
 
 #### Antwoord: A
 
-`eval` evaluates codes that's passed as a string. If it's an expression, like in this case, it evaluates the expression. The expression is `10 * 10 + 5`. This returns the number `105`.
+`eval` voert code uit dat is meegegeven als string. Als het een expressie is, zoals in dit geval, zal het de expressie uitvoeren. De expressie is `10 * 10 + 5`. Dit geeft het getal `105` terug.
 
 </p>
 </details>
