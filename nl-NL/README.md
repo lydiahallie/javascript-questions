@@ -827,7 +827,7 @@ for (let i = 1; i < 5; i++) {
 
 #### Antwoord: C
 
-The `continue` statement skips an iteration if a certain condition returns `true`.
+De `continue` statement slaat een iteratie over als een bepaalde conditie `true` teruggeeft.
 
 </p>
 </details>
