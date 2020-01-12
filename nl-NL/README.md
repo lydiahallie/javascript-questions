@@ -358,7 +358,7 @@ Een functie is een speciaal object. De code die je schrijft is niet de uiteindel
 
 ---
 
-###### 11. What's the output?
+###### 11. Wat is de uitkomst?
 
 ```javascript
 function Person(firstName, lastName) {
@@ -379,12 +379,12 @@ console.log(member.getFullName());
 - C: `Lydia Hallie`
 - D: `undefined` `undefined`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>Antwoord</b></summary>
 <p>
 
-#### Answer: A
+#### Antwoord: A
 
-You can't add properties to a constructor like you can with regular objects. If you want to add a feature to all objects at once, you have to use the prototype instead. So in this case,
+Je kunt geen properties toevoegen aan een instantie van een object, zoals je kan met normale objecten. Als je een feature toe wilt voegen aan alle objecten in één keer zul je dit middels de prototype van een object moeten doen. In dit geval,
 
 ```js
 Person.prototype.getFullName = function() {
@@ -392,7 +392,7 @@ Person.prototype.getFullName = function() {
 };
 ```
 
-would have made `member.getFullName()` work. Why is this beneficial? Say that we added this method to the constructor itself. Maybe not every `Person` instance needed this method. This would waste a lot of memory space, since they would still have that property, which takes of memory space for each instance. Instead, if we only add it to the prototype, we just have it at one spot in memory, yet they all have access to it!
+Zou `member.getFullName()` aanroepbaar maken. Waarom is dit voordelig? Zeg dat we deze methode toe zouden kunnen voegen aan de instantie van een object. Misschien hebben niet alle instanties van `Person` deze methode nodig. Dit zou een hoop plaats innemen in het geheugen omdat alle objecten toch deze propertie krijgen. In plaats daarvan kunnen we het alleen aan de prototype van een object toevoegen, en wordt het maar één keer in het geheugen geplaatst, terwijl alle instanties er toch bij kunnen!
 
 </p>
 </details>
