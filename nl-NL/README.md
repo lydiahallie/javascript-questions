@@ -652,7 +652,7 @@ getAge();
 
 #### Antwoord: C
 
-With `"use strict"`, you can make sure that you don't accidentally declare global variables. We never declared the variable `age`, en since we use `"use strict"`, it will throw a reference error. If we didn't use `"use strict"`, it would have worked, since the property `age` would have gotten added to the global object.
+Door gebruik te maken van `"use strict"` kun je er zeker van zijn dat je niet perongeluk globale variabelen declareert. We hebben de variabele `age` nooit gedeclareerd, en omdat we `"use strict"` gebruiken zal dit een reference error gooien. Als we geen gebruik hadden gemaakt van `"use strict"` had het wel gewerkt, omdat de propertie `age` dan was toegevoegd aan het globale object.
 
 </p>
 </details>
