@@ -303,7 +303,7 @@ De `colorChange` functie is static. Static methods zijn alleen toegankelijk binn
 
 ---
 
-###### 9. What's the output?
+###### 9. Wat is de uitkomst?
 
 ```javascript
 let greeting;
@@ -315,14 +315,14 @@ console.log(greetign);
 - B: `ReferenceError: greetign is not defined`
 - C: `undefined`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>Antwoord</b></summary>
 <p>
 
-#### Answer: A
+#### Antwoord: A
 
-It logs the object, because we just created an empty object on the global object! When we mistyped `greeting` as `greetign`, the JS interpreter actually saw this as `global.greetign = {}` (or `window.greetign = {}` in a browser).
+Het object wordt gelogd omdat we een leeg object hebben gedefinieerd op het global object! Wanneer we `greeting` verkeerd spellen als `greetign` ziet de JavaScript interpreter dit als `global.greetign = {}` (of `window.greetign = {}` in een browser).
 
-In order to avoid this, we can use `"use strict"`. This makes sure that you have declared a variable before setting it equal to anything.
+Om dit te voorkomen kunnen we gebruik maken van `"use strict"`. Dit vangt af dat de variabele gedeclareerd moet zijn voordat het een waarde krijgt.
 
 </p>
 </details>
