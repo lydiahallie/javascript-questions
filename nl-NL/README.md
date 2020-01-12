@@ -592,11 +592,11 @@ checkAge({ age: 18 });
 
 #### Antwoord: C
 
-When testing equality, primitives are compared by their _value_, while objects are compared by their _reference_. JavaScript checks if the objects have a reference to the same location in memory.
+Wanneer we waarden vergelijken worden primitieven vergelijken _by value_, terwijl objecten vergelijken worden _by reference_. JavaScript bekijkt of de objecten een referentie hebben naar dezelfde lokatie in het geheugen.
 
-The two objects that we are comparing don't have that: the object we passed as a parameter refers to a different location in memory than the object we used in order to check equality.
+De twee objecten die we vergelijken hebben dat niet: het object die we doorgeven als een parameter refereert naar een andere lokatie in het geheugen dan het object waarmee we vergelijken.
 
-This is why both `{ age: 18 } === { age: 18 }` en `{ age: 18 } == { age: 18 }` return `false`.
+Dit is waarom `{ age: 18 } === { age: 18 }` en `{ age: 18 } == { age: 18 }` allebei `false` teruggeven.
 
 </p>
 </details>
