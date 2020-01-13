@@ -1029,9 +1029,9 @@ console.log(sayHi.bind(person, 21));
 
 #### Antwoord: D
 
-With both, we can pass the object to which we want the `this` keyword to refer to. However, `.call` is also _executed immediately_!
+Op beide manieren kunnen we een object doorgeven waarnaar het `this` keyword verwijst. Echter, `.call` wordt _direct uitgevoerd_!
 
-`.bind.` returns a _copy_ of the function, but with a bound context! It is not executed immediately.
+`.bind` geeft een _kopie_ terug van de functie, maar met een bound context! Het wordt niet direct uitgevoerd!
 
 </p>
 </details>
