@@ -1206,11 +1206,11 @@ Buiten het `catch` block is de variable `x` nog steeds `undefined`, `y` is echte
 
 #### Antwoord: A
 
-JavaScript only has primitive types en objects.
+JavaScript bestaat alleen uit primitieve types en objecten.
 
-Primitive types are `boolean`, `null`, `undefined`, `bigint`, `number`, `string`, en `symbol`.
+Primitieve types zijn `boolean`, `null`, `undefined`, `bigint`, `number`, `string`, en `symbol`.
 
-What differentiates a primitive from an object is that primitives do not have any properties or methods; however, you'll note that `'foo'.toUpperCase()` evaluates to `'FOO'` en does not result in a `TypeError`. This is because when you try to access a property or method on a primitive like a string, JavaScript will implicitly wrap the object using one of the wrapper classes, i.e. `String`, en then immediately discard the wrapper after the expression evaluates. All primitives except for `null` en `undefined` exhibit this behaviour.
+Wat primitieven onderscheidt van objecten is dat primitieven geen properties of methodes bevatten. Echter, je zal opmerken dan `'foo'.toUpperCase()` resulteert in `'FOO'` en geen `TypeError` gooit. Dit komt doordat wanneer je een propertie of een methode benadert van een primitieve zoals een string, JavaScript impliciet het object wrapped gebruikmakend van één van de wrapper classen, in dit geval `String`, en daarna direct de wrapper weghaalt als de expressie heeft geresulteerd in een waarde. Alle primitieven vertonen dit gedrag, met uitzondering van `null` en `undefined`.
 
 </p>
 </details>
