@@ -886,11 +886,11 @@ console.log(a[b]);
 
 #### Antwoord: B
 
-Object keys are automatically converted into strings. We are trying to set an object as a key to object `a`, with the value of `123`.
+Object keys worden automatisch geconverteerd naar strings. We proberen een object aan een propertie toe te wijzen van object `a`, met de waarde `123`.
 
-However, when we stringify an object, it becomes `"[object Object]"`. So what we are saying here, is that `a["object Object"] = 123`. Then, we can try to do the same again. `c` is another object that we are implicitly stringifying. So then, `a["object Object"] = 456`.
+Maar als we een object converteren naar een string krijgen we `"[object Object]"` terug. Wat we hier dus schrijven is `a["object Object"] = 123`. Dan kunnen we hetzelfde nog een keer proberen. `c` is een ander object dat converteren naar een string. En dan, `a["object Object"] = 456`.
 
-Then, we log `a[b]`, which is actually `a["object Object"]`. We just set that to `456`, so it returns `456`.
+Dan loggen we `a[b]`, waar eigenlijk `a["object Object"]` staat. We overschrijven dat met `456`, en dit is ook wat gelogd wordt.
 
 </p>
 </details>
