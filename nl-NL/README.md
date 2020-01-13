@@ -919,31 +919,31 @@ baz();
 
 #### Antwoord: B
 
-We have a `setTimeout` function en invoked it first. Yet, it was logged last.
+We hebben een `setTimeout` functie en roepen het als eerste aan. Toch wordt het als laatste gelogd.
 
-This is because in browsers, we don't just have the runtime engine, we also have something called a `WebAPI`. The `WebAPI` gives us the `setTimeout` function to start with, en for example the DOM.
+Dit komt doordat we in browsers niet alleen een runtime engine hebben, maar ook iets dat een `WebAPI` genoemd wordt. De `WebAPI` geeft ons een `setTimeout` functie, en bijvoorbeeld ook de DOM.
 
-After the _callback_ is pushed to the WebAPI, the `setTimeout` function itself (but not the callback!) is popped off the stack.
+Nadat de _calback_ naar de WebAPI is gestuurd wordt de `setTimeout` functie zelf (niet de callback functie) van de stack gegooid.
 
 <img src="https://i.imgur.com/X5wsHOg.png" width="200">
 
-Now, `foo` gets invoked, en `"First"` is being logged.
+Dan wordt `foo` uitgevoerd en `"First"` wordt gelogd.
 
 <img src="https://i.imgur.com/Pvc0dGq.png" width="200">
 
-`foo` is popped off the stack, en `baz` gets invoked. `"Third"` gets logged.
+`foo` wordt van de stack gegooid en `baz` wordt uitgevoerd. `"Third"` wordt gelogd.
 
 <img src="https://i.imgur.com/WhA2bCP.png" width="200">
 
-The WebAPI can't just add stuff to the stack whenever it's ready. Instead, it pushes the callback function to something called the _queue_.
+De WebAPI kan niet zomaar dingen toevoegen aan de stack. In plaats daarvan wordt de callback functie op de zogenaamde _queue_ gezet.
 
 <img src="https://i.imgur.com/NSnDZmU.png" width="200">
 
-This is where an event loop starts to work. An **event loop** looks at the stack en task queue. If the stack is empty, it takes the first thing on the queue en pushes it onto the stack.
+Dit is waar de event loop zijn intrede doet. Een ***event loop* naar de stack en de task queue. Als de stack leeg is pakt het het eerste ding op van de queue en zet het op de stack.
 
 <img src="https://i.imgur.com/uyiScAI.png" width="200">
 
-`bar` gets invoked, `"Second"` gets logged, en it's popped off the stack.
+`bar` wordt uitgevoerd, `"Second"` wordt gelogd, en het verdwijnt van de stack.
 
 </p>
 </details>
