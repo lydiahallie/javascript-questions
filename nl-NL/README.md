@@ -1088,16 +1088,16 @@ undefined;
 
 #### Antwoord: A
 
-There are only six falsy values:
+Er zijn slechts zes falsy waarden:
 
 - `undefined`
 - `null`
 - `NaN`
 - `0`
-- `''` (empty string)
+- `''` (lege string)
 - `false`
 
-Function constructors, like `new Number` en `new Boolean` are truthy.
+Functie constructors, zoals `new Number` en `new Boolean`, zijn truthy.
 
 </p>
 </details>
