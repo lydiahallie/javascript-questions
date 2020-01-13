@@ -1120,8 +1120,8 @@ console.log(typeof typeof 1);
 
 #### Antwoord: B
 
-`typeof 1` returns `"number"`.
-`typeof "number"` returns `"string"`
+`typeof 1` geeft `"number"` terug.
+`typeof "number"` geeft `"string"` terug.
 
 </p>
 </details>
