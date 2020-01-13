@@ -972,7 +972,7 @@ Dit is waar de event loop zijn intrede doet. Een ***event loop* naar de stack en
 
 #### Antwoord: C
 
-The deepest nested element that caused the event is the target of the event. You can stop bubbling by `event.stopPropagation`
+Het diepst geneste element dat het event afvuurt is de target van het event. Je kunt bubbling stoppen met `event.stopPropagation`.
 
 </p>
 </details>
