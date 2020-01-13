@@ -999,7 +999,7 @@ Het diepst geneste element dat het event afvuurt is de target van het event. Je 
 
 #### Antwoord: A
 
-If we click `p`, we see two logs: `p` en `div`. During event propagation, there are 3 phases: capturing, target, en bubbling. By default, event handlers are executed in the bubbling phase (unless you set `useCapture` to `true`). It goes from the deepest nested element outwards.
+Als we op `p` klikken zien we twee logs: `p` en `div`. Tijdens de event propagation zijn er 3 fases: capturing, target, en bubbling. Standaard worden event handlers uitgevoerd in de bubbling fase (tenzij je `useCapture` op `true` zet). Bubbling begint bij het diepst geneste element omhoog.
 
 </p>
 </details>
