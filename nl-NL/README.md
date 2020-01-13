@@ -1183,11 +1183,11 @@ afhankelijk van waar je de code uitvoert (het verschilt in alle browsers, node, 
 
 #### Antwoord: A
 
-The `catch` block receives the argument `x`. This is not the same `x` as the variable when we pass arguments. This variable `x` is block-scoped.
+Het `catch` block krijgt het argument `x` mee. Dit is niet dezelfde `x` als de variabele zoals bovenaan gedefinieerd. De meegegeven `x` is block-scoped.
 
-Later, we set this block-scoped variable equal to `1`, en set the value of the variable `y`. Now, we log the block-scoped variable `x`, which is equal to `1`.
+Later vullen we deze block-scoped variabele met `1`, en zetten de waarde van de variabele `y`. Dan loggen we de block-scoped variabele `x`, die op dat moment `1` bevat.
 
-Outside of the `catch` block, `x` is still `undefined`, en `y` is `2`. When we want to `console.log(x)` outside of the `catch` block, it returns `undefined`, en `y` returns `2`.
+Buiten het `catch` block is de variable `x` nog steeds `undefined`, `y` is echter `2`. Wanneer we beide variabelen buiten de try...catch statement loggen zal `x` `undefined` teruggeven en `y` `2`.
 
 </p>
 </details>
