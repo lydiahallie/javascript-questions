@@ -1309,3 +1309,37 @@ Strings são iteráveis. O operador do spread `...` mapeia todo caractére de um
 
 </p>
 </details>
+
+---
+
+###### 44. Qual é a saída?
+
+```javascript
+function* generator(i) {
+  yield i;
+  yield i * 2;
+}
+
+const gen = generator(10);
+
+console.log(gen.next().value);
+console.log(gen.next().value);
+```
+
+- A: `[0, 10], [10, 20]`
+- B: `20, 20`
+- C: `10, 20`
+- D: `0, 10 e 10, 20`
+
+<details><summary><b>Resposta</b></summary>
+<p>
+
+#### Resposta: C
+
+Funções regulares não podem ser paradas no meio do caminho (antes de sua finalização). No entando, uma função geradora pode ser "parada" no meio do caminho, e depois continuar de onde parou. Toda vez que uma função geradora encontra uma palavra-chave 'yield', a função produz o valor especificado depois dela. Note que a função gerador, nesse caso, não _retorna_ o valor, mas sim _produz_ o valor.
+
+Primeiro, inicializamos a função geradora com `i` igual a `10`. Invocamos a função geradora usando o método `next()`. Na primeira vez que invocamos a função geradora, `i` é igual a `10`. Ela encontra o primeiro a primeira palavra-chave `yield`: ela retorna o valor de `i`. A geradora agora está "parada", e `10` é registrado.
+
+Então, incovamos a função novamente com o método `next()`. Ela continua de onde parou anteriormente, ainda com `i` igual a `10`. Agora, ela encontra a próxima palavra-chave `yield`, e produz `i * 2`. `i` é igual a `10`, então ela retorna `10 * 2`, que é `20`. Isso resulta em `10, 20`.
+</p>
+</details>
