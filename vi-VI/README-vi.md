@@ -3357,7 +3357,6 @@ compareMembers(person)
 
 Object sẽ được truyền vào hàm theo reference. Khi chúng ta nói so sánh strict equal (`===`), nghĩa là ta đang so sánh các reference của chúng. 
 
-We set the default value for `person2` equal to the `person` object, and passed the `person` object as the value for `person1`.
 Ta set giá trị mặc định của `person2` là object `person`, và đưa object `person` vào làm giá trị cho đối số `person1`.
 
 Điều đó có nghĩa là chúng cùng trỏ đến một object trong bộ nhớ, do đó chúng bằng nhau, và `They are the same!` được in ra.
@@ -3551,7 +3550,7 @@ getName()
 
 Mỗi hàm sẽ có một _context thực thi_ (hay _scope_) của riêng nó. Hàm `getName` đầu tiên sẽ tìm trong context của nó (scope) để tìm xem có biến nào tên là `name` hay không. Trong trường hợp này, hàm `getName` có biến `name` được khai báo với từ khóa `let`, giá trị là `'Sarah'`. 
 
-Một biến được khai báo với từ khóa `let` (hoặc `const`) sẽ được `hoisted`, nhưng không giống như `var`, nó sẽ không được <i>khởi tạo</i>. Nó sẽ không thể truy cập được trước dòng ta khai báo (initialize). Nó được gọi là "temporal dead zone". Khi ta cố truy cập một biến trước khi nó được khai báo, JavaScript sẽ throw ra `ReferenceError`. 
+Một biến được khai báo với từ khóa `let` (hoặc `const`) sẽ được `hoisted`, nhưng không giống như `var`, nó sẽ không được _khởi tạo_. Nó sẽ không thể truy cập được trước dòng ta khai báo (initialize). Nó được gọi là "temporal dead zone". Khi ta cố truy cập một biến trước khi nó được khai báo, JavaScript sẽ throw ra `ReferenceError`. 
 
 Nếu ta không khai báo biến `name` bên trong hàm `getName`, thì Javascript engine sẽ tiếp tục tìm kiếm trong _scope chain_. Nó sẽ tìm thấy ở scope phía ngoài một biến `name` với giá trị là `Lydia`. Trong trường hợp này nó sẽ log ra `Lydia`. 
 
@@ -4205,7 +4204,7 @@ Với phương thức `flat`, ta có thể tạo một mảng mới với các p
 
 ---
 
-###### <a name=20191224></a>132. Output là gì?
+###### 132. Output là gì?
 
 ```javascript
 class Counter {
