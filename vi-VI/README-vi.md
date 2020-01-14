@@ -4205,7 +4205,7 @@ Với phương thức `flat`, ta có thể tạo một mảng mới với các p
 
 ---
 
-###### <a name=20191224></a>132. What's the output?
+###### <a name=20191224></a>132. Output là gì?
 
 ```javascript
 class Counter {
@@ -4238,13 +4238,13 @@ console.log(counterOne.count);
 
 #### Đáp án: D
 
-`counterOne` is an instance of the `Counter` class. The counter class contains a `count` property on its constructor, and an `increment` method. First, we invoked the `increment` method twice by calling `counterOne.increment()`. Currently, `counterOne.count` is `2`.
+`counterOne` là một instance của class `Counter`. Trong counter class có thuộc tính `count` bên trong constructor, và một phương thức `increment`. Đầu tiên chúng ta gọi phương thức `increment` hai lần bằng `counterOne.increment()`. Nên hiện tại giá trị của `counterOne.count` là `2`.
 
 <img src="https://i.imgur.com/KxLlTm9.png" width="400">
 
-Then, we create a new variable `counterTwo`, and set it equal to `counterOne`. Since objects interact by reference, we're just creating a new reference to the same spot in memory that `counterOne` points to. Since it has the same spot in memory, any changes made to the object that `counterTwo` has a reference to, also apply to `counterOne`. Currently, `counterTwo.count` is `2`.
+Sau đó chúng ta có thêm một biến mới là `counterTwo`, và set cho nó giá trị bằng với `counterOne`. Do object được tương tác bằng reference, nên việc này tương ứng với ta đã tạo thêm một reference đến bộ nhớ mà biến `counterOne` đã trỏ vào. Do chúng có chung bộ nhớ, bất cứ thay đổi nào trên `counterTwo` cũng sẽ thay đổi trên `counterOne`. Lúc này `counterTwo.count` cũng sẽ là `2`.
 
-We invoke the `counterTwo.increment()`, which sets the `count` to `3`. Then, we log the count on `counterOne`, which logs `3`.
+Ta gọi hàm `counterTwo.increment()` để tăng `count` lên `3`. Sau đó chúng ta in ra `count` ở `counterOne`, kết quả là `3`.
 
 <img src="https://i.imgur.com/BNBHXmc.png" width="400">
 
@@ -4253,7 +4253,7 @@ We invoke the `counterTwo.increment()`, which sets the `count` to `3`. Then, we 
 
 ---
 
-###### 133. What's the output?
+###### 133. Output là gì?
 
 ```javascript
 const myPromise = Promise.resolve(Promise.resolve("Promise!"));
@@ -4285,22 +4285,22 @@ funcTwo();
 
 #### Đáp án: D
 
-First, we invoke `funcOne`. On the first line of `funcOne`, we call the `myPromise` promise, which is an _asynchronous_ operation. While the engine is busy completing the promise, it keeps on running the function `funcOne`. The next line is the _asynchronous_ `setTimeout` function, from which the callback is sent to the Web API. (see my article on the event loop here.)
+Đầu tiên chúng ta gọi `funcOne`. Trong dòng đầu tiên của `funcOne`, chúng ta gọi `myPromise`, đây là một hàm _bất đồng bộ_. Trong khi chờ promise này hoàn thành, nó sẽ tiếp tục thực thi các dòng khác trong `funcOne`. Dòng tiếp theo là cũng là một hàm _bất đồng bộ_ `setTimeout`, phần callback của nó sẽ được gửi tới Web API (các bạn có thể tham khảo câu hỏi trước đó để hiểu về callstack và Web API).
 
-Both the promise and the timeout are asynchronous operations, the function keeps on running while it's busy completing the promise and handling the `setTimeout` callback. This means that `Last line!` gets logged first, since this is not an asynchonous operation. This is the last line of `funcOne`, the promise resolved, and `Promise!` gets logged. However, since we're invoking `funcTwo()`, the call stack isn't empty, and the callback of the `setTimeout` function cannot get added to the callstack yet.
+Do cả promise và timeout đều là những hàm xử lý bất đồng bộ, nên trong khi chờ chúng hoàn thành thì các dòng tiếp theo vẫn tiếp tục được thực thi. Có nghĩa là `Last line!` sẽ được in ra đầu tiên, do nó là một hàm chạy _đồng bộ_. Và đây cũng là dòng cuối cùng của hàm `funcOne`, khi này promise sẽ được resolve, trả về `Promise!`. Tuy nhiên do ta tiếp tục gọi hàm `funcTwo()`, call stack của ta vẫn chưa rỗng, nên callback của `setTimeout` vẫn chưa thể được đưa vào callstack (vẫn đang năm ở Web API).
 
-In `funcTwo` we're, first _awaiting_ the myPromise promise. With the `await` keyword, we pause the execution of the function until the promise has resolved (or rejected). Then, we log the awaited value of `res` (since the promise itself returns a promise). This logs `Promise!`.
+Trong hàm `funcTwo` đầu tiên ta sẽ _awaiting_ myPromise. Với từ khóa `await`, Ta sẽ tạm dừng thực thi cho tới khi n ào promise được resolved (hay rejected). Khi này ta sẽ in ra giá trị của `res` (do bản thân hàm promise lại trả về một promise). Nó sẽ in ra `Promise!`.
 
-The next line is the _asynchronous_ `setTimeout` function, from which the callback is sent to the Web API.
+Dòng tiếp theo lại là một hàm _bất đồng bộ_ `setTimeout`, callback khi này tiếp tục được gửi tới Web API.
 
-We get to the last line of `funcTwo`, which logs `Last line!` to the console. Now, since `funcTwo` popped off the call stack, the call stack is empty. The callbacks waiting in the queue (`() => console.log("Timeout!")` from `funcOne`, and `() => console.log("Timeout!")` from `funcTwo`) get added to the call stack one by one. The first callback logs `Timeout!`, and gets popped off the stack. Then, the second callback logs `Timeout!`, and gets popped off the stack. This logs `Last line! Promise! Promise! Last line! Timeout! Timeout!`
+Ta tiếp tục thực thi dòng cuối cùng của `funcTwo`, trả về `Last line!`. Khi này `funcTwo` đã làm rỗng call stack. Các callback khi nãy (`() => console.log("Timeout!")` từ `funcOne`, và `() => console.log("Timeout!")` từ `funcTwo`) lần lượt được đưa vào trong call stack. Callback đầu tiên in ra `Timeout!`. Callback thứ hai in ra `Timeout!`. Kết quả cuối cùng sẽ là `Last line! Promise! Promise! Last line! Timeout! Timeout!`
 
 </p>
 </details>
 
 ---
 
-###### 134. How can we invoke `sum` in `index.js` from `sum.js?`
+###### 134. Làm thế nào có thể gọi hàm `sum` trong `index.js` từ `sum.js?`
 
 ```javascript
 // sum.js
@@ -4322,7 +4322,7 @@ import * as sum from "./sum";
 
 #### Đáp án: C
 
-With the asterisk `*`, we import all exported values from that file, both default and named. If we had the following file:
+Với dấu hoa thị `*`, ta sẽ import tất cả những gì đã được export ra bởi file đó, cả default lẫn những hàm có tên. Nếu ta có một dòng như sau:
 
 ```javascript
 // info.js
@@ -4335,7 +4335,7 @@ import * as info from "./info";
 console.log(info);
 ```
 
-The following would get logged:
+Thì kết quả sẽ là:
 
 ```javascript
 {
@@ -4345,20 +4345,20 @@ The following would get logged:
 }
 ```
 
-For the `sum` example, it means that the imported value `sum` looks like this:
+Trong ví dụ hàm `sum`, nó giống với chúng ta đã import hàm `sum` như thế này:
 
 ```javascript
 { default: function sum(x) { return x + x } }
 ```
 
-We can invoke this function, by calling `sum.default`
+Ta có thể gọi hàm này bằng cách sử dụng `sum.default`
 
 </p>
 </details>
 
 ---
 
-###### 135. What's the output?
+###### 135. Output là gì?
 
 ```javascript
 const handler = {
@@ -4382,20 +4382,20 @@ person.name;
 
 #### Đáp án: C
 
-With a Proxy object, we can add custom behavior to an object that we pass to it as the second argument. In tis case, we pass the `handler` object which contained to properties: `set` and `get`. `set` gets invoked whenever we _set_ property values, `get` gets invoked whenever we _get_ (access) property values.
+Với Proxy object, ta có thể add thêm được các hành vi (behavior) cho object bằng cách đưa nó vào làm đối số thứ hai. Trong trường hợp này, chúng ta đưa vào object `handler` có hai thuộc tính: `set` và `get`. `set` sẽ được gọi mỗi khi ta _thay đổi_ giá trị của thuộc tính, `get` sẽ được gọi mỗi khi ta _truy cập_ giá trị của thuộc tính.
 
-The first argument is an empty object `{}`, which is the value of `person`. To this object, the custom behavior specified in the `handler` object gets added. If we add a property to the `person` object, `set` will get invoked. If we access a property on the `person` object, `get` gets invoked.
+Giá trị của `person` sẽ là đối số đầu tiên đưa vào, là một object rỗng `{}`. Hành vi của `person` là đối số thứ hai, tức `handler`. Do đó môi khi ta thêm thuộc tính của obejct `person`, `set` sẽ được gọi. Nếu ta truy cập thuộc tính của `person` thì `get` sẽ được gọi.
 
-First, we added a new property `name` to the proxy object (`person.name = "Lydia"`). `set` gets invoked, and logs `"Added a new property!"`.
+Đầu tiên ra thêm vào thuộc tính `name` cho proxy object (`person.name = "Lydia"`). `set` được gọi và in ra `"Added a new property!"`.
 
-Then, we access a property value on the proxy object, the `get` property on the handler object got invoked. `"Accessed a property!"` gets logged.
+Sau đó chúng truy cập thuộc tính này, `get` được gọi và in ra `"Accessed a property!"`.
 
 </p>
 </details>
 
 ---
 
-###### 136. Which of the following will modify the `person` object?
+###### 136. Cách nào sau đây sẽ thay đổi object `person`?
 
 ```javascript
 const person = { name: "Lydia Hallie" };
@@ -4413,16 +4413,16 @@ Object.seal(person);
 
 #### Đáp án: A
 
-With `Object.seal` we can prevent new properies from being _added_, or existing properties to be _removed_.
+Với `Object.seal` ta có thể ngăn _thêm vào_ các thuộc tính mới, hay _xóa đi_ các thuộc tính cũ.
 
-However, you can still modify the value of existing properties.
+Tuy nhiên ta vẫn có thể _thay đổi_ các thuộc tính cũ.
 
 </p>
 </details>
 
 ---
 
-###### 137. Which of the following will modify the `person` object?
+###### 137. Cách nào sau đây có thể thay đổi object `person`?
 
 ```javascript
 const person = {
@@ -4445,16 +4445,16 @@ Object.freeze(person);
 
 #### Đáp án: C
 
-The `Object.freeze` method _freezes_ an object. No properties can be added, modified, or removed.
+Phương thức `Object.freeze` sẽ _đóng băng_ object. Ta không thể thêm/sửa/xóa bất kì thuộc tính nào.
 
-However, it only _shallowly_ freezes the object, meaning that only _direct_ properties on the object are frozen. If the property is another object, like `address` in this case, the properties on that object aren't frozen, and can be modified.
+Tuy nhiên trên thực tế đây chỉ là đóng băng _nông_ (_shallowly_) object, có nghĩa là nó chỉ đóng băng các thuộc tính _trực tiếp_ của object mà thôi. Nếu thuộc tính lại là một object khác, như `address` trong trường hợp này, thuộc tính bên trong của `address` sẽ không bị đóng băng, và ta vẫn có thể chỉnh sửa như bình thường.
 
 </p>
 </details>
 
 ---
 
-###### 138. Which of the following will modify the `person` object?
+###### 138. Cách nào sau đây có thể thay đổi object `person`?
 
 ```javascript
 const person = {
@@ -4477,16 +4477,16 @@ Object.freeze(person);
 
 #### Đáp án: C
 
-The `Object.freeze` method _freezes_ an object. No properties can be added, modified, or removed.
+Phương thức `Object.freeze` sẽ _đóng băng_ object. Ta không thể thêm/sửa/xóa bất kì thuộc tính nào.
 
-However, it only _shallowly_ freezes the object, meaning that only _direct_ properties on the object are frozen. If the property is another object, like `address` in this case, the properties on that object aren't frozen, and can be modified.
+Tuy nhiên trên thực tế đây chỉ là đóng băng _nông_ (_shallowly_) object, có nghĩa là nó chỉ đóng băng các thuộc tính _trực tiếp_ của object mà thôi. Nếu thuộc tính lại là một object khác, như `address` trong trường hợp này, thuộc tính bên trong của `address` sẽ không bị đóng băng, và ta vẫn có thể chỉnh sửa như bình thường.
 
 </p>
 </details>
 
 ---
 
-###### 139. What's the output?
+###### 139. Output là gì?
 
 ```javascript
 const add = x => x + x;
@@ -4509,16 +4509,16 @@ myFunc(3);
 
 #### Đáp án: A
 
-First, we invoked `myFunc()` without passing any arguments. Since we didn't pass arguments, `num` and `value` got their default values: num is `2`, and `value` the returned value of the function `add`. To the `add` function, we pass `num` as an argument, which had the value of `2`. `add` returns `4`, which is the value of `value`.
+Đầu tiên, ta gọi hàm `myFunc()` nhưng không đưa vào đối số nào. Do đó `num` và `value` sẽ nhận các giá trị mặc định: `num` là `2`, và `value` sẽ là giá trị trả về của hàm `add`. Với hàm `add`, ta đưa `num` vào làm đối số, tức `2`. `add` trả về `4`, đây sẽ là giá trị của `value`.
 
-Then, we invoked `myFunc(3)` and passed the value `3` as the value for the argument `num`. We didn't pass an argument for `value`. Since we didn't pass a value for the `value` argument, it got the default value: the returned value of the `add` function. To `add`, we pass `num`, which has the value of `3`. `add` returns `6`, which is the value of `value`.
+Sau đó ta gọi hàm `myFunc(3)`, khi này `3` sẽ là giá trị của `num`. Ta không đưa vào giá trị cho `value`. Lúc này `value` tiếp tục nhận giá trị mặc định: giá trị trả về của hàm `add`. Trong `add`, ta đưa vào `num`, khi này là `3`. `add` sẽ trả về `6`, đây sẽ là giá trị của `value`.
 
 </p>
 </details>
 
 ---
 
-###### 140. What's the output?
+###### 140. Output là gì?
 
 ```javascript
 class Counter {
@@ -4549,14 +4549,14 @@ console.log(counter.#number)
 
 #### Đáp án: D
 
-In ES2020, we can add private variables in classes by using the `#`. We cannot access these variables outside of the class. When we try to log `counter.#number`, a SyntaxError gets thrown: we cannot acccess it outside the `Counter` class!
+Với cú pháp ES2020, ta có thể thêm các thuộc tính private vào class bằng cách sử dụng `#`. Ta không thể truy cập được biến này bên ngoài class. Khi ta in ra `counter.#number`, một SyntaxError sẽ được throw: ta không thể truy cập từ phía ngoài class `Counter`!
 
 </p>
 </details>
 
 ---
 
-###### 141. What's the output?
+###### 141. Câu lệnh còn thiếu là gì?
 
 ```javascript
 const teams = [
@@ -4591,12 +4591,13 @@ obj.next(); // { value: "Lisa", done: false }
 
 #### Đáp án: B
 
-In order to iterate over the `members` in each element in the `teams` array, we need to pass `teams[i].members` to the `getMembers` generator function. The generator function returns a generator object. In order to iterate over each element in this generator object, we need to use `yield*`.
+Ta duyệt và in ra giá trị của từng member bên trong `members`, mà `members` lại nằm bên trong mảng `teams`, ta cần đưa vào đối số `teams[i].members` cho hàm generator `getMembers` trong phần code thiếu. Hàm generator sẽ trả về một generator object. Để duyệt qua từng phần tử của một generator object, ta dùng từ khóa `yield*`.
 
-If we would've written `yield`, `return yield`, or `return`, the entire generator function would've gotten returned the first time we called the `next` method.
+Nếu ta dùng `yield`, `return yield`, hay `return`, toàn bộ generator sẽ được trả về trong lần đầu tiên chúng ta gọi phương thức `next`.
 
 </p>
 </details>
+
 
 ---
 
