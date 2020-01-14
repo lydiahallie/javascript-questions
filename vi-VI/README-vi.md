@@ -3899,7 +3899,6 @@ console.log(config.language);
 
 #### Đáp án: D
 
-The `language` method is a `setter`. Setters don't hold an actual value, their purpose is to _modify_ properties. When calling a `setter` method, `undefined` gets returned.
 Phương thức `language` là một `setter`. Setter không mang giá trị, nhiệm vụ của nó chỉ đơn giản là _thay đổi_ thuộc tính. Khi ta gọi một phương thức `setter` nó sẽ trả về `undefined`.
 
 </p>
@@ -3907,7 +3906,7 @@ Phương thức `language` là một `setter`. Setter không mang giá trị, nh
 
 ---
 
-###### 122. What's the output?
+###### 122. Output là gì?
 
 ```javascript
 const name = "Lydia Hallie";
@@ -3926,16 +3925,16 @@ console.log(!typeof name === "string");
 
 #### Đáp án: C
 
-`typeof name` returns `"string"`. The string `"string"` is a truthy value, so `!typeof name` returns the boolean value `false`. `false === "object"` and `false === "string"` both return`false`.
+`typeof name` trả về `"string"`. Chuỗi `"string"` là một giá trị `truthy`, do đó `!typeof name` sẽ trả về một giá trị bool là `false`. Do đó `false === "object"` và `false === "string"` đều trả về`false`.
 
-(If we wanted to check whether the type was (un)equal to a certain type, we should've written `!==` instead of `!typeof`)
+(Nếu chúng ta muốn check xem một kiểu dữ liệu không phải là một kiểu nào đó, chúng ta nên viết `!==` thay vì `!typeof`)
 
 </p>
 </details>
 
 ---
 
-###### 123. What's the output?
+###### 123. Output là gì?
 
 ```javascript
 const add = x => y => z => {
@@ -3956,14 +3955,14 @@ add(4)(5)(6);
 
 #### Đáp án: A
 
-The `add` function returns an arrow function, which returns an arrow function, which returns an arrow function (still with me?). The first function receives an argument `x` with the value of `4`. We invoke the second function, which receives an argument `y` with the value `5`. Then we invoke the third function, which receives an argument `z` with the value `6`. When we're trying to access the value `x`, `y` and `z` within the last arrow function, the JS engine goes up the scope chain in order to find the values for `x` and `y` accordingly. This returns `4` `5` `6`.
+Hàm `add` trả về một arrow function, arrow function này lại trả về một arrow function khác, arrow function này lại trả về một arrow function khác nữa. Hàm đầu tiên nhận vào một tham số `x` với giá trị là 4 `4`. Chúng ta gọi hàm thứ hai, nhận vào giá trị của `y` là `5`. Sau đó chúng ta gọi hàm thứ 3, nhận vào giá trị của `z` là `6`. Sau đó ta truy cập các giá trị của `x`, `y` và `z` bên trong arrow function cuối cùng, khi này JS engine sẽ lần ngược lại scope chain để tìm các giá trị `x` và `y` tương ứng. Do đó cuối cùng nó sẽ trả về `4` `5` `6`.
 
 </p>
 </details>
 
 ---
 
-###### 124. What's the output?
+###### 124. Output là gì?
 
 ```javascript
 async function* range(start, end) {
@@ -3990,14 +3989,14 @@ async function* range(start, end) {
 
 #### Đáp án: C
 
-The generator function `range` returns an async object with promises for each item in the range we pass: `Promise{1}`, `Promise{2}`, `Promise{3}`. We set the variable `gen` equal to the async object, after which we loop over it using a `for await ... of` loop. We set the variable `item` equal to the returned Promise values: first `Promise{1}`, then `Promise{2}`, then `Promise{3}`. Since we're _awaiting_ the value of `item`, the resolved promsie, the resolved _values_ of the promises get returned: `1`, `2`, then `3`.
+Generator `range` trả về một async object với các promise tương ứng với mỗi phần tử ta đưa vào: `Promise{1}`, `Promise{2}`, `Promise{3}`. Ta set giá trị `gen` bằng với một async object để thực hiện vòng lặp `for await ... of` sau đó. Tiếp đó ta lại set giá trị của `item` bằng với giá trị trả về của mỗi promise: đầu tiên là `Promise{1}`, sau đó `Promise{2}`, sau đó `Promise{3}`. Do chúng ta sử dụng cú pháp `async/await` nên sẽ trả về giá trị đã được resolve của promise `item`, do đó lần lượt `1`, `2`, và `3` được in ra.
 
 </p>
 </details>
 
 ---
 
-###### 125. What's the output?
+###### 125. Output là gì?
 
 ```javascript
 const myFunc = ({ x, y, z }) => {
@@ -4017,14 +4016,14 @@ myFunc(1, 2, 3);
 
 #### Đáp án: D
 
-`myFunc` expects an object with properties `x`, `y` and `z` as its argument. Since we're only passing three separate numeric values (1, 2, 3) instead of one object with properties `x`, `y` and `z` ({x: 1, y: 2, z: 3}), `x`, `y` and `z` have their default value of `undefined`.
+`myFunc` nhận vào một object có các thuộc tính `x`, `y` và `z` làm đối số của nó. Do chúng ta đưa vào 3 số riêng biệt (1, 2, 3) chứ không phải một object với các thuộc tính `x`, `y`, `z` như ({x: 1, y: 2, z: 3}), nên `x`, `y`, `z` đều có giá trị là `undefined`.
 
 </p>
 </details>
 
 ---
 
-###### 126. What's the output?
+###### 126. Output là gì?
 
 ```javascript
 function getFine(speed, amount) {
@@ -4054,14 +4053,14 @@ console.log(getFine(130, 300))
 
 #### Đáp án: B
 
-With the `Intl.NumberFormat` method, we can format numeric values to any locale. We format the numeric value `130` to the `en-US` locale as a `unit` in `mile-per-hour`, which results in `130 mph`. The numeric value `300` to the `en-US` locale as a `currentcy` in `USD` results in `$300.00`.
+Với phương thức `Intl.NumberFormat`, chúng ta có thể format bất cứ số nào theo định dạng ta mong muốn. Ở đây ta format giá trị `130` theo định dạng `en-US`, kiểu `unit`, đơn vị là `mile-per-hour`, và nó sẽ trả về `130 mph`. Tiếp theo số `300` sẽ được format theo định dạng `en-US`, kiểu `currentcy`, đơn vị `USD`, và kết quả là `$300.00`.
 
 </p>
 </details>
 
 ---
 
-###### 127. What's the output?
+###### 127. Output là gì?
 
 ```javascript
 const spookyItems = ["👻", "🎃", "🕸"];
@@ -4080,14 +4079,14 @@ console.log(spookyItems);
 
 #### Đáp án: B
 
-By destructuring objects, we can unpack values from the right-hand object, and assign the unpacked value to the value of the same property name on the left-hand object. In this case, we're assigning the value "💀" to `spookyItems[3]`. This means that we're modifying the `spookyItems` array, we're adding the "💀" to it. When logging `spookyItems`, `["👻", "🎃", "🕸", "💀"]` gets logged.
+Khi tiến hành cú pháp destructuring object, chúng ta có thể unpack các giá trị ở phía phải của một object, và đưa giá trị đã được unpack đó làm giá trị của thuộc tính tương ứng của object phía trái. Trong trường hợp này, ta đã gán giá trị "💀" cho `spookyItems[3]`. Có nghĩa là mảng `spookyItems` đã bị thay đổi, chúng ta đã thêm vào nó một phần tử "💀". Do đó khi in ra thì kết quả sẽ là `["👻", "🎃", "🕸", "💀"]` .
 
 </p>
 </details>
 
 ---
 
-###### 128. What's the output?
+###### 128. Output là gì?
 
 ```javascript
 const name = "Lydia Hallie";
@@ -4110,16 +4109,15 @@ console.log(isNaN(age));
 
 #### Đáp án: C
 
-With the `Number.isNaN` method, you can check if the value you pass is a _numeric value_ and equal to `NaN`. `name` is not a numeric value, so `Number.isNaN(name)` returns `false`. `age` is a numeric value, but is not equal to `NaN`, so `Number.isNaN(age)` returns `false`.
-
-With the `isNaN` method, you can check if the value you pass is not a number. `name` is not a number, so `isNaN(name)` returns true. `age` is a number, so `isNaN(age)` returns `false`.
+Với phương thức `Number.isNaN`, ta có thể check một giá trị có phải là _dạng số_ và bằng `NaN` hay không. `name` không phải là một số, do đó `Number.isNaN(name)` sẽ trả về `false`. `age` là một số, nhưng không bằng `NaN`, do đó `Number.isNaN(age)` cũng trả về `false`.
+Với phương thức `isNaN`, ta đơn thuần chỉ check xem giá trị đưa vào không phải là _dạng số_ hay không. `name` không phải là dạng số, nên `isNaN(name)` trả về `true`. `age` là số, nên `isNaN(age)` trả về `false`.
 
 </p>
 </details>
 
 ---
 
-###### 129. What's the output?
+###### 129. Output là gì?
 
 ```javascript
 const randomValue = 21;
@@ -4142,14 +4140,14 @@ getInfo();
 
 #### Đáp án: D
 
-Variables declared with the `const` keyword are not referencable before their initialization: this is called the _temporal dead zone_. In the `getInfo` function, the variable `randomValue` is scoped in the functional scope of `getInfo`. On the line where we want to log the value of `typeof randomValue`, the variable `randomValue` isn't initialized yet: a `ReferenceError` gets thrown! The engine didn't go down the scope chain since we declared the variable `randomValue` in the `getInfo` function.
+Một biến được khai báo với từ khóa `const` sẽ không thể truy cập trước khi nó được khởi tạo: nó gọi là _temporal dead zone_. Trong hàm `getInfo`, giá trị `randomValue` sẽ được tìm kiếm đầu tiên trong scope của hàm `getInfo`. Tại dòng ta muốn lấy ra `typeof randomValue`, giá trị `randomValue` chưa được khởi tạo, do đó một `ReferenceError` sẽ được throw ra! Lưu ý nhỏ là Javascript engine sẽ không tìm kiếm ở scope khác nữa do `randomValue` đã được khai báo bên trong hàm `getInfo`.
 
 </p>
 </details>
 
 ---
 
-###### 130. What's the output?
+###### 130. Ouput là gì?
 
 ```javascript
 const myPromise = Promise.resolve("Woah some cool data");
@@ -4175,14 +4173,14 @@ const myPromise = Promise.resolve("Woah some cool data");
 
 #### Đáp án: C
 
-In the `try` block, we're logging the awaited value of the `myPromise` variable: `"Woah some cool data"`. Since no errors were thrown in the `try` block, the code in the `catch` block doesn't run. The code in the `finally` block _always_ runs, `"Oh finally!"` gets logged.
+Trong khối `try`, ta in ra giá trị của biến `myPromise`: `"Woah some cool data"`. Do không có lỗi gì xảy ra ở đây cả, nên các lệnh trong khối `catch` sẽ không được chạy. Tuy nhiên các lệnh trong khối `finally` thì sẽ _luôn luôn_ chạy, nên `"Oh finally!"` sẽ được in ra.
 
 </p>
 </details>
 
 ---
 
-###### 131. What's the output?
+###### 131. Output là gì?
 
 ```javascript
 const emojis = ["🥑", ["✨", "✨", ["🍕", "🍕"]]];
@@ -4200,7 +4198,7 @@ console.log(emojis.flat(1));
 
 #### Đáp án: B
 
-With the `flat` method, we can create a new, flattened array. The depth of the flattened array depends on the value that we pass. In this case, we passed the value `1` (which we didn't have to, that's the default value), meaning that only the arrays on the first depth will be concatenated. `['🥑']` and `['✨', '✨', ['🍕', '🍕']]` in this case. Concatenating these two arrays results in `['🥑', '✨', '✨', ['🍕', '🍕']]`.
+Với phương thức `flat`, ta có thể tạo một mảng mới với các phần tử đã được `flattened` (làm phẳng). Độ sâu của mảng đã làm phẳng sẽ phụ thuộc vào giá trị ta đưa vào. Trong trường hợp này ta đưa vào là `1` (thực ra đây là giá trị default, ta không đưa vào cũng không sao), có nghĩa là chỉ những phần tử ở độ sâu 1 sẽ được làm phẳng. Chúng là`['🥑']` và `['✨', '✨', ['🍕', '🍕']]` trong trường hợp này. Nối lại ta sẽ có mảng mới `['🥑', '✨', '✨', ['🍕', '🍕']]`.
 
 </p>
 </details>
