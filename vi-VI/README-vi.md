@@ -4601,7 +4601,7 @@ Nếu ta dùng `yield`, `return yield`, hay `return`, toàn bộ generator sẽ 
 
 ---
 
-###### 142. What's the output?
+###### 142. Output là gì?
 
 ```javascript
 const person = {
@@ -4631,22 +4631,22 @@ console.log(person.hobbies);
 
 #### Đáp án: C
 
-The `addHobby` function receives two arguments, `hobby` and `hobbies` with the default value of the `hobbies` array on the `person` object.
+Hàm `addHobby` nhận vào hai đối số, `hobby`, và `hobbies` với giá trị default là mảng `hobbies` của object `person`.
 
-First, we invoke the `addHobby` function, and pass `"running"` as the value for `hobby` and an empty array as the value for `hobbies`. Since we pass an empty array as the value for `y`, `"running"` gets added to this empty array.
+Đầu tiên chúng ta gọi hàm `addHobby` và đưa vào `"running"` làm giá trị cho `hobby`, và một mảng rỗng cho `hobbies`. Do chúng ta đưa vào một mảng rỗng cho `hobbies`, `"running"` sẽ được add vào một mảng rỗng.
 
-Then, we invoke the `addHobby` function, and pass `"dancing"` as the value for `hobby`. We didn't pass a value for `hobbies`, so it gets the default value, the `hobbies` property on the `person` object. We push the hobby `dancing` to the `person.hobbies` array.
+Sau đó chúng ta tiếp tục gọi hàm `addHobby`, đưa `"dancing"` vào làm giá trị cho `hobby`. Chúng ta không hề đưa vào giá trị nào cho `hobbies`, do đó nó sẽ sử dụng giá trị mặc định, tức mảng `hobbies` trong thuộc tính của object `person`. Có nghĩa là ta đã thêm `dancing` vào trong mảng `person.hobbies`.
 
-Last, we invoke the `addHobby` function, and pass `"bdaking"` as the value for `hobby`, and the `person.hobbies` array as the value for `hobbies`. We push the hobby `baking` to the `person.hobbies` array.
+Cuối cùng chúng ta lại gọi `addHobby`, đưa `"baking"` vào làm giá trị cho `hobby`, và mảng `person.hobbies` làm giá trị cho `hobbies`. Có nghĩa là ta đã thêm `baking` vào trong mảng `person.hobbies`.
 
-After pushing `dancing` and `baking`, the value of `person.hobbies` is `["coding", "dancing", "baking"]`
+Sau khi thêm `dancing` và `baking`, giá trị của `person.hobbies` là `["coding", "dancing", "baking"]`
 
 </p>
 </details>
 
 ---
 
-###### 143. What's the output?
+###### 143. Output là gì?
 
 ```javascript
 class Bird {
@@ -4675,14 +4675,14 @@ const pet = new Flamingo();
 
 #### Đáp án: B
 
-We create the variable `pet` which is an instance of the `Flamingo` class. When we instantiate this instance, the `constructor` on `Flamingo` gets called. First, `"I'm pink. 🌸"` gets logged, after which we call `super()`. `super()` calls the constructor of the parent class, `Bird`. THe constructor in `Bird` gets called, and logs `"I'm a bird. 🦢"`.
+Chúng ta tạo ra biến `pet` là một instance của clas `Flamingo`. Khi ta tạo ra instance, `constructor` bên trong `Flamingo` sẽ được gọi. Đầu tiên, `"I'm pink. 🌸"` được in ra, sau đó chúng ta gọi `super()`. `super()` sẽ gọi constructor ở class cha, tức `Bird`. Hàm constructor trong `Bird` được gọi và in ra `"I'm a bird. 🦢"`.
 
 </p>
 </details>
 
 ---
 
-###### 144. Which of the options result(s) in an error?
+###### 144. Câu lệnh nào sẽ bị lỗi?
 
 ```javascript
 const emojis = ["🎄", "🎅🏼", "🎁", "⭐"];
@@ -4703,14 +4703,14 @@ const emojis = ["🎄", "🎅🏼", "🎁", "⭐"];
 
 #### Đáp án: D
 
-The `const` keyword simply means we cannot _redeclare_ the value of that variable, it's _read-only_. However, the value itself isn't immutable. The propeties on the `emojis` array can be modified, for example by pushing new values, splicing them, or setting the length of the array to 0.
+Từ khóa `const` làm cho ta không thể _định nghĩa lại_ giá trị của biến, nó là _read-only_. Tuy nhiên giá trị của bên trong nó thì không phải là bất biến. Các thuộc tính bên trong mảng `emojis` vẫn có thể được sửa đổi, ví dụ thêm phần tử, cắt, hoặc là đưa độ dài mảng về 0.
 
 </p>
 </details>
 
 ---
 
-###### 145. What do we need to add to the `person` object to get `["Lydia Hallie", 21]` as the output of `[...person]`?
+###### 145. Ta cần thêm gì vào object `person` để khi gọi `[...person]` sẽ cho kết quả là `["Lydia Hallie", 21]`?
 
 ```javascript
 const person = {
@@ -4731,7 +4731,9 @@ const person = {
 
 #### Đáp án: C
 
-Objects aren't iterable by default. An iterable is an iterable if the iterator protocol is present. We can add this manually by adding the iterator symbol `[Symbol.iterator]`, which has to return a generator object, for example by making it a generator function `*[Symbol.iterator]() {}`. This generator function has to yield the `Object.values` of the `person` object if we want it to return the array `["Lydia Hallie", 21]`: `yield* Object.values(this)`.
+Mặc định ta không thể duyệt qua được object. Trừ phi nó được cài đặt iterator protocol. Ta có thể cài đặt bằng cách thêm vào một iterator symbol `[Symbol.iterator]`, biến nó trở thành generator object (object có thể duyệt được), ví dụ `*[Symbol.iterator]() {}`.
+
+Để generator này trả về được mảng các giá trị của các thuộc tính của object `person`, tức `Object.values` của object `person`, ta sẽ sử dụng cấu trúc `yield* Object.values(this)`.
 
 </p>
 </details>
