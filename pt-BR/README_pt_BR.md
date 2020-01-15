@@ -1864,7 +1864,7 @@ console.log(admin);
 
 #### Resposta: B
 
-É possível combinar objetos usando o operador o spread operator `...`. Ele permite criar cópias dos pares de um objeto e adicioná-las a outro objeto. Nesse caso, criamos cópias do objeto `user` e as adicionamos ao objeto `admin`. O objeto `admin` agora contém os pares de chave/valor copiados, o que resulta em `{ admin: true, name: "Lydia", age: 21 }`.
+É possível combinar objetos usando o operador spread (`...`). Ele permite criar cópias dos pares de um objeto e adicioná-las a outro objeto. Nesse caso, criamos cópias do objeto `user` e as adicionamos ao objeto `admin`. O objeto `admin` agora contém os pares de chave/valor copiados, o que resulta em `{ admin: true, name: "Lydia", age: 21 }`.
 
 </p>
 </details>
