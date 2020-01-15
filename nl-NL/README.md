@@ -1472,11 +1472,11 @@ console.log(3 + 4 + "5");
 
 #### Antwoord: B
 
-Operator associativity is the order in which the compiler evaluates the expressions, either left-to-right or right-to-left. This only happens if all operators have the _same_ precedence. We only have one type of operator: `+`. For addition, the associativity is left-to-right.
+Operator associativiteit is de volgorde waarin de compiler de expressies evalueerd, of van links naar recht of van rechts naar links. Dat gebeurt alleen als alle operators _dezelfde_ prioriteit hebben. In dit geval hebben we maar één type operator: `+`. In beginsel, de associativiteit is van links naar rechts.
 
-`3 + 4` gets evaluated first. This results in the number `7`.
+`3 + 4` wordt eerst geëvalueerd. Dit levert het getal `7` op.
 
-`7 + '5'` results in `"75"` because of coercion. JavaScript converts the number `7` into a string, see question 15. We can concatenate two strings using the `+`operator. `"7" + "5"` results in `"75"`.
+`7 + '5'` resulteert in `"75"` door coersion. JavaScript converteert het getal `7` naar een string, zo ook te zien bij vraag 15. We kunnen twee stringen concateneren door gebruik te maken van de `+` operator. `"7" + "5"` resulteert in `"75"`.
 
 </p>
 </details>
