@@ -1449,7 +1449,7 @@ for (const item in person) {
 
 #### Antwoord: B
 
-With a `for-in` loop, we can iterate through object keys, in this case `name` en `age`. Under the hood, object keys are strings (if they're not a Symbol). On every loop, we set the value of `item` equal to the current key it’s iterating over. First, `item` is equal to `name`, en gets logged. Then, `item` is equal to `age`, which gets logged.
+Met een `for-in` loop kunnen we itereren over object keys, in dit geval `name` en `age`. Onder de motorkap zijn object keys strings (als het geen Symbols zijn). Bij elke iteratie is de waarde van `item` gelijk aan de huidige key waarover wordt geïtereerd. Bj de eerste iteratie is `item` gelijk aan `name` en wordt gelogd. Bij de tweede iteratie is `item` gelijk aan `age` en wordt gelogd.
 
 </p>
 </details>
