@@ -1345,12 +1345,11 @@ console.log(gen.next().value);
 <p>
 
 #### Antwoord: C
+Reguliere functies kunnen niet worden gestopt halverwege na de aanroep. Echter, een generator functie kan wel "gestopt" worden halverwege, en later verder gaan waar ik gestopt is. Elke keer als een generator functie het keyword `yield` aantreft levert de functie de waarde op gespecificeerd achter `yield`. Let op dat een generator functie in dat geval niet de waarde _teruggeeft_, maar de waarde _oplevert_.
 
-Regular functions cannot be stopped mid-way after invocation. However, a generator function can be "stopped" midway, en later continue from where it stopped. Every time a generator function encounters a `yield` keyword, the function yields the value specified after it. Note that the generator function in that case doesn’t _return_ the value, it _yields_ the value.
+Eerst initialiseren we de generator functie met `i`, dat gelijk is aan `10`. We roepen de generator functie aan met de `next()` methode. De eerste keer dat we de generator functie aanroepen is `i` gelijk aan `10`. De eerste `yield` wordt aangetroffen: het levert de waarde op van `i`. De generator is nu "gepauzeerd" en `10` wordt gelogd.
 
-First, we initialize the generator function with `i` equal to `10`. We invoke the generator function using the `next()` method. The first time we invoke the generator function, `i` is equal to `10`. It encounters the first `yield` keyword: it yields the value of `i`. The generator is now "paused", en `10` gets logged.
-
-Then, we invoke the function again with the `next()` method. It starts to continue where it stopped previously, still with `i` equal to `10`. Now, it encounters the next `yield` keyword, en yields `i * 2`. `i` is equal to `10`, so it returns `10 * 2`, which is `20`. This results in `10, 20`.
+Dan roepen we de functie nog een keer aan met de `next()` methode. Het gaat verder waar het eerder gebleven is, waarbij `i` nog steeds gelijk is aan `10`. Nu wordt de volgende `yield` aangetroffen, en levert `i * 2` op. `i` is gelijk aan `10`, dus het levert `10 * 2` op, wat gelijk is aan `20`. Het resultaat is dus `10, 20`.
 
 </p>
 </details>
