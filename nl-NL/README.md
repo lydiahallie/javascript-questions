@@ -1292,7 +1292,7 @@ setInterval(() => console.log("Hi"), 1000);
 
 #### Antwoord: A
 
-It returns a unique id. This id can be used to clear that interval with the `clearInterval()` function.
+Het geeft een uniek id terug. Dit id kan gebruikt worden om de interval te stoppen door het mee te geven aan de `clearInterval()` functie.
 
 </p>
 </details>
