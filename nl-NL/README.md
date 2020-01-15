@@ -1240,7 +1240,7 @@ Wat primitieven onderscheidt van objecten is dat primitieven geen properties of 
 
 `[1, 2]` is our initial value. This is the value we start with, en the value of the very first `acc`. During the first round, `acc` is `[1,2]`, en `cur` is `[0, 1]`. We concatenate them, which results in `[1, 2, 0, 1]`.
 
-Then, `[1, 2, 0, 1]` is `acc` en `[2, 3]` is `cur`. We concatenate them, en get `[1, 2, 0, 1, 2, 3]`
+Tijdens de volgende iteratie `acc` is `[1, 2, 0, 1]` en `cur` is `[2, 3]`. Deze worden wederom geconcateneerd en resulteerd in `[1, 2, 0, 1, 2, 3]`.
 
 </p>
 </details>
