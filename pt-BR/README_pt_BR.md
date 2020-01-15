@@ -1136,11 +1136,11 @@ console.log(numbers);
 
 #### Resposta: C
 
-When you set a value to an element in an array that exceeds the length of the array, JavaScript creates something called "empty slots". These actually have the value of `undefined`, but you will see something like:
+Quando você define um valor para um elemento em um array que excede o tamanho do próprio array, o JavaScript cria algo chamado "empty slots" (espaços vazios). Na verdade, esses espaços vazios tem o valor de `undefined`, mas você verá algo como:
 
 `[1, 2, 3, 7 x empty, 11]`
 
-depending on where you run it (it's different for every browser, node, etc.)
+dependendo de onde você o executa, pois é diferente para cada navegador, node etc.
 
 </p>
 </details>
