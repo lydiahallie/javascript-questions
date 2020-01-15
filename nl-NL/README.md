@@ -1238,7 +1238,7 @@ Wat primitieven onderscheidt van objecten is dat primitieven geen properties of 
 
 #### Antwoord: C
 
-`[1, 2]` is our initial value. This is the value we start with, en the value of the very first `acc`. During the first round, `acc` is `[1,2]`, en `cur` is `[0, 1]`. We concatenate them, which results in `[1, 2, 0, 1]`.
+`[1, 2]` is onze initiële waarde. Dit is de waarde waarmee we starten, en de waarde van de allereerste `acc`. Tijdens de eerste iteratie, `acc` is `[1, 2]` en `cur` is `[0, 1]`. Deze waarden concateneren we, wat resulteerd in `[1, 2, 0, 1]`.
 
 Tijdens de volgende iteratie `acc` is `[1, 2, 0, 1]` en `cur` is `[2, 3]`. Deze worden wederom geconcateneerd en resulteerd in `[1, 2, 0, 1, 2, 3]`.
 
@@ -1265,11 +1265,11 @@ Tijdens de volgende iteratie `acc` is `[1, 2, 0, 1]` en `cur` is `[2, 3]`. Deze 
 
 #### Antwoord: B
 
-`null` is falsy. `!null` returns `true`. `!true` returns `false`.
+`null` is falsy. `!null` geeft `true` terug. `!true` geeft `false` terug.
 
-`""` is falsy. `!""` returns `true`. `!true` returns `false`.
+`""` is falsy. `!""` geeft `true` terug. `!true` geeft `false` terug.
 
-`1` is truthy. `!1` returns `false`. `!false` returns `true`.
+`1` is truthy. `!1` geeft `false` terug. `!false` geeft `true` terug.
 
 </p>
 </details>
