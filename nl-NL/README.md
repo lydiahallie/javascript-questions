@@ -1499,9 +1499,9 @@ const num = parseInt("7*6", 10);
 
 #### Antwoord: C
 
-Only the first numbers in the string is returned. Based on the _radix_ (the second argument in order to specify what type of number we want to parse it to: base 10, hexadecimal, octal, binary, etc.), the `parseInt` checks whether the characters in the string are valid. Once it encounters a character that isn't a valid number in the radix, it stops parsing en ignores the following characters.
+Alleen het eerste getal in de string wordt geretourneerd. Gebaseerd op de _radix_ (het tweede argument om te speciferen naar welk type nummer we het willen parsen: base 10, hexadecimal, octal, binary, etc.), de `parseInt` methode checkt of de karakters in de string geldig zijn. Zodra het een karakter tegenkomt dat niet een geldig getal is in het eerste argument stopt het parsen en worden opvolgende karakters genegeerd.
 
-`*` is not a valid number. It only parses `"7"` into the decimal `7`. `num` now holds the value of `7`.
+`*` is geen geldig getal. Alleen `"7"` wordt geparsed naar een decimal `7`. `num` bevat nu de waarde `7`.
 
 </p>
 </details>
