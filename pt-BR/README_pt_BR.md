@@ -1796,7 +1796,7 @@ console.log(delete age);
 
 O operador `delete` retorna um valor booleano: `true` em uma exclusão bem-sucedida, caso contrário, ele retorna `false`. No entanto, variáveis declaradas com `var`, `const` ou `let` não podem ser excluídas usando o operador `delete`.
 
-A variável `name` foi declarada com `const`, portanto sua exclusão não é bem-sucedida: `false` é retornado. Quando definimos `age` igual a `21`, na verdade adicionamos uma propriedade chamada `age` para o objeto global. Dessa forma, você pode excluir propriedades dos objetos, portanto `delete age` returns `true`.
+A variável `name` foi declarada com `const`, portanto sua exclusão não é bem-sucedida: `false` é retornado. Quando definimos `age` igual a `21`, na verdade adicionamos uma propriedade chamada `age` para o objeto global. Dessa forma, você pode excluir propriedades dos objetos, portanto `delete age` retorna `true`.
 
 </p>
 </details>
@@ -1863,8 +1863,6 @@ console.log(admin);
 <p>
 
 #### Resposta: B
-
-It's possible to combine objects using the spread operator . It lets you create copies of the key/value pairs of one object, and add them to another object. In this case, we create copies of the `user` object, and add them to the `admin` object. The `admin` object now contains the copied key/value pairs, which results in `{ admin: true, name: "Lydia", age: 21 }`.
 
 É possível combinar objetos usando o operador o spread operator `...`. Ele permite criar cópias dos pares de um objeto e adicioná-las a outro objeto. Nesse caso, criamos cópias do objeto `user` e as adicionamos ao objeto `admin`. O objeto `admin` agora contém os pares de chave/valor copiados, o que resulta em `{ admin: true, name: "Lydia", age: 21 }`.
 
