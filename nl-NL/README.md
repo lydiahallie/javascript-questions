@@ -1315,7 +1315,7 @@ Het geeft een uniek id terug. Dit id kan gebruikt worden om de interval te stopp
 
 #### Antwoord: A
 
-A string is an iterable. The spread operator maps every character of an iterable to one element.
+Een string is een iterable. The spread operator arrangeert elk karakter van een iterable naar één element.
 
 </p>
 </details>
