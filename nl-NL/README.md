@@ -1380,7 +1380,7 @@ Promise.race([firstPromise, secondPromise]).then(res => console.log(res));
 
 #### Antwoord: B
 
-When we pass multiple promises to the `Promise.race` method, it resolves/rejects the _first_ promise that resolves/rejects. To the `setTimeout` method, we pass a timer: 500ms for the first promise (`firstPromise`), en 100ms for the second promise (`secondPromise`). This means that the `secondPromise` resolves first with the value of `'two'`. `res` now holds the value of `'two'`, which gets logged.
+Wanneer we meerdere promises meegeven aan de `Promise.race` methode zal het de _eerste_ promise resolven/rejecten. Aan de `setTimeout` methodes geven we een timer mee: 500ms voor de eerste promise (`firstPromise`) en 100ms voor de tweede promise (`secondPromise`). Dit betekent dat de `secondPromise` als eerste resolved met de waarde `'two'`. `res` bevat nu de waarde `'two'`, wat dus gelogd wordt.
 
 </p>
 </details>
