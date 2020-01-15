@@ -20,6 +20,7 @@ List of available languages:
 * [Français](./fr-FR/README_fr-FR.md)
 * [日本語](./ja-JA/README-ja_JA.md)  
 * [한국어](./ko-KR/README-ko_KR.md) 
+* [Polish](../pl-PL/README-pl_PL.md)
 * [Português Brasil](./pt-BR/README_pt_BR.md)  
 * [Русский](./ru-RU/README.md)
 * [Українська мова](./ua-UA/README-ua_UA.md)  
