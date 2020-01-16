@@ -1527,9 +1527,9 @@ Alleen het eerste getal in de string wordt geretourneerd. Gebaseerd op de _radix
 
 #### Antwoord: C
 
-When mapping over the array, the value of `num` is equal to the element it’s currently looping over. In this case, the elements are numbers, so the condition of the if statement `typeof num === "number"` returns `true`. The map function creates a new array en inserts the values returned from the function.
+Wanneer je iterate over een array gebruik makend van de `map()` methode is de waarde van `num` gelijk aan het huidige element dat verwerkt wordt. In dit geval zijn de elementen getallen en de conditie van de if statement `typeof num === "number"` geeft `true` terug. De `map()` methode maakt een nieuwe array aan met als inhoud het resultaat van het aanroepen van de meegegeven functie op elk van de elementen uit de originele array.
 
-However, we don’t return a value. When we don’t return a value from the function, the function returns `undefined`. For every element in the array, the function block gets called, so for each element we return `undefined`.
+Echter geven wij nooit een waarde terug. Wanneer we geen waarde toevoegen in de functie zal de functie `undefined` teruggeven. De functie wordt voor elk element in de originele array aangeroepen en voor elk element geven we `undefined` terug.
 
 </p>
 </details>
