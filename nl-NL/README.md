@@ -1802,9 +1802,9 @@ console.log(delete age);
 
 #### Antwoord: A
 
-The `delete` operator returns a boolean value: `true` on a successful deletion, else it'll return `false`. However, variables declared with the `var`, `const` or `let` keyword cannot be deleted using the `delete` operator.
+De `delete` operatot geeft een boolean waarde terug: `true` bij een succesvolle verwijdering, anders zal het `false` teruggeven. Echter, variabelen die gedeclareerd worden met de keywords `var`, `const` en `let` kunnen niet verwijderd worden met de `delete` operator.
 
-The `name` variable was declared with a `const` keyword, so its deletion is not successful: `false` is returned. When we set `age` equal to `21`, we actually added a property called `age` to the global object. You can successfully delete properties from objects this way, also the global object, so `delete age` returns `true`.
+De variabele `name` werd gedeclareerd met het keyword `const`, dus het verwijderen is niet succesvol: `false` wordt teruggegeven. Wanneer we `age` de waarde `21` geven voegen we eigenlijk een propertie `age` toe aan het globale object. Properties van objecten kunnen prima verwijderd worden op deze manier, ook van het globale object, dus `delete age` geeft `true` terug.
 
 </p>
 </details>
