@@ -1526,3 +1526,186 @@ Entretanto, não se retorna o valor. Quando não se retorna um valor para a fun�
 </details>
 
 ---
+
+
+###### 51. Qual é a saída?
+
+```javascript
+function getInfo(member, year) {
+  member.name = "Lydia";
+  year = "1998";
+}
+
+const person = { name: "Sarah" };
+const birthYear = "1997";
+
+getInfo(person, birthYear);
+
+console.log(person, birthYear);
+```
+
+- A: `{ name: "Lydia" }, "1997"`
+- B: `{ name: "Sarah" }, "1998"`
+- C: `{ name: "Lydia" }, "1998"`
+- D: `{ name: "Sarah" }, "1997"`
+
+<details><summary><b>Resposta</b></summary>
+<p>
+
+#### Resposta: A
+
+Argumentos são passados por _valor_, a menos que seu valor seja um objeto, então ele é passado por _referência_. `birthYear` é passado como valor, desde que seja string, não objeto. Quando passamos argumentos por valor, uma _cópia_ do valor é criado (veja a questão 46).
+
+A variável `birthYear` tem a referência do valor `"1997"`. O argumento `year` também tem a referência do valor `"1997"`, porém não é o mesmo valor que `birthYear` tem referência. Quando atualizamos o valor de `year` setando `year` igual a `"1998"`, estamos apenas atualizando o valor de `year`. `birthYear` ainda possui valor igual a `"1997"`.
+
+O valor de `person` é um objeto. O argumento `member` têm uma _mesma_ referência copiada deste objeto. Quando modificamos uma propriedade de um objeto `member` possui a referência de, o valor de `person` ainda será modificado, desde que ambos tenham a referência do mesmo objeto. `person`'s `name` propriedade é igual ao valor `"Lydia"`
+
+</p>
+</details>
+
+---
+
+###### 52. Qual é a saída?
+
+```javascript
+function greeting() {
+  throw "Hello world!";
+}
+
+function sayHi() {
+  try {
+    const data = greeting();
+    console.log("It worked!", data);
+  } catch (e) {
+    console.log("Oh no an error:", e);
+  }
+}
+
+sayHi();
+```
+
+- A: `It worked! Hello world!`
+- B: `Oh no an error: undefined`
+- C: `SyntaxError: can only throw Error objects`
+- D: `Oh no an error: Hello world!`
+
+<details><summary><b>Resposta</b></summary>
+<p>
+
+#### Resposta: D
+
+Com a declaração `throw`, podemos criar erros customizadoos. Como esta declaração, você pode lançar exceções. Uma exceção pode ser uma <b>string</b>, um <b>number</b>, aum <b>boolean</b> ou um <b>object</b>. Neste caso, nossa exceção é uma string `'Hello world'`.
+
+Com a declaração `catch`, podemos especificar o que fazer se uma exceção ocorrer dentro do bloco `try`. Uma exceção é lançada: a string `'Hello world'`. `e` é igual a esta string, que logamos. Seu resultado é `'Oh an error: Hello world'`.
+
+</p>
+</details>
+
+---
+
+###### 53. Qual é a saída?
+
+```javascript
+function Car() {
+  this.make = "Lamborghini";
+  return { make: "Maserati" };
+}
+
+const myCar = new Car();
+console.log(myCar.make);
+```
+
+- A: `"Lamborghini"`
+- B: `"Maserati"`
+- C: `ReferenceError`
+- D: `TypeError`
+
+<details><summary><b>Resposta</b></summary>
+<p>
+
+#### Resposta: B
+
+Quando se retorna uma propriedade, o valor da propriedade é igual ao valor _retornado_, não o valor setado no construtor. Retornamos a string `"Maserati"`, então `myCar.make` é igual a `"Maserati"`.
+
+</p>
+</details>
+
+---
+
+###### 54. Qual é a saída?
+
+```javascript
+(() => {
+  let x = (y = 10);
+})();
+
+console.log(typeof x);
+console.log(typeof y);
+```
+
+- A: `"undefined", "number"`
+- B: `"number", "number"`
+- C: `"object", "number"`
+- D: `"number", "undefined"`
+
+<details><summary><b>Resposta</b></summary>
+<p>
+
+#### Resposta: A
+
+`let x = y = 10;` é na verdade um resumo para:
+
+```javascript
+y = 10;
+let x = y;
+```
+
+Quando setamos `y` igual a `10`, adicionamos a propriedade `y` ao objeto global (`window` no navegador, `global` no Node). No navegador, `window.y` é igual a `10`.
+
+Então, declaramos a variável `x` com o valor de `y`, que é `10`. Variáveis declaradas com a palavra reservada `let` são _escopo de bloco_, elas estão apenas definidas dentro de um bloco a qual foi declarada; a immediately-invoked function (IIFE) neste caso. Quando usamos o operador `typeof`, a variável `x` não está definida: estamoso tentando acessar o `x` fora do bloco que foi declarado. Isso significa que `x` não está definido. Valores que não foram assinados um valor ou declarado são do tipo `"undefined"`. `console.log(typeof x)` retorna `"undefined"`.
+
+Entretanto, criamos uma variável global `y` quando setamos `y` igual a `10`. Este valor é acessável de qualquer lugar no código. `y` é definido, e guarda o valor de `"number"`. `console.log(typeof y)` retorna `"number"`.
+
+</p>
+</details>
+
+---
+
+###### 55. Qual é a saída?
+
+```javascript
+class Dog {
+  constructor(name) {
+    this.name = name;
+  }
+}
+
+Dog.prototype.bark = function() {
+  console.log(`Woof I am ${this.name}`);
+};
+
+const pet = new Dog("Mara");
+
+pet.bark();
+
+delete Dog.prototype.bark;
+
+pet.bark();
+```
+
+- A: `"Woof I am Mara"`, `TypeError`
+- B: `"Woof I am Mara"`, `"Woof I am Mara"`
+- C: `"Woof I am Mara"`, `undefined`
+- D: `TypeError`, `TypeError`
+
+<details><summary><b>Resposta</b></summary>
+<p>
+
+#### Resposta: A
+
+Podemos deletar propriedade de um objeto utilizando a palavra chave `delete`,mesmo em um prototype. Deletando a propriedade do prototype, não é mais possível o prototype ser chamado. Neste caso, a função `bark` não está mais disponível no prototype após `delete Dog.prototype.bark`, ainda assim, tentamos acessá-lo.
+
+Quando tentamos invocar algo que não é uma função, um `TypeError` é lançado. Neste caso `TypeError: pet.bark is not a function`, desde que `pet.bark` é  `undefined`.
+
+</p>
+</details>
