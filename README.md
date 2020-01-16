@@ -4464,39 +4464,7 @@ However, it only _shallowly_ freezes the object, meaning that only _direct_ prop
 
 ---
 
-###### 138. Which of the following will modify the `person` object?
-
-```javascript
-const person = {
-	name: "Lydia Hallie",
-	address: {
-		street: "100 Main St"
-	}
-};
-
-Object.freeze(person);
-```
-
-- A: `person.name = "Evan Bacon"`
-- B: `delete person.address`
-- C: `person.address.street = "101 Main St"`
-- D: `person.pet = { name: "Mara" }`
-
-<details><summary><b>Answer</b></summary>
-<p>
-
-#### Answer: C
-
-The `Object.freeze` method _freezes_ an object. No properties can be added, modified, or removed.
-
-However, it only _shallowly_ freezes the object, meaning that only _direct_ properties on the object are frozen. If the property is another object, like `address` in this case, the properties on that object aren't frozen, and can be modified.
-
-</p>
-</details>
-
----
-
-###### 139. What's the output?
+###### 138. What's the output?
 
 ```javascript
 const add = x => x + x;
@@ -4528,7 +4496,7 @@ Then, we invoked `myFunc(3)` and passed the value `3` as the value for the argum
 
 ---
 
-###### 140. What's the output?
+###### 139. What's the output?
 
 ```javascript
 class Counter {
@@ -4566,7 +4534,7 @@ In ES2020, we can add private variables in classes by using the `#`. We cannot a
 
 ---
 
-###### 141. What's the output?
+###### 140. What's the output?
 
 ```javascript
 const teams = [
@@ -4610,7 +4578,7 @@ If we would've written `yield`, `return yield`, or `return`, the entire generato
 
 ---
 
-###### 142. What's the output?
+###### 141. What's the output?
 
 ```javascript
 const person = {
@@ -4655,7 +4623,7 @@ After pushing `dancing` and `baking`, the value of `person.hobbies` is `["coding
 
 ---
 
-###### 143. What's the output?
+###### 142. What's the output?
 
 ```javascript
 class Bird {
@@ -4691,7 +4659,7 @@ We create the variable `pet` which is an instance of the `Flamingo` class. When 
 
 ---
 
-###### 144. Which of the options result(s) in an error?
+###### 143. Which of the options result(s) in an error?
 
 ```javascript
 const emojis = ["🎄", "🎅🏼", "🎁", "⭐"];
@@ -4719,7 +4687,7 @@ The `const` keyword simply means we cannot _redeclare_ the value of that variabl
 
 ---
 
-###### 145. What do we need to add to the `person` object to get `["Lydia Hallie", 21]` as the output of `[...person]`?
+###### 144. What do we need to add to the `person` object to get `["Lydia Hallie", 21]` as the output of `[...person]`?
 
 ```javascript
 const person = {
