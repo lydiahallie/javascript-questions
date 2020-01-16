@@ -1601,9 +1601,9 @@ sayHi();
 
 #### Antwoord: D
 
-With the `throw` statement, we can create custom errors. With this statement, you can throw exceptions. An exception can be a <b>string</b>, a <b>number</b>, a <b>boolean</b> or an <b>object</b>. In this case, our exception is the string `'Hello world'`.
+Met de `throw` statement kunnen we custom errors gooien. Een exceptie kan een <b>string</b>, een <b>number</b>, een <b>boolean</b> of een <b>object</b> zijn. In dit geval onze exceptie is aan string met de waarde `'Hello world'`.
 
-With the `catch` statement, we can specify what to do if an exception is thrown in the `try` block. An exception is thrown: the string `'Hello world'`. `e` is now equal to that string, which we log. This results in `'Oh an error: Hello world'`.
+Met de `catch` statement kunnen we specificeren wat er moet gebeuren als er een exceptie is gegooid in het `try` blok. Een exceptie is gegooid: de string `'Hello world'`. `e` is nu gelijk aan deze string en wordt dus gelogd. Dat resulteert in `'Oh an error: Hello world'`.
 
 </p>
 </details>
