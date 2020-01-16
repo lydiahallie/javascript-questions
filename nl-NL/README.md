@@ -1632,7 +1632,7 @@ console.log(myCar.make);
 
 #### Antwoord: B
 
-When you return a property, the value of the property is equal to the _returned_ value, not the value set in the constructor function. We return the string `"Maserati"`, so `myCar.make` is equal to `"Maserati"`.
+Wanneer je een propertie teruggeeft zal de waarde van de propertie gelijk zijn aan de _geretourneerde_ waarde, niet de waarde die gezet wordt in de constructor. We geven de string `"Maserati"` terug, dus `myCar.make` is gelijk aan `"Maserati"`.
 
 </p>
 </details>
