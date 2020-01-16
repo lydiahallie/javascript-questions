@@ -1660,18 +1660,18 @@ console.log(typeof y);
 
 #### Antwoord: A
 
-`let x = y = 10;` is actually shorthand for:
+`let x = y = 10;` is een verkorte versie van:
 
 ```javascript
 y = 10;
 let x = y;
 ```
 
-When we set `y` equal to `10`, we actually add a property `y` to the global object (`window` in browser, `global` in Node). In a browser, `window.y` is now equal to `10`.
+Wanneer we de waarde van `y` vullen met `10` voegen we eigenlijk een propertie `y` toe aan het globale object (`window` in de browser, `global` in Node). In de browser is `window.y` nu gelijk aan `10`.
 
-Then, we declare a variable `x` with the value of `y`, which is `10`. Variables declared with the `let` keyword are _block scoped_, they are only defined within the block they're declared in; the immediately-invoked function (IIFE) in this case. When we use the `typeof` operator, the operand `x` is not defined: we are trying to access `x` outside of the block it's declared in. This means that `x` is not defined. Values who haven't been assigned a value or declared are of type `"undefined"`. `console.log(typeof x)` returns `"undefined"`.
+Daarna declareren we de variabele `x` met de waarde van `y`, wat 10 is. Variabelen die gedeclareerd worden met het keyword `let` zijn _block scoped_, ze zijn alleen gedefinieerd binnen het blok waarin ze gedeclareerd zijn. In dit geval de direct aangeroepen functie (IIFE). Wanneer we de operator `typeof` gebruiken is `x` dus niet gedefinieerd; we proberen `x` te benaderen buiten de scope waarin het gedeclareerd is. Dat betekent dat `x` niet gedefinieerd is. variabelen die nog geen waarde toegewezen hebben gekregen zijn van het type `"undefined"`. `console.log(typeof x)` geeft `"undefined"` terug.
 
-However, we created a global variable `y` when setting `y` equal to `10`. This value is accessible anywhere in our code. `y` is defined, en holds a value of type `"number"`. `console.log(typeof y)` returns `"number"`.
+Echter, we hebben een globale variabele `y` aangemaakt toen we 'y' vulde met `10`. Deze waarde is overal toegankelijk in onze code. `y` is gedefinieerd en bevat de waarde `"number"`. `console.log(typeof y)` geeft `"number"` terug.
 
 </p>
 </details>
