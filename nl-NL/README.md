@@ -1737,9 +1737,9 @@ console.log(set);
 
 #### Antwoord: D
 
-The `Set` object is a collection of _unique_ values: a value can only occur once in a set.
+Het `Set` object is een collectie van _unieke_ waarden: een waarde kan maar één keer voorkomen in een set.
 
-We passed the iterable `[1, 1, 2, 3, 4]` with a duplicate value `1`. Since we cannot have two of the same values in a set, one of them is removed. This results in `{1, 2, 3, 4}`.
+We geven de array `[1, 1, 2, 3, 4]` mee met de dubbele waarde `1`. Omdat we niet twee keer dezelfde waarde kunnen hebben in een set zal één van deze dubbele waarden verwijderd worden. Dit resulteert in `{1, 2, 3, 4}`.
 
 </p>
 </details>
