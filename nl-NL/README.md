@@ -1710,9 +1710,9 @@ pet.bark();
 
 #### Antwoord: A
 
-We can delete properties from objects using the `delete` keyword, also on the prototype. By deleting a property on the prototype, it is not available anymore in the prototype chain. In this case, the `bark` function is not available anymore on the prototype after `delete Dog.prototype.bark`, yet we still try to access it.
+We kunnen properties verwijderen van een object als we gebruik maken van het `delete` keyword, en ook op het prototype. Bij het verwijderen van een propertie op de prototype zal het niet meer beschikbaar zijn in de prototype chain. In dit geval is de `bark()` methode niet meer beschikbaar op de protoype na `delete Dog.prototype.bark`. 
 
-When we try to invoke something that is not a function, a `TypeError` is thrown. In this case `TypeError: pet.bark is not a function`, since `pet.bark` is `undefined`.
+Wanneer we iets proberen aan te roepen dat geen functie is zal er een `TypeError` gegooid worden. In dit geval `TypeError: pet.bark is not a function`, omdat `pet.bark` `undefined` is.
 
 </p>
 </details>
