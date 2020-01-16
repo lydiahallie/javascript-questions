@@ -1830,7 +1830,7 @@ console.log(y);
 
 #### Antwoord: C
 
-We can unpack values from arrays or properties from objects through destructuring. For example:
+We kunnen waarden van arrays en objecten uitpakken door `destructuring`. Voorbeeld:
 
 ```javascript
 [a, b] = [1, 2];
@@ -1838,7 +1838,7 @@ We can unpack values from arrays or properties from objects through destructurin
 
 <img src="https://i.imgur.com/ADFpVop.png" width="200">
 
-The value of `a` is now `1`, en the value of `b` is now `2`. What we actually did in the question, is:
+De waarde van `a` is nu `1` en de waarde van `b` is nu `2`. Wat we dus eigenlijk deden in de vraag is:
 
 ```javascript
 [y] = [1, 2, 3, 4, 5];
@@ -1846,7 +1846,7 @@ The value of `a` is now `1`, en the value of `b` is now `2`. What we actually di
 
 <img src="https://i.imgur.com/NzGkMNk.png" width="200">
 
-This means that the value of `y` is equal to the first value in the array, which is the number `1`. When we log `y`, `1` is returned.
+Dat betekent dat de waarde van `y` gelijk is aan de eerste waarde van de array, het getal `1`. Wanneer we `y` loggen, geeft dit `1` terug.
 
 </p>
 </details>
