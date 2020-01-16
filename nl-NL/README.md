@@ -1773,9 +1773,9 @@ console.log(myCounter);
 
 #### Antwoord: C
 
-An imported module is _read-only_: you cannot modify the imported module. Only the module that exports them can change its value.
+Een geïmporteerde module is _readonly_: je kunt de geïmporteerde module niet aanpassen. Alleen de module die de exports doet kan de waarde aanpassen.
 
-When we try to increment the value of `myCounter`, it throws an error: `myCounter` is read-only en cannot be modified.
+Wanneer we de waarde van `myCounter` aanpassen zal dit een error gooien: `myCounter` is read-only en cannot be modified.
 
 </p>
 </details>
