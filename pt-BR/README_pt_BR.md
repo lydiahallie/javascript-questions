@@ -1336,9 +1336,9 @@ console.log(gen.next().value);
 
 #### Resposta: C
 
-Funções regulares não podem ser interrompidas durante execução após sua invocação. Entretanto, uma função generator pode ser interrompida, e depois continuar de onde parou. Uma função generator sempre possue a palavra chave `yield`, a função gera o valor específicado logo após. Note que a função generator, neste caso não retorna o valor, ele utiliza _yields_ no valor.
+Funções regulares não podem ser interrompidas durante execução após sua invocação. Entretanto, uma função generator pode ser interrompida, e depois continuar de onde parou. Uma função generator sempre possue a palavra-chave `yield`, a função gera o valor específicado logo após. Note que a função generator, neste caso não retorna o valor, ele utiliza _yields_ no valor.
 
-Primeiro, nós inicializamos a função generator com `i` igual a `10`. Nós chamamos a função generator utilizando o `next()` para próxima função. A primeira vez que executamos a função generator o `i` é igual a `10`. que possue a palavra chave `yield`: que atribue o yields ao valor de `i`. O generator é pausado e `10` é logado.
+Primeiro, nós inicializamos a função generator com `i` igual a `10`. Nós chamamos a função generator utilizando o `next()` para próxima função. A primeira vez que executamos a função generator o `i` é igual a `10`. que possue a palavra-chave `yield`: que atribue o yields ao valor de `i`. O generator é pausado e `10` é logado.
 
 Então, chamamos a próxima função novamente com o `next()`. Que continua de onde foi interrompido anteirormente, ainda com `i` igual a `10`. Agora, ele encontra o próximo `yield`, e yields `i * 2`. `i` é igual a `10`, que então retorna `10 * 2`, que é `20`. Seu resultado é `10, 20`.
 
@@ -1703,9 +1703,170 @@ pet.bark();
 
 #### Resposta: A
 
-Podemos deletar propriedade de um objeto utilizando a palavra chave `delete`,mesmo em um prototype. Deletando a propriedade do prototype, não é mais possível o prototype ser chamado. Neste caso, a função `bark` não está mais disponível no prototype após `delete Dog.prototype.bark`, ainda assim, tentamos acessá-lo.
+Podemos deletar propriedade de um objeto utilizando a palavra-chave `delete`, mesmo em um prototype. Deletando a propriedade do prototype, não é mais possível o prototype ser chamado. Neste caso, a função `bark` não está mais disponível no prototype após `delete Dog.prototype.bark`, ainda assim, tentamos acessá-lo.
 
 Quando tentamos invocar algo que não é uma função, um `TypeError` é lançado. Neste caso `TypeError: pet.bark is not a function`, desde que `pet.bark` é  `undefined`.
+
+</p>
+</details>
+
+
+---
+
+###### 56. Qual é a saída?
+
+```javascript
+const set = new Set([1, 1, 2, 3, 4]);
+
+console.log(set);
+```
+
+- A: `[1, 1, 2, 3, 4]`
+- B: `[1, 2, 3, 4]`
+- C: `{1, 1, 2, 3, 4}`
+- D: `{1, 2, 3, 4}`
+
+<details><summary><b>Resposta</b></summary>
+<p>
+
+#### Resposta: D
+
+O objeto `Set` é uma coleção _única_ de valores: o valor apenas ocorre uma vez dentro do set.
+
+Passamos um interável `[1, 1, 2, 3, 4]` com o valor `1` duplicado. Desde que não se pode ter dois valores not set, um deles é removido. Seu resultado é `{1, 2, 3, 4}`.
+
+</p>
+</details>
+
+---
+
+###### 57. Qual é a saída?
+
+```javascript
+// counter.js
+let counter = 10;
+export default counter;
+```
+
+```javascript
+// index.js
+import myCounter from "./counter";
+
+myCounter += 1;
+
+console.log(myCounter);
+```
+
+- A: `10`
+- B: `11`
+- C: `Error`
+- D: `NaN`
+
+<details><summary><b>Resposta</b></summary>
+<p>
+
+#### Resposta: C
+
+Um módulo importado é _apenas-leitura_: você não pode modificar o módulo importado. Apenas o módulo que se exporta que pode ter seu valor alterado.
+
+Quando tentamos incrementar o valor de `myCounter`, é lançado um error: `myCounter` é leitura-apenas e não pode ser modificado.
+
+</p>
+</details>
+
+---
+
+###### 58. Qual é a saída?
+
+```javascript
+const name = "Lydia";
+age = 21;
+
+console.log(delete name);
+console.log(delete age);
+```
+
+- A: `false`, `true`
+- B: `"Lydia"`, `21`
+- C: `true`, `true`
+- D: `undefined`, `undefined`
+
+<details><summary><b>Resposta</b></summary>
+<p>
+
+#### Resposta: A
+
+O operador `delete` retorna um boolean: `true` se a remoção for sucesso, caso contrário retornará `false`. Entretanto, variáveis declaradas com palavra-chave `var`, `const` ou `let` não podem ser deletadas com o operador `delete`.
+
+A variável `name` foi declarada com a palavra-chave `const`, portanto sua remoção não é um sucesso: `false` é retornado. Quando setamos `age` igual `21`, adicionamos a propriedade chamada `age` ao objeto global. Você pode com sucesso remover proporiedades de objetos desta forma, e também do objeto global, então `delete age` retorna `true`.
+
+</p>
+</details>
+
+---
+
+###### 59. Qual é a saída?
+
+```javascript
+const numbers = [1, 2, 3, 4, 5];
+const [y] = numbers;
+
+console.log(y);
+```
+
+- A: `[[1, 2, 3, 4, 5]]`
+- B: `[1, 2, 3, 4, 5]`
+- C: `1`
+- D: `[1]`
+
+<details><summary><b>Resposta</b></summary>
+<p>
+
+#### Resposta: C
+
+Podemos soltar valores de um vetor (array) ou propriedades de um objeto por meio da desestruturação. Por exemplo:
+
+```javascript
+[a, b] = [1, 2];
+```
+
+<img src="https://i.imgur.com/ADFpVop.png" width="200">
+
+O valor de `a` agora é `1`, e o valor de `b` é `2`. O que fizemos atualmente neste caso foi:
+
+```javascript
+[y] = [1, 2, 3, 4, 5];
+```
+
+<img src="https://i.imgur.com/NzGkMNk.png" width="200">
+
+Isso significa que o valor de `y` é igual ao primeiro valor retornado do vetor (array), que é o número `1`. Quando logamos `y`, `1` é retornado.
+
+</p>
+</details>
+
+---
+
+###### 60. Qual é a saída?
+
+```javascript
+const user = { name: "Lydia", age: 21 };
+const admin = { admin: true, ...user };
+
+console.log(admin);
+```
+
+- A: `{ admin: true, user: { name: "Lydia", age: 21 } }`
+- B: `{ admin: true, name: "Lydia", age: 21 }`
+- C: `{ admin: true, user: ["Lydia", 21] }`
+- D: `{ admin: true }`
+
+<details><summary><b>Resposta</b></summary>
+<p>
+
+#### Resposta: B
+
+É possível combinar objetos usando o operador spread `...`. Ele permite criar cópias das chaves e valores de um objeto, e adiciona a outro objeto. Neste caso, criamos cópia do objeto `user`, e adicionamos ele ao objeto `admin`. O objeto `admin` agora contém o objeto copiado, que resulta em `{ admin: true, name: "Lydia", age: 21 }`.
 
 </p>
 </details>
