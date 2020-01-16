@@ -1561,12 +1561,11 @@ console.log(person, birthYear);
 <p>
 
 #### Antwoord: A
+Argumenten worden meegegeven _by value_, tenzij de waarde een object is. Dan worden ze meegegeven _by reference_. `birthYear` is een string en geen object, waardoor het dus doorgegeven wordt _by value_. Wanneer we een argument meegeven _by value_ wordt er een _copy_ aangemaakt van het argument (zie vraag 46).
 
-Arguments are passed by _value_, unless their value is an object, then they're passed by _reference_. `birthYear` is passed by value, since it's a string, not an object. When we pass arguments by value, a _copy_ of that value is created (see question 46).
+De variabele `birthYear` heeft een referentie naar de waarde `"1997"`. Het argument `year` heeft ook een referentie naar de waarde '"1997"', maar het is niet dezelfde waarde als waar `birthYear` een referentie naar heeft. Wanneer we de waarde van `year` veranderen naar `"1998"`, veranderen we alleen de waarde van `year`. `birthYear` is nog steeds gelijk aan `"1997"`.
 
-The variable `birthYear` has a reference to the value `"1997"`. The argument `year` also has a reference to the value `"1997"`, but it's not the same value as `birthYear` has a reference to. When we update the value of `year` by setting `year` equal to `"1998"`, we are only updating the value of `year`. `birthYear` is still equal to `"1997"`.
-
-The value of `person` is an object. The argument `member` has a (copied) reference to the _same_ object. When we modify a property of the object `member` has a reference to, the value of `person` will also be modified, since they both have a reference to the same object. `person`'s `name` property is now equal to the value `"Lydia"`
+De waarde van `person` is een object. Het argument `member` heeft een (gekopieerde) referentie naar _hetzelfde_ object. Wanneer we een propertie veranderen van het object waar `member` een referentie naartoe heeft zal de waarde van `person` ook veranderen, omdat beide een referentie hebben naar hetzelfde object. De propertie `name` van `person` is nu gelijk aan `"Lydia"`.
 
 </p>
 </details>
