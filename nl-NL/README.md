@@ -1968,9 +1968,9 @@ console.log(num2);
 
 #### Antwoord: A
 
-The unary operator `++` _first returns_ the value of the operand, _then increments_ the value of the operand. The value of `num1` is `10`, since the `increaseNumber` function first returns the value of `num`, which is `10`, en only increments the value of `num` afterwards.
+De unary operator `++` geeft eerst de waarde van de variabele terug, en pas daarna de waarde verhogen van de variabele. De waarde van `num1` is `10` omdat de `increaseNumber` functie eerst de waarde van `num` teruggeeft, wat `10` is, en pas daarna de waarde van `num` verhogen met 1.
 
-`num2` is `10`, since we passed `num1` to the `increasePassedNumber`. `number` is equal to `10`(the value of `num1`. Again, the unary operator `++` _first returns_ the value of the operand, _then increments_ the value of the operand. The value of `number` is `10`, so `num2` is equal to `10`.
+`num2` is `10` omdat we `num1` meegeven aan de functie `increasePassedNumber`. `number` is gelijk aan `10` (de waarde van ` num1`). Nogmaals, de unary operator `++` zal _eerst_ de huidige waarde van de variabele teruggeven en pas _daarna_ de waarde verhogen. De waarde van `number` is `10`, dus de waarde van `num2` is ook `10`.
 
 </p>
 </details>
