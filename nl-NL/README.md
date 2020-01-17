@@ -1900,9 +1900,9 @@ console.log(Object.keys(person));
 
 #### Antwoord: B
 
-With the `defineProperty` method, we can add new properties to an object, or modify existing ones. When we add a property to an object using the `defineProperty` method, they are by default _not enumerable_. The `Object.keys` method returns all _enumerable_ property names from an object, in this case only `"name"`.
+Met de `defineProperty` methode kunnen we properties toevoegen aan een object, of bestaande properties aanpassen. Wanneer we properties toevoegen aan een object door gebruik te maken van `defineProperty` zijn deze standaard _not enumerable_. De `Object.keys` methode geeft alle _enumerable_ propertie namen terug van een object, in dit geval alleen `"name"`. 
 
-Properties added using the `defineProperty` method are immutable by default. You can override this behavior using the `writable`, `configurable` en `enumerable` properties. This way, the `defineProperty` method gives you a lot more control over the properties you're adding to an object.
+Properties toegevoegd met de `defineProperty` methode zijn standaard onveranderbaar. Je kunt dit gedrag aanpassen door, in het derde argument, de `writable`, `configurable` en `enumerable` opties mee te geven. Op die manier geeft de `defineProperties` je veel controle over de properties die je wilt toevoegen aan een object.
 
 </p>
 </details>
