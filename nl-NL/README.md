@@ -1932,11 +1932,11 @@ console.log(data);
 
 #### Antwoord: A
 
-The second argument of `JSON.stringify` is the _replacer_. The replacer can either be a function or an array, en lets you control what en how the values should be stringified.
+Het tweede argument van `JSON.stringify` is de _replacer_. De replacer kan óf een functie zijn óf een array, en geeft je controle over wat en hoe de waarden gestringified worden.
 
-If the replacer is an _array_, only the property names included in the array will be added to the JSON string. In this case, only the properties with the names `"level"` en `"health"` are included, `"username"` is excluded. `data` is now equal to `"{"level":19, "health":90}"`.
+Als de replacer een _array_ is zullen alleen de propertie namen die in de array zitten toegevoegd worden aan de JSON string. In dit geval worden alleen de properties `"level"` en `"health"` toegevoegd, `"username"` niet. `data` is nu gelijk aan `"{"level":19, "health":90}"`.
 
-If the replacer is a _function_, this function gets called on every property in the object you're stringifying. The value returned from this function will be the value of the property when it's added to the JSON string. If the value is `undefined`, this property is excluded from the JSON string.
+Als de replacer een _functie_ is zal die functie worden aangeroepen over elke propertie in het object dat je omzet naar een string. De waarde die teruggegeven wordt door die functie zal de waarde zijn van die propertie wanneer het wordt toegevoegd aan de JSON string. Als de waarde `undefined` is zal de property niet worden toegevoegd aan de JSON string.
 
 </p>
 </details>
