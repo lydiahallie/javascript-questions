@@ -1872,7 +1872,7 @@ console.log(admin);
 
 #### Antwoord: B
 
-It's possible to combine objects using the spread operator `...`. It lets you create copies of the key/value pairs of one object, en add them to another object. In this case, we create copies of the `user` object, en add them to the `admin` object. The `admin` object now contains the copied key/value pairs, which results in `{ admin: true, name: "Lydia", age: 21 }`.
+Het is mogelijk om objecten samen te voegen door gebruik te maken van de spread operator `...`. Het geeft je de mogelijkheid om key/value pairs van het ene object te kopiëren naar een ander object. In dit geval maken we een kopie van het `user` object en voegen het samen met het `admin` object. Het `admin` object bevat nu de gekopieerde key/value pairs, wat resulteert in `{ admin: true, name: "Lydia", age: 21 }`.
 
 </p>
 </details>
