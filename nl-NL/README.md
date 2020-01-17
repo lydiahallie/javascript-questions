@@ -2002,13 +2002,14 @@ multiply(value);
 
 #### Antwoord: C
 
-In ES6, we can initialize parameters with a default value. The value of the parameter will be the default value, if no other value has been passed to the function, or if the value of the parameter is `"undefined"`. In this case, we spread the properties of the `value` object into a new object, so `x` has the default value of `{ number: 10 }`.
+In ES6 kunnen we parameters initialiseren met een standaard waarde. De waarde van de parameter zal deze standaard waarde behouden zolang er geen andere waarde wordt meegegeven aan de functie, of als de waarde van de parameter `"undefined"` is. In dit geval kopiëren we de properties van het `value` object
+naar een nieuw object gebruikmakend van de spread operator, dus `x` heeft de standaard waarde `{ number: 10 }`.
 
-The default argument is evaluated at _call time_! Every time we call the function, a _new_ object is created. We invoke the `multiply` function the first two times without passing a value: `x` has the default value of `{ number: 10 }`. We then log the multiplied value of that number, which is `20`.
+De standaard waarde wordt geëvalueerd tijdens _call time_ (aanroeptijd)! Elke keer wanneer we de functie aanroepen wordt er een nieuw object aangemaakt. We roepen de `multiply` functie de eerste twee keer aan zonder een waarde mee te geven: `x` heeft de standaard waarde van `{ number: 10 }`. We loggen dan de vermenigvuldigde waarde van dat getal, wat `20` is. 
 
-The third time we invoke multiply, we do pass an argument: the object called `value`. The `*=` operator is actually shorthand for `x.number = x.number * 2`: we modify the value of `x.number`, en log the multiplied value `20`. 
+De derde keer dat we de functie `multiply` aanroepen geven we wel een waarde mee: het object genaamd `value`. De `*=` operator is eigenlijk een verkorting van `x.number = x.number * 2`: we passen de waarde van `x.number` aan en loggen de vermenigvuldigde waarde `20`.
 
-The fourth time, we pass the `value` object again. `x.number` was previously modified to `20`, so `x.number *= 2` logs `40`. 
+De vierde keer geven we weer het `value` object mee. `x.number` was al aangepast naar `20`, en `x.number *= 2` logt `40`.
 
 </p>
 </details>
