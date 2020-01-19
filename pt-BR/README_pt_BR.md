@@ -1598,3 +1598,32 @@ Com a declaração `catch`, podemos especificar o que fazer se uma exceção é 
 </details>
 
 ---
+
+
+###### 53. Qual é a saída?
+
+```javascript
+function Carro() {
+  this.make = "Lamborghini";
+  return { make: "Maserati" };
+}
+
+const meuCarro = new Carro();
+console.log(meuCarro.make);
+```
+
+- A: `"Lamborghini"`
+- B: `"Maserati"`
+- C: `ReferenceError`
+- D: `TypeError`
+
+<details><summary><b>Resposta</b></summary>
+<p>
+
+#### Resposta: B
+Quando você retorna uma propriedade, o valor da propriedade é igual ao valor _retornado_, não o valor setado (configurado) no construtor da função. Retornamos a string `"Maserati"`, então `meuCarro.make` é igual a `"Maserati"`.
+
+</p>
+</details>
+
+---
