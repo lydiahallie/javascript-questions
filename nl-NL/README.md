@@ -2178,9 +2178,9 @@ console.log(name.padStart(2))
 
 #### Antwoord: C
 
-With the `padStart` method, we can add padding to the beginning of a string. The value passed to this method is the _total_ length of the string together with the padding. The string `"Lydia Hallie"` has a length of `12`. `name.padStart(13)` inserts 1 space at the start of the string, because 12 + 1 is 13.
+Met de `padStart` methode kunnen we witruimte toevoegen aan het begin van de string. De waarde die meegegeven wordt aan de methode is de _totale_ lengte van de string, samen met de witruimte. De string `"Lydia Hallie"` heeft een lengte van `13`. `name.padStart(13)` plaatst 1 spatie toe aan het begin van de string omdat 12 + 1 = 13. 
 
-If the argument passed to the `padStart` method is smaller than the length of the array, no padding will be added.
+Als het argument dat we meegeven aan de `padStart` methode kleiner is dan de lengte van de string zullen er geen spaties worden toegevoegd.
 
 </p>
 </details>
