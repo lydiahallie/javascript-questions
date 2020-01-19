@@ -2126,9 +2126,9 @@ export const sum = (a, b) => a + b;
 
 #### Antwoord: B
 
-With the `import` keyword, all imported modules are _pre-parsed_. This means that the imported modules get run _first_, the code in the file which imports the module gets executed _after_.
+Met het `import` keyword worden alle geïmporteerde modules _pre-parsed_. Dat betekent dat de geïmporteerde modules _als eerste_ uitgevoerd zal worden en de code waarin de module geïmporteerde wordt _als tweede_.
 
-This is a difference between `require()` in CommonJS en `import`! With `require()`, you can load dependencies on demand while the code is being run. If we would have used `require` instead of `import`, `running index.js`, `running sum.js`, `3` would have been logged to the console. 
+Dit is een verschil tussen `require()` in CommonJS en `import`! Met `require()` kun je dependencies inladen tijdens dat de code uitgevoerd wordt. Als we `require` gebruikt hadden in plaats van `import` zou er `running index.js`, `running sum.js`, `3` gelogt worden in het console.
 
 </p>
 </details>
