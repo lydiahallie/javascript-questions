@@ -2032,17 +2032,18 @@ De vierde keer geven we weer het `value` object mee. `x.number` was al aangepast
 
 #### Antwoord: D
 
-The first argument that the `reduce` method receives is the _accumulator_, `x` in this case. The second argument is the _current value_, `y`. With the reduce method, we execute a callback function on every element in the array, which could ultimately result in one single value. 
+Het eerste argument van de `reduce` methode is de _accumulator_, in dit geval `x`. Het tweede argument is de _huidige waarde_, `y`. Met de `reduce` methode voeren we een functie uit op elk element in de array, wat uiteindelijk zal resulteren in een enkele waarde.
 
-In this example, we are not returning any values, we are simply logging the values of the accumulator en the current value.
+In dit voorbeeld geven we geen waarde terug. We loggen enkel the waarden van de accumulator en de huidige waarde.
 
-The value of the accumulator is equal to the previously returned value of the callback function. If you don't pass the optional `initialValue` argument to the `reduce` method, the accumulator is equal to the first element on the first call.
+De waarde van de accumulator is gelijk aan de vorige teruggegeven waarde van de callback functie. Als je niet de optionele `initialValue` meegeeft aan de `reduce` methode, de accumulator is gelijk aan het eerste element tijdens de eerste aanroep. 
 
-On the first call, the accumulator (`x`) is `1`, en the current value (`y`) is `2`. We don't return from the callback function, we log the accumulator en current value: `1` en `2` get logged.  
+Tijdens de eerste aanroep is de accumulator (`x`) `1` en de huidige waarde (`y`) `2`. We geven niets terug in de callback function, we loggen de accumulator en de huidige waarde: `1` en `2` worden gelogd.
 
-If you don't return a value from a function, it returns `undefined`. On the next call, the accumulator is `undefined`, en the current value is `3`. `undefined` en `3` get logged. 
+Als je niets teruggeeft in een functie, zal de functie `undefined` teruggeven. Tijdens de volgende aanroep is de accumulator `undefined` en de huidige waarde `3`. `undefined` en `3` worden gelogt. 
 
-On the fourth call, we again don't return from the callback function. The accumulator is again `undefined`, en the current value is `4`. `undefined` en `4` get logged.
+Tijdens de vierde aanroep geven we wederom niets terug in de callback functie. De accumulator is wederom `undefined`, en de huidige waarde `4`. `undefined` en `4` worden gelogt.
+
 </p>
 </details>
   
