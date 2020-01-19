@@ -1627,3 +1627,46 @@ Quando você retorna uma propriedade, o valor da propriedade é igual ao valor _
 </details>
 
 ---
+
+
+
+###### 54. Qual é a saída?
+
+```javascript
+(() => {
+  let x = (y = 10);
+})();
+
+console.log(typeof x);
+console.log(typeof y);
+```
+
+- A: `"undefined", "number"`
+- B: `"number", "number"`
+- C: `"object", "number"`
+- D: `"number", "undefined"`
+
+<details><summary><b>Resposta</b></summary>
+<p>
+
+#### Reposta: A
+
+`let x = y = 10;` é, na verdade, uma maneira sucinta de fazer o mesmo que:
+
+```javascript
+y = 10;
+let x = y;
+```
+Quando setamos `y` para `10`, na verdade adicionamos uma propriedade `y` ao objeto global (`window` no browser, `global` no Node). Em um browser,`window.y` agora é igual a`10`.
+
+Then, we declare a variable `x` with the value of `y`, which is `10`. Variables declared with the `let` keyword are _block scoped_, they are only defined within the block they're declared in; the immediately-invoked function (IIFE) in this case. When we use the `typeof` operator, the operand `x` is not defined: we are trying to access `x` outside of the block it's declared in. This means that `x` is not defined. Values who haven't been assigned a value or declared are of type `"undefined"`. `console.log(typeof x)` returns `"undefined"`.
+
+
+Então declaramos uma variável `x` com o valor de `y`, que é `10`. Variáveis declaradas com a palavra-chave`let` têm escopo de bloco, elas estão definidas apenas dentro do bloco no qual estão declaradas; a função imediatamene invocada (do inglês, immediately-invoked), (IIFE), nesse caso. Quando usamos o operador `typeof`, o operador `x` não está definido: estamos tentando acessar `x` fora do bloco no qual ele está declarado. Isso significa que `x` não está definido. Variáveis às quais não se atribui nenhum valor ou não foram declaradas são do tipo `"undefined"`. `console.log(typeof x)` retorna `"undefined"`.
+
+
+No entanto, criamos uma variável global `y` quando seetamos `y` para `10`. Esse valor é acessível em qualquer lugar do nosso código. `y` está definido, e comporta o valor de tipo `"number"`. `console.log(typeof y)` retorna `"number"`.
+</p>
+</details>
+
+---
