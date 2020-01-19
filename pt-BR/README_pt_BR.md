@@ -1131,16 +1131,16 @@ console.log(numbers);
 - C: `[1, 2, 3, 7 x empty, 11]`
 - D: `SyntaxError`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>Resposta</b></summary>
 <p>
 
-#### Answer: C
+#### Resposta: C
 
-When you set a value to an element in an array that exceeds the length of the array, JavaScript creates something called "empty slots". These actually have the value of `undefined`, but you will see something like:
+Quando você define um valor para um elemento em um array que excede o tamanho do próprio array, o JavaScript cria algo chamado "empty slots" (espaços vazios). Na verdade, esses espaços vazios tem o valor de `undefined`, mas você verá algo como:
 
 `[1, 2, 3, 7 x empty, 11]`
 
-depending on where you run it (it's different for every browser, node, etc.)
+dependendo de onde você o executa, pois é diferente para cada navegador, node etc.
 
 </p>
 </details>
@@ -1330,16 +1330,198 @@ console.log(gen.next().value);
 - B: `20, 20`
 - C: `10, 20`
 - D: `0, 10 e 10, 20`
+<details><summary><b>Resposta</b></summary>
+<p>
+
+#### Resposta: C
+
+Funções regulares não podem ser interrompidas durante execução após sua invocação. Entretanto, uma função generator pode ser interrompida, e depois continuar de onde parou. Uma função generator sempre possue a palavra chave `yield`, a função gera o valor específicado logo após. Note que a função generator, neste caso não retorna o valor, ele utiliza _yields_ no valor.
+
+Primeiro, nós inicializamos a função generator com `i` igual a `10`. Nós chamamos a função generator utilizando o `next()` para próxima função. A primeira vez que executamos a função generator o `i` é igual a `10`. que possue a palavra chave `yield`: que atribue o yields ao valor de `i`. O generator é pausado e `10` é logado.
+
+Então, chamamos a próxima função novamente com o `next()`. Que continua de onde foi interrompido anteirormente, ainda com `i` igual a `10`. Agora, ele encontra o próximo `yield`, e yields `i * 2`. `i` é igual a `10`, que então retorna `10 * 2`, que é `20`. Seu resultado é `10, 20`.
+
+</p>
+</details>
+
+---
+
+###### 45. Qual o retorno?
+
+```javascript
+const firstPromise = new Promise((res, rej) => {
+  setTimeout(res, 500, "one");
+});
+
+const secondPromise = new Promise((res, rej) => {
+  setTimeout(res, 100, "two");
+});
+
+Promise.race([firstPromise, secondPromise]).then(res => console.log(res));
+```
+
+- A: `"one"`
+- B: `"two"`
+- C: `"two" "one"`
+- D: `"one" "two"`
+
+<details><summary><b>Resposta</b></summary>
+<p>
+
+#### Resposta: B
+
+Quando passamos múltiplas "promises" para a função `Promise.race`, ele resolve ou rejeita a primeira "promise". Para a função de `setTimeout`, nós passamos um tempo de 500ms para a primeira promise (`firstPromise`), e 100ms para a segunda promise (`secondPromise`). Isso significa que o `secondPromise` resolve primeiro com o valor de `'two'`. `res` que agora possui o valor `'two'`, que foi logado.
+
+</p>
+</details>
+
+---
+
+###### 46. Qual é a saída?
+
+```javascript
+let person = { name: "Lydia" };
+const members = [person];
+person = null;
+
+console.log(members);
+```
+
+- A: `null`
+- B: `[null]`
+- C: `[{}]`
+- D: `[{ name: "Lydia" }]`
+
+<details><summary><b>Resposta</b></summary>
+<p>
+
+#### Resposta: D
+
+Primeiro, declaramos a variável `person` com o valor de um objeto que possui o propriedade `name`.
+
+<img src="https://i.imgur.com/TML1MbS.png" width="200">
+
+Então, declaramos a variável chamada `members`. Setamos o valor do primeiro elemento do array igual ao valor da variável `person`. Objetos interados por _referência_ quando ao defini-los iguais entre si. Quando você atribui uma referência de uma variável para outra, você faz uma _cópia_ de sua referência. (note que eles não possuem a _mesma_ referência!)
+
+<img src="https://i.imgur.com/FSG5K3F.png" width="300">
+
+Então, setamos a variável `person` igual a `null`.
+
+<img src="https://i.imgur.com/sYjcsMT.png" width="300">
+
+Estamos apenas modificando o valor da variável `person`, e não o primeiro elemento do array, desde que o elemento tem uma diferente referência (copiada) de um objeto. O primeiro elemento de `members` ainda mantém sua referência com o objeto original. Quando logamos o array de `members`, o primeiro elemento ainda mantém o valor do objeto, que é logado.
+
+</p>
+</details>
+
+---
+
+###### 47. Qual é a saída?
+
+```javascript
+const person = {
+  name: "Lydia",
+  age: 21
+};
+
+for (const item in person) {
+  console.log(item);
+}
+```
+
+- A: `{ name: "Lydia" }, { age: 21 }`
+- B: `"name", "age"`
+- C: `"Lydia", 21`
+- D: `["name", "Lydia"], ["age", 21]`
+
+<details><summary><b>Resposta</b></summary>
+<p>
+
+#### Resposta: B
+
+Utilizando o loop `for-in`, podemos interar através das chaves do objeto, neste caso o `name` e `age`. Por baixo dos panos, chaves de objetos são strings (eles não são um símbolo). Em cada loop, setamos ao valor do `item` igual ao da chave atual, que se intera. Primeiro, `item` é igual ao `name`, e é logado. Então, `item` é igual a idade `age`, que é logado.
+
+</p>
+</details>
+
+---
+
+###### 48. Qual é a saída?
+
+```javascript
+console.log(3 + 4 + "5");
+```
+
+- A: `"345"`
+- B: `"75"`
+- C: `12`
+- D: `"12"`
+
+<details><summary><b>Resposta</b></summary>
+<p>
+
+#### Resposta: B
+
+Associatividade do operador é a ordem na qual o compilador avalia as expressões, ou esquerda-para-direita ou direita-para-esquerda. Isso apenas acontece se todos os operatores possuem a _mesma_ precedência. Apenas temos um tipo de operador: `+`. Para adição, a associatividade é esquerda-para-direita.
+
+`3 + 4` é avaliado primeiro. Seu resultado é o número `7`.
+
+`7 + '5'` resulta em `"75"` por causa da coerção. JavaScript converte o número `7` em string, veja a questão 15. Podemos concatenar duas strings com o operador de `+`. `"7" + "5"` resulta em `"75"`.
+
+</p>
+</details>
+
+---
+
+###### 49. Qual o retorno de `num`?
+
+```javascript
+const num = parseInt("7*6", 10);
+```
+
+- A: `42`
+- B: `"42"`
+- C: `7`
+- D: `NaN`
 
 <details><summary><b>Resposta</b></summary>
 <p>
 
 #### Resposta: C
 
-Funções regulares não podem ser paradas no meio do caminho (antes de sua finalização). No entando, uma função geradora pode ser "parada" no meio do caminho, e depois continuar de onde parou. Toda vez que uma função geradora encontra uma palavra-chave 'yield', a função produz o valor especificado depois dela. Note que a função gerador, nesse caso, não _retorna_ o valor, mas sim _produz_ o valor.
+Apenas os primeiros números da string é retornado. Baseado no _radix_ (o segundo parametro na ordem especifica qual o tipo de número queremos atribuir o parse: base 10, hexadecimal, octal, binary, etc.), o `parseInt` checa se os caracteres na string são válidos. Depois de encontrar um caracter que não é um número válido no radix, ele interrompe o parse e ignora os seguintes caracteres.
 
-Primeiro, inicializamos a função geradora com `i` igual a `10`. Invocamos a função geradora usando o método `next()`. Na primeira vez que invocamos a função geradora, `i` é igual a `10`. Ela encontra o primeiro a primeira palavra-chave `yield`: ela retorna o valor de `i`. A geradora agora está "parada", e `10` é registrado.
+`*` não é um número válido. Ele apenas usa o parse no `"7"` em decimal `7`. `num` possui o valor `7`.
 
-Então, incovamos a função novamente com o método `next()`. Ela continua de onde parou anteriormente, ainda com `i` igual a `10`. Agora, ela encontra a próxima palavra-chave `yield`, e produz `i * 2`. `i` é igual a `10`, então ela retorna `10 * 2`, que é `20`. Isso resulta em `10, 20`.
 </p>
 </details>
+
+---
+
+###### 50. Qual é a saída?
+
+```javascript
+[1, 2, 3].map(num => {
+  if (typeof num === "number") return;
+  return num * 2;
+});
+```
+
+- A: `[]`
+- B: `[null, null, null]`
+- C: `[undefined, undefined, undefined]`
+- D: `[ 3 x empty ]`
+
+<details><summary><b>Resposta</b></summary>
+<p>
+
+#### Resposta: C
+
+Quando mapeamos um array (map), o valor de `num` é igual ao elemento que está percorrendo. Neste caso, os elementos são números, então a condição do se (if) `typeof num === "number"` retorna `true`. A função map cria um novo array e insere os valores retornados da função.
+
+Entretanto, não se retorna o valor. Quando não se retorna um valor para a função, a função retorna `undefined`. Para cada elemento do array, o bloco de função é chamado, então para cada elemento é retornado `undefined`.
+
+</p>
+</details>
+
+---
