@@ -2153,7 +2153,7 @@ console.log(Symbol('foo') === Symbol('foo'))
 
 #### Antwoord: A
 
-Every Symbol is entirely unique. The purpose of the argument passed to the Symbol is to give the Symbol a description. The value of the Symbol is not dependent on the passed argument. As we test equality, we are creating two entirely new symbols: the first `Symbol('foo')`, en the second `Symbol('foo')`. These two values are unique en not equal to each other, `Symbol('foo') === Symbol('foo')` returns `false`. 
+Elk Symbol is volledig uniek. Het doel van het argument dat meegegeven wordt aan de Symbol is om de Symbol een omschrijving te geven. De waarde van de Symbol is niet afhankelijk van het doorgegeven argument. Als we de waarden vergelijken creëeren we compleet nieuwe Symbols: de eerste `Symbol('foo')` en de tweede `Symbol('foo')`. Deze twee waarden zijn uniek en niet gelijk aan elkaar, `Symbol('foo') === Symbol('foo')` geeft `false` terug.
 
 </p>
 </details>
