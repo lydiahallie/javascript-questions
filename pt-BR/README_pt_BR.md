@@ -1525,3 +1525,40 @@ Entretanto, não se retorna o valor. Quando não se retorna um valor para a fun�
 </details>
 
 ---
+
+###### 51. Qual é a saída?
+
+```javascript
+function getInfo(member, year) {
+  member.name = "Lydia";
+  year = "1998";
+}
+
+const person = { name: "Sarah" };
+const birthYear = "1997";
+
+getInfo(person, birthYear);
+
+console.log(person, birthYear);
+```
+
+- A: `{ name: "Lydia" }, "1997"`
+- B: `{ name: "Sarah" }, "1998"`
+- C: `{ name: "Lydia" }, "1998"`
+- D: `{ name: "Sarah" }, "1997"`
+
+<details><summary><b>Resposta</b></summary>
+<p>
+
+#### Resposta: A
+Argumentos são passados por _valor_, a não ser que seus valores sejam um objeto: nesse caso, são passados por _referência_. `birthYear` é passado por valor, já que é uma string, não um objeto. Quando passamos argumentos por valor, uma _cópia_ desse valor é criada (veja a questão 46).
+
+A variável `birthYear` tem comporta o valor `"1997"`. O argumento `year` também tem o valor `"1997"`, mas não é o mesmo valor para o qual `birthYear` tem uma aponta. Quando atualizamos o valor de `year` "setando" (configurando) `year` para `"1998"`, estamos atualizando apenas o valor de `year`, isto é, apenas dentro da função. `birthYear` ainda é igual a `"1997"`.
+
+O valor de `person` é um objeto. O argumento `member` tem uma referência (copiada) para o _mesmo_ objeto. Quando modificamos uma propriedade do objeto `member`, o valor de `person` também será modificando, já que eles têm uma referência (apontam) para o mesmo objeto. Portanto, agora a propriedade `name` é igual ao valor `"Lydia"`.
+
+</p>
+</details>
+
+---
+
