@@ -1562,3 +1562,39 @@ O valor de `person` é um objeto. O argumento `member` tem uma referência (copi
 
 ---
 
+###### 52. Qual é a saída?
+
+```javascript
+function cumprimento() {
+  throw "Olá, Mundo!";
+}
+
+function falaOi() {
+  try {
+    const data = cumprimento();
+    console.log("Funcionou!", data);
+  } catch (e) {
+    console.log("Oh no, um erro: ", e);
+  }
+}
+
+falaOi();
+```
+
+- A: `Funcionou! Olá, Mundo!`
+- B: `Oh no, um erro: undefined`
+- C: `SyntaxError: can only throw Error objects`
+- D: `Oh no, um erro: Olá, Mundo!`
+
+<details><summary><b>Resposta</b></summary>
+<p>
+
+#### Resposta: D
+
+Com a declração `throw`, podemos criar erros customizados. Com essa declaração, você pode lançar exceções. Uma exceção pode ser uma <b>string</b>, a <b>number</b>, a <b>boolean</b> or an <b>object</b>. Nesse caso, nossa exceção é a string `'Olá, Mundo!'`.
+
+Com a declaração `catch`, podemos especificar o que fazer se uma exceção é lançada no bloco `try`. Uma exceção é lançada: a string `'Olá, Mundo!'`. `e` agora é igual a essa string, a qual mostramos. Isso resulta em `Oh no, um erro: Olá, Mundo!'`.
+</p>
+</details>
+
+---
