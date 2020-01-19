@@ -2092,11 +2092,12 @@ class Labrador extends Dog {
 
 #### Antwoord: B
 
-In a derived class, you cannot access the `this` keyword before calling `super`. If you try to do that, it will throw a ReferenceError: 1 en 4 would throw a reference error.
+In de afgeleide class kun je het `this` keyword niet benaderen totdat je `super` hebt aangeroepen. Als je toch probeert zal dit een _ReferenceError_ gegooid worden: 1 en 4 zouden een reference error gooien.
 
-With the `super` keyword, we call that parent class's constructor with the given arguments. The parent's constructor receives the `name` argument, so we need to pass `name` to `super`. 
+Met het `super` keyword roepen we de parent class zijn contructor aan met het meegegeven argument. De parent class' contructor verwacht het argument `name`, dus we moeten `name` meegeven aan `super`.
 
-The `Labrador` class receives two arguments, `name` since it extends `Dog`, en `size` as an extra property on the `Labrador` class. They both need to be passed to the constructor function on `Labrador`, which is done correctly  using constructor 2.
+De `Labrador` class verwacht twee argumenten, `name` omdat het een afgeleide is van `Dog`, en `size` als een propertie van de `Labrador` class zelf. Ze zullen allebei meegegeven moeten worden aan de contructor van `Labrador`, wat op de juiste manier gebeurt bij constructor 2.
+
 </p>
 </details>
 
