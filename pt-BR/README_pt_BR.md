@@ -1329,8 +1329,7 @@ console.log(gen.next().value);
 - A: `[0, 10], [10, 20]`
 - B: `20, 20`
 - C: `10, 20`
-- D: `0, 10 and 10, 20`
-
+- D: `0, 10 e 10, 20`
 <details><summary><b>Resposta</b></summary>
 <p>
 
@@ -1522,6 +1521,395 @@ Quando mapeamos um array (map), o valor de `num` é igual ao elemento que está 
 
 Entretanto, não se retorna o valor. Quando não se retorna um valor para a função, a função retorna `undefined`. Para cada elemento do array, o bloco de função é chamado, então para cada elemento é retornado `undefined`.
 
+</p>
+</details>
+
+---
+
+###### 51. Qual é a saída?
+
+```javascript
+function getInfo(member, year) {
+  member.name = "Lydia";
+  year = "1998";
+}
+const person = { name: "Sarah" };
+const birthYear = "1997";
+getInfo(person, birthYear);
+console.log(person, birthYear);
+```
+
+- A: `{ name: "Lydia" }, "1997"`
+- B: `{ name: "Sarah" }, "1998"`
+- C: `{ name: "Lydia" }, "1998"`
+- D: `{ name: "Sarah" }, "1997"`
+
+<details><summary><b>Resposta</b></summary>
+<p>
+
+#### Resposta: A
+
+Os argumentos são passados ​​por _valor_. Porém, se seu valor for um objeto, eles são passados ​​por _referência_. `birthYear` é passado por valor, já que é uma string, não um objeto. Quando passamos argumentos por valor, uma _cópia_ desse valor é criada (consulte a pergunta 46).
+
+A variável `birthYear` tem uma referência ao valor `"1997"`. O argumento `year` também tem uma referência ao valor `"1997"`, mas não é o mesmo valor de referência de `birthYear`. Quando atualizamos o valor de `year`, definindo ` year` igual a `"1998"`, estamos apenas atualizando o valor de `year`. `birthYear` ainda é igual a `"1997"`.
+
+O valor de `person` é um objeto. O argumento `member` possui uma referência (copiada) do _mesmo_ objeto . Quando modificamos uma propriedade do objeto que `member` tem referência, o valor de `person` também será modificado, pois ambos tem referência ao mesmo objeto. A propriedade `name` de `person` agora é igual ao valor `"Lydia"`.
+
+</p>
+</details>
+
+---
+
+###### 52. Qual é a saída?
+
+```javascript
+function greeting() {
+  throw "Hello world!";
+}
+function sayHi() {
+  try {
+    const data = greeting();
+    console.log("It worked!", data);
+  } catch (e) {
+    console.log("Oh no an error:", e);
+  }
+}
+sayHi();
+```
+
+- A: `It worked! Hello world!`
+- B: `Oh no an error: undefined`
+- C: `SyntaxError: can only throw Error objects`
+- D: `Oh no an error: Hello world!`
+
+<details><summary><b>Resposta</b></summary>
+<p>
+
+#### Resposta: D
+
+Com a declaração `throw`, podemos criar erros personalizados. Com esta declaração, você pode lançar exceções. Uma exceção pode ser uma <b>string</b>, um <b>número</b>, um <b>booleano</b> ou um <b>objeto</b>. Nesse caso, nossa exceção é a string `'Hello world!'`.
+
+Com a declaração `catch`, podemos especificar o que fazer se uma exceção for lançada no bloco `try`. Uma exceção foi lançada: a string `'Hello world'`. `e` agora é igual a essa string que registramos. Isso resulta em `'Oh no an error: Hello world!'`.
+
+</p>
+</details>
+
+---
+
+###### 53. Qual é a saída?
+
+```javascript
+function Car() {
+  this.make = "Lamborghini";
+  return { make: "Maserati" };
+}
+const myCar = new Car();
+console.log(myCar.make);
+```
+
+- A: `"Lamborghini"`
+- B: `"Maserati"`
+- C: `ReferenceError`
+- D: `TypeError`
+
+<details><summary><b>Resposta</b></summary>
+<p>
+
+#### Resposta: B
+
+Quando você retorna uma propriedade, o valor da propriedade é igual ao valor _retornado_, não ao valor _definido_ na função do construtor. Retornamos a string `"Maserati"`, então `myCar.make` é igual a `"Maserati"`.
+
+</p>
+</details>
+
+---
+
+###### 54. Qual é a saída?
+
+```javascript
+(() => {
+  let x = (y = 10);
+})();
+console.log(typeof x);
+console.log(typeof y);
+```
+
+- A: `"undefined", "number"`
+- B: `"number", "number"`
+- C: `"object", "number"`
+- D: `"number", "undefined"`
+
+<details><summary><b>Resposta</b></summary>
+<p>
+
+#### Resposta: A
+
+`let x = y = 10;` é na realidade uma abreviação de:
+
+```javascript
+y = 10;
+let x = y;
+```
+
+Quando definimos `y` igual a `10`, adicionamos na verdade uma propriedade `y` ao objeto global (`window` no navegador, `global` no Node). Em um navegador, `window.y` agora é igual a `10`.
+
+Então, declaramos uma variável `x` com o valor de `y`, que é `10`. As variáveis ​​declaradas com `let` tem _escopo definido no bloco_ ou seja, são definidas apenas dentro do bloco em que são declaradas, neste caso, _immediately-invoked function_ (IIFE). Quando usamos o operador `typeof`, o operando `x` não está definido: estamos tentando acessar `x` fora do bloco em que está declarado. Isso significa que `x` não está definido. Os valores que não foram atribuídos ou declarados a um valor são do tipo `"undefined"`. `console.log(typeof x)` retorna `"undefined"`.
+
+No entanto, criamos uma variável global `y` ao definir `y` igual a `10`. Este valor está acessível em qualquer lugar do nosso código. `y` é definido e mantém um valor do tipo `"number"`. `console.log(typeof y)` retorna `"number"`.
+
+</p>
+</details>
+
+---
+
+###### 55. Qual é a saída?
+
+```javascript
+class Dog {
+  constructor(name) {
+    this.name = name;
+  }
+}
+Dog.prototype.bark = function() {
+  console.log(`Woof I am ${this.name}`);
+};
+const pet = new Dog("Mara");
+pet.bark();
+delete Dog.prototype.bark;
+pet.bark();
+```
+
+- A: `"Woof I am Mara"`, `TypeError`
+- B: `"Woof I am Mara"`, `"Woof I am Mara"`
+- C: `"Woof I am Mara"`, `undefined`
+- D: `TypeError`, `TypeError`
+
+<details><summary><b>Resposta</b></summary>
+<p>
+
+#### Resposta: A
+
+Podemos excluir propriedades de objetos usando `delete`, também no prototype. Ao excluir uma propriedade no prototype, ela não está mais disponível na cadeia de prototypes. Nesse caso, a função `bark` não está mais disponível no prototype depois de `delete Dog.prototype.bark`, mas ainda tentamos acessá-lo.
+
+Quando tentamos invocar algo que não é uma função, um `TypeError` é lançado. Neste caso, `TypeError: pet.bark is not a function`, uma vez que `pet.bark` é `undefined`.
+
+</p>
+</details>
+
+---
+
+###### 56. Qual é a saída?
+
+```javascript
+const set = new Set([1, 1, 2, 3, 4]);
+console.log(set);
+```
+
+- A: `[1, 1, 2, 3, 4]`
+- B: `[1, 2, 3, 4]`
+- C: `{1, 1, 2, 3, 4}`
+- D: `{1, 2, 3, 4}`
+
+<details><summary><b>Resposta</b></summary>
+<p>
+
+#### Resposta: D
+
+O objeto `Set` é uma coleção de valores _exclusivos_ : um valor pode ocorrer apenas uma vez.
+
+Passamos o iterável `[1, 1, 2, 3, 4]` com um valor `1` duplicado. Como não podemos ter dois dos mesmos valores em um conjunto, um deles é removido. Isso resulta em `{1, 2, 3, 4}`.
+
+</p>
+</details>
+
+---
+
+###### 57. Qual é a saída?
+
+```javascript
+// counter.js
+let counter = 10;
+export default counter;
+```
+
+```javascript
+// index.js
+import myCounter from "./counter";
+myCounter += 1;
+console.log(myCounter);
+```
+
+- A: `10`
+- B: `11`
+- C: `Error`
+- D: `NaN`
+
+<details><summary><b>Resposta</b></summary>
+<p>
+
+#### Resposta: C
+
+Um módulo importado é _somente leitura_: você não pode modificar o módulo importado. Somente o módulo que os exporta pode alterar seu valor.
+
+Quando tentamos aumentar o valor de `myCounter`, recebemos um erro: `myCounter` é somente leitura e não pode ser modificado.
+
+</p>
+</details>
+
+---
+
+###### 58. Qual é a saída?
+
+```javascript
+const name = "Lydia";
+age = 21;
+console.log(delete name);
+console.log(delete age);
+```
+
+- A: `false`, `true`
+- B: `"Lydia"`, `21`
+- C: `true`, `true`
+- D: `undefined`, `undefined`
+
+<details><summary><b>Resposta</b></summary>
+<p>
+
+#### Resposta: A
+
+O operador `delete` retorna um valor booleano: `true` em uma exclusão bem-sucedida, caso contrário, ele retorna `false`. No entanto, variáveis declaradas com `var`, `const` ou `let` não podem ser excluídas usando o operador `delete`.
+
+A variável `name` foi declarada com `const`, portanto sua exclusão não é bem-sucedida: `false` é retornado. Quando definimos `age` igual a `21`, na verdade adicionamos uma propriedade chamada `age` para o objeto global. Dessa forma, você pode excluir propriedades dos objetos, portanto `delete age` returns `true`.
+
+</p>
+</details>
+
+---
+
+###### 59. Qual é a saída?
+
+```javascript
+const numbers = [1, 2, 3, 4, 5];
+const [y] = numbers;
+console.log(y);
+```
+
+- A: `[[1, 2, 3, 4, 5]]`
+- B: `[1, 2, 3, 4, 5]`
+- C: `1`
+- D: `[1]`
+
+<details><summary><b>Resposta</b></summary>
+<p>
+
+#### Resposta: C
+
+Podemos descompactar valores de matrizes ou propriedades de objetos através da desestruturação. Por exemplo:
+
+```javascript
+[a, b] = [1, 2];
+```
+
+<img src="https://i.imgur.com/ADFpVop.png" width="200">
+
+O valor de `a` agora é `1` e o valor de `b` agora é `2`. O que realmente fizemos na pergunta é:
+
+```javascript
+[y] = [1, 2, 3, 4, 5];
+```
+
+<img src="https://i.imgur.com/NzGkMNk.png" width="200">
+
+Isso significa que o valor de `y` é igual ao primeiro valor no array, que é o número `1`. Quando registramos no console `y`, `1` é retornado.
+
+</p>
+</details>
+
+---
+
+###### 60. Qual é a saída?
+
+```javascript
+const user = { name: "Lydia", age: 21 };
+const admin = { admin: true, ...user };
+console.log(admin);
+```
+
+- A: `{ admin: true, user: { name: "Lydia", age: 21 } }`
+- B: `{ admin: true, name: "Lydia", age: 21 }`
+- C: `{ admin: true, user: ["Lydia", 21] }`
+- D: `{ admin: true }`
+
+<details><summary><b>Resposta</b></summary>
+<p>
+
+#### Resposta: B
+
+
+É possível combinar objetos usando o operador o spread operator `...`. Ele permite criar cópias dos pares de um objeto e adicioná-las a outro objeto. Nesse caso, criamos cópias do objeto `user` e as adicionamos ao objeto `admin`. O objeto `admin` agora contém os pares de chave/valor copiados, o que resulta em `{ admin: true, name: "Lydia", age: 21 }`.
+
+</p>
+</details>
+
+---
+
+###### 61. Qual é saída?
+
+```javascript
+const person = { name: "Lydia" };
+
+Object.defineProperty(person, "age", { value: 21 });
+
+console.log(person);
+console.log(Object.keys(person));
+```
+
+- A: `{ name: "Lydia", age: 21 }`, `["name", "age"]`
+- B: `{ name: "Lydia", age: 21 }`, `["name"]`
+- C: `{ name: "Lydia"}`, `["name", "age"]`
+- D: `{ name: "Lydia"}`, `["age"]`
+
+<details><summary><b>Resposta</b></summary>
+<p>
+
+#### Resposta: B
+Com o método `defineProperty`, podemos adicionar novas propriedades a um objeto ou modificar propriedades já existentes. Quando adicionamos uma propriedade a um objeto usando o método `defineProperty`, ela é, por padrão, _não enumerável_. O método`Object.keys` retorna todos os nomes de uma propriedade _enumerável_  de um objeto. Nesse caso, apenas `"name"`.
+
+Propriedades adicionadas usando o método `defineProperty` são imutáveis por padrão. Você pode sobrepor esse comportamento usando as propriedade `writable`, `configurable` e `enumerable`. 
+Assim, o método `defineProperty` dá a você muito mais controle sobre as propriedades que você está adicionando a um objeto.
+</p>
+</details>
+
+---
+
+###### 62. Qual é a saída?
+
+```javascript
+const settings = {
+  username: "lydiahallie",
+  level: 19,
+  health: 90
+};
+
+const data = JSON.stringify(settings, ["level", "health"]);
+console.log(data);
+```
+
+- A: `"{"level":19, "health":90}"`
+- B: `"{"username": "lydiahallie"}"`
+- C: `"["level", "health"]"`
+- D: `"{"username": "lydiahallie", "level":19, "health":90}"`
+
+<details><summary><b>Resposta</b></summary>
+<p>
+
+#### Answer: A
+
+O segundo argumento de `JSON.stringify` é o _substituo_. O substituto pode ser uma função ou um array, e deixa você controlar o que deve ser "stringfied", isto é, ser usado pelo método `JSON.stringfy`.
+
+Se o substituto (replacer) for um _array_, apenas os nomes de propriedades incluídos no array serão adicionados à string JSON. Nesse caso, apenas as propriedades com os nomes `"level"` ed `"health"` são incluída, `"username"` é excluída. `data` agora é igual a `"{"level":19, "health":90}"`.
+
+Se o substituto (replacer) for uma _função_, essa função é chamada em c ada propriedade no objeto que está sendo "Stringfied". O valor retornado dessa função será o valor da propriedade quanto adicionado à string JSON. Se o valor for `undefined`, essa propriedade é excluída da string JSON.
 </p>
 </details>
 
