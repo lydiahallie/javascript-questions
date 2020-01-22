@@ -4700,7 +4700,7 @@ const person = {
 
 - A: Nothing, object are iterable by default
 - B: `*[Symbol.iterator]() { for (let x in this) yield* this[x] }`
-- C: `*[Symbol.iterator]() { for (let x in this) yield* Object.values(this) }`
+- C: `*[Symbol.iterator]() { yield* Object.values(this) }`
 - D: `*[Symbol.iterator]() { for (let x in this) yield this }`
 
 <details><summary><b>Answer</b></summary>
