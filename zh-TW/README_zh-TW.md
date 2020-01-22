@@ -763,3 +763,164 @@ console.log(obj);
 </details>
 
 ---
+
+###### 26. JavaScript 在全域執行環境為你做了兩件事：全域物件和 this 關鍵字。
+
+- A: true
+- B: false
+- C: it depends
+
+<details><summary><b>答案</b></summary>
+<p>
+
+#### 答案: A
+
+基本执行上下文是全局执行上下文：它是代码中随处可访问的内容。
+基底的執行環境是全域的：代表它在程式碼中，可被隨處使用。
+
+</p>
+</details>
+
+---
+
+###### 27. 將會輸出什麽內容？
+
+```javascript
+for (let i = 1; i < 5; i++) {
+  if (i === 3) continue;
+  console.log(i);
+}
+```
+
+- A: `1` `2`
+- B: `1` `2` `3`
+- C: `1` `2` `4`
+- D: `1` `3` `4`
+
+<details><summary><b>答案</b></summary>
+<p>
+
+#### 答案: C
+
+當 `if` 條件成立時會回傳 `true`，執行 `continue` 語句，代表忽略本次迭代（`console.log(i)`）。
+
+</p>
+</details>
+
+---
+
+###### 28. 將會輸出什麽內容？
+
+```javascript
+String.prototype.giveLydiaPizza = () => {
+  return 'Just give Lydia pizza already!';
+};
+
+const name = 'Lydia';
+
+name.giveLydiaPizza();
+```
+
+- A: `"Just give Lydia pizza already!"`
+- B: `TypeError: not a function`
+- C: `SyntaxError`
+- D: `undefined`
+
+<details><summary><b>答案</b></summary>
+<p>
+
+#### 答案: A
+
+`String` 是內建的建構函式，我們可以向它新增属性。我只是在它的原型中加上一個方法。基本型別字串被自動轉換成字串物件，由字串原型函式生成。因此，所有 string（string 物件）都可以使用 `giveLydiaPizza` 方法！
+
+</p>
+</details>
+
+---
+
+###### 29. 將會輸出什麽內容？
+
+```javascript
+const a = {};
+const b = { key: 'b' };
+const c = { key: 'c' };
+
+a[b] = 123;
+a[c] = 456;
+
+console.log(a[b]);
+```
+
+- A: `123`
+- B: `456`
+- C: `undefined`
+- D: `ReferenceError`
+
+<details><summary><b>答案</b></summary>
+<p>
+
+#### 答案: B
+
+物件的 key 自動轉為字串型別。我們正嘗試將物件 `b` 的 key 設為物件 `a` 的 key，其值爲 `123`。
+
+然而，當物件「字串化」，它會變成 `"[object Object]"`。所以這裡的意思是，`a["[object Object]"] = 123`。然後，我們又再做了一次一樣的事情，`c` 也是隱式的物件字串化，所以，`a["[object Object]"] = 456`。
+
+最後，我們輸出 `a[b]`，也就是 `a["[object Object]"]`。之前剛賦值爲 `456`，將回傳 `456`。
+
+</p>
+</details>
+
+---
+
+###### 30. 將會輸出什麽內容？
+
+```javascript
+const foo = () => console.log('First');
+const bar = () => setTimeout(() => console.log('Second'));
+const baz = () => console.log('Third');
+
+bar();
+foo();
+baz();
+```
+
+- A: `First` `Second` `Third`
+- B: `First` `Third` `Second`
+- C: `Second` `First` `Third`
+- D: `Second` `Third` `First`
+
+<details><summary><b>答案</b></summary>
+<p>
+
+#### 答案: B
+
+我們有一個 `setTimeout` 函式，首先呼叫它。然而，它的執行順序是最後執行的。
+
+因為在瀏覽器中，我們除了有執行引擎，還有一個 `WebAPI`。`WebAPI` 提供了 `setTimeout` 函式，也包含其他的，例如 DOM。
+
+在『callback』推送到 `WebAPI` 後，`setTimeout` 函式本身（不是回呼函式）將從堆疊（`stack`）中彈出。
+
+<img src="https://i.imgur.com/X5wsHOg.png" width="200">
+
+現在，`foo` 被呼叫，印出 `"First"`。
+
+<img src="https://i.imgur.com/Pvc0dGq.png" width="200">
+
+`foo` 從堆疊中彈出，`baz` 被呼叫，印出 `"Third"`。
+
+<img src="https://i.imgur.com/WhA2bCP.png" width="200">
+
+WebAPI 不能隨時向堆疊内新增内容。相反，它會將回呼函式彈到名爲『`queue`』的地方。
+
+<img src="https://i.imgur.com/NSnDZmU.png" width="200">
+
+這就是事件迴圈（`Event Loop`）的流程，了解**事件迴圈**堆疊與任務佇列的運作模式。如果堆疊是空的，它接受任務佇列上的第一个元素，推入堆疊中。
+
+<img src="https://i.imgur.com/uyiScAI.png" width="200">
+
+`bar` 被呼叫，印出 `"Second"`，然後它被彈出堆疊。
+
+</p>
+</details>
+
+---
