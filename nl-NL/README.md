@@ -2303,13 +2303,13 @@ console.log(data);
 
 #### Antwoord: C
 
-An async function always returns a promise. The `await` still has to wait for the promise to resolve: a pending promise gets returned when we call `getData()` in order to set `data` equal to it.
+Een asynchrone functie geeft altijd een promise terug. De `await` moet nog steeds wachten op de oplossing van de promise: een wachtende promise wordt teruggegeven wanneer we `getData()` aanroepen om daarmee `data` te vullen.
 
-If we wanted to get access to the resolved value `"I made it"`, we could have used the `.then()` method on `data`:
+Als we de teruggegeven waarde van de promise `"I made it"` willen benaderen zouden we de `then()` method kunnen gebruiken op `data`:
 
 `data.then(res => console.log(res))`
 
-This would've logged `"I made it!"`
+Dit zou wel `"I made it!"` loggen.
 
 </p>
 </details>
