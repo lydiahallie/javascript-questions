@@ -4730,10 +4730,10 @@ myMagicFunction()
 console.log(x);
 ```
 
-- A: Uncaught TypeError: Assignment to constant variable.
-- B: 1
-- C: 2
-- D: 3
+- A: `Uncaught TypeError: Assignment to constant variable.`
+- `B: 1`
+- `C: 2`
+- `D: 3`
 
 <details><summary><b>Answer</b></summary>
 <p>
