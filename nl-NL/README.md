@@ -2398,11 +2398,11 @@ console.log(name);
 
 #### Antwoord: D
 
-When we unpack the property `name` from the object on the right-hand side, we assign its value `"Lydia"` to a variable with the name `myName`.
+Wanneer we de propertie `name` opvragen van het object aan de rechterkant wijzen we de waarde `"Lydia"` toe aan de variabele met de naam `myName`.
 
-With `{ name: myName }`, we tell JavaScript that we want to create a new variable called `myName` with the value of the `name` property on the right-hand side.
+Met `{ name: myName }` zeggen we in JavaScript dat we een nieuwe variabele aan willen maken met de naam `myName` met de waarde van de `name` propertie van het object aan de rechterkant.
 
-Since we try to log `name`, a variable that is not defined, a ReferenceError gets thrown.
+Omdat we proberen `name` te loggen, een variabele die niet gedefinieerd is, wordt er een ReferenceError gegooid.
 
 </p>
 </details>
