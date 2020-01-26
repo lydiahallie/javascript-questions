@@ -4713,3 +4713,34 @@ Objects aren't iterable by default. An iterable is an iterable if the iterator p
 </p>
 </details>
 
+---
+
+###### 144. What's the output?
+
+```javascript
+const x = 1;
+function myMagicFunction(){
+    x=2;
+    return;
+    function x(){
+        return 3;
+    }
+}
+myMagicFunction()
+console.log(x);
+```
+
+- A: Uncaught TypeError: Assignment to constant variable.
+- B: 1
+- C: 2
+- D: 3
+
+<details><summary><b>Answer</b></summary>
+<p>
+
+#### Answer: B
+Functions declared by keyword `function` are hoisted like normally `var` variables. Although function `x` is declared below `return` it's still defined in `myMagicFunction` scope. It is why `x=2` doesn't overwrite `const x`, but creat new scope for `x` variable.
+
+</p>
+</details>
+
