@@ -2505,13 +2505,13 @@ for (let item of myLifeSummedUp) {
 
 #### Antwoord: A
 
-With a _for-in_ loop, we can iterate over **enumerable** properties. In an array, the enumerable properties are the "keys" of array elements, which are actually their indexes. You could see an array as:
+Met de _for-in_ loop kunnen we itereren over de **enumerable** properties. In een array zijn de "keys" van de array elementen enumarable, wat eigenlijk hun indexen zijn. Je kunt een array zien als:
 
 `{0: "☕", 1: "💻", 2: "🍷", 3: "🍫"}`
 
-Where the keys are the enumerable properties. `0` `1` `2` `3` get logged.
+Waar de keys de enumarable properties zijn. `0` `1` `2` `3` worden gelogd.
 
-With a _for-of_ loop, we can iterate over **iterables**. An array is an iterable. When we iterate over the array, the variable "item" is equal to the element it's currently iterating over, `"☕"` ` "💻"` `"🍷"` `"🍫"` get logged.
+Met de _for-of_ loop kunnen we itereren over **iterables**. Een array is een iterable. Wanneer we itereren over een array is de waarde van de variabele "item" gelijk aan het huidige element, `"☕"` ` "💻"` `"🍷"` `"🍫"` wordt gelogd.
 
 </p>
 </details>
