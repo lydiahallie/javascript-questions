@@ -2466,15 +2466,15 @@ console.log(addFunction(5 * 2));
 
 #### Antwoord: C
 
-The `add` function is a _memoized_ function. With memoization, we can cache the results of a function in order to speed up its execution. In this case, we create a `cache` object that stores the previously returned values.
+De `add` functie is een _memoized_ functie. Met memoization kunnen we het resultaat van een functie cachen om de uitvoering ervan te versnellen. In dit geval maken we een `cache` object aan waarin we de waarde van dat de vorige keer werd teruggegeven opslaan.
 
-If we call the `addFunction` function again with the same argument, it first checks whether it has already gotten that value in its cache. If that's the case, the caches value will be returned, which saves on execution time. Else, if it's not cached, it will calculate the value en store it afterwards.
+Als we de functie `addFunction` aanroepen met hetzelfde argument wordt eerst gecheckt of de waarde al in de cache voorkomt. Als dat het geval is wordt de opgeslagen waarde teruggegeven, waardoor de functie niet helemaal hoeft te worden uitgevoerd. Anders, als de waarde nog niet is opgeslagen in de cache, zal het de waarde berekenen en daarna opslaan in de cache.
 
-We call the `addFunction` function three times with the same value: on the first invocation, the value of the function when `num` is equal to `10` isn't cached yet. The condition of the if-statement `num in cache` returns `false`, en the else block gets executed: `Calculated! 20` gets logged, en the value of the result gets added to the cache object. `cache` now looks like `{ 10: 20 }`.
+We roepen de functie `addFunction` drie keer aan met dezelfde waarde: Tijdens de eerste aanroep is de waarde van de functie `num` wanneer het gelijk is aan `10` nog niet opgslagen in de cache. De conditie van de if-statement `num in cache` geeft `false` terug waardoor we in de else-statement komen: `Calculated! 20` wordt gelogd en de waarde van het resultaat wordt opgeslagen in het cache object. `cache` ziet er nu uit als `{ 10: 20 }`.
 
-The second time, the `cache` object contains the value that gets returned for `10`. The condition of the if-statement `num in cache` returns `true`, en `'From cache! 20'` gets logged.
+De tweede keer bevat het object `cache` de waarde dat teruggegeven wordt wanneer `10` wordt meegegeven. De conditie van de if-statement `num in cache` geeft `true` terug en `'From cache! 20'` wordt gelogd.
 
-The third time, we pass `5 * 2` to the function which gets evaluated to `10`. The `cache` object contains the value that gets returned for `10`. The condition of the if-statement `num in cache` returns `true`, en `'From cache! 20'` gets logged.
+De derde keer geven we `5 * 2` mee aan de functie wat `10` oplevert. Het `cache` object bevat de waarde dat teruggegeven gaat worden voor `10`. De conditie van de if-statement `num in cache` geeft `true` terug en `'From cache! 20'` wordt gelogd.
 
 </p>
 </details>
