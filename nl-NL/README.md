@@ -2263,19 +2263,19 @@ console.log(String.raw`Hello\nworld`);
 
 #### Antwoord: C
 
-`String.raw` returns a string where the escapes (`\n`, `\v`, `\t` etc.) are ignored! Backslashes can be an issue since you could end up with something like:
+`String.raw` geeft een string terug waarbij de escapes (`\n`, `\v`, `\t` etc.) genegeerd worden! Backslashes kunnen een probleem zijn omdat je kunt eindigen met zoiets als:
 
 `` const path = `C:\Documents\Projects\table.html` ``
 
-Which would result in:
+Wat resulteert in:
 
 `"C:DocumentsProjects able.html"`
 
-With `String.raw`, it would simply ignore the escape en print:
+Met `String.raw` worden de escapes simpelweg genegeerd:
 
 `C:\Documents\Projects\table.html`
 
-In this case, the string is `Hello\nworld`, which gets logged.
+In dit geval wordt `Hello\nworld` gelogd.
 
 </p>
 </details>
