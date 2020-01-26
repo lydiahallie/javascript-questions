@@ -2337,9 +2337,9 @@ console.log(result);
 
 #### Antwoord: B
 
-The `.push()` method returns the _length_ of the new array! Previously, the array contained one element (the string `"banana"`) en had a length of `1`. After adding the string `"apple"` to the array, the array contains two elements, en has a length of `2`. This gets returned from the `addToList` function.
+De `push()` methode geeft de _Lengte_ terug van de nieuwe array! In eerste instantie bevatte de array één element (de string `"banana"`) en had een lengte van `1`. Nadat de string `"apple"` toegevoegd wordt aan de array bevat de array twee elementen en heeft een lengte van `2`. Dit wordt dan ook teruggegeven door de `addToList` functie.
 
-The `push` method modifies the original array. If you wanted to return the _array_ from the function rather than the _length of the array_, you should have returned `list` after pushing `item` to it.
+De `push()` methode past de originele array aan. Als je de _array_ zelf terug zou willen geven in plaats van de _lengte van de array_ zou je de `list` moeten teruggeven nadat de `item` toegevoegd is.
 
 </p>
 </details>
