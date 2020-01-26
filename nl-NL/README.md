@@ -2425,9 +2425,9 @@ function sum(a, b) {
 
 #### Antwoord: A
 
-A pure function is a function that _always_ returns the same result, if the same arguments are passed.
+Een `pure function` is een functie die _altijd_ dezelfde waarde teruggeeft, zolang hetzelfde argument wordt meegegeven.
 
-The `sum` function always returns the same result. If we pass `1` en `2`, it will _always_ return `3` without side effects. If we pass `5` en `10`, it will _always_ return `15`, en so on. This is the definition of a pure function.
+De `sum` functie geeft altijd dezelfde waarde terug. Als we `1` en `2` meegeven zal het _altijd_ `3` teruggeven. Als we de waarde `5` en `10` meegeven zal het _altijd_ `15` teruggeven. Dit is de definitie van een `pure function`.
 
 </p>
 </details>
