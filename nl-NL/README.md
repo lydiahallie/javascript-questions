@@ -2236,11 +2236,11 @@ console.log(/* 2 */); // JavaScript loves you back ❤️
 
 #### Antwoord: C
 
-A generator function "pauses" its execution when it sees the `yield` keyword. First, we have to let the function yield the string "Do you love JavaScript?", which can be done by calling `game.next().value`.
+Een generator functie "pauzeert" tijdens de uitvoering wanneer het het keyword `yield` tegenkomt. Allereerst laten we de functie de string "Do you love JavaScript?" opleveren. Dat kunnen we doen door `game.next().value` te gebruiken.
 
-Every line is executed, until it finds the first `yield` keyword. There is a `yield` keyword on the first line within the function: the execution stops with the first yield! _This means that the variable `answer` is not defined yet!_
+Elke lijn van de functie wordt uitgevoerd totaan het eerste `yield` keyword. Er is een `yield` aanwezig op de eerste lijn van de functie: de uitvoering stopt bij de eerste `yield`! _Dat betekent dat de variabele `answer` nog niet gedefinieerd is!_
 
-When we call `game.next("Yes").value`, the previous `yield` is replaced with the value of the parameters passed to the `next()` function, `"Yes"` in this case. The value of the variable `answer` is now equal to `"Yes"`. The condition of the if-statement returns `false`, en `JavaScript loves you back ❤️` gets logged.
+Wanneer we `game.next("Yes").value` aanroepen wordt de vorige `yield` vervangen met de waarde van de parameters die zijn meegegeven aan de `next()` functie, `"Yes"` in dit geval. De waarde van de variabele `answer` is nu gelijk aan `"Yes"`. De conditie van de if-statement geeft `false` terug en `JavaScript loves you back ❤️` wordt gelogd.
 
 </p>
 </details>
