@@ -2369,11 +2369,11 @@ console.log(shape);
 
 #### Antwoord: B
 
-`Object.freeze` makes it impossible to add, remove, or modify properties of an object (unless the property's value is another object).
+`Object.freeze` maakt het onmogelijk om properties van een object toe te voegen, te verwijderen of aan te passen (tenzij de waarde van de propertie zelf een object is).
 
-When we create the variable `shape` en set it equal to the frozen object `box`, `shape` also refers to a frozen object. You can check whether an object is frozen by using `Object.isFrozen`. In this case, `Object.isFrozen(shape)` returns true, since the variable `shape` has a reference to a frozen object.
+Wanneer we de variabele `shape` aanmaken en hieraan het bevroren object `box` toewijzen zal de referentie naar het bevroren object blijven bestaan. Je kunt checken of een object bevroren is door `Object.isFrozen` te gebruiken. In dit geval geeft `Object.isFrozen(shape)` true terug omdat de referentie naar het bevroren object `box` is blijven bestaan.
 
-Since `shape` is frozen, en since the value of `x` is not an object, we cannot modify the property `x`. `x` is still equal to `10`, en `{ x: 10, y: 20 }` gets logged.
+Omdat `shape` bevroren is en omdat de waarde van `x` geen object is kunnen we de propertie `x` niet aanpassen. `x` is nog steeds gelijk aan `10` en `{ x: 10, y: 20 }` wordt gelogd.
 
 </p>
 </details>
