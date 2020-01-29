@@ -561,6 +561,9 @@ getPersonInfo`${person} is ${age} years old`;
 
 If you use tagged template literals, the value of the first argument is always an array of the string values. The remaining arguments get the values of the passed expressions!
 
+Read about template literals:
+* [Mozilla Developer Network](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals)
+* [Tagged Template Literals](https://wesbos.com/tagged-template-literals/)
 </p>
 </details>
 
