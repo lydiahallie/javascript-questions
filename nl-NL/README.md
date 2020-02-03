@@ -2640,13 +2640,13 @@ console.log(person)
 
 #### Antwoord: A
 
-We set the variable `city` equal to the value of the property called `city` on the `person` object. There is no property on this object called `city`, so the variable `city` has the value of `undefined`. 
+We vullen de variabele `city` met de waarde van de propertie `city` op het object `person`. Er is echter geen propertie `city` op dit object, dus de variabele `city` krijgt de waarde `undefined`.
 
-Note that we are _not_ referencing the `person` object itself! We simply set the variable `city` equal to the current value of the `city` property on the `person` object.
+Let op dat we _niet_ refereren naar het object `person` zelf! We vullen de waarde van de variabele `city` enkel met de waarde van de propertie `city` op het `person` object.
 
-Then, we set `city` equal to the string `"Amsterdam"`. This doesn't change the person object: there is no reference to that object.
+Daarna zetten we de waarde van `city` gelijk aan de string `"Amsterdam"`. Dit verandert niets aan het object `person`: we hebben geen referentie naar dat object.
 
-When logging the `person` object, the unmodified object gets returned. 
+Wanneer we het object `person` loggen, wordt het onaangepaste object gelogd.
 
 </p>
 </details>
