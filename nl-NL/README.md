@@ -2564,13 +2564,13 @@ console.log(sayHi())
 
 #### Antwoord: B
 
-By default, arguments have the value of `undefined`, unless a value has been passed to the function. In this case, we didn't pass a value for the `name` argument. `name` is equal to `undefined` which gets logged.
+Argumenten hebben standaard de waarde `undefined`, tenzij de waarde wordt meegegeven aan de functie. In dit geval hebben we geen waarde meegegeven voor het argument `name`. `name` is gelijk aan `undefined` wat gelogd wordt.
 
-In ES6, we can overwrite this default `undefined` value with default parameters. For example:
+In ES6 kunnen we argumenten een standaard waarde geven. Als voorbeeld:
 
 `function sayHi(name = "Lydia") { ... }`
 
-In this case, if we didn't pass a value or if we passed `undefined`, `name` would always be equal to the string `Lydia`
+In dit geval zal de waarde van het argument `name`, als we geen waarde meegeven aan de functie, standaard `Lydia` bevatten. 
 
 </p>
 </details>
