@@ -2679,7 +2679,7 @@ console.log(checkAge(21))
 
 #### Antwoord: C
 
-Variables with the `const` en `let` keyword are _block-scoped_. A block is anything between curly brackets (`{ }`). In this case, the curly brackets of the if/else statements. You cannot reference a variable outside of the block it's declared in, a ReferenceError gets thrown.
+Variabelen gedeclareerd met de keywords `const` en `let` zijn _block-scoped_. Een block is alles tussen accolades (`{ }`). In dit geval de accolades van de if/else statements. Je kunt niet refereren naar een variabele buiten het block waarin het gedeclareerd is. Een ReferenceError wordt gegooid.
 
 </p>
 </details>
