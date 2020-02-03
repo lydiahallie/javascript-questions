@@ -2850,7 +2850,7 @@ console.log(typeof member)
 
 #### Antwoord: C
 
-Classes are syntactical sugar for function constructors. The equivalent of the `Person` class as a function constructor would be:
+Classes zijn een syntactisch sausje voor functie constructors. Het equivalent van de class `Person` als een functie constructor zou zijn:
 
 ```javascript
 function Person() {
@@ -2858,7 +2858,7 @@ function Person() {
 }
 ```
 
-Calling a function constructor with `new` results in the creation of an instance of `Person`, `typeof` keyword returns `"object"` for an instance. `typeof member` returns `"object"`. 
+Het aanroepen van de functie contructor met `new` resulteert in het creëeren van een instantie van `Person`. Het keyword `typeof` geeft voor een instantie `"object"` terug. `typeof member` geeft `"object"` terug.
 
 </p>
 </details>
