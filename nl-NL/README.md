@@ -2787,9 +2787,9 @@ sum(10)
 
 #### Antwoord: B
 
-You can set a default parameter's value equal to another parameter of the function, as long as they've been defined _before_ the default parameter. We pass the value `10` to the `sum` function. If the `sum` function only receives 1 argument, it means that the value for `num2` is not passed, en the value of `num1` is equal to the passed value `10` in this case. The default value of `num2` is the value of `num1`, which is `10`.  `num1 + num2` returns `20`.
+Je kunt een parameters standaard waarde gelijk zetten aan een andere parameter van diezelfde functie, zolang deze definieerd is _voor_ de parameter met een standaard waarde. We geen de waarde `10` mee aan de `sum` functie. Als de `sum` functie maar één argument meekrijgt betekent dit dat de waarde van `num2` gevuld wordt met de waarde van `num1`. `10` in dit geval. De standaard waarde van `num2` is de waarde van `num1`, wat `10` is. `num1 + num2` geeft `20` terug.
 
-If you're trying to set a default parameter's value equal to a parameter which is defined _after_ (to the right), the parameter's value hasn't been initialized yet, which will throw an error. 
+Als je probeert de standaard waarde van een parameter te vullen met de waarde van een parameter welke gedefinieerd is _na_ de standaard parameter, dan is de parameter nog niet geïnitialiseerd  en wordt er een error gegooid.
 
 </p>
 </details>
