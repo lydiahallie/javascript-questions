@@ -2704,7 +2704,7 @@ fetch('https://www.website.com/api/user/1')
 
 #### Antwoord: C
 
-The value of `res` in the second `.then` is equal to the returned value of the previous `.then`. You can keep chaining `.then`s like this, where the value is passed to the next handler.
+De waarde van `res` in de tweede `.then` is gelijk aan de geretourneerde waarde in de vorige `.then`. Je kunt `.then`s zoals dit blijven `chainen`, waarbij de waarde wordt meegegeven aan de volgende `handler`.
 
 </p>
 </details>
