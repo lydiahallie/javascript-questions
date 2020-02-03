@@ -2729,13 +2729,13 @@ function getName(name) {
 
 #### Antwoord: A
 
-With `!!name`, we determine whether the value of `name` is truthy or falsy. If name is truthy, which we want to test for, `!name` returns `false`. `!false` (which is what `!!name` practically is) returns `true`.
+Met `!!name` stellen we vast of de waarde van `name` truthy of falsy is. Als `name` truthy is, dit is wat we willen testen, zal `!name` `false` teruggeven. `!false` (wat `!!name` feitelijk is) geeft `true` terug.
 
-By setting `hasName` equal to `name`, you set `hasName` equal to whatever value you passed to the `getName` function, not the boolean value `true`.
+Wanneer we `hasName` vullen met `name`, vullen we het met dat wat we meegeven aan de `getName` functie, niet de boolean waarde `true`. 
 
-`new Boolean(true)` returns an object wrapper, not the boolean value itself.
+`new Boolean(true)` geeft een object wrapper terug, niet de boolean waarde zelf.
 
-`name.length` returns the length of the passed argument, not whether it's `true`.
+`name.length` geeft de lengte terug van de meegegeven waarde, niet of het `true` is.
 
 </p>
 </details>
