@@ -2818,10 +2818,9 @@ console.log(data)
 <p>
 
 #### Antwoord: A
+Met de `import * as name` syntax importeren we _alle exports_ van `module.js` bestand in het bestand `index.js` als een nieuw object met de naam `data`. In het bestand `module.js` zijn er twee exports: de standaard export en de benoemde export. De standaard export is een functie dat de string `"Hello world"` teruggeeft, en de benoemde export is de variabele `name` wat de waarde van de string `"Lydia"` bevat.
 
-With the `import * as name` syntax, we import _all exports_ from the `module.js` file into the `index.js` file as a new object called `data` is created. In the `module.js` file, there are two exports: the default export, en a named export. The default export is a function which returns the string `"Hello World"`, en the named export is a variable called `name` which has the value of the string `"Lydia"`. 
-
-The `data` object has a `default` property for the default export, other properties have the names of the named exports en their corresponding values. 
+Het object `data` bevat een propertie `default` voor de standaard export. Andere properties hebben de naam van de benoemde exports en hun corresponderende waarden.
 
 </p>
 </details>
