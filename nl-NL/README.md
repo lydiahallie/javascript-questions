@@ -2607,10 +2607,9 @@ setTimeout(() => {
 
 #### Antwoord: B
 
-The value of the `this` keyword is dependent on where you use it. In a **method**, like the `getStatus` method, the `this` keyword refers to _the object that the method belongs to_. The method belongs to the `data` object, so `this` refers to the `data` object. When we log `this.status`, the `status` property on the `data` object gets logged, which is `"🥑"`.
+De waarde van het keyword `this` hangt af van in welke scope je het gebruikt. In een **methode**, zoals de `getStatus` methode, het `this` keyword verwijst naar _het object waartoe de methode behoort_. De methode behoort toe aan het `data` object, dus `this` verwijst naar het `data` object. Wanneer we `this.status` loggen wordt de `status` propertie van het `data` object gelogd, wat `"🥑"` is.
 
-With the `call` method, we can change the object to which the `this` keyword refers. In **functions**, the `this` keyword refers to the _the object that the function belongs to_. We declared the `setTimeout` function on the _global object_, so within the `setTimeout` function, the `this` keyword refers to the _global object_. On the global object, there is a variable called _status_ with the value of `"😎"`. When logging `this.status`, `"😎"` gets logged.
-
+Met de `call` methode kunnen we het object veranderen waarnaar het keyword `this` verwijst. In **functies** refereert het keyword `this` naar _het object waartoe de function behoort_. We declareren de `setTimeout` functie op het _globale object_, dus binnen de `setTimeout` functie refereert het keyword `this` naar het _globale object_. Op het globale object bestaat de variabele genaamd _status_ met de waarde `"😎"`. Wanneer we `this.status` loggen wordt `"😎"` gelogd.
 
 </p>
 </details>
