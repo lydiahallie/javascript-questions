@@ -2758,9 +2758,9 @@ console.log("I want pizza"[0])
 
 #### Antwoord: B
 
-In order to get an character on a specific index in a string, you can use bracket notation. The first character in the string has index 0, en so on. In this case we want to get the element which index is 0, the character `"I'`, which gets logged.
+Om een karakter van een string op een specifieke index te krijgen kun je blokhaken gebruiken. Het eerste karakter in de string heeft de index 0. In dit geval willen we het element hebben met de index 0, het karakter `"I"`, wat gelogd wordt.
 
-Note that this method is not supported in IE7 en below. In that case, use `.charAt()`
+Let op dat deze methode niet ondersteund wordt in IE7 en daaronder. In dat geval maak je gebruik van `.charAt()`.
 
 </p>
 </details>
