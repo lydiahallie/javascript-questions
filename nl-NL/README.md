@@ -2535,9 +2535,9 @@ console.log(list)
 
 #### Antwoord: C
 
-Array elements can hold any value. Numbers, strings, objects, other arrays, null, boolean values, undefined, en other expressions such as dates, functions, en calculations.
+Array elementen kunnen elke waarde bevatten. Nummers, strings, objecten, andere arrays, null, boolean waarden, undefined en andere expressies zoals datums, functies en berekeningen. 
 
-The element will be equal to the returned value.  `1 + 2` returns `3`, `1 * 2` returns `2`, en `1 / 2` returns `0.5`.
+Het element zal gelijk zijn aan de teruggegeven waarde. `1 + 2` geeft `3` terug, `1 * 2` geeft `2` terug en `1 / 2` geeft `0.5` terug.
 
 </p>
 </details>
