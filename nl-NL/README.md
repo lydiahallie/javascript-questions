@@ -2979,7 +2979,7 @@ getItems(["banana", "apple"], "pear", "orange")
 
 #### Antwoord: D
 
-`...args` is a rest parameter. The rest parameter's value is an array containing all remaining arguments, **en can only be the last parameter**! In this example, the rest parameter was the second parameter. This is not possible, en will throw a syntax error. 
+`...args` is een rest parameter. De waarde van een rest parameter is een array die alle overgebleven argumenten bevat, en om die reden **alleen de laatste parameter kan zijn**! In dit voorbeeld is de rest parameter niet de laatste parameter, wat niet mogelijk is. Er wordt een syntax error gegooid.
 
 ```javascript
 function getItems(fruitList, favoriteFruit, ...args) {
@@ -2989,7 +2989,8 @@ function getItems(fruitList, favoriteFruit, ...args) {
 getItems(["banana", "apple"], "pear", "orange")
 ```
 
-The above example works. This returns the array `[ 'banana', 'apple', 'orange', 'pear' ]`
+Het bovenstaande voorbeeld werkt. Dit geeft de array `[ 'banana', 'apple', 'orange', 'pear' ]` terug.
+
 </p>
 </details>
 
