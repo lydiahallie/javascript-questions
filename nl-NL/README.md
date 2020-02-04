@@ -3068,7 +3068,7 @@ console.log(member.name)
 
 #### Antwoord: B
 
-We can set classes equal to other classes/function constructors. In this case, we set `Person` equal to `AnotherPerson`. The name on this constructor is `Sarah`, so the name property on the new `Person` instance `member` is `"Sarah"`.
+We kunnen classes gelijk zetten tot andere classes/functie constructors. In dit geval zettten we `Person` gelijk aan `AnotherPerson`. De naam op deze constructor is `Sarah`, dus de propertie naam van de nieuwe `Person` instantie `member` is `"Sarah"`.
 
 </p>
 </details>
