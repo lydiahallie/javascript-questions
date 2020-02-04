@@ -2915,7 +2915,7 @@ console.log(giveLydiaChocolate.prototype)
 
 #### Antwoord: D
 
-Regular functions, such as the `giveLydiaPizza` function, have a `prototype` property, which is an object (prototype object) with a `constructor` property. Arrow functions however, such as the `giveLydiaChocolate` function, do not have this `prototype` property. `undefined` gets returned when trying to access the `prototype` property using `giveLydiaChocolate.prototype`. 
+Reguliere functies zoals de `giveLydiaPizza` functie hebben een `prototype` propertie, wat een object is (prototype object) met een `constructor` propertie. Arrow functies zoals de `giveLydiaChocolate` functie hebben geen `prototype` functie. `undefined` wordt geretourneerd wanneer we proberen om de `prototype` propertie te benaderen door gebruik te maken van `giveLydiaChocolate.prototype`.
 
 </p>
 </details>
