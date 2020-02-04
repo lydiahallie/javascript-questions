@@ -2883,9 +2883,9 @@ console.log(newList.push(5))
 
 #### Antwoord: D
 
-The `.push` method returns the _new length_ of the array, not the array itself! By setting `newList` equal to `[1, 2, 3].push(4)`, we set `newList` equal to the new length of the array: `4`. 
+De `.push` methode retourneert de _nieuwe lengte_ van de array, niet de array zelf! Door `newList` te vullen met `[1, 2, 3].push(4)`, zetten we `newList` gelijk aan de nieuwe lengte van de array: `4`.
 
-Then, we try to use the `.push` method on `newList`. Since `newList` is the numerical value `4`, we cannot use the `.push` method: a TypeError is thrown.
+Dan gebruiken we de `.push` methode op `newList`. Omdat `newList` nu de numerieke waarde `4` bevat, kunnen we de `.push` methode niet gebruiker: een TypeError wordt gegooid.
 
 </p>
 </details>
