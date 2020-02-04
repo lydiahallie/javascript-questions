@@ -2945,14 +2945,14 @@ for (const [x, y] of Object.entries(person)) {
 
 #### Antwoord: A
 
-`Object.entries(person)` returns an array of nested arrays, containing the keys en objects:
+`Object.entries(person)` retourneert een array van geneste arrays, welke de keys en objecten bevat:
 
 `[ [ 'name', 'Lydia' ], [ 'age', 21 ] ]` 
 
-Using the `for-of` loop, we can iterate over each element in the array, the subarrays in this case. We can destructure the subarrays instantly in the for-of loop, using `const [x, y]`. `x` is equal to the first element in the subarray, `y` is equal to the second element in the subarray. 
+Gebruikmakend van de `for-of` loop kunnen we itereren over elk element in de array, de subarrays in dit geval. We kunnen de subarrays direct destructureren door `const [x, y]` te gebruiken. `x` is gelijk aan het eerste element in de subarray, `y` is gelijk aan het tweede element in de subarray.
 
-The first subarray is `[ "name", "Lydia" ]`, with `x` equal to `"name"`, en `y` equal to `"Lydia"`, which get logged.
-The second subarray is `[ "age", 21 ]`, with `x` equal to `"age"`, en `y` equal to `21`, which get logged.
+De eerste subarray wat wordt gelogd is `[ "name", "Lydia" ]`, waarbij `x` gelijk is aan `"name"` en `y` gelijk is aan `"Lydia"`. 
+De tweede subarray wat wordt gelogd is `[ "age", "21" ]`, waarbij `x` gelijk is aan `"age"` en `y` gelijk is aan `"21"`.
 
 </p>
 </details>
