@@ -3128,17 +3128,17 @@ console.log(getUser(user))
 
 #### Antwoord: A
 
-The `getList` function receives an array as its argument. Between the parentheses of the `getList` function, we destructure this array right away. You could see this as:
+De `getList` functie ontvangt een array als argument. Tussen de haakjes van de `getList` functie destructureren we deze array direct. Je kunt het zien als:
 
  `[x, ...y] = [1, 2, 3, 4]`
 
- With the rest parameter `...y`, we put all "remaining" arguments in an array. The remaining arguments are `2`, `3` en `4` in this case. The value of `y` is an array, containing all the rest parameters. The value of `x` is equal to `1` in this case, so when we log `[x, y]`, `[1, [2, 3, 4]]` gets logged.
-
- The `getUser` function receives an object. With arrow functions, we don't _have_ to write curly brackets if we just return one value. However, if you want to return an _object_ from an arrow function, you have to write it between parentheses, otherwise no value gets returned! The following function would have returned an object:
+Met de rest parameter `...y` stoppen we alle "overgebleven" argumenten in een array. De overgebleven argumenten zijn in dit geval `2`, `3` en `4`. De waarde van `y` is een array die alle rest parameters bevat. De waarde van `x` is gelijk aan `1` in dit geval, dus wanneer we `[x, y]` loggen wordt `[1, [2, 3, 4]]` gelogd.
+ 
+De `getUser` functie ontvangt een object. Met arrow functies _hoeven_ we geen accolades te gebruiken als we maar één waarde willen retourneren. Echter, als je een _object_ wilt retourneren in een arraow functie zal je het tussen haakjes moeten schrijven. Anders zal er geen waarde geretourneerd worden! De volgende functie zal wel een object geretourneerd hebben:
 
 ```const getUser = user => ({ name: user.name, age: user.age })```
 
-Since no value gets returned in this case, the function returns `undefined`.
+Omdat er geen waarde geretourneerd wordt in dit geval zal de functie `undefined` retourneren.
 
 </p>
 </details>
