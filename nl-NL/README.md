@@ -3163,12 +3163,12 @@ console.log(name())
 
 #### Antwoord: C
 
-The variable `name` holds the value of a string, which is not a function, thus cannot invoke. 
+De variabele `name` bevat de waarde van een string wat geen functie is, en dus niet aangeroepen kan worden.
 
-TypeErrors get thrown when a value is not of the expected type. JavaScript expected `name` to be a function since we're trying to invoke it. It was a string however, so a TypeError gets thrown: name is not a function!
+TypeErrors worden gegooid als een waarde niet van het verwachtte type is. JavaScript verwacht dat `name` een functie is omdat we het proberen aan te roepen. Omdat het een string is zal er een TypeError gegooid worden: `name` is geen functie!
 
-SyntaxErrors get thrown when you've written something that isn't valid JavaScript, for example when you've written the word `return` as `retrun`. 
-ReferenceErrors get thrown when JavaScript isn't able to find a reference to a value that you're trying to access.
+SyntaxErrors worden gegooid wanneer je iets hebt geschreven wat geen valide JavaScript is. Als je bijvoorbeeld het woord `return` als `retrun` hebt geschreven.
+ReferenceErrors worden gegooid wanneer JavaScript niet in staat is een referentie te vinden naar een waarde die je probeert te beanderen.
 
 </p>
 </details>
