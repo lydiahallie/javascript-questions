@@ -3096,9 +3096,9 @@ console.log(Object.keys(info))
 
 #### Antwoord: D
 
-A Symbol is not _enumerable_. The Object.keys method returns all _enumerable_ key properties on an object. The Symbol won't be visible, en an empty array is returned. When logging the entire object, all properties will be visible, even non-enumerable ones.
+Een Symbol is geen _enumerable_. De Object.keys methode retourneert alle _enumerable_ key properties van een object. De Symbol zal niet zichtbaar zijn en een lege array zal geretourneerd worden. Wanneer we het hele object loggen zullen alle properties zichtbaar zijn, zelfs de niet enumarables.
 
-This is one of the many qualities of a symbol: besides representing an entirely unique value (which prevents accidental name collision on objects, for example when working with 2 libraries that want to add properties to the same object), you can also "hide" properties on objects this way (although not entirely. You can still access symbols using the `Object.getOwnPropertySymbols()` method).
+Dit is één van de goeie eigenschappen van een Symbol: naast dat het een compleet unieke waarde representeert (wat voorkomt dat namen op objecten per ongeluk conflecteren, bijvoorbeeld wanneer je werkt met 2 libraries die properties willen toevoegen aan één en hetzelfde object) kun je properties op objecten op deze manier ook verbergen (natuurlijk niet compleet verbergen. Je kunt de Symbolen altijd benaderen gebruikmakend van de `Object.getOwnPropertySymbols()` methode).
 
 </p>
 </details>
