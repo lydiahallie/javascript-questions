@@ -3194,9 +3194,9 @@ You should${'' && `n't`} see a therapist after so much JavaScript lol`
 
 #### Antwoord: B
 
-`[]` is a truthy value. With the `&&` operator, the right-hand value will be returned if the left-hand value is a truthy value. In this case, the left-hand value `[]` is a truthy value, so `"Im'` gets returned.
+`[]` is een truthy waarde. Met de `&&` operator wordt de rechter waarde geretourneerd wanneer de linker waarde een truthy waarde bevat. In dit geval is de linker waarde `[]` een truthy waarde, daarom wordt `"Im'` geretourneerd.
 
-`""` is a falsy value. If the left-hand value is falsy, nothing gets returned. `n't` doesn't get returned.
+`""` is een falsy waarde. Als de linker waarde falsy is wordt er niets geretourneerd. `n't` wordt niet geretourneerd.
 
 </p>
 </details>
