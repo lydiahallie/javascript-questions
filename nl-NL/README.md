@@ -3223,13 +3223,13 @@ console.log(one, two, three)
 
 #### Antwoord: C
 
-With the `||` operator, we can return the first truthy operand. If all values are falsy, the last operand gets returned.
+Met de `||` (or) operator kunnen we de eerste truthy waarde retourneren. Als alle waarden falsy zijn wordt de laatste waarde geretourneerd.
 
-`(false || {} || null)`: the empty object `{}` is a truthy value. This is the first (en only) truthy value, which gets returned. `one` is equal to `{}`.
+`(false || {} || null)`: het lege object `{}` is een truthy waarde. Dit is de eerste (en enige) truthy waarde en zal worden geretourneerd. `one` is gelijk aan `{}`.
 
-`(null || false || "")`: all operands are falsy values. This means that the past operand, `""` gets returned. `two` is equal to `""`.
+`(null || false || "")`: alle waarden zijn falsy waarden. Dit betekent dat de laatste waarde, `""`, wordt geretourneerd. `two` is gelijk aan `""`.
 
-`([] || 0 || "")`: the empty array`[]` is a truthy value. This is the first truthy value, which gets returned. `three` is equal to `[]`.
+`([] || 0 || "")`: de lege array `[]` is een truthy waarde. Dit is de eerste truthy waarde en wordt geretourneerd. `three` is gelijk aan `[]`.
 
 </p>
 </details>
