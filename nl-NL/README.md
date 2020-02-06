@@ -3462,9 +3462,9 @@ emojis.splice(1, 2, '✨')
 
 #### Antwoord: D
 
-With `splice` method, we modify the original array by deleting, replacing or adding elements. In this case, we removed 2 items from index 1 (we removed `'🥑'` en `'😍'`) en added the ✨ emoji instead. 
+Met de `splice` methode passen we de originele array aan door elementen te verwijderen, te vervangen of toe te voegen. In dit geval hebben we 2 elementen verwijderd vanaf index 1 (we hebben `'🥑'` en `'😍'` verwijderd) en hebben in plaats daarvan ✨ toegevoegd.
 
-`map`, `filter` en `slice` return a new array, `find` returns an element, en `reduce` returns a reduced value.
+`map`, `filter` en `slice` geven een nieuwe array terug, `find` geeft een element terug en `reduce` geeft een gereduceerde waarde terug.
 
 </p>
 </details>
