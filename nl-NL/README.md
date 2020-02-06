@@ -3432,7 +3432,7 @@ console.log('❤️' === '❤️')
 
 #### Antwoord: A
 
-Under the hood, emojis are unicodes. The unicodes for the heart emoji is `"U+2764 U+FE0F"`. These are always the same for the same emojis, so we're comparing two equal strings to each other, which returns true. 
+Onder de motorkap zijn emojis unicodes. De unicodes voor het hart zijn `"U+2764 U+FE0F"`. Deze zijn altijd hetzelfde voor dezelfde emojis. We vergelijken twee gelijke string met elkaar, wat true retourneert.
 
 </p>
 </details>
