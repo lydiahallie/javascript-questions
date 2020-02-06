@@ -3304,13 +3304,13 @@ for (let item of set) {
 
 #### Antwoord: C
 
-The `+` operator is not only used for adding numerical values, but we can also use it to concatenate strings. Whenever the JavaScript engine sees that one or more values are not a number, it coerces the number into a string. 
+De `+` operator wordt niet alleen gebruikt voor het optellen van numerieke waarden, maar wordt ook gebruikt om strings te concateneren. Zodra de JavaScript engine ziet dat één van de waarden niet een numerieke waarde bevat, wordt het getal omgezet naar een string.
 
-The first one is `1`, which is a numerical value. `1 + 2` returns the number 3.
+De eerste is een `1`, wat een numerieke waarde is. `1 + 2` retourneert het getal 3.
 
-However, the second one is a string `"Lydia"`. `"Lydia"` is a string en `2` is a number: `2` gets coerced into a string. `"Lydia"` en `"2"` get concatenated, which results in the string `"Lydia2"`. 
+Echter, de tweede is de string `"Lydia"`. `"Lydia"` is een string en `2` is een getal: `2` wordt omgezet naar een string. `"Lydia"` en `"2"` worden geconcateneerd wat resulteert in de string `"Lydia2"`.
 
-`{ name: "Lydia" }` is an object. Neither a number nor an object is a string, so it stringifies both. Whenever we stringify a regular object, it becomes `"[object Object]"`. `"[object Object]"` concatenated with `"2"` becomes `"[object Object]2"`.
+`{ name: "Lydia" }` is een object. Een getal noch een object is een string, dus beide worden gestringified. Wanneer we een regulier object stringifiën levert dit `"[object Object]"` op. `"[object Object]"` geconcateneerd met `"2"` wordt `"[object Object]2"`.
 
 </p>
 </details>
