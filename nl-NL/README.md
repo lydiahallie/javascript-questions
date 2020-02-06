@@ -3265,15 +3265,15 @@ secondFunction()
 
 #### Antwoord: D
 
-With a promise, we basically say _I want to execute this function, but I'll put it aside for now while it's running since this might take a while. Only when a certain value is resolved (or rejected), en when the call stack is empty, I want to use this value._
+Met een promise zeggen we eigenlijk _Ik wil deze functie uitvoeren, maar voor nu zet ik hem even weg omdat de uitvoer even kan duren. Alleen wanneer een bepaalde waarde is opgelost (of afgewezen), en wanneer de call stack leeg is, wil ik deze waarde gebruiken._
 
-We can get this value with both `.then` en the `await` keyword in an `async` function. Although we can get a promise's value with both `.then` en `await`, they work a bit differently. 
+We kunnen deze waarde verkrijgen met `.then` en het keyword `await` is een `async` function. Ook al kunnen we de teruggegeven waarde verkrijgen met zowel `.then` als `await`, toch werken ze allebei anders.
 
-In the `firstFunction`, we (sort of) put the myPromise function aside while it was running, but continued running the other code, which is `console.log('second')` in this case. Then, the function resolved with the string `I have resolved`, which then got logged after it saw that the callstack was empty. 
+In de functie `firstFunction` zetten we de myPromise functie (soort van) even aan de kant terwijl het wordt uitgevoerd en voeren we de rest van de code uit, wat `console.log('second')` is in dit geval. Daarna wordt de promise opgelost en zal de string `I have resolved` worden geretourneerd, wat gelogd zal worden nadat het zag dat de callstack leeg was.
 
-With the await keyword in `secondFunction`, we literally pause the execution of an async function until the value has been resolved befoer moving to the next line.
+Met de keyword `await` in de functie `secondFunction` pauzeren we letterlijk de executie van een async functie totdat de promise is opgelost voordat de rest van de functie wordt uitgevoerd.
 
-This means that it waited for the `myPromise` to resolve with the value `I have resolved`, en only once that happened, we moved to the next line: `second` got logged. 
+Dit betekent dat het wacht tot de `myPromise` is opgelost met de waarde `I have resolved`, en alleen als dat gebeurt gaan we naar de volgende regel: `second` wordt gelogd.
 
 </p>
 </details>
