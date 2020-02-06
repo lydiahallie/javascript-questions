@@ -3407,11 +3407,11 @@ console.log(colorConfig.colors[1])
 
 #### Antwoord: D
 
-In JavaScript, we have two ways to access properties on an object: bracket notation, or dot notation. In this example, we use dot notation (`colorConfig.colors`) instead of bracket notation (`colorConfig["colors"]`). 
+In JavaScript kunnen we properties van een object op twee manieren benaderen: blokhaken of met een punt notitie. In dit voorbeeld gebruiken we de punt notatie (`colorConfig.colors`) in plaats van blokhaken (`colorConfig["colors"]`).
 
-With dot notation, JavaScript tries to find the property on the object with that exact name. In this example, JavaScript tries to find a property called `colors` on the `colorConfig` object. There is no proprety called `colors`, so this returns `undefined`. Then, we try to access the value of the first element by using `[1]`. We cannot do this on a value that's `undefined`, so it throws a `TypeError`: `Cannot read property '1' of undefined`.
+Met de punt notatie zal JavaScript proberen om de propertie van een object te vinden met exact dezelfde naam. In dit voorbeeld probeert JavaScript een propertie te vinden met de naam `colors` uit het `colorConfig` object. Er is geen property genaamd `colors` dus wordt `undefined` geretourneerd. Dan proberen we de waarde van het eerste element te benaderen door gebruik te maken van `[1]`. We kunnen dit niet doen op een waarde die `undefined` is, dus wordt er een `TypeError` gegooid: `Cannot read property '1' of undefined`.
 
-JavaScript interprets (or unboxes) statements. When we use bracket notation, it sees the first opening bracket `[` en keeps going until it finds the closing bracket `]`. Only then, it will evaluate the statement. If we would've used `colorConfig[colors[1]]`, it would have returned the value of the `red` property on the `colorConfig` object. 
+JavaScript interpreteert (of beter gezegd unboxed) statements. Wanneer we blokhaken gebruiken ziet het de eerste blokhaak `[` en blijft doorgaan totdat het de tweede blokhaak `]` vindt. Alleen dan zal het het statement evalueren. Als we `colorConfig[colors[1]]` hadden gebruikt zou het de waarde van de `red` propertie teruggeven van het `colorConfig` object.
 
 </p>
 </details>
