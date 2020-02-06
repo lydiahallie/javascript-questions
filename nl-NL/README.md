@@ -3333,9 +3333,9 @@ Promise.resolve(5)
 
 #### Antwoord: C
 
-We can pass any type of value we want to `Promise.resolve`, either a promise or a non-promise. The method itself returns a promise with the resolved value. If you pass a regular function, it'll be a resolved promise with a regular value. If you pass a promise, it'll be a resolved promise with the resolved value of that passed promise.
+We kunnen elk type of waarde meegeven aan `Promise.resolve`, zowel een promise als een niet-promise. De methode zelf retourneert een promise met een opgeloste waarde. Als je een reguliere functie meegeeft zal het een opgeloste promise zijn met een reguliere waarde. Als je een promise meegeeft zal het een opgeloste promise zijn met een opgeloste waarde, of de doorgegeven promise.
 
-In this case, we just passed the numerical value `5`. It returns a resolved promise with the value `5`. 
+In dit geval geven we alleen de numerieke waarde `5` mee. Het geeft de opgeloste promise terug met de waarde `5`.
 
 </p>
 </details>
