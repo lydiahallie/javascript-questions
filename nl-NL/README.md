@@ -3368,13 +3368,13 @@ compareMembers(person)
 
 #### Antwoord: B
 
-Objects are passed by reference. When we check objects for strict equality (`===`), we're comparing their references. 
+Objecten worden doorgegeven _by reference_. Wanneer we objecten vergelijken op type en gelijkenis (`===`), vergelijken we hun referenties.
 
-We set the default value for `person2` equal to the `person` object, en passed the `person` object as the value for `person1`.
+We zetten de standaard waarde voor `person2` gelijk aan het object `person` en geven het object `person` door als de waarde voor het argument `person1`.
 
-This means that both values have a reference to the same spot in memory, thus they are equal.
+Dit betekent dat beide waarden een referentie hebben naar dezelfde plek in het geheugen, dus zijn ze gelijk.
 
-The code block in the `else` statement gets run, en `They are the same!` gets logged. 
+De code in de `else` statement wordt uitgevoerd en `They are the same!` wordt gelogd.
 
 </p>
 </details>
