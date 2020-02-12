@@ -780,7 +780,7 @@ Se temos duas chaves com o mesmo nome, a última irá substituir a primeira. Ain
 
 ---
 
-###### 26. O contexto global de execução do JavaScrit cria duas coisas para você: O objeto global, e a palavra-chave `this`.
+###### 26. O contexto global de execução do JavaScript cria duas coisas para você: O objeto global, e a palavra-chave `this`.
 
 - A: Verdadeiro
 - B: Falso 
