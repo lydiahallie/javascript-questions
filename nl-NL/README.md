@@ -3713,10 +3713,10 @@ myMap.get(() => 'greeting')
 
 #### Antwoord: B
 
-When adding a key/value pair using the `set` method, the key will be the value of the first argument passed to the `set` function, en the value will be the second argument passed to the `set` function. The key is the _function_ `() => 'greeting'` in this case, en the value `'Hello world'`. `myMap` is now `{ () => 'greeting' => 'Hello world!' }`. 
+Als een **key/value** paar wordt toegevoegd gebruikmakend van de `set` methode zal de **key** de waarde zijn van het eerste argument dat zal worden meegegeven aan de `set` functie, en de **value** zal het tweede argument zijn die wordt meegegeven aan de `set` functie. De **key** is de _functie_ `() => 'greeting'` in dit geval, en de waarde `'Hello world'`. `myMap` is nu `{ () => 'greeting' => 'Hello world!' }`.
 
-1 is wrong, since the key is not `'greeting'` but `() => 'greeting'`.
-3 is wrong, since we're creating a new function by passing it as a parameter to the `get` method. Object interact by _reference_. Functions are objects, which is why two functions are never strictly equal, even if they are identical: they have a reference to a different spot in memory. 
+1 is verkeerd omdat de **key** niet `'greeting'` is, maar `() => 'greeting'`.
+3 is verkeerd omdat we een nieuwe functie creëeren door het mee te geven als een parameter aan de `get` methode. Object interacteert _by reference_. Een functie is een object, dit is ook waarom twee functies nooit strict gelijk zijn. Zelfs niet als ze identiek zijn: ze hebben een referentie naar een andere plek in het geheugen.
 
 </p>
 </details>
