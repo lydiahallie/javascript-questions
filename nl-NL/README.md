@@ -3651,7 +3651,7 @@ console.log(`${(x => x)('I love')} to program`)
 
 #### Antwoord: A
 
-Expressions within template literals are evaluated first. This means that the string will contain the returned value of the expression, the immediately invoked function `(x => x)('I love')` in this case. We pass the value `'I love'` as an argument to the `x => x` arrow function. `x` is equal to `'I love'`, which gets returned. This results in `I love to program`. 
+Expressies binnen template literals worden eerste geëvalueerd. Dit betekent dat de string de geretourneerde waarde zal bevatten van de expressie, de direct aangeroepen functie `(x => x)('I love')` in dit geval. We geven de waarde `'I love'` mee als een argument aan de arrow functie `x => x`. `x` is gelijk aan `'I love'`, wat geretourneerd zal worden. Dit resulteert in `I love to program`.
 
 </p>
 </details>
