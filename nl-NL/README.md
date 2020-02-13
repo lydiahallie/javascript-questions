@@ -3471,7 +3471,7 @@ Met de `splice` methode passen we de originele array aan door elementen te verwi
 
 ---
 
-###### <a name=20191009></a>109. Wat is de uitkomst?
+###### 109. Wat is de uitkomst?
 
 ```javascript
 const food = ['🍕', '🍫', '🥑', '🍔']
@@ -3492,11 +3492,11 @@ console.log(food)
 
 #### Antwoord: A
 
-We set the value of the `favoriteFood` property on the `info` object equal to the string with the pizza emoji, `'🍕'`. A string is a primitive data type. In JavaScript, primitive data types act by reference 
+We zetten de waarde van de property `favoriteFood` op het object `info` gelijk aan de string met de pizza emoji, `'🍕'`. Een string is een primitief data type. In JavaScript zijn primitieve data types _by reference_.
 
-In JavaScript, primitive data types (everything that's not an object) interact by _value_. In this case, we set the value of the `favoriteFood` property on the `info` object equal to the value of the first element in the `food` array, the string with the pizza emoji in this case (`'🍕'`). A string is a primitive data type, en interact by value (see my [blogpost](https://www.theavocoder.com/complete-javascript/2018/12/21/by-value-vs-by-reference) if you're interested in learning more)
+In JavaScript interacteren primitieve data types (alles dat geen object is) _by value_. In dit geval zetten we de waarde van de property `favoriteFood` op het object `info` gelijk aan de waarde van het eerste element in de `food` array, de string met de pizza emoji in dit geval (`'🍕'`). Een string is een primitief data type en interacteert _by value_ (neem een kijkje op mijn [blogpost](https://www.theavocoder.com/complete-javascript/2018/12/21/by-value-vs-by-reference) als je geïntereseerd bent om hierover meer te leren).
 
-Then, we change the value of the `favoriteFood` property on the `info` object. The `food` array hasn't changed, since the value of `favoriteFood` was merely a _copy_ of the value of the first element in the array, en doesn't have a reference to the same spot in memory as the element on `food[0]`. When we log food, it's still the original array, `['🍕', '🍫', '🥑', '🍔']`.
+Daarna veranderen we de waarde van de property `favoriteFood` op het object `info`. De `food` array is niet veranderd omdat de waarde van `favoriteFood` een _kopie_ bevat van de waarde van het eerste element van de array, en geen referentie heeft naar dezelfde plek in het geheugen van de element in `food[0]`. Wanneer we food loggen is het nog steeds dezelfde array, `['🍕', '🍫', '🥑', '🍔']`.
 
 </p>
 </details>
