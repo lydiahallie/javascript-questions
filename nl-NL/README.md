@@ -3563,11 +3563,11 @@ getName()
 
 #### Antwoord: D
 
-Each function has its own _execution context_ (or _scope_). The `getName` function first looks within its own context (scope) to see if it contains the variable `name` we're trying to access. In this case, the `getName` function contains its own `name` variable: we declare the variable `name` with the `let` keyword, en with the value of `'Sarah'`. 
+Elke functie heeft zijn eigen _execution context_ (of _scope_). De `getName` functie zoekt eerst binnen zijn eigen context (scope) om te kijken of het de variabele `name` bevat, die we proberen te benaderen. In dit geval bevat de `getName` functie zijn eigen `name` variabele: we declareren de variabele `name` met het keyword `let` en met de waarde `'Sarah'`.
 
-Variables with the `let` keyword (en `const`) are hoisted, but unlike `var`, don't get <i>initialized</i>. They are not accessible before the line we declare (initialize) them. This is called the "temporal dead zone". When we try to access the variables before they are declared, JavaScript throws a `ReferenceError`. 
+Variabelen gedeclareerd met het keyword `let` (en `const`) worden gehoisted, maar worden niet, zoals met het keyword `var`, <i>geïnitialiseerd</i>. Ze zijn niet benaderbaar voor de lijn waar we ze declareren (initialiseren). Dit wordt de "temporal dead zone" genoemd. Wanneer we de variabelen proberen te benaderen voordat ze gedeclareerd zijn zal JavaScript een `ReferenceError` gooien.
 
-If we wouldn't have declared the `name` variable within the `getName` function, the javascript engine would've looked down the _scope chain_. The outer scope has a variable called `name` with the value of `Lydia`. In that case, it would've logged `Lydia`. 
+Als we de variabele `name` **niet** niet hadden gedeclareerd binnen de `getName` functie zou de JavaScript engine doorgezocht hebben door de _scope chain_. De bovenliggende scope heeft een variabele `name` met de waarde `Lydia`. In dat geval zou `Lydia` gelogged worden.
 
 ```javascript
 let name = 'Lydia'
