@@ -3612,16 +3612,16 @@ console.log(two.next().value)
 
 #### Antwoord: C
 
-With the `yield` keyword, we `yield` values in a generator function. With the `yield*` keyword, we can yield values from another generator function, or iterable object (for example an array).
+Met het keyword `yield` , we `yield` waarden in een generator functie. Met het keyword `yield*`, we `yield` waarden van een andere generator functie, of iterabel object (bijvoorbeeld een array).
 
-In `generatorOne`, we yield the entire array `['a', 'b', 'c']` using the `yield` keyword. The value of `value` property on the object returned by the `next` method on `one` (`one.next().value`) is equal to the entire array `['a', 'b', 'c']`.
+In `generatorOne` leveren we de volledige array `['a', 'b', 'c']` op, gebruikmakend van het keyword `yield`. De waarde van de propertie `value` op het object geretourneerd door de `next` methode op `one` (`one.next().value`) is gelijk aan de volledige array `['a', 'b', 'c']`.
 
 ```javascript
 console.log(one.next().value) // ['a', 'b', 'c']
 console.log(one.next().value) // undefined
 ```
 
-In `generatorTwo`, we use the `yield*` keyword. This means that the first yielded value of `two`, is equal to the first yielded value in the iterator. The iterator is the array `['a', 'b', 'c']`. The first yielded value is `a`, so the first time we call `two.next().value`, `a` is returned. 
+In `generatorTwo` gebruiken we het keyword `yield*`. Dit betekent dat de eerste opgeleverde waarde van `two` is gelijk aan de eerste opgeleverde waarde in de iterator. The iterator is de array `['a', 'b', 'c']`. De eerste opgeleverde waarde is `a`, dus de eerste keer dat we `two.next().value` aanroepen wordt `a` geretourneerd.
 
 ```javascript
 console.log(two.next().value) // 'a'
