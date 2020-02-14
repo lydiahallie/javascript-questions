@@ -3910,7 +3910,7 @@ console.log(config.language);
 
 #### Antwoord: D
 
-The `language` method is a `setter`. Setters don't hold an actual value, their purpose is to _modify_ properties. When calling a `setter` method, `undefined` gets returned.
+De `language` methode is een `setter`. Setters hebben geen werkelijke waarde. Hun doel is om properties te _wijzigen_. Wanneer een `setter` methode wordt aangeroepen wordt `undefined` geretourneerd.
 
 </p>
 </details>
