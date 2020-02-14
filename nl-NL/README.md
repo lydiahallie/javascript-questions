@@ -3966,7 +3966,7 @@ add(4)(5)(6);
 
 #### Antwoord: A
 
-The `add` function returns an arrow function, which returns an arrow function, which returns an arrow function (still with me?). The first function receives an argument `x` with the value of `4`. We invoke the second function, which receives an argument `y` with the value `5`. Then we invoke the third function, which receives an argument `z` with the value `6`. When we're trying to access the value `x`, `y` en `z` within the last arrow function, the JS engine goes up the scope chain in order to find the values for `x` en `y` accordingly. This returns `4` `5` `6`.
+De `add` functie retourneert een arrow functie, die een arrow functie retourneert, die ook weer een arrow functie retourneert. De eerste functie krijgt een argument `x` mee met de waarde `4`. We roepen de tweede functie aan, welke een argument `y` meekrijgt met de waarde `5`. Dan roepen we de derde functie aan en die krijgt het argument `z` meet met de waarde `6`. Wanneer we de waarden proberen op te vragen van `x`, `y` en `z` ind e laatste arrow functie de JavaScript engine gaat omhoog in de _scope chain_ om de waarden van `x` en `y` te vinden. Dit retourneert `4` `5` `6`.
 
 </p>
 </details>
