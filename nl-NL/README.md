@@ -3846,12 +3846,12 @@ console.log(member.getLastName?.());
 
 #### Antwoord: B
 
-With the optional chaining operator `?.`, we no longer have to explicitly check whether the deeper nested values are valid or not. If we're trying to access a property on an `undefined` or `null` value (_nullish_), the expression short-circuits en returns `undefined`.
+Met de _optional chaining operator_ `?.` hoeven we niet langer expliciet te checken of een dieper geneste waarde valide is, of niet. Als we een propertie proberen te benaderen op een `undefined` of `null` waarde (_nullish_) zal de expressie stoppen en `undefined` retourneren.
 
-`person.pet?.name`: `person` has a property named `pet`: `person.pet` is not nullish. It has a property called `name`, en returns `Mara`.
-`person.pet?.family?.name`: `person` has a property named `pet`: `person.pet` is not nullish. `pet` does _not_ have a property called `family`, `person.pet.family` is nullish. The expression returns `undefined`.
-`person.getFullName?.()`: `person` has a property named `getFullName`: `person.getFullName()` is not nullish en can get invoked, which returns `Lydia Hallie`.
-`member.getLastName?.()`: `member` is not defined: `member.getLastName()` is nullish. The expression returns `undefined`.
+`person.pet?.name`: `person` heeft een propertie genaamd `pet`: `person.pet` is niet _nullish_. Het heeft een propertie genaamd ``name` en retourneerd `Mara`.
+`person.pet?.family?.name`: `person` heeft een propertie genaamd `pet`: `person.pet` is niet _nullish_. `pet` heeft _geen_ propertie genaamd `family`, `person.pet.family` is _nullish_. De expressie geeft `undefined` terug.
+`person.getFullName?.()`: `person` heeft een propertie genaamd `getFullName`: `person.getFullName()` is niet __nullish__ en kan worden aangeroepen, wat `Lydia Hallie` retourneerd.
+`member.getLastName?.()`: `member` is niet gedefinieerd: `member.getLastName()` is _nullish_. The expressie geeft `undefined` terug.
 
 </p>
 </details>
