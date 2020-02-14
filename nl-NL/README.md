@@ -3936,9 +3936,9 @@ console.log(!typeof name === "string");
 
 #### Antwoord: C
 
-`typeof name` returns `"string"`. The string `"string"` is a truthy value, so `!typeof name` returns the boolean value `false`. `false === "object"` en `false === "string"` both return`false`.
+`typeof name` retourneert `"string"`. De string `"string"` is een _truthy_ waarde, dus `!typeof name` retourneert de boolean waarde `false`. `false === "object"` en `false === "string"` retourneren beiden `false`.
 
-(If we wanted to check whether the type was (un)equal to a certain type, we should've written `!==` instead of `!typeof`)
+(Als we wilden checken of het type (on)gelijk is aan een bepaald type, zouden we `!==` moeten gebruiken in plaats van `!typeof`)
 
 </p>
 </details>
