@@ -3782,7 +3782,7 @@ function sumValues(x, y, z) {
 
 #### Antwoord: C
 
-With the spread operator `...`, we can _spread_ iterables to individual elements. The `sumValues` function receives three arguments: `x`, `y` en `z`. `...[1, 2, 3]` will result in `1, 2, 3`, which we pass to the `sumValues` function.
+Met de spread operator `...` kunnen we iterabelen _ontplooien_ tot individuele elementen. De `sumValues` functie krijgt drie argumenten mee: `x`, `y` en `z`. `...[1, 2, 3]` zal resulteren in `1, 2, 3`, wat we meegeven aan de functie `sumValues`.
 
 </p>
 </details>
