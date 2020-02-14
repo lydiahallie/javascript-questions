@@ -3880,7 +3880,7 @@ if (groceries.indexOf("banana")) {
 
 #### Antwoord: B
 
-We passed the condition `groceries.indexOf("banana")` to the if-statement. `groceries.indexOf("banana")` returns `0`, which is a falsy value. Since the condition in the if-statement is falsy, the code in the `else` block runs, en `We don't have to buy bananas!` gets logged.
+We geven de conditie `groceries.indexOf("banana")` mee aan de if-statement. `groceries.indexOf("banana")` geeft `0` terug, wat een _falsy_ waarde is.Omdat de conditie in de if-statement _falsy_ is wordt de code in de else-statement uitgevoerd, en `We don't have to buy bananas!` wordt gelogd.
 
 </p>
 </details>
