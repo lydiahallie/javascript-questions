@@ -3753,11 +3753,11 @@ console.log(person)
 
 #### Antwoord: C
 
-Both the `changeAge` en `changeAgeAndName` functions have a default parameter, namely a _newly_ created object `{ ...person }`. This object has copies of all the key/values in the `person` object. 
+De functies `changeAge` en `changeAgeAndName` hebben beiden een standaard parameter, namelijk het _nieuw_ aangemaakte object `{ ...person }`. Dit object bevat kopieën van alle key/value paren in het `person` object.
 
-First, we invoke the `changeAge` function en pass the `person` object as its argument. This function increases the value of the `age` property by 1. `person` is now `{ name: "Lydia", age: 22 }`.
+Als eerste roepen we de `changeAge` functie aan en geven het object `person` mee als argument. Deze functie verhoogt de waarde van de propertie `age` met 1. `person` is nu `{ name: "Lydia", age: 22 }`.
 
-Then, we invoke the `changeAgeAndName` function, however we don't pass a parameter. Instead, the value of `x` is equal to a _new_ object: `{ ...person }`. Since it's a new object, it doesn't affect the values of the properties on the `person` object. `person` is still equal to `{ name: "Lydia", age: 22 }`.
+Dan roepen we de functie `changeAgeAndName` aan, echter geven we geen parameter mee. In plaats daarvan is de waarde van `x` gelijk aan een _nieuw_ object: `{ ...person }`. Omdat het een nieuw object is heeft het geen effect op de waarden van de properties van het object `person`. `person` is nog steeds gelijk aan `{ name: "Lydia", age: 22 }`.
 
 </p>
 </details>
