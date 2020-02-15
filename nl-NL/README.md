@@ -4027,7 +4027,7 @@ myFunc(1, 2, 3);
 
 #### Antwoord: D
 
-`myFunc` expects an object with properties `x`, `y` en `z` as its argument. Since we're only passing three separate numeric values (1, 2, 3) instead of one object with properties `x`, `y` en `z` ({x: 1, y: 2, z: 3}), `x`, `y` en `z` have their default value of `undefined`.
+De functie `myFunc` verwacht een object met de properties `x`, `y` en `z` als haar argument. Omdat we maar drie separate numerieke waarden (1, 2, 3) meegeven in plaats van één object met de properties `x`, `y` en `z` ({x: 1, y: 2, z: 3}), hebben `x`, `y` en `z` hun default waarde `undefined`.
 
 </p>
 </details>
