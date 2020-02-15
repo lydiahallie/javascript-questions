@@ -4000,7 +4000,7 @@ async function* range(start, end) {
 
 #### Antwoord: C
 
-The generator function `range` returns an async object with promises for each item in the range we pass: `Promise{1}`, `Promise{2}`, `Promise{3}`. We set the variable `gen` equal to the async object, after which we loop over it using a `for await ... of` loop. We set the variable `item` equal to the returned Promise values: first `Promise{1}`, then `Promise{2}`, then `Promise{3}`. Since we're _awaiting_ the value of `item`, the resolved promsie, the resolved _values_ of the promises get returned: `1`, `2`, then `3`.
+De generator functie `range` retourneert een async object met promises voor elk item in de range die we meegeven: `Promise{1}`, `Promise{2}`, `Promise{3}`. We zetten de variabele `gen` gelijk aan het async object, waarnaar we eroverheen iteraten gebruikmakend van een `for await ... of` loop. We zetten de variabele `item` gelijk aan de promises die geretourneerd worden: eerst `Promise{1}`, dan `Promise{2}` en dan `Promise{3}`. Omdat we de waarde van `item` _awaiten_, de opgeloste promise, worden de opgeloste _waarden_ van de promises geretourneerd: `1`, `2` en `3`.
 
 </p>
 </details>
