@@ -4580,7 +4580,7 @@ Als we `yield`, `return yield`, of `return` hadden geschreven zou de gehele gene
 
 ---
 
-###### 142. Wat is de uitkomst?
+###### 141. Wat is de uitkomst?
 
 ```javascript
 const person = {
@@ -4610,15 +4610,15 @@ console.log(person.hobbies);
 
 #### Antwoord: C
 
-The `addHobby` function receives two arguments, `hobby` en `hobbies` with the default value of the `hobbies` array on the `person` object.
+De functie `addHobby` ontvangt twee arguemnten, `hobby` en `hobbies` met als standaard waarde de waarde van de array `hobbies` op het object `person`.
 
-First, we invoke the `addHobby` function, en pass `"running"` as the value for `hobby` en an empty array as the value for `hobbies`. Since we pass an empty array as the value for `y`, `"running"` gets added to this empty array.
+Eerst roepen we de functie `addHobby` aan en geven `"running"` mee als de waarde voor `hobby`, en een lege array als de waarde voor `hobbies`. Omdat we een lege array meegeven als de waarde voor `y` wordt `"running"` toegevoegd aan deze lege array.
 
-Then, we invoke the `addHobby` function, en pass `"dancing"` as the value for `hobby`. We didn't pass a value for `hobbies`, so it gets the default value, the `hobbies` property on the `person` object. We push the hobby `dancing` to the `person.hobbies` array.
+Daarna roepen we de functie `addHobby` aan en geven `"dancing"` mee als de waarde voor `hobby`. We gaven geen waarde mee voor `hobbies` dus krijgt het de standaard waarde, de propertie `hobbies` op het object `person`. We pushen daar de hobby `dancing` naar de array `person.hobbies`.
 
-Last, we invoke the `addHobby` function, en pass `"bdaking"` as the value for `hobby`, en the `person.hobbies` array as the value for `hobbies`. We push the hobby `baking` to the `person.hobbies` array.
+Als laatste roepen we de functie `addHobby` aan en geven `"baking"` als de waarde voor `hobby` en de array `person.hobbies` als de waarde voor `hobbies`. We pushen de hobby `baking` naar de array `person.hobbies`.
 
-After pushing `dancing` en `baking`, the value of `person.hobbies` is `["coding", "dancing", "baking"]`
+Na het pushen van `dancing` en `baking` is de waarde van `person.hobbies` gelijk aan `["coding", "dancing", "baking"]`.
 
 </p>
 </details>
