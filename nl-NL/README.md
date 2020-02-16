@@ -4457,9 +4457,9 @@ Object.freeze(person);
 
 #### Antwoord: C
 
-The `Object.freeze` method _freezes_ an object. No properties can be added, modified, or removed.
+De `Object.freeze` methode _bevriest_ een object. Geen enkele propertie van worden toegevoegd, aangepast worden of worden verwijderd. 
 
-However, it only _shallowly_ freezes the object, meaning that only _direct_ properties on the object are frozen. If the property is another object, like `address` in this case, the properties on that object aren't frozen, en can be modified.
+Echter wordt het object enkel _oppervlakkig_ bevroren wat betekent dat alleen _directe_ properties bevroren zijn. Als de propertie een ander object is, zoals `address` in dit geval, zijn de properties van dat object niet bevroren en kunnen wel worden aangepast.
 
 </p>
 </details>
