@@ -4334,7 +4334,7 @@ import * as sum from "./sum";
 
 #### Antwoord: C
 
-With the asterisk `*`, we import all exported values from that file, both default en named. If we had the following file:
+Met het sterretje `*` importeren we alle geëxporteerde waarden van een bestand, zowel de default als de benaamde. Als we het volgende bestand hadden:
 
 ```javascript
 // info.js
@@ -4347,7 +4347,7 @@ import * as info from "./info";
 console.log(info);
 ```
 
-The following would get logged:
+Het volgende zou gelogd worden:
 
 ```javascript
 {
@@ -4357,13 +4357,13 @@ The following would get logged:
 }
 ```
 
-For the `sum` example, it means that the imported value `sum` looks like this:
+Voor het `sum` voorbeeld betekent dit dat de geïmporteerde waarde `sum` eruit ziet als:
 
 ```javascript
 { default: function sum(x) { return x + x } }
 ```
 
-We can invoke this function, by calling `sum.default`
+We kunnen deze functie aanvoeren door `sum.default` aan te roepen.
 
 </p>
 </details>
