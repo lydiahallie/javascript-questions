@@ -4090,7 +4090,7 @@ console.log(spookyItems);
 
 #### Antwoord: B
 
-By destructuring objects, we can unpack values from the right-hand object, en assign the unpacked value to the value of the same property name on the left-hand object. In this case, we're assigning the value "💀" to `spookyItems[3]`. This means that we're modifying the `spookyItems` array, we're adding the "💀" to it. When logging `spookyItems`, `["👻", "🎃", "🕸", "💀"]` gets logged.
+Door objecten te destructureren (_destructuring_) kunnen we de values van een object uitpakken en een uitgepakte waarde toewijzen aan de key van dezelfde property. In dit geval wijzen we de waarde "💀" toe aan `spookyItems[3]`. Dit betekent dat we de array `spookyItems` aanpassen, we voegen namelijk "💀" toe. Wanneer we de array `spookyItems` loggen wordt `["👻", "🎃", "🕸", "💀"]` gelogd.
 
 </p>
 </details>
