@@ -4536,7 +4536,7 @@ In ES2020 kunnen we private variabelen toevoegen aan classes door gebruik te mak
 
 ---
 
-###### 141. Wat is de uitkomst?
+###### 140. Wat is de uitkomst?
 
 ```javascript
 const teams = [
@@ -4571,9 +4571,9 @@ obj.next(); // { value: "Lisa", done: false }
 
 #### Antwoord: B
 
-In order to iterate over the `members` in each element in the `teams` array, we need to pass `teams[i].members` to the `getMembers` generator function. The generator function returns a generator object. In order to iterate over each element in this generator object, we need to use `yield*`.
+Om te kunnen itereren over de `members` in elk element in de array `teams` moeten we `teams[i].members` meegeven aan de `getMembers` generator functie. De generator functie retourneert een generator object. Om te kunnen itereren over elk element in het generator object moeten we `yield*` gebruiken.
 
-If we would've written `yield`, `return yield`, or `return`, the entire generator function would've gotten returned the first time we called the `next` method.
+Als we `yield`, `return yield`, of `return` hadden geschreven zou de gehele generator functie geretourneerd worden tijdens de eerste keer dat we de `next` methode aanriepen.
 
 </p>
 </details>
