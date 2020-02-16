@@ -4210,7 +4210,7 @@ console.log(emojis.flat(1));
 
 #### Antwoord: B
 
-With the `flat` method, we can create a new, flattened array. The depth of the flattened array depends on the value that we pass. In this case, we passed the value `1` (which we didn't have to, that's the default value), meaning that only the arrays on the first depth will be concatenated. `['🥑']` en `['✨', '✨', ['🍕', '🍕']]` in this case. Concatenating these two arrays results in `['🥑', '✨', '✨', ['🍕', '🍕']]`.
+Met de `flat` methode kunnen we een nieuwe platgemaakte array maken. De diepte van de platgemaakte array hangt af van de waarde die we meegeven. In dit geval geven we de waarde `1` mee (wat eigenlijk niet had gehoeven omdat dit de standaard waarde is), wat betekent dat alleen de arrays van het eerste niveau geconcateneerd worden. `['🥑']` en `['✨', '✨', ['🍕', '🍕']]` in dit geval. Het concateneren van deze twee arrays resulteert in `['🥑', '✨', '✨', ['🍕', '🍕']]`.
 
 </p>
 </details>
