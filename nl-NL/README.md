@@ -4120,9 +4120,9 @@ console.log(isNaN(age));
 
 #### Antwoord: C
 
-With the `Number.isNaN` method, you can check if the value you pass is a _numeric value_ en equal to `NaN`. `name` is not a numeric value, so `Number.isNaN(name)` returns `false`. `age` is a numeric value, but is not equal to `NaN`, so `Number.isNaN(age)` returns `false`.
+Met de `Number.isNaN` methode kunnen je checken of de waarde die je meegeeft een _numerieke waarde_ is en gelijk is aan `NaN`. `name` is niet een numerieke waarde en `Number.isNaN(name)` zal `false` teruggeven. `age` is een numerieke waarde, maar is niet gelijk aan `NaN`. `Number.isNaN(age)` zal `false` teruggeven.
 
-With the `isNaN` method, you can check if the value you pass is not a number. `name` is not a number, so `isNaN(name)` returns true. `age` is a number, so `isNaN(age)` returns `false`.
+Met de `isNaN` methode kun je checken of een waarde die je meegeeft geen numerieke waarde is. `name` is geen numerieke waarde, dus `isNaN(name)` geeft `true` terug. `age` is wel een numerieke waarde, dus `isNaN(age)` geeft `false` terug.
 
 </p>
 </details>
