@@ -4064,7 +4064,7 @@ console.log(getFine(130, 300))
 
 #### Antwoord: B
 
-With the `Intl.NumberFormat` method, we can format numeric values to any locale. We format the numeric value `130` to the `en-US` locale as a `unit` in `mile-per-hour`, which results in `130 mph`. The numeric value `300` to the `en-US` locale as a `currentcy` in `USD` results in `$300.00`.
+Met de `Intl.NumberFormat` methode kunnen we numerieke waarden formatteren naar elke lokale format. We formatteren de numerieke waarde `130` naar de lokale waarde van `en-US` als een `unit` in `mile-per-hour`, wat resulteert in `130 mph`. De numerieke waarde `300` naar de lokale waarde van `en-US` als een `currency` in `USD`, wat resulteert in `€300.00`.
 
 </p>
 </details>
