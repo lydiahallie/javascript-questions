@@ -4498,7 +4498,7 @@ Daarna roepen we de functie `myFunc(3)` aan het geven `3` meet als de waarde voo
 
 ---
 
-###### 140. Wat is de uitkomst?
+###### 139. Wat is de uitkomst?
 
 ```javascript
 class Counter {
@@ -4529,7 +4529,7 @@ console.log(counter.#number)
 
 #### Antwoord: D
 
-In ES2020, we can add private variables in classes by using the `#`. We cannot access these variables outside of the class. When we try to log `counter.#number`, a SyntaxError gets thrown: we cannot acccess it outside the `Counter` class!
+In ES2020 kunnen we private variabelen toevoegen aan classes door gebruik te maken van `#`. We kunnen deze variabelen niet benaderen van buitenaf. Wanneer we `counter.#number` proberen te loggen wordt er een SuntaxError gegooid: we cannot acccess it outside the `Counter` class!
 
 </p>
 </details>
