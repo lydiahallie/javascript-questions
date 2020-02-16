@@ -4185,7 +4185,7 @@ const myPromise = Promise.resolve("Woah some cool data");
 
 #### Antwoord: C
 
-In the `try` block, we're logging the awaited value of the `myPromise` variable: `"Woah some cool data"`. Since no errors were thrown in the `try` block, the code in the `catch` block doesn't run. The code in the `finally` block _always_ runs, `"Oh finally!"` gets logged.
+In de `try` statement loggen we de _awaited_ waarde van de `myPromise` variabele: `"Woah some cool data"`. Omdat er geen errors gegooid worden in de `try` statement komt de code niet in de `catch`. De code in de `finally` statement wordt _altijd_ uitgevoerd, `"Oh finally!"` wordt gelogd.
 
 </p>
 </details>
