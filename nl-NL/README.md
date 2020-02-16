@@ -4425,9 +4425,9 @@ Object.seal(person);
 
 #### Antwoord: A
 
-With `Object.seal` we can prevent new properies from being _added_, or existing properties to be _removed_.
+Met `Object.seal`  kunnen we voorkomen dat nieuwe properties kunnen worden _toegevoegd_ of bestaande properties worden _verwijderd_.
 
-However, you can still modify the value of existing properties.
+Echter kunnen van de bestaande properties nog steeds aanpassen.
 
 </p>
 </details>
