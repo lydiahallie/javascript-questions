@@ -4457,7 +4457,7 @@ Object.freeze(person);
 
 #### Antwoord: C
 
-De `Object.freeze` methode _bevriest_ een object. Geen enkele propertie van worden toegevoegd, aangepast worden of worden verwijderd. 
+De `Object.freeze` methode _bevriest_ een object. Geen enkele propertie van worden toegevoegd, aangepast worden of worden verwijderd.
 
 Echter wordt het object enkel _oppervlakkig_ bevroren wat betekent dat alleen _directe_ properties bevroren zijn. Als de propertie een ander object is, zoals `address` in dit geval, zijn de properties van dat object niet bevroren en kunnen wel worden aangepast.
 
@@ -4466,39 +4466,7 @@ Echter wordt het object enkel _oppervlakkig_ bevroren wat betekent dat alleen _d
 
 ---
 
-###### 138. Welke van onderstaande zal het `person` object aanpassen?
-
-```javascript
-const person = {
-	name: "Lydia Hallie",
-	address: {
-		street: "100 Main St"
-	}
-};
-
-Object.freeze(person);
-```
-
-- A: `person.name = "Evan Bacon"`
-- B: `delete person.address`
-- C: `person.address.street = "101 Main St"`
-- D: `person.pet = { name: "Mara" }`
-
-<details><summary><b>Antwoord</b></summary>
-<p>
-
-#### Antwoord: C
-
-The `Object.freeze` method _freezes_ an object. No properties can be added, modified, or removed.
-
-However, it only _shallowly_ freezes the object, meaning that only _direct_ properties on the object are frozen. If the property is another object, like `address` in this case, the properties on that object aren't frozen, en can be modified.
-
-</p>
-</details>
-
----
-
-###### 139. Wat is de uitkomst?
+###### 138. Wat is de uitkomst?
 
 ```javascript
 const add = x => x + x;
@@ -4521,9 +4489,9 @@ myFunc(3);
 
 #### Antwoord: A
 
-First, we invoked `myFunc()` without passing any arguments. Since we didn't pass arguments, `num` en `value` got their default values: num is `2`, en `value` the returned value of the function `add`. To the `add` function, we pass `num` as an argument, which had the value of `2`. `add` returns `4`, which is the value of `value`.
+Eerst roepen we de functie `myFunc()` aan zonder argumenten mee te geven. Omdat we geen argumenten meegeven, `num` en `value` behouden hun standaard waarde: num is `2`, en `value` de geretourneerde waarde van de functie `add`. Aan de functie `add` geven we `num` als argument mee, wat de waarde `2` heeft. `add` retourneert `4` wat de waarde is van `value`.
 
-Then, we invoked `myFunc(3)` en passed the value `3` as the value for the argument `num`. We didn't pass an argument for `value`. Since we didn't pass a value for the `value` argument, it got the default value: the returned value of the `add` function. To `add`, we pass `num`, which has the value of `3`. `add` returns `6`, which is the value of `value`.
+Daarna roepen we de functie `myFunc(3)` aan het geven `3` meet als de waarde voor het argument `num`. We geven het argument `value` niet mee. Omdat we geen waarde meegeven voor het argument `value` krijgt het de standaard waarde: het retourneert de waarde van de `add` functie. Aan de functie `add` geven we `num` mee, wat de waarde `3` bevat. `add` retourneert `6` wat op dat moment de waarde is van `value`.
 
 </p>
 </details>
