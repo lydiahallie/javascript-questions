@@ -4689,7 +4689,7 @@ Het keyword `const` betekent simpelweg dat we de waarde van de variabele niet op
 
 ---
 
-###### 145. Wat moeten we aan het `person` object toevoegen om `["Lydia Hallie", 21]` als uitkomst te krijgen van `[...person]`?
+###### 144. Wat moeten we aan het `person` object toevoegen om `["Lydia Hallie", 21]` als uitkomst te krijgen van `[...person]`?
 
 ```javascript
 const person = {
@@ -4710,7 +4710,7 @@ const person = {
 
 #### Antwoord: C
 
-Objects aren't iterable by default. An iterable is an iterable if the iterator protocol is present. We can add this manually by adding the iterator symbol `[Symbol.iterator]`, which has to return a generator object, for example by making it a generator function `*[Symbol.iterator]() {}`. This generator function has to yield the `Object.values` of the `person` object if we want it to return the array `["Lydia Hallie", 21]`: `yield* Object.values(this)`.
+Objecten zijn standaard niet itereerbaar. Een _iterable_ is een _iterable_ als het _iterator protocol_ aanwezig is. We kunnen dit met de iterator symbol `[Symbol.iterator]` handmatig toevoegen, wat een generator object zal moeten teruggeven. Bijvoorbeeld door het een generator functie te maken: `*[Symbol.iterator]() {}`. Deze generator functie moet de `Object.values` afgeven van het object `person` als we de array `["Lydia Hallie", 21]`: `yield* Object.values(this)` terug willen geven.
 
 </p>
 </details>
