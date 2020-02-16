@@ -4394,13 +4394,13 @@ person.name;
 
 #### Antwoord: C
 
-With a Proxy object, we can add custom behavior to an object that we pass to it as the second argument. In tis case, we pass the `handler` object which contained to properties: `set` en `get`. `set` gets invoked whenever we _set_ property values, `get` gets invoked whenever we _get_ (access) property values.
+Met het Proxy object kunnen we functionaliteit toevoegen aan een object als we dit meegeven als tweede argument. In dit geval geven we het object `handler` mee wat de volgende properties bevat: `set` en `get`. `set` wordt aangeroepen elke keer als we een waarde van een propertie _zetten_. `get` wordt aangeroepen elke keer als we een propertie waarde opvragen.
 
-The first argument is an empty object `{}`, which is the value of `person`. To this object, the custom behavior specified in the `handler` object gets added. If we add a property to the `person` object, `set` will get invoked. If we access a property on the `person` object, `get` gets invoked.
+Het eerste argument is een leeg object `{}` wat de waarde is van `person`. Aan dit object wordt de functionaliteit toegevoegd die gespecificeerd is in het object `handler`. Als we een propertie toevoegen aan het object `person` wordt `set` uitgevoerd. Als we een propertie benaderen op het object `person` wordt `get` uitgevoerd.
 
-First, we added a new property `name` to the proxy object (`person.name = "Lydia"`). `set` gets invoked, en logs `"Added a new property!"`.
+Als eerste voegen we de propertie `name` toe aan het proxy object (`person.name = "Lydia"`). `set` wordt aangeroepen en `"Added a new property!"` wordt gelogd.
 
-Then, we access a property value on the proxy object, the `get` property on the handler object got invoked. `"Accessed a property!"` gets logged.
+Dan vragen we de waarde van een propertie op het proxy object op en `get` van het `handler` object wordt aangeroepen. `"Accessed a property!"` wordt gelogd.
 
 </p>
 </details>
