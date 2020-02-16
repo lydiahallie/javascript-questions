@@ -4217,7 +4217,7 @@ Met de `flat` methode kunnen we een nieuwe platgemaakte array maken. De diepte v
 
 ---
 
-###### <a name=20191224></a>132. Wat is de uitkomst?
+###### 132. Wat is de uitkomst?
 
 ```javascript
 class Counter {
@@ -4250,13 +4250,13 @@ console.log(counterOne.count);
 
 #### Antwoord: D
 
-`counterOne` is an instance of the `Counter` class. The counter class contains a `count` property on its constructor, en an `increment` method. First, we invoked the `increment` method twice by calling `counterOne.increment()`. Currently, `counterOne.count` is `2`.
+`counterOne` is een instantie van de `Counter` class. De counter class bevat een `count` propertie op de constructor en een `increment` methode.Eerst roepen we de `increment` methode twee keer aan door `counterOne.increment()` aan te roepen. Op dat moment is `counterOne.count` gelijk aan `2`.
 
 <img src="https://i.imgur.com/KxLlTm9.png" width="400">
 
-Then, we create a new variable `counterTwo`, en set it equal to `counterOne`. Since objects interact by reference, we're just creating a new reference to the same spot in memory that `counterOne` points to. Since it has the same spot in memory, any changes made to the object that `counterTwo` has a reference to, also apply to `counterOne`. Currently, `counterTwo.count` is `2`.
+Dan maken we de variabele `counterTwo` aan en maken het gelijk aan `counterOne`. Omdat object interacteren _by reference_ creëeren we enkel een referentie naar dezelfde plek in het geheugen waarnaar `counterOne` verwijst. Omdat dit dezelfde plek in het geheugen is worden alle veranderingen op het object `counterTwo` ook doorgevoerd op `counterOne`. Op dat moment is `counterTwo.count` ook `2`.
 
-We invoke the `counterTwo.increment()`, which sets the `count` to `3`. Then, we log the count on `counterOne`, which logs `3`.
+We roepen `counterTwo.increment()` aan, wat `count` gelijk maakt aan `3`. Als we de `count` op `counterOne` loggen is die `3`.
 
 <img src="https://i.imgur.com/BNBHXmc.png" width="400">
 
