@@ -4625,7 +4625,7 @@ Na het pushen van `dancing` en `baking` is de waarde van `person.hobbies` gelijk
 
 ---
 
-###### 143. Wat is de uitkomst?
+###### 142. Wat is de uitkomst?
 
 ```javascript
 class Bird {
@@ -4654,7 +4654,7 @@ const pet = new Flamingo();
 
 #### Antwoord: B
 
-We create the variable `pet` which is an instance of the `Flamingo` class. When we instantiate this instance, the `constructor` on `Flamingo` gets called. First, `"I'm pink. 🌸"` gets logged, after which we call `super()`. `super()` calls the constructor of the parent class, `Bird`. THe constructor in `Bird` gets called, en logs `"I'm a bird. 🦢"`.
+We declareren de variabele `pet`, wat een instantie is van de class `Flamingo`. Wanneer we deze instantie instantiëren wordt de `constructor` op `Flamingo` aangeroepen. Als eerste wordt `"I'm pink. 🌸"` gelogd, waarna we `super()` aanroepen. `super()` roept de constructor van de bovenliggende class aan, `Bird` in dit geval. De constructor op `Bird` wordt aangeroepen en logt `"I'm a bird. 🦢"`.
 
 </p>
 </details>
