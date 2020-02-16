@@ -4661,7 +4661,7 @@ We declareren de variabele `pet`, wat een instantie is van de class `Flamingo`. 
 
 ---
 
-###### 144. Welke van onderstaande opties zal resulteren in een error?
+###### 143. Welke van onderstaande opties zal resulteren in een error?
 
 ```javascript
 const emojis = ["🎄", "🎅🏼", "🎁", "⭐"];
@@ -4682,7 +4682,7 @@ const emojis = ["🎄", "🎅🏼", "🎁", "⭐"];
 
 #### Antwoord: D
 
-The `const` keyword simply means we cannot _redeclare_ the value of that variable, it's _read-only_. However, the value itself isn't immutable. The propeties on the `emojis` array can be modified, for example by pushing new values, splicing them, or setting the length of the array to 0.
+Het keyword `const` betekent simpelweg dat we de waarde van de variabele niet opnieuw kunnen _declareren_. Het is _read-only_. Echter, de waarde zelf is niet onaanpasbaar. De properties van de array `emojis` kunnen worden aangepast, bijvoorbeeld door nieuwe waarden te pushen, te splicen of door de lengte van de array op 0 te zetten.
 
 </p>
 </details>
