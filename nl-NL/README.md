@@ -4297,15 +4297,15 @@ funcTwo();
 
 #### Antwoord: D
 
-First, we invoke `funcOne`. On the first line of `funcOne`, we call the `myPromise` promise, which is an _asynchronous_ operation. While the engine is busy completing the promise, it keeps on running the function `funcOne`. The next line is the _asynchronous_ `setTimeout` function, from which the callback is sent to the Web API. (see my article on the event loop here.)
+Eerst roepen we `funcOne` aan. Op de eerste regel van `funcOne` roepen we de promise `myPromise` aan, wat een _asynchrone_ operatie is. Zolang de JavaScript engine bezig is met het afmaken van de promise wordt de rest van de functie `funcOne` uitgevoerd. De volgende regel is een _asynchrone_ `setTimeout` functie, waarvan de callback functie naar de Web API wordt gestuurd. 
 
-Both the promise en the timeout are asynchronous operations, the function keeps on running while it's busy completing the promise en handling the `setTimeout` callback. This means that `Last line!` gets logged first, since this is not an asynchonous operation. This is the last line of `funcOne`, the promise resolved, en `Promise!` gets logged. However, since we're invoking `funcTwo()`, the call stack isn't empty, en the callback of the `setTimeout` function cannot get added to the callstack yet.
+Zowel de promise als de timeout zijn _asynchrone_ operaties en de functie worden uitgevoerd terwijl de engine bezig is om de promise uit te voeren en de `setTimeout` callback functie af te handelen. Dit betekent dat `Last line!` als eerste wordt gelogd, omdat dit geen _asynchrone_ operatie is. Dit is de laatste regel van `funcOne`. Ondertussen wordt de promise opgelost en `Promise!` wordt gelogd. Echter, omdat we `funcTwo()` aanroepen en de callstack nog niet leeg is kan de callback van de `setTimeout` functie nog niet toegevoegd worden aan de callstack.
 
-In `funcTwo` we're, first _awaiting_ the myPromise promise. With the `await` keyword, we pause the execution of the function until the promise has resolved (or rejected). Then, we log the awaited value of `res` (since the promise itself returns a promise). This logs `Promise!`.
+In `funcTwo` wachten we eerst op de promise `myPromise`. Met het keyword `await` pauzeren we de executie van de functie totdat de promise iets teruggeeft (of afwijst). Dan loggen we de _awaited_ waarde van `res` (omdat de promise zelf een promise retourneert). Dit logt `Promise!`.
 
-The next line is the _asynchronous_ `setTimeout` function, from which the callback is sent to the Web API.
+De volgende regel is de _asynchrone_ `setTimeout` functie waarvan de callback functie naar de Web API gestuurd wordt.
 
-We get to the last line of `funcTwo`, which logs `Last line!` to the console. Now, since `funcTwo` popped off the call stack, the call stack is empty. The callbacks waiting in the queue (`() => console.log("Timeout!")` from `funcOne`, en `() => console.log("Timeout!")` from `funcTwo`) get added to the call stack one by one. The first callback logs `Timeout!`, en gets popped off the stack. Then, the second callback logs `Timeout!`, en gets popped off the stack. This logs `Last line! Promise! Promise! Last line! Timeout! Timeout!`
+We komen op de laatste regel van `funcTwo` wat `Last line!` logt naar het console. Omdat `funcTwo` van de callstack gaat is de callstack leeg. De callback functies die in de wachtrij stonden (`() => console.log("Timeout!")` van `funcOne` en `() => console.log("Timeout!")` van `funcTwo`) worden nu één voor één toegevoegd aan de callstack. De eerste callback functie logt `Timeout!` en wordt verwijderd van de callstack. De tweede callback functie logt dan `Timeout!` en wordt verwijderd van de callstack. Dit logt `Last line! Promise! Promise! Last line! Timeout! Timeout!`.
 
 </p>
 </details>
