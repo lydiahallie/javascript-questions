@@ -4534,7 +4534,7 @@ In ES2020, we can add private variables in classes by using the `#`. We cannot a
 
 ---
 
-###### 140. What's the output?
+###### 140. What's missing?
 
 ```javascript
 const teams = [
