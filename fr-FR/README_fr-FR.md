@@ -1803,7 +1803,7 @@ La variable `name` a été déclarée avec un mot-clé `const`. Par conséquent,
 
 ```javascript
 const numbers = [1, 2, 3, 4, 5];
-const [y] = numberes;
+const [y] = numbers;
 
 console.log(y);
 ```
