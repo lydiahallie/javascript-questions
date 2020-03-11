@@ -3262,7 +3262,7 @@ We can get this value with both `.then` and the `await` keyword in an `async` fu
 
 In the `firstFunction`, we (sort of) put the myPromise function aside while it was running, but continued running the other code, which is `console.log('second')` in this case. Then, the function resolved with the string `I have resolved`, which then got logged after it saw that the callstack was empty. 
 
-With the await keyword in `secondFunction`, we literally pause the execution of an async function until the value has been resolved befoer moving to the next line.
+With the await keyword in `secondFunction`, we literally pause the execution of an async function until the value has been resolved before moving to the next line.
 
 This means that it waited for the `myPromise` to resolve with the value `I have resolved`, and only once that happened, we moved to the next line: `second` got logged. 
 
