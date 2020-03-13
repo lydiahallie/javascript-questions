@@ -9,8 +9,7 @@
 From basic to advanced: test how well you know JavaScript, refresh your knowledge a bit, or prepare for your coding interview! :muscle: :rocket: I update this repo regularly with new questions. I added the answers in the **collapsed sections** below the questions, simply click on them to expand it. It's just for fun, good luck! :heart:</span>
 
 Feel free to reach out to me! 😊 <br />
-<a href="https://www.instagram.com/theavocoder">Instagram</a> || <a href="https://www.twitter.com/lydiahallie">Twitter</a> || <a href="https:/www.linkedin.com/in/lydia-hallie">LinkedIn</a> || <a href="www.lydiahallie.dev">Blog</a>
-
+  <a href="https://www.instagram.com/theavocoder">Instagram</a> || <a href="https://www.twitter.com/lydiahallie">Twitter</a> || <a href="https://www.linkedin.com/in/lydia-hallie">LinkedIn</a> || <a href="https://www.lydiahallie.dev">Blog</a>
   </div>
 
 ---
@@ -18,23 +17,24 @@ Feel free to reach out to me! 😊 <br />
 <details><summary><b> See 16 Available Translations 🇪🇸🇮🇹🇩🇪 🇫🇷🇷🇺🇨🇳🇵🇹</b></summary>
 <p>
 
-- [English](../en-EN/README.md)
-- [العربية](../ar-AR/README_AR.md)
-- [اللغة العامية - Egyptian Arabic](../ar-EG/README_ar-EG.md)
-- [Bosanski](../bs-BS/README-bs_BS.md)
-- [Deutsch](../de-DE/README.md)
-- [Español](../es-ES/README-ES.md)
-- [Français](../fr-FR/README_fr-FR.md)
-- [日本語](../ja-JA/README-ja_JA.md)
-- [한국어](../ko-KR/README-ko_KR.md)
-- [Português Brasil](../pt-BR/README_pt_BR.md)
-- [Русский](../ru-RU/README.md)
-- [Українська мова](../ua-UA/README-ua_UA.md)
-- [Tiếng Việt](../vi-VI/README-vi.md)
-- [中文版本](../zh-CN/README-zh_CN.md)
-- [Türkçe](../tr-TR/README-tr_TR.md)
-- [ไทย](../th-TH/README-th_TH.md)
-- [Indonesia](../id-ID/README.md)
+* [English](../en-EN/README.md)
+* [العربية](../ar-AR/README_AR.md)
+* [اللغة العامية - Egyptian Arabic](../ar-EG/README_ar-EG.md)
+* [Bosanski](../bs-BS/README-bs_BS.md)  
+* [Deutsch](../de-DE/README.md)  
+* [Español](../es-ES/README-ES.md)
+* [Français](../fr-FR/README_fr-FR.md)
+* [日本語](../ja-JA/README-ja_JA.md)  
+* [한국어](../ko-KR/README-ko_KR.md)
+* [Nederlands](./nl-NL/README.md)
+* [Português Brasil](../pt-BR/README_pt_BR.md)  
+* [Русский](../ru-RU/README.md)
+* [Українська мова](../ua-UA/README-ua_UA.md)  
+* [Tiếng Việt](../vi-VI/README-vi.md)
+* [中文版本](../zh-CN/README-zh_CN.md)
+* [Türkçe](../tr-TR/README-tr_TR.md)
+* [ไทย](../th-TH/README-th_TH.md)
+* [Indonesia](../id-ID/README.md)
 
 </p>
 </details>
@@ -3227,7 +3227,7 @@ With the `||` operator, we can return the first truthy operand. If all values ar
 
 `(false || {} || null)`: the empty object `{}` is a truthy value. This is the first (and only) truthy value, which gets returned. `one` is equal to `{}`.
 
-`(null || false || "")`: all operands are falsy values. This means that the past operand, `""` gets returned. `two` is equal to `""`.
+`(null || false || "")`: all operands are falsy values. This means that the last operand, `""` gets returned. `two` is equal to `""`.
 
 `([] || 0 || "")`: the empty array`[]` is a truthy value. This is the first truthy value, which gets returned. `three` is equal to `[]`.
 
@@ -3271,7 +3271,7 @@ We can get this value with both `.then` and the `await` keyword in an `async` fu
 
 In the `firstFunction`, we (sort of) put the myPromise function aside while it was running, but continued running the other code, which is `console.log('second')` in this case. Then, the function resolved with the string `I have resolved`, which then got logged after it saw that the callstack was empty.
 
-With the await keyword in `secondFunction`, we literally pause the execution of an async function until the value has been resolved befoer moving to the next line.
+With the await keyword in `secondFunction`, we literally pause the execution of an async function until the value has been resolved before moving to the next line.
 
 This means that it waited for the `myPromise` to resolve with the value `I have resolved`, and only once that happened, we moved to the next line: `second` got logged.
 
@@ -3409,7 +3409,7 @@ console.log(colorConfig.colors[1]);
 
 In JavaScript, we have two ways to access properties on an object: bracket notation, or dot notation. In this example, we use dot notation (`colorConfig.colors`) instead of bracket notation (`colorConfig["colors"]`).
 
-With dot notation, JavaScript tries to find the property on the object with that exact name. In this example, JavaScript tries to find a property called `colors` on the `colorConfig` object. There is no proprety called `colors`, so this returns `undefined`. Then, we try to access the value of the first element by using `[1]`. We cannot do this on a value that's `undefined`, so it throws a `TypeError`: `Cannot read property '1' of undefined`.
+With dot notation, JavaScript tries to find the property on the object with that exact name. In this example, JavaScript tries to find a property called `colors` on the `colorConfig` object. There is no property called `colors`, so this returns `undefined`. Then, we try to access the value of the first element by using `[1]`. We cannot do this on a value that's `undefined`, so it throws a `TypeError`: `Cannot read property '1' of undefined`.
 
 JavaScript interprets (or unboxes) statements. When we use bracket notation, it sees the first opening bracket `[` and keeps going until it finds the closing bracket `]`. Only then, it will evaluate the statement. If we would've used `colorConfig[colors[1]]`, it would have returned the value of the `red` property on the `colorConfig` object.
 
@@ -4466,39 +4466,7 @@ However, it only _shallowly_ freezes the object, meaning that only _direct_ prop
 
 ---
 
-###### 138. Which of the following will modify the `person` object?
-
-```javascript
-const person = {
-  name: 'Lydia Hallie',
-  address: {
-    street: '100 Main St',
-  },
-};
-
-Object.freeze(person);
-```
-
-- A: `person.name = "Evan Bacon"`
-- B: `delete person.address`
-- C: `person.address.street = "101 Main St"`
-- D: `person.pet = { name: "Mara" }`
-
-<details><summary><b>Answer</b></summary>
-<p>
-
-#### Answer: C
-
-The `Object.freeze` method _freezes_ an object. No properties can be added, modified, or removed.
-
-However, it only _shallowly_ freezes the object, meaning that only _direct_ properties on the object are frozen. If the property is another object, like `address` in this case, the properties on that object aren't frozen, and can be modified.
-
-</p>
-</details>
-
----
-
-###### 139. What's the output?
+###### 138. What's the output?
 
 ```javascript
 const add = x => x + x;
@@ -4530,7 +4498,7 @@ Then, we invoked `myFunc(3)` and passed the value `3` as the value for the argum
 
 ---
 
-###### 140. What's the output?
+###### 139. What's the output?
 
 ```javascript
 class Counter {
@@ -4568,7 +4536,7 @@ In ES2020, we can add private variables in classes by using the `#`. We cannot a
 
 ---
 
-###### 141. What's the output?
+###### 140. What's the missing?
 
 ```javascript
 const teams = [
@@ -4612,7 +4580,7 @@ If we would've written `yield`, `return yield`, or `return`, the entire generato
 
 ---
 
-###### 142. What's the output?
+###### 141. What's the output?
 
 ```javascript
 const person = {
@@ -4657,7 +4625,7 @@ After pushing `dancing` and `baking`, the value of `person.hobbies` is `["coding
 
 ---
 
-###### 143. What's the output?
+###### 142. What's the output?
 
 ```javascript
 class Bird {
@@ -4693,7 +4661,7 @@ We create the variable `pet` which is an instance of the `Flamingo` class. When 
 
 ---
 
-###### 144. Which of the options result(s) in an error?
+###### 143. Which of the options result(s) in an error?
 
 ```javascript
 const emojis = ['🎄', '🎅🏼', '🎁', '⭐'];
@@ -4721,7 +4689,7 @@ The `const` keyword simply means we cannot _redeclare_ the value of that variabl
 
 ---
 
-###### 145. What do we need to add to the `person` object to get `["Lydia Hallie", 21]` as the output of `[...person]`?
+###### 144. What do we need to add to the `person` object to get `["Lydia Hallie", 21]` as the output of `[...person]`?
 
 ```javascript
 const person = {
@@ -4734,7 +4702,7 @@ const person = {
 
 - A: Nothing, object are iterable by default
 - B: `*[Symbol.iterator]() { for (let x in this) yield* this[x] }`
-- C: `*[Symbol.iterator]() { for (let x in this) yield* Object.values(this) }`
+- C: `*[Symbol.iterator]() { yield* Object.values(this) }`
 - D: `*[Symbol.iterator]() { for (let x in this) yield this }`
 
 <details><summary><b>Answer</b></summary>
