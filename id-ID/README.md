@@ -4690,7 +4690,7 @@ We create the variable `pet` which is an instance of the `Flamingo` class. When 
 
 ---
 
-###### 144. Which of the options result(s) in an error?
+###### 144. Manakah dari pilihan di bawah ini yang salah?
 
 ```javascript
 const emojis = ['🎄', '🎅🏼', '🎁', '⭐'];
@@ -4702,8 +4702,8 @@ const emojis = ['🎄', '🎅🏼', '🎁', '⭐'];
 ```
 
 - A: 1
-- B: 1 and 2
-- C: 3 and 4
+- B: 1 dan 2
+- C: 3 dan 4
 - D: 3
 
 <details><summary><b>Jawaban</b></summary>
@@ -4711,7 +4711,7 @@ const emojis = ['🎄', '🎅🏼', '🎁', '⭐'];
 
 #### Jawaban: D
 
-The `const` keyword simply means we cannot _redeclare_ the value of that variable, it's _read-only_. However, the value itself isn't immutable. The propeties on the `emojis` array can be modified, for example by pushing new values, splicing them, or setting the length of the array to 0.
+Deklarasi `const` pada dasarnya berarti tidak dapat _mengubah_ nilai dari variable tersebut, karena bersifat _read-only (tidak dapat diubah)_. Bagaimanapun, nilainya tidak mutlak. Seperti array pada variable `emojis` dimana nilainya bisa diubah, contohnya untuk menambah nilai array baru, menghilangkan, atau mengubah properti `length` dari array menjadi 0.
 
 </p>
 </details>
