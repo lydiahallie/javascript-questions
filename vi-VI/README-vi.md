@@ -1048,7 +1048,7 @@ typeof sayHi();
 
 `sayHi` function trả về giá trị của một _hàm gọi ngay lập tức_ (immediately invoked function - IIFE). Function này trả về `0`, kiểu dữ liệu `"number"`.
 
-FYI: chỉ có 7 kiểu dữ liệu built-in: `null`, `undefined`, `boolean`, `number`, `string`, `object`, and `symbol`. `"function"` không phải là một kiểu, mà là objects, kiểu dữ liệu là `"object"`.
+FYI: chỉ có 7 kiểu dữ liệu built-in: `null`, `undefined`, `boolean`, `number`, `string`, `object`, `symbol`, and `bigint`. `"function"` không phải là một kiểu, mà là objects, kiểu dữ liệu là `"object"`.
 
 </p>
 </details>
@@ -4705,4 +4705,3 @@ Mặc định ta không thể duyệt qua được object. Trừ phi nó đượ
 
 </p>
 </details>
-

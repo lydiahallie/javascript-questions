@@ -1050,7 +1050,7 @@ console.log(typeof sayHi());
 
 `sayHi`함수는 즉시 호출 함수(IIFE)로서 리턴된 값을 리턴해요. 이 함수는 `0`을 리턴하고, 형은 `"number"`이에요.
 
-참고: 단 7개의 내장형이 있어요: `null`, `undefined`, `boolean`, `number`, `string`, `object` 그리고 `symbol`. `"function"`은 객체이기 때문에 형이 아니라 `"object"`형이에요.
+참고: 단 7개의 내장형이 있어요: `null`, `undefined`, `boolean`, `number`, `string`, `object`, `symbol` 그리고 `bigint`. `"function"`은 객체이기 때문에 형이 아니라 `"object"`형이에요.
 
 </p>
 </details>
