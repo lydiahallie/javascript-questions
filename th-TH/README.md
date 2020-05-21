@@ -63,7 +63,7 @@ sayHi();
 - C: `ReferenceError` and `21`
 - D: `undefined` and `ReferenceError`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
 #### คำตอบ: D
@@ -93,14 +93,14 @@ for (let i = 0; i < 3; i++) {
 - B: `0 1 2` and `3 3 3`
 - C: `3 3 3` and `0 1 2`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
 #### คำตอบ: C
 
-Because of the event queue in JavaScript, the `setTimeout` callback function is called _after_ the loop has been executed. Since the variable `i` in the first loop was declared using the `var` keyword, this value was global. During the loop, we incremented the value of `i` by `1` each time, using the unary operator `++`. By the time the `setTimeout` callback function was invoked, `i` was equal to `3` in the first example.
+เพราะว่าลำดับเหตุการที่เกิดขึ้นใน Javascript ฟังก์ชัน `setTimeout` ที่เป็น callback ถูกเรียก _หลังจาก_ loop รันเสร็จ เนื่องจากตัวแปร `i` ใน loop แรกถูกประกาศด้วยคีย์เวิร์ด `var` จึงทำให้มันเป็น global scope ระหว่างการวนรอบ loop เป็นการเพิ่มค่า `i` ที่ละ `1` ในแต่ละครั้งด้วย unary operator `++`. ในเวลาที่ `setTimeout` callback ถูกเรียก แต่ว่าค่า `i` มีค่าเท่ากับ `3` แล้วดังตัวอย่างแรก
 
-In the second loop, the variable `i` was declared using the `let` keyword: variables declared with the `let` (and `const`) keyword are block-scoped (a block is anything between `{ }`). During each iteration, `i` will have a new value, and each value is scoped inside the loop.
+ใน loop ที่สอง ตัวแปร `i` ถูกประกาศโดยใช้คีย์เวิร์ด `let` : ตัวแปลที่ประกาศด้วยคีย์เวิร์ `let` (และ `const`) เป็น block-scope (block คืออะไรก็ตามที่อยู่ภายใน `{ }`) ในระหว่างการทำซ้ำแต่ละครั้ง `i` จะมีค่าใหม่ และ ค่าแต่ละค่าจะถูกกำหนดขอบเขตภายใน loop
 
 </p>
 </details>
@@ -127,16 +127,16 @@ console.log(shape.perimeter());
 - C: `20` and `63`
 - D: `NaN` and `63`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
 #### คำตอบ: B
 
-Note that the value of `diameter` is a regular function, whereas the value of `perimeter` is an arrow function.
+Note ค่าของ `diameter` เป็น regular function แต่ว่าค่าของ `perimeter` เป็น arrow function.
 
-With arrow functions, the `this` keyword refers to its current surrounding scope, unlike regular functions! This means that when we call `perimeter`, it doesn't refer to the shape object, but to its surrounding scope (window for example).
+ด้วย arrow functions คีย์เวิร์ด `this` อ้างอิงไปที่ขอบเขตโดยรอบ (Statis scope หรือ Lexical scope) มันจะไม่เหมือนกับ regular functions! นั้นหมายถึงว่าเมื่อเราเรียก `perimeter` คำว่า `this` มันไม่ได้อ้างอิงไปที่ตัว shape object แต่มันอ้างอิงไปที่ขอบเขตโดยรอบ(ในตัวอย่าง `this` จะอ้างอิงไปที่ window object).
 
-There is no value `radius` on that object, which returns `undefined`.
+ไม่มีค่าของ `radius` ที่ window object ดังนั้น `this.radius` จึงมีค่าเป็น `undefined`.
 
 </p>
 </details>
@@ -154,7 +154,7 @@ There is no value `radius` on that object, which returns `undefined`.
 - B: `false` and `NaN`
 - C: `false` and `false`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
 #### คำตอบ: A
@@ -186,7 +186,7 @@ const mouse = {
 - C: `mouse[bird["size"]]` is not valid
 - D: All of them are valid
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
 #### คำตอบ: A
@@ -221,7 +221,7 @@ console.log(d.greeting);
 - D: `ReferenceError`
 - E: `TypeError`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
 #### คำตอบ: A
@@ -256,7 +256,7 @@ console.log(b === c);
 - C: `true` `false` `false`
 - D: `false` `true` `true`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
 #### คำตอบ: C
@@ -295,7 +295,7 @@ console.log(freddie.colorChange('orange'));
 - C: `green`
 - D: `TypeError`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
 #### คำตอบ: D
@@ -319,7 +319,7 @@ console.log(greetign);
 - B: `ReferenceError: greetign is not defined`
 - C: `undefined`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
 #### คำตอบ: A
@@ -348,7 +348,7 @@ bark.animal = 'dog';
 - C: `"Woof"` gets logged.
 - D: `ReferenceError`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
 #### คำตอบ: A
@@ -383,7 +383,7 @@ console.log(member.getFullName());
 - C: `Lydia Hallie`
 - D: `undefined` `undefined`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
 #### คำตอบ: A
@@ -423,7 +423,7 @@ console.log(sarah);
 - C: `Person {firstName: "Lydia", lastName: "Hallie"}` and `{}`
 - D:`Person {firstName: "Lydia", lastName: "Hallie"}` and `ReferenceError`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
 #### คำตอบ: A
@@ -444,7 +444,7 @@ We said that `this.firstName` equals `"Sarah"` and `this.lastName` equals `"Smit
 - C: Target > Bubbling > Capturing
 - D: Capturing > Target > Bubbling
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
 #### คำตอบ: D
@@ -463,7 +463,7 @@ During the **capturing** phase, the event goes through the ancestor elements dow
 - A: true
 - B: false
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
 #### คำตอบ: B
@@ -490,7 +490,7 @@ sum(1, '2');
 - C: `"12"`
 - D: `3`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
 #### คำตอบ: C
@@ -518,7 +518,7 @@ console.log(number);
 - C: `0` `2` `2`
 - D: `0` `1` `2`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
 #### คำตอบ: C
@@ -559,7 +559,7 @@ getPersonInfo`${person} is ${age} years old`;
 - B: `["", " is ", " years old"]` `"Lydia"` `21`
 - C: `"Lydia"` `["", " is ", " years old"]` `21`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
 #### คำตอบ: B
@@ -591,7 +591,7 @@ checkAge({ age: 18 });
 - B: `You are still an adult.`
 - C: `Hmm.. You don't have an age I guess`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
 #### คำตอบ: C
@@ -622,7 +622,7 @@ getAge(21);
 - C: `"object"`
 - D: `"NaN"`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
 #### คำตอบ: C
@@ -651,7 +651,7 @@ getAge();
 - C: `ReferenceError`
 - D: `TypeError`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
 #### คำตอบ: C
@@ -674,7 +674,7 @@ const sum = eval('10*10+5');
 - C: `TypeError`
 - D: `"10*10+5"`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
 #### คำตอบ: A
@@ -697,7 +697,7 @@ sessionStorage.setItem('cool_secret', 123);
 - C: When the user closes the entire browser, not only the tab.
 - D: When the user shuts off their computer.
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
 #### คำตอบ: B
@@ -725,7 +725,7 @@ console.log(num);
 - C: `SyntaxError`
 - D: `ReferenceError`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
 #### คำตอบ: B
@@ -756,7 +756,7 @@ set.has(1);
 - C: `true` `true` `false` `true`
 - D: `true` `true` `true` `true`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
 #### คำตอบ: C
@@ -782,7 +782,7 @@ console.log(obj);
 - C: `{ a: "three", b: "two" }`
 - D: `SyntaxError`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
 #### คำตอบ: C
@@ -800,7 +800,7 @@ If you have two keys with the same name, the key will be replaced. It will still
 - B: false
 - C: it depends
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
 #### คำตอบ: A
@@ -826,7 +826,7 @@ for (let i = 1; i < 5; i++) {
 - C: `1` `2` `4`
 - D: `1` `3` `4`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
 #### คำตอบ: C
@@ -855,7 +855,7 @@ name.giveLydiaPizza();
 - C: `SyntaxError`
 - D: `undefined`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
 #### คำตอบ: A
@@ -885,7 +885,7 @@ console.log(a[b]);
 - C: `undefined`
 - D: `ReferenceError`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
 #### คำตอบ: B
@@ -918,7 +918,7 @@ baz();
 - C: `Second` `First` `Third`
 - D: `Second` `Third` `First`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
 #### คำตอบ: B
@@ -971,7 +971,7 @@ This is where an event loop starts to work. An **event loop** looks at the stack
 - C: `button`
 - D: An array of all nested elements.
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
 #### คำตอบ: C
@@ -998,7 +998,7 @@ The deepest nested element that caused the event is the target of the event. You
 - C: `p`
 - D: `div`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
 #### คำตอบ: A
@@ -1028,7 +1028,7 @@ console.log(sayHi.bind(person, 21));
 - C: `Lydia is 21` `Lydia is 21`
 - D: `Lydia is 21` `function`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
 #### คำตอบ: D
@@ -1057,7 +1057,7 @@ console.log(typeof sayHi());
 - C: `"function"`
 - D: `"undefined"`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
 #### คำตอบ: B
@@ -1087,7 +1087,7 @@ undefined;
 - C: `0`, `''`, `new Boolean(false)`, `undefined`
 - D: All of them are falsy
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
 #### คำตอบ: A
@@ -1119,7 +1119,7 @@ console.log(typeof typeof 1);
 - C: `"object"`
 - D: `"undefined"`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
 #### คำตอบ: B
@@ -1145,7 +1145,7 @@ console.log(numbers);
 - C: `[1, 2, 3, 7 x empty, 11]`
 - D: `SyntaxError`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
 #### คำตอบ: C
@@ -1182,7 +1182,7 @@ depending on where you run it (it's different for every browser, node, etc.)
 - C: `1` `1` `2`
 - D: `1` `undefined` `undefined`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
 #### คำตอบ: A
@@ -1205,7 +1205,7 @@ Outside of the `catch` block, `x` is still `undefined`, and `y` is `2`. When we 
 - C: trick question! only objects
 - D: number or object
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
 #### คำตอบ: A
@@ -1237,7 +1237,7 @@ What differentiates a primitive from an object is that primitives do not have an
 - C: `[1, 2, 0, 1, 2, 3]`
 - D: `[1, 2, 6]`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
 #### คำตอบ: C
@@ -1264,7 +1264,7 @@ Then, `[1, 2, 0, 1]` is `acc` and `[2, 3]` is `cur`. We concatenate them, and ge
 - C: `false` `true` `true`
 - D: `true` `true` `false`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
 #### คำตอบ: B
@@ -1291,7 +1291,7 @@ setInterval(() => console.log('Hi'), 1000);
 - C: the passed function
 - D: `undefined`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
 #### คำตอบ: A
@@ -1314,7 +1314,7 @@ It returns a unique id. This id can be used to clear that interval with the `cle
 - C: `[[], "Lydia"]`
 - D: `[["L", "y", "d", "i", "a"]]`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
 #### คำตอบ: A
@@ -1345,7 +1345,7 @@ console.log(gen.next().value);
 - C: `10, 20`
 - D: `0, 10 and 10, 20`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
 #### คำตอบ: C
@@ -1380,7 +1380,7 @@ Promise.race([firstPromise, secondPromise]).then(res => console.log(res));
 - C: `"two" "one"`
 - D: `"one" "two"`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
 #### คำตอบ: B
@@ -1407,7 +1407,7 @@ console.log(members);
 - C: `[{}]`
 - D: `[{ name: "Lydia" }]`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
 #### คำตอบ: D
@@ -1449,7 +1449,7 @@ for (const item in person) {
 - C: `"Lydia", 21`
 - D: `["name", "Lydia"], ["age", 21]`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
 #### คำตอบ: B
@@ -1472,7 +1472,7 @@ console.log(3 + 4 + '5');
 - C: `12`
 - D: `"12"`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
 #### คำตอบ: B
@@ -1499,7 +1499,7 @@ const num = parseInt('7*6', 10);
 - C: `7`
 - D: `NaN`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
 #### คำตอบ: C
@@ -1527,7 +1527,7 @@ Only the first numbers in the string is returned. Based on the _radix_ (the seco
 - C: `[undefined, undefined, undefined]`
 - D: `[ 3 x empty ]`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
 #### คำตอบ: C
@@ -1562,7 +1562,7 @@ console.log(person, birthYear);
 - C: `{ name: "Lydia" }, "1998"`
 - D: `{ name: "Sarah" }, "1997"`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
 #### คำตอบ: A
@@ -1602,7 +1602,7 @@ sayHi();
 - C: `SyntaxError: can only throw Error objects`
 - D: `Oh no an error: Hello world!`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
 #### คำตอบ: D
@@ -1633,7 +1633,7 @@ console.log(myCar.make);
 - C: `ReferenceError`
 - D: `TypeError`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
 #### คำตอบ: B
@@ -1661,7 +1661,7 @@ console.log(typeof y);
 - C: `"object", "number"`
 - D: `"number", "undefined"`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
 #### คำตอบ: A
@@ -1711,7 +1711,7 @@ pet.bark();
 - C: `"Woof I am Mara"`, `undefined`
 - D: `TypeError`, `TypeError`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
 #### คำตอบ: A
@@ -1738,7 +1738,7 @@ console.log(set);
 - C: `{1, 1, 2, 3, 4}`
 - D: `{1, 2, 3, 4}`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
 #### คำตอบ: D
@@ -1774,7 +1774,7 @@ console.log(myCounter);
 - C: `Error`
 - D: `NaN`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
 #### คำตอบ: C
@@ -1803,7 +1803,7 @@ console.log(delete age);
 - C: `true`, `true`
 - D: `undefined`, `undefined`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
 #### คำตอบ: A
@@ -1831,7 +1831,7 @@ console.log(y);
 - C: `1`
 - D: `[1]`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
 #### คำตอบ: C
@@ -1873,7 +1873,7 @@ console.log(admin);
 - C: `{ admin: true, user: ["Lydia", 21] }`
 - D: `{ admin: true }`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
 #### คำตอบ: B
@@ -1901,7 +1901,7 @@ console.log(Object.keys(person));
 - C: `{ name: "Lydia"}`, `["name", "age"]`
 - D: `{ name: "Lydia"}`, `["age"]`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
 #### คำตอบ: B
@@ -1933,7 +1933,7 @@ console.log(data);
 - C: `"["level", "health"]"`
 - D: `"{"username": "lydiahallie", "level":19, "health":90}"`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
 #### คำตอบ: A
@@ -1969,7 +1969,7 @@ console.log(num2);
 - C: `11`, `11`
 - D: `11`, `12`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
 #### คำตอบ: A
@@ -2003,7 +2003,7 @@ multiply(value);
 - C: `20`, `20`, `20`, `40`
 - D: `NaN`, `NaN`, `20`, `40`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
 #### คำตอบ: C
@@ -2032,7 +2032,7 @@ The fourth time, we pass the `value` object again. `x.number` was previously mod
 - C: `1` `undefined` and `2` `undefined` and `3` `undefined` and `4` `undefined`
 - D: `1` `2` and `undefined` `3` and `undefined` `4`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
 #### คำตอบ: D
@@ -2092,7 +2092,7 @@ class Labrador extends Dog {
 - C: 3
 - D: 4
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
 #### คำตอบ: B
@@ -2126,7 +2126,7 @@ export const sum = (a, b) => a + b;
 - C: `running sum.js`, `3`, `running index.js`
 - D: `running index.js`, `undefined`, `running sum.js`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
 #### คำตอบ: B
@@ -2153,7 +2153,7 @@ console.log(Symbol('foo') === Symbol('foo'));
 - C: `true`, `false`, `true`
 - D: `true`, `true`, `true`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
 #### คำตอบ: A
@@ -2178,7 +2178,7 @@ console.log(name.padStart(2));
 - C: `" Lydia Hallie"`, `"Lydia Hallie"` (`"[1x whitespace]Lydia Hallie"`, `"Lydia Hallie"`)
 - D: `"Lydia Hallie"`, `"Lyd"`,
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
 #### คำตอบ: C
@@ -2203,7 +2203,7 @@ console.log('🥑' + '💻');
 - C: A string containing their code points
 - D: Error
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
 #### คำตอบ: A
@@ -2236,7 +2236,7 @@ console.log(/* 2 */); // JavaScript loves you back ❤️
 - C: `game.next().value` and `game.next("Yes").value`
 - D: `game.next.value()` and `game.next.value("Yes")`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
 #### คำตอบ: C
@@ -2263,7 +2263,7 @@ console.log(String.raw`Hello\nworld`);
 - C: `Hello\nworld`
 - D: `Hello\n` <br /> &nbsp; &nbsp; &nbsp;`world`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
 #### คำตอบ: C
@@ -2303,7 +2303,7 @@ console.log(data);
 - C: `Promise {<pending>}`
 - D: `undefined`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
 #### คำตอบ: C
@@ -2337,7 +2337,7 @@ console.log(result);
 - C: `true`
 - D: `undefined`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
 #### คำตอบ: B
@@ -2369,7 +2369,7 @@ console.log(shape);
 - C: `{ x: 100 }`
 - D: `ReferenceError`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
 #### คำตอบ: B
@@ -2398,7 +2398,7 @@ console.log(name);
 - C: `undefined`
 - D: `ReferenceError`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
 #### คำตอบ: D
@@ -2425,7 +2425,7 @@ function sum(a, b) {
 - A: Yes
 - B: No
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
 #### คำตอบ: A
@@ -2466,7 +2466,7 @@ console.log(addFunction(5 * 2));
 - C: `Calculated! 20` `From cache! 20` `From cache! 20`
 - D: `Calculated! 20` `From cache! 20` `Error`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
 #### คำตอบ: C
@@ -2505,7 +2505,7 @@ for (let item of myLifeSummedUp) {
 - C: `"☕"` `"💻"` `"🍷"` `"🍫"` and `0` `1` `2` `3`
 - D: `0` `1` `2` `3` and `{0: "☕", 1: "💻", 2: "🍷", 3: "🍫"}`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
 #### คำตอบ: A
@@ -2535,7 +2535,7 @@ console.log(list);
 - C: `[3, 2, 0.5]`
 - D: `[1, 1, 1]`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
 #### คำตอบ: C
@@ -2564,7 +2564,7 @@ console.log(sayHi());
 - C: `Hi there, null`
 - D: `ReferenceError`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
 #### คำตอบ: B
@@ -2607,7 +2607,7 @@ setTimeout(() => {
 - C: `"😍"` and `"😎"`
 - D: `"😎"` and `"😎"`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
 #### คำตอบ: B
@@ -2640,7 +2640,7 @@ console.log(person);
 - C: `{ name: "Lydia", age: 21, city: undefined }`
 - D: `"Amsterdam"`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
 #### คำตอบ: A
@@ -2679,7 +2679,7 @@ console.log(checkAge(21));
 - C: `ReferenceError`
 - D: `undefined`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
 #### คำตอบ: C
@@ -2704,7 +2704,7 @@ fetch('https://www.website.com/api/user/1')
 - C: The result of the callback in the previous `.then()`.
 - D: It would always be undefined.
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
 #### คำตอบ: C
@@ -2729,7 +2729,7 @@ function getName(name) {
 - C: `new Boolean(name)`
 - D: `name.length`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
 #### คำตอบ: A
@@ -2758,7 +2758,7 @@ console.log('I want pizza'[0]);
 - C: `SyntaxError`
 - D: `undefined`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
 #### คำตอบ: B
@@ -2787,7 +2787,7 @@ sum(10);
 - C: `ReferenceError`
 - D: `undefined`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
 #### คำตอบ: B
@@ -2819,7 +2819,7 @@ console.log(data);
 - C: `{ default: "Hello world", name: "Lydia" }`
 - D: Global object of `module.js`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
 #### คำตอบ: A
@@ -2851,7 +2851,7 @@ console.log(typeof member);
 - C: `"object"`
 - D: `"string"`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
 #### คำตอบ: C
@@ -2884,7 +2884,7 @@ console.log(newList.push(5));
 - C: `[1, 2, 3, 4]`
 - D: `Error`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
 #### คำตอบ: D
@@ -2917,7 +2917,7 @@ console.log(giveLydiaChocolate.prototype);
 - C: `{ constructor: ...}` `{}`
 - D: `{ constructor: ...}` `undefined`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
 #### คำตอบ: D
@@ -2947,7 +2947,7 @@ for (const [x, y] of Object.entries(person)) {
 - C: `["name", "age"]` and `undefined`
 - D: `Error`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
 #### คำตอบ: A
@@ -2981,7 +2981,7 @@ getItems(["banana", "apple"], "pear", "orange")
 - C: `["banana", "apple", ["pear"], "orange"]`
 - D: `SyntaxError`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
 #### คำตอบ: D
@@ -3022,7 +3022,7 @@ console.log(nums(1, 2));
 - C: `undefined` and `undefined`
 - D: `SyntaxError`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
 #### คำตอบ: B
@@ -3067,7 +3067,7 @@ console.log(member.name);
 - C: `Error: cannot redeclare Person`
 - D: `SyntaxError`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
 #### คำตอบ: B
@@ -3095,7 +3095,7 @@ console.log(Object.keys(info));
 - C: `{ a: "b" }` and `["a"]`
 - D: `{Symbol('a'): 'b'}` and `[]`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
 #### คำตอบ: D
@@ -3127,7 +3127,7 @@ console.log(getUser(user))
 - C: `[1, 2, 3, 4]` and `{ name: "Lydia", age: 21 }`
 - D: `Error` and `{ name: "Lydia", age: 21 }`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
 #### คำตอบ: A
@@ -3162,7 +3162,7 @@ console.log(name());
 - C: `TypeError`
 - D: `undefined`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
 #### คำตอบ: C
@@ -3193,7 +3193,7 @@ You should${'' && `n't`} see a therapist after so much JavaScript lol`;
 - C: `possible! You shouldn't see a therapist after so much JavaScript lol`
 - D: `Impossible! You shouldn't see a therapist after so much JavaScript lol`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
 #### คำตอบ: B
@@ -3222,7 +3222,7 @@ console.log(one, two, three);
 - C: `{}` `""` `[]`
 - D: `null` `null` `true`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
 #### คำตอบ: C
@@ -3264,7 +3264,7 @@ secondFunction();
 - C: `I have resolved!`, `second` and `second`, `I have resolved!`
 - D: `second`, `I have resolved!` and `I have resolved!`, `second`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
 #### คำตอบ: D
@@ -3303,7 +3303,7 @@ for (let item of set) {
 - C: `3`, `Lydia2`, `[object Object]2`
 - D: `"12"`, `Lydia2`, `[object Object]2`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
 #### คำตอบ: C
@@ -3332,7 +3332,7 @@ Promise.resolve(5);
 - C: `Promise {<resolved>: 5}`
 - D: `Error`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
 #### คำตอบ: C
@@ -3367,7 +3367,7 @@ compareMembers(person);
 - C: `ReferenceError`
 - D: `SyntaxError`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
 #### คำตอบ: B
@@ -3406,7 +3406,7 @@ console.log(colorConfig.colors[1]);
 - C: `undefined`
 - D: `TypeError`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
 #### คำตอบ: D
@@ -3431,7 +3431,7 @@ console.log('❤️' === '❤️');
 - A: `true`
 - B: `false`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
 #### คำตอบ: A
@@ -3461,7 +3461,7 @@ emojis.splice(1, 2, '✨');
 - C: `map` `slice` `splice`
 - D: `splice`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
 #### คำตอบ: D
@@ -3491,7 +3491,7 @@ console.log(food);
 - C: `['🍝', '🍕', '🍫', '🥑', '🍔']`
 - D: `ReferenceError`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
 #### คำตอบ: A
@@ -3518,7 +3518,7 @@ JSON.parse();
 - C: Parses any JavaScript value to JSON
 - D: Parses JSON to a JavaScript object only
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
 #### คำตอบ: A
@@ -3562,7 +3562,7 @@ getName();
 - C: `undefined`
 - D: `ReferenceError`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
 #### คำตอบ: D
@@ -3611,7 +3611,7 @@ console.log(two.next().value);
 - C: `['a', 'b', 'c']` and `a`
 - D: `a` and `['a', 'b', 'c']`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
 #### คำตอบ: C
@@ -3650,7 +3650,7 @@ console.log(`${(x => x)('I love')} to program`);
 - C: `${(x => x)('I love') to program`
 - D: `TypeError`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
 #### คำตอบ: A
@@ -3679,7 +3679,7 @@ config = null;
 - C: The `setInterval` callback will still be called every second
 - D: We never invoked `config.alert()`, config is `null`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
 #### คำตอบ: C
@@ -3712,7 +3712,7 @@ myMap.get(() => 'greeting');
 - C: 2 and 3
 - D: All of them
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
 #### คำตอบ: B
@@ -3752,7 +3752,7 @@ console.log(person);
 - C: `{name: "Lydia", age: 22}`
 - D: `{name: "Lydia", age: 23}`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
 #### คำตอบ: C
@@ -3781,7 +3781,7 @@ function sumValues(x, y, z) {
 - C: `sumValues(...[1, 2, 3])`
 - D: `sumValues([1, 2, 3])`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
 #### คำตอบ: C
@@ -3807,7 +3807,7 @@ console.log(list[(num += 1)]);
 - C: `SyntaxError`
 - D: `ReferenceError`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
 #### คำตอบ: B
@@ -3845,7 +3845,7 @@ console.log(member.getLastName?.());
 - C: `Mara` `null` `Lydia Hallie` `null`
 - D: `null` `ReferenceError` `null` `ReferenceError`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
 #### คำตอบ: B
@@ -3879,7 +3879,7 @@ if (groceries.indexOf('banana')) {
 - C: `undefined`
 - D: `1`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
 #### คำตอบ: B
@@ -3909,7 +3909,7 @@ console.log(config.language);
 - C: `[]`
 - D: `undefined`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
 #### คำตอบ: D
@@ -3935,7 +3935,7 @@ console.log(!typeof name === 'string');
 - C: `false` `false`
 - D: `true` `true`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
 #### คำตอบ: C
@@ -3965,7 +3965,7 @@ add(4)(5)(6);
 - C: `4` `function` `function`
 - D: `undefined` `undefined` `6`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
 #### คำตอบ: A
@@ -3999,7 +3999,7 @@ async function* range(start, end) {
 - C: `1` `2` `3`
 - D: `undefined` `undefined` `undefined`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
 #### คำตอบ: C
@@ -4026,7 +4026,7 @@ myFunc(1, 2, 3);
 - C: `{ 1: undefined }` `undefined` `undefined`
 - D: `undefined` `undefined` `undefined`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
 #### คำตอบ: D
@@ -4063,7 +4063,7 @@ console.log(getFine(130, 300))
 - C: The driver drove undefined and has to pay undefined
 - D: The driver drove 130.00 and has to pay 300.00
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
 #### คำตอบ: B
@@ -4089,7 +4089,7 @@ console.log(spookyItems);
 - C: `["👻", "🎃", "🕸", { item: "💀" }]`
 - D: `["👻", "🎃", "🕸", "[object Object]"]`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
 #### คำตอบ: B
@@ -4119,7 +4119,7 @@ console.log(isNaN(age));
 - C: `false` `false` `true` `false`
 - D: `false` `true` `false` `true`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
 #### คำตอบ: C
@@ -4151,7 +4151,7 @@ getInfo();
 - C: `undefined`
 - D: `ReferenceError`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
 #### คำตอบ: D
@@ -4184,7 +4184,7 @@ const myPromise = Promise.resolve('Woah some cool data');
 - C: `Woah some cool data` `Oh finally!`
 - D: `Oops didn't work` `Oh finally!`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
 #### คำตอบ: C
@@ -4209,7 +4209,7 @@ console.log(emojis.flat(1));
 - C: `['🥑', ['✨', '✨', '🍕', '🍕']]`
 - D: `['🥑', '✨', '✨', '🍕', '🍕']`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
 #### คำตอบ: B
@@ -4249,7 +4249,7 @@ console.log(counterOne.count);
 - C: `2`
 - D: `3`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
 #### คำตอบ: D
@@ -4296,7 +4296,7 @@ funcTwo();
 - C: `Promise! Last line! Last line! Promise! Timeout! Timeout!`
 - D: `Last line! Promise! Promise! Last line! Timeout! Timeout!`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
 #### คำตอบ: D
@@ -4333,7 +4333,7 @@ import * as sum from './sum';
 - C: `sum.default(4)`
 - D: Default aren't imported with `*`, only named exports
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
 #### คำตอบ: C
@@ -4393,7 +4393,7 @@ person.name;
 - C: `Added a new property!` `Accessed a property!`
 - D: Nothing gets logged
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
 #### คำตอบ: C
@@ -4424,7 +4424,7 @@ Object.seal(person);
 - C: `delete person.name`
 - D: `Object.assign(person, { age: 21 })`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
 #### คำตอบ: A
@@ -4456,7 +4456,7 @@ Object.freeze(person);
 - C: `person.address.street = "101 Main St"`
 - D: `person.pet = { name: "Mara" }`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
 #### คำตอบ: C
@@ -4488,7 +4488,7 @@ myFunc(3);
 - C: `2` `Error` and `3` `6`
 - D: `2` `4` and `3` `Error`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
 #### คำตอบ: A
@@ -4528,7 +4528,7 @@ console.log(counter.#number)
 - C: `undefined`
 - D: `SyntaxError`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
 #### คำตอบ: D
@@ -4570,7 +4570,7 @@ obj.next(); // { value: "Lisa", done: false }
 - C: `return getMembers(teams[i].members)`
 - D: `return yield getMembers(teams[i].members)`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
 #### คำตอบ: B
@@ -4609,7 +4609,7 @@ console.log(person.hobbies);
 - C: `["coding", "dancing", "baking"]`
 - D: `["coding", "running", "dancing", "baking"]`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
 #### คำตอบ: C
@@ -4653,7 +4653,7 @@ const pet = new Flamingo();
 - C: `I'm a bird. 🦢` `I'm pink. 🌸`
 - D: Nothing, we didn't call any method
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
 #### คำตอบ: B
@@ -4681,7 +4681,7 @@ const emojis = ['🎄', '🎅🏼', '🎁', '⭐'];
 - C: 3 and 4
 - D: 3
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
 #### คำตอบ: D
@@ -4709,7 +4709,7 @@ const person = {
 - C: `*[Symbol.iterator]() { yield* Object.values(this) }`
 - D: `*[Symbol.iterator]() { for (let x in this) yield this }`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>คำตอบ</b></summary>
 <p>
 
 #### คำตอบ: C
