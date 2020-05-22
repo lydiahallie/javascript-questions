@@ -159,9 +159,9 @@ Note ค่าของ `diameter` เป็น regular function แต่ว่
 
 #### คำตอบ: A
 
-The unary plus tries to convert an operand to a number. `true` is `1`, and `false` is `0`.
+เครื่องหมายบวกจะพยายามแปลงตัวถูกดำเนินการเป็นตัวเลข `true` เป็น `1`, และ `false` เป็น `0`
 
-The string `'Lydia'` is a truthy value. What we're actually asking, is "is this truthy value falsy?". This returns `false`.
+String `'Lydia'` เป็นค่าความจริง สิ่งที่เราถามคือ "ค่าความจริงนี้เป็นเท็จหรือไม่?" (ซึ่งคำตอบก็คือ "ไม่") ค่าจึงเป็น `false`
 
 </p>
 </details>
