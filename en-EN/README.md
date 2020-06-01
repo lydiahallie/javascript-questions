@@ -1662,7 +1662,7 @@ console.log(typeof y);
 
 #### Answer: A
 
-`let x = y = 10;` is actually shorthand for:
+`let x = (y = 10);` is equivalent to `let x = y = 10;` and is actually a shorthand for:
 
 ```javascript
 y = 10;

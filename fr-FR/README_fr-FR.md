@@ -1649,7 +1649,7 @@ console.log(typeof y);
 
 #### Réponse : A
 
-`let x = y = 10;` est en réalité un raccourci pour :
+`let x = (y = 10);` est équivalent à `let x = y = 10;` et est en réalité un raccourci pour :
 
 ```javascript
 y = 10;
