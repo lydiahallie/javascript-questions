@@ -878,9 +878,9 @@ console.log(a[b]);
 
 Chaves de objeto são automaticamente convertidas em strings. Estamos tentando usar um objeto como chave do objeto `a`, com o valor de `123`.
 
-Contudo, quando transformamos um objeto em string, ele vira um `"[Object object]"`. Então, o que estamos afirmando é `a["Object object"] = 123`. Após, tentamos a mesma coisa. `c` é outro objeto que (implicitamente) convertemos para string. Então, temos `a["Object object"] = 456`.
+Contudo, quando transformamos um objeto em string, ele vira um `"[object Object]"`. Então, o que estamos afirmando é `a["object Object"] = 123`. Após, tentamos a mesma coisa. `c` é outro objeto que (implicitamente) convertemos para string. Então, temos `a["object Object"] = 456`.
 
-Então, fazemos o log de `a[b]`, o que na verdade é `a["Object object"]`. Acabmos de definir esse valor, como `456`, e é isso que ele retorna.
+Então, fazemos o log de `a[b]`, o que na verdade é `a["object Object"]`. Acabmos de definir esse valor, como `456`, e é isso que ele retorna.
 
 </p>
 </details>
