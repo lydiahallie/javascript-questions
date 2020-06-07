@@ -4745,3 +4745,174 @@ Objects aren't iterable by default. An iterable is an iterable if the iterator p
 </p>
 </details>
 
+-----
+
+###### 146. What's the output?
+
+```javascript
+let count = 0;
+const nums = [0, 1, 2, 3];
+
+nums.forEach(num => {
+	if (num) count += 1
+})
+
+console.log(count)
+```
+
+- A: 1
+- B: 2
+- C: 3
+- D: 4
+
+<details><summary><b>Answer</b></summary>
+<p>
+
+#### Answer: C
+
+The `if` condition within the `forEach` loop checks whether the value of `num` is truthy or falsy. Since the first number in the `nums` array is `0`, a falsy value, the `if` statement's code block won't be executed. `count` only gets incremented for the other 3 numbers in the `nums` array, `1`, `2` and `3`. Since `count` gets incremented by `1` 3 times, the value of `count` is `3`.
+
+</p>
+</details>
+
+---
+
+###### 147. What's the output?
+
+```javascript
+function getFruit(fruits) {
+	console.log(fruits?.[1]?.[1])
+}
+
+getFruit([['🍊', '🍌'], ['🍍']])
+getFruit()
+getFruit([['🍍'], ['🍊', '🍌']])
+```
+
+- A: `null`, `undefined`, 🍌
+- B: `[]`, `null`, 🍌
+- C: `[]`, `[]`, 🍌
+- D: `undefined`, `undefined`, 🍌
+
+<details><summary><b>Answer</b></summary>
+<p>
+
+#### Answer: D
+
+The `?` allows us to optionally access deeper nested properties within objects. We're trying to log the item on index `1` within the subarray that's on index `1` of the `fruits` array. If the subarray on index `1` in the `fruits` array doesn't exist, it'll simply return `undefined`. If the subarray on index `1` in the `fruits` array exists, but this subarray doesn't have an item on its `1` index, it'll also return `undefined`. 
+
+First, we're trying to log the second item in the `['🍍']` subarray of `[['🍊', '🍌'], ['🍍']]]`. This subarray only contains one item, which means there is no item on index `1`, and returns `undefined`.
+
+Then, we're invoking the `getFruits` function without passing a value as an argument, which means that `fruits` has a value of `undefined` by default. Since we're conditionally chaining the item on index `1` of`fruits`, it returns `undefined` since this item on index `1` does not exist. 
+
+Lastly, we're trying to log the second item in the `['🍊', '🍌']` subarray of `['🍍'], ['🍊', '🍌']`. The item on index `1` within this subarray is `🍌`, which gets logged.
+
+</p>
+</details>
+
+---
+
+###### 148. What's the output?
+
+```javascript
+class Calc {
+	constructor() {
+		this.count = 0 
+	}
+
+	increase() {
+		this.count ++
+	}
+}
+
+const calc = new Calc()
+new Calc().increase()
+
+console.log(calc.count)
+```
+
+- A: `0`
+- B: `1`
+- C: `undefined`
+- D: `ReferenceError`
+
+<details><summary><b>Answer</b></summary>
+<p>
+
+#### Answer: A
+
+We set the variable `calc` equal to a new instance of the `Calc` class. Then, we instantiate a new instance of `Calc`, and invoke the `increase` method on this instance. Since the count property is within the constructor of the `Calc` class, the count property is not shared on the prototype of `Calc`. This means that the value of count has not been updated for the instance calc points to, count is still `0`.
+
+</p>
+</details>
+
+---
+
+###### 149. What's the output?
+
+```javascript
+const user = {
+	email: "e@mail.com",
+	password: "12345"
+}
+
+const updateUser = ({ email, password }) => {
+	if (email) {
+		Object.assign(user, { email })
+	}
+
+	if (password) {
+		user.password = password
+	}
+
+	return user
+}
+
+const updatedUser = updateUser({ email: "new@email.com" })
+
+console.log(updatedUser === user)
+```
+
+- A: `false`
+- B: `true`
+- C: `TypeError`
+- D: `ReferenceError`
+
+<details><summary><b>Answer</b></summary>
+<p>
+
+#### Answer: B
+
+The `updateUser` function updates the values of the `email` and `password` properties on user, if their values are passed to the function, after which the function returns the `user` object. The returned value of the `updateUser` function is the `user` object, which means that the value of updatedUser is a reference to the same `user` object that `user` points to. `updatedUser === user` equals `true`.
+
+</p>
+</details>
+
+---
+
+###### 150. What's the output?
+
+```javascript
+const fruit = ['🍌', '🍊', '🍎']
+
+fruit.slice(0, 1)
+fruit.splice(0, 1)
+fruit.unshift('🍇')
+```
+
+- A: `['🍌', '🍊', '🍎']`
+- B: `['🍊', '🍎']`
+- C: `['🍇', '🍊', '🍎']`
+- D: `['🍇', '🍌', '🍊', '🍎']`
+
+<details><summary><b>Answer</b></summary>
+<p>
+
+#### Answer: C
+
+First, we invoke the `slice` method on the fruit array. The slice method does not modify the original array, but returns the value that it sliced off the array: the banana emoji.
+Then, we invoke the `splice` method on the fruit array. The splice method does modify the original array, which means that the fruit array now consists of `['🍊', '🍎']`.
+At last, we invoke the `unshift` method on the `fruit` array, which modifies the original array by adding the provided value, ‘🍇’ in this case,  as the first element in the array.  The fruit array now consists of `['🍇', '🍊', '🍎']`.
+
+</p>
+</details>
