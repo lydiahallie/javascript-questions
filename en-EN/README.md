@@ -4,6 +4,7 @@
 
 ---
 
+
 <span>I post multiple choice JavaScript questions on my [Instagram](https://www.instagram.com/theavocoder) **stories**, which I'll also post here! Last updated: <a href=#20200608><b>June 8th</b></a>
 
 From basic to advanced: test how well you know JavaScript, refresh your knowledge a bit, or prepare for your coding interview! :muscle: :rocket: I update this repo regularly with new questions. I added the answers in the **collapsed sections** below the questions, simply click on them to expand it. It's just for fun, good luck! :heart:</span>
@@ -3471,7 +3472,7 @@ With `splice` method, we modify the original array by deleting, replacing or add
 
 ---
 
-###### <a name=20191009></a>109. What's the output?
+###### 109. What's the output?
 
 ```javascript
 const food = ['🍕', '🍫', '🥑', '🍔'];
@@ -4717,7 +4718,7 @@ Objects aren't iterable by default. An iterable is an iterable if the iterator p
 
 -----
 
-###### 146. What's the output?
+###### <a name=20200607</a>146. What's the output?
 
 ```javascript
 let count = 0;
