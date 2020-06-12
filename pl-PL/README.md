@@ -43,7 +43,7 @@ Skontaktuj się ze mną! 😊 <br />
 
 ---
 
-###### 1. What's the output?
+###### 1. Co zostanie wypisane w konsoli?
 
 ```javascript
 function sayHi() {
@@ -56,19 +56,19 @@ function sayHi() {
 sayHi();
 ```
 
-- A: `Lydia` and `undefined`
-- B: `Lydia` and `ReferenceError`
-- C: `ReferenceError` and `21`
-- D: `undefined` and `ReferenceError`
+- A: `Lydia` i `undefined`
+- B: `Lydia` i `ReferenceError`
+- C: `ReferenceError` i `21`
+- D: `undefined` i `ReferenceError`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>Odpowiedź</b></summary>
 <p>
 
-#### Answer: D
+#### Odpowiedź: D
 
-Within the function, we first declare the `name` variable with the `var` keyword. This means that the variable gets hoisted (memory space is set up during the creation phase) with the default value of `undefined`, until we actually get to the line where we define the variable. We haven't defined the variable yet on the line where we try to log the `name` variable, so it still holds the value of `undefined`.
+W ciele funkcji najpierw deklarujemy zmienną `name` za pomocą słowa kluczowego `var`. To oznacza, że zmienna ta jest hoisted (miejsce w pamięci zostaje zarezerwowane podczas tworzenia) z domyślną wartością `undefined`, dopóki faktycznie nie dojdziemy do linijki w której definiujemy zmienną. W linijce w której próbujemy zalogować `name` zmienna ta nie została jeszcze zainicjalizowana, więc jej wartość to wciąż `undefined`.
 
-Variables with the `let` keyword (and `const`) are hoisted, but unlike `var`, don't get <i>initialized</i>. They are not accessible before the line we declare (initialize) them. This is called the "temporal dead zone". When we try to access the variables before they are declared, JavaScript throws a `ReferenceError`.
+Zmienne tworzone za pomocą słowa kluczowego `let` (oraz `const`) są hoisted, ale w przeciwieństwie do `var` nie są inicjalizowane. Nie są one dostępne przed linijką w której je deklarujemy(inicjalizujemy). Nazywa się to "temporal dead zone". Przy próbie dostępu do zmiennych przed ich deklaracją JavaScript rzuca błędem `ReferenceError`.
 
 </p>
 </details>
