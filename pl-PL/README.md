@@ -75,7 +75,7 @@ Zmienne tworzone za pomocą słowa kluczowego `let` (oraz `const`) są hoisted,
 
 ---
 
-###### 2. What's the output?
+###### 2. Co zostanie wypisane w konsoli?
 
 ```javascript
 for (var i = 0; i < 3; i++) {
@@ -96,9 +96,9 @@ for (let i = 0; i < 3; i++) {
 
 #### Odpowiedź: C
 
-Because of the event queue in JavaScript, the `setTimeout` callback function is called _after_ the loop has been executed. Since the variable `i` in the first loop was declared using the `var` keyword, this value was global. During the loop, we incremented the value of `i` by `1` each time, using the unary operator `++`. By the time the `setTimeout` callback function was invoked, `i` was equal to `3` in the first example.
+Z powodu kolejki eventów działające w JavaScript, funkcja callback przekazana do `setTimeout` jest wywołana _po tym_ jak pętla została wykonana. Zmienna `i` jest globalna, poniewaz została zadeklarowana z wykorzystaniem słowa kluczwego `var`. Podczas pętli zwiększyliśmy wartość `i` o `1` z kazdym przebiegiem, wykorzystując unary operator `++`. W momencie w którym callback przekazany do `setTimeout` został wywołany `i` było równe `3` w pierwszym przykładzie. 
 
-In the second loop, the variable `i` was declared using the `let` keyword: variables declared with the `let` (and `const`) keyword are block-scoped (a block is anything between `{ }`). During each iteration, `i` will have a new value, and each value is scoped inside the loop.
+W drugiej pę†li zmienna `i` została zadeklarowana za pomocą słowa kluczowego `let`: zmiennie zadeklarowane z uzyciem tego słowa (oraz `const`) są block-scoped (block to cokolwiek pomiędzy `{ }`). Podczas kazdej iteracji `i` będzie zainicjalizowane z nową wartością a kazda z nich będzie scoped w ciele pętli.
 
 </p>
 </details>
