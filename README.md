@@ -4,8 +4,7 @@
 
 ---
 
-
-<span>I post multiple choice JavaScript questions on my [Instagram](https://www.instagram.com/theavocoder) **stories**, which I'll also post here! Last updated: <a href=#20200608><b>June 8th</b></a>
+<span>I post multiple choice JavaScript questions on my [Instagram](https://www.instagram.com/theavocoder) **stories**, which I'll also post here! Last updated: <a href=#20200612><b>June 12th</b></a>
 
 From basic to advanced: test how well you know JavaScript, refresh your knowledge a bit, or prepare for your coding interview! :muscle: :rocket: I update this repo regularly with new questions. I added the answers in the **collapsed sections** below the questions, simply click on them to expand it. It's just for fun, good luck! :heart:</span>
 
@@ -4718,7 +4717,7 @@ Objects aren't iterable by default. An iterable is an iterable if the iterator p
 
 ---
 
-###### <a name=20200607></a>146. What's the output?
+###### 146. What's the output?
 
 ```javascript
 let count = 0;
@@ -4890,7 +4889,7 @@ At last, we invoke the `unshift` method on the `fruit` array, which modifies the
 
 ---
 
-###### <a name=20200608></a>151. What's the output?
+###### 151. What's the output?
 
 ```javascript
 const animals = {};
@@ -4987,6 +4986,103 @@ runPromises()
 #### Answer: D
 
 The `Promise.all` method runs the passed promises in parallel. If one promise fails, the `Promise.all` method _rejects) with the value of the rejected promise. In this case, `promise3` rejected with the value `"Third"`. We’re catching the rejected value in the chained `catch` method on the `runPromises` invocation to catch any errors  within the `runPromises` function. Only `"Third"` gets logged, since `promise3` rejected with this value.
+
+</p>
+</details>
+
+---
+
+###### <a name=20200612></a>154. What should the value of `method` be to log `{ name: "Lydia", age: 22 }`? 
+
+```javascript
+const keys = ["name", "age"]
+const values = ["Lydia", 22]
+
+const method = /* ?? */
+Object[method](keys.map((_, i) => {
+	return [keys[i], values[i]]
+})) // { name: "Lydia", age: 22 }
+```
+
+- A: `entries`
+- B: `values`
+- C: `fromEntries`
+- D: `forEach`
+
+<details><summary><b>Answer</b></summary>
+<p>
+
+#### Answer: C
+
+The `fromEntries` method turns a 2d array into an object. The first element in each subarray will be the key, and the second element in each subarray will be the value. In this case, we’re mapping over the `keys` array, which returns an array which first element is the item on the key array on the current index, and the second element is the item of the values array on the current index. 
+
+This creates an array of subarrays containing the correct keys and values, which results in `{ name: "Lydia", age: 22 }`
+
+</p>
+</details>
+
+---
+
+###### 155. What's the output?
+
+```javascript
+const createMember = ({ email, address = {}}) => {
+	const validEmail = /.+\@.+\..+/.test(email)
+	if (!validEmail) throw new Error("Valid email pls")
+
+	return {
+		email,
+		address: address ? address : null
+	}
+}
+
+const member = createMember({ email: "my@email.com" })
+console.log(member)
+```
+
+- A: `{ email: "my@email.com", address: null }`
+- B: `{ email: "my@email.com" }`
+- C: `{ email: "my@email.com", address: {} }`
+- D: `{ email: "my@email.com", address: undefined }`
+
+<details><summary><b>Answer</b></summary>
+<p>
+
+#### Answer: C
+
+The default value of `address` is an empty object `{}`. When we set the variable `member` equal to the object returned by the `createMember` function, we didn't pass a value for address, which means that the value of address is the default empty object `{}`. An empty object is a truthy value, which means that the condition of the `address ? address : null` conditional returns `true`. The value of address is the empty object `{}`.
+
+</p>
+</details>
+
+---
+
+###### 156. What's the output?
+
+```javascript
+let randomValue = { name: "Lydia" }
+randomValue = 23
+
+if (!typeof randomValue === "string") {
+	console.log("It's not a string!")
+} else {
+	console.log("Yay it's a string!")
+}
+```
+
+- A: `It's not a string!`
+- B: `Yay it's a string!`
+- C: `TypeError`
+- D: `undefined`
+
+<details><summary><b>Answer</b></summary>
+<p>
+
+#### Answer: B
+
+The condition within the `if` statement checks whether the value of `!typeof randomValue` is equal to `"string"`. The `!` operator converts the value to a boolean value. If the value is truthy, the returned value will be `false`, if the value is falsy, the returned value will be `true`. In this case, the returned value of `typeof randomValue` is the truthy value `"string"`, meaning that the value of `!typeof randomValue` is the boolean value `false`.
+
+`!typeof randomValue === "string"` always returns false, since we're actually checking `false === "string"`. Since the condition returned `false`, the code block of the `else` statement gets run, and `Yay it's a string!` gets logged.
 
 </p>
 </details>
