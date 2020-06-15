@@ -3091,7 +3091,7 @@ Bu symbol'ün birçok  özelliğinden birisidir: tamamen benzersiz bir değer te
 
 ```javascript
 const getList = ([x, ...y]) => [x, y]
-const getUser = user => { name: user.name, age: user.age }
+const getUser = user => ({ name: user.name, age: user.age })
 
 const list = [1, 2, 3, 4]
 const user = { name: "Lydia", age: 21 }

@@ -3109,7 +3109,7 @@ Dit is één van de goeie eigenschappen van een Symbol: naast dat het een comple
 
 ```javascript
 const getList = ([x, ...y]) => [x, y]
-const getUser = user => { name: user.name, age: user.age }
+const getUser = user => ({ name: user.name, age: user.age })
 
 const list = [1, 2, 3, 4]
 const user = { name: "Lydia", age: 21 }
