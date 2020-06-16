@@ -1051,7 +1051,7 @@ typeof sayHi();
 
 A função `sayHi` retorna o valor retornado pela arrow function pois ela é uma IIFE (Immediately Invoked Function Expression ou Expressão de Função Invocada Imediatamente). Essa IIFE retornou `0`, que é do tipo `"number"`.
 
-Para saber mais: Só existem 7 tipos já definidos: `null`, `undefined`, `boolean`, `number`, `string`, `object`, e `symbol`. `"function"` não é um tipo, uma vez que  funções são objetos, elas são do tipo `"object"`.
+Para saber mais: Só existem 7 tipos já definidos: `null`, `undefined`, `boolean`, `number`, `string`, `object`, `symbol`, e `bigint`. `"function"` não é um tipo, uma vez que  funções são objetos, elas são do tipo `"object"`.
 
 </p>
 </details>
