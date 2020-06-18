@@ -4721,7 +4721,7 @@ Objects aren't iterable by default. An iterable is an iterable if the iterator p
 
 ---
 
-###### 146. What's the output?
+###### 145. What's the output?
 
 ```javascript
 let count = 0;
@@ -4751,7 +4751,7 @@ The `if` condition within the `forEach` loop checks whether the value of `num` i
 
 ---
 
-###### 147. What's the output?
+###### 146. What's the output?
 
 ```javascript
 function getFruit(fruits) {
@@ -4786,7 +4786,7 @@ Lastly, we're trying to log the second item in the `['🍊', '🍌']` subarray o
 
 ---
 
-###### 148. What's the output?
+###### 147. What's the output?
 
 ```javascript
 class Calc {
@@ -4822,7 +4822,7 @@ We set the variable `calc` equal to a new instance of the `Calc` class. Then, we
 
 ---
 
-###### 149. What's the output?
+###### 148. What's the output?
 
 ```javascript
 const user = {
@@ -4864,7 +4864,7 @@ The `updateUser` function updates the values of the `email` and `password` prope
 
 ---
 
-###### 150. What's the output?
+###### 149. What's the output?
 
 ```javascript
 const fruit = ['🍌', '🍊', '🍎']
@@ -4893,7 +4893,7 @@ At last, we invoke the `unshift` method on the `fruit` array, which modifies the
 
 ---
 
-###### 151. What's the output?
+###### 150. What's the output?
 
 ```javascript
 const animals = {};
@@ -4929,7 +4929,7 @@ Logging `animals[dog]`, or actually `animals["object Object"]` since converting 
 
 ---
 
-###### 152. What's the output?
+###### 151. What's the output?
 
 ```javascript
 const user = {
@@ -4960,7 +4960,7 @@ The `updateEmail` function is an arrow function, and is not bound to the `user` 
 
 ---
 
-###### 153. What's the output?
+###### 152. What's the output?
 
 ```javascript
 const promise1 = Promise.resolve('First')
@@ -4996,7 +4996,7 @@ The `Promise.all` method runs the passed promises in parallel. If one promise fa
 
 ---
 
-###### <a name=20200612></a>154. What should the value of `method` be to log `{ name: "Lydia", age: 22 }`? 
+###### <a name=20200612></a>153. What should the value of `method` be to log `{ name: "Lydia", age: 22 }`? 
 
 ```javascript
 const keys = ["name", "age"]
@@ -5027,7 +5027,7 @@ This creates an array of subarrays containing the correct keys and values, which
 
 ---
 
-###### 155. What's the output?
+###### 154. What's the output?
 
 ```javascript
 const createMember = ({ email, address = {}}) => {
@@ -5061,7 +5061,7 @@ The default value of `address` is an empty object `{}`. When we set the variable
 
 ---
 
-###### 156. What's the output?
+###### 155. What's the output?
 
 ```javascript
 let randomValue = { name: "Lydia" }
