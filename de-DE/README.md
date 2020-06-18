@@ -1969,7 +1969,7 @@ Der unäre Operator `++` _gibt zuerst_ den Wert des Operanden aus und _erhöht d
 
 ---
 
-###### <a name=20190707></a>64. Was ist der Output?
+###### 64. Was ist der Output?
 
 ```javascript
 const value = { number: 10 };
@@ -2471,7 +2471,7 @@ Beim dritten Mal geben wir `5 * 2` als Argument in die Funktion ein, was `10` er
 
 ---
 
-###### <a name=20190726></a>79. Was ist der Output?
+###### 79. Was ist der Output?
 
 ```javascript
 const myLifeSummedUp = ["☕", "💻", "🍷", "🍫"]
@@ -2733,7 +2733,7 @@ Wenn wir `hasName` gleich `name` setzen, so beinhaltet `hasName` den Wert von `n
 
 ---
 
-###### <a name=20190805></a>87. Was ist der Output?
+###### 87. Was ist der Output?
 
 ```javascript
 console.log("I want pizza"[0])
@@ -2987,7 +2987,7 @@ Dieses Beispiel würde funktionieren und `[ 'banana', 'apple', 'orange', 'pear' 
 
 ---
 
-###### <a name=20190817></a>95. Was ist der Output?
+###### 95. Was ist der Output?
 
 ```javascript
 function nums(a, b) {
@@ -3464,7 +3464,7 @@ Mit der `splice` Methode ändern wir das ursprüngliche Array durch löschen, er
 
 ---
 
-###### <a name=20191009></a>109. Was ist der Output?
+###### 109. Was ist der Output?
 
 ```javascript
 const food = ['🍕', '🍫', '🥑', '🍔']

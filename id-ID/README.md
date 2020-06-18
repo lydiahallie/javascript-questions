@@ -3468,7 +3468,7 @@ With `splice` method, we modify the original array by deleting, replacing or add
 
 ---
 
-###### <a name=20191009></a>109. Apa yang akan tampil?
+###### 109. Apa yang akan tampil?
 
 ```javascript
 const food = ['🍕', '🍫', '🥑', '🍔'];
@@ -4214,7 +4214,7 @@ With the `flat` method, we can create a new, flattened array. The depth of the f
 
 ---
 
-###### <a name=20191224></a>132. Apa yang akan tampil?
+###### 132. Apa yang akan tampil?
 
 ```javascript
 class Counter {

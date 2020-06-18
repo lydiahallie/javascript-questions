@@ -4217,7 +4217,7 @@ With the `flat` method, we can create a new, flattened array. The depth of the f
 
 ---
 
-###### <a name=20191224></a>132. What's the output?
+###### 132. What's the output?
 
 ```javascript
 class Counter {
@@ -4992,7 +4992,7 @@ The `Promise.all` method runs the passed promises in parallel. If one promise fa
 
 ---
 
-###### <a name=20200612></a>154. What should the value of `method` be to log `{ name: "Lydia", age: 22 }`? 
+###### 154. What should the value of `method` be to log `{ name: "Lydia", age: 22 }`? 
 
 ```javascript
 const keys = ["name", "age"]

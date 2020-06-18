@@ -3464,7 +3464,7 @@ Con el método `splice`, modificamos el array original eliminando, reemplazando 
 
 ---
 
-###### <a name=20191009></a>109. ¿Cuál es el resultado?
+###### 109. ¿Cuál es el resultado?
 
 ```javascript
 const food = ['🍕', '🍫', '🥑', '🍔']

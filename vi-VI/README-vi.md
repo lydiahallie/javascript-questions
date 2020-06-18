@@ -1668,7 +1668,7 @@ Tuy nhiên với `y` thì khác, ta đã có giá trị của `y` khi set `y` b�
 
 ---
 
-###### <a name=20190629></a>55. Output là gì?
+###### 55. Output là gì?
 
 ```javascript
 class Dog {
@@ -2729,7 +2729,7 @@ Bằng cách set `hasName` bằng với `name`, chúng ta set `hasName` bằng v
 
 ---
 
-###### <a name=20190805></a>87. Output là gì?
+###### 87. Output là gì?
 
 ```javascript
 console.log("I want pizza"[0])
@@ -2983,7 +2983,7 @@ Nếu ta code như thế này thì lại đúng. Giá trị trả về sẽ là 
 
 ---
 
-###### <a name=20190817></a>95. Output là gì?
+###### 95. Output là gì?
 
 ```javascript
 function nums(a, b) {

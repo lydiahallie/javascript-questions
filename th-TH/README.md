@@ -2733,7 +2733,7 @@ By setting `hasName` equal to `name`, you set `hasName` equal to whatever value 
 
 ---
 
-###### <a name=20190805></a>87. ผลลัพธ์ที่ได้คืออะไร?
+###### 87. ผลลัพธ์ที่ได้คืออะไร?
 
 ```javascript
 console.log("I want pizza"[0])
@@ -3227,7 +3227,7 @@ With the `||` operator, we can return the first truthy operand. If all values ar
 
 ---
 
-###### 102. <a name=20190927></a>ผลลัพธ์ที่ได้คืออะไร?
+###### 102. ผลลัพธ์ที่ได้คืออะไร?
 
 ```javascript
 const myPromise = () => Promise.resolve('I have resolved!')

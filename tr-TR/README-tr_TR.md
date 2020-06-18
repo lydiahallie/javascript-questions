@@ -1662,7 +1662,7 @@ Ancak, `y`'yi `10`'a eşitlerken global değişken `y`'yi oluşturduk. Bu değer
 
 ---
 
-###### <a name=20190629></a>55. Çıktısı Nedir?
+###### 55. Çıktısı Nedir?
 
 ```javascript
 class Dog {
@@ -1961,7 +1961,7 @@ console.log(num2);
 
 ---
 
-###### <a name=20190707></a>64. Çıktısı Nedir?
+###### 64. Çıktısı Nedir?
 
 ```javascript
 const value = { number: 10 };
@@ -2170,7 +2170,7 @@ Eğer `padStart` methoduna geçilen argüman, string'in uzunluğundan daha azsa,
 
 ---
 
-###### <a name=20190714></a>70. Çıktısı Nedir?
+###### 70. Çıktısı Nedir?
 
 ```javascript
 console.log("🥑" + "💻");
@@ -2462,7 +2462,7 @@ Eğer `addFunction` fonksiyonunu aynı argüman ile tekrar çağırırsak, önce
 
 ---
 
-###### <a name=20190726></a>79. Çıktısı Nedir?
+###### 79. Çıktısı Nedir?
 
 ```javascript
 const myLifeSummedUp = ["☕", "💻", "🍷", "🍫"]
@@ -2723,7 +2723,7 @@ function getName(name) {
 
 ---
 
-###### <a name=20190805></a>87. Çıktısı Nedir?
+###### 87. Çıktısı Nedir?
 
 ```javascript
 console.log("I want pizza"[0])
@@ -2978,7 +2978,7 @@ Yukarıdaki örnek çalışır. `[ 'banana', 'apple', 'orange', 'pear' ]` dizisi
 
 ---
 
-###### <a name=20190817></a>95. Çıktısı Nedir?
+###### 95. Çıktısı Nedir?
 
 ```javascript
 function nums(a, b) {
