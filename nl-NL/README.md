@@ -1060,7 +1060,7 @@ console.log(typeof sayHi());
 
 De `sayHi` functie geeft de waarde terug van de direct aangeroepen functie (IIFE). Deze functie geeft `0` terug, die het type `number` heeft.
 
-FYI: er zijn slechts 7 ingebouwde types: `null`, `undefined`, `boolean`, `number`, `string`, `object`, en `symbol`. `"function"` is geen type omdat functies objecten zijn, en dus van het type `"object"`.
+FYI: er zijn slechts 7 ingebouwde types: `null`, `undefined`, `boolean`, `number`, `string`, `object`, `symbol` en `bigint`. `"function"` is geen type omdat functies objecten zijn, en dus van het type `"object"`.
 
 </p>
 </details>

@@ -4,7 +4,7 @@
 
 Temelden ileri düzeye: Javascript'i ne kadar iyi bildiğinizi test edin, bilginizi biraz tazeleyin ya da mülakatanıza hazırlanın! :muscle: :rocket: Repoyu haftalık olarak yeni sorularla güncelliyorum. Son güncelleme: <a href=#20190817><b>17 Ağustos</b></a>
 
-Cevaplar, soruların altında gizlenmiştir. Görmek için sadece tıklayın. İyi şanşlar :heart:
+Cevaplar, soruların altında gizlenmiştir. Görmek için sadece tıklayın. İyi şanslar :heart:
 
 Daha fazla soru eklendikçe eposta almak ister misiniz?<br />
 <a target="_blank" href="https://www.theavocoder.com/subscribe"><b>✨✉Eposta bildirimlerine abone olun✉✨</b></a>
@@ -1042,7 +1042,7 @@ console.log(typeof sayHi());
 
 `sayHi` fonksiyonu, anında çalıştırılan fonksiyonun, "immediately invoked function (IIFE)", döndürdüğü değeri döndürür. Bu fonksiyon `0` döndürdü, k, tipi `"number"`'dır.
 
-Bilginize; 7 tane tümleşik tip vardır: `null`, `undefined`, `boolean`, `number`, `string`, `object`, ve `symbol`. Fonksiyonlar nesne olduklarından, `"function"` tip değildir. Fonksiyonun tipi `"object"`'dir.
+Bilginize; 7 tane tümleşik tip vardır: `null`, `undefined`, `boolean`, `number`, `string`, `object`, `symbol`, ve `bigint`. Fonksiyonlar nesne olduklarından, `"function"` tip değildir. Fonksiyonun tipi `"object"`'dir.
 
 </p>
 </details>

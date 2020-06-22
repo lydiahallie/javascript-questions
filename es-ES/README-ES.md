@@ -1050,7 +1050,7 @@ typeof sayHi();
 
 La función `sayHi` devuelve el valor devuelto de la función invocada inmediatamente ([IIFE](https://developer.mozilla.org/es/docs/Glossary/IIFE)). Esta función devuelve `0`, que es el tipo `"number"`.
 
-En JS solo hay 7 tipos incorporados (En inglés se llaman _built-in types_, y pueden identificarse con el operador `typeof`. Más información [aquí](https://www.oreilly.com/library/view/you-dont-know/9781491905159/ch01.html)): `null`,` undefined`, `boolean`,` number`, `string`,` object` y `symbol`. `"function"` no es un tipo, ya que las funciones son objetos, es de tipo `"object"`.
+En JS solo hay 7 tipos incorporados (En inglés se llaman _built-in types_, y pueden identificarse con el operador `typeof`. Más información [aquí](https://www.oreilly.com/library/view/you-dont-know/9781491905159/ch01.html)): `null`,` undefined`, `boolean`,` number`, `string`,` object`, `symbol` y `bigint`. `"function"` no es un tipo, ya que las funciones son objetos, es de tipo `"object"`.
 
 </p>
 </details>

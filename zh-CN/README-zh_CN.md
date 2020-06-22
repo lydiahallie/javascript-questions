@@ -1028,7 +1028,7 @@ typeof sayHi()
 
 `sayHi` 方法返回的是立即执行函数(IIFE)的返回值.此立即执行函数的返回值是 `0`， 类型是 `number`
 
-参考：只有7种内置类型：`null`，`undefined`，`boolean`，`number`，`string`，`object` 和 `symbol`。 ``function`` 不是一种类型，函数是对象，它的类型是``object``。
+参考：只有7种内置类型：`null`，`undefined`，`boolean`，`number`，`string`，`object`, `symbol` 和 `bigint`。 ``function`` 不是一种类型，函数是对象，它的类型是``object``。
 
 </p>
 </details>

@@ -52,7 +52,7 @@ sayHi();
 
 Dentro da função, nós primeiro declaramos a variável `name` usando a palavra-chave `var`. Isso significa que a variavel é elevada(hoisted) (O espaço na memória é separado durante a fase de criação) com o valor padrão `undefined`, até que chegue na linha onde definimos a variável. Ainda não definimos a variável na linha onde tentamos usar colocar no log o valor da variável `name`, portanto ela ainda tem o valor `undefined`.
 
-Variáveis com a palavra-chave `let` (e `const`) são elevadas, mas diferente de `var`, não são <i>inicializadas</i>. Elas não acessíveis antes da linha em que as declaramos (ou inicializamos). Esse é um conceito chamado de "temporal dead zone". Quando tentamos acessar essas variáveis antes de serem declaradas, o JavaScript lança um `ReferenceError`
+Variáveis com a palavra-chave `let` (e `const`) são elevadas, mas diferente de `var`, não são <i>inicializadas</i>. Elas não estão acessíveis antes da linha em que as declaramos (ou inicializamos). Esse é um conceito chamado de "temporal dead zone". Quando tentamos acessar essas variáveis antes de serem declaradas, o JavaScript lança um `ReferenceError`.
 
 </p>
 </details>
@@ -614,7 +614,7 @@ getAge(21);
 
 #### Resposta: C
 
-O operador _spread_ (`...args`.) retorna um array com os argumentos. Um array é um objeto, então `typeof args` retorna `"object"`
+O operador _spread_ (`...args`.) retorna um array com os argumentos. Um array é um objeto, então `typeof args` retorna `"object"`.
 
 </p>
 </details>
@@ -1051,7 +1051,7 @@ typeof sayHi();
 
 A função `sayHi` retorna o valor retornado pela arrow function pois ela é uma IIFE (Immediately Invoked Function Expression ou Expressão de Função Invocada Imediatamente). Essa IIFE retornou `0`, que é do tipo `"number"`.
 
-Para saber mais: Só existem 7 tipos já definidos: `null`, `undefined`, `boolean`, `number`, `string`, `object`, e `symbol`. `"function"` não é um tipo, uma vez que  funções são objetos, elas são do tipo `"object"`.
+Para saber mais: Só existem 7 tipos já definidos: `null`, `undefined`, `boolean`, `number`, `string`, `object`, `symbol`, e `bigint`. `"function"` não é um tipo, uma vez que  funções são objetos, elas são do tipo `"object"`.
 
 </p>
 </details>
