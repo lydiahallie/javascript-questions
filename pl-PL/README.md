@@ -5,13 +5,16 @@
 ---
 
 
-<span>Wstawiam kilka wybranych pytań o JavaScripcie na [Instagram](https://www.instagram.com/theavocoder) **stories**, które wrzucam również tutaj! Ostatnia aktualizacja: <a href=#20200608><b>8 czerwca</b></a>
+<span>Wstawiam kilka wybranych pytań o JavaScripcie na [Instagram](https://www.instagram.com/theavocoder) **stories**, które wrzucam również tutaj! Ostatnia aktualizacja: <a href=#20200612><b>12 czerwca</b></a>
 
 Od podstaw do rzeczy zaawansowanych: przetestuj jak dobrze znasz JavaScript, odśwież trochę swoją wiedzę lub przygotuj się do swojej rozmowy! :muscle: :rocket: Aktualnie aktualizuje repozytorium o nowe pytania. Odpowiedźi znajdują się w **zwiniętych sekcjach** pod pytaniami, po prostu kliknij aby je rozwinąć. To tylko zabawa, powodzenia! :heart:</span>
 
 Skontaktuj się ze mną! 😊 <br />
   <a href="https://www.instagram.com/theavocoder">Instagram</a> || <a href="https://www.twitter.com/lydiahallie">Twitter</a> || <a href="https://www.linkedin.com/in/lydia-hallie">LinkedIn</a> || <a href="https://www.lydiahallie.dev">Blog</a>
   </div>
+
+| Zapraszam do wykorzystania ich w projekcie! 😃 Byłabym naprawdę wdzięczny za odniesienie do tego repozytorium, tworzę pytania i wyjaśnienia (tak, jestem smutna, lol), a społeczność bardzo mi pomaga w utrzymaniu i ulepszaniu go! 💪🏼 Dziękuję i baw się dobrze!   |
+|---|
 
 ---
 
