@@ -2070,3 +2070,34 @@ A classe `Labrador` recebe dois argumentos, `name`, pois estende `Dog`, e `size`
 </details>
 
 ---
+###### 67. Qual é a saída?
+
+```javascript
+// index.js
+console.log('running index.js');
+import { sum } from './sum.js';
+console.log(sum(1, 2));
+
+// sum.js
+console.log('running sum.js');
+export const sum = (a, b) => a + b;
+```
+
+- A: `running index.js`, `running sum.js`, `3`
+- B: `running sum.js`, `running index.js`, `3`
+- C: `running sum.js`, `3`, `running index.js`
+- D: `running index.js`, `undefined`, `running sum.js`
+
+<details><summary><b>Resposta</b></summary>
+<p>
+
+#### Resposta: B
+
+Com a palavra-chave `import`, todos os módulos importados são _pre-parsed_. Isso significa que os módulos importados são executados _primeiro_, o código no arquivo que importa o módulo é executado _depois_.
+
+Esta é uma diferença entre `require()` no CommonJS e `import`! Com `require()`, você pode carregar dependências sob demanda enquanto o código está sendo executado. Se tivéssemos usado `require` em vez de `import`, `running index.js`,` running sum.js`, `3` teriam sido registrados no console.
+
+</p>
+</details>
+
+---
