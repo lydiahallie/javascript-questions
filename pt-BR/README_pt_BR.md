@@ -666,7 +666,7 @@ const sum = eval("10*10+5");
 
 #### Resposta: A
 
-`eval` executa o código mesmo se passado como string. Se é uma expressão, como nesse caso, ele cálcula a expressão. A expressão é `10 * 10 + 5`. Isso retorna o número `105`.
+`eval` executa o código mesmo se passado como string. Se é uma expressão, como nesse caso, ele calcula a expressão. A expressão é `10 * 10 + 5`. Isso retorna o número `105`.
 
 </p>
 </details>
@@ -1943,6 +1943,43 @@ console.log(num2);
 O operador unário `++` primeiro _retorna_ o valor do operando, depois _incrementa_ esse valor. O valor de `num1` é `10`, pois a função `increaseNumber` retorna primeiro o valor de` num`, que é `10`, e apenas incrementa o valor de `num` posteriormente.
 
 `num2` é `10`, já que passamos `num1` para o `increasePassedNumber`. `number` é igual a` 10` (o valor de `num1`. Novamente, o operador unário `++` primeiro _retorna_ o valor do operando, depois _aumenta_ esse valor. O valor de` number` é `10`, então `num2` é igual a `10`.
+
+</p>
+</details>
+
+---
+###### 64. Qual é a saída?
+
+```javascript
+const value = { number: 10 };
+
+const multiply = (x = { ...value }) => {
+  console.log((x.number *= 2));
+};
+
+multiply();
+multiply();
+multiply(value);
+multiply(value);
+```
+
+- A: `20`, `40`, `80`, `160`
+- B: `20`, `40`, `20`, `40`
+- C: `20`, `20`, `20`, `40`
+- D: `NaN`, `NaN`, `20`, `40`
+
+<details><summary><b>Resposta</b></summary>
+<p>
+
+#### Resposta: C
+
+No ES6, podemos inicializar parâmetros com um valor padrão. O valor do parâmetro será o valor padrão, se nenhum outro valor tiver sido passado para a função ou se o valor do parâmetro for `"undefined"`. Nesse caso, espalhamos (spread) as propriedades do objeto `value` para um novo objeto, para que `x` tenha o valor padrão de `{number: 10}`.
+
+O argumento padrão é executado _a cada chamada_! Toda vez que chamamos a função, um _novo_ objeto é criado. Invocamos a função `multiply` as duas primeiras vezes sem passar um valor: `x` tem o valor padrão de `{number: 10}`. Em seguida, registramos (log) o valor multiplicado desse número, que é `20`.
+
+Na terceira vez que invocamos multiply, passamos um argumento: o objeto chamado `value`. O operador `*=` é na verdade uma abreviação de `x.number = x.number * 2`: modificamos o valor de `x.number` e registramos (log) o valor multiplicado `20`.
+
+Na quarta vez, passamos o objeto `value` novamente. `x.number` foi modificado anteriormente para `20`, então `x.number *= 2` registra `40`.
 
 </p>
 </details>
