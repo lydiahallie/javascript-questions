@@ -1904,13 +1904,46 @@ console.log(data);
 <details><summary><b>Resposta</b></summary>
 <p>
 
-#### Answer: A
+#### Resposta: A
 
 O segundo argumento de `JSON.stringify` é o _substituo_. O substituto pode ser uma função ou um array, e deixa você controlar o que deve ser "stringfied", isto é, ser usado pelo método `JSON.stringfy`.
 
 Se o substituto (replacer) for um _array_, apenas os nomes de propriedades incluídos no array serão adicionados à string JSON. Nesse caso, apenas as propriedades com os nomes `"level"` ed `"health"` são incluída, `"username"` é excluída. `data` agora é igual a `"{"level":19, "health":90}"`.
 
 Se o substituto (replacer) for uma _função_, essa função é chamada em c ada propriedade no objeto que está sendo "Stringfied". O valor retornado dessa função será o valor da propriedade quanto adicionado à string JSON. Se o valor for `undefined`, essa propriedade é excluída da string JSON.
+</p>
+</details>
+
+---
+###### 63. Qual é a saída?
+
+```javascript
+let num = 10;
+
+const increaseNumber = () => num++;
+const increasePassedNumber = number => number++;
+
+const num1 = increaseNumber();
+const num2 = increasePassedNumber(num1);
+
+console.log(num1);
+console.log(num2);
+```
+
+- A: `10`, `10`
+- B: `10`, `11`
+- C: `11`, `11`
+- D: `11`, `12`
+
+<details><summary><b>Resposta</b></summary>
+<p>
+
+#### Resposta: A
+
+O operador unário `++` primeiro _retorna_ o valor do operando, depois _incrementa_ esse valor. O valor de `num1` é `10`, pois a função `increaseNumber` retorna primeiro o valor de` num`, que é `10`, e apenas incrementa o valor de `num` posteriormente.
+
+`num2` é `10`, já que passamos `num1` para o `increasePassedNumber`. `number` é igual a` 10` (o valor de `num1`. Novamente, o operador unário `++` primeiro _retorna_ o valor do operando, depois _aumenta_ esse valor. O valor de` number` é `10`, então `num2` é igual a `10`.
+
 </p>
 </details>
 
