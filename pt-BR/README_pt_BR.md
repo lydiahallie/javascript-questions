@@ -2151,3 +2151,25 @@ Se o argumento passado para o método `padStart` for menor que o comprimento da 
 </details>
 
 ---
+###### 70. Qual é a saída?
+
+```javascript
+console.log('🥑' + '💻');
+```
+
+- A: `"🥑💻"`
+- B: `257548`
+- C: A string containing their code points
+- D: Error
+
+<details><summary><b>Resposta</b></summary>
+<p>
+
+#### Resposta: A
+
+Com o operador `+`, você pode concatenar seqüências de caracteres (strings). Neste caso, estamos concatenando a string `"🥑"` com a string `"💻"`, resultando em `"🥑💻"`.
+
+</p>
+</details>
+
+---
