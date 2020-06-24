@@ -2017,3 +2017,56 @@ Na quarta chamada, novamente não retornamos nada da função de retorno de cham
 </details>
   
 ---
+###### 66. Com qual construtor podemos estender com sucesso a classe `Dog`?
+
+```javascript
+class Dog {
+  constructor(name) {
+    this.name = name;
+  }
+};
+
+class Labrador extends Dog {
+  // 1
+  constructor(name, size) {
+    this.size = size;
+  }
+  // 2
+  constructor(name, size) {
+    super(name);
+    this.size = size;
+  }
+  // 3
+  constructor(size) {
+    super(name);
+    this.size = size;
+  }
+  // 4
+  constructor(name, size) {
+    this.name = name;
+    this.size = size;
+  }
+
+};
+```
+
+- A: 1
+- B: 2
+- C: 3
+- D: 4
+
+<details><summary><b>Resposta</b></summary>
+<p>
+
+#### Resposta: B
+
+Em uma classe derivada, você não pode acessar a palavra-chave `this` antes de chamar `super`. Se você tentar fazer isso, ele lançará um erro de referência (ReferenceError): 1 e 4 lançará um erro de referência.
+
+Com a palavra-chave `super`, chamamos o construtor dessa classe pai com os argumentos fornecidos. O construtor do pai recebe o argumento `name`, portanto, precisamos passar `name` para `super`.
+
+A classe `Labrador` recebe dois argumentos, `name`, pois estende `Dog`, e `size` como uma propriedade extra na classe `Labrador`. Ambos precisam ser passados para a função construtora no `Labrador`, que é feita corretamente usando o construtor 2.
+
+</p>
+</details>
+
+---
