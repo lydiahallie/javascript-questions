@@ -2125,3 +2125,29 @@ Todo símbolo (Symbol) é totalmente único. O objetivo do argumento passado ao 
 </details>
 
 ---
+###### 69. Qual é a saída?
+
+```javascript
+const name = 'Lydia Hallie';
+console.log(name.padStart(13));
+console.log(name.padStart(2));
+```
+
+- A: `"Lydia Hallie"`, `"Lydia Hallie"`
+- B: `" Lydia Hallie"`, `" Lydia Hallie"` (`"[13x whitespace]Lydia Hallie"`, `"[2x whitespace]Lydia Hallie"`)
+- C: `" Lydia Hallie"`, `"Lydia Hallie"` (`"[1x whitespace]Lydia Hallie"`, `"Lydia Hallie"`)
+- D: `"Lydia Hallie"`, `"Lyd"`,
+
+<details><summary><b>Resposta</b></summary>
+<p>
+
+#### Resposta: C
+
+Com o método `padStart`, podemos adicionar preenchimento (padding) ao início de uma string. O valor passado para esse método é o comprimento _total_ da string junto com o preenchimento. A string `"Lydia Hallie"` tem um comprimento de `12`. `name.padStart(13)` insere 1 espaço no início da string, porque 12 + 1 é 13.
+
+Se o argumento passado para o método `padStart` for menor que o comprimento da matriz, nenhum preenchimento será adicionado.
+
+</p>
+</details>
+
+---
