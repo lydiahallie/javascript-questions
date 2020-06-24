@@ -1985,3 +1985,35 @@ Na quarta vez, passamos o objeto `value` novamente. `x.number` foi modificado an
 </details>
 
 ---
+###### 65. Qual é a saída?
+
+```javascript
+[1, 2, 3, 4].reduce((x, y) => console.log(x, y));
+```
+
+- A: `1` `2` and `3` `3` and `6` `4`
+- B: `1` `2` and `2` `3` and `3` `4`
+- C: `1` `undefined` and `2` `undefined` and `3` `undefined` and `4` `undefined`
+- D: `1` `2` and `undefined` `3` and `undefined` `4`
+
+<details><summary><b>Resposta</b></summary>
+<p>
+
+#### Resposta: D
+
+O primeiro argumento que o método `reduce` recebe é o _acumulador_, `x` neste caso. O segundo argumento é o _valor atual_, `y`. Com o método `reduce`, executamos uma função de retorno de chamada (callback function) em todos os elementos da matriz, o que pode resultar em um único valor.
+
+Neste exemplo, não estamos retornando nenhum valor, estamos simplesmente registrando os valores do acumulador e o valor atual.
+
+O valor do acumulador é igual ao valor retornado anteriormente da função de retorno de chamada (callback function). Se você não passar o argumento opcional `initialValue` para o método `reduce`, o acumulador será igual ao primeiro elemento na primeira chamada.
+
+Na primeira chamada, o acumulador (`x`) é `1` e o valor atual (`y`) é `2`. Não retornamos da função de retorno de chamada, registramos o acumulador e o valor atual: `1` e` 2` são registrados.
+
+Se você não retornar um valor de uma função, ele retornará `undefined`. Na próxima chamada, o acumulador é "undefined" e o valor atual é "3". `undefined` e `3` são registrados.
+
+Na quarta chamada, novamente não retornamos nada da função de retorno de chamada. O acumulador é novamente `undefined` e o valor atual é `4`. `undefined` e `4` são registrados.
+
+</p>
+</details>
+  
+---
