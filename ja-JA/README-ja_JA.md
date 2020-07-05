@@ -16,7 +16,8 @@
 * [Español](../es-ES/README-ES.md)
 * [Français](../fr-FR/README_fr-FR.md)
 * [日本語](../ja-JA/README-ja_JA.md)  
-* [한국어](../ko-KR/README-ko_KR.md) 
+* [한국어](../ko-KR/README-ko_KR.md)
+* [Nederlands](./nl-NL/README.md)
 * [Português Brasil](../pt-BR/README_pt_BR.md)  
 * [Русский](../ru-RU/README.md)
 * [Українська мова](../ua-UA/README-ua_UA.md)  
@@ -1079,7 +1080,7 @@ typeof sayHi();
 
 `sayHi`関数は、即時呼び出し関数式（IIFE）の戻り値を返します。この関数は`0`を返しました。それは`"number"`型です。
 
-参考：7つの組み込み型しかありません： `null`, `undefined`, `boolean`, `number`, `string`, `object`, そして`symbol`。関数はオブジェクトなので、`"function"`型ではなく`"object"`型です。
+参考：7つの組み込み型しかありません： `null`, `undefined`, `boolean`, `number`, `string`, `object`, `symbol`, そして `bigint`。関数はオブジェクトなので、`"function"`型ではなく`"object"`型です。
 
 </p>
 </details>

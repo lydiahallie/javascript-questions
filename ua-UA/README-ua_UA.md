@@ -14,7 +14,8 @@
 * [Español](../es-ES/README-ES.md)
 * [Français](../fr-FR/README_fr-FR.md)
 * [日本語](../ja-JA/README-ja_JA.md)  
-* [한국어](../ko-KR/README-ko_KR.md) 
+* [한국어](../ko-KR/README-ko_KR.md)
+* [Nederlands](./nl-NL/README.md)
 * [Português Brasil](../pt-BR/README_pt_BR.md)  
 * [Русский](../ru-RU/README.md)
 * [Українська мова](../ua-UA/README-ua_UA.md)  
@@ -1044,7 +1045,7 @@ typeof sayHi();
 
 Функція `sayHi` повертає значення, що повертається з _негайно викликаного функціонального вираза_ (IIFE). Результатом є `0` типу `"number"`.
 
-Для інформації: в JS 7 вбудованих типів: `null`, `undefined`, `boolean`, `number`, `string`, `object`, та `symbol`. `"Function"` не є окремим типом, тому що функції є об'єктами типу `"object"`.
+Для інформації: в JS 7 вбудованих типів: `null`, `undefined`, `boolean`, `number`, `string`, `object`, `symbol`, та `bigint`. `"Function"` не є окремим типом, тому що функції є об'єктами типу `"object"`.
 
 </p>
 </details>

@@ -14,7 +14,8 @@ Les réponses se trouvent dans les sections repliées en dessous des questions, 
 * [Español](../es-ES/README-ES.md)
 * [Français](../fr-FR/README_fr-FR.md)
 * [日本語](../ja-JA/README-ja_JA.md)  
-* [한국어](../ko-KR/README-ko_KR.md) 
+* [한국어](../ko-KR/README-ko_KR.md)
+* [Nederlands](./nl-NL/README.md)
 * [Português Brasil](../pt-BR/README_pt_BR.md)  
 * [Русский](../ru-RU/README.md)
 * [Українська мова](../ua-UA/README-ua_UA.md)  
@@ -1046,7 +1047,7 @@ typeof sayHi();
 
 La fonction `sayHi` renvoie la valeur renvoyée par la fonction immédiatement appelée (IIFE). Cette fonction a renvoyé `0`, qui est du type `"nombre"`.
 
-Pour info : il n'y a que 7 types natifs : `null`, `undefined`, `boolean`, `number`, `string`, `object` et `symbol`. `"function"` n'est pas un type, puisque les fonctions sont des objets, il est de type `"object"`.
+Pour info : il n'y a que 7 types natifs : `null`, `undefined`, `boolean`, `number`, `string`, `object`, `symbol` et `bigint`. `"function"` n'est pas un type, puisque les fonctions sont des objets, il est de type `"object"`.
 
 </p>
 </details>
@@ -1803,7 +1804,7 @@ La variable `name` a été déclarée avec un mot-clé `const`. Par conséquent,
 
 ```javascript
 const numbers = [1, 2, 3, 4, 5];
-const [y] = numberes;
+const [y] = numbers;
 
 console.log(y);
 ```

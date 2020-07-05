@@ -19,7 +19,8 @@
 * [Español](../es-ES/README-ES.md)
 * [Français](../fr-FR/README_fr-FR.md)
 * [日本語](../ja-JA/README-ja_JA.md)  
-* [한국어](../ko-KR/README-ko_KR.md) 
+* [한국어](../ko-KR/README-ko_KR.md)
+* [Nederlands](./nl-NL/README.md)
 * [Português Brasil](../pt-BR/README_pt_BR.md)  
 * [Русский](../ru-RU/README.md)
 * [Українська мова](../ua-UA/README-ua_UA.md)  
@@ -1051,7 +1052,7 @@ typeof sayHi();
 
 Функция `sayHi` возвращает значение, возвращаемое из немедленно вызываемого функционального выражения (IIFE). Результатом является `0` типа `"number"`.
 
-Для информации: в JS 7 встроенных типов: `null`, `undefined`, `boolean`, `number`, `string`, `object`, и `symbol`. `"function"` не является отдельным типом, т.к. функции являются объектами типа `"object"`.
+Для информации: в JS 8 встроенных типов: `null`, `undefined`, `boolean`, `number`, `string`, `object`, `symbol` и `bigint`. `"function"` не является отдельным типом, т.к. функции являются объектами типа `"object"`.
 </p>
 </details>
 
