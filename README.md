@@ -388,7 +388,7 @@ console.log(member.getFullName());
 
 #### Answer: A
 
-You can't add properties to a constructor like you can with regular objects. If you want to add a feature to all objects at once, you have to use the prototype instead. So in this case,
+Adding a method to a constructor function means the method will only be available to new object instances - any old instances won't have the new method. If you want a method to be available to all instances then add it to the prototype property instead:
 
 ```js
 Person.prototype.getFullName = function() {
@@ -396,7 +396,7 @@ Person.prototype.getFullName = function() {
 };
 ```
 
-would have made `member.getFullName()` work. Why is this beneficial? Say that we added this method to the constructor itself. Maybe not every `Person` instance needed this method. This would waste a lot of memory space, since they would still have that property, which takes of memory space for each instance. Instead, if we only add it to the prototype, we just have it at one spot in memory, yet they all have access to it!
+This has the added effect of using memory more efficiently. If it was added to the constructor, each `Person` instance would have a separate copy of the method and this would waste memory. Instead, if we only add it to the prototype, we just have it at one spot in memory, yet they all have access to it!
 
 </p>
 </details>
