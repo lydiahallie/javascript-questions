@@ -221,13 +221,13 @@ console.log(d.greeting);
 
 #### คำตอบ: A
 
-In JavaScript, all objects interact by _reference_ when setting them equal to each other.
+ในภาษา Javascript, ทุก Object จะ interact โดย _reference_ เมื่อมีการตั้งค่าให้เท่ากัน.
 
-First, variable `c` holds a value to an object. Later, we assign `d` with the same reference that `c` has to the object.
+จากคำถามลำดับแรก `c` เก็บค่าที่เป็น object. หลังจากนั้นทำการกำหนดค่า `d` ไปที่ Reference ที่ค่า `c` เนื่องจากค่า `c` เป็น object การกำหนดค่าจึงเป็นการ Reference
 
 <img src="https://i.imgur.com/ko5k0fs.png" width="200">
 
-When you change one object, you change all of them.
+เมื่อมีการเปลี่ยนแปลงค่า object ตัวใดตัวหนึ่งค่าตัวอื่นจึงเปลี่ยนตามไปด้วย
 
 </p>
 </details>
@@ -256,11 +256,11 @@ console.log(b === c);
 
 #### คำตอบ: C
 
-`new Number()` is a built-in function constructor. Although it looks like a number, it's not really a number: it has a bunch of extra features and is an object.
+`new Number()` เป็น built-in function constructor. แม้ว่ามันจะคล้ายกับ number, แต่มันไม่ได้เป็น number จริงๆ: มันมีคุณสมบัติพิเศษมากมายเนื่องจากมันเป็น object
 
-When we use the `==` operator, it only checks whether it has the same _value_. They both have the value of `3`, so it returns `true`.
+เมื่อใช้เครื่องหมาย `==` , มันเป็นแค่การตรวจสอบว่าข้อมูลสองค่ามีค่าเท่ากันหรือไม่ _value_. ซึ่งค่าทั้งสองมีค่าเท่ากับ `3`, จึง returns `true`.
 
-However, when we use the `===` operator, both value _and_ type should be the same. It's not: `new Number()` is not a number, it's an **object**. Both return `false.`
+อย่างไรก็ตามเมื่อใช้เครื่องหมาย `===` , ทั้งค่าของมัน _และ_ type ของมันควรเหมือนกันจึงจะ return `true`. เนื่องจาก `new Number()` ไม่ใช่ number, มันเป็น **object**. `a === b` _และ_ `b === c` จึง return `false.`
 
 </p>
 </details>
