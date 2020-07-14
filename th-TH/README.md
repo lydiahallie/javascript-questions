@@ -185,13 +185,13 @@ const mouse = {
 
 #### คำตอบ: A
 
-In JavaScript, all object keys are strings (unless it's a Symbol). Even though we might not _type_ them as strings, they are always converted into strings under the hood.
+ในภาษา Javascript, ทุกๆ object keys เป็น strings (unless it's a Symbol). แม้ว่าเราไม่ได้กำหนด _type_ ของมันให้เป็น strings, object keys มันจะถูกแปลงเป็น strings หลังบ้านขอภาษา Javscript.
 
-JavaScript interprets (or unboxes) statements. When we use bracket notation, it sees the first opening bracket `[` and keeps going until it finds the closing bracket `]`. Only then, it will evaluate the statement.
+JavaScript interprets (or unboxes) statements. เมื่อเราใช้ bracket notation, มันจะมองไปที่ opening bracket `[` และมองไปจนถึง closing bracket `]`. หลังจากนั้นมันจะประเมินค่า statement.
 
-`mouse[bird.size]`: First it evaluates `bird.size`, which is `"small"`. `mouse["small"]` returns `true`
+`mouse[bird.size]`: การประเมิณลำดับแรก `bird.size`, มีค่าเท่ากับ `"small"`. `mouse["small"]` returns `true`
 
-However, with dot notation, this doesn't happen. `mouse` does not have a key called `bird`, which means that `mouse.bird` is `undefined`. Then, we ask for the `size` using dot notation: `mouse.bird.size`. Since `mouse.bird` is `undefined`, we're actually asking `undefined.size`. This isn't valid, and will throw an error similar to `Cannot read property "size" of undefined`.
+อย่างไรก็ตามด้วย dot notation, สิ่งนี้ไม่มีทางเกิดขึ้น. `mouse` ไม่มี key `bird`, ซึ่งหมายความว่า `mouse.bird` มีค่าเป็น `undefined`. เมื่อเราเรียกหา `size` โดยใช้ dot notation: `mouse.bird.size`. เนื่องจาก `mouse.bird` มีค่าเป็น `undefined`, มันเลยเป็นการเรียก `undefined.size`. ซึ่งไม่ valid (isn't valid), และจะมี error แจ้งขึ้นมา `Cannot read property "size" of undefined`.
 
 </p>
 </details>
