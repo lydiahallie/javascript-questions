@@ -388,7 +388,9 @@ console.log(member.getFullName());
 
 #### Answer: A
 
-Adding a method to a constructor function means the method will only be available to new object instances - any old instances won't have the new method. If you want a method to be available to all instances then add it to the prototype property instead:
+In JavaScript, functions are objects, and this actually adds the method `getFullName` to the constructor function object itself! Meaning we can call `Person.getFullName()`, but `member.getFullName` gives a `TypeError`. 
+
+If you want a method to be available to all object instances then add it to the prototype property:
 
 ```js
 Person.prototype.getFullName = function() {
@@ -396,7 +398,6 @@ Person.prototype.getFullName = function() {
 };
 ```
 
-This has the added effect of using memory more efficiently. If it was added to the constructor, each `Person` instance would have a separate copy of the method and this would waste memory. Instead, if we only add it to the prototype, we just have it at one spot in memory, yet they all have access to it!
 
 </p>
 </details>
