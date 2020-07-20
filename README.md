@@ -398,7 +398,6 @@ Person.prototype.getFullName = function() {
 };
 ```
 
-
 </p>
 </details>
 
