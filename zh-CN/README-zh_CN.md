@@ -2401,11 +2401,19 @@ function sum(a, b) {
 <details><summary><b>答案</b></summary>
 <p>
 
-#### 答案: A
+#### 答案: B
 
 纯函数一种若输入参数相同，则永远会得到相同输出的函数。
 
-`sum`函数总是返回相同的结果。 如果我们传递`1`和`2`，它将总是返回`3`而没有副作用。 如果我们传递`5`和`10`，它将总是返回`15`，依此类推，这是纯函数的定义。
+在特定情况下，即使输入相同参数，也不能得到相同的返回值：
+
+<pre>
+var a = b = {}
+a[Symbol.toPrimitive] = b[Symbol.toPrimitive] = () => Math.random()
+sum(a, b) // Uncertain
+</pre>
+
+所以它不是一个纯函数。
 
 </p>
 </details>
