@@ -1,0 +1,750 @@
+[{
+    "id": 1,
+    "question": " Quelle est la sortie ?",
+    "codeSnippet": "function sayHi() {\n  console.log(name);\n  console.log(age);\n  var name = \"Lydia\";\n  let age = 21;\n}\n\nsayHi();",
+    "answerOptions": {
+        "A": "`Lydia` et `undefined`",
+        "B": "`Lydia` et `ReferenceError`",
+        "C": "`ReferenceError` et `21`",
+        "D": "`undefined` et `ReferenceError`"
+    },
+    "correctAnswer": "D",
+    "answerExplanation": "Dans la fonction, nous déclarons en premier la variable `name` grâce au mot clé `var`. Cela signifie que la variable est \"levée\" _(hoisted)_ (l'espace mémoire est définie à la phase de création) avec pour valeur par défaut `undefined`, jusqu'à ce que le script atteigne la ligne de définition de la variable. Nous n'avons pas encore défini la variable lorsque nous essayons d'afficher la variable `name`, donc elle a toujours la valeur `undefined`.\n\nLes variables avec le mot clé `let` (et `const`) sont \"levées\" _(hoisted)_, mais contrairement à `var`, elle n'est pas <i>initialisée</i>. Elles ne sont pas accessible avant la ligne qui les déclare (initialise). C'est appelé la \"zone morte temporaire\". Lorsque nous essayons d'accéder aux variables avant leur déclaration, JavaScript renvoie une `ReferenceError`."
+}, {
+    "id": 2,
+    "question": " Quelle est la sortie ?",
+    "codeSnippet": "for (var i = 0; i < 3; i++) {\n  setTimeout(() => console.log(i), 1);\n}\n\nfor (let i = 0; i < 3; i++) {\n  setTimeout(() => console.log(i), 1);\n}",
+    "answerOptions": {
+        "A": "`0 1 2` et `0 1 2`",
+        "B": "`0 1 2` et `3 3 3`",
+        "C": "`3 3 3` et `0 1 2`"
+    },
+    "correctAnswer": "C",
+    "answerExplanation": "À cause du système de queue dans JavaScript, la fonction de rappel _(callback)_ du `setTimeout` est appelée _après_ que la boucle soit exécutée. Comme la variable `i` dans la première boucle est déclarée avec le mot-clé `var`, c'est une variable globale. Pendant la boucle, nous incrémentons la valeur de `i` de `1` à chaque fois, en utilisant l'opérateur arithmétique `++`. Lorsque la fonction de rappel _(callback)_ du `setTimeout` est invoquée, `i` est égal à `3` dans le premier exemple.\n\nDans la seconde boucle, la variable `i` est déclarée avec le mot clé `let` : les variables déclarées avec `let` (et `const`) ont une portée de bloc (tout ce qui est entre `{ }` est considéré comme un bloc). Pendant chaque itération, `i` aura une nouvelle valeur, et chaque valeur sera définie dans la boucle."
+}, {
+    "id": 3,
+    "question": " Quelle est la sortie ?",
+    "codeSnippet": "const shape = {\n  radius: 10,\n  diameter() {\n    return this.radius * 2;\n  },\n  perimeter: () => 2 * Math.PI * this.radius\n};\n\nshape.diameter();\nshape.perimeter();",
+    "answerOptions": {
+        "A": "`20` et `62.83185307179586`",
+        "B": "`20` et `NaN`",
+        "C": "`20` et `63`",
+        "D": "`NaN` et `63`"
+    },
+    "correctAnswer": "B",
+    "answerExplanation": "Notez que la valeur de `diameter` est une fonction régulière, alors que celle de `perimeter` est une fonction fléchée.\n\nAvec les fonctions fléchée, le mot clé `this` réfère à son périmètre actuel, contrairement aux fonctions régulières ! Cela signifie que lorsque nous appelons `perimeter`, elle ne réfère pas à l'objet `shape`, mais à son périmètre actuel (`window` par exemple).\n\nIl n'y a pas de valeur `radius` dans cet objet, on retournera `undefined`."
+}, {
+    "id": 4,
+    "question": " Quelle est la sortie ?",
+    "codeSnippet": "+true;\n!\"Lydia\";",
+    "answerOptions": {
+        "A": "`1` et `false`",
+        "B": "`false` et `NaN`",
+        "C": "`false` et `false`"
+    },
+    "correctAnswer": "A",
+    "answerExplanation": "L'opérateur arithmétique `+` essait de convertir un opérande en une valeur numérique. `true` devient `1`, et `false` devient `0`.\n\nLa chaîne de caractère `'Lydia'` est une valeur considérée comme vraie _(truthy)_. Ce que nous sommes actuellement en train de demander, c'est \"est-ce que cette valeur considérée comme vraie est fausse ?\". Ce qui retournera `false`."
+}, {
+    "id": 5,
+    "question": " Laquelle est vraie ?",
+    "codeSnippet": "const bird = {\n  size: \"small\"\n};\n\nconst mouse = {\n  name: \"Mickey\",\n  small: true\n};",
+    "answerOptions": {
+        "A": "`mouse.bird.size` n'est pas valide",
+        "B": "`mouse[bird.size]` n'est pas valide",
+        "C": "`mouse[bird[\"size\"]]` n'est pas valide",
+        "D": "Toutes sont valides"
+    },
+    "correctAnswer": "A",
+    "answerExplanation": "En JavaScript, toutes les clés d'objet sont des chaînes de caractères (sauf si c'est un Symbol). Bien que nous ne puissions pas les _typer_ comme des chaînes de caractères, elles sont converties en chaînes de caractères sous le capot.\n\nJavaScript interprète (ou décompresse) les instructions. Lorsque nous utilisons la notation pas crochet, il voit le premier crochet `[` et continue jusqu'à ce qu'il trouve le crochet fermant `]`. Seulement après, il évalue l'instruction.\n\n`mouse[bird.size]` : Premièrement, il évalue `bird.size`, qui est `\"small\"`. `mouse[\"small\"]` retourne `true`.\n\nCependant, avec la notation par points, cela n'arrive pas. `mouse` n'a pas de clé appelée `bird`, ce qui signifie que `mouse.bird` est `undefined`. Puis, on demande `size` en utilisant la notation par point : `mouse.bird.size`. Comme `mouse.bird` est `undefined`, on demande `undefined.size`. Cela n'est pas valide, et nous aurons une erreur similaire à `Impossible de lire la propriété \"size\" de undefined`."
+}, {
+    "id": 6,
+    "question": " Quelle est la sortie ?",
+    "codeSnippet": "let c = { greeting: \"Hey!\" };\nlet d;\n\nd = c;\nc.greeting = \"Hello\";\nconsole.log(d.greeting);",
+    "answerOptions": {
+        "A": "`Hello`",
+        "B": "`Hey`",
+        "C": "`undefined`",
+        "D": "`ReferenceError`",
+        "E": "`TypeError`"
+    },
+    "correctAnswer": "A",
+    "answerExplanation": "En JavaScript, tous les objets interagissent par _référence_ lorsqu'on les définit égaux les uns aux autres.\n\nPremièrement, la variable `c` contaient une valeur d'objet. Plus tard, nous assignons `d` avec la même référence que `c` à l'objet.\n\n<img src=\"https://i.imgur.com/ko5k0fs.png\" width=\"200\">\n\nQuand on modifie un objet, on les modifie donc tous."
+}, {
+    "id": 7,
+    "question": " Quelle est la sortie ?",
+    "codeSnippet": "let a = 3;\nlet b = new Number(3);\nlet c = 3;\n\nconsole.log(a == b);\nconsole.log(a === b);\nconsole.log(b === c);",
+    "answerOptions": {
+        "A": "`true` `false` `true`",
+        "B": "`false` `false` `true`",
+        "C": "`true` `false` `false`",
+        "D": "`false` `true` `true`"
+    },
+    "correctAnswer": "C",
+    "answerExplanation": "`new Number()` est une fonction globale. Bien qu'il ressemble à un nombre, ce n'en est pas vraiment un : il a une poignée de fonctionnalités supplémentaire et est un objet.\n\nQuand nous utilisons l'opérateur `==`, il vérifie seulement qu'il s'agisse de la même _valeur_. Les deux ont pour valeur `3`, donc il retourne `true`.\n\nCependant, quand on utilise l'opérateur `===`, les 2 valeurs _et_ types doivent être les mêmes. `new Number()` n'est pas un nombre, c'est un **objet**, il retourne `false`."
+}, {
+    "id": 8,
+    "question": " Quelle est la sortie ?",
+    "codeSnippet": "class Chameleon {\n  static colorChange(newColor) {\n    this.newColor = newColor;\n    return this.newColor;\n  }\n\n  constructor({ newColor = \"green\" } = {}) {\n    this.newColor = newColor;\n  }\n}\n\nconst freddie = new Chameleon({ newColor: \"purple\" });\nfreddie.colorChange(\"orange\");",
+    "answerOptions": {
+        "A": "`orange`",
+        "B": "`purple`",
+        "C": "`green`",
+        "D": "`TypeError`"
+    },
+    "correctAnswer": "D",
+    "answerExplanation": "La fonction `colorChange` est statique. Les méthodes statiques sont désignées pour vivre seulement dans le constructeur qui les a créé et ne peuvent pas être transférer aux enfants. Comme `freddie` est un enfant, la fonction n'est pas transférée et n'est pas disponible dans l'instance de `freddie` : une erreur `TypeError` est renvoyée."
+}, {
+    "id": 9,
+    "question": " Quelle est la sortie ?",
+    "codeSnippet": "let greeting;\ngreetign = {}; // Typo!\nconsole.log(greetign);",
+    "answerOptions": {
+        "A": "`{}`",
+        "B": "`ReferenceError: greetign is not defined`",
+        "C": "`undefined`"
+    },
+    "correctAnswer": "A",
+    "answerExplanation": "Il affiche l'objet, car on a juste créé un objet vide dans l'objet global ! Quand on écrit mal `greeting` en `greetign`, JavaScript l'interprète comme il le voit `global.greetign = {}` (ou `window.greetign = {}` dans le navigateur).\n\nPour éviter cela, on peut utiliser `\"use strict\"`. Cela nous assure de devoir déclarer la variable avant de lui assigner une valeur."
+}, {
+    "id": 10,
+    "question": " Que se passe-t-il lorsque nous faisons ça ?",
+    "codeSnippet": "function bark() {\n  console.log(\"Woof!\");\n}\n\nbark.animal = \"dog\";",
+    "answerOptions": {
+        "A": "Rien, c'est tout à fait bon !",
+        "B": "`SyntaxError`. Vous ne pouvez pas ajouter de propriétés à une fonction de cette façon.",
+        "C": "`undefined`",
+        "D": "`ReferenceError`"
+    },
+    "correctAnswer": "A",
+    "answerExplanation": "C'est possible en JavaScript, car les fonctions sont des objets ! (Tout ce qui n'est pas de type primitif est un objet)\n\nUne fonction est un type spécial d'objet. Le code que vous écrivez vous-même n'est pas la fonction. La fonction est un objet avec des propriétés. Cette propriété est invocable."
+}, {
+    "id": 11,
+    "question": " Quelle est la sortie ?",
+    "codeSnippet": "function Person(firstName, lastName) {\n  this.firstName = firstName;\n  this.lastName = lastName;\n}\n\nconst member = new Person(\"Lydia\", \"Hallie\");\nPerson.getFullName = function() {\n  return `${this.firstName} ${this.lastName}`;\n};\n\nconsole.log(member.getFullName());",
+    "answerOptions": {
+        "A": "`TypeError`",
+        "B": "`SyntaxError`",
+        "C": "`Lydia Hallie`",
+        "D": "`undefined` `undefined`"
+    },
+    "correctAnswer": "A",
+    "answerExplanation": "Vous ne pouvez pas ajouter de propriétés à un constructeur comme pour des objets normaux. Si vous voulez ajouter une fonctionnalité pour tous les objets en une fois, vous devez utiliser le prototype. Donc dans ce cas,\n\n```js\nPerson.prototype.getFullName = function() {\n  return `${this.firstName} ${this.lastName}`;\n};\n```\n\nrendra fonctionnel `member.getFullName`. Pourquoi est-ce bénéfique ? Disons que nous ajoutons cette méthode au constructeur directement. Peut-être que toutes les instances de `Person` n'ont pas besoin de cette méthode. Cela fera perdre de l'espace mémoire, car elles auront tous cette propriété, ce qui prendra de l'espace mémoire pour chaque instance. Alors que, si nous ajoutons la méthode au prototype uniquement, nous n'utilisons qu'un seul slot mémoire, et ils y auront tous accès !"
+}, {
+    "id": 12,
+    "question": " Quelle est la sortie ?",
+    "codeSnippet": "function Person(firstName, lastName) {\n  this.firstName = firstName;\n  this.lastName = lastName;\n}\n\nconst lydia = new Person(\"Lydia\", \"Hallie\");\nconst sarah = Person(\"Sarah\", \"Smith\");\n\nconsole.log(lydia);\nconsole.log(sarah);",
+    "answerOptions": {
+        "A": "`Person {firstName: \"Lydia\", lastName: \"Hallie\"}` et `undefined`",
+        "B": "`Person {firstName: \"Lydia\", lastName: \"Hallie\"}` et `Person {firstName: \"Sarah\", lastName: \"Smith\"}`",
+        "C": "`Person {firstName: \"Lydia\", lastName: \"Hallie\"}` et `{}`",
+        "D": "`Person {firstName: \"Lydia\", lastName: \"Hallie\"}` et `ReferenceError`"
+    },
+    "correctAnswer": "A",
+    "answerExplanation": "Pour `sarah`, nous n'avons pas utilisé le mot clé `new`. Quand nous utilisons `new`, il fait référence à un nouvel objet vide que nous créons. Cependant, nous n'ajoutons pas `new`. Il réfère à **l'objet global** !\n\nNous disons que `this.firstName` est égal à `\"Sarah\"` et que `this.lastName` est égal à `Smith`. Ce que nous faisons c'est définir `global.firstName = 'Sarah'` et `global.lastName = 'Smith'`. La variable `sarah` elle-même reste à `undefined`."
+}, {
+    "id": 13,
+    "question": " Quelle sont les trois phases de propagation des événements ?",
+    "codeSnippet": null,
+    "answerOptions": {
+        "A": "Target > Capturing > Bubbling",
+        "B": "Bubbling > Target > Capturing",
+        "C": "Target > Bubbling > Capturing",
+        "D": "Capturing > Target > Bubbling"
+    },
+    "correctAnswer": "D",
+    "answerExplanation": "Durant la phase de **capture** _(capturing)_, l'événement passe par les éléments parents jusqu'à l'élément ciblé. Il atteint ensuite l'élément **ciblé** _(target)_, et commence à **bouillonner** _(bubbling)_.\n\n<img src=\"https://i.imgur.com/N18oRgd.png\" width=\"200\">"
+}, {
+    "id": 14,
+    "question": " Tous les objets ont des prototypes.",
+    "codeSnippet": null,
+    "answerOptions": {
+        "A": "vrai",
+        "B": "faux"
+    },
+    "correctAnswer": "B",
+    "answerExplanation": "Tous les objets ont des prototypes, excepté pour les **objets standards**. Les objets standards ont accès à certaines méthodes et propriétés, comme `.toString`. C'est pour cette raison que vous pouvez utiliser les méthodes natives de JavaScript ! Toutes ces méthodes sont disponibles dans le prototype. Bien que JavaScript ne trouve pas la fonction dans l'objet, il parcourt le prototype et la méthode afin de la rendre accessible."
+}, {
+    "id": 15,
+    "question": " Quelle est la sortie ?",
+    "codeSnippet": "function sum(a, b) {\n  return a + b;\n}\n\nsum(1, \"2\");",
+    "answerOptions": {
+        "A": "`NaN`",
+        "B": "`TypeError`",
+        "C": "`\"12\"`",
+        "D": "`3`"
+    },
+    "correctAnswer": "C",
+    "answerExplanation": "JavaScript est un **langage à types dynamiques** : nous n'avons pas besoin de spécifier le types des variables. Les valeurs peuvent être automatiquement converties vers les autres types sans que vous le sachiez, c'est ce que l'on appelle _la conversion de types implicites_ _(implicit type coercion)_.\n\nDans cette exemple, JavaScript convertit le nombre `1` en une chaîne de caractère, afin que la fonction ait du sens et puisse renvoyer une valeur. Durant l'addition d'un type numérique (`1`) et d'un type chaîne de caractère (`'2'`), le nombre est traité comme une chaîne de caractère. Nous pouvons concaténer les chaînes de caractères comme `\"Hello\" + \"World\"`, c'est donc ce qui arrive ici avec `\"1\" + \"2\"` qui retourne `\"12\"`."
+}, {
+    "id": 16,
+    "question": " Quelle est la sortie ?",
+    "codeSnippet": "let number = 0;\nconsole.log(number++);\nconsole.log(++number);\nconsole.log(number);",
+    "answerOptions": {
+        "A": "`1` `1` `2`",
+        "B": "`1` `2` `2`",
+        "C": "`0` `2` `2`",
+        "D": "`0` `1` `2`"
+    },
+    "correctAnswer": "C",
+    "answerExplanation": "L'opérateur arithmétique **postfix** `++` :\n\n1. Retourne la valeur (ici il retourne `0`)\n2. Incrémente la valeur (le nombre est maintenant égal à `1`)\n\nL'opérateur arithmétique **préfix** `++` :\n\n1. Incrémente la valeur (le nombre est maintenant égal à `2`)\n2. Retourne la valeur (ici il retourne `2`)\n\nCela retourne donc `0 2 2`."
+}, {
+    "id": 17,
+    "question": " Quelle est la sortie ?",
+    "codeSnippet": "function getPersonInfo(one, two, three) {\n  console.log(one);\n  console.log(two);\n  console.log(three);\n}\n\nconst person = \"Lydia\";\nconst age = 21;\n\ngetPersonInfo`${person} is ${age} years old`;",
+    "answerOptions": {
+        "A": "`\"Lydia\"` `21` `[\"\", \" is \", \" years old\"]`",
+        "B": "`[\"\", \" is \", \" years old\"]` `\"Lydia\"` `21`",
+        "C": "`\"Lydia\"` `[\"\", \" is \", \" years old\"]` `21`"
+    },
+    "correctAnswer": "B",
+    "answerExplanation": "Si vous utilisez les littéraux de gabarits, la valeur du premier argument sera toujours un tableau de valeurs des chaînes de caractère. Le reste des arguments seront les valeurs des expressions utilisées !"
+}, {
+    "id": 18,
+    "question": " Quelle est la sortie ?",
+    "codeSnippet": "function checkAge(data) {\n  if (data === { age: 18 }) {\n    console.log(\"Vous êtes un adulte !\");\n  } else if (data == { age: 18 }) {\n    console.log(\"Vous êtes toujours un adulte.\");\n  } else {\n    console.log(`Hmm.. Vous n'avez pas l'âge, je suppose.`);\n  }\n}\n\ncheckAge({ age: 18 });",
+    "answerOptions": {
+        "A": "`Vous êtes un adulte !`",
+        "B": "`Vous êtes toujours un adulte.`",
+        "C": "`Hmm.. Vous n'avez pas l'âge, je suppose.`"
+    },
+    "correctAnswer": "C",
+    "answerExplanation": "Lorsque l'on teste une égalité, les primitifs sont comparés par leur valeur, alors que les objets sont comparés par leur _référence_. JavaScript vérifie si les objets ont une référence à la même zone de la mémoire.=\n\nLes 2 objets que nous comparons n'ont pas ça : l'objet passé en paramètre fait référence à une zone mémoire différente que l'objet que nous utilisons pour faire la comparaison.\n\nC'est pourquoi les 2 conditions `{ age: 18 } === { age: 18 }` et `{ age: 18 } == { age: 18 }` retournent `false`."
+}, {
+    "id": 19,
+    "question": " Quelle est la sortie ?",
+    "codeSnippet": "function getAge(...args) {\n  console.log(typeof args);\n}\n\ngetAge(21);",
+    "answerOptions": {
+        "A": "`\"number\"`",
+        "B": "`\"array\"`",
+        "C": "`\"object\"`",
+        "D": "`\"NaN\"`"
+    },
+    "correctAnswer": "C",
+    "answerExplanation": "La syntaxe des paramètres du reste _(rest parameters)_ (`...args`) retourne un tableau avec les arguments. Un tableau est un objet, donc `typeof args` retournera `\"object\"`."
+}, {
+    "id": 20,
+    "question": " Quelle est la sortie ?",
+    "codeSnippet": "function getAge() {\n  \"use strict\";\n  age = 21;\n  console.log(age);\n}\n\ngetAge();",
+    "answerOptions": {
+        "A": "`21`",
+        "B": "`undefined`",
+        "C": "`ReferenceError`",
+        "D": "`TypeError`"
+    },
+    "correctAnswer": "C",
+    "answerExplanation": "Avec `\"use strict\"`, vous pouvez êtes sûr de ne pas déclarer accidentellement des variables gloables. Nous ne déclarerons jamais la variable `age`, et temps que nous utiliserons `\"use strict\"`, cela créera une erreur de référence. Si nous n'utilisons pas `\"use strict\"`, cela fonctionnera et la variable `age` sera attribué à l'objet global."
+}, {
+    "id": 21,
+    "question": " Quelle est la valeur de `sum` ?",
+    "codeSnippet": "const sum = eval(\"10*10+5\");",
+    "answerOptions": {
+        "A": "`105`",
+        "B": "`\"105\"`",
+        "C": "`TypeError`",
+        "D": "`\"10*10+5\"`"
+    },
+    "correctAnswer": "A",
+    "answerExplanation": "`eval` évalue les codes que nous passons en paramètre de type chaîne de caractères. Si c'est une expression, comme dans notre cas, il évaluera l'expression. L'expression est `10 * 10 + 5`, ce qui retourne le nombre `105`."
+}, {
+    "id": 22,
+    "question": " Pendant combien de temps `cool_secret` sera-t-il accessible ?",
+    "codeSnippet": "sessionStorage.setItem(\"cool_secret\", 123);",
+    "answerOptions": {
+        "A": "Pour toujours, les données ne seront pas perdues.",
+        "B": "Jusqu'à ce que l'utilisateur ferme l'onglet.",
+        "C": "Jusqu'à ce que l'utilisateur ferme son navigateur en entier, pas seulement son onglet.",
+        "D": "Jusqu'à ce que l'utilisateur éteindra son ordinateur."
+    },
+    "correctAnswer": "B",
+    "answerExplanation": "La donnée stocké dans le `sessionStorage` est supprimée après la fermeture de l'onglet.\n\nSi vous utilisez le `localStorage`, la donnée sera là pour toujours, jusqu'à ce que, par exemple, `localStorage.clear()` soit invoquée."
+}, {
+    "id": 23,
+    "question": " Quelle est la sortie ?",
+    "codeSnippet": "var num = 8;\nvar num = 10;\n\nconsole.log(num);",
+    "answerOptions": {
+        "A": "`8`",
+        "B": "`10`",
+        "C": "`SyntaxError`",
+        "D": "`ReferenceError`"
+    },
+    "correctAnswer": "B",
+    "answerExplanation": "Avec le mot clé `var`, vous pouvez déclarer plusieurs variables avec le même nom. La variable aura pour valeur la dernière assignée.\n\nVous ne pouvez pas faire cela avec `let` ou `const` puisqu'ils ont une portée de bloc."
+}, {
+    "id": 24,
+    "question": " Quelle est la sortie ?",
+    "codeSnippet": "const obj = { 1: \"a\", 2: \"b\", 3: \"c\" };\nconst set = new Set([1, 2, 3, 4, 5]);\n\nobj.hasOwnProperty(\"1\");\nobj.hasOwnProperty(1);\nset.has(\"1\");\nset.has(1);",
+    "answerOptions": {
+        "A": "`false` `true` `false` `true`",
+        "B": "`false` `true` `true` `true`",
+        "C": "`true` `true` `false` `true`",
+        "D": "`true` `true` `true` `true`"
+    },
+    "correctAnswer": "C",
+    "answerExplanation": "Toutes les clés d'objet (à l'exception des symboles) sont des chaînes de caractères sous le capot, même si vous ne les tapez pas vous-même en tant que chaîne. C'est pourquoi `obj.hasOwnProperty(\"1\")` renvoie également la valeur `true`.\n\nÇa ne marche pas comme ça pour un set. Il n'y a pas de `'1'` dans notre ensemble : `set.has('1')` renvoie `false`. Il a le type numérique `1`, `set.has(1)` renvoie `true`."
+}, {
+    "id": 25,
+    "question": " Quelle est la sortie ?",
+    "codeSnippet": "const obj = { a: \"un\", b: \"deux\", a: \"trois\" };\nconsole.log(obj);",
+    "answerOptions": {
+        "A": "`{ a: \"un\", b: \"deux\" }`",
+        "B": "`{ b: \"deux\", a: \"trois\" }`",
+        "C": "`{ a: \"trois\", b: \"deux\" }`",
+        "D": "`SyntaxError`"
+    },
+    "correctAnswer": "C",
+    "answerExplanation": "Si vous avez deux clés portant le même nom, la clé sera remplacée. Elle sera toujours dans sa première position, mais avec la dernière valeur spécifiée."
+}, {
+    "id": 26,
+    "question": " Le contexte global d'exécution de JavaScript crée 2 choses pour vous : l'objet global and le mot-clé `this`.",
+    "codeSnippet": null,
+    "answerOptions": {
+        "A": "Vrai",
+        "B": "Faux",
+        "C": "Ça dépend"
+    },
+    "correctAnswer": "A",
+    "answerExplanation": "Le contexte d'exécution de base est le contexte d'exécution global : c'est ce qui est accessible partout dans votre code."
+}, {
+    "id": 27,
+    "question": " Quelle est la sortie ?",
+    "codeSnippet": "for (let i = 1; i < 5; i++) {\n  if (i === 3) continue;\n  console.log(i);\n}",
+    "answerOptions": {
+        "A": "`1` `2`",
+        "B": "`1` `2` `3`",
+        "C": "`1` `2` `4`",
+        "D": "`1` `3` `4`"
+    },
+    "correctAnswer": "C",
+    "answerExplanation": "L'instruction `continue` ignore une itération si une condition donnée renvoie `true`."
+}, {
+    "id": 28,
+    "question": " Quelle est la sortie ?",
+    "codeSnippet": "String.prototype.giveLydiaPizza = () => {\n  return \"Just give Lydia pizza already!\";\n};\n\nconst name = \"Lydia\";\n\nname.giveLydiaPizza();",
+    "answerOptions": {
+        "A": "`\"Just give Lydia pizza already!\"`",
+        "B": "`TypeError: not a function`",
+        "C": "`SyntaxError`",
+        "D": "`undefined`"
+    },
+    "correctAnswer": "A",
+    "answerExplanation": "`String` est un constructeur intégré, auquel nous pouvons ajouter des propriétés. Je viens d'ajouter une méthode à son prototype. Les chaînes de caractère primitives sont automatiquement converties en un objet chaîne, généré par la fonction prototype de chaîne. Ainsi, toutes les chaînes (objets de chaîne) ont accès à cette méthode !"
+}, {
+    "id": 29,
+    "question": " Quelle est la sortie ?",
+    "codeSnippet": "const a = {};\nconst b = { key: \"b\" };\nconst c = { key: \"c\" };\n\na[b] = 123;\na[c] = 456;\n\nconsole.log(a[b]);",
+    "answerOptions": {
+        "A": "`123`",
+        "B": "`456`",
+        "C": "`undefined`",
+        "D": "`ReferenceError`"
+    },
+    "correctAnswer": "B",
+    "answerExplanation": "Les clés d'objet sont automatiquement converties en chaînes de caractères. Nous essayons de définir un objet en tant que clé de l'objet `a`, avec la valeur `123`.\n\nCependant, lorsque nous transformons un objet en chaîne de caractère, il devient `\"[Objet objet]\"`. Donc, ce que nous disons ici, c'est que un `a[\"Objet objet\"] = 123`. Ensuite, nous pouvons essayer de refaire la même chose. `c` est un autre objet que nous sommes implicitement en train de transformer en chaîne de caractère. Donc, `a[\"Objet objet\"] = 456`.\n\nEnsuite, nous affichons `a[b]`, qui est en fait `a[\"Objet objet\"]`. Que nous venons de définir à `456`, nous renvoyons donc `456`."
+}, {
+    "id": 30,
+    "question": " Quelle est la sortie ?",
+    "codeSnippet": "const foo = () => console.log(\"Premier\");\nconst bar = () => setTimeout(() => console.log(\"Second\"));\nconst baz = () => console.log(\"Troisième\");\n\nbar();\nfoo();\nbaz();",
+    "answerOptions": {
+        "A": "`Premier` `Second` `Troisième`",
+        "B": "`Premier` `Troisième` `Second`",
+        "C": "`Second` `Premier` `Troisième`",
+        "D": "`Second` `Troisième` `Premier`"
+    },
+    "correctAnswer": "B",
+    "answerExplanation": "Nous avons une fonction `setTimeout` et nous l'avons d'abord appelée. Pourtant, il a été affiché en dernier.\n\nEn effet, dans les navigateurs, nous n’avons pas seulement le moteur d’exécution, nous avons aussi quelque chose appelé `WebAPI`. `WebAPI` nous donne la fonction` setTimeout` pour commencer, et par exemple le DOM.\n\nUne fois que la fonction de rappel _(callback)_ est poussée via la WebAPI, la fonction `setTimeout` elle-même (mais pas la fonction de rappel !) est extraite de la pile.\n\n<img src=\"https://i.imgur.com/X5wsHOg.png\" width=\"200\">\n\nMaintenant, `foo` est invoqué et `\"Premier\"` est affiché.\n\n<img src=\"https://i.imgur.com/Pvc0dGq.png\" width=\"200\">\n\n`foo` est extrait de la pile et `baz` est invoqué. `\"Troisième\"` est affiché.\n\n<img src=\"https://i.imgur.com/WhA2bCP.png\" width=\"200\">\n\nWebAPI ne peut simplement pas ajouter des éléments à la pile dès qu’elle est prête. Au lieu de cela, elle pousse la fonction de rappel vers quelque chose appelé la _file d'attente_.\n\n<img src=\"https://i.imgur.com/NSnDZmU.png\" width=\"200\">\n\nC'est ici qu'une boucle d'événement commence à fonctionner. La **boucle d'événement** examine la pile et la file d'attente des tâches. Si la pile est vide, il prend la première chose dans la file d'attente et la pousse sur la pile.\n\n<img src=\"https://i.imgur.com/uyiScAI.png\" width=\"200\">\n\n`bar` est invoqué, `\"Second\"` est affiché et il est sorti de la pile."
+}, {
+    "id": 31,
+    "question": " Quel est l'élément ciblé _(event.target)_ au clic sur le bouton _(button)_ ?",
+    "codeSnippet": "html\n<div onclick=\"console.log('first div')\">\n  <div onclick=\"console.log('second div')\">\n    <button onclick=\"console.log('button')\">\n      Click!\n    </button>\n  </div>\n</div>",
+    "answerOptions": {
+        "A": "La `div` extérieure",
+        "B": "La `div` intérieure",
+        "C": "`button`",
+        "D": "Un tableau de tous les éléments imbriqués."
+    },
+    "correctAnswer": "C",
+    "answerExplanation": "L'élément imbriqué le plus profond qui a provoqué l'événement est la cible de l'événement. Vous pouvez arrêter le bouillonnement _(bubbling)_ en utilisant `event.stopPropagation`."
+}, {
+    "id": 32,
+    "question": " Quand vous cliquez sur le paragraphe, quelle est la sortie ?",
+    "codeSnippet": "html\n<div onclick=\"console.log('div')\">\n  <p onclick=\"console.log('p')\">\n    Click here!\n  </p>\n</div>",
+    "answerOptions": {
+        "A": "`p` `div`",
+        "B": "`div` `p`",
+        "C": "`p`",
+        "D": "`div`"
+    },
+    "correctAnswer": "A",
+    "answerExplanation": "Si nous cliquons sur `p`, nous verrons deux lignes : `p` et `div`. Lors de la propagation d'un événement, il y a 3 phases: capture, cible et bouillonnement _(bubbling)_. Par défaut, les gestionnaires d'événements sont exécutés dans la phase de bouillonnement (sauf si vous définissez `useCapture` sur` true`). Il va de l'élément imbriqué le plus profond vers l'extérieur."
+}, {
+    "id": 33,
+    "question": " Quelle est la sortie ?",
+    "codeSnippet": "const person = { name: \"Lydia\" };\n\nfunction sayHi(age) {\n  console.log(`${this.name} is ${age}`);\n}\n\nsayHi.call(person, 21);\nsayHi.bind(person, 21);",
+    "answerOptions": {
+        "A": "`undefined is 21` `Lydia is 21`",
+        "B": "`function` `function`",
+        "C": "`Lydia is 21` `Lydia is 21`",
+        "D": "`Lydia is 21` `function`"
+    },
+    "correctAnswer": "D",
+    "answerExplanation": "Avec les deux, nous pouvons transmettre l'objet auquel nous voulons que le mot clé `this` fasse référence. Cependant, `.call` est aussi _exécuté immédiatement_ !\n\n`.bind.` renvoie une copie de la fonction, mais avec un contexte lié ! Elle n'est pas exécutée immédiatement."
+}, {
+    "id": 34,
+    "question": " Quelle est la sortie ?",
+    "codeSnippet": "function sayHi() {\n  return (() => 0)();\n}\n\ntypeof sayHi();",
+    "answerOptions": {
+        "A": "`\"object\"`",
+        "B": "`\"number\"`",
+        "C": "`\"function\"`",
+        "D": "`\"undefined\"`"
+    },
+    "correctAnswer": "B",
+    "answerExplanation": "La fonction `sayHi` renvoie la valeur renvoyée par la fonction immédiatement appelée (IIFE). Cette fonction a renvoyé `0`, qui est du type `\"nombre\"`.\n\nPour info : il n'y a que 7 types natifs : `null`, `undefined`, `boolean`, `number`, `string`, `object`, `symbol` et `bigint`. `\"function\"` n'est pas un type, puisque les fonctions sont des objets, il est de type `\"object\"`."
+}, {
+    "id": 35,
+    "question": " Lesquelles de ces valeurs sont fausses ?",
+    "codeSnippet": "0;\nnew Number(0);\n(\"\");\n(\" \");\nnew Boolean(false);\nundefined;",
+    "answerOptions": {
+        "A": "`0`, `''`, `undefined`",
+        "B": "`0`, `new Number(0)`, `''`, `new Boolean(false)`, `undefined`",
+        "C": "`0`, `''`, `new Boolean(false)`, `undefined`",
+        "D": "All of them are falsy"
+    },
+    "correctAnswer": "A",
+    "answerExplanation": "Il n'y a que six valeurs de fausses :\n\n- `undefined`\n- `null`\n- `NaN`\n- `0`\n- `''` (chaîne de caractère vide)\n- `false`\n\nLes constructeurs de fonctions, comme `new Number` et `new Boolean` sont la vraies."
+}, {
+    "id": 36,
+    "question": " Quelle est la sortie ?",
+    "codeSnippet": "console.log(typeof typeof 1);",
+    "answerOptions": {
+        "A": "`\"number\"`",
+        "B": "`\"string\"`",
+        "C": "`\"object\"`",
+        "D": "`\"undefined\"`"
+    },
+    "correctAnswer": "B",
+    "answerExplanation": "`typeof 1` retourne `\"number\"`.\n`typeof \"number\"` retourne `\"string\"`"
+}, {
+    "id": 37,
+    "question": " Quelle est la sortie ?",
+    "codeSnippet": "const numbers = [1, 2, 3];\nnumbers[10] = 11;\nconsole.log(numbers);",
+    "answerOptions": {
+        "A": "`[1, 2, 3, 7 x null, 11]`",
+        "B": "`[1, 2, 3, 11]`",
+        "C": "`[1, 2, 3, 7 x empty, 11]`",
+        "D": "`SyntaxError`"
+    },
+    "correctAnswer": "C",
+    "answerExplanation": "Lorsque vous définissez une valeur sur un élément d'un tableau qui dépasse la longueur du tableau, JavaScript crée un quelque chose appelé \"emplacements vides\". Ceux-ci ont en fait la valeur `undefined`, mais vous verrez quelque chose comme :\n\n`[1, 2, 3, 7 x empty, 11]`\n\nen fonction de l'endroit où vous l'exécutez (différent pour chaque navigateur, nœud, etc.)."
+}, {
+    "id": 38,
+    "question": " Quelle est la sortie ?",
+    "codeSnippet": "(() => {\n  let x, y;\n  try {\n    throw new Error();\n  } catch (x) {\n    (x = 1), (y = 2);\n    console.log(x);\n  }\n  console.log(x);\n  console.log(y);\n})();",
+    "answerOptions": {
+        "A": "`1` `undefined` `2`",
+        "B": "`undefined` `undefined` `undefined`",
+        "C": "`1` `1` `2`",
+        "D": "`1` `undefined` `undefined`"
+    },
+    "correctAnswer": "A",
+    "answerExplanation": "Le bloc `catch` reçoit l'argument `x`. Ce n'est pas le même `x` que la variable que nous passons en arguments. Cette variable `x` a une portée de bloc.\n\nPlus tard, nous définissons cette variable de bloc égale à `1` et définissons la valeur de la variable `y`. Maintenant, nous affichons la variable `x` de portée de bloc, dont la valeur est égale à `1`.\n\nEn dehors du bloc `catch`, `x` est toujours `undefined` et `y` est égal à `2`. Lorsque nous voulons `console.log(x)` en dehors du bloc `catch`, il renvoie `undefined`, et `y` renvoie `2`."
+}, {
+    "id": 39,
+    "question": " Tout en JavaScript est...",
+    "codeSnippet": null,
+    "answerOptions": {
+        "A": "primitif ou objet",
+        "B": "fonction ou objet",
+        "C": "question délicate ! Seulement des objets",
+        "D": "nombre ou objet"
+    },
+    "correctAnswer": "A",
+    "answerExplanation": "JavaScript n'a que des types et des objets primitifs.\n\nLes types primitifs sont `boolean`, `null`, `undefined`, `bigint`, `number`, `string` et `symbol`.\n\nCe qui différencie une primitive d'un objet, c'est que les primitives n'ont aucune propriété ou méthode. Cependant, vous remarquerez que  `'foo'.toUpperCase()` est évalué à `'FOO'` et n'entraîne pas de `TypeError`. En effet, lorsque vous essayez d'accéder à une propriété ou à une méthode sur une primitive telle qu'une chaîne, JavaScript encapsule implicitement l'objet à l'aide de l'une des classes d'encapsulation, à savoir `String`, puis supprime immédiatement l'encapsulation après l'évaluation de l'expression. Toutes les primitives à l'exception de `null` et` undefined` présentent ce comportement."
+}, {
+    "id": 40,
+    "question": " Quelle est la sortie ?",
+    "codeSnippet": "[[0, 1], [2, 3]].reduce(\n  (acc, cur) => {\n    return acc.concat(cur);\n  },\n  [1, 2]\n);",
+    "answerOptions": {
+        "A": "`[0, 1, 2, 3, 1, 2]`",
+        "B": "`[6, 1, 2]`",
+        "C": "`[1, 2, 0, 1, 2, 3]`",
+        "D": "`[1, 2, 6]`"
+    },
+    "correctAnswer": "C",
+    "answerExplanation": "`[1, 2]` est notre valeur initiale. C'est la valeur avec laquelle nous commençons et la valeur du tout premier `acc`. Au premier tour, `acc` est `[1,2]` et `cur` est `[0, 1]`. Nous les concaténons, ce qui donne `[1, 2, 0, 1]`.\n\nEnsuite, `acc` est `[1, 2, 0, 1]` et `cur` est `[2, 3]`. Nous les concaténons et obtenons `[1, 2, 0, 1, 2, 3]`"
+}, {
+    "id": 41,
+    "question": " Quelle est la sortie ?",
+    "codeSnippet": "!!null;\n!!\"\";\n!!1;",
+    "answerOptions": {
+        "A": "`false` `true` `false`",
+        "B": "`false` `false` `true`",
+        "C": "`false` `true` `true`",
+        "D": "`true` `true` `false`"
+    },
+    "correctAnswer": "B",
+    "answerExplanation": "`null` est faux. `!null` retourne `true`. `!true` retourne `false`.\n\n`\"\"` est faux. `!\"\"` retourne `true`. `!true` retourne `false`.\n\n`1` est vrai. `!1` retourne `false`. `!false` retourne `true`."
+}, {
+    "id": 42,
+    "question": " Que retourne la méthode `setInterval` ?",
+    "codeSnippet": "setInterval(() => console.log(\"Hi\"), 1000);",
+    "answerOptions": {
+        "A": "un identifiant unique",
+        "B": "le temps de millisecondes spécifié",
+        "C": "la fonction passée en paramètre",
+        "D": "`undefined`"
+    },
+    "correctAnswer": "A",
+    "answerExplanation": "Il retourne un identifiant unique. Cet identifiant peut être utilisé pour effacer cet interval avec la fonction `clearInterval()`."
+}, {
+    "id": 43,
+    "question": " Que retourne ceci ?",
+    "codeSnippet": "[...\"Lydia\"];",
+    "answerOptions": {
+        "A": "`[\"L\", \"y\", \"d\", \"i\", \"a\"]`",
+        "B": "`[\"Lydia\"]`",
+        "C": "`[[], \"Lydia\"]`",
+        "D": "`[[\"L\", \"y\", \"d\", \"i\", \"a\"]]`"
+    },
+    "correctAnswer": "A",
+    "answerExplanation": "Une chaîne de caractère est itérable. L'opérateur de déconstruction transforme chaque caractère d'un itérable en un élément."
+}, {
+    "id": 44,
+    "question": " Quelle est la sortie ?",
+    "codeSnippet": "function* generator(i) {\n  yield i;\n  yield i * 2;\n}\n\nconst gen = generator(10);\n\nconsole.log(gen.next().value);\nconsole.log(gen.next().value);",
+    "answerOptions": {
+        "A": "`[0, 10], [10, 20]`",
+        "B": "`20, 20`",
+        "C": "`10, 20`",
+        "D": "`0, 10 and 10, 20`"
+    },
+    "correctAnswer": "C",
+    "answerExplanation": "Les fonctions régulières ne peuvent pas être arrêtées à mi-parcours après l'invocation. Cependant, une fonction de générateur peut être \"arrêtée\" à mi-chemin et continuer plus tard à partir de son point d'arrêt. Chaque fois qu'une fonction génératrice rencontre un mot-clé `yield`, elle renvoie la valeur spécifiée après celui-ci. Notez que la fonction du générateur dans ce cas ne _return_ pas la valeur, il _yields_ la valeur.\n\nPremièrement, nous initialisons la fonction du générateur avec `i` égal à` 10`. Nous appelons la fonction génératrice en utilisant la méthode `next()`. La première fois que nous appelons la fonction de générateur, `i` est égal à `10`. Il rencontre le premier mot-clé `yield` : il donne la valeur de `i`. Le générateur est maintenant \"en pause\" et `10` est affiché.\n\nEnsuite, nous appelons à nouveau la fonction avec la méthode `next()`. Il commence à continuer là où il s’était arrêté précédemment, toujours avec `i` égal à `10`. Maintenant, il rencontre le prochain mot-clé `yield` et donne `i * 2`. `i` est égal à `10`, donc il renvoie `10 * 2`, ce qui correspond à `20`. Cela donne `10, 20`."
+}, {
+    "id": 45,
+    "question": " Qu'est-ce que cela retourne ?",
+    "codeSnippet": "const firstPromise = new Promise((res, rej) => {\n  setTimeout(res, 500, \"one\");\n});\n\nconst secondPromise = new Promise((res, rej) => {\n  setTimeout(res, 100, \"two\");\n});\n\nPromise.race([firstPromise, secondPromise]).then(res => console.log(res));",
+    "answerOptions": {
+        "A": "`\"one\"`",
+        "B": "`\"two\"`",
+        "C": "`\"two\" \"one\"`",
+        "D": "`\"one\" \"two\"`"
+    },
+    "correctAnswer": "B",
+    "answerExplanation": "Lorsque nous passons plusieurs promesses à la méthode `Promise.race`, elle résout/rejette la promesse _first_ qui résout/rejette. Nous passons, à la méthode `setTimeout`, un timer: 500 ms pour la première promesse (`firstPromise`), et 100 ms pour la deuxième promesse (`secondPromise`). Cela signifie que le `secondPromise` se résout en premier avec la valeur de `'two'`. `res` contient maintenant la valeur de `'deux'`, qui est affiché."
+}, {
+    "id": 46,
+    "question": " Quelle est la sortie ?",
+    "codeSnippet": "let person = { name: \"Lydia\" };\nconst members = [person];\nperson = null;\n\nconsole.log(members);",
+    "answerOptions": {
+        "A": "`null`",
+        "B": "`[null]`",
+        "C": "`[{}]`",
+        "D": "`[{ name: \"Lydia\" }]`"
+    },
+    "correctAnswer": "D",
+    "answerExplanation": "Tout d'abord, nous déclarons une variable `person` avec la valeur d'un objet possédant une propriété `name`.\n\n<img src=\"https://i.imgur.com/TML1MbS.png\" width=\"200\">\n\nEnsuite, nous déclarons une variable appelée `membres`. Nous définissons le premier élément de ce tableau égal à la valeur de la variable `person`. Les objets interagissent par référence quand ils sont égaux. Lorsque vous affectez une référence d'une variable à une autre, vous créez une copie de cette référence. (notez qu'ils n'ont pas la même référence !)\n\n<img src=\"https://i.imgur.com/FSG5K3F.png\" width=\"300\">\n\nEnsuite, nous définissons la variable `person` égale à `null`.\n\n<img src=\"https://i.imgur.com/sYjcsMT.png\" width=\"300\">\n\nNous modifions seulement la valeur de la variable `person`, et non le premier élément du tableau, car cet élément a une référence (copiée) différente de l'objet. Le premier élément de `members` conserve sa référence à l'objet d'origine. Lorsque nous affichons le tableau `members`, le premier élément contient toujours la valeur de l'objet, qui est affiché."
+}, {
+    "id": 47,
+    "question": " Quelle est la sortie ?",
+    "codeSnippet": "const person = {\n  name: \"Lydia\",\n  age: 21\n};\n\nfor (const item in person) {\n  console.log(item);\n}",
+    "answerOptions": {
+        "A": "`{ name: \"Lydia\" }, { age: 21 }`",
+        "B": "`\"name\", \"age\"`",
+        "C": "`\"Lydia\", 21`",
+        "D": "`[\"name\", \"Lydia\"], [\"age\", 21]`"
+    },
+    "correctAnswer": "B",
+    "answerExplanation": "Avec une boucle `for-in`, nous pouvons parcourir les clés d'objet, dans ce cas `name` et `age`. Sous le capot, les clés d'objet sont des chaînes (si elles ne sont pas un symbole). A chaque boucle, nous définissons la valeur de `item` égal à la clé courante sur laquelle elle est entrain d'itéré. Premièrement, `item` est égal à `name` et est affiché. Ensuite, `item` est égal à `age`, qui est affiché."
+}, {
+    "id": 48,
+    "question": " Quelle est la sortie ?",
+    "codeSnippet": "console.log(3 + 4 + \"5\");",
+    "answerOptions": {
+        "A": "`\"345\"`",
+        "B": "`\"75\"`",
+        "C": "`12`",
+        "D": "`\"12\"`"
+    },
+    "correctAnswer": "B",
+    "answerExplanation": "L'associativité des opérateurs correspond à l'ordre dans lequel le compilateur évalue les expressions, de gauche à droite ou de droite à gauche. Cela se produit uniquement si tous les opérateurs ont la même priorité. Nous n'avons qu'un type d'opérateur : `+`. De plus, l'associativité est de gauche à droite.\n\n`3 + 4` est évalué en premier. Cela donne le nombre `7`.\n\n`7 + '5'` donne `'75'` à cause de la conversion. JavaScript convertit le nombre `7` en une chaîne, voir question 15. Nous pouvons concaténer deux chaînes en utilisant l'opérateur `+`. `\"7\" + \"5\"` a pour résultat `\"75\"`."
+}, {
+    "id": 49,
+    "question": " Quelle est la valeur de `num` ?",
+    "codeSnippet": "const num = parseInt(\"7*6\", 10);",
+    "answerOptions": {
+        "A": "`42`",
+        "B": "`\"42\"`",
+        "C": "`7`",
+        "D": "`NaN`"
+    },
+    "correctAnswer": "C",
+    "answerExplanation": "Seuls les premiers nombres de la chaîne sont renvoyés. Basé sur la base dix (le deuxième argument permettant de spécifier le type de nombre que nous voulons analyser: base 10, hexadécimal, octal, binaire, etc.), `parseInt` vérifie si les caractères de la chaîne sont valides. Une fois qu'il rencontre un caractère qui n'est pas un nombre valide dans la base, il arrête l'analyse et ignore les caractères suivants.\n\n`*` n'est pas un nombre valide. Il analyse seulement `7` dans la décimale `7`. `num` contient maintenant la valeur de` 7`."
+}, {
+    "id": 50,
+    "question": " Quelle est la sortie ?",
+    "codeSnippet": "[1, 2, 3].map(num => {\n  if (typeof num === \"number\") return;\n  return num * 2;\n});",
+    "answerOptions": {
+        "A": "`[]`",
+        "B": "`[null, null, null]`",
+        "C": "`[undefined, undefined, undefined]`",
+        "D": "`[ 3 x empty ]`"
+    },
+    "correctAnswer": "C",
+    "answerExplanation": "Lors du l'utilisation de `map` sur le tableau, la valeur de `num` est égale à l’élément sur lequel elle est en train de boucler. Dans ce cas, les éléments sont des nombres. La condition de l'instruction si `typeof num === \"numéro\"` renvoie `true`. La fonction map crée un nouveau tableau et insère les valeurs renvoyées par la fonction.\n\nCependant, nous ne renvoyons pas de valeur. Lorsque nous ne renvoyons pas de valeur à partir de la fonction, la fonction renvoie `undefined`. Le bloc de fonction est appelé pour chaque élément du tableau. Ainsi, pour chaque élément, nous renvoyons `undefined`."
+}, {
+    "id": 51,
+    "question": " Quelle est la sortie ?",
+    "codeSnippet": "function getInfo(member, year) {\n  member.name = \"Lydia\";\n  year = \"1998\";\n}\n\nconst person = { name: \"Sarah\" };\nconst birthYear = \"1997\";\n\ngetInfo(person, birthYear);\n\nconsole.log(person, birthYear);",
+    "answerOptions": {
+        "A": "`{ name: \"Lydia\" }, \"1997\"`",
+        "B": "`{ name: \"Sarah\" }, \"1998\"`",
+        "C": "`{ name: \"Lydia\" }, \"1998\"`",
+        "D": "`{ name: \"Sarah\" }, \"1997\"`"
+    },
+    "correctAnswer": "A",
+    "answerExplanation": "Les arguments sont passés par _valeur_, à moins que leur valeur ne soit un objet, ils sont passés par _référence_. `birthYear` est passée par valeur, car c'est une chaîne, pas un objet. Lorsque nous passons des arguments par valeur, une copie de cette valeur est créée (voir question 46).\n\nLa variable `birthYear` a une référence à la valeur `\"1997\"`. L'argument `year` fait également référence à la valeur `\"1997\"`, mais il ne s'agit pas de la même valeur que celle de `birthYear`. Lorsque nous mettons à jour la valeur de `year` en plaçant `year` égal à `\"1998\"`, nous ne mettons à jour que la valeur de `year`. `birthYear` est toujours égal à `\"1997\"`.\n\nLa valeur de `person` est un objet. L'argument `membre` a une référence (copiée) au même objet. Lorsque nous modifions une propriété de l'objet, `membre` a une référence à la valeur de` person` sera également modifiée, puisqu'elles ont toutes les deux une référence au même objet. La propriété `name` de `person` est maintenant égale à la valeur `\"Lydia\"`."
+}, {
+    "id": 52,
+    "question": " Quelle est la sortie ?",
+    "codeSnippet": "function greeting() {\n  throw \"Hello world!\";\n}\n\nfunction sayHi() {\n  try {\n    const data = greeting();\n    console.log(\"It worked!\", data);\n  } catch (e) {\n    console.log(\"Oh no an error!\", e);\n  }\n}\n\nsayHi();",
+    "answerOptions": {
+        "A": "`\"It worked! Hello world!\"`",
+        "B": "`\"Oh no an error: undefined`",
+        "C": "`SyntaxError: can only throw Error objects`",
+        "D": "`\"Oh no an error: Hello world!`"
+    },
+    "correctAnswer": "D",
+    "answerExplanation": "Avec l'instruction `throw`, nous pouvons créer des erreurs personnalisées. Avec cette déclaration, vous pouvez lancer des exceptions. Une exception peut être une <b>chaîne</b>, un <b>numéro</b>, un <b>booléen</b> ou un <b>objet</b>. Dans ce cas, notre exception est la chaîne `'Hello world'`.\n\nAvec l'instruction `catch`, nous pouvons spécifier quoi faire si une exception est levée dans le bloc `try`. Une exception est levée : la chaîne `'Hello world'`. `e` est maintenant égal à cette chaîne, que nous affichons. Il en résulte `'Oh an error: Hello world'`."
+}, {
+    "id": 53,
+    "question": " Quelle est la sortie ?",
+    "codeSnippet": "function Car() {\n  this.make = \"Lamborghini\";\n  return { make: \"Maserati\" };\n}\n\nconst myCar = new Car();\nconsole.log(myCar.make);",
+    "answerOptions": {
+        "A": "`\"Lamborghini\"`",
+        "B": "`\"Maserati\"`",
+        "C": "`ReferenceError`",
+        "D": "`TypeError`"
+    },
+    "correctAnswer": "B",
+    "answerExplanation": "Lorsque vous retournez une propriété, la valeur de la propriété est égale à la valeur _retournée_ et non à la valeur définie dans la fonction constructeur. Nous renvoyons la chaîne `\"Maserati\"`, donc `myCar.make` est égal à `\"Maserati\"`."
+}, {
+    "id": 54,
+    "question": " Quelle est la sortie ?",
+    "codeSnippet": "(() => {\n  let x = (y = 10);\n})();\n\nconsole.log(typeof x);\nconsole.log(typeof y);",
+    "answerOptions": {
+        "A": "`\"undefined\", \"number\"`",
+        "B": "`\"number\", \"number\"`",
+        "C": "`\"object\", \"number\"`",
+        "D": "`\"number\", \"undefined\"`"
+    },
+    "correctAnswer": "A",
+    "answerExplanation": "`let x = y = 10;` est en réalité un raccourci pour :\n\n```javascript\ny = 10;\nlet x = y;\n```\n\nLorsque nous définissons `y` égal à `10`, nous ajoutons en fait une propriété `y` à l'objet global (`window` dans le navigateur,` global` dans NodeJS). Dans un navigateur, `window.y` est égal à `10`.\n\nEnsuite, nous déclarons une variable `x` avec la valeur de `y`, qui est `10`. Les variables déclarées avec le mot-clé `let` ont une portée de bloc, elles ne sont définies que dans le bloc dans lequel elles sont déclarées; la fonction immédiatement invoquée (IIFE) dans ce cas. Lorsque nous utilisons l'opérateur `typeof`, l'opérande `x` n'est pas défini: nous essayons d'accéder à `x` en dehors du bloc dans lequel il est déclaré. Cela signifie que `x` n'est pas défini. Les valeurs auxquelles aucune valeur n'a été attribuée ni déclarée sont du type `\"undefined\"`. `console.log (typeof x)` renvoie `\"undefined\"`.\n\nCependant, nous avons créé une variable globale `y` lorsque `y` est égal à `10`. Cette valeur est accessible n'importe où dans notre code. `y` est défini et contient une valeur de type `\"number\"`. `console.log (typeof y)` renvoie `\"number\"`."
+}, {
+    "id": 55,
+    "question": " Quelle est la sortie ?",
+    "codeSnippet": "class Dog {\n  constructor(name) {\n    this.name = name;\n  }\n}\n\nDog.prototype.bark = function() {\n  console.log(`Woof I am ${this.name}`);\n};\n\nconst pet = new Dog(\"Mara\");\n\npet.bark();\n\ndelete Dog.prototype.bark;\n\npet.bark();",
+    "answerOptions": {
+        "A": "`\"Woof I am Mara\"`, `TypeError`",
+        "B": "`\"Woof I am Mara\"`,`\"Woof I am Mara\"`",
+        "C": "`\"Woof I am Mara\"`, `undefined`",
+        "D": "`TypeError`, `TypeError`"
+    },
+    "correctAnswer": "A",
+    "answerExplanation": "Nous pouvons supprimer des propriétés d'objets en utilisant le mot-clé `delete`, également dans le prototype. En supprimant une propriété dans le prototype, elle n’est plus disponible dans la chaîne de prototypes. Dans ce cas, la fonction `bark` n'est plus disponible dans le prototype après `delete Dog.prototype.bark`, mais nous essayons toujours d'y accéder.\n\nLorsque nous essayons d'appeler quelque chose qui n'est pas une fonction, un `TypeError` est levé. Dans ce cas, `TypeError: pet.bark n'est pas une fonction`, puisque` pet.bark` est `undefined`."
+}, {
+    "id": 56,
+    "question": " Quelle est la sortie ?",
+    "codeSnippet": "const set = new Set([1, 1, 2, 3, 4]);\n\nconsole.log(set);",
+    "answerOptions": {
+        "A": "`[1, 1, 2, 3, 4]`",
+        "B": "`[1, 2, 3, 4]`",
+        "C": "`{1, 1, 2, 3, 4}`",
+        "D": "`{1, 2, 3, 4}`"
+    },
+    "correctAnswer": "D",
+    "answerExplanation": "L'objet `Set` est une collection de valeurs _uniques_ : une valeur ne peut apparaître qu'une seule fois dans un ensemble.\n\nNous avons passé l'itérable `[1, 1, 2, 3, 4]` avec une valeur dupliquée `1`. Puisque nous ne pouvons pas avoir deux valeurs identiques dans un ensemble, l'une d'entre elles est supprimée. Cela donne `{1, 2, 3, 4}`."
+}, {
+    "id": 57,
+    "question": " Quelle est la sortie ?",
+    "codeSnippet": "// counter.js\nlet counter = 10;\nexport default counter;",
+    "answerOptions": {
+        "A": "`10`",
+        "B": "`11`",
+        "C": "`Error`",
+        "D": "`NaN`"
+    },
+    "correctAnswer": "C",
+    "answerExplanation": "Un module importé est _en lecture seule_ : vous ne pouvez pas modifier le module importé. Seul le module qui les exporte peut en changer la valeur.\n\nLorsque nous essayons d'incrémenter la valeur de `myCounter`, une erreur est générée : `myCounter` est en lecture seule et ne peut pas être modifié."
+}, {
+    "id": 58,
+    "question": " Quelle est la sortie ?",
+    "codeSnippet": "const name = \"Lydia\";\nage = 21;\n\nconsole.log(delete name);\nconsole.log(delete age);",
+    "answerOptions": {
+        "A": "`false`, `true`",
+        "B": "`\"Lydia\"`, `21`",
+        "C": "`true`, `true`",
+        "D": "`undefined`, `undefined`"
+    },
+    "correctAnswer": "A",
+    "answerExplanation": "L'opérateur `delete` renvoie une valeur booléenne : `true` en cas de suppression réussie, sinon il renvoie `false`. Toutefois, les variables déclarées avec les mots clés `var`,` const` ou `let` ne peuvent pas être supprimées à l'aide de l'opérateur` delete`.\n\nLa variable `name` a été déclarée avec un mot-clé `const`. Par conséquent, sa suppression a échoué : `false` est renvoyé. Lorsque nous définissons `age` égal à `21`, nous avons en fait ajouté une propriété appelée `age` à l'objet global. De cette façon, vous pouvez supprimer des propriétés d’objets, ainsi que de l’objet global, pour que `delete age` renvoie` true`."
+}, {
+    "id": 59,
+    "question": " Quelle est la sortie ?",
+    "codeSnippet": "const numbers = [1, 2, 3, 4, 5];\nconst [y] = numbers;\n\nconsole.log(y);",
+    "answerOptions": {
+        "A": "`[[1, 2, 3, 4, 5]]`",
+        "B": "`[1, 2, 3, 4, 5]`",
+        "C": "`1`",
+        "D": "`[1]`"
+    },
+    "correctAnswer": "C",
+    "answerExplanation": "Nous pouvons décompresser les valeurs des tableaux ou les propriétés des objets en les détruisant. Par exemple :\n\n```javascript\n[a, b] = [1, 2];\n```\n\n<img src=\"https://i.imgur.com/ADFpVop.png\" width=\"200\">\n\nLa valeur de `a` est maintenant `1` et la valeur de `b` est maintenant `2`. Ce que nous avons réellement fait dans la question, c'est :\n\n```javascript\n[y] = [1, 2, 3, 4, 5];\n```\n\n<img src=\"https://i.imgur.com/NzGkMNk.png\" width=\"200\">\n\nCela signifie que la valeur de `y` est égale à la première valeur du tableau, qui correspond au nombre `1`. Lorsque nous affichons `y`,` 1` est renvoyé."
+}, {
+    "id": 60,
+    "question": " Quelle est la sortie ?",
+    "codeSnippet": "const user = { name: \"Lydia\", age: 21 };\nconst admin = { admin: true, ...user };\n\nconsole.log(admin);",
+    "answerOptions": {
+        "A": "`{ admin: true, user: { name: \"Lydia\", age: 21 } }`",
+        "B": "`{ admin: true, name: \"Lydia\", age: 21 }`",
+        "C": "`{ admin: true, user: [\"Lydia\", 21] }`",
+        "D": "`{ admin: true }`"
+    },
+    "correctAnswer": "B",
+    "answerExplanation": "Il est possible de combiner des objets en utilisant l'opérateur de déconstruction `...`. Il vous permet de créer des copies des paires clé / valeur d'un objet et de les ajouter à un autre objet. Dans ce cas, nous créons des copies de l'objet `user` et nous les ajoutons à l'objet` admin`. L'objet `admin` contient maintenant les paires clé / valeur copiées, ce qui donne `{admin: true, nom: \"Lydia\", age: 21}`."
+}, {
+    "id": 61,
+    "question": " Quelle est la sortie ?",
+    "codeSnippet": "const person = { name: \"Lydia\" };\n\nObject.defineProperty(person, \"age\", { value: 21 });\n\nconsole.log(person);\nconsole.log(Object.keys(person));",
+    "answerOptions": {
+        "A": "`{ name: \"Lydia\", age: 21 }`, `[\"name\", \"age\"]`",
+        "B": "`{ name: \"Lydia\", age: 21 }`, `[\"name\"]`",
+        "C": "`{ name: \"Lydia\"}`, `[\"name\", \"age\"]`",
+        "D": "`{ name: \"Lydia\"}`, `[\"age\"]`"
+    },
+    "correctAnswer": "B",
+    "answerExplanation": "Avec la méthode `defineProperty`, nous pouvons ajouter de nouvelles propriétés à un objet ou modifier celles existantes. Lorsque nous ajoutons une propriété à un objet en utilisant la méthode `defineProperty`, il s’agit par défaut d'une propriété _non énumérable_. La méthode `Object.keys` renvoie tous les noms de propriétés _énumérable_ à partir d'un objet, dans ce cas uniquement `\"name\"`.\n\nLes propriétés ajoutées à l'aide de la méthode `defineProperty` sont immuables par défaut. Vous pouvez remplacer ce comportement en utilisant les propriétés `writeable`, `configurable` et `enumerable`. De cette façon, la méthode `defineProperty` vous donne beaucoup plus de contrôle sur les propriétés que vous ajoutez à un objet."
+}, {
+    "id": 62,
+    "question": " Quelle est la sortie ?",
+    "codeSnippet": "const settings = {\n  username: \"lydiahallie\",\n  level: 19,\n  health: 90\n};\n\nconst data = JSON.stringify(settings, [\"level\", \"health\"]);\nconsole.log(data);",
+    "answerOptions": {
+        "A": "`\"{\"level\":19, \"health\":90}\"`",
+        "B": "`\"{\"username\": \"lydiahallie\"}\"`",
+        "C": "`\"[\"level\", \"health\"]\"`",
+        "D": "`\"{\"username\": \"lydiahallie\", \"level\":19, \"health\":90}\"`"
+    },
+    "correctAnswer": "A",
+    "answerExplanation": "Le second argument de `JSON.stringify` est le _replaçant_. Le remplaçant peut être une fonction ou un tableau, et vous permet de contrôler quoi et comment les valeurs doivent être stringifiées.\n\nSi le remplaçant est un _tableau_, seules les propriétés dont les noms sont inclus dans le tableau seront ajoutées à la chaîne JSON. Dans ce cas, seules les propriétés avec les noms `\"level\"` et `\"health\"` sont incluses, `\"username\"` est exclu. `data` est maintenant égal à `\"{\"level\":19, \"health\":90}\"`.\n\nSi le remplaçant est une _fonction_, cette fonction est appelée sur chaque propriété de l'objet que vous personnalisez. La valeur renvoyée par cette fonction sera la valeur de la propriété lorsqu'elle sera ajoutée à la chaîne JSON. Si la valeur est `undefined`, cette propriété est exclue de la chaîne JSON."
+}, {
+    "id": 63,
+    "question": " Quelle est la sortie ?",
+    "codeSnippet": "let num = 10;\n\nconst increaseNumber = () => num++;\nconst increasePassedNumber = number => number++;\n\nconst num1 = increaseNumber();\nconst num2 = increasePassedNumber(num1);\n\nconsole.log(num1);\nconsole.log(num2);",
+    "answerOptions": {
+        "A": "`10`, `10`",
+        "B": "`10`, `11`",
+        "C": "`11`, `11`",
+        "D": "`11`, `12`"
+    },
+    "correctAnswer": "A",
+    "answerExplanation": "L'opérateur arithmétique `++` _renvoie en premier_ la valeur de l'opérande, _puis incrémente_ la valeur de l'opérande. La valeur de `num1` est égale à `10`, puisque la fonction `increaseNumber` renvoie d'abord la valeur de `num`, qui correspond à `10`, et augmente la valeur de `num` par la suite.\n\n`num2` est égal à `10`, puisque nous avons passé `num1` à la commande `increasePassedNumber`. `number` est égal à `10` (la valeur de `num1`). Encore une fois, l'opérateur arithmétique `++` _renvoie d'abord_ la valeur de l'opérande, puis incrémente_ la valeur de l'opérande. La valeur de `nombre` est `10`, donc `num2` est égal à `10`."
+}]

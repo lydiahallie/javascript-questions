@@ -1,0 +1,1382 @@
+[{
+    "id": 1,
+    "question": " Что будет в консоли?",
+    "codeSnippet": "function sayHi() {\n  console.log(name);\n  console.log(age);\n  var name = \"Lydia\";\n  let age = 21;\n}\n\nsayHi();",
+    "answerOptions": {
+        "A": "`Lydia` и `undefined`",
+        "B": "`Lydia` и `ReferenceError`",
+        "C": "`ReferenceError` и `21`",
+        "D": "`undefined` и `ReferenceError`"
+    },
+    "correctAnswer": "D",
+    "answerExplanation": "Внутри функции мы сперва определяем переменную `name` с помощью ключевого слова `var`. Это означает, что переменная будет поднята (область памяти под переменную будет выделена во время фазы создания) со значением `undefined` по умолчанию, до тех пора пока исполнение кода не дойдет до строчки, где определяется переменная. Мы еще не определили значение `name` когда пытаемся вывести её в консоль, поэтому в консоли будет `undefined`.\n\nПеременные, определенные с помощью `let` (и `const`), также поднимаются, но в отличие от `var`, не <i>инициализируются</i>. Доступ к ним не возможен до тех пор, пока не выполнится строка их определения (инициализации). Это называется \"временная мертвая зона\". Когда мы пытаемся обратиться к переменным до того момента как они определены, JavaScript выбрасывает исключение `ReferenceError`."
+}, {
+    "id": 2,
+    "question": " Что будет в консоли?",
+    "codeSnippet": "for (var i = 0; i < 3; i++) {\n  setTimeout(() => console.log(i), 1);\n}\n\nfor (let i = 0; i < 3; i++) {\n  setTimeout(() => console.log(i), 1);\n}",
+    "answerOptions": {
+        "A": "`0 1 2` и `0 1 2`",
+        "B": "`0 1 2` и `3 3 3`",
+        "C": "`3 3 3` и `0 1 2`"
+    },
+    "correctAnswer": "C",
+    "answerExplanation": "Из-за очереди событий в JavaScript, функция `setTimeout` вызывается _после_ того как цикл будет завершен. Так как переменная `i` в первом цикле была определена с помощью `var`, она будет глобальной. В цикле мы каждый раз увеличиваем значение `i` на `1`, используя унарный оператор `++`. К моменту выполнения функции `setTimeout` значение `i` будет равно `3` в первом примере.\n\nВо втором цикле переменная `i` определена с помощью `let`. Такие переменные (а также `const`) имеют блочную область видимости (блок это что угодно между `{ }`). С каждой итерацией `i` будет иметь новое значение, и каждое значение будет замкнуто в своей области видимости внутри цикла."
+}, {
+    "id": 3,
+    "question": " Что будет в консоли?",
+    "codeSnippet": "const shape = {\n  radius: 10,\n  diameter() {\n    return this.radius * 2;\n  },\n  perimeter: () => 2 * Math.PI * this.radius\n};\n\nshape.diameter();\nshape.perimeter();",
+    "answerOptions": {
+        "A": "`20` и `62.83185307179586`",
+        "B": "`20` и `NaN`",
+        "C": "`20` и `63`",
+        "D": "`NaN` и `63`"
+    },
+    "correctAnswer": "B",
+    "answerExplanation": "Заметь, что `diameter` это обычная функция, в то время как `perimeter` это стрелочная функция.\n\nУ стрелочных функций значение `this` указывает на окружающую область видимости, в отличие от обычных функций! Это значит, что при вызове `perimeter` значение `this` у этой функции указывает не на объект `shape`, а на внешнюю область видимости (например, window).\n\nУ этого объекта нет ключа `radius`, поэтому возвращается `undefined`."
+}, {
+    "id": 4,
+    "question": " Что будет в консоли?",
+    "codeSnippet": "+true;\n!\"Lydia\";",
+    "answerOptions": {
+        "A": "`1` и `false`",
+        "B": "`false` и `NaN`",
+        "C": "`false` и `false`"
+    },
+    "correctAnswer": "A",
+    "answerExplanation": "Унарный плюс приводит операнд к числу. `true` это `1`, а `false` это `0`.\n\nСтрока `'Lydia'` это \"истинное\" значение. На самом деле мы спрашиваем \"является ли это истинное значение ложным\"? Ответ: `false`."
+}, {
+    "id": 5,
+    "question": " Что НЕ является валидным?",
+    "codeSnippet": "const bird = {\n  size: \"small\"\n};\n\nconst mouse = {\n  name: \"Mickey\",\n  small: true\n};",
+    "answerOptions": {
+        "A": "`mouse.bird.size`",
+        "B": "`mouse[bird.size]`",
+        "C": "`mouse[bird[\"size\"]]`",
+        "D": "Все варианты валидны"
+    },
+    "correctAnswer": "A",
+    "answerExplanation": "В JavaScript все ключи объекта являются строками (кроме Symbol). И хотя мы не _набираем_ их как строки, они всегда преобразовываются к строкам под капотом.\n\nJavaScript интерпретирует (или распаковывает) операторы. При использовании квадратных скобок JS замечает `[` и продолжает пока не встретит `]`. Только после этого он вычислит то, что находится внутри скобок.\n\n`mouse[bird.size]`: Сперва определяется `bird.size`, которое равно `\"small\"`. `mouse[\"small\"]` возвращает `true`.\n\nНо с записью через точку так не происходит. У `mouse` нет ключа `bird`. Таким образом, `mouse.bird` равно `undefined`. Затем мы запрашиваем ключ `size`, используя точечную нотацию: `mouse.bird.size`. Так как `mouse.bird` это `undefined`, мы запрашиваем `undefined.size`. Это не является валидным, и мы получаем ошибку типа `Cannot read property \"size\" of undefined`."
+}, {
+    "id": 6,
+    "question": " Что будет в консоли?",
+    "codeSnippet": "let c = { greeting: \"Hey!\" };\nlet d;\n\nd = c;\nc.greeting = \"Hello\";\nconsole.log(d.greeting);",
+    "answerOptions": {
+        "A": "`Hello`",
+        "B": "`Hey!`",
+        "C": "`undefined`",
+        "D": "`ReferenceError`",
+        "E": "`TypeError`"
+    },
+    "correctAnswer": "A",
+    "answerExplanation": "В JavaScript все объекты являются _ссылочными_ типами данных.\n\nСперва переменная `c` указывает на объект. Затем мы указываем переменной `d` ссылаться на тот же объект, что и `c`.\n\n<img src=\"https://i.imgur.com/ko5k0fs.png\" width=\"200\">\n\nКогда ты изменяешь один объект, то изменяются значения всех ссылок, указывающих на этот объект."
+}, {
+    "id": 7,
+    "question": " Что будет в консоли?",
+    "codeSnippet": "let a = 3;\nlet b = new Number(3);\nlet c = 3;\n\nconsole.log(a == b);\nconsole.log(a === b);\nconsole.log(b === c);",
+    "answerOptions": {
+        "A": "`true` `false` `true`",
+        "B": "`false` `false` `true`",
+        "C": "`true` `false` `false`",
+        "D": "`false` `true` `true`"
+    },
+    "correctAnswer": "C",
+    "answerExplanation": "`new Number()` это встроенный конструктор функции. И хотя он выглядит как число, это не настоящее число: у него есть ряд дополнительных фич и это объект.\n\nОператор `==` разрешает приведение типов, он проверяет равенство _значений_. Оба значения равны `3`, поэтому возвращается `true`.\n\nПри использовании оператора `===` значение _и_ тип должны быть одинаковыми. Но в нашем случае это не так: `new Number()` это не число, это **объект**. Оба возвращают `false`."
+}, {
+    "id": 8,
+    "question": " Каким будет результат?",
+    "codeSnippet": "class Chameleon {\n  static colorChange(newColor) {\n    this.newColor = newColor;\n    return this.newColor;\n  }\n\n  constructor({ newColor = \"green\" } = {}) {\n    this.newColor = newColor;\n  }\n}\n\nconst freddie = new Chameleon({ newColor: \"purple\" });\nfreddie.colorChange(\"orange\");",
+    "answerOptions": {
+        "A": "`orange`",
+        "B": "`purple`",
+        "C": "`green`",
+        "D": "`TypeError`"
+    },
+    "correctAnswer": "D",
+    "answerExplanation": "Функция `colorChange` является статичной. Статичные методы не имеют доступа к экземплярам класса. Так как `freddie` это экземпляр, то статичный метод там не доступен. Поэтому выбрасывается ошибка `TypeError`."
+}, {
+    "id": 9,
+    "question": " Что будет в консоли?",
+    "codeSnippet": "let greeting;\ngreetign = {}; // Опечатка!\nconsole.log(greetign);",
+    "answerOptions": {
+        "A": "`{}`",
+        "B": "`ReferenceError: greetign is not defined`",
+        "C": "`undefined`"
+    },
+    "correctAnswer": "A",
+    "answerExplanation": "В консоли выведется объект, потому что мы только что создали пустой объект в глобальном объекте! Когда мы вместо `greeting` написали `greetign`, интерпретатор JS на самом деле выполнил `global.greetign = {}` (или `window.greetign = {}` в браузере).\n\nНужно использовать `\"use strict\"`, чтобы избежать такого поведения. Эта запись поможет быть уверенным в том, что переменная была определена перед тем как ей присвоили значение."
+}, {
+    "id": 10,
+    "question": " Что произойдет?",
+    "codeSnippet": "function bark() {\n  console.log(\"Woof!\");\n}\n\nbark.animal = \"dog\";",
+    "answerOptions": {
+        "A": "Ничего, всё в порядке!",
+        "B": "`SyntaxError`. Нельзя добавлять свойства функциям таким способом.",
+        "C": "`undefined`",
+        "D": "`ReferenceError`"
+    },
+    "correctAnswer": "A",
+    "answerExplanation": "В JavaScript это возможно, т.к. функции это объекты! (Всё есть объект кроме примитивов).\n\nФункция — это специальный тип объекта, который можно вызвать. Кроме того, функция — это объект со свойствами. Свойство такого объекта нельзя вызвать, так как оно не является функцией."
+}, {
+    "id": 11,
+    "question": " Что будет в консоли?",
+    "codeSnippet": "function Person(firstName, lastName) {\n  this.firstName = firstName;\n  this.lastName = lastName;\n}\n\nconst member = new Person(\"Lydia\", \"Hallie\");\nPerson.getFullName = function () {\n  return `${this.firstName} ${this.lastName}`;\n}\n\nconsole.log(member.getFullName());",
+    "answerOptions": {
+        "A": "`TypeError`",
+        "B": "`SyntaxError`",
+        "C": "`Lydia Hallie`",
+        "D": "`undefined` `undefined`"
+    },
+    "correctAnswer": "A",
+    "answerExplanation": "Нельзя добавлять свойства конструктору, как обычному объекту. Если нужно добавить фичу всем объектам, то необходимо использовать прототипы. В данном случае\n\n```js\nPerson.prototype.getFullName = function () {\n  return `${this.firstName} ${this.lastName}`;\n}\n```\n\nсделает метод `member.getFullName()` рабочим. В чем тут преимущество? Предположим, что мы добавили этот метод к конструктору. Возможно, не каждому экземпляру `Person` нужен этот метод. Это приведет к большим потерям памяти, т.к. все экземпляры будут иметь это свойство. Напротив, если мы добавим этот метод только к прототипу, у нас будет только одно место в памяти, к которому смогут обращаться все экземпляры!"
+}, {
+    "id": 12,
+    "question": " Что будет в консоли?",
+    "codeSnippet": "function Person(firstName, lastName) {\n  this.firstName = firstName;\n  this.lastName = lastName;\n}\n\nconst lydia = new Person(\"Lydia\", \"Hallie\");\nconst sarah = Person(\"Sarah\", \"Smith\");\n\nconsole.log(lydia);\nconsole.log(sarah);",
+    "answerOptions": {
+        "A": "`Person {firstName: \"Lydia\", lastName: \"Hallie\"}` и `undefined`",
+        "B": "`Person {firstName: \"Lydia\", lastName: \"Hallie\"}` и `Person {firstName: \"Sarah\", lastName: \"Smith\"}`",
+        "C": "`Person {firstName: \"Lydia\", lastName: \"Hallie\"}` и `{}`",
+        "D": "`Person {firstName: \"Lydia\", lastName: \"Hallie\"}` и `ReferenceError`"
+    },
+    "correctAnswer": "A",
+    "answerExplanation": "Для `sarah` мы не использовали ключевое слово `new`. Использование `new` приводит к созданию нового объекта. Но без `new` он указывает на **глобальный объект**!\n\nМы указали, что `this.firstName` равно `\"Sarah\"` и `this.lastName` равно `\"Smith\"`. На самом деле мы определили `global.firstName = 'Sarah'` и `global.lastName = 'Smith'`. `sarah` осталась `undefined`, поскольку мы не возвращаем значение из функции `Person`."
+}, {
+    "id": 13,
+    "question": " Назовите три фазы распространения событий",
+    "codeSnippet": null,
+    "answerOptions": {
+        "A": "Цель > Захват > Всплытие",
+        "B": "Всплытие > Цель > Захват",
+        "C": "Цель > Всплытие > Захват",
+        "D": "Захват > Цель > Всплытие"
+    },
+    "correctAnswer": "D",
+    "answerExplanation": "Во время фазы **захвата** событие распространяется с элементов родителей до элемента цели. После достижения **цели** начинается фаза **всплытия**.\n\n<img src=\"https://i.imgur.com/N18oRgd.png\" width=\"200\">"
+}, {
+    "id": 14,
+    "question": " Все объекты имеют прототипы",
+    "codeSnippet": null,
+    "answerOptions": {
+        "A": "Да",
+        "B": "Нет"
+    },
+    "correctAnswer": "B",
+    "answerExplanation": "Все объекты имеют прототипы, кроме **базового объекта**. Базовый объект имеет доступ до некоторых методов и свойств, таких как `.toString`. Именно поэтому мы можем использовать встроенные методы JavaScript! Все эти методы доступны в прототипе. Если JavaScript не может найти метод непосредственно у объекта, он продолжает поиск по цепочке прототипов пока не найдет."
+}, {
+    "id": 15,
+    "question": " Каким будет результат?",
+    "codeSnippet": "function sum(a, b) {\n  return a + b;\n}\n\nsum(1, \"2\");",
+    "answerOptions": {
+        "A": "`NaN`",
+        "B": "`TypeError`",
+        "C": "`\"12\"`",
+        "D": "`3`"
+    },
+    "correctAnswer": "C",
+    "answerExplanation": "JavaScript это **динамически типизированный язык**: мы не определяем тип переменных. Переменные могут автоматически быть преобразованы из одного типа в другой без нашего участия, что называется _неявным приведением типов_. **Приведение** это преобразование из одного типа в другой.\n\nВ этом примере JavaScript сконвертировал число `1` в строку, чтобы операция внутри функции имела смысл и вернула значение. Во время сложения числа (`1`) и строки (`'2'`) число преобразовывается к строке. Мы можем конкатенировать строки вот так: `\"Hello\" + \"World\"`. Таким образом, `\"1\" + \"2\"` возвращает `\"12\"`."
+}, {
+    "id": 16,
+    "question": " Что будет в консоли?",
+    "codeSnippet": "let number = 0;\nconsole.log(number++);\nconsole.log(++number);\nconsole.log(number);",
+    "answerOptions": {
+        "A": "`1` `1` `2`",
+        "B": "`1` `2` `2`",
+        "C": "`0` `2` `2`",
+        "D": "`0` `1` `2`"
+    },
+    "correctAnswer": "C",
+    "answerExplanation": "**Постфиксный** унарный оператор `++`:\n\n1. Возвращает значение (`0`)\n2. Инкрементирует значение (теперь число равно `1`)\n\n**Префиксный** унарный оператор `++`:\n\n1. Инкрементирует значение (число теперь равно `2`)\n2. Возвращает значение (`2`)\n\nРезультат: `0 2 2`."
+}, {
+    "id": 17,
+    "question": " Что будет в консоли?",
+    "codeSnippet": "function getPersonInfo(one, two, three) {\n  console.log(one);\n  console.log(two);\n  console.log(three);\n}\n\nconst person = \"Lydia\";\nconst age = 21;\n\ngetPersonInfo`${person} is ${age} years old`;",
+    "answerOptions": {
+        "A": "`\"Lydia\"` `21` `[\"\", \" is \", \" years old\"]`",
+        "B": "`[\"\", \" is \", \" years old\"]` `\"Lydia\"` `21`",
+        "C": "`\"Lydia\"` `[\"\", \" is \", \" years old\"]` `21`"
+    },
+    "correctAnswer": "B",
+    "answerExplanation": "При использовании тегированных шаблонных литералов первым аргументом всегда будет массив строковых значений. Оставшимися аргументами будут значения переданных выражений!"
+}, {
+    "id": 18,
+    "question": " Что будет в консоли?",
+    "codeSnippet": "function checkAge(data) {\n  if (data === { age: 18 }) {\n    console.log(\"Ты взрослый!\");\n  } else if (data == { age: 18 }) {\n    console.log(\"Ты все еще взрослый.\");\n  } else {\n    console.log(`Хмм.. Кажется, у тебя нет возраста.`);\n  }\n}\n\ncheckAge({ age: 18 });",
+    "answerOptions": {
+        "A": "`Ты взрослый!`",
+        "B": "`Ты все еще взрослый.`",
+        "C": "`Хмм.. Кажется, у тебя нет возраста.`"
+    },
+    "correctAnswer": "C",
+    "answerExplanation": "В операциях сравнения примитивы сравниваются по их _значениям_, а объекты по _ссылкам_. JavaScript проверяет, чтобы объекты указывали на одну и ту же область памяти.\n\nСравниваемые объекты в нашем примере не такие: объект, переданный в качестве параметра, указывает на другую область памяти, чем объекты, используемые в сравнениях.\n\nПоэтому `{ age: 18 } === { age: 18 }` и `{ age: 18 } == { age: 18 }` возвращают `false`."
+}, {
+    "id": 19,
+    "question": " Что будет в консоли?",
+    "codeSnippet": "function getAge(...args) {\n  console.log(typeof args);\n}\n\ngetAge(21);",
+    "answerOptions": {
+        "A": "`\"number\"`",
+        "B": "`\"array\"`",
+        "C": "`\"object\"`",
+        "D": "`\"NaN\"`"
+    },
+    "correctAnswer": "C",
+    "answerExplanation": "Оператор распространения (`...args`) возвращает массив с аргументами. Массив это объект, поэтому `typeof args` возвращает `\"object\"`."
+}, {
+    "id": 20,
+    "question": " Что будет в консоли?",
+    "codeSnippet": "function getAge() {\n  \"use strict\";\n  age = 21;\n  console.log(age);\n}\n\ngetAge();",
+    "answerOptions": {
+        "A": "`21`",
+        "B": "`undefined`",
+        "C": "`ReferenceError`",
+        "D": "`TypeError`"
+    },
+    "correctAnswer": "C",
+    "answerExplanation": "Используя `\"use strict\"`, можно быть уверенным, что мы по ошибке не побъявим глобальные переменные. Мы ранее нигде не объявляли переменную `age`, поэтому с использованием `\"use strict\"` возникнет `ReferenceError`. Без использования `\"use strict\"` ошибки не возникнет, а переменная `age` добавится в глобальный объект."
+}, {
+    "id": 21,
+    "question": " Чему будет равно `sum`?",
+    "codeSnippet": "const sum = eval(\"10*10+5\");",
+    "answerOptions": {
+        "A": "`105`",
+        "B": "`\"105\"`",
+        "C": "`TypeError`",
+        "D": "`\"10*10+5\"`"
+    },
+    "correctAnswer": "A",
+    "answerExplanation": "`eval` выполняет код, переданный в виде строки. Если это выражение (как в данном случае), то вычисляется выражение. Выражение `10 * 10 + 5` вернет число `105`."
+}, {
+    "id": 22,
+    "question": " Как долго будет доступен cool_secret?",
+    "codeSnippet": "sessionStorage.setItem(\"cool_secret\", 123);",
+    "answerOptions": {
+        "A": "Всегда, данные не потеряются.",
+        "B": "Пока пользователь не закроет вкладку.",
+        "C": "Пока пользователь не закроет браузер, а не только вкладку.",
+        "D": "Пока пользователь не выключит компьютер."
+    },
+    "correctAnswer": "B",
+    "answerExplanation": "Данные, сохраненные в `sessionStorage` очищаются после закрытия _вкладки_.\n\nПри использовании `localStorage` данные сохраняются навсегда. Очистить их можно, например, используя `localStorage.clear()`."
+}, {
+    "id": 23,
+    "question": " Что будет в консоли?",
+    "codeSnippet": "var num = 8;\nvar num = 10;\n\nconsole.log(num);",
+    "answerOptions": {
+        "A": "`8`",
+        "B": "`10`",
+        "C": "`SyntaxError`",
+        "D": "`ReferenceError`"
+    },
+    "correctAnswer": "B",
+    "answerExplanation": "С помощью ключевого слова `var` можно определять сколько угодно переменных с одним и тем же именем. Переменная будет хранить последнее присвоенное значение.\n\nНо такой трюк нельзя проделать с `let` и `const`, т.к. у них блочная область видимости."
+}, {
+    "id": 24,
+    "question": " Каким будет результат?",
+    "codeSnippet": "const obj = { 1: \"a\", 2: \"b\", 3: \"c\" };\nconst set = new Set([1, 2, 3, 4, 5]);\n\nobj.hasOwnProperty(\"1\");\nobj.hasOwnProperty(1);\nset.has(\"1\");\nset.has(1);",
+    "answerOptions": {
+        "A": "`false` `true` `false` `true`",
+        "B": "`false` `true` `true` `true`",
+        "C": "`true` `true` `false` `true`",
+        "D": "`true` `true` `true` `true`"
+    },
+    "correctAnswer": "C",
+    "answerExplanation": "Все ключи объектов (кроме Symbols) являются строками, даже если заданы не в виде строк. Поэтому `obj.hasOwnProperty('1')` так же возвращает true.\n\nНо это не работает для `set`. Значения `'1'` нет в `set`: `set.has('1')` возвращает `false`. Но `set.has(1)` вернет `true`."
+}, {
+    "id": 25,
+    "question": " Что будет в консоли?",
+    "codeSnippet": "const obj = { a: \"one\", b: \"two\", a: \"three\" };\nconsole.log(obj);",
+    "answerOptions": {
+        "A": "`{ a: \"one\", b: \"two\" }`",
+        "B": "`{ b: \"two\", a: \"three\" }`",
+        "C": "`{ a: \"three\", b: \"two\" }`",
+        "D": "`SyntaxError`"
+    },
+    "correctAnswer": "C",
+    "answerExplanation": "Если есть два ключа с одинаковым именем, то ключ будет перезаписан. Его позиция сохранится, но значением будет последнее указанное."
+}, {
+    "id": 26,
+    "question": " Глобальный контекст исполнения создает две вещи: глобальный объект и `this`",
+    "codeSnippet": null,
+    "answerOptions": {
+        "A": "Да",
+        "B": "Нет",
+        "C": "Это зависит"
+    },
+    "correctAnswer": "A",
+    "answerExplanation": "Базовый контекст исполнения это глобальный контекст исполнения: это то, что доступно где угодно в твоем коде."
+}, {
+    "id": 27,
+    "question": " Что будет в консоли?",
+    "codeSnippet": "for (let i = 1; i < 5; i++) {\n  if (i === 3) continue;\n  console.log(i);\n}",
+    "answerOptions": {
+        "A": "`1` `2`",
+        "B": "`1` `2` `3`",
+        "C": "`1` `2` `4`",
+        "D": "`1` `3` `4`"
+    },
+    "correctAnswer": "C",
+    "answerExplanation": "Оператор `continue` пропускает итерацию, если условие возвращает `true`."
+}, {
+    "id": 28,
+    "question": " Каким будет результат?",
+    "codeSnippet": "String.prototype.giveLydiaPizza = () => {\n  return \"Just give Lydia pizza already!\";\n};\n\nconst name = \"Lydia\";\n\nname.giveLydiaPizza();",
+    "answerOptions": {
+        "A": "`\"Just give Lydia pizza already!\"`",
+        "B": "`TypeError: not a function`",
+        "C": "`SyntaxError`",
+        "D": "`undefined`"
+    },
+    "correctAnswer": "A",
+    "answerExplanation": "`String` это встроенный конструктор, к которому можно добавлять свойства. Я добавила метод к его прототипу. Строки-примитивы автоматически конвертируются к строкам-объектам. Поэтому все строки (строковые объекты) имеют доступ к этому методу!"
+}, {
+    "id": 29,
+    "question": " Что будет в консоли?",
+    "codeSnippet": "const a = {};\nconst b = { key: \"b\" };\nconst c = { key: \"c\" };\n\na[b] = 123;\na[c] = 456;\n\nconsole.log(a[b]);",
+    "answerOptions": {
+        "A": "`123`",
+        "B": "`456`",
+        "C": "`undefined`",
+        "D": "`ReferenceError`"
+    },
+    "correctAnswer": "B",
+    "answerExplanation": "Ключи объекта автоматически конвертируются в строки. Мы собираемся добавить объект в качестве ключа к объекту `a` со значением `123`.\n\nТем не менее, когда мы приводим объект к строке, он становится `\"[object Object]\"`. Таким образом, мы говорим, что `a[\"object Object\"] = 123`. Потом мы делаем то же самое. `c` это другой объект, который мы неявно приводим к строке. Поэтому `a[\"object Object\"] = 456`.\n\nЗатем, когда мы выводим `a[b]`, мы имеем в виду `a[\"object Object\"]`. Мы только что установили туда значение `456`, поэтому в результате получаем `456`."
+}, {
+    "id": 30,
+    "question": " Каким будет результат?",
+    "codeSnippet": "const foo = () => console.log(\"First\");\nconst bar = () => setTimeout(() => console.log(\"Second\"));\nconst baz = () => console.log(\"Third\");\n\nbar();\nfoo();\nbaz();",
+    "answerOptions": {
+        "A": "`First` `Second` `Third`",
+        "B": "`First` `Third` `Second`",
+        "C": "`Second` `First` `Third`",
+        "D": "`Second` `Third` `First`"
+    },
+    "correctAnswer": "B",
+    "answerExplanation": "Мы вызываем функцию `setTimeout` первой. Тем не менее, она выводится в консоль последней\n\nЭто происходит из-за того, что в браузерах у нас есть не только рантайм движок, но и `WebAPI`. `WebAPI` предоставляет нам функцию `setTimeout` и много других возможностей. Например, DOM.\n\nПосле того как _коллбек_ отправлен в `WebAPI`, функция `setTimeout` (но не коллбек!) вынимается из стека.\n\n<img src=\"https://i.imgur.com/X5wsHOg.png\" width=\"200\">\n\nТеперь вызывается `foo`, и `\"First\"` выводится в консоль.\n\n<img src=\"https://i.imgur.com/Pvc0dGq.png\" width=\"200\">\n\n`foo` достается из стека, и вызывается `baz`. `\"Third\"` выводится в консоль.\n\n<img src=\"https://i.imgur.com/WhA2bCP.png\" width=\"200\">\n\nWebAPI не может добавлять содержимое в стек когда захочет. Вместо этого он отправляет коллбек-функцию в так называемую _очередь_.\n\n<img src=\"https://i.imgur.com/NSnDZmU.png\" width=\"200\">\n\nЗдесь на сцену выходит цикл событий (event loop). **Event loop** проверяет стек и очередь задач. Если стек пустой, то он берет первый элемент из очереди и отправляет его в стек.\n\n<img src=\"https://i.imgur.com/uyiScAI.png\" width=\"200\">\n\nВызывается `bar`, в консоль выводится `\"Second\"` и эта функция достается из стека."
+}, {
+    "id": 31,
+    "question": " Что будет в event.target после клика на кнопку?",
+    "codeSnippet": "html\n<div onclick=\"console.log('first div')\">\n  <div onclick=\"console.log('second div')\">\n    <button onclick=\"console.log('button')\">\n      Кликни!\n    </button>\n  </div>\n</div>",
+    "answerOptions": {
+        "A": "Внешний `div`",
+        "B": "Внутренний `div`",
+        "C": "`button`",
+        "D": "Массив со всеми вложенными элементами"
+    },
+    "correctAnswer": "C",
+    "answerExplanation": "Целью события является самый глубокий вложенный элемент. Остановить распространение событий можно с помощью `event.stopPropagation`"
+}, {
+    "id": 32,
+    "question": " Что будет в консоли после клика по параграфу?",
+    "codeSnippet": "html\n<div onclick=\"console.log('div')\">\n  <p onclick=\"console.log('p')\">\n    Кликни меня!\n  </p>\n</div>",
+    "answerOptions": {
+        "A": "`p` `div`",
+        "B": "`div` `p`",
+        "C": "`p`",
+        "D": "`div`"
+    },
+    "correctAnswer": "A",
+    "answerExplanation": "После клика по `p` будет выведено `p` и `div`. В цикле жизни события есть три фазы: захват, цель и всплытие. По умолчанию обработчики событий выполняются на фазе всплытия (если не установлен параметр `useCapture` в `true`). Всплытие идет с самого глубокого элемента вверх."
+}, {
+    "id": 33,
+    "question": " Что будет в консоли?",
+    "codeSnippet": "const person = { name: \"Lydia\" };\n\nfunction sayHi(age) {\n  console.log(`${this.name} is ${age}`);\n}\n\nsayHi.call(person, 21);\nsayHi.bind(person, 21);",
+    "answerOptions": {
+        "A": "`undefined is 21` `Lydia is 21`",
+        "B": "`function` `function`",
+        "C": "`Lydia is 21` `Lydia is 21`",
+        "D": "`Lydia is 21` `function`"
+    },
+    "correctAnswer": "D",
+    "answerExplanation": "В обоих случаях мы передаем объект, на который будет указывать `this`. Но `.call` _выполняется сразу же_!\n\n`.bind` возвращает _копию_ функции, но с привязанным контекстом. Она не выполняется незамедлительно."
+}, {
+    "id": 34,
+    "question": " Каким будет результат?",
+    "codeSnippet": "function sayHi() {\n  return (() => 0)();\n}\n\ntypeof sayHi();",
+    "answerOptions": {
+        "A": "`\"object\"`",
+        "B": "`\"number\"`",
+        "C": "`\"function\"`",
+        "D": "`\"undefined\"`"
+    },
+    "correctAnswer": "B",
+    "answerExplanation": "Функция `sayHi` возвращает значение, возвращаемое из немедленно вызываемого функционального выражения (IIFE). Результатом является `0` типа `\"number\"`.\n\nДля информации: в JS 8 встроенных типов: `null`, `undefined`, `boolean`, `number`, `string`, `object`, `symbol` и `bigint`. `\"function\"` не является отдельным типом, т.к. функции являются объектами типа `\"object\"`."
+}, {
+    "id": 35,
+    "question": " Какие из этих значений являются \"ложными\"?",
+    "codeSnippet": "0;\nnew Number(0);\n(\"\");\n(\" \");\nnew Boolean(false);\nundefined;",
+    "answerOptions": {
+        "A": "`0`, `''`, `undefined`",
+        "B": "`0`, `new Number(0)`, `''`, `new Boolean(false)`, `undefined`",
+        "C": "`0`, `''`, `new Boolean(false)`, `undefined`",
+        "D": "Все являются \"ложными\""
+    },
+    "correctAnswer": "A",
+    "answerExplanation": "Есть только шесть \"ложных\" значений:\n\n- `undefined`\n- `null`\n- `NaN`\n- `0`\n- `''` (пустая строка)\n- `false`\n\nКонструкторы функций, такие как `new Number` и `new Boolean` являются \"истинными\"."
+}, {
+    "id": 36,
+    "question": " Что будет в консоли",
+    "codeSnippet": "console.log(typeof typeof 1);",
+    "answerOptions": {
+        "A": "`\"number\"`",
+        "B": "`\"string\"`",
+        "C": "`\"object\"`",
+        "D": "`\"undefined\"`"
+    },
+    "correctAnswer": "B",
+    "answerExplanation": "`typeof 1` возвращает `\"number\"`.\n`typeof \"number\"` возвращает `\"string\"`"
+}, {
+    "id": 37,
+    "question": " Что будет в консоли?",
+    "codeSnippet": "const numbers = [1, 2, 3];\nnumbers[10] = 11;\nconsole.log(numbers);",
+    "answerOptions": {
+        "A": "`[1, 2, 3, 7 x null, 11]`",
+        "B": "`[1, 2, 3, 11]`",
+        "C": "`[1, 2, 3, 7 x empty, 11]`",
+        "D": "`SyntaxError`"
+    },
+    "correctAnswer": "C",
+    "answerExplanation": "Когда в массив добавляется значение, которое выходит за пределы длины массива, JavaScript создает так называемые \"пустые ячейки\". На самом деле они имеют значения `undefined`, но в консоли выводятся так:\n\n`[1, 2, 3, 7 x empty, 11]`\n\nв зависимости от окружения (может отличаться для браузеров, Node, и т.д.)."
+}, {
+    "id": 38,
+    "question": " Что будет в консоли?",
+    "codeSnippet": "(() => {\n  let x, y;\n  try {\n    throw new Error();\n  } catch (x) {\n    (x = 1), (y = 2);\n    console.log(x);\n  }\n  console.log(x);\n  console.log(y);\n})();",
+    "answerOptions": {
+        "A": "`1` `undefined` `2`",
+        "B": "`undefined` `undefined` `undefined`",
+        "C": "`1` `1` `2`",
+        "D": "`1` `undefined` `undefined`"
+    },
+    "correctAnswer": "A",
+    "answerExplanation": "Блок `catch` получает аргумент `x`. Это не тот же `x`, который определен в качестве переменной перед строкой `try {`\n\nЗатем мы присваиваем этому аргументу значение `1` и устанавливаем значение для переменной `y`. Потом выводим в консоль значение аргумента `x`, которое равно `1`.\n\nЗа пределами блока `catch` переменная `x` все еще `undefined`, а `y` равно `2`. Когда мы вызываем `console.log(x)` за пределами блока `catch`, этот вызов возвращает `undefined`, а `y` возвращает `2`."
+}, {
+    "id": 39,
+    "question": " Всё в JavaScript это",
+    "codeSnippet": null,
+    "answerOptions": {
+        "A": "примитив или объект",
+        "B": "функция или объект",
+        "C": "вопрос с подвохом! только объекты",
+        "D": "число или объект"
+    },
+    "correctAnswer": "A",
+    "answerExplanation": "В JavaScript есть только примитивы и объекты.\n\nТипы примитивов: `boolean`, `null`, `undefined`, `bigint`, `number`, `string`, и `symbol`.\n\nОтличием примитива от объекта является то, что примитивы не имеют свойств или методов. Тем не менее, `'foo'.toUpperCase()` преобразуется в `'FOO'` и не вызывает `TypeError`. Это происходит потому, что при попытке получения свойства или метода у примитива (например, строки), JavaScript неявно обернет примитив объектом, используя один из классов-оберток (например, `String`), а затем сразу же уничтожит обертку после вычисления выражения. Все примитивы кроме `null` и `undefined` ведут себя таким образом."
+}, {
+    "id": 40,
+    "question": " Каким будет результат?",
+    "codeSnippet": "[[0, 1], [2, 3]].reduce(\n  (acc, cur) => {\n    return acc.concat(cur);\n  },\n  [1, 2]\n);",
+    "answerOptions": {
+        "A": "`[0, 1, 2, 3, 1, 2]`",
+        "B": "`[6, 1, 2]`",
+        "C": "`[1, 2, 0, 1, 2, 3]`",
+        "D": "`[1, 2, 6]`"
+    },
+    "correctAnswer": "C",
+    "answerExplanation": "`[1, 2]` - начальное значение, с которым инициализируется переменная `acc`. После первого прохода `acc` будет равно `[1,2]`, а `cur` будет `[0,1]`. После конкатенации результат будет `[1, 2, 0, 1]`.\n\nЗатем `acc` равно `[1, 2, 0, 1]`, а `cur` равно `[2, 3]`. После слияния получим `[1, 2, 0, 1, 2, 3]`."
+}, {
+    "id": 41,
+    "question": " Каким будет результат?",
+    "codeSnippet": "!!null;\n!!\"\";\n!!1;",
+    "answerOptions": {
+        "A": "`false` `true` `false`",
+        "B": "`false` `false` `true`",
+        "C": "`false` `true` `true`",
+        "D": "`true` `true` `false`"
+    },
+    "correctAnswer": "B",
+    "answerExplanation": "`null` - \"ложный\". `!null` возвращает `true`. `!true` возвращает `false`.\n\n`\"\"` - \"ложный\". `!\"\"` возвращает `true`. `!true` возвращает `false`.\n\n`1` - \"истинный\". `!1` возвращает `false`. `!false` возвращает `true`."
+}, {
+    "id": 42,
+    "question": " Что возвращает метод `setInterval`?",
+    "codeSnippet": "setInterval(() => console.log(\"Hi\"), 1000);",
+    "answerOptions": {
+        "A": "уникальный id",
+        "B": "указанное количество миллисекунд",
+        "C": "переданную функцию",
+        "D": "`undefined`"
+    },
+    "correctAnswer": "A",
+    "answerExplanation": "Это метод возвращает уникальный id. Этот id может быть использован для очищения интервала с помощью функции `clearInterval()`."
+}, {
+    "id": 43,
+    "question": " Каким будет результат?",
+    "codeSnippet": "[...\"Lydia\"];",
+    "answerOptions": {
+        "A": "`[\"L\", \"y\", \"d\", \"i\", \"a\"]`",
+        "B": "`[\"Lydia\"]`",
+        "C": "`[[], \"Lydia\"]`",
+        "D": "`[[\"L\", \"y\", \"d\", \"i\", \"a\"]]`"
+    },
+    "correctAnswer": "A",
+    "answerExplanation": "Строка является итерируемой сущностью. Оператор распространения преобразовывает каждый символ в отдельный элемент."
+}, {
+    "id": 44,
+    "question": " Каким будет результат?",
+    "codeSnippet": "function* generator(i) {\n  yield i;\n  yield i * 2;\n}\n\nconst gen = generator(10);\n\nconsole.log(gen.next().value);\nconsole.log(gen.next().value);",
+    "answerOptions": {
+        "A": "`[0, 10], [10, 20]`",
+        "B": "`20, 20`",
+        "C": "`10, 20`",
+        "D": "`0, 10 and 10, 20`"
+    },
+    "correctAnswer": "C",
+    "answerExplanation": "Обычные функции не могут быть остановлены на полпути после вызова. Однако функцию генератор можно \"остановить\" на полпути, а затем продолжить с того места, где она остановилась. Каждый раз, когда в функции-генераторе встречает ключевое слово `yield`, функция возвращает значение, указанное после него. Обратите внимание, что функция генератора в этом случае не _return_ значение, оно _yields_ значение.\n\nСначала мы инициализируем функцию генератор с `i`, равным `10`. Мы вызываем функцию генератор, используя метод `next ()`. Когда мы в первый раз вызываем функцию генератора, `i` равно `10`. Он встречает первое ключевое слово `yield`, получая значение `i`. Генератор теперь \"приостановлен\", и `10` выводится в консоль.\n\nЗатем мы снова вызываем функцию с помощью метода `next ()`. Она запускается с того места, где остановилась ранее, все еще с `i`, равным `10`. Теперь он встречает следующее ключевое слово `yield` и возвращает `i * 2`. `i` равно `10`, поэтому он возвращает `10 * 2`, то есть `20`. Это приводит к 10, 20."
+}, {
+    "id": 45,
+    "question": " Каким будет результат?",
+    "codeSnippet": "const firstPromise = new Promise((res, rej) => {\n  setTimeout(res, 500, \"один\");\n});\n\nconst secondPromise = new Promise((res, rej) => {\n  setTimeout(res, 100, \"два\");\n});\n\nPromise.race([firstPromise, secondPromise]).then(res => console.log(res));",
+    "answerOptions": {
+        "A": "`\"один\"`",
+        "B": "`\"два\"`",
+        "C": "`\"два\" \"один\"`",
+        "D": "`\"один\" \"два\"`"
+    },
+    "correctAnswer": "B",
+    "answerExplanation": "Когда мы передаем несколько промисов методу `Promise.race`, он разрешает/отклоняет _первый_ промис, который разрешается/отклоняется. В метод `setTimeout` мы передаем таймер: 500 мс для первого промиса (`firstPromise`) и 100 мс для второго промиса (`secondPromise`). Это означает, что `secondPromise` разрешается первым со значением `'два'`. `res` теперь содержит значение `'два'`, которое выводиться в консоль."
+}, {
+    "id": 46,
+    "question": " Каким будет результат?",
+    "codeSnippet": "let person = { name: \"Lydia\" };\nconst members = [person];\nperson = null;\n\nconsole.log(members);",
+    "answerOptions": {
+        "A": "`null`",
+        "B": "`[null]`",
+        "C": "`[{}]`",
+        "D": "`[{ name: \"Lydia\" }]`"
+    },
+    "correctAnswer": "D",
+    "answerExplanation": "Сначала мы объявляем переменную `person` со значением объекта, у которого есть свойство` name`.\n\n<img src=\"https://i.imgur.com/TML1MbS.png\" width=\"200\">\n\nЗатем мы объявляем переменную с именем `members`. Мы устанавливаем первый элемент этого массива равным значению переменной `person`. Объекты взаимодействуют посредством _ссылок_ при установке их равными друг другу. Когда вы назначаете ссылку из одной переменной в другую, вы создаете _копию_ этой ссылки. (обратите внимание, что у них _не одинаковые_ ссылки!)\n\n<img src=\"https://i.imgur.com/FSG5K3F.png\" width=\"300\">\n\nЗатем мы присваиваем переменной `person` значение `null`.\n\n<img src=\"https://i.imgur.com/sYjcsMT.png\" width=\"300\">\n\nМы изменили только значение переменной `person`, а не первый элемент в массиве, поскольку этот элемент имеет другую (скопированную) ссылку на объект. Первый элемент в `members` по-прежнему содержит ссылку на исходный объект. Когда мы выводим в консоль массив `members`, первый элемент по-прежнему содержит значение объекта, который выводится в консоль."
+}, {
+    "id": 47,
+    "question": " Каким будет результат?",
+    "codeSnippet": "const person = {\n  name: \"Lydia\",\n  age: 21\n};\n\nfor (const item in person) {\n  console.log(item);\n}",
+    "answerOptions": {
+        "A": "`{ name: \"Lydia\" }, { age: 21 }`",
+        "B": "`\"name\", \"age\"`",
+        "C": "`\"Lydia\", 21`",
+        "D": "`[\"name\", \"Lydia\"], [\"age\", 21]`"
+    },
+    "correctAnswer": "B",
+    "answerExplanation": "С помощью цикла `for-in` мы можем перебирать ключи объекта, в данном случае `name` и `age`. Под капотом ключи объекта являются строками (если они не являются Symbol). В каждом цикле мы устанавливаем значение `item` равным текущему ключу, по которому он перебирается. Сначала, `item` равен `name`, и выводится в консоль. Затем `item` равен `age`, который выводится в консоль."
+}, {
+    "id": 48,
+    "question": " Каким будет результат?",
+    "codeSnippet": "console.log(3 + 4 + \"5\");",
+    "answerOptions": {
+        "A": "`\"345\"`",
+        "B": "`\"75\"`",
+        "C": "`12`",
+        "D": "`\"12\"`"
+    },
+    "correctAnswer": "B",
+    "answerExplanation": "Ассоциативность операторов - это порядок, в котором компилятор оценивает выражения, слева направо или справа налево. Это происходит только в том случае, если все операторы имеют _одинаковый_ приоритет. У нас есть только один тип оператора: `+`. Кроме того, ассоциативность слева направо.\n\n`3 + 4` оценивается первым. Это приводит к числу `7`.\n\n`7 + '5'` приводит к `\"75\"` из-за принуждения. JavaScript преобразует число `7` в строку, см. вопрос 15. Мы можем объединить две строки, используя оператор `+`. `\"7\" + \"5\"` приводит к `\"75\"`."
+}, {
+    "id": 49,
+    "question": " Какое значение `num`?",
+    "codeSnippet": "const num = parseInt(\"7*6\", 10);",
+    "answerOptions": {
+        "A": "`42`",
+        "B": "`\"42\"`",
+        "C": "`7`",
+        "D": "`NaN`"
+    },
+    "correctAnswer": "C",
+    "answerExplanation": "Только первые числа в строке возвращаются. На основе _системы счисления_ (второй аргумент, чтобы указать, к какому типу чисел мы хотим его анализировать: основание 10, шестнадцатеричное, восьмеричное, двоичное и т.д.), `ParseInt` проверяет, являются ли символы в строке допустимыми. Как только он встречает символ, который не является допустимым числом в основании, он прекращает синтаксический анализ и игнорирует следующие символы.\n\n`*` не является допустимым числом. Он только разбирает `\"7\"` в десятичную `7`. `num` теперь содержит значение` 7`."
+}, {
+    "id": 50,
+    "question": " Каким будет результат?",
+    "codeSnippet": "[1, 2, 3].map(num => {\n  if (typeof num === \"number\") return;\n  return num * 2;\n});",
+    "answerOptions": {
+        "A": "`[]`",
+        "B": "`[null, null, null]`",
+        "C": "`[undefined, undefined, undefined]`",
+        "D": "`[ 3 x empty ]`"
+    },
+    "correctAnswer": "C",
+    "answerExplanation": "При использовании метода map, значение `num` равно элементу, над которым он в данный момент зацикливается. В этом случае элементы являются числами, поэтому условие оператора if `typeof num === \"number\"` возвращает `true`. Функция map создает новый массив и вставляет значения, возвращаемые функцией.\n\nОднако мы не возвращаем значение. Когда мы не возвращаем значение из функции, функция возвращает значение `undefined`. Для каждого элемента в массиве вызывается функциональный блок, поэтому для каждого элемента мы возвращаем `undefined`."
+}, {
+    "id": 51,
+    "question": " Каким будет результат?",
+    "codeSnippet": "function getInfo(member, year) {\n  member.name = \"Lydia\";\n  year = 1998;\n}\n\nconst person = { name: \"Sarah\" };\nconst birthYear = \"1997\";\n\ngetInfo(person, birthYear);\n\nconsole.log(person, birthYear);",
+    "answerOptions": {
+        "A": "`{ name: \"Lydia\" }, \"1997\"`",
+        "B": "`{ name: \"Sarah\" }, \"1998\"`",
+        "C": "`{ name: \"Lydia\" }, \"1998\"`",
+        "D": "`{ name: \"Sarah\" }, \"1997\"`"
+    },
+    "correctAnswer": "A",
+    "answerExplanation": "Аргументы передаются _значением_, если их значение не является объектом, то они передаются _ссылкой_. `birthYear` передается по значению, поскольку это строка, а не объект. Когда мы передаем аргументы по значению, создается _копия_ этого значения (см. вопрос 46).\n\nПеременная `birthYear` имеет ссылку на значение `\"1997\"`. Аргумент `year` также имеет ссылку на значение` \"1997\" `, но это не то же самое значение, на которое имеется ссылка для `birthYear`. Когда мы обновляем значение `year`, устанавливая `year` равным `\"1998\"`, мы обновляем только значение `year`. `birthYear` по-прежнему равно `\"1997\"`.\n\nЗначение `person` является объектом. Аргумент `member` имеет (скопированную) ссылку на _тот же_ объект. Когда мы изменяем свойство объекта, на который `member` ссылается, значение `person` также будет изменено, поскольку они оба имеют ссылку на один и тот же объект. Свойство `name` объекта `person` теперь равно значению `\"Lydia\"`."
+}, {
+    "id": 52,
+    "question": " Каким будет результат?",
+    "codeSnippet": "function greeting() {\n  throw \"Hello world!\";\n}\n\nfunction sayHi() {\n  try {\n    const data = greeting();\n    console.log(\"It worked!\", data);\n  } catch (e) {\n    console.log(\"Oh no an error:\", e);\n  }\n}\n\nsayHi();",
+    "answerOptions": {
+        "A": "`It worked! Hello world!`",
+        "B": "`Oh no an error: undefined`",
+        "C": "`SyntaxError: can only throw Error objects`",
+        "D": "`Oh no an error: Hello world!`"
+    },
+    "correctAnswer": "D",
+    "answerExplanation": "С помощью оператора `throw` мы можем создавать собственные ошибки. С этим оператором вы можете генерировать исключения. Исключением может быть <b>строка</b>, <b>число</b>, <b>логическое значение</b> или <b>объект</b>. В этом случае нашим исключением является строка `'Hello world'`.\n\nС помощью оператора `catch` мы можем указать, что делать, если в блоке` try` выдается исключение. Исключение: строка `'Hello world'`. `e` теперь равно той строке, которую мы записываем. Это приводит к `'Oh error: Hello world'`."
+}, {
+    "id": 53,
+    "question": " Каким будет результат?",
+    "codeSnippet": "function Car() {\n  this.make = \"Lamborghini\";\n  return { make: \"Maserati\" };\n}\n\nconst myCar = new Car();\nconsole.log(myCar.make);",
+    "answerOptions": {
+        "A": "`\"Lamborghini\"`",
+        "B": "`\"Maserati\"`",
+        "C": "`ReferenceError`",
+        "D": "`TypeError`"
+    },
+    "correctAnswer": "B",
+    "answerExplanation": "Когда вы возвращаете свойство, значение свойства равно _возвращаемому_ значению, а не значению, установленному в функции конструктора. Мы возвращаем строку `\"Maserati\"`, поэтому `myCar.make` равно `\"Maserati\"`."
+}, {
+    "id": 54,
+    "question": " Каким будет результат?",
+    "codeSnippet": "(() => {\n  let x = (y = 10);\n})();\n\nconsole.log(typeof x);\nconsole.log(typeof y);",
+    "answerOptions": {
+        "A": "`\"undefined\", \"number\"`",
+        "B": "`\"number\", \"number\"`",
+        "C": "`\"object\", \"number\"`",
+        "D": "`\"number\", \"undefined\"`"
+    },
+    "correctAnswer": "A",
+    "answerExplanation": "`let x = y = 10;` на самом деле является сокращением для:\n\n```javascript\ny = 10;\nlet x = y;\n```\n\nКогда мы устанавливаем `y` равным` 10`, мы фактически добавляем свойство `y` к глобальному объекту (`window` в браузере, `global` в Node). В браузере `window.y` теперь равен` 10`.\n\nЗатем мы объявляем переменную `x` со значением `y`, которое равно `10`. Переменные, объявленные с ключевым словом `let`, имеют _блочную видимость_, они определены только в блоке, в котором они объявлены; немедленно вызванная функция (IIFE) в этом случае. Когда мы используем оператор `typeof`, операнд `x` не определен: мы пытаемся получить доступ к `x` вне блока, в котором он объявлен. Это означает, что `x` не определен. Значения, которым не присвоено или не объявлено значение, имеют тип `\"undefined\"`. `console.log(typeof x)` возвращает `\"undefined\"`.\n\nОднако мы создали глобальную переменную `y`, установив `y` равным `10`. Это значение доступно в любом месте нашего кода. `y` определен и содержит значение типа `\"number\"`. `console.log(typeof y)` возвращает `\"number\"`."
+}, {
+    "id": 55,
+    "question": " Какой будет вывод?",
+    "codeSnippet": "class Dog {\n  constructor(name) {\n    this.name = name;\n  }\n}\n\nDog.prototype.bark = function() {\n  console.log(`Woof I am ${this.name}`);\n};\n\nconst pet = new Dog(\"Mara\");\n\npet.bark();\n\ndelete Dog.prototype.bark;\n\npet.bark();",
+    "answerOptions": {
+        "A": "`\"Woof I am Mara\"`, `TypeError`",
+        "B": "`\"Woof I am Mara\"`, `\"Woof I am Mara\"`",
+        "C": "`\"Woof I am Mara\"`, `undefined`",
+        "D": "`TypeError`, `TypeError`"
+    },
+    "correctAnswer": "A",
+    "answerExplanation": "Мы можем удалить свойства из объектов, используя ключевое слово `delete`, также в прототипе. Удаляя свойство в прототипе, оно больше не доступно в цепочке прототипов. В этом случае функция `bark` больше не доступна в прототипе после`delete Dog.prototype.bark`, но мы все еще пытаемся получить к ней доступ.\n\nКогда мы пытаемся вызвать что-то, что не является функцией, выдается `TypeError`. В этом случае `TypeError: pet.bark не является функцией`, поскольку` pet.bark` является `undefined`."
+}, {
+    "id": 56,
+    "question": " Какой будет вывод?",
+    "codeSnippet": "const set = new Set([1, 1, 2, 3, 4]);\n\nconsole.log(set);",
+    "answerOptions": {
+        "A": "`[1, 1, 2, 3, 4]`",
+        "B": "`[1, 2, 3, 4]`",
+        "C": "`{1, 1, 2, 3, 4}`",
+        "D": "`{1, 2, 3, 4}`"
+    },
+    "correctAnswer": "D",
+    "answerExplanation": "Объект `Set` является коллекцией _unique_ значений: значение может появляться только один раз в наборе.\n\nМы передали последовательность `[1, 1, 2, 3, 4]` с повторяющимся значением `1`. Поскольку в наборе не может быть двух одинаковых значений, одно из них удаляется. Это приводит к `{1, 2, 3, 4}`."
+}, {
+    "id": 57,
+    "question": " Какой будет вывод?",
+    "codeSnippet": "// counter.js\nlet counter = 10;\nexport default counter;",
+    "answerOptions": {
+        "A": "`10`",
+        "B": "`11`",
+        "C": "`Error`",
+        "D": "`NaN`"
+    },
+    "correctAnswer": "C",
+    "answerExplanation": "Импортированный модуль является _read-only_: вы не можете изменить импортированный модуль. Только модуль, который их экспортирует, может изменить его значение.\n\nКогда мы пытаемся увеличить значение `myCounter`, выдается ошибка: `myCounter` доступен только для чтения и не может быть изменен."
+}, {
+    "id": 58,
+    "question": " Какой будет вывод?",
+    "codeSnippet": "const name = \"Lydia\";\nage = 21;\n\nconsole.log(delete name);\nconsole.log(delete age);",
+    "answerOptions": {
+        "A": "`false`, `true`",
+        "B": "`\"Lydia\"`, `21`",
+        "C": "`true`, `true`",
+        "D": "`undefined`, `undefined`"
+    },
+    "correctAnswer": "A",
+    "answerExplanation": "Оператор `delete` возвращает логическое значение: `true` при успешном удалении, иначе он вернет `false`. Однако переменные, объявленные с ключевым словом `var`,` const` или `let`, не могут быть удалены с помощью оператора` delete`.\n\nПеременная `name` была объявлена ​​с ключевым словом `const`, поэтому ее удаление не было успешным: возвращается `false`. Когда мы устанавливаем `age` равным `21`, мы фактически добавляем свойство с именем `age` к глобальному объекту. Вы можете успешно удалить свойства из объектов, в том числе из глобального объекта, поэтому `delete age` возвращает `true`."
+}, {
+    "id": 59,
+    "question": " Какой будет вывод?",
+    "codeSnippet": "const numbers = [1, 2, 3, 4, 5];\nconst [y] = numbers;\n\nconsole.log(y);",
+    "answerOptions": {
+        "A": "`[[1, 2, 3, 4, 5]]`",
+        "B": "`[1, 2, 3, 4, 5]`",
+        "C": "`1`",
+        "D": "`[1]`"
+    },
+    "correctAnswer": "C",
+    "answerExplanation": "Мы можем распаковать значения из массивов или свойств из объектов путем деструктуризации. Например:\n\n```javascript\n[a, b] = [1, 2];\n```\n\n<img src=\"https://i.imgur.com/ADFpVop.png\" width=\"200\">\n\nЗначение `a` теперь равно `1`, а значение `b` теперь равно `2`. Что мы на самом деле сделали в этом вопросе, так это:\n\n```javascript\n[y] = [1, 2, 3, 4, 5];\n```\n\n<img src=\"https://i.imgur.com/NzGkMNk.png\" width=\"200\">\n\nЭто означает, что значение `y` равно первому значению в массиве, которое является числом` 1`. Когда мы регистрируем `y`, возвращается `1`."
+}, {
+    "id": 60,
+    "question": " Какой будет вывод?",
+    "codeSnippet": "const user = { name: \"Lydia\", age: 21 };\nconst admin = { admin: true, ...user };\n\nconsole.log(admin);",
+    "answerOptions": {
+        "A": "`{ admin: true, user: { name: \"Lydia\", age: 21 } }`",
+        "B": "`{ admin: true, name: \"Lydia\", age: 21 }`",
+        "C": "`{ admin: true, user: [\"Lydia\", 21] }`",
+        "D": "`{ admin: true }`"
+    },
+    "correctAnswer": "B",
+    "answerExplanation": "Можно комбинировать объекты с помощью оператора распространения `...`. Это позволяет создавать копии пар ключ/значение одного объекта и добавлять их в другой объект. В этом случае мы создаем копии объекта `user` и добавляем их в объект `admin`. Объект `admin` теперь содержит скопированные пары ключ/значение, что приводит к `{admin: true, name: \"Lydia\", age: 21}`."
+}, {
+    "id": 61,
+    "question": " Какой будет вывод?",
+    "codeSnippet": "const person = { name: \"Lydia\" };\n\nObject.defineProperty(person, \"age\", { value: 21 });\n\nconsole.log(person);\nconsole.log(Object.keys(person));",
+    "answerOptions": {
+        "A": "`{ name: \"Lydia\", age: 21 }`, `[\"name\", \"age\"]`",
+        "B": "`{ name: \"Lydia\", age: 21 }`, `[\"name\"]`",
+        "C": "`{ name: \"Lydia\"}`, `[\"name\", \"age\"]`",
+        "D": "`{ name: \"Lydia\"}`, `[\"age\"]`"
+    },
+    "correctAnswer": "B",
+    "answerExplanation": "С помощью метода `defineProperty` мы можем добавлять новые свойства к объекту или изменять существующие. Когда мы добавляем свойство к объекту с помощью метода `defineProperty`, они по умолчанию _не перечисляемые_. Метод `Object.keys` возвращает все имена _enumerable_ свойств объекта, в данном случае только `\"name\"`.\n\nСвойства, добавленные с помощью метода `defineProperty`, по умолчанию неизменны. Вы можете переопределить это поведение, используя свойства `writable`, `configurable` и `enumerable`. Таким образом, метод `defineProperty` дает вам гораздо больший контроль над свойствами, которые вы добавляете к объекту."
+}, {
+    "id": 62,
+    "question": " Какой будет вывод?",
+    "codeSnippet": "const settings = {\n  username: \"lydiahallie\",\n  level: 19,\n  health: 90\n};\n\nconst data = JSON.stringify(settings, [\"level\", \"health\"]);\nconsole.log(data);",
+    "answerOptions": {
+        "A": "`\"{\"level\":19, \"health\":90}\"`",
+        "B": "`\"{\"username\": \"lydiahallie\"}\"`",
+        "C": "`\"[\"level\", \"health\"]\"`",
+        "D": "`\"{\"username\": \"lydiahallie\", \"level\":19, \"health\":90}\"`"
+    },
+    "correctAnswer": "A",
+    "answerExplanation": "Второй аргумент `JSON.stringify` - это _replacer_. Заменитель может быть либо функцией, либо массивом, и позволяет вам контролировать, что и как должны быть преобразованы в значения.\n\nЕсли заменитель является _массивом_, только свойства, имена которых включены в массив, будут добавлены в строку JSON. В этом случае включаются только свойства с именами `\"level\"` и `\"health\"`, `\"username\"` исключается. `data` теперь равен `\"{\"level\":19, \"health\":90}\"`.\n\nЕсли заменитель является _function_, эта функция вызывается для каждого свойства объекта, который вы преобразуете. Значение, возвращаемое из этой функции, будет значением свойства при добавлении в строку JSON. Если значение равно undefined, это свойство исключается из строки JSON."
+}, {
+    "id": 63,
+    "question": " Какой будет вывод?",
+    "codeSnippet": "let num = 10;\n\nconst increaseNumber = () => num++;\nconst increasePassedNumber = number => number++;\n\nconst num1 = increaseNumber();\nconst num2 = increasePassedNumber(num1);\n\nconsole.log(num1);\nconsole.log(num2);",
+    "answerOptions": {
+        "A": "`10`, `10`",
+        "B": "`10`, `11`",
+        "C": "`11`, `11`",
+        "D": "`11`, `12`"
+    },
+    "correctAnswer": "A",
+    "answerExplanation": "Унарный оператор `++` _first возвращает_ значение операнда, _then приращивает_ значение операнда. Значение `num1` равно `10`, так как функция увеличений вначале возвращает значение `num`, которое равно `10`, и только затем увеличивает значение `num`.\n\n`num2` - это `10`, так как мы передали `num1` в `incpasePassedNumber`. `number` равно `10` (значение `num1`. Опять же, унарный оператор `++` _first возвращает_ значение операнда, _then увеличивает значение операнда. Значение `number` равно `10`, поэтому `num2` равно `10`."
+}, {
+    "id": 64,
+    "question": " Какой будет вывод?",
+    "codeSnippet": "const value = { number: 10 };\n\nconst multiply = (x = { ...value }) => {\n  console.log((x.number *= 2));\n};\n\nmultiply();\nmultiply();\nmultiply(value);\nmultiply(value);",
+    "answerOptions": {
+        "A": "`20`, `40`, `80`, `160`",
+        "B": "`20`, `40`, `20`, `40`",
+        "C": "`20`, `20`, `20`, `40`",
+        "D": "`NaN`, `NaN`, `20`, `40`"
+    },
+    "correctAnswer": "C",
+    "answerExplanation": "В ES6 мы можем инициализировать параметры значением по умолчанию. Значением параметра будет значение по умолчанию, если никакое другое значение не было передано функции, или если значение параметра равно `\"undefined\"`. В этом случае мы распространяем свойства объекта `value` на новый объект, поэтому значение `x` по умолчанию равно `{number: 10}`.\n\nАргумент по умолчанию реализуется в момент _call time_! Каждый раз, когда мы вызываем функцию, создается _new_ объект. Мы вызываем функцию `multiply` первые два раза, не передавая значение: `x` имеет значение по умолчанию `{number: 10}`. Затем мы записываем умноженное значение этого числа, которое равно `20`.\n\nВ третий раз, когда мы вызываем multiply, мы передаем аргумент: объект с именем `value`. Оператор `*=` на самом деле является сокращением для `x.number = x.number * 2`: мы изменяем значение `x.number` и записываем умноженное значение `20`.\n\nВ четвертый раз мы снова передаем объект `value`. `x.number` ранее был изменен на `20`, поэтому `x.number * = 2` записывает `40`."
+}, {
+    "id": 65,
+    "question": " Какой будет вывод?",
+    "codeSnippet": "[1, 2, 3, 4].reduce((x, y) => console.log(x, y));",
+    "answerOptions": {
+        "A": "`1` `2`, `3` `3` и `6` `4`",
+        "B": "`1` `2`, `2` `3` и `3` `4`",
+        "C": "`1` `undefined`, `2` `undefined`, `3` `undefined` и `4` `undefined`",
+        "D": "`1` `2`, `undefined` `3` и `undefined` `4`"
+    },
+    "correctAnswer": "D",
+    "answerExplanation": "Первым аргументом, который получает метод `reduce`, является _аккумулятором_, в данном случае `x`. Второй аргумент - это _текущее значение_, `y`. С помощью метода `reduce` мы выполняем функцию обратного вызова для каждого элемента в массиве, что в конечном итоге может привести к единственному значению.\n\nВ этом примере мы не возвращаем никаких значений, мы просто регистрируем значения аккумулятора и текущее значение.\n\nЗначение аккумулятора равно ранее возвращенному значению функции обратного вызова. Если вы не передадите необязательный аргумент `initialValue` методу `reduce`, аккумулятор будет равен первому элементу при первом вызове.\n\nПри первом вызове аккумулятор (`x`) равен `1`, а текущее значение (`y`) равно `2`. Мы не возвращаемся из функции обратного вызова, мы регистрируем аккумулятор и текущее значение: `1` и `2` регистрируются.\n\nЕсли вы не возвращаете значение из функции, она возвращает значение `undefined`. При следующем вызове аккумулятор равен `undefined`, а текущее значение равно 3. `undefined` и `3` будут зарегистрированы.\n\nПри четвертом вызове мы снова не возвращаемся из функции обратного вызова. Аккумулятор снова равен `undefined`, а текущее значение равно `4`. `undefined` и` 4` будут зарегистрированы."
+}, {
+    "id": 66,
+    "question": " С помощью какого конструктора мы можем успешно расширить класс `Dog`?",
+    "codeSnippet": "class Dog {\n  constructor(name) {\n    this.name = name;\n  }\n};\n\nclass Labrador extends Dog {\n  // 1\n  constructor(name, size) {\n    this.size = size;\n  }\n  // 2\n  constructor(name, size) {\n    super(name);\n    this.size = size;\n  }\n  // 3\n  constructor(size) {\n    super(name);\n    this.size = size;\n  }\n  // 4\n  constructor(name, size) {\n    this.name = name;\n    this.size = size;\n  }\n\n};",
+    "answerOptions": {
+        "A": "1",
+        "B": "2",
+        "C": "3",
+        "D": "4"
+    },
+    "correctAnswer": "B",
+    "answerExplanation": "В производном классе вы не можете получить доступ к ключевому слову `this` до вызова `super`. Если вы попытаетесь это сделать, он выдаст ReferenceError: 1 и 4 приведут к ошибке ссылки.\n\nС ключевым словом `super` мы вызываем конструктор родительского класса с заданными аргументами. Конструктор родителя получает аргумент `name`, поэтому нам нужно передать `name` в `super`.\n\nКласс `Labrador` получает два аргумента: `name`, поскольку он расширяет `Dog`, и `size` в качестве дополнительного свойства класса `Labrador`. Они оба должны быть переданы в функцию конструктора в `Labrador`, что делается правильно с помощью конструктора 2."
+}, {
+    "id": 67,
+    "question": " Какой будет вывод?",
+    "codeSnippet": "// index.js\nconsole.log('running index.js');\nimport { sum } from './sum.js';\nconsole.log(sum(1, 2));\n\n// sum.js\nconsole.log('running sum.js');\nexport const sum = (a, b) => a + b;",
+    "answerOptions": {
+        "A": "`running index.js`, `running sum.js`, `3`",
+        "B": "`running sum.js`, `running index.js`, `3`",
+        "C": "`running sum.js`, `3`, `running index.js`",
+        "D": "`running index.js`, `undefined`, `running sum.js`"
+    },
+    "correctAnswer": "B",
+    "answerExplanation": "С ключевым словом `import` все импортируемые модули являются _pre-parsed_. Это означает, что импортированные модули запускаются _первыми_, код в файле, который импортирует модуль, исполняется _после_.\n\nВ этом разница между `require()` в CommonJS и `import`! С помощью `require()` вы можете загружать зависимости по требованию во время выполнения кода. Если бы мы использовали `require` вместо `import`, в консоль были бы записаны `running index.js`, `running sum.js`, `3`."
+}, {
+    "id": 68,
+    "question": " Какой будет вывод?",
+    "codeSnippet": "console.log(Number(2) === Number(2))\nconsole.log(Boolean(false) === Boolean(false))\nconsole.log(Symbol('foo') === Symbol('foo'))",
+    "answerOptions": {
+        "A": "`true`, `true`, `false`",
+        "B": "`false`, `true`, `false`",
+        "C": "`true`, `false`, `true`",
+        "D": "`true`, `true`, `true`"
+    },
+    "correctAnswer": "A",
+    "answerExplanation": "Каждый `Symbol` совершенно уникален. Цель аргумента, переданного `Symbol`, состоит в том, чтобы дать `Symbol` описание. Значение `Symbol` не зависит от переданного аргумента. Когда мы проверяем равенство, мы создаем два совершенно новых `Symbol`: первый `Symbol('foo')` и второй `Symbol('foo')`. Эти два значения уникальны и не равны друг другу, `Symbol('foo') === Symbol('foo')` возвращает `false`."
+}, {
+    "id": 69,
+    "question": " Какой будет вывод?",
+    "codeSnippet": "const name = \"Lydia Hallie\"\nconsole.log(name.padStart(13))\nconsole.log(name.padStart(2))",
+    "answerOptions": {
+        "A": "`\"Lydia Hallie\"`, `\"Lydia Hallie\"`",
+        "B": "`\"           Lydia Hallie\"`, `\"  Lydia Hallie\"` (`\"[13x whitespace]Lydia Hallie\"`, `\"[2x whitespace]Lydia Hallie\"`)",
+        "C": "`\" Lydia Hallie\"`, `\"Lydia Hallie\"` (`\"[1x whitespace]Lydia Hallie\"`, `\"Lydia Hallie\"`)",
+        "D": "`\"Lydia Hallie\"`, `\"Lyd\"`,"
+    },
+    "correctAnswer": "C",
+    "answerExplanation": "С помощью метода `padStart` мы можем добавить отступ в начало строки. Значение, передаваемое этому методу, представляет собой _общую_ длину строки вместе с отступом. Строка `\"Lydia Hallie\"` имеет длину `12`. `name.padStart(13)` вставляет 1 пробел в начале строки, потому что 12 + 1 равно 13.\n\nЕсли аргумент, переданный методу `padStart`, меньше длины строки, заполнение не будет добавлено."
+}, {
+    "id": 70,
+    "question": " Какой будет вывод?",
+    "codeSnippet": "console.log(\"🥑\" + \"💻\");",
+    "answerOptions": {
+        "A": "`\"🥑💻\"`",
+        "B": "`257548`",
+        "C": "Строка, содержащая кодовые обозначения",
+        "D": "Error"
+    },
+    "correctAnswer": "A",
+    "answerExplanation": "С помощью оператора `+` вы можете объединять строки. В этом случае мы объединяем строку `\"\"` со строкой `\"💻\"`, что приводит к `\"💻\"`."
+}, {
+    "id": 71,
+    "question": " Как мы можем вывести в лог значения, которые закомментированы после оператора console.log?",
+    "codeSnippet": "function* startGame() {\n  const answer = yield \"Do you love JavaScript?\";\n  if (answer !== \"Yes\") {\n    return \"Oh wow... Guess we're gone here\";\n  }\n  return \"JavaScript loves you back ❤️\";\n}\n\nconst game = startGame();\nconsole.log(/* 1 */); // Do you love JavaScript?\nconsole.log(/* 2 */); // JavaScript loves you back ❤️",
+    "answerOptions": {
+        "A": "`game.next(\"Yes\").value` и `game.next().value`",
+        "B": "`game.next.value(\"Yes\")` и `game.next.value()`",
+        "C": "`game.next().value` и `game.next(\"Yes\").value`",
+        "D": "`game.next.value()` и `game.next.value(\"Yes\")`"
+    },
+    "correctAnswer": "C",
+    "answerExplanation": "Функция генератора \"приостанавливает\" выполнение, когда видит ключевое слово yield. Во-первых, мы должны позволить функции выдать строку \"Do you love JavaScript?\", что можно сделать, вызвав `game.next().value`.\n\nКаждая строка выполняется до тех пор, пока не найдет первое ключевое слово `yield`. В первой строке функции есть ключевое слово `yield` на первом месте: выполнение останавливается с первым выходом! _Это означает, что переменная `answer` еще не определена!_\n\nКогда мы вызываем `game.next(\"Yes\").value`, предыдущий `yield` заменяется значением параметров, переданных функции `next()`, в данном случае `\"Yes\"`. Значение переменной `answer` теперь равно `\"Yes\"`. Условие if возвращает `false`, а `JavaScript loves you back ❤️`, регистрируется."
+}, {
+    "id": 72,
+    "question": " Какой будет вывод?",
+    "codeSnippet": "console.log(String.raw`Hello\\nworld`);",
+    "answerOptions": {
+        "A": "`Hello world!`",
+        "B": "`Hello` <br />&nbsp; &nbsp; &nbsp;`world`",
+        "C": "`Hello\\nworld`",
+        "D": "`Hello\\n` <br /> &nbsp; &nbsp; &nbsp;`world`"
+    },
+    "correctAnswer": "C",
+    "answerExplanation": "`String.raw` возвращает строку, в которой экранированные символы (`\\n`, `\\v`, `\\t` и т.д.) игнорируются! Обратная косая черта может быть проблемой, так как вы можете получить что-то вроде:\n\n`` const path = `C:\\Documents\\Projects\\table.html` ``\n\nЧто приведет к:\n\n`\"C:DocumentsProjects able.html\"`\n\nС `String.raw` он просто проигнорирует управляющий знак и напечатает:\n\n`C:\\Documents\\Projects\\table.html`\n\nВ этом случае строка `Hello\\nworld`, которая и выводится."
+}, {
+    "id": 73,
+    "question": " Какой будет вывод?",
+    "codeSnippet": "async function getData() {\n  return await Promise.resolve(\"I made it!\");\n}\n\nconst data = getData();\nconsole.log(data);",
+    "answerOptions": {
+        "A": "`\"I made it!\"`",
+        "B": "`Promise {<resolved>: \"I made it!\"}`",
+        "C": "`Promise {<pending>}`",
+        "D": "`undefined`"
+    },
+    "correctAnswer": "C",
+    "answerExplanation": "Асинхронная функция всегда возвращает обещание. `await` все еще должен ждать разрешения обещания: ожидаемое обещание возвращается, когда мы вызываем `getData()`, чтобы установить `data` равным ему.\n\nЕсли бы мы хотели получить доступ к разрешенному значению `\"I made it\"`, мы могли бы использовать метод `.then()` для `data`:\n\n`data.then(res => console.log(res))`\n\nТогда это бы вывело `\"I made it!\"`"
+}, {
+    "id": 74,
+    "question": " Какой будет вывод?",
+    "codeSnippet": "function addToList(item, list) {\n  return list.push(item);\n}\n\nconst result = addToList(\"apple\", [\"banana\"]);\nconsole.log(result);",
+    "answerOptions": {
+        "A": "`['apple', 'banana']`",
+        "B": "`2`",
+        "C": "`true`",
+        "D": "`undefined`"
+    },
+    "correctAnswer": "B",
+    "answerExplanation": "Метод `.push()` возвращает _длину_ нового массива! Ранее массив содержал один элемент (строка `\"banana\"`) и имел длину `1`. После добавления в массив строки `\"apple\"`, массив содержит два элемента и имеет длину `2`. Это возвращается из функции `addToList`.\n\nМетод `push` изменяет исходный массив. Если вы хотите вернуть _массив_ из функции, а не _длину массива_, вы должны были вернуть `list` после добавления в нее `item`."
+}, {
+    "id": 75,
+    "question": " Какой будет вывод?",
+    "codeSnippet": "const box = { x: 10, y: 20 };\n\nObject.freeze(box);\n\nconst shape = box;\nshape.x = 100;\n\nconsole.log(shape);",
+    "answerOptions": {
+        "A": "`{ x: 100, y: 20 }`",
+        "B": "`{ x: 10, y: 20 }`",
+        "C": "`{ x: 100 }`",
+        "D": "`ReferenceError`"
+    },
+    "correctAnswer": "B",
+    "answerExplanation": "`Object.freeze` делает невозможным добавление, удаление или изменение свойств объекта (если только значение свойства не является другим объектом).\n\nКогда мы создаем переменную `shape` и устанавливаем ее равной замороженному объекту `box`, `shape` также ссылается на замороженный объект. Вы можете проверить, заморожен ли объект, используя `Object.isFrozen`. В этом случае `Object.isFrozen(shape)` возвращает true, поскольку переменная `shape` имеет ссылку на замороженный объект.\n\nПоскольку `shape` заморожен, и поскольку значение `x` не является объектом, мы не можем изменить свойство `x`. `x` по-прежнему равно `10`, и `{x: 10, y: 20}` регистрируется."
+}, {
+    "id": 76,
+    "question": " Какой будет вывод?",
+    "codeSnippet": "const { name: myName } = { name: \"Lydia\" };\n\nconsole.log(name);",
+    "answerOptions": {
+        "A": "`\"Lydia\"`",
+        "B": "`\"myName\"`",
+        "C": "`undefined`",
+        "D": "`ReferenceError`"
+    },
+    "correctAnswer": "D",
+    "answerExplanation": "Когда мы распаковываем свойство `name` из правого объекта, мы присваиваем его значение `\"Lydia\"` переменной с именем `myName`.\n\nС помощью `{name: myName}` мы сообщаем JavaScript, что хотим создать новую переменную с именем `myName` со значением свойства `name` в правой части.\n\nПоскольку мы пытаемся зарегистрировать `name`, переменную, которая не определена, выдается ReferenceError."
+}, {
+    "id": 77,
+    "question": " Это чистая функция?",
+    "codeSnippet": "function sum(a, b) {\n  return a + b;\n}",
+    "answerOptions": {
+        "A": "Да",
+        "B": "Нет"
+    },
+    "correctAnswer": "A",
+    "answerExplanation": "Чистая функция - это функция, которая всегда возвращает тот же результат, если переданы одинаковые аргументы.\n\nФункция `sum` всегда возвращает один и тот же результат. Если мы передадим `1` и `2`, он всегда вернет `3` без побочных эффектов. Если мы передадим `5` и `10`, он всегда вернет `15` и так далее. Это определение чистой функции."
+}, {
+    "id": 78,
+    "question": " Какой будет вывод?",
+    "codeSnippet": "const add = () => {\n  const cache = {};\n  return num => {\n    if (num in cache) {\n      return `From cache! ${cache[num]}`;\n    } else {\n      const result = num + 10;\n      cache[num] = result;\n      return `Calculated! ${result}`;\n    }\n  };\n};\n\nconst addFunction = add();\nconsole.log(addFunction(10));\nconsole.log(addFunction(10));\nconsole.log(addFunction(5 * 2));",
+    "answerOptions": {
+        "A": "`Calculated! 20` `Calculated! 20` `Calculated! 20`",
+        "B": "`Calculated! 20` `From cache! 20` `Calculated! 20`",
+        "C": "`Calculated! 20` `From cache! 20` `From cache! 20`",
+        "D": "`Calculated! 20` `From cache! 20` `Error`"
+    },
+    "correctAnswer": "C",
+    "answerExplanation": "Функция `add` является функцией _запоминателем_. С помощью запоминания мы можем кэшировать результаты функции, чтобы ускорить ее выполнение. В этом случае мы создаем объект `cache`, в котором хранятся ранее возвращенные значения.\n\nЕсли мы снова вызываем функцию `addFunction` с тем же аргументом, она сначала проверяет, получило ли оно уже это значение в своем кеше. В этом случае будет возвращено значение кэша, что экономит время выполнения. Иначе, если он не кэшируется, он вычислит значение и сохранит его после.\n\nМы вызываем функцию `addFunction` три раза с одним и тем же значением: при первом вызове значение функции, когда `num` равно `10`, еще не кэшировано. Условие оператора if `num in cache` возвращает `false`, и выполняется блок else: `Calculated! 20` регистрируется, и значение результата добавляется в объект кеша. `cache` теперь выглядит как `{10: 20}`.\n\nВо второй раз объект `cache` содержит значение, возвращаемое для `10`. Условие оператора if `num in cache` возвращает `true`, а `'From cache! 20'` выводится в лог.\n\nВ третий раз мы передаем `5 * 2` в функцию, которая оценивается как `10`. Объект `cache` содержит значение, возвращаемое для `10`. Условие оператора if `num in cache` возвращает `true`, а `'From cache! 20'` регистрируется."
+}, {
+    "id": 79,
+    "question": " Какой будет вывод?",
+    "codeSnippet": "const myLifeSummedUp = [\"☕\", \"💻\", \"🍷\", \"🍫\"]\n\nfor (let item in myLifeSummedUp) {\n  console.log(item)\n}\n\nfor (let item of myLifeSummedUp) {\n  console.log(item)\n}",
+    "answerOptions": {
+        "A": "`0` `1` `2` `3` и `\"☕\"` ` \"💻\"` `\"🍷\"` `\"🍫\"`",
+        "B": "`\"☕\"` ` \"💻\"` `\"🍷\"` `\"🍫\"` и `\"☕\"` ` \"💻\"` `\"🍷\"` `\"🍫\"`",
+        "C": "`\"☕\"` ` \"💻\"` `\"🍷\"` `\"🍫\"` и `0` `1` `2` `3`",
+        "D": "`0` `1` `2` `3` и `{0: \"☕\", 1: \"💻\", 2: \"🍷\", 3: \"🍫\"}`"
+    },
+    "correctAnswer": "A",
+    "answerExplanation": "С помощью цикла _for-in_ мы можем перебирать **перечисляемые** свойства. В массиве перечисляемые свойства являются \"ключами\" элементов массива, которые фактически являются их индексами. Вы можете увидеть массив как:\n\n`{0: \"☕\", 1: \"💻\", 2: \"🍷\", 3: \"🍫\"}`\n\nГде ключи - перечисляемые свойства. `0` `1` `2` `3` войти в систему.\n\nС помощью цикла _for-of_ мы можем выполнять итерацию **итераций**. Массив является итеративным. Когда мы выполняем итерацию по массиву, переменная \"item\" равна элементу, по которому она итерируется в данный момент, `\"☕\"` `\"💻\"` `\"🍷\"` `\"🍫\"` выводится в лог."
+}, {
+    "id": 80,
+    "question": " Какой будет вывод?",
+    "codeSnippet": "const list = [1 + 2, 1 * 2, 1 / 2]\nconsole.log(list)",
+    "answerOptions": {
+        "A": "`[\"1 + 2\", \"1 * 2\", \"1 / 2\"]`",
+        "B": "`[\"12\", 2, 0.5]`",
+        "C": "`[3, 2, 0.5]`",
+        "D": "`[1, 1, 1]`"
+    },
+    "correctAnswer": "C",
+    "answerExplanation": "Элементы массива могут содержать любые значения. Числа, строки, объекты, другие массивы, ноль, логические значения, неопределенные и другие выражения, такие как даты, функции и вычисления.\n\nЭлемент будет равен возвращаемому значению. `1 + 2` вернет `3`, `1 * 2` вернет `2`, а `1 / 2` вернет `0.5`."
+}, {
+    "id": 81,
+    "question": " Какой будет вывод?",
+    "codeSnippet": "function sayHi(name) {\n  return `Hi there, ${name}`\n}\n\nconsole.log(sayHi())",
+    "answerOptions": {
+        "A": "`Hello there, `",
+        "B": "`Hello there, undefined`",
+        "C": "`Hello there, null`",
+        "D": "`ReferenceError`"
+    },
+    "correctAnswer": "B",
+    "answerExplanation": "По умолчанию аргументы имеют значение `undefined`, если только значение не было передано функции. В этом случае мы не передали значение для аргумента `name`. `name` равно логгируемому `undefined`.\n\nВ ES6 мы можем перезаписать значение по умолчанию `undefined` параметрами по умолчанию. Например:\n\n`function sayHi(name = \"Lydia\") { ... }`\n\nВ этом случае, если мы не передали значение или если мы передали `undefined`, `name` всегда будет равно строке `Lydia`"
+}, {
+    "id": 82,
+    "question": " Какой будет вывод?",
+    "codeSnippet": "var status = \"😎\"\n\nsetTimeout(() => {\n  const status = \"😍\"\n\n  const data = {\n    status: \"🥑\",\n    getStatus() {\n      return this.status\n    }\n  }\n\n  console.log(data.getStatus())\n  console.log(data.getStatus.call(this))\n}, 0)",
+    "answerOptions": {
+        "A": "`\"🥑\"` и `\"😍\"`",
+        "B": "`\"🥑\"` и `\"😎\"`",
+        "C": "`\"😍\"` и `\"😎\"`",
+        "D": "`\"😎\"` и `\"😎\"`"
+    },
+    "correctAnswer": "B",
+    "answerExplanation": "Значение ключевого слова `this` зависит от того, где вы его используете. В **методе**, как и в методе `getStatus`, ключевое слово `this` ссылается на объект, которому принадлежит метод. Метод принадлежит объекту `data`, поэтому `this` относится к объекту `data`. Когда мы регистрируем `this.status`, регистрируется свойство `status` объекта `data`, которое является `\"🥑\"`.\n\nС помощью метода `call` мы можем изменить объект, на который ссылается ключевое слово `this`. В **функциях** ключевое слово `this` относится к _объекту, которому принадлежит функция_. Мы объявили функцию `setTimeout` для объекта _global_, поэтому в функции `setTimeout` ключевое слово `this` ссылается на объект _global_. В глобальном объекте есть переменная с именем _status_ со значением `\"😎\"`. При регистрации `this.status` выводится `\"😎\"`."
+}, {
+    "id": 83,
+    "question": " Какой будет вывод?",
+    "codeSnippet": "const person = {\n  name: \"Lydia\",\n  age: 21\n}\n\nlet city = person.city\ncity = \"Amsterdam\"\n\nconsole.log(person)",
+    "answerOptions": {
+        "A": "`{ name: \"Lydia\", age: 21 }`",
+        "B": "`{ name: \"Lydia\", age: 21, city: \"Amsterdam\" }`",
+        "C": "`{ name: \"Lydia\", age: 21, city: undefined }`",
+        "D": "`\"Amsterdam\"`"
+    },
+    "correctAnswer": "A",
+    "answerExplanation": "Мы устанавливаем переменную `city` равной значению свойства с именем `city` для объекта `person`. У этого объекта нет свойства с именем `city`, поэтому переменная `city` имеет значение `undefined`.\n\nОбратите внимание, что мы _не_ ссылаемся на сам объект person! Мы просто устанавливаем переменную `city` равной текущему значению свойства `city` объекта `person`.\n\nЗатем мы устанавливаем `city` равным строке `\"Amsterdam\"`. Это не меняет объект person - нет ссылки на этот объект.\n\nПри регистрации объекта `person` возвращается неизмененный объект."
+}, {
+    "id": 84,
+    "question": " Какой будет вывод?",
+    "codeSnippet": "function checkAge(age) {\n  if (age < 18) {\n    const message = \"Sorry, you're too young.\"\n  } else {\n    const message = \"Yay! You're old enough!\"\n  }\n\n  return message\n}\n\nconsole.log(checkAge(21))",
+    "answerOptions": {
+        "A": "`\"Sorry, you're too young.\"`",
+        "B": "`\"Yay! You're old enough!\"`",
+        "C": "`ReferenceError`",
+        "D": "`undefined`"
+    },
+    "correctAnswer": "C",
+    "answerExplanation": "Переменные с ключевыми словами `const` и `let` имеют _блочную видимость_. Блок - это что-то между фигурными скобками (`{}`). В этом случае в фигурных скобках операторов if/else. Вы не можете ссылаться на переменную за пределами блока, в котором она объявлена, вызывается ReferenceError."
+}, {
+    "id": 85,
+    "question": " Какая информация будетвыведена в лог?",
+    "codeSnippet": "fetch('https://www.website.com/api/user/1')\n  .then(res => res.json())\n  .then(res => console.log(res))",
+    "answerOptions": {
+        "A": "Результат метода `fetch`.",
+        "B": "Результат второго вызова метода `fetch`.",
+        "C": "Результат коллбэка в предыдущем `.then()`.",
+        "D": "Всегда будет `undefined`."
+    },
+    "correctAnswer": "C",
+    "answerExplanation": "Значение `res` во втором `.then` равно возвращенному значению предыдущего `.then`. Вы можете продолжать цепочку `.then` таким образом; значение передается следующему обработчику."
+}, {
+    "id": 86,
+    "question": " Какая опция позволяет установить hasName равным `true`, если вы не можете передать`true` в качестве аргумента?",
+    "codeSnippet": "function getName(name) {\n  const hasName = //\n}",
+    "answerOptions": {
+        "A": "`!!name`",
+        "B": "`name`",
+        "C": "`new Boolean(name)`",
+        "D": "`name.length`"
+    },
+    "correctAnswer": "A",
+    "answerExplanation": "С помощью `!!name` мы определяем, является ли значение `name` истинным или ложным. Если имя истинное, которое мы хотим проверить, то `!name` возвращает `false`. А `!false` (это то, чем на самом деле является `!! name`) возвращает `true`.\n\nУстанавливая `hasName` равным `name`, вы устанавливаете `hasName` равным любому значению, которое вы передали функции `getName`, а не логическому значению `true`.\n\n`new Boolean (true)` возвращает объектную оболочку, а не само логическое значение.\n\n`name.length` возвращает длину переданного аргумента, независимо от того, является ли он `true`."
+}, {
+    "id": 87,
+    "question": " Какой будет вывод?",
+    "codeSnippet": "console.log(\"I want pizza\"[0])",
+    "answerOptions": {
+        "A": "`\"\"\"`",
+        "B": "`\"I\"`",
+        "C": "`SyntaxError`",
+        "D": "`undefined`"
+    },
+    "correctAnswer": "B",
+    "answerExplanation": "Чтобы получить символ по определенному индексу в строке, вы можете использовать скобочную нотацию. Первый символ в строке имеет индекс 0 и т.д. В этом случае мы хотим получить элемент с индексом 0, символ `'I'`, который выводится в лог.\n\nОбратите внимание, что этот метод не поддерживается в IE7 и ниже. В этом случае используйте `.charAt()`"
+}, {
+    "id": 88,
+    "question": " Какой будет вывод?",
+    "codeSnippet": "function sum(num1, num2 = num1) {\n  console.log(num1 + num2)\n}\n\nsum(10)",
+    "answerOptions": {
+        "A": "`NaN`",
+        "B": "`20`",
+        "C": "`ReferenceError`",
+        "D": "`undefined`"
+    },
+    "correctAnswer": "B",
+    "answerExplanation": "Вы можете установить значение параметра по умолчанию равным другому параметру функции, если они были определены _до_ параметров по умолчанию. Мы передаем значение `10` в функцию `sum`. Если функция `sum` принимает только один аргумент, это означает, что значение для `num2` не передано, и в этом случае значение `num1` равно переданному значению `10`. Значением по умолчанию `num2` является значение `num1`, которое равно `10`. `num1 + num2` возвращает `20`.\n\nЕсли вы пытаетесь установить значение параметра по умолчанию равным параметру, который определен _после_ (справа), то значение параметра еще не было инициализировано; это приведет к ошибке."
+}, {
+    "id": 89,
+    "question": " Какой будет вывод?",
+    "codeSnippet": "// module.js\nexport default () => \"Hello world\"\nexport const name = \"Lydia\"\n\n// index.js\nimport * as data from \"./module\"\n\nconsole.log(data)",
+    "answerOptions": {
+        "A": "`{ default: function default(), name: \"Lydia\" }`",
+        "B": "`{ default: function default() }`",
+        "C": "`{ default: \"Hello world\", name: \"Lydia\" }`",
+        "D": "Global object of `module.js`"
+    },
+    "correctAnswer": "A",
+    "answerExplanation": "С синтаксисом `import * as name` мы импортируем _все exports_ из файла `module.js` в файл `index.js`, тогда и создается новый объект с именем `data`. В файле `module.js` есть два экспорта: экспорт по умолчанию и именованный экспорт. Экспорт по умолчанию - это функция, которая возвращает строку `\"Hello World\"`, а именованный экспорт - это переменная с именем `name`, которая имеет значение строки `\"Lydia\"`.\n\nОбъект `data` имеет свойство `default` для экспорта по умолчанию, другие свойства имеют имена именованных экспортов и их соответствующие значения."
+}, {
+    "id": 90,
+    "question": " Какой будет вывод?",
+    "codeSnippet": "class Person {\n  constructor(name) {\n    this.name = name\n  }\n}\n\nconst member = new Person(\"John\")\nconsole.log(typeof member)",
+    "answerOptions": {
+        "A": "`\"class\"`",
+        "B": "`\"function\"`",
+        "C": "`\"object\"`",
+        "D": "`\"string\"`"
+    },
+    "correctAnswer": "C",
+    "answerExplanation": "Классы являются синтаксическим сахаром для конструкторов функций. Эквивалентом класса `Person` в качестве конструктора функции будет:\n\n```javascript\nfunction Person() {\n  this.name = name\n}\n```\n\nВызов конструктора функции с `new` приводит к созданию экземпляра `Person`, ключевое слово `typeof` возвращает `\"object\"` для экземпляра. `typeof member` возвращает `\"объект\"`."
+}, {
+    "id": 91,
+    "question": " Какой будет вывод?",
+    "codeSnippet": "let newList = [1, 2, 3].push(4)\n\nconsole.log(newList.push(5))",
+    "answerOptions": {
+        "A": "`[1, 2, 3, 4, 5]`",
+        "B": "`[1, 2, 3, 5]`",
+        "C": "`[1, 2, 3, 4]`",
+        "D": "`Error`"
+    },
+    "correctAnswer": "D",
+    "answerExplanation": "Метод `.push` возвращает _новую длину_ массива, а не сам массив! Устанавливая `newList` равным `[1, 2, 3].push(4)`, мы устанавливаем `newList` равным новой длине массива: `4`.\n\nЗатем мы пытаемся использовать метод `.push` для `newList`. Поскольку `newList` является числовым значением `4`, мы не можем использовать метод `.push`: выдается ошибка TypeError."
+}, {
+    "id": 92,
+    "question": " Какой будет вывод?",
+    "codeSnippet": "function giveLydiaPizza() {\n  return \"Here is pizza!\"\n}\n\nconst giveLydiaChocolate = () => \"Here's chocolate... now go hit the gym already.\"\n\nconsole.log(giveLydiaPizza.prototype)\nconsole.log(giveLydiaChocolate.prototype)",
+    "answerOptions": {
+        "A": "`{ constructor: ...}` `{ constructor: ...}`",
+        "B": "`{}` `{ constructor: ...}`",
+        "C": "`{ constructor: ...}` `{}`",
+        "D": "`{ constructor: ...}` `undefined`"
+    },
+    "correctAnswer": "D",
+    "answerExplanation": "Обычные функции, такие как функция `giveLydiaPizza`, имеют свойство `prototype`, которое является объектом (прототипом объекта) со свойством `constructor`. Однако функции со стрелками, такие как функция `giveLydiaChocolate`, не имеют этого свойства `prototype`. `undefined` возвращается при попытке доступа к свойству `prototype` с использованием `giveLydiaChocolate.prototype`."
+}, {
+    "id": 93,
+    "question": " Какой будет вывод?",
+    "codeSnippet": "const person = {\n  name: \"Lydia\",\n  age: 21\n}\n\nfor (const [x, y] of Object.entries(person)) {\n  console.log(x, y)\n}",
+    "answerOptions": {
+        "A": "`name` `Lydia` and `age` `21`",
+        "B": "`[\"name\", \"Lydia\"]` and `[\"age\", 21]`",
+        "C": "`[\"name\", \"age\"]` and `undefined`",
+        "D": "`Error`"
+    },
+    "correctAnswer": "A",
+    "answerExplanation": "`Object.entries (person)` возвращает массив вложенных массивов, содержащий ключи и объекты:\n\n`[ [ 'name', 'Lydia' ], [ 'age', 21 ] ]`\n\nИспользуя цикл `for-of`, мы можем перебирать каждый элемент массива, в данном случае подмассивы. Мы можем мгновенно деструктурировать подмассивы в цикле for, используя `const [x, y]`. `x` равен первому элементу в подмассиве, `y` равен второму элементу в подмассиве.\n\nПервым подмассивом является `[ \"name\", \"Lydia\" ]`, где `x` равно `\"name\"`, и `y` равно `\"Lydia\"`, которые выводятся в лог.\nВторым подмассивом является `[ \"age\", 21 ]`, где `x` равно `\"age\"`, и `y` равно `21`, которые выводятся в лог."
+}, {
+    "id": 94,
+    "question": " Какой будет вывод?",
+    "codeSnippet": "function getItems(fruitList, ...args, favoriteFruit) {\n  return [...fruitList, ...args, favoriteFruit]\n}\n\ngetItems([\"banana\", \"apple\"], \"pear\", \"orange\")",
+    "answerOptions": {
+        "A": "`[\"banana\", \"apple\", \"pear\", \"orange\"]`",
+        "B": "`[[\"banana\", \"apple\"], \"pear\", \"orange\"]`",
+        "C": "`[\"banana\", \"apple\", [\"pear\"], \"orange\"]`",
+        "D": "`SyntaxError`"
+    },
+    "correctAnswer": "D",
+    "answerExplanation": "`... args` - прочие параметры. Значение прочих параметров - это массив, содержащий все оставшиеся аргументы **и может быть передан только последним**! В этом примере прочие параметры были вторым аргументом. Это невозможно, и это приведет к синтаксической ошибке.\n\n```javascript\nfunction getItems(fruitList, favoriteFruit, ...args) {\n  return [...fruitList, ...args, favoriteFruit]\n}\n\ngetItems([\"banana\", \"apple\"], \"pear\", \"orange\")\n```\n\nПриведенный выше пример работает. Это возвращает массив `[ 'banana', 'apple', 'orange', 'pear' ]`"
+}, {
+    "id": 95,
+    "question": " Какой будет вывод?",
+    "codeSnippet": "function nums(a, b) {\n  if\n  (a > b)\n  console.log('a is bigger')\n  else\n  console.log('b is bigger')\n  return\n  a + b\n}\n\nconsole.log(nums(4, 2))\nconsole.log(nums(1, 2))",
+    "answerOptions": {
+        "A": "`a is bigger`, `6` and `b is bigger`, `3`",
+        "B": "`a is bigger`, `undefined` and `b is bigger`, `undefined`",
+        "C": "`undefined` and `undefined`",
+        "D": "`SyntaxError`"
+    },
+    "correctAnswer": "B",
+    "answerExplanation": "В JavaScript мы _не должны_ явно указывать точку с запятой (`;`), однако движок JavaScript все равно добавляет их после операторов. Это называется **автоматической вставкой точек с запятой**. Например, оператором могут быть переменные или ключевые слова, такие как `throw`, `return`, `break` и т.д.\n\nЗдесь мы написали инструкцию `return` и другое значение `a + b` в новой строке. Однако, поскольку это новая линия, движок не знает, что это на самом деле значение, которое мы хотели бы вернуть. Вместо этого он автоматически добавляет точку с запятой после `return`. Вы можете увидеть это как:\n\n```javascript\n  return;\n  a + b\n```\n\nЭто означает, что `a + b` никогда не достигается, так как функция перестает выполняться после ключевого слова `return`. Если значение не возвращается, как здесь, функция возвращает значение `undefined`. Обратите внимание, что после операторов `if / else` автоматической вставки нет!"
+}, {
+    "id": 96,
+    "question": " Какой будет вывод?",
+    "codeSnippet": "class Person {\n  constructor() {\n    this.name = \"Lydia\"\n  }\n}\n\nPerson = class AnotherPerson {\n  constructor() {\n    this.name = \"Sarah\"\n  }\n}\n\nconst member = new Person()\nconsole.log(member.name)",
+    "answerOptions": {
+        "A": "`\"Lydia\"`",
+        "B": "`\"Sarah\"`",
+        "C": "`Error: cannot redeclare Person`",
+        "D": "`SyntaxError`"
+    },
+    "correctAnswer": "B",
+    "answerExplanation": "Мы можем установить классы равными другим классам/конструкторам функций. В этом случае мы устанавливаем `Person` равным `AnotherPerson`. Свойство `name` этого конструктора - `Sarah`, поэтому свойство `name` для нового экземпляра класса `Person` `member` - это `Sarah`."
+}, {
+    "id": 97,
+    "question": " Какой будет вывод?",
+    "codeSnippet": "const info = {\n  [Symbol('a')]: 'b'\n}\n\nconsole.log(info)\nconsole.log(Object.keys(info))",
+    "answerOptions": {
+        "A": "`{Symbol('a'): 'b'}` and `[\"{Symbol('a')\"]`",
+        "B": "`{}` and `[]`",
+        "C": "`{ a: \"b\" }` and `[\"a\"]`",
+        "D": "`{Symbol('a'): 'b'}` and `[]`"
+    },
+    "correctAnswer": "D",
+    "answerExplanation": "`Symbol` не является _перечисляемый_. Метод `Object.keys` возвращает все _перечисляемые_ свойства ключа для объекта. `Symbol` не просматривается таким образом, и возвращается пустой массив. При регистрации всего объекта будут видны все свойства, даже не перечисляемые.\n\nЭто одно из многих качеств символа: помимо представления совершенно уникального значения (которое предотвращает случайное столкновение имен в объектах, например, при работе с 2 библиотеками, которые хотят добавить свойства к одному и тому же объекту), вы также можете \"скрыть\" свойства объектов таким образом (хотя и не полностью. Вы можете получить доступ к символам, используя метод `Object.getOwnPropertySymbols()`)."
+}, {
+    "id": 98,
+    "question": " Какой будет вывод?",
+    "codeSnippet": "const getList = ([x, ...y]) => [x, y]\nconst getUser = user => { name: user.name, age: user.age }\n\nconst list = [1, 2, 3, 4]\nconst user = { name: \"Lydia\", age: 21 }\n\nconsole.log(getList(list))\nconsole.log(getUser(user))",
+    "answerOptions": {
+        "A": "`[1, [2, 3, 4]]` and `undefined`",
+        "B": "`[1, [2, 3, 4]]` and `{ name: \"Lydia\", age: 21 }`",
+        "C": "`[1, 2, 3, 4]` and `{ name: \"Lydia\", age: 21 }`",
+        "D": "`Error` and `{ name: \"Lydia\", age: 21 }`"
+    },
+    "correctAnswer": "A",
+    "answerExplanation": "Функция `getList` получает массив в качестве аргумента. Между скобками функции `getList` мы сразу же деструктурируем этот массив. Вы можете увидеть это как:\n\n `[x, ...y] = [1, 2, 3, 4]`\n\nС помощью оставшихся параметров `... y` мы помещаем все \"оставшиеся\" аргументы в массив. Остальные аргументы - это `2`, `3` и `4` в этом случае. Значение `y` является массивом, содержащим все остальные параметры. В этом случае значение `x` равно `1`, поэтому, мы видим в логе `[x, y]`, `[1, [2, 3, 4]]`.\n\nФункция `getUser` получает объект. В случае функций со стрелками мы не можем писать фигурные скобки, если мы просто возвращаем одно значение. Однако, если вы хотите вернуть _объект_ из стрелочной функции, вы должны написать его в скобках, в противном случае никакое значение не возвращается! Следующая функция вернула бы объект:\n\n```const getUser = user => ({ name: user.name, age: user.age })```\n\nПоскольку в этом случае значение не возвращается, функция возвращает значение `undefined`."
+}, {
+    "id": 99,
+    "question": " Какой будет вывод?",
+    "codeSnippet": "const name = \"Lydia\"\n\nconsole.log(name())",
+    "answerOptions": {
+        "A": "`SyntaxError`",
+        "B": "`ReferenceError`",
+        "C": "`TypeError`",
+        "D": "`undefined`"
+    },
+    "correctAnswer": "C",
+    "answerExplanation": "Переменная `name` содержит значение строки, которая не является функцией, поэтому не может вызываться.\n\nОшибки типа выдаются, когда значение не соответствует ожидаемому типу. JavaScript ожидал, что `name` будет функцией, так как мы пытаемся вызвать ее. Однако это была строка, поэтому выдается ошибка TypeError: name не является функцией!\n\nСинтаксические ошибки генерируются, когда вы написали что-то, что не является допустимым JavaScript, например, когда вы написали слово `return` как `retrun`.\nReferenceErrors генерируется, когда JavaScript не может найти ссылку на значение, к которому вы пытаетесь получить доступ."
+}, {
+    "id": 100,
+    "question": " Какое значение будет на выходе?",
+    "codeSnippet": "// 🎉✨ This is my 100th question! ✨🎉\n\nconst output = `${[] && 'Im'}possible!\nYou should${'' && `n't`} see a therapist after so much JavaScript lol`",
+    "answerOptions": {
+        "A": "`possible! You should see a therapist after so much JavaScript lol`",
+        "B": "`Impossible! You should see a therapist after so much JavaScript lol`",
+        "C": "`possible! You shouldn't see a therapist after so much JavaScript lol`",
+        "D": "`Impossible! You shouldn't see a therapist after so much JavaScript lol`"
+    },
+    "correctAnswer": "B",
+    "answerExplanation": "`[]` - истинное значение. С оператором `&&` будет возвращено правое значение, если левое значение является истинным значением. В этом случае левое значение `[]` является истинным значением, поэтому возвращается `'Im'`.\n\n`\"\"` - ложное значение. Если левое значение ложно, ничего не возвращается. `n't` не возвращается."
+}, {
+    "id": 101,
+    "question": " Какое значение будет на выходе?",
+    "codeSnippet": "const one = (false || {} || null)\nconst two = (null || false || \"\")\nconst three = ([] || 0 || true)\n\nconsole.log(one, two, three)",
+    "answerOptions": {
+        "A": "`false` `null` `[]`",
+        "B": "`null` `\"\"` `true`",
+        "C": "`{}` `\"\"` `[]`",
+        "D": "`null` `null` `true`"
+    },
+    "correctAnswer": "C",
+    "answerExplanation": "С помощью оператора `||` мы можем вернуть первый истинный операнд. Если все значения ложны, последний операнд возвращается.\n\n`(false || {} || null)`: пустой объект `{}` является истинным значением. Это первое (и единственное) истинное значение, которое возвращается. `one` содержит `{}`.\n\n`(null || false ||\" \")`: все операнды являются ложными значениями. Это означает, что прошедший операнд `\"\"` возвращается. `two` содержит `\"\"`.\n\n`([] || 0 ||\" \")`: пустой массив `[]` является истинным значением. Это первое истинное значение, которое возвращается. `three` присвоено `[]`."
+}, {
+    "id": 102,
+    "question": " Какое значение будет на выходе?",
+    "codeSnippet": "const myPromise = () => Promise.resolve('I have resolved!')\n\nfunction firstFunction() {\n  myPromise().then(res => console.log(res))\n  console.log('second')\n}\n\nasync function secondFunction() {\n  console.log(await myPromise())\n  console.log('second')\n}\n\nfirstFunction()\nsecondFunction()",
+    "answerOptions": {
+        "A": "`I have resolved!`, `second` and `I have resolved!`, `second`",
+        "B": "`second`, `I have resolved!` and `second`, `I have resolved!`",
+        "C": "`I have resolved!`, `second` and `second`, `I have resolved!`",
+        "D": "`second`, `I have resolved!` and `I have resolved!`, `second`"
+    },
+    "correctAnswer": "D",
+    "answerExplanation": "С обещанием мы в основном говорим: \"Я хочу выполнить эту функцию и откладываю ее, пока она выполняется, поскольку это может занять некоторое время\". Только когда определенное значение разрешено (или отклонено), и когда стек вызовов пуст, я хочу использовать это значение.\n\nМы можем получить это значение с помощью ключевого слова `.then` и `await` в функции `async`. Хотя мы можем получить значение обещания с помощью `.then` и `await`, они работают немного по-разному.\n\nВ `firstFunction` мы (вроде) отложили функцию `myPromise` во время ее работы, но продолжили выполнение другого кода, в данном случае `console.log ('second')`. Затем функция разрешается строкой `I have resolved`, которая затем логируется после того, как она увидела, что стек вызовов пуст.\n\nИспользуя ключевое слово `await` в `secondFunction`, мы буквально приостанавливаем выполнение асинхронной функции до тех пор, пока значение не будет разрешено до перехода на следующую строку.\n\nЭто означает, что мы ожидали разрешения `myPromise` со значением `I have resolved`, и только когда это произошло, мы перешли к следующей строке: `second` была выведена в консоль последней."
+}, {
+    "id": 103,
+    "question": " Какое значение будет на выходе?",
+    "codeSnippet": "const set = new Set()\n\nset.add(1)\nset.add(\"Lydia\")\nset.add({ name: \"Lydia\" })\n\nfor (let item of set) {\n  console.log(item + 2)\n}",
+    "answerOptions": {
+        "A": "`3`, `NaN`, `NaN`",
+        "B": "`3`, `7`, `NaN`",
+        "C": "`3`, `Lydia2`, `[object Object]2`",
+        "D": "`\"12\"`, `Lydia2`, `[object Object]2`"
+    },
+    "correctAnswer": "C",
+    "answerExplanation": "Оператор `+` используется не только для добавления числовых значений, но мы также можем использовать его для объединения строк. Всякий раз, когда движок JavaScript видит, что одно или несколько значений не являются числом, он приводит число к строке.\n\nПервым является `1`, который является числовым значением. `1 + 2` возвращает число `3`.\n\nТем не менее, вторая строка `\"Lydia\"`. `\"Lydia\"` является строкой, а `2` является числом: `2` приводится к строке. `\"Lydia\"` и `\"2\"` объединяются, что приводит к результирующей строке `\"Lydia2\"`.\n\n`{name: \"Lydia\"}` является объектом. Ни число, ни объект не являются строкой, поэтому они приводятся к строке. Всякий раз, когда мы приводим обычный объект, он становится `\"[object Object]\"`. `\"[object Object]\"`, объединенный с `\"2\"`, становится `\"[object Object]2\"`."
+}, {
+    "id": 104,
+    "question": " Чему равно значение?",
+    "codeSnippet": "Promise.resolve(5)",
+    "answerOptions": {
+        "A": "`5`",
+        "B": "`Promise {<pending>: 5}`",
+        "C": "`Promise {<resolved>: 5}`",
+        "D": "`Error`"
+    },
+    "correctAnswer": "C",
+    "answerExplanation": "Мы можем передать любой тип значения, которое мы хотим, в `Promise.resolve`, либо обещание, либо не обещание. Сам метод возвращает обещание с разрешенным значением. Если вы передадите обычную функцию, это будет разрешенное обещание с обычным значением. Если вы передадите обещание, это будет разрешенное обещание с разрешенным значением этого пройденного обещания.\n\nВ этом случае мы просто передали числовое значение `5`. Возвращается разрешенное обещание со значением `5`."
+}, {
+    "id": 105,
+    "question": " Чему равно значение?",
+    "codeSnippet": "function compareMembers(person1, person2 = person) {\n  if (person1 !== person2) {\n    console.log(\"Not the same!\")\n  } else {\n    console.log(\"They are the same!\")\n  }\n}\n\nconst person = { name: \"Lydia\" }\n\ncompareMembers(person)",
+    "answerOptions": {
+        "A": "`Not the same!`",
+        "B": "`They are the same!`",
+        "C": "`ReferenceError`",
+        "D": "`SyntaxError`"
+    },
+    "correctAnswer": "B",
+    "answerExplanation": "Объекты передаются по ссылке. Когда мы проверяем объекты на строгое равенство (`===`), мы сравниваем их ссылки.\n\nМы устанавливаем значение по умолчанию для `person2`, равное объекту `person`, и передаем объект `person` в качестве значения для `person1`.\n\nЭто означает, что оба значения имеют ссылку на одно и то же место в памяти, поэтому они равны.\n\nБлок кода в операторе `else` запускается, и в лог выводится `They are the same!`."
+}, {
+    "id": 106,
+    "question": " Чему равно значение?",
+    "codeSnippet": "const colorConfig = {\n  red: true,\n  blue: false,\n  green: true,\n  black: true,\n  yellow: false,\n}\n\nconst colors = [\"pink\", \"red\", \"blue\"]\n\nconsole.log(colorConfig.colors[1])",
+    "answerOptions": {
+        "A": "`true`",
+        "B": "`false`",
+        "C": "`undefined`",
+        "D": "`TypeError`"
+    },
+    "correctAnswer": "D",
+    "answerExplanation": "В JavaScript у нас есть два способа доступа к свойствам объекта: нотация в скобках или нотация в точках. В этом примере мы используем точечную нотацию (`colorConfig.colors`) вместо скобочной нотации (`colorConfig[\"colors\"]`).\n\nВ точечной нотации JavaScript пытается найти свойство объекта с таким точным именем. В этом примере JavaScript пытается найти свойство с именем `colors` в объекте `colorConfig`. Не существует свойства с именем `colorConfig`, поэтому возвращается `undefined`. Затем мы пытаемся получить доступ к значению первого элемента, используя `[1]`. Мы не можем сделать это для значения, которое `undefined`, поэтому оно выдает `TypeError`: `Cannot read свойство '1' of undefined`.\n\nJavaScript интерпретирует (или распаковывает) операторы. Когда мы используем скобочные обозначения, он видит первую открывающую скобку `[` и продолжает работать, пока не найдет закрывающую скобку `]`. Только тогда он оценит утверждение. Если бы мы использовали `colorConfig[colors [1]]`, он бы возвратил значение свойства `red` объекта `colorConfig`."
+}, {
+    "id": 107,
+    "question": " Чему равно значение?",
+    "codeSnippet": "console.log('❤️' === '❤️')",
+    "answerOptions": {
+        "A": "`true`",
+        "B": "`false`"
+    },
+    "correctAnswer": "A",
+    "answerExplanation": "Под капотом смайлики - это юникоды. Юникод для сердца смайликов `\"U+2764 U+FE0F\"`. Они всегда одинаковы для одного и того же смайлика, поэтому мы сравниваем две одинаковые строки друг с другом, что возвращает `true`."
+}, {
+    "id": 108,
+    "question": " Какой из этих методов модифицирует исходный массив?",
+    "codeSnippet": "const emojis = ['✨', '🥑', '😍']\n\nemojis.map(x => x + '✨')\nemojis.filter(x => x !== '🥑')\nemojis.find(x => x !== '🥑')\nemojis.reduce((acc, cur) => acc + '✨')\nemojis.slice(1, 2, '✨') \nemojis.splice(1, 2, '✨')",
+    "answerOptions": {
+        "A": "`All of them`",
+        "B": "`map` `reduce` `slice` `splice`",
+        "C": "`map` `slice` `splice`",
+        "D": "`splice`"
+    },
+    "correctAnswer": "D",
+    "answerExplanation": "Используя метод `splice`, мы модифицируем исходный массив, удаляя, заменяя или добавляя элементы. В этом случае мы удалили 2 элемента из индекса 1 (мы удалили `'🥑'` и `'😍'`) и добавили `✨` emoji.\n\n`map`, `filter` и `slice` возвращают новый массив, `find` возвращает элемент, а `reduce` возвращает аккумулированное значение."
+}, {
+    "id": 109,
+    "question": " Какое значение будет на выходе?",
+    "codeSnippet": "const food = ['🍕', '🍫', '🥑', '🍔']\nconst info = { favoriteFood: food[0] }\n\ninfo.favoriteFood = '🍝'\n\nconsole.log(food)",
+    "answerOptions": {
+        "A": "`['🍕', '🍫', '🥑', '🍔']`",
+        "B": "`['🍝', '🍫', '🥑', '🍔']`",
+        "C": "`['🍝', '🍕', '🍫', '🥑', '🍔']`",
+        "D": "`ReferenceError`"
+    },
+    "correctAnswer": "A",
+    "answerExplanation": "Мы устанавливаем значение свойства `favourFood` для объекта `info` равным строке со смайликами для пиццы, `'🍕'`. Строка является примитивным типом данных. В JavaScript примитивные типы данных передаются по ссылке ...\n\nВ JavaScript примитивные типы данных (все, что не является объектом) передаются как _значение_. В этом случае мы устанавливаем значение свойства `favourFood` объекта `info` равным значению первого элемента в массиве `food`, в данном случае это строка с emoji пиццы (`'🍕'`). Строка является примитивным типом данных и взаимодействует по значению (см. мой [пост в блоге](https://www.theavocoder.com/complete-javascript/2018/12/21/by-value-vs-by-reference), если вы заинтересованы в получении дополнительной информации).\n\nЗатем мы меняем значение свойства `favourFood` объекта `info`. Массив `food` не изменился, поскольку значение `favourFood` было просто _скопировано_ из значения первого элемента в массиве и не имеет ссылки на то же место в памяти, что и элемент на `food[0]`. Когда мы выводим в лог `food`, это все равно исходный массив, `['🍕', '🍫', '🥑', '🍔']`."
+}, {
+    "id": 110,
+    "question": " Что делает этот метод?",
+    "codeSnippet": "JSON.parse()",
+    "answerOptions": {
+        "A": "Разбирает JSON в значение JavaScript",
+        "B": "Разбирает объект JavaScript в JSON",
+        "C": "Разбирает любое значение JavaScript в JSON",
+        "D": "Разбирает JSON непосредственно в объект JavaScript"
+    },
+    "correctAnswer": "A",
+    "answerExplanation": "С помощью метода `JSON.parse ()` мы можем разобрать строку JSON в значение JavaScript.\n\n```javascript\n// Преобразование числа в допустимый JSON, затем преобразование строки JSON в значение JavaScript:\nconst jsonNumber = JSON.stringify(4) // '4'\nJSON.parse(jsonNumber) // 4\n\n// Преобразование значения массива в допустимый JSON, затем разбор строки JSON в значение JavaScript:\nconst jsonArray = JSON.stringify([1, 2, 3]) // '[1, 2, 3]'\nJSON.parse(jsonArray) // [1, 2, 3]\n\n// Преобразование объекта в допустимый JSON, затем преобразование строки JSON в значение JavaScript:\nconst jsonArray = JSON.stringify({ name: \"Lydia\" }) // '{\"name\":\"Lydia\"}'\nJSON.parse(jsonArray) // { name: 'Lydia' }\n```"
+}, {
+    "id": 111,
+    "question": " Какое значение будет на выходе? ",
+    "codeSnippet": "let name = 'Lydia'\n\nfunction getName() {\n  console.log(name)\n  let name = 'Sarah'\n}\n\ngetName()",
+    "answerOptions": {
+        "A": "Lydia",
+        "B": "Sarah",
+        "C": "`undefined`",
+        "D": "`ReferenceError`"
+    },
+    "correctAnswer": "D",
+    "answerExplanation": "Каждая функция имеет свой собственный _контекст исполнения_ (или _область действия_). Функция `getName` сначала ищет в своем собственном контексте (области действия), чтобы увидеть, содержит ли она переменную `name`, к которой мы пытаемся получить доступ. В этом случае функция `getName` содержит собственную переменную `name`: мы объявляем переменную `name` с ключевым словом `let` и значением `'Sarah'`.\n\nПеременные с ключевым словом `let` (и `const`) поднимаются в начало функции, в отличие от `var`, которые <i>не инициализируется</i>. Они недоступны до того, как мы объявим (инициализируем) их строку. Это называется \"временной мертвой зоной\". Когда мы пытаемся получить доступ к переменным до их объявления, JavaScript выдает `ReferenceError`.\n\nЕсли бы мы не объявили переменную `name` в функции `getName`, движок javascript посмотрел бы вниз по _цепочки области действия_. Внешняя область имеет переменную с именем `name` со значением `Lydia`. В этом случае он бы записал \"Лидию\".\n\n```javascript\nlet name = 'Lydia'\n\nfunction getName() {\n  console.log(name)\n}\n\ngetName() // Lydia\n```"
+}, {
+    "id": 112,
+    "question": " Какое значение будет на выходе?",
+    "codeSnippet": "function* generatorOne() {\n  yield ['a', 'b', 'c'];\n}\n\nfunction* generatorTwo() {\n  yield* ['a', 'b', 'c'];\n}\n\nconst one = generatorOne()\nconst two = generatorTwo()\n\nconsole.log(one.next().value)\nconsole.log(two.next().value)",
+    "answerOptions": {
+        "A": "`a` and `a`",
+        "B": "`a` and `undefined`",
+        "C": "`['a', 'b', 'c']` and `a`",
+        "D": "`a` and `['a', 'b', 'c']`"
+    },
+    "correctAnswer": "C",
+    "answerExplanation": "Используя ключевое слово `yield`, мы получаем значения в функции генератора. С помощью ключевого слова `yield*` мы можем получить значения из другой функции-генератора или итерируемого объекта (например, массива).\n\nВ `generatorOne` мы получаем весь массив `[' a ',' b ',' c ']`, используя ключевое слово `yield`. Значение свойства `value` для объекта, возвращаемого методом `next` для `one` (`one.next().value`), равно всему массиву `['a', 'b', 'c']`.\n\n```javascript\nconsole.log(one.next().value) // ['a', 'b', 'c']\nconsole.log(one.next().value) // undefined\n```\n\nВ файле `generatorTwo` мы используем ключевое слово `yield*`. Это означает, что первое полученное значение `two` равно первому полученному значению в итераторе. Итератор - это массив `['a', 'b', 'c']`. Первым полученным значением является `a`, поэтому в первый раз, когда мы вызываем `two.next().value`, возвращается `a`.\n\n```javascript\nconsole.log(two.next().value) // 'a'\nconsole.log(two.next().value) // 'b'\nconsole.log(two.next().value) // 'c'\nconsole.log(two.next().value) // undefined\n```"
+}, {
+    "id": 113,
+    "question": " Какое значение будет на выходе?",
+    "codeSnippet": "console.log(`${(x => x)('I love')} to program`)",
+    "answerOptions": {
+        "A": "`I love to program`",
+        "B": "`undefined to program`",
+        "C": "`${(x => x)('I love') to program`",
+        "D": "`TypeError`"
+    },
+    "correctAnswer": "A",
+    "answerExplanation": "Выражения внутри литералов шаблона расчитываются первыми. Это означает, что строка будет содержать возвращаемое значение выражения, в данном случае немедленно исполняемую функцию `(x => x)('I love')`. Мы передаем значение `'I love'` в качестве аргумента стрелочной функции `x => x`. `x` равно `'I love'`, которое и возвращается. Это приводит к `I love to program`."
+}, {
+    "id": 114,
+    "question": " Что произойдет?",
+    "codeSnippet": "let config = {\n  alert: setInterval(() => {\n    console.log('Alert!')\n  }, 1000)\n}\n\nconfig = null",
+    "answerOptions": {
+        "A": "обратный вызов `setInterval` не будет вызван",
+        "B": "обратный вызов `setInterval` будет вызван один раз",
+        "C": "обратный вызов `setInterval` будет вызываться каждую секунду",
+        "D": "мы никогда не вызовем `config.alert()`, т.к. `config` равно `null`"
+    },
+    "correctAnswer": "C",
+    "answerExplanation": "Обычно, когда мы устанавливаем объекты равными `null`, эти объекты получают метку _собрано в мусор_, так как больше нет ссылок на этот объект. Однако, поскольку функция обратного вызова в `setInterval` является стрелочной функцией стрелки (таким образом, привязанной к объекту `config`), функция обратного вызова все еще содержит ссылку на объект `config`. Пока есть ссылка, объект не будет собран в мусор. Поскольку сборщик мусора не отрабатывает, функция обратного вызова `setInterval` будет по-прежнему вызываться каждые 1000 мс (1с)."
+}, {
+    "id": 115,
+    "question": " Какие методы вернут значение `'Hello world!'`?",
+    "codeSnippet": "const myMap = new Map()\nconst myFunc = () => 'greeting'\n\nmyMap.set(myFunc, 'Hello world!')\n\n//1\nmyMap.get('greeting')\n//2\nmyMap.get(myFunc)\n//3\nmyMap.get(() => 'greeting')",
+    "answerOptions": {
+        "A": "1",
+        "B": "2",
+        "C": "2 и 3",
+        "D": "Каждый из них"
+    },
+    "correctAnswer": "B",
+    "answerExplanation": "При добавлении пары ключ/значение с использованием метода `set` имя ключа будет равно значению первого аргумента, переданного в функцию `set`, а значением будет второй аргумент, переданный в функцию `set`. В данном случае ключом является _функция_ `() => 'greeting'` и значение `'Hello world'`. `myMap` теперь это `{ () => 'greeting' => 'Hello world!' }`.\n\n1 неверно, поскольку ключ не `'greeting'`, а `() => 'greeting'`.\n3 неверно, так как мы создаем новую функцию, передавая ее в качестве параметра методу `get`. Объект взаимодействует со _ссылкой_. Функции - это объекты, поэтому две функции никогда не бывают строго равными, даже если они идентичны: они имеют ссылки на разные места в памяти."
+}, {
+    "id": 116,
+    "question": " Какое значение будет на выходе?",
+    "codeSnippet": "const person = {\n  name: \"Lydia\",\n  age: 21\n}\n\nconst changeAge = (x = { ...person }) => x.age += 1\nconst changeAgeAndName = (x = { ...person }) => {\n  x.age += 1\n  x.name = \"Sarah\"\n}\n\nchangeAge(person)\nchangeAgeAndName()\n\nconsole.log(person)",
+    "answerOptions": {
+        "A": "`{name: \"Sarah\", age: 22}`",
+        "B": "`{name: \"Sarah\", age: 23}`",
+        "C": "`{name: \"Lydia\", age: 22}`",
+        "D": "`{name: \"Lydia\", age: 23}`"
+    },
+    "correctAnswer": "C",
+    "answerExplanation": "Функции `changeAge` и `changeAgeAndName` имеют параметр по умолчанию, а именно _вновь_ созданный объект `{ ...person }`. Этот объект имеет копии всех ключей/значений объекта `person`.\n\nСначала мы вызываем функцию `changeAge` и передаем объект `person` в качестве аргумента. Эта функция увеличивает значение свойства `age` на 1. `person` теперь `{name: \"Lydia\", age: 22}`.\n\nЗатем мы вызываем функцию `changeAgeAndName`, однако мы не передаем параметр. Вместо этого значение `x` равно новому объекту: `{ ... person }`. Поскольку это новый объект, он не влияет на значения свойств объекта `person`. `person` по-прежнему равен `{name: \"Lydia\", age: 22}`."
+}]
