@@ -35,4 +35,5 @@ https://www.javascript-trivia.com/
 }
 ```
 
+---
 *Created by [Ben Perlmutter](https://github.com/bpmutter)*
