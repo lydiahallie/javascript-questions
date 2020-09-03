@@ -685,7 +685,7 @@ sessionStorage.setItem("cool_secret", 123);
 
 #### Réponse : B
 
-La donnée stocké dans le `sessionStorage` est supprimée après la fermeture de l'onglet.
+La donnée stockée dans le `sessionStorage` est supprimée après la fermeture de l'onglet.
 
 Si vous utilisez le `localStorage`, la donnée sera là pour toujours, jusqu'à ce que, par exemple, `localStorage.clear()` soit invoquée.
 
