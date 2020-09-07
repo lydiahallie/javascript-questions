@@ -52,7 +52,7 @@ sayHi();
 
 Dentro da função, nós primeiro declaramos a variável `name` usando a palavra-chave `var`. Isso significa que a variavel é elevada(hoisted) (O espaço na memória é separado durante a fase de criação) com o valor padrão `undefined`, até que chegue na linha onde definimos a variável. Ainda não definimos a variável na linha onde tentamos usar colocar no log o valor da variável `name`, portanto ela ainda tem o valor `undefined`.
 
-Variáveis com a palavra-chave `let` (e `const`) são elevadas, mas diferente de `var`, não são <i>inicializadas</i>. Elas não acessíveis antes da linha em que as declaramos (ou inicializamos). Esse é um conceito chamado de "temporal dead zone". Quando tentamos acessar essas variáveis antes de serem declaradas, o JavaScript lança um `ReferenceError`
+Variáveis com a palavra-chave `let` (e `const`) são elevadas, mas diferente de `var`, não são <i>inicializadas</i>. Elas não estão acessíveis antes da linha em que as declaramos (ou inicializamos). Esse é um conceito chamado de "temporal dead zone". Quando tentamos acessar essas variáveis antes de serem declaradas, o JavaScript lança um `ReferenceError`.
 
 </p>
 </details>
@@ -614,7 +614,7 @@ getAge(21);
 
 #### Resposta: C
 
-O operador _spread_ (`...args`.) retorna um array com os argumentos. Um array é um objeto, então `typeof args` retorna `"object"`
+O operador _spread_ (`...args`.) retorna um array com os argumentos. Um array é um objeto, então `typeof args` retorna `"object"`.
 
 </p>
 </details>
@@ -666,7 +666,7 @@ const sum = eval("10*10+5");
 
 #### Resposta: A
 
-`eval` executa o código mesmo se passado como string. Se é uma expressão, como nesse caso, ele cálcula a expressão. A expressão é `10 * 10 + 5`. Isso retorna o número `105`.
+`eval` executa o código mesmo se passado como string. Se é uma expressão, como nesse caso, ele calcula a expressão. A expressão é `10 * 10 + 5`. Isso retorna o número `105`.
 
 </p>
 </details>
@@ -1051,7 +1051,7 @@ typeof sayHi();
 
 A função `sayHi` retorna o valor retornado pela arrow function pois ela é uma IIFE (Immediately Invoked Function Expression ou Expressão de Função Invocada Imediatamente). Essa IIFE retornou `0`, que é do tipo `"number"`.
 
-Para saber mais: Só existem 7 tipos já definidos: `null`, `undefined`, `boolean`, `number`, `string`, `object`, e `symbol`. `"function"` não é um tipo, uma vez que  funções são objetos, elas são do tipo `"object"`.
+Para saber mais: Só existem 7 tipos já definidos: `null`, `undefined`, `boolean`, `number`, `string`, `object`, `symbol`, e `bigint`. `"function"` não é um tipo, uma vez que  funções são objetos, elas são do tipo `"object"`.
 
 </p>
 </details>
@@ -1904,13 +1904,271 @@ console.log(data);
 <details><summary><b>Resposta</b></summary>
 <p>
 
-#### Answer: A
+#### Resposta: A
 
 O segundo argumento de `JSON.stringify` é o _substituo_. O substituto pode ser uma função ou um array, e deixa você controlar o que deve ser "stringfied", isto é, ser usado pelo método `JSON.stringfy`.
 
 Se o substituto (replacer) for um _array_, apenas os nomes de propriedades incluídos no array serão adicionados à string JSON. Nesse caso, apenas as propriedades com os nomes `"level"` ed `"health"` são incluída, `"username"` é excluída. `data` agora é igual a `"{"level":19, "health":90}"`.
 
 Se o substituto (replacer) for uma _função_, essa função é chamada em c ada propriedade no objeto que está sendo "Stringfied". O valor retornado dessa função será o valor da propriedade quanto adicionado à string JSON. Se o valor for `undefined`, essa propriedade é excluída da string JSON.
+</p>
+</details>
+
+---
+###### 63. Qual é a saída?
+
+```javascript
+let num = 10;
+
+const increaseNumber = () => num++;
+const increasePassedNumber = number => number++;
+
+const num1 = increaseNumber();
+const num2 = increasePassedNumber(num1);
+
+console.log(num1);
+console.log(num2);
+```
+
+- A: `10`, `10`
+- B: `10`, `11`
+- C: `11`, `11`
+- D: `11`, `12`
+
+<details><summary><b>Resposta</b></summary>
+<p>
+
+#### Resposta: A
+
+O operador unário `++` primeiro _retorna_ o valor do operando, depois _incrementa_ esse valor. O valor de `num1` é `10`, pois a função `increaseNumber` retorna primeiro o valor de` num`, que é `10`, e apenas incrementa o valor de `num` posteriormente.
+
+`num2` é `10`, já que passamos `num1` para o `increasePassedNumber`. `number` é igual a` 10` (o valor de `num1`. Novamente, o operador unário `++` primeiro _retorna_ o valor do operando, depois _aumenta_ esse valor. O valor de` number` é `10`, então `num2` é igual a `10`.
+
+</p>
+</details>
+
+---
+###### 64. Qual é a saída?
+
+```javascript
+const value = { number: 10 };
+
+const multiply = (x = { ...value }) => {
+  console.log((x.number *= 2));
+};
+
+multiply();
+multiply();
+multiply(value);
+multiply(value);
+```
+
+- A: `20`, `40`, `80`, `160`
+- B: `20`, `40`, `20`, `40`
+- C: `20`, `20`, `20`, `40`
+- D: `NaN`, `NaN`, `20`, `40`
+
+<details><summary><b>Resposta</b></summary>
+<p>
+
+#### Resposta: C
+
+No ES6, podemos inicializar parâmetros com um valor padrão. O valor do parâmetro será o valor padrão, se nenhum outro valor tiver sido passado para a função ou se o valor do parâmetro for `"undefined"`. Nesse caso, espalhamos (spread) as propriedades do objeto `value` para um novo objeto, para que `x` tenha o valor padrão de `{number: 10}`.
+
+O argumento padrão é executado _a cada chamada_! Toda vez que chamamos a função, um _novo_ objeto é criado. Invocamos a função `multiply` as duas primeiras vezes sem passar um valor: `x` tem o valor padrão de `{number: 10}`. Em seguida, registramos (log) o valor multiplicado desse número, que é `20`.
+
+Na terceira vez que invocamos multiply, passamos um argumento: o objeto chamado `value`. O operador `*=` é na verdade uma abreviação de `x.number = x.number * 2`: modificamos o valor de `x.number` e registramos (log) o valor multiplicado `20`.
+
+Na quarta vez, passamos o objeto `value` novamente. `x.number` foi modificado anteriormente para `20`, então `x.number *= 2` registra `40`.
+
+</p>
+</details>
+
+---
+###### 65. Qual é a saída?
+
+```javascript
+[1, 2, 3, 4].reduce((x, y) => console.log(x, y));
+```
+
+- A: `1` `2` and `3` `3` and `6` `4`
+- B: `1` `2` and `2` `3` and `3` `4`
+- C: `1` `undefined` and `2` `undefined` and `3` `undefined` and `4` `undefined`
+- D: `1` `2` and `undefined` `3` and `undefined` `4`
+
+<details><summary><b>Resposta</b></summary>
+<p>
+
+#### Resposta: D
+
+O primeiro argumento que o método `reduce` recebe é o _acumulador_, `x` neste caso. O segundo argumento é o _valor atual_, `y`. Com o método `reduce`, executamos uma função de retorno de chamada (callback function) em todos os elementos da matriz, o que pode resultar em um único valor.
+
+Neste exemplo, não estamos retornando nenhum valor, estamos simplesmente registrando os valores do acumulador e o valor atual.
+
+O valor do acumulador é igual ao valor retornado anteriormente da função de retorno de chamada (callback function). Se você não passar o argumento opcional `initialValue` para o método `reduce`, o acumulador será igual ao primeiro elemento na primeira chamada.
+
+Na primeira chamada, o acumulador (`x`) é `1` e o valor atual (`y`) é `2`. Não retornamos da função de retorno de chamada, registramos o acumulador e o valor atual: `1` e` 2` são registrados.
+
+Se você não retornar um valor de uma função, ele retornará `undefined`. Na próxima chamada, o acumulador é "undefined" e o valor atual é "3". `undefined` e `3` são registrados.
+
+Na quarta chamada, novamente não retornamos nada da função de retorno de chamada. O acumulador é novamente `undefined` e o valor atual é `4`. `undefined` e `4` são registrados.
+
+</p>
+</details>
+  
+---
+###### 66. Com qual construtor podemos estender com sucesso a classe `Dog`?
+
+```javascript
+class Dog {
+  constructor(name) {
+    this.name = name;
+  }
+};
+
+class Labrador extends Dog {
+  // 1
+  constructor(name, size) {
+    this.size = size;
+  }
+  // 2
+  constructor(name, size) {
+    super(name);
+    this.size = size;
+  }
+  // 3
+  constructor(size) {
+    super(name);
+    this.size = size;
+  }
+  // 4
+  constructor(name, size) {
+    this.name = name;
+    this.size = size;
+  }
+
+};
+```
+
+- A: 1
+- B: 2
+- C: 3
+- D: 4
+
+<details><summary><b>Resposta</b></summary>
+<p>
+
+#### Resposta: B
+
+Em uma classe derivada, você não pode acessar a palavra-chave `this` antes de chamar `super`. Se você tentar fazer isso, ele lançará um erro de referência (ReferenceError): 1 e 4 lançará um erro de referência.
+
+Com a palavra-chave `super`, chamamos o construtor dessa classe pai com os argumentos fornecidos. O construtor do pai recebe o argumento `name`, portanto, precisamos passar `name` para `super`.
+
+A classe `Labrador` recebe dois argumentos, `name`, pois estende `Dog`, e `size` como uma propriedade extra na classe `Labrador`. Ambos precisam ser passados para a função construtora no `Labrador`, que é feita corretamente usando o construtor 2.
+
+</p>
+</details>
+
+---
+###### 67. Qual é a saída?
+
+```javascript
+// index.js
+console.log('running index.js');
+import { sum } from './sum.js';
+console.log(sum(1, 2));
+
+// sum.js
+console.log('running sum.js');
+export const sum = (a, b) => a + b;
+```
+
+- A: `running index.js`, `running sum.js`, `3`
+- B: `running sum.js`, `running index.js`, `3`
+- C: `running sum.js`, `3`, `running index.js`
+- D: `running index.js`, `undefined`, `running sum.js`
+
+<details><summary><b>Resposta</b></summary>
+<p>
+
+#### Resposta: B
+
+Com a palavra-chave `import`, todos os módulos importados são _pre-parsed_. Isso significa que os módulos importados são executados _primeiro_, o código no arquivo que importa o módulo é executado _depois_.
+
+Esta é uma diferença entre `require()` no CommonJS e `import`! Com `require()`, você pode carregar dependências sob demanda enquanto o código está sendo executado. Se tivéssemos usado `require` em vez de `import`, `running index.js`,` running sum.js`, `3` teriam sido registrados no console.
+
+</p>
+</details>
+
+---
+###### 68. Qual é a saída?
+
+```javascript
+console.log(Number(2) === Number(2));
+console.log(Boolean(false) === Boolean(false));
+console.log(Symbol('foo') === Symbol('foo'));
+```
+
+- A: `true`, `true`, `false`
+- B: `false`, `true`, `false`
+- C: `true`, `false`, `true`
+- D: `true`, `true`, `true`
+
+<details><summary><b>Resposta</b></summary>
+<p>
+
+#### Resposta: A
+
+Todo símbolo (Symbol) é totalmente único. O objetivo do argumento passado ao símbolo é fornecer uma descrição ao símbolo. O valor do símbolo não depende do argumento passado. Ao testarmos a igualdade, estamos criando dois símbolos totalmente novos: o primeiro `Symbol('foo')` e o segundo `Symbol('foo')`. Esses dois valores são únicos e não são iguais entre si, `Symbol('foo') === Symbol('foo')` retorna `false`.
+
+</p>
+</details>
+
+---
+###### 69. Qual é a saída?
+
+```javascript
+const name = 'Lydia Hallie';
+console.log(name.padStart(13));
+console.log(name.padStart(2));
+```
+
+- A: `"Lydia Hallie"`, `"Lydia Hallie"`
+- B: `" Lydia Hallie"`, `" Lydia Hallie"` (`"[13x whitespace]Lydia Hallie"`, `"[2x whitespace]Lydia Hallie"`)
+- C: `" Lydia Hallie"`, `"Lydia Hallie"` (`"[1x whitespace]Lydia Hallie"`, `"Lydia Hallie"`)
+- D: `"Lydia Hallie"`, `"Lyd"`,
+
+<details><summary><b>Resposta</b></summary>
+<p>
+
+#### Resposta: C
+
+Com o método `padStart`, podemos adicionar preenchimento (padding) ao início de uma string. O valor passado para esse método é o comprimento _total_ da string junto com o preenchimento. A string `"Lydia Hallie"` tem um comprimento de `12`. `name.padStart(13)` insere 1 espaço no início da string, porque 12 + 1 é 13.
+
+Se o argumento passado para o método `padStart` for menor que o comprimento da matriz, nenhum preenchimento será adicionado.
+
+</p>
+</details>
+
+---
+###### 70. Qual é a saída?
+
+```javascript
+console.log('🥑' + '💻');
+```
+
+- A: `"🥑💻"`
+- B: `257548`
+- C: A string containing their code points
+- D: Error
+
+<details><summary><b>Resposta</b></summary>
+<p>
+
+#### Resposta: A
+
+Com o operador `+`, você pode concatenar seqüências de caracteres (strings). Neste caso, estamos concatenando a string `"🥑"` com a string `"💻"`, resultando em `"🥑💻"`.
+
 </p>
 </details>
 

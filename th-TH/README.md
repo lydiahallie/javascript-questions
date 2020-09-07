@@ -1,13 +1,20 @@
-# รายการคำถามเกี่ยวกับ JavaScript (ขั้นสูง)
+<div align="center">
+  <img height="60" src="https://img.icons8.com/color/344/javascript.png"> 
+  <h1>JavaScript Questions</h1>
 
-ผมโพสต์โจทย์ JavaScript แบบตัวเลือกทุกวันบน [Instagram](https://www.instagram.com/theavocoder) ของผม ซึ่งผมก็ได้นำมาโพสต์ไว้ที่นี่ด้วย
+---
 
-จากขั้นพื้นฐานสู่ขั้นสูง มาทดสอบกันว่าคุณมีความรู้เรื่อง JavaScript ดีขนาดไหน มาทบทวนความรู้ของคุณกันหน่อย หรือเตรียมตัวสำหรับการสัมภาษณ์เกี่ยวกับการเขียนโปรแกรม :muscle: :rocket: ผมอัพเดทคำถามใหม่ๆ ใน repo นี้ทุกๆ สัปดาห์ อัพเดทล่าสุดวันที่ <a href=#20190927><b>September 27th</b></a>
+<span>สวัสดีพวกเราได้โพสคำถามเกี่ยวกับ Javascript เอาไว้ใน [Instagram](https://www.instagram.com/theavocoder) **stories** และก็จะโพสเอาไว้ในนี้ด้วย!
+อัปเดตล่าสุด: <a href=#20191224><b>24 ธันวาคม</b></a>
 
-คำตอบจะอยู่ในหมวดที่ซ่อนไว้ใต้คำถาม เพียงแค่คลิก คำตอบก็จะแสดงขึ้นมา ขอให้โชคดีครับ :heart:
+คำถามประกอบไปด้วยตั้งแต่ระดับเริ่มต้นถึงขั้นสูง: จุดประสงค์เพื่อวัดความรู้ภาษา Javascript ทบทวนความรู้ เตรียมตัวสำหรับการสัมภาษณ์ :muscle: :rocket: Reposentory นี้มีการ Update อย่างสม่ำเสมอกรณีที่มีคำถามใหม่ๆเข้ามา เราได้ใส่คำตอบเอาไว้ในส่วนที่ซ่อนอยู่ **collapsed sections** ข้างใต้คำถามอย่าลืมคลิกมันนะมันจะขยายออก โชคดีจ้า :heart:</span>
 
-หากต้องการได้รับอีเมลล์แจ้งหากผมมีการเพิ่มโจทย์ใหม่ๆ<br />
-<a target="_blank" href="https://www.theavocoder.com/subscribe"><b>✨✉กรุณาลงทะเบียนรับอีเมลล์อัพเดท✉✨</b></a>
+สามารถติดต่อผู้พัฒนาได้ที่ 😊 <br />
+<a href="https://www.instagram.com/theavocoder">Instagram</a> || <a href="https://www.twitter.com/lydiahallie">Twitter</a> || <a href="https://www.linkedin.com/in/lydia-hallie">LinkedIn</a> || <a href="https://www.lydiahallie.dev">Blog</a><br />
+
+**_Note_**: เพิ่มเติมสำหรับนักพัฒนาไทยสามารถร่วมพัฒนาโดยการแปลภาษาหรือแก้ไขคำได้นะครับ
+
+</div>
 
 
 ลิสต์ภาษาอื่นๆ:
@@ -27,7 +34,7 @@
 * [Tiếng Việt](../vi-VI/README-vi.md)
 * [中文版本](../zh-CN/README-zh_CN.md)
 * [Türkçe](../tr-TR/README-tr_TR.md)
-* [ไทย](../th-TH/README-th_TH.md)
+* [ไทย](../th-TH/README.md)
 
 
 ---
@@ -55,9 +62,9 @@ sayHi();
 
 #### คำตอบ: D
 
-Within the function, we first declare the `name` variable with the `var` keyword. This means that the variable gets hoisted (memory space is set up during the creation phase) with the default value of `undefined`, until we actually get to the line where we define the variable. We haven't defined the variable yet on the line where we try to log the `name` variable, so it still holds the value of `undefined`.
+ในฟังก์ชันดังกล่าวได้ทำการประกาศตัวแปร `name` ด้วย `var` คีย์เวิร์ด หมายความว่าตัวแปรได้รับการ Hoisted (คือส่วนของหน่วยความจำจะถูกจองไว้ในขั้นตอน creation phase) ด้วยค่าเริ่มต้น `undefined` จนกว่าจะถึงบรรทัดที่กำหนดค่าให้กับตัวแปร เนื่องจากเราไม่ได้กำหนดค่าให้กับตัวแปรในบรรทัดที่เราแสดงผล ดังนั้นค่าของตัวแปร `name` จึงเป็น `undefined`
 
-Variables with the `let` keyword (and `const`) are hoisted, but unlike `var`, don't get <i>initialized</i>. They are not accessible before the line we declare (initialize) them. This is called the "temporal dead zone". When we try to access the variables before they are declared, JavaScript throws a `ReferenceError`.
+ตัวแปรที่ประกาศโดยใช้คีย์เวิร์ด `let` (และ `const`) ถูก Hoisted เช่นกัน แต่มันจะไม่ถูกตั้งค่าเริ่มต้น (initialize) เหมือนกับคีย์เวิร์ด `var` พวกมันไม่สามารถเข้าถึงได้หากยังไม่ถึงบรรทัดที่ถูกประกาศ (initialize) เรียกว่า "temporal dead zone" ดังนั้นเมื่อเราพยายามเข้าถึงตัวแปรก่อนที่จะมีการประกาศ JavaScript จะส่งข้อความ `ReferenceError`
 
 </p>
 </details>
@@ -85,9 +92,9 @@ for (let i = 0; i < 3; i++) {
 
 #### คำตอบ: C
 
-Because of the event queue in JavaScript, the `setTimeout` callback function is called _after_ the loop has been executed. Since the variable `i` in the first loop was declared using the `var` keyword, this value was global. During the loop, we incremented the value of `i` by `1` each time, using the unary operator `++`. By the time the `setTimeout` callback function was invoked, `i` was equal to `3` in the first example.
+เพราะว่าลำดับเหตุการที่เกิดขึ้นใน Javascript ฟังก์ชัน `setTimeout` ที่เป็น callback ถูกเรียก _หลังจาก_ loop รันเสร็จ เนื่องจากตัวแปร `i` ใน loop แรกถูกประกาศด้วยคีย์เวิร์ด `var` จึงทำให้มันเป็น global scope ระหว่างการวนรอบ loop เป็นการเพิ่มค่า `i` ที่ละ `1` ในแต่ละครั้งด้วย unary operator `++`. ในเวลาที่ `setTimeout` callback ถูกเรียก แต่ว่าค่า `i` มีค่าเท่ากับ `3` แล้วดังตัวอย่างแรก
 
-In the second loop, the variable `i` was declared using the `let` keyword: variables declared with the `let` (and `const`) keyword are block-scoped (a block is anything between `{ }`). During each iteration, `i` will have a new value, and each value is scoped inside the loop.
+ใน loop ที่สอง ตัวแปร `i` ถูกประกาศโดยใช้คีย์เวิร์ด `let` : ตัวแปรที่ประกาศด้วยคีย์เวิร์ด `let` (และ `const`) เป็น block-scope (block คืออะไรก็ตามที่อยู่ภายใน `{ }`) ค่า `i` แต่ละค่าจะถูกกำหนดขอบเขตภายใน loop ในเวลาที่ `setTimeout` callback ถูกเรียก ค่า `i` แต่ละค่าจะเป็นค่าเฉพาะของแต่ละ callback `1 2 และ 3` ตามละดับ
 
 </p>
 </details>
@@ -119,11 +126,11 @@ console.log(shape.perimeter());
 
 #### คำตอบ: B
 
-Note that the value of `diameter` is a regular function, whereas the value of `perimeter` is an arrow function.
+Note ค่าของ `diameter` เป็น regular function แต่ว่าค่าของ `perimeter` เป็น arrow function.
 
-With arrow functions, the `this` keyword refers to its current surrounding scope, unlike regular functions! This means that when we call `perimeter`, it doesn't refer to the shape object, but to its surrounding scope (window for example).
+ด้วย arrow functions คีย์เวิร์ด `this` อ้างอิงไปที่ขอบเขตโดยรอบ (Statis scope หรือ Lexical scope) มันจะไม่เหมือนกับ regular functions! นั้นหมายถึงว่าเมื่อเราเรียก `perimeter` คำว่า `this` มันไม่ได้อ้างอิงไปที่ตัว shape object แต่มันอ้างอิงไปที่ขอบเขตโดยรอบ(ในตัวอย่าง `this` จะอ้างอิงไปที่ window object).
 
-There is no value `radius` on that object, which returns `undefined`.
+ไม่มีค่าของ `radius` ที่ window object ดังนั้น `this.radius` จึงมีค่าเป็น `undefined`
 
 </p>
 </details>
@@ -146,9 +153,9 @@ There is no value `radius` on that object, which returns `undefined`.
 
 #### คำตอบ: A
 
-The unary plus tries to convert an operand to a number. `true` is `1`, และ `false` is `0`.
+เครื่องหมายบวกจะพยายามแปลงตัวถูกดำเนินการเป็นตัวเลข `true` เป็น `1`, และ `false` เป็น `0`
 
-The string `'Lydia'` is a truthy value. What we're actually asking, is "is this truthy value falsy?". This returns `false`.
+String `'Lydia'` เป็นค่าความจริง สิ่งที่เราถามคือ "ค่าความจริงนี้เป็นเท็จหรือไม่?" (ซึ่งคำตอบก็คือ "ไม่") ค่าจึงเป็น `false`
 
 </p>
 </details>
@@ -178,13 +185,13 @@ const mouse = {
 
 #### คำตอบ: A
 
-In JavaScript, all object keys are strings (unless it's a Symbol). Even though we might not _type_ them as strings, they are always converted into strings under the hood.
+ในภาษา Javascript, ทุกๆ object keys เป็น strings (unless it's a Symbol). แม้ว่าเราไม่ได้กำหนด _type_ ของมันให้เป็น strings, object keys มันจะถูกแปลงเป็น strings หลังบ้านขอภาษา Javscript.
 
-JavaScript interprets (or unboxes) statements. When we use bracket notation, it sees the first opening bracket `[` and keeps going until it finds the closing bracket `]`. Only then, it will evaluate the statement.
+JavaScript interprets (or unboxes) statements. เมื่อเราใช้ bracket notation, มันจะมองไปที่ opening bracket `[` และมองไปจนถึง closing bracket `]`. หลังจากนั้นมันจะประเมินค่า statement.
 
-`mouse[bird.size]`: First it evaluates `bird.size`, which is `"small"`. `mouse["small"]` returns `true`
+`mouse[bird.size]`: การประเมิณลำดับแรก `bird.size`, มีค่าเท่ากับ `"small"`. `mouse["small"]` returns `true`
 
-However, with dot notation, this doesn't happen. `mouse` does not have a key called `bird`, which means that `mouse.bird` is `undefined`. Then, we ask for the `size` using dot notation: `mouse.bird.size`. Since `mouse.bird` is `undefined`, we're actually asking `undefined.size`. This isn't valid, and will throw an error similar to `Cannot read property "size" of undefined`.
+อย่างไรก็ตามด้วย dot notation, สิ่งนี้ไม่มีทางเกิดขึ้น. `mouse` ไม่มี key `bird`, ซึ่งหมายความว่า `mouse.bird` มีค่าเป็น `undefined`. เมื่อเราเรียกหา `size` โดยใช้ dot notation: `mouse.bird.size`. เนื่องจาก `mouse.bird` มีค่าเป็น `undefined`, มันเลยเป็นการเรียก `undefined.size`. ซึ่งไม่ valid (isn't valid), และจะมี error แจ้งขึ้นมา `Cannot read property "size" of undefined`.
 
 </p>
 </details>
@@ -214,13 +221,13 @@ console.log(d.greeting);
 
 #### คำตอบ: A
 
-In JavaScript, all objects interact by _reference_ when setting them equal to each other.
+ในภาษา Javascript, ทุก Object จะ interact โดย _reference_ เมื่อมีการตั้งค่าให้เท่ากัน.
 
-First, variable `c` holds a value to an object. Later, we assign `d` with the same reference that `c` has to the object.
+จากคำถามลำดับแรก `c` เก็บค่าที่เป็น object. หลังจากนั้นทำการกำหนดค่า `d` ไปที่ Reference ที่ค่า `c` เนื่องจากค่า `c` เป็น object การกำหนดค่าจึงเป็นการ Reference
 
 <img src="https://i.imgur.com/ko5k0fs.png" width="200">
 
-When you change one object, you change all of them.
+เมื่อมีการเปลี่ยนแปลงค่า object ตัวใดตัวหนึ่งค่าตัวอื่นจึงเปลี่ยนตามไปด้วย
 
 </p>
 </details>
@@ -249,11 +256,11 @@ console.log(b === c);
 
 #### คำตอบ: C
 
-`new Number()` is a built-in function constructor. Although it looks like a number, it's not really a number: it has a bunch of extra features and is an object.
+`new Number()` เป็น built-in function constructor. แม้ว่ามันจะคล้ายกับ number, แต่มันไม่ได้เป็น number จริงๆ: มันมีคุณสมบัติพิเศษมากมายเนื่องจากมันเป็น object
 
-When we use the `==` operator, it only checks whether it has the same _value_. They both have the value of `3`, so it returns `true`.
+เมื่อใช้เครื่องหมาย `==` , มันเป็นแค่การตรวจสอบว่าข้อมูลสองค่ามีค่าเท่ากันหรือไม่ _value_. ซึ่งค่าทั้งสองมีค่าเท่ากับ `3`, จึง returns `true`.
 
-However, when we use the `===` operator, both value _and_ type should be the same. It's not: `new Number()` is not a number, it's an **object**. Both return `false.`
+อย่างไรก็ตามเมื่อใช้เครื่องหมาย `===` , ทั้งค่าของมัน _และ_ type ของมันควรเหมือนกันจึงจะ return `true`. เนื่องจาก `new Number()` ไม่ใช่ number, มันเป็น **object**. `a === b` _และ_ `b === c` จึง return `false.`
 
 </p>
 </details>
@@ -1052,7 +1059,7 @@ console.log(typeof sayHi());
 
 The `sayHi` function returns the returned value of the immediately invoked function (IIFE). This function returned `0`, which is type `"number"`.
 
-FYI: there are only 7 built-in types: `null`, `undefined`, `boolean`, `number`, `string`, `object`, และ `symbol`. `"function"` is not a type, since functions are objects, it's of type `"object"`.
+FYI: there are only 7 built-in types: `null`, `undefined`, `boolean`, `number`, `string`, `object`, `symbol`, และ `bigint`. `"function"` is not a type, since functions are objects, it's of type `"object"`.
 </p>
 </details>
 

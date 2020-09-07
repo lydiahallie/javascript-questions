@@ -1,15 +1,11 @@
-<div align="center">
-  <img height="60" src="https://img.icons8.com/color/344/javascript.png"> 
-  <h1>Pertanyaan JavaScript</h1>
+<h1>Pertanyaan JavaScript</h1>
 
----
+  ---
 
-<span>Saya menerbitkan beberapa pilihan pertanyaan Javascript di akun Instagram Story [Instagram](https://www.instagram.com/theavocoder), yang mana diterbitkan disini juga! Terakhir diperbaharui: <a href=#20191224><b>24 Desember</b></a>
+  <span>Saya post pertanyaan pilihan ganda ke [Instagram](https://www.instagram.com/theavocoder) **stories** saya, yang saya post juga di sini ! update terakhir: <a href=#20191224><b>December 24th</b></a>
 
-From basic to advanced: test how well you know JavaScript, refresh your knowledge a bit, or prepare for your coding interview! :muscle: :rocket: I update this repo regularly with new questions. I added the answers in the **collapsed sections** below the questions, simply click on them to expand it. It's just for fun, good luck! :heart:</span>
-Dari tingkat dasar sampai tingkat lanjut: Menguji seberapa jago Anda di JavaScript, asah pengetahuan Anda, atau untuk persiapan interview tentang pemrograman! :muscle: :rocket: Saya akan memperbaharui jawaban di bagian yang tertutup di bawah pertanyaan, sederhananya tinggal di klik saja yang nantinya jawaban akan muncul disana. Ini hanya untuk bersenang - senang saja, semoga berhasil! :heart:</span>
+  Mulai tingkat dasar ke mahir: tes seberapa paham kamu tentang javascript, segarkan sedikit pengetahuan kamu, atau bersiap-siap untuk coding interview kamu! :muscle: :rocket: Saya update repo ini secara berkala dengan pertanyaan baru. Saya masukkan jawaban dibagian yang **tersembunyi** di bawah pertanyaan, cukup klik pada bagian itu untuk menampilkannya. Pertanyaan ini hanya untuk bersenang-senang, Semoga berhasil :heart:</span>
 
-Feel free to reach out to me! 😊 <br />
 Jangan sungkan untuk terhubung dengan saya! 😊 <br />
 <a href="https://www.instagram.com/theavocoder">Instagram</a> || <a href="https://www.twitter.com/lydiahallie">Twitter</a> || <a href="https:/www.linkedin.com/in/lydia-hallie">LinkedIn</a> || <a href="www.lydiahallie.dev">Blog</a>
 
@@ -56,20 +52,19 @@ function sayHi() {
 sayHi();
 ```
 
-- A: `Lydia` and `undefined`
-- B: `Lydia` and `ReferenceError`
-- C: `ReferenceError` and `21`
-- D: `undefined` and `ReferenceError`
+- A: `Lydia` dan `undefined`
+- B: `Lydia` dan `ReferenceError`
+- C: `ReferenceError` dan `21`
+- D: `undefined` dan `ReferenceError`
 
 <details><summary><b>Jawaban</b></summary>
 <p>
 
 #### Jawaban: D
 
-Within the function, we first declare the `name` variable with the `var` keyword. This means that the variable gets hoisted (memory space is set up during the creation phase) with the default value of `undefined`, until we actually get to the line where we define the variable. We haven't defined the variable yet on the line where we try to log the `name` variable, so it still holds the value of `undefined`.
+Di dalam function, kita buat variabel `name` dan variabel declaration-nya menggunakan `var`. Artinya variable tersebut hoisted (dalam fase pembuatan ini menggunakan memory penyimpanan) dengan isi standar-nya `undefined`, hingga kita benar berada di baris code pembuatan variabel-nya. Kita belum membuat variabel tersebut saat kita memanggil variabel `name`, jadi isi dari varabel tersebut masih `undefined`
 
-Variables with the `let` keyword (and `const`) are hoisted, but unlike `var`, don't get <i>initialized</i>. They are not accessible before the line we declare (initialize) them. This is called the "temporal dead zone". When we try to access the variables before they are declared, JavaScript throws a `ReferenceError`.
-
+Variabel declaration yang menggunakan `let` (dan `const`) juga hoisted, tapi tidak seperti `var`, variabel declaration `let` dan `const` tidak ditentukan isi standar-nya. `let` dan `const` tidak bisa diakses sebelum di tentukan dulu isi-nya. Kejadian ini disebut "temporal dead zone". Saat kita mencoba memanggil variabel yang belum ditentukan isi-nya, Javascript mengeluarkan error `ReferenceError`.
 </p>
 </details>
 
@@ -1062,7 +1057,7 @@ console.log(typeof sayHi());
 
 The `sayHi` function returns the returned value of the immediately invoked function (IIFE). This function returned `0`, which is type `"number"`.
 
-FYI: there are only 7 built-in types: `null`, `undefined`, `boolean`, `number`, `string`, `object`, and `symbol`. `"function"` is not a type, since functions are objects, it's of type `"object"`.
+FYI: there are only 7 built-in types: `null`, `undefined`, `boolean`, `number`, `string`, `object`, `symbol`, and `bigint`. `"function"` is not a type, since functions are objects, it's of type `"object"`.
 
 </p>
 </details>
@@ -2049,7 +2044,6 @@ On the fourth call, we again don't return from the callback function. The accumu
 
 </p>
 </details>
-  
 ---
 
 ###### 66. With which constructor can we successfully extend the `Dog` class?
@@ -4695,7 +4689,7 @@ We create the variable `pet` which is an instance of the `Flamingo` class. When 
 
 ---
 
-###### 144. Which of the options result(s) in an error?
+###### 144. Manakah dari pilihan di bawah ini yang salah?
 
 ```javascript
 const emojis = ['🎄', '🎅🏼', '🎁', '⭐'];
@@ -4707,8 +4701,8 @@ const emojis = ['🎄', '🎅🏼', '🎁', '⭐'];
 ```
 
 - A: 1
-- B: 1 and 2
-- C: 3 and 4
+- B: 1 dan 2
+- C: 3 dan 4
 - D: 3
 
 <details><summary><b>Jawaban</b></summary>
@@ -4716,7 +4710,7 @@ const emojis = ['🎄', '🎅🏼', '🎁', '⭐'];
 
 #### Jawaban: D
 
-The `const` keyword simply means we cannot _redeclare_ the value of that variable, it's _read-only_. However, the value itself isn't immutable. The propeties on the `emojis` array can be modified, for example by pushing new values, splicing them, or setting the length of the array to 0.
+Deklarasi `const` pada dasarnya berarti tidak dapat _mengubah_ nilai dari variable tersebut, karena bersifat _read-only (tidak dapat diubah)_. Bagaimanapun, nilainya tidak mutlak. Seperti array pada variable `emojis` dimana nilainya bisa diubah, contohnya untuk menambah nilai array baru, menghilangkan, atau mengubah properti `length` dari array menjadi 0.
 
 </p>
 </details>

@@ -685,7 +685,7 @@ sessionStorage.setItem("cool_secret", 123);
 
 #### Réponse : B
 
-La donnée stocké dans le `sessionStorage` est supprimée après la fermeture de l'onglet.
+La donnée stockée dans le `sessionStorage` est supprimée après la fermeture de l'onglet.
 
 Si vous utilisez le `localStorage`, la donnée sera là pour toujours, jusqu'à ce que, par exemple, `localStorage.clear()` soit invoquée.
 
@@ -1047,7 +1047,7 @@ typeof sayHi();
 
 La fonction `sayHi` renvoie la valeur renvoyée par la fonction immédiatement appelée (IIFE). Cette fonction a renvoyé `0`, qui est du type `"nombre"`.
 
-Pour info : il n'y a que 7 types natifs : `null`, `undefined`, `boolean`, `number`, `string`, `object` et `symbol`. `"function"` n'est pas un type, puisque les fonctions sont des objets, il est de type `"object"`.
+Pour info : il n'y a que 7 types natifs : `null`, `undefined`, `boolean`, `number`, `string`, `object`, `symbol` et `bigint`. `"function"` n'est pas un type, puisque les fonctions sont des objets, il est de type `"object"`.
 
 </p>
 </details>
