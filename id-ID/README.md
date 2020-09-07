@@ -1,4 +1,4 @@
-<h1>Pertannyaan JavaScript</h1>
+<h1>Pertanyaan JavaScript</h1>
 
   ---
 
@@ -2044,7 +2044,6 @@ On the fourth call, we again don't return from the callback function. The accumu
 
 </p>
 </details>
-  
 ---
 
 ###### 66. With which constructor can we successfully extend the `Dog` class?
