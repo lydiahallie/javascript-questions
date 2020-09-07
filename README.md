@@ -3843,7 +3843,7 @@ console.log(member.getLastName?.());
 ```
 
 - A: `undefined` `undefined` `undefined` `undefined`
-- B: `Mara` `undefined` `Lydia Hallie` `undefined`
+- B: `Mara` `undefined` `Lydia Hallie` `ReferenceError`
 - C: `Mara` `null` `Lydia Hallie` `null`
 - D: `null` `ReferenceError` `null` `ReferenceError`
 
