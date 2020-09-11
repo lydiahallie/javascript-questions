@@ -924,3 +924,156 @@ WebAPI 不能隨時向堆疊内新增内容。相反，它會將回呼函式彈�
 </details>
 
 ---
+
+###### 31. 點擊按鈕時，event.target 指的是哪個元件？
+
+```html
+<div onclick="console.log('first div')">
+  <div onclick="console.log('second div')">
+    <button onclick="console.log('button')">
+      Click!
+    </button>
+  </div>
+</div>
+```
+
+- A: 第一層的 `div`
+- B: 第二層的 `div`
+- C: `button` 本身
+- D: 一個包含此巢狀元件的陣列.
+
+<details><summary><b>答案</b></summary>
+<p>
+
+#### 答案: C
+
+產生事件(event)的元件即為此事件的 target，您可以透過 `event.stopPropagation` 來停止事件的冒泡(bubbling)
+
+</p>
+</details>
+
+---
+
+###### 32. 點擊標籤 p(paragraph)時， 將會輸出什麼內容？
+
+```html
+<div onclick="console.log('div')">
+  <p onclick="console.log('p')">
+    Click here!
+  </p>
+</div>
+```
+
+- A: `p` `div`
+- B: `div` `p`
+- C: `p`
+- D: `div`
+
+<details><summary><b>答案</b></summary>
+<p>
+
+#### 答案: A
+
+輸出內容是 `p` 及 `div`。在事件傳播(event propagation) 期間，分為三個階段：捕獲(capturing)，目標(target) 和冒泡(bubbling)。
+默認情況下，事件處理(event handlers) 在冒泡階段執行（除非您將useCapture設置為true)。 它從巢狀元素的最深層向外層。
+
+</p>
+</details>
+
+---
+
+###### 33. 將會輸出什麽內容？
+
+```javascript
+const person = { name: 'Lydia' };
+
+function sayHi(age) {
+  return `${this.name} is ${age}`;
+}
+
+console.log(sayHi.call(person, 21));
+console.log(sayHi.bind(person, 21));
+```
+
+- A: `undefined is 21` `Lydia is 21`
+- B: `function` `function`
+- C: `Lydia is 21` `Lydia is 21`
+- D: `Lydia is 21` `function`
+
+<details><summary><b>答案</b></summary>
+<p>
+
+#### 答案: D
+
+通過 `.call` 及 `.bind`，我們可以將想要 `this` 關鍵字引用的物件傳遞給它。
+然而，`.call` 會 _立即執行_! `.bind.` 則是會回傳一份函式(function)的 _複製_ 且不會立即執行。
+
+</p>
+</details>
+
+---
+
+###### 34. 將會輸出什麽內容？
+
+```javascript
+function sayHi() {
+  return (() => 0)();
+}
+
+console.log(typeof sayHi());
+```
+
+- A: `"object"`
+- B: `"number"`
+- C: `"function"`
+- D: `"undefined"`
+
+<details><summary><b>答案</b></summary>
+<p>
+
+#### 答案: B
+
+`sayHi` 函數會返回立即執行函式表示式(IIFE）的返回值。 該函數返回類型為 `"number"` 的 `0`。
+FYI: JS只有7種原生類型(type) : `null`, `undefined`, `boolean`, `number`, `string`, `object`, `symbol`, 和 `bigint`. `"function"` 不是一種類型而是物件。
+
+</p>
+</details>
+
+---
+
+###### 35. 下列項目哪些是 falsy？
+
+```javascript
+0;
+new Number(0);
+('');
+(' ');
+new Boolean(false);
+undefined;
+```
+
+- A: `0`, `''`, `undefined`
+- B: `0`, `new Number(0)`, `''`, `new Boolean(false)`, `undefined`
+- C: `0`, `''`, `new Boolean(false)`, `undefined`
+- D: All of them are falsy
+
+<details><summary><b>答案</b></summary>
+<p>
+
+#### 答案: A
+
+只有六個值是 falsy
+
+- `undefined`
+- `null`
+- `NaN`
+- `0`
+- `''` (空字串)
+- `false`
+
+函式建構式(Function constructors) 如 `new Number` 和 `new Boolean` 都為 truthy。
+
+</p>
+</details>
+
+---
