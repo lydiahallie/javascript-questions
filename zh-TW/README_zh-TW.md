@@ -1120,11 +1120,9 @@ console.log(numbers);
 
 #### 答案: C
 
-當您設置的元素其位置大過陣列長度時，JavaScript 會建立一個叫做 "empty slots" 的物件， 它們的值實際上為 `undefined` 但您會看到類似下面的輸出內容 :
+當您設置的元素其位置大過陣列長度時，JavaScript 會建立一個叫做 "empty slots" 的物件， 它們的值實際上為 `undefined`。
 
-`[1, 2, 3, 7 x empty, 11]`
-
-實際執行環境會使其輸出內容略微不同 (瀏覽器, node... 等)
+但您會看到類似的輸出內容 : `[1, 2, 3, 7 x empty, 11]`。實際執行環境會使其輸出內容略微不同 (瀏覽器, node... 等)
 
 </p>
 </details>
@@ -1186,8 +1184,9 @@ JavaScript 只有 primitive types 和 objects.
 而 Primitive types 包含 `boolean`, `null`, `undefined`, `bigint`, `number`, `string`, 和 `symbol`.
 
 Primitive 不同於 object 的是它沒有任何的屬性(properties) 和方法(methods); 那您一定會好奇為何 `'foo'.toUpperCase()` (string) 是輸出 `'FOO'` 而不是 `TypeError` ?
-這是因為當您嘗試訪問 primitive types (例如字串) 的屬性或方法時，JavaScript會使用其中一個 wrapper classes 包裝該 primitive type。 
-例如使用了 `String` 包裝 primitive type `string`, 接著在 expression 被 evaluates 後拋棄該包裝。 所有 primitives 除了 `null` 和 `undefined` 外都是遵循此行為。
+這是因為當您嘗試訪問 primitive types (例如字串) 的屬性或方法時，JavaScript會使用其中一個 wrapper classes 包裝該 primitive type。
+
+例如使用了 `String` 包裝 primitive type `string`， 接著在 expression 被 evaluates 後拋棄該包裝。 所有 primitives 除了 `null` 和 `undefined` 外都是遵循此行為。
 
 </p>
 </details>
@@ -1215,7 +1214,7 @@ Primitive 不同於 object 的是它沒有任何的屬性(properties) 和方法(
 
 #### 答案: C
 
-`[1, 2]` 為初始值同時也是第一個 `acc`. 在第一輪中, `acc` 是 `[1,2]` 且 `cur` 是 `[0, 1]`，然後我們連接兩個陣列後結果是 `[1, 2, 0, 1]`.
+`[1, 2]` 為初始值同時也是第一個 `acc`。 在第一輪中， `acc` 是 `[1,2]` 且 `cur` 是 `[0, 1]`，然後我們連接兩個陣列後結果是 `[1, 2, 0, 1]`。
 
 接著 `[1, 2, 0, 1]` 是 `acc` 且 `[2, 3]` 是 `cur`，連接兩個陣列後結果是 `[1, 2, 0, 1, 2, 3]`
 
