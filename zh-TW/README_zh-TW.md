@@ -1077,3 +1077,149 @@ undefined;
 </details>
 
 ---
+
+###### 36. 將會輸出什麽內容？
+
+```javascript
+console.log(typeof typeof 1);
+```
+
+- A: `"number"`
+- B: `"string"`
+- C: `"object"`
+- D: `"undefined"`
+
+<details><summary><b>答案</b></summary>
+<p>
+
+#### 答案: B
+
+`typeof 1` 回傳 `"number"`
+`typeof "number"` 回傳 `"string"`
+
+</p>
+</details>
+
+---
+
+###### 37. 將會輸出什麽內容？
+
+```javascript
+const numbers = [1, 2, 3];
+numbers[10] = 11;
+console.log(numbers);
+```
+
+- A: `[1, 2, 3, 7 x null, 11]`
+- B: `[1, 2, 3, 11]`
+- C: `[1, 2, 3, 7 x empty, 11]`
+- D: `SyntaxError`
+
+<details><summary><b>答案</b></summary>
+<p>
+
+#### 答案: C
+
+當您設置的元素其位置大過陣列長度時，JavaScript 會建立一個叫做 "empty slots" 的物件， 它們的值實際上為 `undefined` 但您會看到類似下面的輸出內容 :
+
+`[1, 2, 3, 7 x empty, 11]`
+
+實際執行環境會使其輸出內容略微不同 (瀏覽器, node... 等)
+
+</p>
+</details>
+
+---
+
+
+###### 38. 將會輸出什麽內容？
+
+```javascript
+(() => {
+  let x, y;
+  try {
+    throw new Error();
+  } catch (x) {
+    (x = 1), (y = 2);
+    console.log(x);
+  }
+  console.log(x);
+  console.log(y);
+})();
+```
+
+- A: `1` `undefined` `2`
+- B: `undefined` `undefined` `undefined`
+- C: `1` `1` `2`
+- D: `1` `undefined` `undefined`
+
+<details><summary><b>答案</b></summary>
+<p>
+
+#### 答案: A
+
+程式中的 `catch` 區塊捕獲了一個例外情況且賦殖予 argument `x`。這個 `x` 是在區塊內產生的，其有效範圍只在區塊內(block-scoped)，它跟 `console.log` 中所傳入的 `x` 並不是同一個。
+
+接著我們將此區塊變數 `x` 設置為等於 `1`，並設置變量 `y` 的值， 現在我們 console.log 區塊變數 `x`，無意外地它輸出 `1`。
+
+而在 `catch` 區塊之外的 `x` 仍然是 `undefined` 且 `y` 是 `2`。 因此當我們想在 `catch` 區塊之外使用 `console.log（x)` 時，它回傳 `undefined`，而 `y` 回傳 `2`。
+
+</p>
+</details>
+
+---
+
+###### 39. 關於 JavaScript 的敘述何者正確？
+
+- A: JavaScript 的世界中不是 primitive 就是 object
+- B: JavaScript 的世界中不是 function 就是 object
+- C: JavaScript 的世界中只有 object
+- D: JavaScript 的世界中不是 number 就是 object
+
+<details><summary><b>答案</b></summary>
+<p>
+
+#### 答案: A
+
+JavaScript 只有 primitive types 和 objects.
+
+而 Primitive types 包含 `boolean`, `null`, `undefined`, `bigint`, `number`, `string`, 和 `symbol`.
+
+Primitive 不同於 object 的是它沒有任何的屬性(properties) 和方法(methods); 那您一定會好奇為何 `'foo'.toUpperCase()` (string) 是輸出 `'FOO'` 而不是 `TypeError` ?
+這是因為當您嘗試訪問 primitive types (例如字串) 的屬性或方法時，JavaScript會使用其中一個 wrapper classes 包裝該 primitive type。 
+例如使用了 `String` 包裝 primitive type `string`, 接著在 expression 被 evaluates 後拋棄該包裝。 所有 primitives 除了 `null` 和 `undefined` 外都是遵循此行為。
+
+</p>
+</details>
+
+---
+
+###### 40. 將會輸出什麽內容？
+
+```javascript
+[[0, 1], [2, 3]].reduce(
+  (acc, cur) => {
+    return acc.concat(cur);
+  },
+  [1, 2],
+);
+```
+
+- A: `[0, 1, 2, 3, 1, 2]`
+- B: `[6, 1, 2]`
+- C: `[1, 2, 0, 1, 2, 3]`
+- D: `[1, 2, 6]`
+
+<details><summary><b>答案</b></summary>
+<p>
+
+#### 答案: C
+
+`[1, 2]` 為初始值同時也是第一個 `acc`. 在第一輪中, `acc` 是 `[1,2]` 且 `cur` 是 `[0, 1]`，然後我們連接兩個陣列後結果是 `[1, 2, 0, 1]`.
+
+接著 `[1, 2, 0, 1]` 是 `acc` 且 `[2, 3]` 是 `cur`，連接兩個陣列後結果是 `[1, 2, 0, 1, 2, 3]`
+
+</p>
+</details>
+
+---
