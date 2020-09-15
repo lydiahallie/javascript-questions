@@ -1094,8 +1094,8 @@ console.log(typeof typeof 1);
 
 #### 答案: B
 
-`typeof 1` 回傳 `"number"`
-`typeof "number"` 回傳 `"string"`
+`typeof 1` 返回 `"number"`
+`typeof "number"` 返回 `"string"`
 
 </p>
 </details>
@@ -1160,7 +1160,7 @@ console.log(numbers);
 
 接著我們將此區塊變數 `x` 設置為等於 `1`，並設置變量 `y` 的值， 現在我們 console.log 區塊變數 `x`，無意外地它輸出 `1`。
 
-而在 `catch` 區塊之外的 `x` 仍然是 `undefined` 且 `y` 是 `2`。 因此當我們想在 `catch` 區塊之外使用 `console.log（x)` 時，它回傳 `undefined`，而 `y` 回傳 `2`。
+而在 `catch` 區塊之外的 `x` 仍然是 `undefined` 且 `y` 是 `2`。 因此當我們想在 `catch` 區塊之外使用 `console.log（x)` 時，它返回 `undefined`，而 `y` 返回 `2`。
 
 </p>
 </details>
@@ -1183,7 +1183,7 @@ JavaScript 只有 primitive types 和 objects.
 
 而 Primitive types 包含 `boolean`, `null`, `undefined`, `bigint`, `number`, `string`, 和 `symbol`.
 
-Primitive 不同於 object 的是它沒有任何的屬性(properties) 和方法(methods); 那您一定會好奇為何 `'foo'.toUpperCase()` (string) 是輸出 `'FOO'` 而不是 `TypeError` ?
+Primitive 不同於 object 的是它沒有任何的屬性(properties) 和方法(methods); 沒有方法的情況下為何 `'foo'.toUpperCase()` (string) 是輸出 `'FOO'` 而不是 `TypeError` ?
 這是因為當您嘗試訪問 primitive types (例如字串) 的屬性或方法時，JavaScript會使用其中一個 wrapper classes 包裝該 primitive type。
 
 例如使用了 `String` 包裝 primitive type `string`， 接著在 expression 被 evaluates 後拋棄該包裝。 所有 primitives 除了 `null` 和 `undefined` 外都是遵循此行為。
@@ -1214,9 +1214,154 @@ Primitive 不同於 object 的是它沒有任何的屬性(properties) 和方法(
 
 #### 答案: C
 
-`[1, 2]` 為初始值同時也是第一個 `acc`。 在第一輪中， `acc` 是 `[1,2]` 且 `cur` 是 `[0, 1]`，然後我們連接兩個陣列後結果是 `[1, 2, 0, 1]`。
+`[1, 2]` 為初始值，同時也是第一個 `acc`。 在第一輪中， `acc` 是 `[1,2]` 且 `cur` 是 `[0, 1]`，兩陣列連接後的結果是 `[1, 2, 0, 1]`。
 
-接著 `[1, 2, 0, 1]` 是 `acc` 且 `[2, 3]` 是 `cur`，連接兩個陣列後結果是 `[1, 2, 0, 1, 2, 3]`
+接著 `[1, 2, 0, 1]` 是 `acc` 且 `[2, 3]` 是 `cur`，兩陣列連接後的結果是 `[1, 2, 0, 1, 2, 3]`。
+
+</p>
+</details>
+
+---
+
+###### 41. 將會輸出什麽內容？
+
+```javascript
+!!null;
+!!'';
+!!1;
+```
+
+- A: `false` `true` `false`
+- B: `false` `false` `true`
+- C: `false` `true` `true`
+- D: `true` `true` `false`
+
+<details><summary><b>答案</b></summary>
+<p>
+
+#### 答案: B
+
+`null` 是 falsy. `!null` 返回 `true`. `!true` 返回 `false`.
+
+`""` 是 falsy. `!""` 返回 `true`. `!true` 返回 `false`.
+
+`1` 是 truthy. `!1` 返回 `false`. `!false` 返回 `true`.
+
+</p>
+</details>
+
+---
+
+###### 42. 在瀏覽器中 `setInterval` 方法會返回什麼？
+
+```javascript
+setInterval(() => console.log('Hi'), 1000);
+```
+
+- A: 一個唯一的 id
+- B: 指定的毫秒數
+- C: 被傳遞的函式
+- D: `undefined`
+
+<details><summary><b>答案</b></summary>
+<p>
+
+#### 答案: A
+
+會返回一個唯一的 id，並可用於 `clearInterval()` 以清除該 interval。
+
+</p>
+</details>
+
+---
+
+###### 43. 將會返回何種結果？
+
+```javascript
+[...'Lydia'];
+```
+
+- A: `["L", "y", "d", "i", "a"]`
+- B: `["Lydia"]`
+- C: `[[], "Lydia"]`
+- D: `[["L", "y", "d", "i", "a"]]`
+
+<details><summary><b>答案</b></summary>
+<p>
+
+#### 答案: A
+
+字串(string) 類別是可以被迭代的(iterable)， 展開運算子(spread operator) 將可迭代的字元(character) 映射(map) 置一個元素(element) 上。
+
+</p>
+</details>
+
+---
+
+###### 44. 將會輸出什麽內容？
+
+```javascript
+function* generator(i) {
+  yield i;
+  yield i * 2;
+}
+
+const gen = generator(10);
+
+console.log(gen.next().value);
+console.log(gen.next().value);
+```
+
+- A: `[0, 10], [10, 20]`
+- B: `20, 20`
+- C: `10, 20`
+- D: `0, 10 and 10, 20`
+
+<details><summary><b>答案</b></summary>
+<p>
+
+#### 答案: C
+
+一般函式不能在被調用後中途停止。但是， generator 可以在中途 "停止" 且之後可以從停止的位置繼續運行。
+每當一個 generator 函式遇到一個 `yield` 關鍵字時，該函式就會產生其後指定的值。 請注意，在這種情況下，generator 函式不是 _return_ 值，而是 _yields_ 值。
+
+首先，我們使用等於 "10" 的 "i" 初始化 generator 函式。 我們使用 "next（)" 方法調用 generator 函式。 第一次調用 generator 函式時， "i" 等於 "10"。
+它遇到第一個 `yield` 關鍵字：它產生 `i` 的值。 現在，generator 已 "暫停"， 並且記錄了 "10"。
+
+然後，我們使用 `next（）` 方法再次調用該函式。 它將從先前停止的地方繼續，仍然是 "i" 等於 "10"。 現在，它遇到下一個 `yield` 關鍵字，並產生 `i * 2` 。 
+"i" 等於 "10"，因此返回 "10 * 2"，即 "20"。 故結果為10、20。
+
+</p>
+</details>
+
+---
+
+###### 45. 將會返回何種結果？
+
+```javascript
+const firstPromise = new Promise((res, rej) => {
+  setTimeout(res, 500, 'one');
+});
+
+const secondPromise = new Promise((res, rej) => {
+  setTimeout(res, 100, 'two');
+});
+
+Promise.race([firstPromise, secondPromise]).then(res => console.log(res));
+```
+
+- A: `"one"`
+- B: `"two"`
+- C: `"two" "one"`
+- D: `"one" "two"`
+
+<details><summary><b>答案</b></summary>
+<p>
+
+#### 答案: B
+
+當我們向 Promise.race 方法傳遞多個 promise 時，它將 resolves / rejects _最先的_ promise。
+在 setTimeout 方法中，我們傳遞了一個計時器：第一個 promise（firstPromise）為500毫秒，第二個 promise（secondPromise）為100毫秒。 這意味著 "secondPromise" 將先用 "two" 的值進行resolves。 現在， `res` 擁有 'two' 的值且該值被 console.log。
 
 </p>
 </details>
