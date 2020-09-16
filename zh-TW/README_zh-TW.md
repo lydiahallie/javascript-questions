@@ -1513,10 +1513,201 @@ const num = parseInt('7*6', 10);
 
 #### 答案: C
 
-當對陣列做映射時，`num` 的值等同於它當前正在循環的元素。在這種情況中元素均為 numbers，所以條件式 `typeof num === "number"` 會返回 `true` 的值。
+當對陣列做映射(map) 時，`num` 的值等同於它當前正在循環的元素。在這種情況中元素均為 numbers，所以條件式 `typeof num === "number"` 會返回 `true` 的值。
 map 函式會建立一個新陣列，並插入該函式返回的值。
 
 但是我們不返回任何值。當我們不從函式返回值時，函式將返回 `undefined`。由於陣列中的每個元素都會呼叫該函式，因此對於每個元素，我們都返回 `undefined`。
+
+</p>
+</details>
+
+---
+
+###### 51. 將會輸出什麽內容？
+
+```javascript
+function getInfo(member, year) {
+  member.name = 'Lydia';
+  year = '1998';
+}
+
+const person = { name: 'Sarah' };
+const birthYear = '1997';
+
+getInfo(person, birthYear);
+
+console.log(person, birthYear);
+```
+
+- A: `{ name: "Lydia" }, "1997"`
+- B: `{ name: "Sarah" }, "1998"`
+- C: `{ name: "Lydia" }, "1998"`
+- D: `{ name: "Sarah" }, "1997"`
+
+<details><summary><b>答案</b></summary>
+<p>
+
+#### 答案: A
+
+參數是透過 _value_ 傳遞，除非它們是一個物件(object)，物件則由透過 _reference_ 傳遞。 `birthYear` 是透過值傳遞的，因為它是字串不是物件。 當我們按值傳遞參數時，將建立該值的 _copy_ (請參閱問題46）。
+
+變數 `birthYear` 具有對值 `1997` 的 reference。參數 `year` 也有對值 `1997` 的 reference，但與變數 `birthYear` 所 reference 的不同。
+因此當我們通過將 `year` 設置為等於 `1998` 來更新 `year` 的值時，我們僅更新了 `year` 的值。 `birthYear` 仍然等於 `"1997"`。
+
+`person` 的值是一個物件。 參數 `member` 具有（複製的）reference 指向 _相同_ 物件。
+因此當我們修改物件 `member` 的屬性時， `person` 的值也會被修改，因為它們都 reference 了相同的物件。 `person` 的 `name` 屬性現在等於值 `"Lydia"`。
+
+</p>
+</details>
+
+---
+
+###### 52. 將會輸出什麽內容？
+
+```javascript
+function greeting() {
+  throw 'Hello world!';
+}
+
+function sayHi() {
+  try {
+    const data = greeting();
+    console.log('It worked!', data);
+  } catch (e) {
+    console.log('Oh no an error:', e);
+  }
+}
+
+sayHi();
+```
+
+- A: `It worked! Hello world!`
+- B: `Oh no an error: undefined`
+- C: `SyntaxError: can only throw Error objects`
+- D: `Oh no an error: Hello world!`
+
+<details><summary><b>答案</b></summary>
+<p>
+
+#### 答案: D
+
+使用 `throw` 語句，我們可以建立自定義的錯誤。 使用此語句，您可以觸發例外(exception)。例外可以是 <b>string</ b>，<b>number</ b>，<b>boolean</ b> 或 <b>object</ b>。 
+在這種情況下，我們的例外是字符串 `Hello world`。
+
+通過 `catch` 語句，我們可以指定如果在 `try` 的程式區塊中拋出例外時該怎麼辦。 例如拋出例外：字串 `'Hello world'`。 
+現在， `e` 等於我們記錄的字串。 因此輸出結果將會是 `'Oh an error: Hello world'`。
+
+</p>
+</details>
+
+---
+
+###### 53. 將會輸出什麽內容？
+
+```javascript
+function Car() {
+  this.make = 'Lamborghini';
+  return { make: 'Maserati' };
+}
+
+const myCar = new Car();
+console.log(myCar.make);
+```
+
+- A: `"Lamborghini"`
+- B: `"Maserati"`
+- C: `ReferenceError`
+- D: `TypeError`
+
+<details><summary><b>答案</b></summary>
+<p>
+
+#### 答案: B
+
+當您返回屬性(property) 時，該屬性的值等於 _returned_ 的值，而不是在函式建構式(constructor function)中設置的值。 我們返回字串 `Maserati`，因此 `mycar.make` 等於 `Maserati`。
+
+</p>
+</details>
+
+---
+
+###### 54. 將會輸出什麽內容？
+
+```javascript
+(() => {
+  let x = (y = 10);
+})();
+
+console.log(typeof x);
+console.log(typeof y);
+```
+
+- A: `"undefined", "number"`
+- B: `"number", "number"`
+- C: `"object", "number"`
+- D: `"number", "undefined"`
+
+<details><summary><b>答案</b></summary>
+<p>
+
+#### 答案: A
+
+`let x = y = 10;` 實際上是 shorthand for:
+
+```javascript
+y = 10;
+let x = y;
+```
+
+當我們將 `y `設置為等於 `10` 時，我們實際上將屬性 `y` 加入到 global object 中（瀏覽器中的 `window`，Node中的 `global`）。 現在，瀏覽器中 `window.y` 現在等於 `10`。
+
+接著我們宣告一個變數 `x`，並將其值賦予為 `y`，即 `10`。 用` let` 關鍵字宣告的變數是 _block scoped_ ，它們僅在宣告它們的區塊中定義； 另外此案例的函示是，立即函示表達式（IIFE）。
+當我們使用 `typeof` 運算子時， `x` 並未被定義：我們試圖在宣告它的區塊外訪問 `x`。這將獲得 `x` 並未被定義的結果。 未分配值或未宣告的值的類型為 `"undefined"`。 `console.log(typeof x)` 返回 `"undefined"`。
+
+但是，當將 `y` 設置為 `10` 時，我們創建了global variable `y`。 在我們程式中的任何位置均可訪問此值。
+`y` 被定義，並且為類型 `number` 的值。 因此 `console.log（typeof y` 返回 `"number"`。
+
+</p>
+</details>
+
+---
+
+###### 55. 將會輸出什麽內容？
+
+```javascript
+class Dog {
+  constructor(name) {
+    this.name = name;
+  }
+}
+
+Dog.prototype.bark = function() {
+  console.log(`Woof I am ${this.name}`);
+};
+
+const pet = new Dog('Mara');
+
+pet.bark();
+
+delete Dog.prototype.bark;
+
+pet.bark();
+```
+
+- A: `"Woof I am Mara"`, `TypeError`
+- B: `"Woof I am Mara"`, `"Woof I am Mara"`
+- C: `"Woof I am Mara"`, `undefined`
+- D: `TypeError`, `TypeError`
+
+<details><summary><b>答案</b></summary>
+<p>
+
+#### 答案: A
+
+透過 `delete` 關鍵字，我們可以從物件中刪除它的屬性。同樣適用在原型(prototype)。通過刪除原型上的屬性，該屬性在原型鏈中將不可再被使用。
+在這個案例中， `bark` 函式在 `delete Dog.prototype.bark` 之後的原型上不再可用，但是我們仍然嘗試訪問它。
+
+因此當我們嘗試調用不是函式的東西時，程式將拋出 `TypeError`。 在這個案例中，將為 `TypeError: pet.bark is not a function` ，因為 `pet.bark` 是 `undefined`。
 
 </p>
 </details>
