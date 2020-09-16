@@ -1591,7 +1591,7 @@ sayHi();
 
 #### 答案: D
 
-使用 `throw` 語句，我們可以建立自定義的錯誤。 使用此語句，您可以觸發例外(exception)。例外可以是 <b>string</ b>，<b>number</ b>，<b>boolean</ b> 或 <b>object</ b>。 
+使用 `throw` 語句，我們可以建立自定義的錯誤。 使用此語句，您可以觸發例外(exception)。例外可以是 `<b>string</ b>`，`<b>number</ b>`，`<b>boolean</ b>` 或 `<b>object</ b>`。 
 在這種情況下，我們的例外是字符串 `Hello world`。
 
 通過 `catch` 語句，我們可以指定如果在 `try` 的程式區塊中拋出例外時該怎麼辦。 例如拋出例外：字串 `'Hello world'`。 
