@@ -1367,3 +1367,158 @@ Promise.race([firstPromise, secondPromise]).then(res => console.log(res));
 </details>
 
 ---
+
+###### 46. 將會輸出什麽內容？
+
+```javascript
+let person = { name: 'Lydia' };
+const members = [person];
+person = null;
+
+console.log(members);
+```
+
+- A: `null`
+- B: `[null]`
+- C: `[{}]`
+- D: `[{ name: "Lydia" }]`
+
+<details><summary><b>答案</b></summary>
+<p>
+
+#### 答案: D
+
+首先，我們宣告一個物件變數 `person` 包含 `name` 屬性以及值 `Lydia`。
+
+<img src="https://i.imgur.com/TML1MbS.png" width="200">
+
+接著我們宣告另一個陣列變數 `members`。我們將該陣列的第一個元素設置等於 `person` 變數的值。
+當我們將它們設置為相等時，物件透過 _reference_ 互相關聯。當我們將一個物件變數的 reference 賦值給另一個變數時，實際上我們是 _複製_ 該 reference (它們沒有 _相同_ 的 reference !)  
+
+<img src="https://i.imgur.com/FSG5K3F.png" width="300">
+
+接著我們將變數 `person` 賦予 `null`。
+
+<img src="https://i.imgur.com/sYjcsMT.png" width="300">
+
+我們僅修改變數 `person` 的值，並無修改陣列中的第一個元素。
+基於該元素有份不同的 reference (一份複製的)，故 `members` 陣列中第一位元素仍保有對物件的指向，於是當我們 console.log `members` 陣列時，輸出內容為物件。
+
+</p>
+</details>
+
+---
+
+###### 47. 將會輸出什麽內容？
+
+```javascript
+const person = {
+  name: 'Lydia',
+  age: 21,
+};
+
+for (const item in person) {
+  console.log(item);
+}
+```
+
+- A: `{ name: "Lydia" }, { age: 21 }`
+- B: `"name", "age"`
+- C: `"Lydia", 21`
+- D: `["name", "Lydia"], ["age", 21]`
+
+<details><summary><b>答案</b></summary>
+<p>
+
+#### 答案: B
+
+通過 `for-in` 循環，我們可以遍歷對象的鍵，在這個題目中的鍵是 `name` 和 `age`。 在內部，對象鍵是字串(strings)（如果它們不是 Symbol）。
+在每次循環中，我們將 `item` 的值設置為等於其迭代的當前鍵。 第一輪循環中，`item` 等於 `name`，並輸出內容。 接著， `item` 等於 `age`，並輸出內容。
+
+</p>
+</details>
+
+---
+
+###### 48. 將會輸出什麽內容？
+
+```javascript
+console.log(3 + 4 + '5');
+```
+
+- A: `"345"`
+- B: `"75"`
+- C: `12`
+- D: `"12"`
+
+<details><summary><b>答案</b></summary>
+<p>
+
+#### 答案: B
+
+運算子關聯性是編譯器計算表達式的順序，從左到右或從右到左。僅適用於所有運算子具有 _相同_ 優先級時，才會發生這種情況。
+在這裡我們只有一種類型的運算子：+。 而其關聯性是從左到右。
+
+首先計算 `3 + 4`。 結果為數字7。
+
+由於強制(coercion) ，`7 +'5'` 會導致結果為 `75`。JavaScript將數字 `7` 轉換型態成字串，請參閱問題15。我們可以使用 `+` 運算子將兩個字串連接起來。 `7` + `5` 產生 `75`。
+
+</p>
+</details>
+
+---
+
+###### 49. `num` 的值會是什麼?
+
+```javascript
+const num = parseInt('7*6', 10);
+```
+
+- A: `42`
+- B: `"42"`
+- C: `7`
+- D: `NaN`
+
+<details><summary><b>答案</b></summary>
+<p>
+
+#### 答案: C
+
+僅會返回字串中的第一個數字。 基於 _radix_ (第二個參數，用於指定我們要將其解析為哪種類型的數字：以10為基數，十六進制，八進制，二進制等），`parseInt` 檢查字串中的字元是否有效。
+一旦遇到基數中無效數字的字元，它將停止解析並忽略以下字元。
+
+`*` 不是合法的 `number`，所以程式僅將字串形態的 `"7"` 轉換至 decimal 形態的 `7`，故 `num` 現在的值為 `7`。
+
+</p>
+</details>
+
+---
+
+###### 50. 將會輸出什麽內容？
+
+```javascript
+[1, 2, 3].map(num => {
+  if (typeof num === 'number') return;
+  return num * 2;
+});
+```
+
+- A: `[]`
+- B: `[null, null, null]`
+- C: `[undefined, undefined, undefined]`
+- D: `[ 3 x empty ]`
+
+<details><summary><b>答案</b></summary>
+<p>
+
+#### 答案: C
+
+當對陣列做映射時，`num` 的值等同於它當前正在循環的元素。在這種情況中元素均為 numbers，所以條件式 `typeof num === "number"` 會返回 `true` 的值。
+map 函式會建立一個新陣列，並插入該函式返回的值。
+
+但是我們不返回任何值。當我們不從函式返回值時，函式將返回 `undefined`。由於陣列中的每個元素都會呼叫該函式，因此對於每個元素，我們都返回 `undefined`。
+
+</p>
+</details>
+
+---
