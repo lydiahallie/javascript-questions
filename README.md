@@ -3011,7 +3011,7 @@ The above example works. This returns the array `[ 'banana', 'apple', 'orange', 
 function nums(a, b) {
   if (a > b) console.log('a is bigger');
   else console.log('b is bigger');
-  return;
+  return
   a + b;
 }
 
