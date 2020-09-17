@@ -1713,3 +1713,164 @@ pet.bark();
 </details>
 
 ---
+
+###### 56. 將會輸出什麽內容？
+
+```javascript
+const set = new Set([1, 1, 2, 3, 4]);
+
+console.log(set);
+```
+
+- A: `[1, 1, 2, 3, 4]`
+- B: `[1, 2, 3, 4]`
+- C: `{1, 1, 2, 3, 4}`
+- D: `{1, 2, 3, 4}`
+
+<details><summary><b>答案</b></summary>
+<p>
+
+#### 答案: D
+
+`Set` 物件是 _唯一_ 值的集合: 任何存在於 `Set` 的值均為唯一的，不會存在相同的值(重複的值將會由後出現的覆蓋已出現的)。
+
+陣列 `[1, 1, 2, 3, 4]` 中有重複的值 `1`，因此結果會是 `{1, 2, 3, 4}`。
+
+</p>
+</details>
+
+---
+
+###### 57. 將會輸出什麽內容？
+
+```javascript
+// counter.js
+let counter = 10;
+export default counter;
+```
+
+```javascript
+// index.js
+import myCounter from './counter';
+
+myCounter += 1;
+
+console.log(myCounter);
+```
+
+- A: `10`
+- B: `11`
+- C: `Error`
+- D: `NaN`
+
+<details><summary><b>答案</b></summary>
+<p>
+
+#### 答案: C
+
+被引用(imported) 的模組(module) 是 _唯讀_ 的: 您無法修改被引用模組中項目，只有輸出(export) 該項目的模組可以更改它的值。
+
+因此當我們嘗試增加 `myCounter` 的值時，他將拋出錯誤: `myCounter` is read-only and cannot be modified。
+
+</p>
+</details>
+
+---
+
+###### 58. 將會輸出什麽內容？
+
+```javascript
+const name = 'Lydia';
+age = 21;
+
+console.log(delete name);
+console.log(delete age);
+```
+
+- A: `false`, `true`
+- B: `"Lydia"`, `21`
+- C: `true`, `true`
+- D: `undefined`, `undefined`
+
+<details><summary><b>答案</b></summary>
+<p>
+
+#### 答案: A
+
+`delete` 運算子會返回一個布林值: 成功刪除物件的情況下會返回 `true`，反之則為 `false`。 但是經由 `var`，`const` 或是 `let` 關鍵字所宣告的變數是無法使用 `delete` 運算子刪除的。
+
+此處， `name` 無法成功刪除且會返回 `fasle`，因為它是經由 `const` 所宣告。當我們宣告 `age` 的值為 `21` 時，實際上我們做的是將一個名為 `age` 的屬性為添加到了全球物件中，您可以透過 `delete` 來刪除物件中的屬性，因此您也能刪除全球物件中的屬性，故將返回 `true`。
+
+</p>
+</details>
+
+---
+
+###### 59. 將會輸出什麽內容？
+
+```javascript
+const numbers = [1, 2, 3, 4, 5];
+const [y] = numbers;
+
+console.log(y);
+```
+
+- A: `[[1, 2, 3, 4, 5]]`
+- B: `[1, 2, 3, 4, 5]`
+- C: `1`
+- D: `[1]`
+
+<details><summary><b>答案</b></summary>
+<p>
+
+#### 答案: C
+
+我們可以通過解構(destructuring) 從陣列或物件的屬性中獲得值。例如:
+
+```javascript
+[a, b] = [1, 2];
+```
+
+<img src="https://i.imgur.com/ADFpVop.png" width="200">
+
+a 的值現在為 `1` 且b 的值現在為`2`。我們針對此問題所做的動作為:
+
+```javascript
+[y] = [1, 2, 3, 4, 5];
+```
+
+<img src="https://i.imgur.com/NzGkMNk.png" width="200">
+
+這代表著 `y` 的值等同於陣列中第一個元素的值，即為 `1`。因此我們執行 `console.log(y)` 時， `1` 將被輸出。
+
+</p>
+</details>
+
+---
+
+###### 60. 將會輸出什麽內容？
+
+```javascript
+const user = { name: 'Lydia', age: 21 };
+const admin = { admin: true, ...user };
+
+console.log(admin);
+```
+
+- A: `{ admin: true, user: { name: "Lydia", age: 21 } }`
+- B: `{ admin: true, name: "Lydia", age: 21 }`
+- C: `{ admin: true, user: ["Lydia", 21] }`
+- D: `{ admin: true }`
+
+<details><summary><b>答案</b></summary>
+<p>
+
+#### 答案: B
+
+使用 spread 運算子可以合併物件(`...`)。它使您可以建立一個物件的鍵/值的複製，並將其添加到另一物件中。
+在這裡我們創建了 `user` 物件的複製並將其添加至 `admin` 物件。因此將輸出 `{ admin: true, name: "Lydia", age: 21 }`。
+
+</p>
+</details>
+
+---
