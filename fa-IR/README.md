@@ -1,4 +1,4 @@
-<div dir="rtl" align="justify">
+<div dir="rtl" align="justify" font-family="tahoma">
 
   <div align="center">
   <img height="60" src="https://img.icons8.com/color/344/javascript.png"> 
