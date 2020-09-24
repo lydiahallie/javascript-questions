@@ -1,49 +1,60 @@
-# JavaScript Fragen (für Fortgeschrittene)
-
+<div align="center">
+  <img height="60" src="https://img.icons8.com/color/344/javascript.png"> 
+  <h1>JavaScript Fragen</h1>
 Täglich poste ich mehrere Multiple-Choice-Fragen über JavaScript auf meinem [Instagram](https://www.instagram.com/theavocoder), die ich nun auch hier veröffentlichen werde.
 
 Von einfach bis fortgeschritten: teste wie gut du JavaScript kennst, frische dein Wissen auf oder bereite dich auf ein Vorstellungsgespräch vor! :muscle: :rocket: Ich werde dieses Repo wöchentlich mit neuen Fragen erweitern.
 
 Die Antworten sind unterhalb der Fragen versteckt. Du kannst einfach darauf klicken um die Antworten anzuzeigen. Viel Glück :heart:
 
-### Alle verfügbaren Sprachen
-* [English](../en-EN/README.md)
-* [العربية](../ar-AR/README_AR.md)
-* [اللغة العامية - Egyptian Arabic](../ar-EG/README_ar-EG.md)
-* [Bosanski](../bs-BS/README-bs_BS.md)  
-* [Deutsch](../de-DE/README.md)  
-* [Español](../es-ES/README-ES.md)
-* [Français](../fr-FR/README_fr-FR.md)
-* [日本語](../ja-JA/README-ja_JA.md)  
-* [한국어](../ko-KR/README-ko_KR.md)
-* [Nederlands](./nl-NL/README.md)
-* [Português Brasil](../pt-BR/README_pt_BR.md)  
-* [Русский](../ru-RU/README.md)
-* [Українська мова](../ua-UA/README-ua_UA.md)  
-* [Tiếng Việt](../vi-VI/README-vi.md)
-* [中文版本](../zh-CN/README-zh_CN.md)
-* [Türkçe](../tr-TR/README-tr_TR.md)
-* [ไทย](../th-TH/README-th_TH.md)
+</div>
 
 ---
 
-###### 1. Was ist der Output?
+<details><summary><b> Alle 18 Übersetzungen anzeigen 🇸🇦🇪🇬🇧🇦🇩🇪🇪🇸🇫🇷🇮🇩🇯🇵🇰🇷🇳🇱🇧🇷🇷🇺🇹🇭🇹🇷🇺🇦🇻🇳🇨🇳🇹🇼</b></summary>
+<p>
+
+- [🇸🇦 العربية](./ar-AR/README_AR.md)
+- [🇪🇬 اللغة العامية](./ar-EG/README_ar-EG.md)
+- [🇧🇦 Bosanski](./bs-BS/README-bs_BS.md)
+- [🇬🇧 English](../README.md)
+- [🇪🇸 Español](./es-ES/README-ES.md)
+- [🇫🇷 Français](./fr-FR/README_fr-FR.md)
+- [🇮🇩 Indonesia](./id-ID/README.md)
+- [🇯🇵 日本語](./ja-JA/README-ja_JA.md)
+- [🇰🇷 한국어](./ko-KR/README-ko_KR.md)
+- [🇳🇱 Nederlands](./nl-NL/README.md)
+- [🇧🇷 Português Brasil](./pt-BR/README_pt_BR.md)
+- [🇷🇺 Русский](./ru-RU/README.md)
+- [🇹🇭 ไทย](./th-TH/README-th_TH.md)
+- [🇹🇷 Türkçe](./tr-TR/README-tr_TR.md)
+- [🇺🇦 Українська мова](./ua-UA/README-ua_UA.md)
+- [🇻🇳 Tiếng Việt](./vi-VI/README-vi.md)
+- [🇨🇳 简体中文](./zh-CN/README-zh_CN.md)
+- [🇹🇼 繁體中文](./zh-TW/README_zh-TW.md)
+
+</p>
+</details>
+
+---
+
+###### 1. Was wird ausgegeben?
 
 ```javascript
 function sayHi() {
-	console.log(name);
-	console.log(age);
-	var name = "Lydia";
-	let age = 21;
+  console.log(name);
+  console.log(age);
+  var name = "Lydia";
+  let age = 21;
 }
 
 sayHi();
 ```
 
--   A: `Lydia` und `undefined`
--   B: `Lydia` und `ReferenceError`
--   C: `ReferenceError` und `21`
--   D: `undefined` und `ReferenceError`
+- A: `Lydia` und `undefined`
+- B: `Lydia` und `ReferenceError`
+- C: `ReferenceError` und `21`
+- D: `undefined` und `ReferenceError`
 
 <details><summary><b>Antwort</b></summary>
 <p>
@@ -59,21 +70,21 @@ Variablen mit dem `let` (oder `const`) Keyword werden ebenfalls gehoisted, aber 
 
 ---
 
-###### 2. Was ist der Output?
+###### 2. Was wird ausgegeben?
 
 ```javascript
 for (var i = 0; i < 3; i++) {
-	setTimeout(() => console.log(i), 1);
+  setTimeout(() => console.log(i), 1);
 }
 
 for (let i = 0; i < 3; i++) {
-	setTimeout(() => console.log(i), 1);
+  setTimeout(() => console.log(i), 1);
 }
 ```
 
--   A: `0 1 2` und `0 1 2`
--   B: `0 1 2` und `3 3 3`
--   C: `3 3 3` und `0 1 2`
+- A: `0 1 2` und `0 1 2`
+- B: `0 1 2` und `3 3 3`
+- C: `3 3 3` und `0 1 2`
 
 <details><summary><b>Antwort</b></summary>
 <p>
@@ -89,25 +100,25 @@ In der zweiten Schleife wurde die Variable `i` mit dem `let` Keyword definiert: 
 
 ---
 
-###### 3. Was ist der Output?
+###### 3. Was wird ausgegeben?
 
 ```javascript
 const shape = {
-	radius: 10,
-	diameter() {
-		return this.radius * 2;
-	},
-	perimeter: () => 2 * Math.PI * this.radius,
+  radius: 10,
+  diameter() {
+    return this.radius * 2;
+  },
+  perimeter: () => 2 * Math.PI * this.radius,
 };
 
 shape.diameter();
 shape.perimeter();
 ```
 
--   A: `20` und `62.83185307179586`
--   B: `20` und `NaN`
--   C: `20` und `63`
--   D: `NaN` und `63`
+- A: `20` und `62.83185307179586`
+- B: `20` und `NaN`
+- C: `20` und `63`
+- D: `NaN` und `63`
 
 <details><summary><b>Antwort</b></summary>
 <p>
@@ -125,16 +136,16 @@ Es gibt keinen Wert `radius` in dem Object, daher wird `undefined` zurückgegebe
 
 ---
 
-###### 4. Was ist der Output?
+###### 4. Was wird ausgegeben?
 
 ```javascript
 +true;
 !"Lydia";
 ```
 
--   A: `1` und `false`
--   B: `false` und `NaN`
--   C: `false` und `false`
+- A: `1` und `false`
+- B: `false` und `NaN`
+- C: `false` und `false`
 
 <details><summary><b>Antwort</b></summary>
 <p>
@@ -154,19 +165,19 @@ Der String `'Lydia'` ist truthy. Was wir eigentlich fragen ist: "ist dieser trut
 
 ```javascript
 const bird = {
-	size: "small",
+  size: "small",
 };
 
 const mouse = {
-	name: "Mickey",
-	small: true,
+  name: "Mickey",
+  small: true,
 };
 ```
 
--   A: `mouse.bird.size` ist nicht korrekt
--   B: `mouse[bird.size]` ist nicht korrekt
--   C: `mouse[bird["size"]]` ist nicht korrekt
--   D: Keine der Antworten ist korrekt.
+- A: `mouse.bird.size` ist nicht korrekt
+- B: `mouse[bird.size]` ist nicht korrekt
+- C: `mouse[bird["size"]]` ist nicht korrekt
+- D: Keine der Antworten ist korrekt.
 
 <details><summary><b>Antwort</b></summary>
 <p>
@@ -186,7 +197,7 @@ Mit der Dot Notation ist das nicht der Fall. `mouse` hat keinen Key namens `bird
 
 ---
 
-###### 6. Was ist der Output?
+###### 6. Was wird ausgegeben?
 
 ```javascript
 let c = { greeting: "Hey!" };
@@ -197,11 +208,11 @@ c.greeting = "Hello";
 console.log(d.greeting);
 ```
 
--   A: `Hello`
--   B: `Hey`
--   C: `undefined`
--   D: `ReferenceError`
--   E: `TypeError`
+- A: `Hello`
+- B: `Hey`
+- C: `undefined`
+- D: `ReferenceError`
+- E: `TypeError`
 
 <details><summary><b>Antwort</b></summary>
 <p>
@@ -221,7 +232,7 @@ Wenn ein Object geändert wird, werden alle Referenzen zu diesem Object ebenfall
 
 ---
 
-###### 7. Was ist der Output?
+###### 7. Was wird ausgegeben?
 
 ```javascript
 let a = 3;
@@ -233,10 +244,10 @@ console.log(a === b);
 console.log(b === c);
 ```
 
--   A: `true` `false` `true`
--   B: `false` `false` `true`
--   C: `true` `false` `false`
--   D: `false` `true` `true`
+- A: `true` `false` `true`
+- B: `false` `false` `true`
+- C: `true` `false` `false`
+- D: `false` `true` `true`
 
 <details><summary><b>Antwort</b></summary>
 <p>
@@ -254,28 +265,28 @@ Wenn wir aber `===` nutzen müssen sowohl der Wert _als auch_ der Typ übereinst
 
 ---
 
-###### 8. Was ist der Output?
+###### 8. Was wird ausgegeben?
 
 ```javascript
 class Chameleon {
-	static colorChange(newColor) {
-		this.newColor = newColor;
-		return this.newColor;
-	}
+  static colorChange(newColor) {
+    this.newColor = newColor;
+    return this.newColor;
+  }
 
-	constructor({ newColor = "green" } = {}) {
-		this.newColor = newColor;
-	}
+  constructor({ newColor = "green" } = {}) {
+    this.newColor = newColor;
+  }
 }
 
 const freddie = new Chameleon({ newColor: "purple" });
 freddie.colorChange("orange");
 ```
 
--   A: `orange`
--   B: `purple`
--   C: `green`
--   D: `TypeError`
+- A: `orange`
+- B: `purple`
+- C: `green`
+- D: `TypeError`
 
 <details><summary><b>Antwort</b></summary>
 <p>
@@ -289,7 +300,7 @@ Die `colorChange` Funktion ist statisch (`static`). Statische Methoden existiere
 
 ---
 
-###### 9. Was ist der Output?
+###### 9. Was wird ausgegeben?
 
 ```javascript
 let greeting;
@@ -297,9 +308,9 @@ greetign = {}; // Typo!
 console.log(greetign);
 ```
 
--   A: `{}`
--   B: `ReferenceError: greetign is not defined`
--   C: `undefined`
+- A: `{}`
+- B: `ReferenceError: greetign is not defined`
+- C: `undefined`
 
 <details><summary><b>Antwort</b></summary>
 <p>
@@ -319,16 +330,16 @@ Um das zu verhindern, können wir `"use strict"` verwenden. Das stellt sicher, d
 
 ```javascript
 function bark() {
-	console.log("Woof!");
+  console.log("Woof!");
 }
 
 bark.animal = "dog";
 ```
 
--   A: Nichts, das ist absolut in Ordnung.
--   B: `SyntaxError`. Man kann einer Funktion keine Properties in der Form zuweisen.
--   C: `undefined`
--   D: `ReferenceError`
+- A: Nichts, das ist absolut in Ordnung.
+- B: `SyntaxError`. Man kann einer Funktion keine Properties in der Form zuweisen.
+- C: `undefined`
+- D: `ReferenceError`
 
 <details><summary><b>Antwort</b></summary>
 <p>
@@ -344,26 +355,26 @@ Eine Funktion ist ein spezieller Typ eines Objekts. Der Code, den wir schreiben 
 
 ---
 
-###### 11. Was ist der Output?
+###### 11. Was wird ausgegeben?
 
 ```javascript
 function Person(firstName, lastName) {
-	this.firstName = firstName;
-	this.lastName = lastName;
+  this.firstName = firstName;
+  this.lastName = lastName;
 }
 
 const member = new Person("Lydia", "Hallie");
-Person.getFullName = function() {
-	return `${this.firstName} ${this.lastName}`;
+Person.getFullName = function () {
+  return `${this.firstName} ${this.lastName}`;
 };
 
 console.log(member.getFullName());
 ```
 
--   A: `TypeError`
--   B: `SyntaxError`
--   C: `Lydia Hallie`
--   D: `undefined` `undefined`
+- A: `TypeError`
+- B: `SyntaxError`
+- C: `Lydia Hallie`
+- D: `undefined` `undefined`
 
 <details><summary><b>Antwort</b></summary>
 <p>
@@ -373,8 +384,8 @@ console.log(member.getFullName());
 Man kann keine Properties einem Constructor zuweisen, wie es bei normalen Objects der Fall ist. Wenn man ein Feature allen Objects zugleich zuweisen möchte, muss man den Prototype verwenden. In diesem Fall also:
 
 ```js
-Person.prototype.getFullName = function() {
-	return `${this.firstName} ${this.lastName}`;
+Person.prototype.getFullName = function () {
+  return `${this.firstName} ${this.lastName}`;
 };
 ```
 
@@ -386,12 +397,12 @@ Stattdessen haben wir sie nur dem Prototype zugewiesen, sodass sie nur an einer 
 
 ---
 
-###### 12. Was ist der Output?
+###### 12. Was wird ausgegeben?
 
 ```javascript
 function Person(firstName, lastName) {
-	this.firstName = firstName;
-	this.lastName = lastName;
+  this.firstName = firstName;
+  this.lastName = lastName;
 }
 
 const lydia = new Person("Lydia", "Hallie");
@@ -401,10 +412,10 @@ console.log(lydia);
 console.log(sarah);
 ```
 
--   A: `Person {firstName: "Lydia", lastName: "Hallie"}` und `undefined`
--   B: `Person {firstName: "Lydia", lastName: "Hallie"}` und `Person {firstName: "Sarah", lastName: "Smith"}`
--   C: `Person {firstName: "Lydia", lastName: "Hallie"}` und `{}`
--   D:`Person {firstName: "Lydia", lastName: "Hallie"}` und `ReferenceError`
+- A: `Person {firstName: "Lydia", lastName: "Hallie"}` und `undefined`
+- B: `Person {firstName: "Lydia", lastName: "Hallie"}` und `Person {firstName: "Sarah", lastName: "Smith"}`
+- C: `Person {firstName: "Lydia", lastName: "Hallie"}` und `{}`
+- D:`Person {firstName: "Lydia", lastName: "Hallie"}` und `ReferenceError`
 
 <details><summary><b>Antwort</b></summary>
 <p>
@@ -422,10 +433,10 @@ Wir haben `this.firstName` den Wert `"Sarah"` zugewiesen und `this.lastName` den
 
 ###### 13. Was sind die drei Phasen der Event Propagation?
 
--   A: Target > Capturing > Bubbling
--   B: Bubbling > Target > Capturing
--   C: Target > Bubbling > Capturing
--   D: Capturing > Target > Bubbling
+- A: Target > Capturing > Bubbling
+- B: Bubbling > Target > Capturing
+- C: Target > Bubbling > Capturing
+- D: Capturing > Target > Bubbling
 
 <details><summary><b>Antwort</b></summary>
 <p>
@@ -443,8 +454,8 @@ Während der **capturing** Phase geht das Event durch die Elternelemente bis hin
 
 ###### 14. Alle Objekte haben Prototypes.
 
--   A: wahr
--   B: falsch
+- A: wahr
+- B: falsch
 
 <details><summary><b>Antwort</b></summary>
 <p>
@@ -458,20 +469,20 @@ Alle Objekte haben Prototypes, außer dem **Basis Objekt**. Das Basis Objekt hat
 
 ---
 
-###### 15. Was ist der Output?
+###### 15. Was wird ausgegeben?
 
 ```javascript
 function sum(a, b) {
-	return a + b;
+  return a + b;
 }
 
 sum(1, "2");
 ```
 
--   A: `NaN`
--   B: `TypeError`
--   C: `"12"`
--   D: `3`
+- A: `NaN`
+- B: `TypeError`
+- C: `"12"`
+- D: `3`
 
 <details><summary><b>Antwort</b></summary>
 <p>
@@ -487,7 +498,7 @@ In diesem Beispiel wandelt JavaScript die Nummer `1` in einem String um, sodass 
 
 ---
 
-###### 16. Was ist der Output?
+###### 16. Was wird ausgegeben?
 
 ```javascript
 let number = 0;
@@ -496,10 +507,10 @@ console.log(++number);
 console.log(number);
 ```
 
--   A: `1` `1` `2`
--   B: `1` `2` `2`
--   C: `0` `2` `2`
--   D: `0` `1` `2`
+- A: `1` `1` `2`
+- B: `1` `2` `2`
+- C: `0` `2` `2`
+- D: `0` `1` `2`
 
 <details><summary><b>Antwort</b></summary>
 <p>
@@ -523,13 +534,13 @@ Der Output ist daher `0 2 2`.
 
 ---
 
-###### 17. Was ist der Output?
+###### 17. Was wird ausgegeben?
 
 ```javascript
 function getPersonInfo(one, two, three) {
-	console.log(one);
-	console.log(two);
-	console.log(three);
+  console.log(one);
+  console.log(two);
+  console.log(three);
 }
 
 const person = "Lydia";
@@ -538,9 +549,9 @@ const age = 21;
 getPersonInfo`${person} is ${age} years old`;
 ```
 
--   A: `"Lydia"` `21` `["", " is ", " years old"]`
--   B: `["", " is ", " years old"]` `"Lydia"` `21`
--   C: `"Lydia"` `["", " is ", " years old"]` `21`
+- A: `"Lydia"` `21` `["", " is ", " years old"]`
+- B: `["", " is ", " years old"]` `"Lydia"` `21`
+- C: `"Lydia"` `["", " is ", " years old"]` `21`
 
 <details><summary><b>Antwort</b></summary>
 <p>
@@ -554,25 +565,25 @@ Wenn man Template Literals verwendet ist das erste Argument immer ein Array der 
 
 ---
 
-###### 18. Was ist der Output?
+###### 18. Was wird ausgegeben?
 
 ```javascript
 function checkAge(data) {
-	if (data === { age: 18 }) {
-		console.log("You are an adult!");
-	} else if (data == { age: 18 }) {
-		console.log("You are still an adult.");
-	} else {
-		console.log(`Hmm.. You don't have an age I guess`);
-	}
+  if (data === { age: 18 }) {
+    console.log("You are an adult!");
+  } else if (data == { age: 18 }) {
+    console.log("You are still an adult.");
+  } else {
+    console.log(`Hmm.. You don't have an age I guess`);
+  }
 }
 
 checkAge({ age: 18 });
 ```
 
--   A: `You are an adult!`
--   B: `You are still an adult.`
--   C: `Hmm.. You don't have an age I guess`
+- A: `You are an adult!`
+- B: `You are still an adult.`
+- C: `Hmm.. You don't have an age I guess`
 
 <details><summary><b>Antwort</b></summary>
 <p>
@@ -590,20 +601,20 @@ Deshalb werfen sowohl `{ age: 18 } === { age: 18 }` als auch `{ age: 18 } == { a
 
 ---
 
-###### 19. Was ist der Output?
+###### 19. Was wird ausgegeben?
 
 ```javascript
 function getAge(...args) {
-	console.log(typeof args);
+  console.log(typeof args);
 }
 
 getAge(21);
 ```
 
--   A: `"number"`
--   B: `"array"`
--   C: `"object"`
--   D: `"NaN"`
+- A: `"number"`
+- B: `"array"`
+- C: `"object"`
+- D: `"NaN"`
 
 <details><summary><b>Antwort</b></summary>
 <p>
@@ -617,22 +628,22 @@ Der Spread Operator (`...args`) gibt ein Array mit Argumenten zurück. Ein Array
 
 ---
 
-###### 20. Was ist der Output?
+###### 20. Was wird ausgegeben?
 
 ```javascript
 function getAge() {
-	"use strict";
-	age = 21;
-	console.log(age);
+  "use strict";
+  age = 21;
+  console.log(age);
 }
 
 getAge();
 ```
 
--   A: `21`
--   B: `undefined`
--   C: `ReferenceError`
--   D: `TypeError`
+- A: `21`
+- B: `undefined`
+- C: `ReferenceError`
+- D: `TypeError`
 
 <details><summary><b>Antwort</b></summary>
 <p>
@@ -652,10 +663,10 @@ Durch `"use strict"` kann man sicher stellen, dass man nicht versehentlich globa
 const sum = eval("10*10+5");
 ```
 
--   A: `105`
--   B: `"105"`
--   C: `TypeError`
--   D: `"10*10+5"`
+- A: `105`
+- B: `"105"`
+- C: `TypeError`
+- D: `"10*10+5"`
 
 <details><summary><b>Antwort</b></summary>
 <p>
@@ -675,10 +686,10 @@ const sum = eval("10*10+5");
 sessionStorage.setItem("cool_secret", 123);
 ```
 
--   A: Für immer, der Wert geht nicht verloren.
--   B: Wenn der User den Tab schließt.
--   C: Wenn der User den Browser schließt, nicht nur den Tab.
--   D: Wenn der User den Computer neu startet.
+- A: Für immer, der Wert geht nicht verloren.
+- B: Wenn der User den Tab schließt.
+- C: Wenn der User den Browser schließt, nicht nur den Tab.
+- D: Wenn der User den Computer neu startet.
 
 <details><summary><b>Antwort</b></summary>
 <p>
@@ -694,7 +705,7 @@ Wenn man stattdessen `localStorage` verwendet, bleibt der Wert für immer besteh
 
 ---
 
-###### 23. Was ist der Output?
+###### 23. Was wird ausgegeben?
 
 ```javascript
 var num = 8;
@@ -703,10 +714,10 @@ var num = 10;
 console.log(num);
 ```
 
--   A: `8`
--   B: `10`
--   C: `SyntaxError`
--   D: `ReferenceError`
+- A: `8`
+- B: `10`
+- C: `SyntaxError`
+- D: `ReferenceError`
 
 <details><summary><b>Antwort</b></summary>
 <p>
@@ -722,7 +733,7 @@ Das ist nicht möglich mit `let` oder `const`, da diese dem Block Scope unterlie
 
 ---
 
-###### 24. Was ist der Output?
+###### 24. Was wird ausgegeben?
 
 ```javascript
 const obj = { 1: "a", 2: "b", 3: "c" };
@@ -734,10 +745,10 @@ set.has("1");
 set.has(1);
 ```
 
--   A: `false` `true` `false` `true`
--   B: `false` `true` `true` `true`
--   C: `true` `true` `false` `true`
--   D: `true` `true` `true` `true`
+- A: `false` `true` `false` `true`
+- B: `false` `true` `true` `true`
+- C: `true` `true` `false` `true`
+- D: `true` `true` `true` `true`
 
 <details><summary><b>Antwort</b></summary>
 <p>
@@ -753,17 +764,17 @@ Das funktioniert nicht für Set. Da wir keine `'1'` in unserem Set haben wirft `
 
 ---
 
-###### 25. Was ist der Output?
+###### 25. Was wird ausgegeben?
 
 ```javascript
 const obj = { a: "one", b: "two", a: "three" };
 console.log(obj);
 ```
 
--   A: `{ a: "one", b: "two" }`
--   B: `{ b: "two", a: "three" }`
--   C: `{ a: "three", b: "two" }`
--   D: `SyntaxError`
+- A: `{ a: "one", b: "two" }`
+- B: `{ b: "two", a: "three" }`
+- C: `{ a: "three", b: "two" }`
+- D: `SyntaxError`
 
 <details><summary><b>Antwort</b></summary>
 <p>
@@ -779,9 +790,9 @@ Wenn man zwei Keys mit dem selben Namen hat, wird der erste Key ersetzt. Er wird
 
 ###### 26. Der JavaScript Global Execution Context erstellt zwei Dinge: das globale Objekt und das "this" Keyword.
 
--   A: wahr
--   B: falsch
--   C: kommt darauf an
+- A: wahr
+- B: falsch
+- C: kommt darauf an
 
 <details><summary><b>Antwort</b></summary>
 <p>
@@ -795,19 +806,19 @@ Der Base Execution Context entspricht dem Global Execution Context und ist über
 
 ---
 
-###### 27. Was ist der Output?
+###### 27. Was wird ausgegeben?
 
 ```javascript
 for (let i = 1; i < 5; i++) {
-	if (i === 3) continue;
-	console.log(i);
+  if (i === 3) continue;
+  console.log(i);
 }
 ```
 
--   A: `1` `2`
--   B: `1` `2` `3`
--   C: `1` `2` `4`
--   D: `1` `3` `4`
+- A: `1` `2`
+- B: `1` `2` `3`
+- C: `1` `2` `4`
+- D: `1` `3` `4`
 
 <details><summary><b>Antwort</b></summary>
 <p>
@@ -821,11 +832,11 @@ for (let i = 1; i < 5; i++) {
 
 ---
 
-###### 28. Was ist der Output?
+###### 28. Was wird ausgegeben?
 
 ```javascript
 String.prototype.giveLydiaPizza = () => {
-	return "Just give Lydia pizza already!";
+  return "Just give Lydia pizza already!";
 };
 
 const name = "Lydia";
@@ -833,10 +844,10 @@ const name = "Lydia";
 name.giveLydiaPizza();
 ```
 
--   A: `"Just give Lydia pizza already!"`
--   B: `TypeError: not a function`
--   C: `SyntaxError`
--   D: `undefined`
+- A: `"Just give Lydia pizza already!"`
+- B: `TypeError: not a function`
+- C: `SyntaxError`
+- D: `undefined`
 
 <details><summary><b>Antwort</b></summary>
 <p>
@@ -850,7 +861,7 @@ name.giveLydiaPizza();
 
 ---
 
-###### 29. Was ist der Output?
+###### 29. Was wird ausgegeben?
 
 ```javascript
 const a = {};
@@ -863,10 +874,10 @@ a[c] = 456;
 console.log(a[b]);
 ```
 
--   A: `123`
--   B: `456`
--   C: `undefined`
--   D: `ReferenceError`
+- A: `123`
+- B: `456`
+- C: `undefined`
+- D: `ReferenceError`
 
 <details><summary><b>Antwort</b></summary>
 <p>
@@ -884,7 +895,7 @@ Dann loggen wir `a[b]`, was eigentlich `a["object Object"]` ist und gerade von u
 
 ---
 
-###### 30. Was ist der Output?
+###### 30. Was wird ausgegeben?
 
 ```javascript
 const foo = () => console.log("First");
@@ -896,10 +907,10 @@ foo();
 baz();
 ```
 
--   A: `First` `Second` `Third`
--   B: `First` `Third` `Second`
--   C: `Second` `First` `Third`
--   D: `Second` `Third` `First`
+- A: `First` `Second` `Third`
+- B: `First` `Third` `Second`
+- C: `Second` `First` `Third`
+- D: `Second` `Third` `First`
 
 <details><summary><b>Antwort</b></summary>
 <p>
@@ -941,18 +952,16 @@ Das ist, wo die Event Loop ins Spiel kommt. Die **Event Loop** betrachtet den St
 
 ```html
 <div onclick="console.log('first div')">
-	<div onclick="console.log('second div')">
-		<button onclick="console.log('button')">
-			Click!
-		</button>
-	</div>
+  <div onclick="console.log('second div')">
+    <button onclick="console.log('button')">Click!</button>
+  </div>
 </div>
 ```
 
--   A: Äußerer `div`
--   B: Innerer `div`
--   C: `button`
--   D: Ein Array mit allen genesteten Elementen
+- A: Äußerer `div`
+- B: Innerer `div`
+- C: `button`
+- D: Ein Array mit allen genesteten Elementen
 
 <details><summary><b>Antwort</b></summary>
 <p>
@@ -970,16 +979,14 @@ Das am tiefsten genestete Element, welches das Event auslöst ist das Event Targ
 
 ```html
 <div onclick="console.log('div')">
-	<p onclick="console.log('p')">
-		Click here!
-	</p>
+  <p onclick="console.log('p')">Click here!</p>
 </div>
 ```
 
--   A: `p` `div`
--   B: `div` `p`
--   C: `p`
--   D: `div`
+- A: `p` `div`
+- B: `div` `p`
+- C: `p`
+- D: `div`
 
 <details><summary><b>Antwort</b></summary>
 <p>
@@ -993,23 +1000,23 @@ Wenn wir auf den Paragraph klicken, sehen wir zwei logs: `p` und `div`. Während
 
 ---
 
-###### 33. Was ist der Output?
+###### 33. Was wird ausgegeben?
 
 ```javascript
 const person = { name: "Lydia" };
 
 function sayHi(age) {
-	console.log(`${this.name} is ${age}`);
+  console.log(`${this.name} is ${age}`);
 }
 
 sayHi.call(person, 21);
 sayHi.bind(person, 21);
 ```
 
--   A: `undefined is 21` `Lydia is 21`
--   B: `function` `function`
--   C: `Lydia is 21` `Lydia is 21`
--   D: `Lydia is 21` `function`
+- A: `undefined is 21` `Lydia is 21`
+- B: `function` `function`
+- C: `Lydia is 21` `Lydia is 21`
+- D: `Lydia is 21` `function`
 
 <details><summary><b>Antwort</b></summary>
 <p>
@@ -1025,20 +1032,20 @@ In beiden Fällen können wir das Objekt weiter reichen, auf welches sich das `t
 
 ---
 
-###### 34. Was ist der Output?
+###### 34. Was wird ausgegeben?
 
 ```javascript
 function sayHi() {
-	return (() => 0)();
+  return (() => 0)();
 }
 
 typeof sayHi();
 ```
 
--   A: `"object"`
--   B: `"number"`
--   C: `"function"`
--   D: `"undefined"`
+- A: `"object"`
+- B: `"number"`
+- C: `"function"`
+- D: `"undefined"`
 
 <details><summary><b>Antwort</b></summary>
 <p>
@@ -1065,10 +1072,10 @@ new Boolean(false);
 undefined;
 ```
 
--   A: `0`, `''`, `undefined`
--   B: `0`, `new Number(0)`, `''`, `new Boolean(false)`, `undefined`
--   C: `0`, `''`, `new Boolean(false)`, `undefined`
--   D: Alle sind falsy
+- A: `0`, `''`, `undefined`
+- B: `0`, `new Number(0)`, `''`, `new Boolean(false)`, `undefined`
+- C: `0`, `''`, `new Boolean(false)`, `undefined`
+- D: Alle sind falsy
 
 <details><summary><b>Antwort</b></summary>
 <p>
@@ -1077,12 +1084,12 @@ undefined;
 
 Es gibt nur 6 falsy typen:
 
--   `undefined`
--   `null`
--   `NaN`
--   `0`
--   `''` (leerer String)
--   `false`
+- `undefined`
+- `null`
+- `NaN`
+- `0`
+- `''` (leerer String)
+- `false`
 
 Funktions-Constructor, wie `new Number` und `new Boolean` sind truthy.
 
@@ -1091,16 +1098,16 @@ Funktions-Constructor, wie `new Number` und `new Boolean` sind truthy.
 
 ---
 
-###### 36. Was ist der Output?
+###### 36. Was wird ausgegeben?
 
 ```javascript
 console.log(typeof typeof 1);
 ```
 
--   A: `"number"`
--   B: `"string"`
--   C: `"object"`
--   D: `"undefined"`
+- A: `"number"`
+- B: `"string"`
+- C: `"object"`
+- D: `"undefined"`
 
 <details><summary><b>Antwort</b></summary>
 <p>
@@ -1115,7 +1122,7 @@ console.log(typeof typeof 1);
 
 ---
 
-###### 37. Was ist der Output?
+###### 37. Was wird ausgegeben?
 
 ```javascript
 const numbers = [1, 2, 3];
@@ -1123,10 +1130,10 @@ numbers[10] = 11;
 console.log(numbers);
 ```
 
--   A: `[1, 2, 3, 7 x null, 11]`
--   B: `[1, 2, 3, 11]`
--   C: `[1, 2, 3, 7 x empty, 11]`
--   D: `SyntaxError`
+- A: `[1, 2, 3, 7 x null, 11]`
+- B: `[1, 2, 3, 11]`
+- C: `[1, 2, 3, 7 x empty, 11]`
+- D: `SyntaxError`
 
 <details><summary><b>Antwort</b></summary>
 <p>
@@ -1144,26 +1151,26 @@ abhängig davon wo das Array ausgeführt wird (die Ausgabe ist unterschiedlich f
 
 ---
 
-###### 38. Was ist der Output?
+###### 38. Was wird ausgegeben?
 
 ```javascript
 (() => {
-	let x, y;
-	try {
-		throw new Error();
-	} catch (x) {
-		(x = 1), (y = 2);
-		console.log(x);
-	}
-	console.log(x);
-	console.log(y);
+  let x, y;
+  try {
+    throw new Error();
+  } catch (x) {
+    (x = 1), (y = 2);
+    console.log(x);
+  }
+  console.log(x);
+  console.log(y);
 })();
 ```
 
--   A: `1` `undefined` `2`
--   B: `undefined` `undefined` `undefined`
--   C: `1` `1` `2`
--   D: `1` `undefined` `undefined`
+- A: `1` `undefined` `2`
+- B: `undefined` `undefined` `undefined`
+- C: `1` `1` `2`
+- D: `1` `undefined` `undefined`
 
 <details><summary><b>Antwort</b></summary>
 <p>
@@ -1183,10 +1190,10 @@ Außerhalb des `catch` Blocks ist `x` noch immer `undefined` und `y` ist `2`. We
 
 ###### 39. Alles in JavaScript ist entweder ein ...
 
--   A: Primitive oder Object
--   B: Function oder Object
--   C: Fangfrage: nur Objects!
--   D: Number oder Object
+- A: Primitive oder Object
+- B: Function oder Object
+- C: Fangfrage: nur Objects!
+- D: Number oder Object
 
 <details><summary><b>Antwort</b></summary>
 <p>
@@ -1204,21 +1211,24 @@ Was einen primitiven Typ von einem Objekt unterscheidet ist, dass Primitive kein
 
 ---
 
-###### 40. Was ist der Output?
+###### 40. Was wird ausgegeben?
 
 ```javascript
-[[0, 1], [2, 3]].reduce(
-	(acc, cur) => {
-		return acc.concat(cur);
-	},
-	[1, 2],
+[
+  [0, 1],
+  [2, 3],
+].reduce(
+  (acc, cur) => {
+    return acc.concat(cur);
+  },
+  [1, 2]
 );
 ```
 
--   A: `[0, 1, 2, 3, 1, 2]`
--   B: `[6, 1, 2]`
--   C: `[1, 2, 0, 1, 2, 3]`
--   D: `[1, 2, 6]`
+- A: `[0, 1, 2, 3, 1, 2]`
+- B: `[6, 1, 2]`
+- C: `[1, 2, 0, 1, 2, 3]`
+- D: `[1, 2, 6]`
 
 <details><summary><b>Antwort</b></summary>
 <p>
@@ -1234,7 +1244,7 @@ Dann entspricht `acc` gleich `[1, 2, 0, 1]` und `cur` ist gleich `[2, 3]`. Wir v
 
 ---
 
-###### 41. Was ist der Output?
+###### 41. Was wird ausgegeben?
 
 ```javascript
 !!null;
@@ -1242,10 +1252,10 @@ Dann entspricht `acc` gleich `[1, 2, 0, 1]` und `cur` ist gleich `[2, 3]`. Wir v
 !!1;
 ```
 
--   A: `false` `true` `false`
--   B: `false` `false` `true`
--   C: `false` `true` `true`
--   D: `true` `true` `false`
+- A: `false` `true` `false`
+- B: `false` `false` `true`
+- C: `false` `true` `true`
+- D: `true` `true` `false`
 
 <details><summary><b>Antwort</b></summary>
 <p>
@@ -1269,10 +1279,10 @@ Dann entspricht `acc` gleich `[1, 2, 0, 1]` und `cur` ist gleich `[2, 3]`. Wir v
 setInterval(() => console.log("Hi"), 1000);
 ```
 
--   A: Eine unique id
--   B: Die definierte Anzahl von Millisekunden
--   C: Die Callback Function
--   D: `undefined`
+- A: Eine unique id
+- B: Die definierte Anzahl von Millisekunden
+- C: Die Callback Function
+- D: `undefined`
 
 <details><summary><b>Antwort</b></summary>
 <p>
@@ -1292,10 +1302,10 @@ Es gibt eine unique id zurück. Diese id kann zum Beispiel verwendet werden um d
 [..."Lydia"];
 ```
 
--   A: `["L", "y", "d", "i", "a"]`
--   B: `["Lydia"]`
--   C: `[[], "Lydia"]`
--   D: `[["L", "y", "d", "i", "a"]]`
+- A: `["L", "y", "d", "i", "a"]`
+- B: `["Lydia"]`
+- C: `[[], "Lydia"]`
+- D: `[["L", "y", "d", "i", "a"]]`
 
 <details><summary><b>Antwort</b></summary>
 <p>
@@ -1309,7 +1319,7 @@ Ein String ist ein Iterable. Der Spread Operator mappt jedes Zeichen eines Itera
 
 ---
 
-###### 44. Was ist der Output?
+###### 44. Was wird ausgegeben?
 
 ```javascript
 function* generator(i) {
@@ -1355,7 +1365,7 @@ const secondPromise = new Promise((res, rej) => {
   setTimeout(res, 100, "two");
 });
 
-Promise.race([firstPromise, secondPromise]).then(res => console.log(res));
+Promise.race([firstPromise, secondPromise]).then((res) => console.log(res));
 ```
 
 - A: `"one"`
@@ -1375,7 +1385,7 @@ Wenn wir mehrere Promises in die `Promice.race` Methode eingegeben, wird das Pro
 
 ---
 
-###### 46. Was ist der Output?
+###### 46. Was wird ausgegeben?
 
 ```javascript
 let person = { name: "Lydia" };
@@ -1414,12 +1424,12 @@ Wir ändern nur den Wert der Variable `person` und nicht das erste Element im Ar
 
 ---
 
-###### 47. Was ist der Output?
+###### 47. Was wird ausgegeben?
 
 ```javascript
 const person = {
   name: "Lydia",
-  age: 21
+  age: 21,
 };
 
 for (const item in person) {
@@ -1444,7 +1454,7 @@ Mit einer `for-in` Schleife können wir über Objekt Keys iterieren - in diesem 
 
 ---
 
-###### 48. Was ist der Output?
+###### 48. Was wird ausgegeben?
 
 ```javascript
 console.log(3 + 4 + "5");
@@ -1496,10 +1506,10 @@ Nur die erste Zahl im String wird ausgegeben. Aufgrund des _radix_ (das zweite A
 
 ---
 
-###### 50. Was ist der Output?
+###### 50. Was wird ausgegeben?
 
 ```javascript
-[1, 2, 3].map(num => {
+[1, 2, 3].map((num) => {
   if (typeof num === "number") return;
   return num * 2;
 });
@@ -1524,7 +1534,7 @@ Allerdings geben wir keinen Wert aus. Wenn unsere Funktion keinen Wert ausgibt, 
 
 ---
 
-###### 51. Was ist der Output?
+###### 51. Was wird ausgegeben?
 
 ```javascript
 function getInfo(member, year) {
@@ -1561,7 +1571,7 @@ Der Wert von `person` ist ein Objekt, sodass das Argument `member` eine Kopie de
 
 ---
 
-###### 52. Was ist der Output?
+###### 52. Was wird ausgegeben?
 
 ```javascript
 function greeting() {
@@ -1599,7 +1609,7 @@ Mit dem `catch` Statement können wir definieren, was passiert, wenn die Excepti
 
 ---
 
-###### 53. Was ist der Output?
+###### 53. Was wird ausgegeben?
 
 ```javascript
 function Car() {
@@ -1628,7 +1638,7 @@ Wenn man eine Property ausgibt ist der Wert der Property gleich dem ausgegeben W
 
 ---
 
-###### 54. Was ist der Output?
+###### 54. Was wird ausgegeben?
 
 ```javascript
 (() => {
@@ -1665,10 +1675,9 @@ Da wir die Variable `y` aber global erstellt haben ist ihr Wert `10` auch hier v
 </p>
 </details>
 
-
 ---
 
-###### 55. Was ist der Output?
+###### 55. Was wird ausgegeben?
 
 ```javascript
 class Dog {
@@ -1677,7 +1686,7 @@ class Dog {
   }
 }
 
-Dog.prototype.bark = function() {
+Dog.prototype.bark = function () {
   console.log(`Woof I am ${this.name}`);
 };
 
@@ -1709,7 +1718,7 @@ Wenn wir versuchen etwas auszuführen, was keine Funktion ist, wird ein `TypeErr
 
 ---
 
-###### 56. Was ist der Output?
+###### 56. Was wird ausgegeben?
 
 ```javascript
 const set = new Set([1, 1, 2, 3, 4]);
@@ -1736,7 +1745,7 @@ Wir übergeben `[1, 1, 2, 3, 4]` mit einer doppelten `1`. Da wir keine doppelten
 
 ---
 
-###### 57. Was ist der Output?
+###### 57. Was wird ausgegeben?
 
 ```javascript
 // counter.js
@@ -1772,7 +1781,7 @@ Wenn wir also den Wert von `myCounter` erhöhen bekommen wir den Fehler `myCount
 
 ---
 
-###### 58. Was ist der Output?
+###### 58. Was wird ausgegeben?
 
 ```javascript
 const name = "Lydia";
@@ -1792,7 +1801,7 @@ console.log(delete age);
 
 #### Antwort: A
 
-Der `delete` Operator gibt einen Boolean Wert zurück: `true` bei erfolgreichem entfernen, oder andernfalls `false`. Variablen, die mit `var`, `let` oder `const` deklariert werden, können andererseits  nicht mit `delete` entfernt werden.
+Der `delete` Operator gibt einen Boolean Wert zurück: `true` bei erfolgreichem entfernen, oder andernfalls `false`. Variablen, die mit `var`, `let` oder `const` deklariert werden, können andererseits nicht mit `delete` entfernt werden.
 
 Der Wert von `name` wurde mit `const` deklariert, weshalb `delete` nicht möglich ist und `false` zurückgegeben wird. Als wir `age` den Wert `21` zugewiesen haben, haben wir eine Property `age` zum globalen Objekt hinzugefügt. Diese Properties kann man mit `delete` entfernen, sodass `delete age` `true` zurückgibt.
 
@@ -1801,7 +1810,7 @@ Der Wert von `name` wurde mit `const` deklariert, weshalb `delete` nicht möglic
 
 ---
 
-###### 59. Was ist der Output?
+###### 59. Was wird ausgegeben?
 
 ```javascript
 const numbers = [1, 2, 3, 4, 5];
@@ -1843,7 +1852,7 @@ Das bedeutet, dass der Wert von `y` gleich des ersten Wertes im Array ist, spric
 
 ---
 
-###### 60. Was ist der Output?
+###### 60. Was wird ausgegeben?
 
 ```javascript
 const user = { name: "Lydia", age: 21 };
@@ -1869,7 +1878,7 @@ Es ist möglich Objekte mit dem Spread Operator `...` zu verbinden. Dieser erste
 
 ---
 
-###### 61. Was ist der Output?
+###### 61. Was wird ausgegeben?
 
 ```javascript
 const person = { name: "Lydia" };
@@ -1899,13 +1908,13 @@ Properties, die mit `defineProperty` erstellt wurden sind standardmäßig unver�
 
 ---
 
-###### 62. Was ist der Output?
+###### 62. Was wird ausgegeben?
 
 ```javascript
 const settings = {
   username: "lydiahallie",
   level: 19,
-  health: 90
+  health: 90,
 };
 
 const data = JSON.stringify(settings, ["level", "health"]);
@@ -1933,13 +1942,13 @@ Wenn der Replacer eine _Funktion_ ist, so wird diese Funktion für jede Property
 
 ---
 
-###### 63. Was ist der Output?
+###### 63. Was wird ausgegeben?
 
 ```javascript
 let num = 10;
 
 const increaseNumber = () => num++;
-const increasePassedNumber = number => number++;
+const increasePassedNumber = (number) => number++;
 
 const num1 = increaseNumber();
 const num2 = increasePassedNumber(num1);
@@ -1965,11 +1974,9 @@ Der unäre Operator `++` _gibt zuerst_ den Wert des Operanden aus und _erhöht d
 </p>
 </details>
 
-
-
 ---
 
-###### <a name=20190707></a>64. Was ist der Output?
+###### <a name=20190707></a>64. Was wird ausgegeben?
 
 ```javascript
 const value = { number: 10 };
@@ -2007,7 +2014,7 @@ Beim vierten Mal übergeben wir wieder eine `value`. `x.number` wurde zuvor in `
 
 ---
 
-###### 65. Was ist der Output?
+###### 65. Was wird ausgegeben?
 
 ```javascript
 [1, 2, 3, 4].reduce((x, y) => console.log(x, y));
@@ -2034,6 +2041,7 @@ Beim ersten Call ist der Akkumulator (`x`) gleich `1` und der aktuelle Wert (`y`
 Wenn wir keinen Wert einer Funktion ausgeben wird `undefined` ausgegeben. Beim nächsten Call ist der Akkumulator daher `undefined` und der aktuelle Wert ist `3`. `undefined` und `3` werden geloggt.
 
 Beim vierten Call geben wir wieder nichts aus, sodass der Akkumulator wieder `undefined` ist und der aktuelle Wert `4`. `undefined` und `4` werden geloggt.
+
 </p>
 </details>
   
@@ -2046,10 +2054,10 @@ class Dog {
   constructor(name) {
     this.name = name;
   }
-};
+}
 
 class Labrador extends Dog {
-  // 1 
+  // 1
   constructor(name, size) {
     this.size = size;
   }
@@ -2063,13 +2071,12 @@ class Labrador extends Dog {
     super(name);
     this.size = size;
   }
-  // 4 
+  // 4
   constructor(name, size) {
     this.name = name;
     this.size = size;
   }
-
-};
+}
 ```
 
 - A: 1
@@ -2087,6 +2094,7 @@ In einer abgeleiteten Klasse kann das `this` Keyword nicht aufgerufen werden, be
 Mit dem `super` Keyword können wir den Constructor der Elternklasse mit gegebenen Argumenten aufrufen. Der Constructor der Elternklasse erhält das `name` Argument, sodass wir `name` an `super` übergeben müssen.
 
 Die `Dog` Klasse erhält zwei Argumente, `name` da es `Animal` erweitert und `size` als extra Property der `Dog` Klasse. Beide müssen an die Constructor Funktion von `Dog` übergeben werden, was nur bei Constructor 2 richtig ist.
+
 </p>
 </details>
 
@@ -2124,12 +2132,12 @@ Das ist der große Unterschied zwischen `require()` in CommonJS und `import`. Mi
 
 ---
 
-###### 68. Was ist der Output?
+###### 68. Was wird ausgegeben?
 
 ```javascript
-console.log(Number(2) === Number(2))
-console.log(Boolean(false) === Boolean(false))
-console.log(Symbol('foo') === Symbol('foo'))
+console.log(Number(2) === Number(2));
+console.log(Boolean(false) === Boolean(false));
+console.log(Symbol("foo") === Symbol("foo"));
 ```
 
 - A: `true`, `true`, `false`
@@ -2142,25 +2150,25 @@ console.log(Symbol('foo') === Symbol('foo'))
 
 #### Antwort: A
 
-Jedes Symbol ist eindeutig. Der Sinn des Argumentes, welches an das Symbol weitergegeben wird, ist dem Symbol eine Beschreibung zu geben. Der Wert des Symbols hängt nicht von diesem Argument ab. Beim vergleichen der Symbole werden zwei komplett neue Symbole erstellt: das erste `Symbol('foo')` und das zweite `Symbol('foo')`. Diese beiden Werte sind eindeutig und nicht identisch, weshalb `Symbol('foo') === Symbol('foo')` `false` ausgibt. 
+Jedes Symbol ist eindeutig. Der Sinn des Argumentes, welches an das Symbol weitergegeben wird, ist dem Symbol eine Beschreibung zu geben. Der Wert des Symbols hängt nicht von diesem Argument ab. Beim vergleichen der Symbole werden zwei komplett neue Symbole erstellt: das erste `Symbol('foo')` und das zweite `Symbol('foo')`. Diese beiden Werte sind eindeutig und nicht identisch, weshalb `Symbol('foo') === Symbol('foo')` `false` ausgibt.
 
 </p>
 </details>
 
 ---
 
-###### 69. Was ist der Output?
+###### 69. Was wird ausgegeben?
 
 ```javascript
-const name = "Lydia Hallie"
-console.log(name.padStart(13))
-console.log(name.padStart(2))
+const name = "Lydia Hallie";
+console.log(name.padStart(13));
+console.log(name.padStart(2));
 ```
 
 - A: `"Lydia Hallie"`, `"Lydia Hallie"`
-- B: `"           Lydia Hallie"`, `"  Lydia Hallie"` (`"[13x whitespace]Lydia Hallie"`, `"[2x whitespace]Lydia Hallie"`)
+- B: `" Lydia Hallie"`, `" Lydia Hallie"` (`"[13x whitespace]Lydia Hallie"`, `"[2x whitespace]Lydia Hallie"`)
 - C: `" Lydia Hallie"`, `"Lydia Hallie"` (`"[1x whitespace]Lydia Hallie"`, `"Lydia Hallie"`)
-- D: `"Lydia Hallie"`, `"Lyd"`, 
+- D: `"Lydia Hallie"`, `"Lyd"`,
 
 <details><summary><b>Antwort</b></summary>
 <p>
@@ -2176,7 +2184,7 @@ Falls der Wert, der an `padStart` übergeben wurde kleiner ist, als die Länge d
 
 ---
 
-###### 70. Was ist der Output?
+###### 70. Was wird ausgegeben?
 
 ```javascript
 console.log("🥑" + "💻");
@@ -2236,7 +2244,7 @@ Wenn wir `game.next("Yes").value` aufrufen wird das vorhergehende `yield` durch 
 
 ---
 
-###### 72. Was ist der Output?
+###### 72. Was wird ausgegeben?
 
 ```javascript
 console.log(String.raw`Hello\nworld`);
@@ -2271,7 +2279,7 @@ In unserem Fall ist das Ergebnis `Hello\nworld`, was geloggt wird.
 
 ---
 
-###### 73. Was ist der Output?
+###### 73. Was wird ausgegeben?
 
 ```javascript
 async function getData() {
@@ -2305,7 +2313,7 @@ Das hätte `"I made it!"` ausgegeben.
 
 ---
 
-###### 74. Was ist der Output?
+###### 74. Was wird ausgegeben?
 
 ```javascript
 function addToList(item, list) {
@@ -2335,7 +2343,7 @@ Die `push` Methode verändert das ursprüngliche Array. Wenn wir das _Array_ der
 
 ---
 
-###### 75. Was ist der Output?
+###### 75. Was wird ausgegeben?
 
 ```javascript
 const box = { x: 10, y: 20 };
@@ -2370,7 +2378,7 @@ Da `shape` eingefroren ist und der Wert von `x` kein Objekt ist, können wir den
 
 ---
 
-###### 76. Was ist der Output?
+###### 76. Was wird ausgegeben?
 
 ```javascript
 const { name: myName } = { name: "Lydia" };
@@ -2424,12 +2432,12 @@ Die `sum` Funktion gibt daher immer das gleiche Ergebnis aus. Wenn wir `1` und `
 
 ---
 
-###### 78. Was ist der Output?
+###### 78. Was wird ausgegeben?
 
 ```javascript
 const add = () => {
   const cache = {};
-  return num => {
+  return (num) => {
     if (num in cache) {
       return `From cache! ${cache[num]}`;
     } else {
@@ -2471,24 +2479,24 @@ Beim dritten Mal geben wir `5 * 2` als Argument in die Funktion ein, was `10` er
 
 ---
 
-###### <a name=20190726></a>79. Was ist der Output?
+###### <a name=20190726></a>79. Was wird ausgegeben?
 
 ```javascript
-const myLifeSummedUp = ["☕", "💻", "🍷", "🍫"]
+const myLifeSummedUp = ["☕", "💻", "🍷", "🍫"];
 
 for (let item in myLifeSummedUp) {
-  console.log(item)
+  console.log(item);
 }
 
 for (let item of myLifeSummedUp) {
-  console.log(item)
+  console.log(item);
 }
 ```
 
 - A: `0` `1` `2` `3` und `"☕"` ` "💻"` `"🍷"` `"🍫"`
 - B: `"☕"` ` "💻"` `"🍷"` `"🍫"` und `"☕"` ` "💻"` `"🍷"` `"🍫"`
 - C: `"☕"` ` "💻"` `"🍷"` `"🍫"` und `0` `1` `2` `3`
-- D:  `0` `1` `2` `3` und `{0: "☕", 1: "💻", 2: "🍷", 3: "🍫"}`
+- D: `0` `1` `2` `3` und `{0: "☕", 1: "💻", 2: "🍷", 3: "🍫"}`
 
 <details><summary><b>Antwort</b></summary>
 <p>
@@ -2508,17 +2516,17 @@ Mit einer _for-of_ Schleife können wir über **wiederholbare** Elemente iterier
 
 ---
 
-###### 80. Was ist der Output?
+###### 80. Was wird ausgegeben?
 
 ```javascript
-const list = [1 + 2, 1 * 2, 1 / 2]
-console.log(list)
+const list = [1 + 2, 1 * 2, 1 / 2];
+console.log(list);
 ```
 
 - A: `["1 + 2", "1 * 2", "1 / 2"]`
 - B: `["12", 2, 0.5]`
 - C: `[3, 2, 0.5]`
-- D:  `[1, 1, 1]`
+- D: `[1, 1, 1]`
 
 <details><summary><b>Antwort</b></summary>
 <p>
@@ -2534,20 +2542,20 @@ Das Element ist gleich dem ausgegebenen Wert. `1 + 2` ergibt `3`, `1 * 2` ergibt
 
 ---
 
-###### 81. Was ist der Output?
+###### 81. Was wird ausgegeben?
 
 ```javascript
 function sayHi(name) {
-  return `Hi there, ${name}`
+  return `Hi there, ${name}`;
 }
 
-console.log(sayHi())
+console.log(sayHi());
 ```
 
 - A: `Hi there, `
 - B: `Hi there, undefined`
 - C: `Hi there, null`
-- D:  `ReferenceError`
+- D: `ReferenceError`
 
 <details><summary><b>Antwort</b></summary>
 <p>
@@ -2567,24 +2575,24 @@ In diesem Fall, falls wir kein Argument oder `undefined` eingeben ist `name` imm
 
 ---
 
-###### 82. Was ist der Output?
+###### 82. Was wird ausgegeben?
 
 ```javascript
-var status = "😎"
+var status = "😎";
 
 setTimeout(() => {
-  const status = "😍"
+  const status = "😍";
 
   const data = {
     status: "🥑",
     getStatus() {
-      return this.status
-    }
-  }
+      return this.status;
+    },
+  };
 
-  console.log(data.getStatus())
-  console.log(data.getStatus.call(this))
-}, 0)
+  console.log(data.getStatus());
+  console.log(data.getStatus.call(this));
+}, 0);
 ```
 
 - A: `"🥑"` und `"😍"`
@@ -2601,24 +2609,23 @@ Der Wert des `this` Keywords hängt davon ab, wo es verwendet wird. In einer **M
 
 Mit der `call` Methode können wir das Objekt, auf welches sich das `this` Keyword bezieht ändern. In **Funktionen** bezieht sich `this` auf das _Objekt, zu dem die Funktion gehört_. Wir erklären die `setTimeout` Funktion im _globalen Objekt_, sodass sich `this` in `setTimeout` auf das _globale Objekt_ bezieht. Im globalen Objekt gibt es _status_ mit dem Wert `"😎"`, was geloggt wird.
 
-
 </p>
 </details>
 
 ---
 
-###### 83. Was ist der Output?
+###### 83. Was wird ausgegeben?
 
 ```javascript
 const person = {
   name: "Lydia",
-  age: 21
-}
+  age: 21,
+};
 
-let city = person.city
-city = "Amsterdam"
+let city = person.city;
+city = "Amsterdam";
 
-console.log(person)
+console.log(person);
 ```
 
 - A: `{ name: "Lydia", age: 21 }`
@@ -2644,20 +2651,20 @@ Wenn wir `person` loggen bekommen wir daher das unveränderte Objekt angezeigt.
 
 ---
 
-###### 84. Was ist der Output?
+###### 84. Was wird ausgegeben?
 
 ```javascript
 function checkAge(age) {
   if (age < 18) {
-    const message = "Sorry, you're too young."
+    const message = "Sorry, you're too young.";
   } else {
-    const message = "Yay! You're old enough!"
+    const message = "Yay! You're old enough!";
   }
 
-  return message
+  return message;
 }
 
-console.log(checkAge(21))
+console.log(checkAge(21));
 ```
 
 - A: `"Sorry, you're too young."`
@@ -2680,15 +2687,15 @@ Variablen mit dem `const` und `let` Keyword sind _block-scoped_. Ein Block ist a
 ###### 85. Welche Information wird geloggt?
 
 ```javascript
-fetch('https://www.website.com/api/user/1')
-  .then(res => res.json())
-  .then(res => console.log(res))
+fetch("https://www.website.com/api/user/1")
+  .then((res) => res.json())
+  .then((res) => console.log(res));
 ```
 
 - A: Das Ergebnis der `fetch` Methode.
 - B: Das Ergebnis des zweiten Aufrufs der `fetch` Methode.
 - C: Das Ergebnis des Callbacks im vorhergehenden `.then()`.
-- D: Immer `undefined`. 
+- D: Immer `undefined`.
 
 <details><summary><b>Antwort</b></summary>
 <p>
@@ -2727,16 +2734,16 @@ Wenn wir `hasName` gleich `name` setzen, so beinhaltet `hasName` den Wert von `n
 `new Boolean(true)` gibt einen Objekt Wrapper aus, nicht ein Boolean ansich.
 
 `name.length` gibt die Länge des Arguments aus, nicht den Boolean Wert.
+
 </p>
 </details>
 
-
 ---
 
-###### <a name=20190805></a>87. Was ist der Output?
+###### <a name=20190805></a>87. Was wird ausgegeben?
 
 ```javascript
-console.log("I want pizza"[0])
+console.log("I want pizza"[0]);
 ```
 
 - A: `"""`
@@ -2758,14 +2765,14 @@ Diese Methode funktioniert nicht in IE7 und davor. Hier muss `.charAt()` verwend
 
 ---
 
-###### 88. Was ist der Output?
+###### 88. Was wird ausgegeben?
 
 ```javascript
 function sum(num1, num2 = num1) {
-  console.log(num1 + num2)
+  console.log(num1 + num2);
 }
 
-sum(10)
+sum(10);
 ```
 
 - A: `NaN`
@@ -2787,17 +2794,17 @@ Wenn man den Wert des Standard Paramenters gleich dem Parameter setztm der _dana
 
 ---
 
-###### 89. Was ist der Output?
+###### 89. Was wird ausgegeben?
 
 ```javascript
-// module.js 
-export default () => "Hello world"
-export const name = "Lydia"
+// module.js
+export default () => "Hello world";
+export const name = "Lydia";
 
-// index.js 
-import * as data from "./module"
+// index.js
+import * as data from "./module";
 
-console.log(data)
+console.log(data);
 ```
 
 - A: `{ default: function default(), name: "Lydia" }`
@@ -2819,17 +2826,17 @@ Das `data` Objekt hat eine Standard Property für alle Standard Exporte, andere 
 
 ---
 
-###### 90. Was ist der Output?
+###### 90. Was wird ausgegeben?
 
 ```javascript
 class Person {
   constructor(name) {
-    this.name = name
+    this.name = name;
   }
 }
 
-const member = new Person("John")
-console.log(typeof member)
+const member = new Person("John");
+console.log(typeof member);
 ```
 
 - A: `"class"`
@@ -2846,7 +2853,7 @@ Klassen sind syntaktischer Zucker für Funktionskontruktoren. Das Equivalent der
 
 ```javascript
 function Person() {
-  this.name = name
+  this.name = name;
 }
 ```
 
@@ -2857,12 +2864,12 @@ Das Aufrufen eines Funktionskonstruktors mit `new` hat zur Folge, dass eine Inst
 
 ---
 
-###### 91. Was ist der Output?
+###### 91. Was wird ausgegeben?
 
 ```javascript
-let newList = [1, 2, 3].push(4)
+let newList = [1, 2, 3].push(4);
 
-console.log(newList.push(5))
+console.log(newList.push(5));
 ```
 
 - A: `[1, 2, 3, 4, 5]`
@@ -2884,21 +2891,22 @@ Dann versuchen wir die `.push` Methode auf `newList` anzuwenden. Da `newList` de
 
 ---
 
-###### 92. Was ist der Output?
+###### 92. Was wird ausgegeben?
 
 ```javascript
 function giveLydiaPizza() {
-  return "Here is pizza!"
+  return "Here is pizza!";
 }
 
-const giveLydiaChocolate = () => "Here's chocolate... now go hit the gym already."
+const giveLydiaChocolate = () =>
+  "Here's chocolate... now go hit the gym already.";
 
-console.log(giveLydiaPizza.prototype)
-console.log(giveLydiaChocolate.prototype)
+console.log(giveLydiaPizza.prototype);
+console.log(giveLydiaChocolate.prototype);
 ```
 
-- A: `{ constructor: ...}` `{ constructor: ...}` 
-- B: `{}` `{ constructor: ...}` 
+- A: `{ constructor: ...}` `{ constructor: ...}`
+- B: `{}` `{ constructor: ...}`
 - C: `{ constructor: ...}` `{}`
 - D: `{ constructor: ...}` `undefined`
 
@@ -2907,28 +2915,28 @@ console.log(giveLydiaChocolate.prototype)
 
 #### Antwort: D
 
-Reguläre Funktionen wie `giveLydiaPizza` haben eine `prototype` Property, die ein Objekt (Prototype Object) mit einem `constructor` ist. Arrow Funktionen dagegen (wie `giveLydiaChocolate`) haben keinen `prototype`. `undefined` wird ausgegeben, wenn wir versuchen den `prototype` mit `giveLydiaChocolate.prototype` aufzurufen. 
+Reguläre Funktionen wie `giveLydiaPizza` haben eine `prototype` Property, die ein Objekt (Prototype Object) mit einem `constructor` ist. Arrow Funktionen dagegen (wie `giveLydiaChocolate`) haben keinen `prototype`. `undefined` wird ausgegeben, wenn wir versuchen den `prototype` mit `giveLydiaChocolate.prototype` aufzurufen.
 
 </p>
 </details>
 
 ---
 
-###### 93. Was ist der Output?
+###### 93. Was wird ausgegeben?
 
 ```javascript
 const person = {
   name: "Lydia",
-  age: 21
-}
+  age: 21,
+};
 
 for (const [x, y] of Object.entries(person)) {
-  console.log(x, y)
+  console.log(x, y);
 }
 ```
 
 - A: `name` `Lydia` und `age` `21`
-- B: `["name", "Lydia"]` und `["age", 21]` 
+- B: `["name", "Lydia"]` und `["age", 21]`
 - C: `["name", "age"]` und `undefined`
 - D: `Error`
 
@@ -2939,7 +2947,7 @@ for (const [x, y] of Object.entries(person)) {
 
 `Object.entries(person)` gibt ein Array mit verschachtelten Arrays der Keys aus:
 
-`[ [ 'name', 'Lydia' ], [ 'age', 21 ] ]` 
+`[ [ 'name', 'Lydia' ], [ 'age', 21 ] ]`
 
 Mit der `for-of` Schleife iterieren wir über jedes Element in dem Array, in diesem Fall die verschachtelten Arrays. Wir können die verschachtelten Arrays mit `const [x, y]` in der for-of Schleife destrukturieren. `x` ist gleich dem ersten Element, `y` ist gleich dem zweiten Element in dem verschachtelten Array.
 
@@ -2951,7 +2959,7 @@ Das zweite verschachtelte Array ist `[ "age", 21 ]`. `x` ist gleich `"age"` und 
 
 ---
 
-###### 94. Was ist der Output?
+###### 94. Was wird ausgegeben?
 
 ```javascript
 function getItems(fruitList, ...args, favoriteFruit) {
@@ -2962,7 +2970,7 @@ getItems(["banana", "apple"], "pear", "orange")
 ```
 
 - A: `["banana", "apple", "pear", "orange"]`
-- B: `[["banana", "apple"], "pear", "orange"]` 
+- B: `[["banana", "apple"], "pear", "orange"]`
 - C: `["banana", "apple", ["pear"], "orange"]`
 - D: `SyntaxError`
 
@@ -2975,33 +2983,31 @@ getItems(["banana", "apple"], "pear", "orange")
 
 ```javascript
 function getItems(fruitList, favoriteFruit, ...args) {
-  return [...fruitList, ...args, favoriteFruit]
+  return [...fruitList, ...args, favoriteFruit];
 }
 
-getItems(["banana", "apple"], "pear", "orange")
+getItems(["banana", "apple"], "pear", "orange");
 ```
 
 Dieses Beispiel würde funktionieren und `[ 'banana', 'apple', 'orange', 'pear' ]` ausgeben.
+
 </p>
 </details>
 
 ---
 
-###### <a name=20190817></a>95. Was ist der Output?
+###### <a name=20190817></a>95. Was wird ausgegeben?
 
 ```javascript
 function nums(a, b) {
-  if
-  (a > b)
-  console.log('a is bigger')
-  else 
-  console.log('b is bigger')
-  return 
-  a + b
+  if (a > b) console.log("a is bigger");
+  else console.log("b is bigger");
+  return;
+  a + b;
 }
 
-console.log(nums(4, 2))
-console.log(nums(1, 2))
+console.log(nums(4, 2));
+console.log(nums(1, 2));
 ```
 
 - A: `a is bigger`, `6` und `b is bigger`, `3`
@@ -3019,8 +3025,8 @@ In JavaScript muss das Semikolon _nicht_ explizit gesetzt werden, allerdings set
 In unserem Beispiel haben wir ein `return` Statement gefolgt von einem anderen Wert `a + b` auf der _nächsten Zeile_. Da es eine neue Zeile ist, weiß JavaScript nicht, dass das der Wert ist, den wir eigentlich ausgeben wollten. Stattdessen wird automatisch ein Semikolon nach `return` gesetzt, was man wiefolgt lesen kann:
 
 ```javascript
-  return;
-  a + b
+return;
+a + b;
 ```
 
 Das bedeutet, dass `a + b` nie erreicht wird, da die Funktion auf der Zeile davor mit dem `return` Keyword endet. Wenn wie hier kein Wert ausgegeben wird, gibt die Funktion `undefined` aus.
@@ -3031,23 +3037,23 @@ Bedenke: Semikolons werden **nicht** automatisch nach `if/else` Statements geset
 
 ---
 
-###### 96. Was ist der Output?
+###### 96. Was wird ausgegeben?
 
 ```javascript
 class Person {
   constructor() {
-    this.name = "Lydia"
+    this.name = "Lydia";
   }
 }
 
 Person = class AnotherPerson {
   constructor() {
-    this.name = "Sarah"
+    this.name = "Sarah";
   }
-}
+};
 
-const member = new Person()
-console.log(member.name)
+const member = new Person();
+console.log(member.name);
 ```
 
 - A: `"Lydia"`
@@ -3067,15 +3073,15 @@ Wir können Klassen gleich anderen Klassen oder Funktions Konstruktoren setzen. 
 
 ---
 
-###### 97. Was ist der Output?
+###### 97. Was wird ausgegeben?
 
 ```javascript
 const info = {
-  [Symbol('a')]: 'b'
-}
+  [Symbol("a")]: "b",
+};
 
-console.log(info)
-console.log(Object.keys(info))
+console.log(info);
+console.log(Object.keys(info));
 ```
 
 - A: `{Symbol('a'): 'b'}` und `["{Symbol('a')"]`
@@ -3098,7 +3104,7 @@ Bedenke: Man kann die Symbole dennoch mit der `Object.getOwnPropertySymbols()` M
 
 ---
 
-###### 98. Was ist der Output?
+###### 98. Was wird ausgegeben?
 
 ```javascript
 const getList = ([x, ...y]) => [x, y]
@@ -3123,13 +3129,13 @@ console.log(getUser(user))
 
 Die `getList` Funktion bekommt ein Array als Argument zugewiesen. Zwischen den Klammern der `getList` Funktion wird das Array direkt destrukturiert. Man könnte das auch wiefolgt sehen:
 
- `[x, ...y] = [1, 2, 3, 4]`
+`[x, ...y] = [1, 2, 3, 4]`
 
 Mit dem Rest Parameter `...y` packen wir alle übrigen Argumente in ein Array. Die übrigen Argumente sind in dem Fall `2`, `3` und `4`. Der Wert von `y` ist ein Array mit den restlichen Parametern. Der Wert von `x` ist gleich `1` sodass `[1, [2, 3, 4]]` geloggt wird.
 
 Die `getUser` Funktion bekommt ein Objekt zugewiesen. Bei Arrow Funktionen müssen wir keine geschweiften Klammern verwenden, wenn wir nur einen Wert ausgeben. Wenn wir aber ein _Objekt_ von einer Arrow Funktion ausgeben lassen möchten, so muss dieses zwischen Klammern stehen, ansonsten wird nichts ausgegeben. Die folgende Funktion hätte ein Objekt ausgegeben:
 
-```const getUser = user => ({ name: user.name, age: user.age })```
+`const getUser = user => ({ name: user.name, age: user.age })`
 
 Da kein Wert ausgegeben wird, gibt die Funktion `undefined` aus.
 
@@ -3138,12 +3144,12 @@ Da kein Wert ausgegeben wird, gibt die Funktion `undefined` aus.
 
 ---
 
-###### 99. Was ist der Output?
+###### 99. Was wird ausgegeben?
 
 ```javascript
-const name = "Lydia"
+const name = "Lydia";
 
-console.log(name())
+console.log(name());
 ```
 
 - A: `SyntaxError`
@@ -3169,13 +3175,13 @@ ReferenceErrors werden ausgeworfen, wenn JavaScript eine Referenz zu einem Wert 
 
 ---
 
-###### 100. Was ist der Output?
+###### 100. Was wird ausgegeben?
 
 ```javascript
 // 🎉✨ Das ist unsere 100. Frage! ✨🎉
 
-const output = `${[] && 'Im'}possible!
-You should${'' && `n't`} see a therapist after so much JavaScript lol`
+const output = `${[] && "Im"}possible!
+You should${"" && `n't`} see a therapist after so much JavaScript lol`;
 ```
 
 - A: `possible! You should see a therapist after so much JavaScript lol`
@@ -3197,14 +3203,14 @@ You should${'' && `n't`} see a therapist after so much JavaScript lol`
 
 ---
 
-###### 101. Was ist der Output?
+###### 101. Was wird ausgegeben?
 
 ```javascript
-const one = (false || {} || null)
-const two = (null || false || "")
-const three = ([] || 0 || true)
+const one = false || {} || null;
+const two = null || false || "";
+const three = [] || 0 || true;
 
-console.log(one, two, three)
+console.log(one, two, three);
 ```
 
 - A: `false` `null` `[]`
@@ -3233,16 +3239,16 @@ Mit dem `||` Operator geben wir den ersten truthy Operand aus. Wenn alle Werte f
 ###### 102. What's the value of output?
 
 ```javascript
-const myPromise = () => Promise.resolve('I have resolved!')
+const myPromise = () => Promise.resolve("I have resolved!");
 
 function firstFunction() {
-  myPromise().then(res => console.log(res))
-  console.log('second')
+  myPromise().then((res) => console.log(res));
+  console.log("second");
 }
 
 async function secondFunction() {
-  console.log(await myPromise())
-  console.log('second')
+  console.log(await myPromise());
+  console.log("second");
 }
 ```
 
@@ -3260,29 +3266,29 @@ Mit einem Promise sagen wir _Ich möchte diese Funktion ausführen, aber ich leg
 
 Wir können auf den Wert mit `.then()` oder `await` in einer `async` Funktion zugreifen, aber `.then()` und `await` unterscheiden sich in einem bestimmten Punkt.
 
-In `firstFunction` legen wir `myPromise` beiseite, während die Funktion durchläuft, aber wir arbeiten anderen Code ab, hier `console.log('second')`. 
-Dann wird die Funktion abgeschlossen und der String `I have resolved` wird ausgegeben, nachdem sich der Call Stack geleert hat. 
+In `firstFunction` legen wir `myPromise` beiseite, während die Funktion durchläuft, aber wir arbeiten anderen Code ab, hier `console.log('second')`.
+Dann wird die Funktion abgeschlossen und der String `I have resolved` wird ausgegeben, nachdem sich der Call Stack geleert hat.
 
 Mit dem `await` Keyword in `secondFunction` wird die Funktion gestoppt bis der Wert ausgegeben wurde, erst dann wird die nächste Zeile ausgeführt.
 
-Das bedeutet, dass auf `myPromise` gewartet und dann der Wert `I have resolved` ausgegeben wird und erst dann wird die nächste Zeile ausgeführt und `second` wird geloggt. 
+Das bedeutet, dass auf `myPromise` gewartet und dann der Wert `I have resolved` ausgegeben wird und erst dann wird die nächste Zeile ausgeführt und `second` wird geloggt.
 
 </p>
 </details>
 
 ---
 
-###### 103. Was ist der Output?
+###### 103. Was wird ausgegeben?
 
 ```javascript
-const set = new Set()
+const set = new Set();
 
-set.add(1)
-set.add("Lydia")
-set.add({ name: "Lydia" })
+set.add(1);
+set.add("Lydia");
+set.add({ name: "Lydia" });
 
 for (let item of set) {
-  console.log(item + 2)
+  console.log(item + 2);
 }
 ```
 
@@ -3300,7 +3306,7 @@ Der `+` Operator wird nicht nur für numerische Werte verwendet, wir können mit
 
 Der erste Wert ist `1`, was ein numerischer Wert ist. `1 + 2` ergibt die Zahl `3`.
 
-Der zweite Wert hingegen ist der String `"Lydia"`. `"Lydia"` ist ein String und `2` ist eine Nummer: `2` wird in einem String umgewandelt. `"Lydia"` und `"2"` werden zusammengesetzt, was den String `"Lydia2"` ausgibt. 
+Der zweite Wert hingegen ist der String `"Lydia"`. `"Lydia"` ist ein String und `2` ist eine Nummer: `2` wird in einem String umgewandelt. `"Lydia"` und `"2"` werden zusammengesetzt, was den String `"Lydia2"` ausgibt.
 
 `{ name: "Lydia" }` ist ein Objekt. Weder eine Nummer, noch ein Objekt sind ein String, aber beide werden zu Strings konvertiert und `"[object Object]"` wird ausgegeben. `"[object Object]"` zusammengesetzt mit `"2"` wird `"[object Object]2"`.
 
@@ -3312,7 +3318,7 @@ Der zweite Wert hingegen ist der String `"Lydia"`. `"Lydia"` ist ein String und 
 ###### 104. Was wird ausgegeben?
 
 ```javascript
-Promise.resolve(5)
+Promise.resolve(5);
 ```
 
 - A: `5`
@@ -3327,7 +3333,7 @@ Promise.resolve(5)
 
 Wir können jeden Wert an `Promise.resolve` übergeben, es muss nicht unbedingt ein Promise sein. Die Methode selbst gibt ein Promise zurück, was einen Wert ausgibt. Wenn man eine normale Funktion übergibt wird das Promise einen normalen Wert ausgeben. Wenn ein Promise übergeben wird so wird ein Promise gelöst und der Wert des gelösten Promises ausgegeben.
 
-In diesem Fall haben wir nur die Zahl `5` übergeben und diese wird genauso ausgegeben: `5`. 
+In diesem Fall haben wir nur die Zahl `5` übergeben und diese wird genauso ausgegeben: `5`.
 
 </p>
 </details>
@@ -3339,15 +3345,15 @@ In diesem Fall haben wir nur die Zahl `5` übergeben und diese wird genauso ausg
 ```javascript
 function compareMembers(person1, person2 = person) {
   if (person1 !== person2) {
-    console.log("Not the same!")
+    console.log("Not the same!");
   } else {
-    console.log("They are the same!")
+    console.log("They are the same!");
   }
 }
 
-const person = { name: "Lydia" }
+const person = { name: "Lydia" };
 
-compareMembers(person)
+compareMembers(person);
 ```
 
 - A: `Not the same!`
@@ -3366,7 +3372,7 @@ Wir setzen den Standardwert für `person2` gleich dem `person` Objekt und überg
 
 Das bedeutet, dass beide Werte eine Referenz zum gleichen Ort im Speicher aufweisen und daher gleich sind.
 
-Der Code im `else` Statement wird aufgerufen und `They are the same!` wird geloggt. 
+Der Code im `else` Statement wird aufgerufen und `They are the same!` wird geloggt.
 
 </p>
 </details>
@@ -3382,11 +3388,11 @@ const colorConfig = {
   green: true,
   black: true,
   yellow: false,
-}
+};
 
-const colors = ["pink", "red", "blue"]
+const colors = ["pink", "red", "blue"];
 
-console.log(colorConfig.colors[1])
+console.log(colorConfig.colors[1]);
 ```
 
 - A: `true`
@@ -3399,7 +3405,7 @@ console.log(colorConfig.colors[1])
 
 #### Antwort: D
 
-In JavaScript gibt es zwei Wege auf Properties an Objekten zuzugreifen: Punkt-Notation oder Klammern-Notation. In diesem Beispiel nutzen wir Punkt-Notation (`colorConfig.colors`) anstelle von Klammern-Notation (`colorConfig["colors"]`). 
+In JavaScript gibt es zwei Wege auf Properties an Objekten zuzugreifen: Punkt-Notation oder Klammern-Notation. In diesem Beispiel nutzen wir Punkt-Notation (`colorConfig.colors`) anstelle von Klammern-Notation (`colorConfig["colors"]`).
 
 Mit Punkt-Notation versucht JavaScript die Property am Objekt mit diesem exakten Namen zu finden. In unserem Beispiel `colors` im `colorConfig` Objekt. Da es keine Property `colorConfig` gibt wird `undefined` ausgegeben. Dann versuchen wir den Wert des ersten Elements mit `[1]` aufzurufen, was an `undefined` nicht möglich ist, wodurch wir `TypeError: Cannot read property '1' of undefined` ausgegeben bekommen.
 
@@ -3413,7 +3419,7 @@ JavaScript interpretiert Statements. Wenn wir Klammern-Notation verwenden wird d
 ###### 107. Was wird ausgegeben?
 
 ```javascript
-console.log('❤️' === '❤️')
+console.log("❤️" === "❤️");
 ```
 
 - A: `true`
@@ -3431,22 +3437,22 @@ Emojis sind im Endeffekt nur Unicodes. Der Unicode für das Herz Emoji ist `"U+2
 
 ---
 
-###### 108. Welche Methode verändert das ursprüngliche Array? 
+###### 108. Welche Methode verändert das ursprüngliche Array?
 
 ```javascript
-const emojis = ['✨', '🥑', '😍']
+const emojis = ["✨", "🥑", "😍"];
 
-emojis.map(x => x + '✨')
-emojis.filter(x => x !== '🥑')
-emojis.find(x => x !== '🥑')
-emojis.reduce((acc, cur) => acc + '✨')
-emojis.slice(1, 2, '✨') 
-emojis.splice(1, 2, '✨')
+emojis.map((x) => x + "✨");
+emojis.filter((x) => x !== "🥑");
+emojis.find((x) => x !== "🥑");
+emojis.reduce((acc, cur) => acc + "✨");
+emojis.slice(1, 2, "✨");
+emojis.splice(1, 2, "✨");
 ```
 
 - A: `All of them`
 - B: `map` `reduce` `slice` `splice`
-- C: `map` `slice` `splice` 
+- C: `map` `slice` `splice`
 - D: `splice`
 
 <details><summary><b>Antwort</b></summary>
@@ -3454,30 +3460,29 @@ emojis.splice(1, 2, '✨')
 
 #### Antwort: D
 
-Mit der `splice` Methode ändern wir das ursprüngliche Array durch löschen, ersetzen oder ergänzen von Elementen. In diesem Fall haben wir 2 Elemente vom Index 1 (`'🥑'` und `'😍'`) entfernt und ✨ stattdessen eingefügt. 
+Mit der `splice` Methode ändern wir das ursprüngliche Array durch löschen, ersetzen oder ergänzen von Elementen. In diesem Fall haben wir 2 Elemente vom Index 1 (`'🥑'` und `'😍'`) entfernt und ✨ stattdessen eingefügt.
 
 `map`, `filter` und `slice` geben ein neues Array aus, `find` gibt ein Element aus und `reduce` gibt einen neuen Wert aus.
 
 </p>
 </details>
 
-
 ---
 
-###### <a name=20191009></a>109. Was ist der Output?
+###### <a name=20191009></a>109. Was wird ausgegeben?
 
 ```javascript
-const food = ['🍕', '🍫', '🥑', '🍔']
-const info = { favoriteFood: food[0] }
+const food = ["🍕", "🍫", "🥑", "🍔"];
+const info = { favoriteFood: food[0] };
 
-info.favoriteFood = '🍝'
+info.favoriteFood = "🍝";
 
-console.log(food)
+console.log(food);
 ```
 
 - A: `['🍕', '🍫', '🥑', '🍔']`
 - B: `['🍝', '🍫', '🥑', '🍔']`
-- C: `['🍝', '🍕', '🍫', '🥑', '🍔']` 
+- C: `['🍝', '🍕', '🍫', '🥑', '🍔']`
 - D: `ReferenceError`
 
 <details><summary><b>Antwort</b></summary>
@@ -3497,7 +3502,7 @@ Dann ändern wir den Wert von `favoriteFood` am `info` Objekt. Das `food` Array 
 ###### 110. Was macht diese Methode?
 
 ```javascript
-JSON.parse()
+JSON.parse();
 ```
 
 - A: Parsed JSON in einen JavaScript Wert
@@ -3514,16 +3519,16 @@ Mit der `JSON.parse()` Methode können wir einen JSON String zu einem JavaScript
 
 ```javascript
 // Stringifying a number into valid JSON, then parsing the JSON string to a JavaScript value:
-const jsonNumber = JSON.stringify(4) // '4'
-JSON.parse(jsonNumber) // 4
+const jsonNumber = JSON.stringify(4); // '4'
+JSON.parse(jsonNumber); // 4
 
 // Stringifying an array value into valid JSON, then parsing the JSON string to a JavaScript value:
-const jsonArray = JSON.stringify([1, 2, 3]) // '[1, 2, 3]'
-JSON.parse(jsonArray) // [1, 2, 3]
+const jsonArray = JSON.stringify([1, 2, 3]); // '[1, 2, 3]'
+JSON.parse(jsonArray); // [1, 2, 3]
 
 // Stringifying an object  into valid JSON, then parsing the JSON string to a JavaScript value:
-const jsonArray = JSON.stringify({ name: "Lydia" }) // '{"name":"Lydia"}'
-JSON.parse(jsonArray) // { name: 'Lydia' }
+const jsonArray = JSON.stringify({ name: "Lydia" }); // '{"name":"Lydia"}'
+JSON.parse(jsonArray); // { name: 'Lydia' }
 ```
 
 </p>
@@ -3531,17 +3536,17 @@ JSON.parse(jsonArray) // { name: 'Lydia' }
 
 ---
 
-###### 111. Was ist der Output? 
+###### 111. Was wird ausgegeben?
 
 ```javascript
-let name = 'Lydia'
+let name = "Lydia";
 
 function getName() {
-  console.log(name)
-  let name = 'Sarah'
+  console.log(name);
+  let name = "Sarah";
 }
 
-getName()
+getName();
 ```
 
 - A: Lydia
@@ -3561,13 +3566,13 @@ Variablen mit dem `let` und `const` Keyword werden gehoisted, aber entgegen `var
 Hätten wir die `name` Variable nicht innerhalb `getName` deklariert, so hätte JavaScript außerhalb der Funktion in der _Scope-Kette_ weitergesucht. Der äußere Scope beinhaltet ebenfalls eine Variable `name` mit dem Wert `'Lydia'`. In diesem Fall wäre `Lydia` geloggt worden.
 
 ```javascript
-let name = 'Lydia'
+let name = "Lydia";
 
 function getName() {
-  console.log(name)
+  console.log(name);
 }
 
-getName() // Lydia
+getName(); // Lydia
 ```
 
 </p>
@@ -3575,22 +3580,22 @@ getName() // Lydia
 
 ---
 
-###### 112. Was ist der Output?
+###### 112. Was wird ausgegeben?
 
 ```javascript
 function* generatorOne() {
-  yield ['a', 'b', 'c'];
+  yield ["a", "b", "c"];
 }
 
 function* generatorTwo() {
-  yield* ['a', 'b', 'c'];
+  yield* ["a", "b", "c"];
 }
 
-const one = generatorOne()
-const two = generatorTwo()
+const one = generatorOne();
+const two = generatorTwo();
 
-console.log(one.next().value)
-console.log(two.next().value)
+console.log(one.next().value);
+console.log(two.next().value);
 ```
 
 - A: `a` and `a`
@@ -3608,17 +3613,17 @@ Mit dem `yield` Keyword, halten wir Werte in einer Generator-Funktion. Mit dem `
 In `generatorOne` halten wir das gesamte Array `['a', 'b', 'c']` mit dem `yield` Keyword. Der Wert von `value` am Objekt gibt die `next` Methode an `one` (`one.next().value`) aus, was dem gesamten Array entspricht: `['a', 'b', 'c']`.
 
 ```javascript
-console.log(one.next().value) // ['a', 'b', 'c']
-console.log(one.next().value) // undefined
+console.log(one.next().value); // ['a', 'b', 'c']
+console.log(one.next().value); // undefined
 ```
 
 In `generatorTwo` verwenden wir das `yield*` Keyword. Das bedeutet, dass der erste gehaltene Wert von `two` gleich dem ersten gehaltenen Wert ist. Das ist das Array `['a', 'b', 'c']`. Der erste gehaltene Wert ist `a`, was ausgegeben wird.
 
 ```javascript
-console.log(two.next().value) // 'a'
-console.log(two.next().value) // 'b'
-console.log(two.next().value) // 'c'
-console.log(two.next().value) // undefined
+console.log(two.next().value); // 'a'
+console.log(two.next().value); // 'b'
+console.log(two.next().value); // 'c'
+console.log(two.next().value); // undefined
 ```
 
 </p>
@@ -3626,10 +3631,10 @@ console.log(two.next().value) // undefined
 
 ---
 
-###### 113. Was ist der Output?
+###### 113. Was wird ausgegeben?
 
 ```javascript
-console.log(`${(x => x)('I love')} to program`)
+console.log(`${((x) => x)("I love")} to program`);
 ```
 
 - A: `I love to program`
@@ -3642,7 +3647,7 @@ console.log(`${(x => x)('I love')} to program`)
 
 #### Antwort: A
 
-Expressions innerhalb von Template Literals werden zuerst berechnet. Das bedeutet, dass der String den ausgegebenen Wert der Expression beinhaltet, hier die IIFE (immediately invoked Function) `(x => x)('I love')`. Wir geben den Wert `'I love'` als Argument an die `x => x` Arrow Funktion. `x` ist gleich `'I love'` und wird ausgegeben. Das Ergebnis ist `I love to program`. 
+Expressions innerhalb von Template Literals werden zuerst berechnet. Das bedeutet, dass der String den ausgegebenen Wert der Expression beinhaltet, hier die IIFE (immediately invoked Function) `(x => x)('I love')`. Wir geben den Wert `'I love'` als Argument an die `x => x` Arrow Funktion. `x` ist gleich `'I love'` und wird ausgegeben. Das Ergebnis ist `I love to program`.
 
 </p>
 </details>
@@ -3704,7 +3709,7 @@ myMap.get(() => 'greeting'))
 
 #### Antwort: B
 
-Beim Setzen eines Key/Wert Paars mit der `set` Methode wird der Key als erstes Argument an die `set` Funktion übergeben und der Wert wird als zweites Argument eingegeben. Der Key ist die _Funktion_ `() => 'greeting'` und der Wert ist `'Hello world'`. `myMap` ist jetzt `{ () => 'greeting' => 'Hello world!' }`. 
+Beim Setzen eines Key/Wert Paars mit der `set` Methode wird der Key als erstes Argument an die `set` Funktion übergeben und der Wert wird als zweites Argument eingegeben. Der Key ist die _Funktion_ `() => 'greeting'` und der Wert ist `'Hello world'`. `myMap` ist jetzt `{ () => 'greeting' => 'Hello world!' }`.
 
 1 ist falsch, weil der Key nicht `'greeting'`, sondern `() => 'greeting'` ist.
 3 ist falsch, weil wir eine neue Funktion erstellen, indem wir sie als Argument übergeben. Objekte interagieren anhand von _Referenzen_. Funktionen sind Objekte, weshalb zwei Funktionen streng gesehen nie gleich sind, selbst wenn sie sich nicht unterscheiden.
@@ -3714,24 +3719,24 @@ Beim Setzen eines Key/Wert Paars mit der `set` Methode wird der Key als erstes A
 
 ---
 
-###### 116. Was ist der Output?
+###### 116. Was wird ausgegeben?
 
 ```javascript
 const person = {
   name: "Lydia",
-  age: 21
-}
+  age: 21,
+};
 
-const changeAge = (x = { ...person }) => x.age += 1
+const changeAge = (x = { ...person }) => (x.age += 1);
 const changeAgeAndName = (x = { ...person }) => {
-  x.age += 1
-  x.name = "Sarah"
-}
+  x.age += 1;
+  x.name = "Sarah";
+};
 
-changeAge(person)
-changeAgeAndName()
+changeAge(person);
+changeAgeAndName();
 
-console.log(person)
+console.log(person);
 ```
 
 - A: `{name: "Sarah", age: 22}`
