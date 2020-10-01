@@ -160,7 +160,7 @@ String `'Lydia'` adalah nilai yang benar. Apa yang sebenarnya kita tanyakan adal
 
 ---
 
-###### 5. Which one is true?
+###### 5. Mana yang benar?
 
 ```javascript
 const bird = {
@@ -325,7 +325,7 @@ Untuk menghindari hal ini, kita bisa menggunakan `" use strict "`. Ini memastika
 
 ---
 
-###### 10. What happens when we do this?
+###### 10. Apa yang terjadi jika kita melakukan ini?
 
 ```javascript
 function bark() {
@@ -450,7 +450,7 @@ During the **capturing** phase, the event goes through the ancestor elements dow
 
 ---
 
-###### 14. All object have prototypes.
+###### 14. Semua objek memiliki prototypes.
 
 - A: true
 - B: false
