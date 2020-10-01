@@ -4675,14 +4675,14 @@ const pet = new Flamingo();
 - A: `I'm pink. 🌸`
 - B: `I'm pink. 🌸` `I'm a bird. 🦢`
 - C: `I'm a bird. 🦢` `I'm pink. 🌸`
-- D: Nothing, we didn't call any method
+- D: Tidak Ada Yang Dipanggil
 
 <details><summary><b>Jawaban</b></summary>
 <p>
 
 #### Jawaban: B
 
-We create the variable `pet` which is an instance of the `Flamingo` class. When we instantiate this instance, the `constructor` on `Flamingo` gets called. First, `"I'm pink. 🌸"` gets logged, after which we call `super()`. `super()` calls the constructor of the parent class, `Bird`. THe constructor in `Bird` gets called, and logs `"I'm a bird. 🦢"`.
+kita membuat variable  `pet` yang memiliki sebuat instance `Flamingo` class. ketika di inisiasi di dalam instance,  `constructor` didalam `Flamingo` dipanggil. pertama kali keluar, `"I'm pink. 🌸"` di dalam log,  setelah kita panggil `super()`. `super()`  memanggil constructor parent dari class, `Bird`. Constructor di  `Bird` di panggil dan memunculkan log `"I'm a bird. 🦢"`.
 
 </p>
 </details>
