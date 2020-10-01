@@ -1084,16 +1084,16 @@ undefined;
 
 #### Jawaban: A
 
-There are only six falsy values:
+Hanya ada enam nilai yang salah:
 
 - `undefined`
 - `null`
 - `NaN`
 - `0`
-- `''` (empty string)
+- `''` (string kosong)
 - `false`
 
-Function constructors, like `new Number` and `new Boolean` are truthy.
+Konstruktor fungsi, seperti Number baru dan Boolean baru, benar.
 
 </p>
 </details>
@@ -1142,11 +1142,11 @@ console.log(numbers);
 
 #### Jawaban: C
 
-When you set a value to an element in an array that exceeds the length of the array, JavaScript creates something called "empty slots". These actually have the value of `undefined`, but you will see something like:
+Saat Anda menyetel nilai ke elemen dalam larik yang melebihi panjang larik, JavaScript membuat sesuatu yang disebut "slot kosong". Ini sebenarnya memiliki nilai `tidak terdefinisi`, tetapi Anda akan melihat sesuatu seperti:
 
 `[1, 2, 3, 7 x empty, 11]`
 
-depending on where you run it (it's different for every browser, node, etc.)
+tergantung di mana Anda menjalankannya (berbeda untuk setiap browser, node, dll.)
 
 </p>
 </details>
