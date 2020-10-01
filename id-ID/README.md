@@ -218,13 +218,13 @@ console.log(d.greeting);
 
 #### Jawaban: A
 
-In JavaScript, all objects interact by _reference_ when setting them equal to each other.
+Dalam JavaScript, semua objek berinteraksi dengan _referensi_ saat menyetelnya agar sama satu sama lain.
 
-First, variable `c` holds a value to an object. Later, we assign `d` with the same reference that `c` has to the object.
+Pertama, variabel `c` memiliki nilai untuk sebuah objek. Kemudian, kami menetapkan `d` dengan referensi yang sama yang dimiliki `c` ke objek.
 
 <img src="https://i.imgur.com/ko5k0fs.png" width="200">
 
-When you change one object, you change all of them.
+Saat Anda mengubah satu objek, Anda mengubah semuanya.
 
 </p>
 </details>
@@ -380,7 +380,7 @@ console.log(member.getFullName());
 
 #### Jawaban: A
 
-You can't add properties to a constructor like you can with regular objects. If you want to add a feature to all objects at once, you have to use the prototype instead. So in this case,
+Anda tidak dapat menambahkan properti ke constructor seperti yang Anda lakukan dengan objek biasa. Jika Anda ingin menambahkan fitur ke semua objek sekaligus, Anda harus menggunakan prototipe sebagai gantinya. Jadi dalam kasus ini,
 
 ```js
 Person.prototype.getFullName = function() {
@@ -388,7 +388,7 @@ Person.prototype.getFullName = function() {
 };
 ```
 
-would have made `member.getFullName()` work. Why is this beneficial? Say that we added this method to the constructor itself. Maybe not every `Person` instance needed this method. This would waste a lot of memory space, since they would still have that property, which takes of memory space for each instance. Instead, if we only add it to the prototype, we just have it at one spot in memory, yet they all have access to it!
+akan membuat `member.getFullName()` berfungsi. Mengapa ini bermanfaat? Katakanlah kita menambahkan metode ini ke konstruktor itu sendiri. Mungkin tidak setiap instance `Person` membutuhkan metode ini. Ini akan membuang banyak ruang memori, karena mereka masih memiliki properti itu, yang mengambil ruang memori untuk setiap instance. Sebaliknya, jika kita hanya menambahkannya ke prototipe, kita hanya memilikinya di satu tempat di memori, namun mereka semua memiliki akses ke sana!
 
 </p>
 </details>
