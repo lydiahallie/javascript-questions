@@ -70,11 +70,17 @@ sayHi();
 <details><summary><b>پاسخ به شرح زیر میباشد.</b></summary>
 <p>
 
-#### Answer: D
+#### پاسخ گزینه D میباشد
 <div dir="rtl" align="justify">
-Within the function, we first declare the `name` variable with the `var` keyword. This means that the variable gets hoisted (memory space is set up during the creation phase) with the default value of `undefined`, until we actually get to the line where we define the variable. We haven't defined the variable yet on the line where we try to log the `name` variable, so it still holds the value of `undefined`.
+در داخل تابع ابتدا ما دو متغیرهایمان را کنسول لاگ گرفته ایم به همین دلیل دو پیغام `undefined` و `ReferenceError` دریافت کرده ایم . دلیل این دو خطا در زیر شرح داده شده است :
 
-Variables with the `let` keyword (and `const`) are hoisted, but unlike `var`, don't get <i>initialized</i>. They are not accessible before the line we declare (initialize) them. This is called the "temporal dead zone". When we try to access the variables before they are declared, JavaScript throws a `ReferenceError`.
+متغیری که با کلمه کلیدی `var` و با نام `name` در تابع بالا ایجاد شده است بصورت پیشفرض دارای مقدار `undefined` است و در این تابع ، جاوا اسکریپت قبل از اینکه به متغیر اعلان برسد آنرا لاگ زده است به همین دلیل همچنان مقدار `undefined` در متغیر `name` باقی مانده است .
+
+این عمل برای کلمات کلیدی `let` و `const` هم صدق میکند اما با این تفاوت که دیگر مقدار اولیه نمیگیرند و خطای `ReferencedError` را بر میگرداند.
+این عمل را اصطلاحا " منطقه مرده موقت " میگویند تا مشخص شود که هنوز متغیر های فراخوانی شده ، اعلان نشده اند . 
+
+به عبارت بسیار ساده تر میتوان گفت که قبل از اینکه متغیری فراخوانی شود بایستی آنرا اعلان کنید در غیر اینصورت با خطاها و مقدار های پیش فرض نمایش داده میشود .
+
 </div>
 </p>
 </details>
