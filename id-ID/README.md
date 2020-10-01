@@ -151,9 +151,9 @@ Tidak ada nilai 'radius' pada objek itu, yang mengembalikan 'tidak ditentukan'.
 
 #### Jawaban: A
 
-The unary plus tries to convert an operand to a number. `true` is `1`, and `false` is `0`.
+Unary plus mencoba mengonversi operan menjadi angka. `benar` adalah `1`, dan `salah` adalah `0`.
 
-The string `'Lydia'` is a truthy value. What we're actually asking, is "is this truthy value falsy?". This returns `false`.
+stringnya `'Lydia'` adalah nilai kebenaran. Apa yang sebenarnya kami tanyakan adalah "apakah nilai kebenaran ini salah?". pengembalian ini `salah`.
 
 </p>
 </details>
