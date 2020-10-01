@@ -4743,3 +4743,35 @@ Objek tidak dapat diulang secara default. Sebuah iterable adalah sebuah iterable
 
 </p>
 </details>
+
+---
+
+###### 146. Apa Output Dari Code ini?
+
+```javascript
+let count = 0;
+const nums = [0, 1, 2, 3];
+
+nums.forEach(num => {
+	if (num) count += 1
+})
+
+console.log(count)
+```
+
+- A: 1
+- B: 2
+- C: 3
+- D: 4
+
+<details><summary><b>Jawaban</b></summary>
+<p>
+
+#### Answer: C
+
+Kondisi `if` diantara perulangan `forEach` mengecek apakah value `num` adalah bernilai true atau false. Dari nilai pertama didalam `nums` array nya adalah `0`, yang berarti false, dan jika `if` statement code nya tidak di execute. `count` hanya mendapat increment untuk 3 angka lainnya di `nums` array, `1`, `2` and `3`. Dari `count` mendapatkan angka increment `1` 3 kali, dan nilai dari `count` adalah `3`.
+
+</p>
+</details>
+
+---
