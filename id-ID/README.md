@@ -4717,7 +4717,7 @@ Deklarasi `const` pada dasarnya berarti tidak dapat _mengubah_ nilai dari variab
 
 ---
 
-###### 145. What do we need to add to the `person` object to get `["Lydia Hallie", 21]` as the output of `[...person]`?
+###### 145. Apa yang harus kita tambahkan ke objek `person` untuk mendapatkan `["Lydia Hallie", 21]` sebagai output dari `[...person]`?
 
 ```javascript
 const person = {
@@ -4728,7 +4728,7 @@ const person = {
 [...person] // ["Lydia Hallie", 21]
 ```
 
-- A: Nothing, object are iterable by default
+- A: Tidak ada, objek adalah iterable secara default
 - B: `*[Symbol.iterator]() { for (let x in this) yield* this[x] }`
 - C: `*[Symbol.iterator]() { for (let x in this) yield* Object.values(this) }`
 - D: `*[Symbol.iterator]() { for (let x in this) yield this }`
@@ -4738,7 +4738,8 @@ const person = {
 
 #### Jawaban: C
 
-Objects aren't iterable by default. An iterable is an iterable if the iterator protocol is present. We can add this manually by adding the iterator symbol `[Symbol.iterator]`, which has to return a generator object, for example by making it a generator function `*[Symbol.iterator]() {}`. This generator function has to yield the `Object.values` of the `person` object if we want it to return the array `["Lydia Hallie", 21]`: `yield* Object.values(this)`.
+Objek tidak dapat diulang secara default. Sebuah iterable adalah sebuah iterable jika protokol iterator ada. Kita dapat menambahkan ini secara manual dengan menambahkan simbol iterator
+ `[Symbol.iterator]`, dimana harus mengembalikan objek generator, sebagai contoh dengan membuat fungsi generator `*[Symbol.iterator]() {}`. Fungsi generator ini harus menghasilkan `Object.values` dari objek `person` jika kita mau mengembalikan array `["Lydia Hallie", 21]`: `yield* Object.values(this)`.
 
 </p>
 </details>
