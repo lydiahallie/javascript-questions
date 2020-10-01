@@ -1288,7 +1288,7 @@ setInterval(() => console.log('Hi'), 1000);
 
 #### Jawaban: A
 
-It returns a unique id. This id can be used to clear that interval with the `clearInterval()` function.
+Itu adalah mengembalikan sebuah id unik. id unik dapat digunakan untuk menghapus interval dengan menggunakan fungsi clearInterval()
 
 </p>
 </details>
@@ -1311,7 +1311,7 @@ It returns a unique id. This id can be used to clear that interval with the `cle
 
 #### Jawaban: A
 
-A string is an iterable. The spread operator maps every character of an iterable to one element.
+Sebuah string adalah iterable. Operator memetakan setiap karakter dari sebuah iterable ke dalam satu elemen.
 
 </p>
 </details>
