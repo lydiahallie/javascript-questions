@@ -3317,7 +3317,7 @@ Promise.resolve(5)
 
 - A: `5`
 - B: `Promise {<pending>: 5}`
-- C: `Promise {<resolved>: 5}`
+- C: `Promise {<fulfilled>: 5}`
 - D: `Error`
 
 <details><summary><b>Antwort</b></summary>
@@ -3325,7 +3325,7 @@ Promise.resolve(5)
 
 #### Antwort: C
 
-Wir können jeden Wert an `Promise.resolve` übergeben, es muss nicht unbedingt ein Promise sein. Die Methode selbst gibt ein Promise zurück, was einen Wert ausgibt. Wenn man eine normale Funktion übergibt wird das Promise einen normalen Wert ausgeben. Wenn ein Promise übergeben wird so wird ein Promise gelöst und der Wert des gelösten Promises ausgegeben.
+Wir können jeden Wert an `Promise.resolve` übergeben, es muss nicht unbedingt ein Promise sein. Die Methode selbst gibt ein Promise zurück, was einen Wert ausgibt (`<fulfilled>`). Wenn man eine normale Funktion übergibt wird das Promise einen normalen Wert ausgeben. Wenn ein Promise übergeben wird so wird ein Promise gelöst und der Wert des gelösten Promises ausgegeben.
 
 In diesem Fall haben wir nur die Zahl `5` übergeben und diese wird genauso ausgegeben: `5`. 
 
