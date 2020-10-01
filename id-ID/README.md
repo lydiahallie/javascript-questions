@@ -2683,7 +2683,7 @@ Variables with the `const` and `let` keyword are _block-scoped_. A block is anyt
 
 ---
 
-###### 85. What kind of information would get logged?
+###### 85. Apa informasi yang didapat pada Log Tersebut?
 
 ```javascript
 fetch('https://www.website.com/api/user/1')
