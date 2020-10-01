@@ -3313,7 +3313,7 @@ However, the second one is a string `"Lydia"`. `"Lydia"` is a string and `2` is 
 
 ---
 
-###### 104. What's its value?
+###### 104. Apa nilainya?
 
 ```javascript
 Promise.resolve(5);
@@ -3338,7 +3338,7 @@ In this case, we just passed the numerical value `5`. It returns a resolved prom
 
 ---
 
-###### 105. What's its value?
+###### 105. Apa nilainya?
 
 ```javascript
 function compareMembers(person1, person2 = person) {
@@ -3377,7 +3377,7 @@ The code block in the `else` statement gets run, and `They are the same!` gets l
 
 ---
 
-###### 106. What's its value?
+###### 106. Apa nilainya?
 
 ```javascript
 const colorConfig = {
@@ -3414,7 +3414,7 @@ JavaScript interprets (or unboxes) statements. When we use bracket notation, it 
 
 ---
 
-###### 107. What's its value?
+###### 107. Apa nilainya?
 
 ```javascript
 console.log('❤️' === '❤️');
