@@ -1353,7 +1353,7 @@ Then, we invoke the function again with the `next()` method. It starts to contin
 
 ---
 
-###### 45. What does this return?
+###### 45. Apa yang di kembalikan?
 
 ```javascript
 const firstPromise = new Promise((res, rej) => {
@@ -1480,7 +1480,7 @@ Operator associativity is the order in which the compiler evaluates the expressi
 
 ---
 
-###### 49. What's the value of `num`?
+###### 49. Berapa isi nilai `num`?
 
 ```javascript
 const num = parseInt('7*6', 10);
@@ -1505,7 +1505,7 @@ Only the first numbers in the string is returned. Based on the _radix_ (the seco
 
 ---
 
-###### 50. What's the output`?
+###### 50. Apa yang akan tampil?
 
 ```javascript
 [1, 2, 3].map(num => {
