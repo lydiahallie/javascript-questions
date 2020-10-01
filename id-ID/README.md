@@ -316,9 +316,9 @@ console.log(greetign);
 
 #### Jawaban: A
 
-It logs the object, because we just created an empty object on the global object! When we mistyped `greeting` as `greetign`, the JS interpreter actually saw this as `global.greetign = {}` (or `window.greetign = {}` in a browser).
+Ini mencatat objek, karena kita baru saja membuat objek kosong di objek global! Saat kita salah mengetik `greeting` sebagai` greetign`, interpreter JS sebenarnya melihat ini sebagai `global.greetign = {}` (atau `window.greetign = {}` di browser).
 
-In order to avoid this, we can use `"use strict"`. This makes sure that you have declared a variable before setting it equal to anything.
+Untuk menghindari hal ini, kita bisa menggunakan `" use strict "`. Ini memastikan bahwa Anda telah mendeklarasikan variabel sebelum menetapkannya dengan apa pun.
 
 </p>
 </details>
@@ -345,9 +345,9 @@ bark.animal = 'dog';
 
 #### Jawaban: A
 
-This is possible in JavaScript, because functions are objects! (Everything besides primitive types are objects)
+Ini dimungkinkan dalam JavaScript, karena fungsi adalah objek! (Segala sesuatu selain tipe primitif adalah objek)
 
-A function is a special type of object. The code you write yourself isn't the actual function. The function is an object with properties. This property is invocable.
+Fungsi adalah jenis objek khusus. Kode yang Anda tulis sendiri bukanlah fungsi sebenarnya. Fungsinya adalah objek dengan properti. Properti ini tidak dapat dipanggil.
 
 </p>
 </details>
