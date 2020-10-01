@@ -4771,3 +4771,74 @@ Kondisi `if` dalam loop` forEach` memeriksa apakah nilai `num` benar atau salah.
 
 </p>
 </details>
+
+---
+
+###### 147. Apa hasilnya ?
+
+```javascript
+function getFruit(fruits) {
+	console.log(fruits?.[1]?.[1])
+}
+
+getFruit([['🍊', '🍌'], ['🍍']])
+getFruit()
+getFruit([['🍍'], ['🍊', '🍌']])
+```
+
+- A: `null`, `undefined`, 🍌
+- B: `[]`, `null`, 🍌
+- C: `[]`, `[]`, 🍌
+- D: `undefined`, `undefined`, 🍌
+
+<details><summary><b>Answer</b></summary>
+<p>
+
+#### Jawaban: D
+
+`?` Memungkinkan kita untuk secara opsional mengakses properti bersarang yang lebih dalam di dalam objek. Kami mencoba memasukkan item ke dalam indeks `1` dalam subarray yang ada di indeks` 1` dari larik `buah`. Jika sub larik pada indeks `1` dalam larik` buah` tidak ada, itu hanya akan mengembalikan ʻundefined`. Jika sub larik pada indeks `1` dalam larik` buah` ada, tetapi sub larik ini tidak memiliki item pada indeks `1`, ia juga akan mengembalikan` tak terdefinisi`. 
+
+Pertama, kita mencoba memasukkan item kedua dalam sub-deretan `['🍍']` dari `[['🍊', '🍌'], ['🍍']]`. Subarray ini hanya berisi satu item, yang berarti tidak ada item pada indeks `1`, dan mengembalikan` undefined`.
+
+Kemudian, kita memanggil fungsi `getFruits` tanpa memberikan nilai sebagai argumen, yang berarti bahwa` fruits` memiliki nilai `undefined` secara default. Karena kita merangkai item secara bersyarat pada indeks `1` of`fruits`, ia mengembalikan` undefined` karena item pada indeks `1` ini tidak ada. 
+
+Terakhir, kami mencoba memasukkan item kedua dalam subarray `['🍊', '🍌']` dari `['🍍'], ['🍊', '🍌']`. Item pada indeks `1` dalam subarray ini adalah` 🍌`, yang dicatat.
+
+</p>
+</details>
+
+---
+
+###### 148. Apa hasilnya ?
+
+```javascript
+class Calc {
+	constructor() {
+		this.count = 0 
+	}
+
+	increase() {
+		this.count ++
+	}
+}
+
+const calc = new Calc()
+new Calc().increase()
+
+console.log(calc.count)
+```
+
+- A: `0`
+- B: `1`
+- C: `undefined`
+- D: `ReferenceError`
+
+<details><summary><b>Answer</b></summary>
+<p>
+
+#### Jawaban: A
+
+Kami menyetel variabel `calc` sama dengan instance baru dari kelas` Calc`. Kemudian, kita membuat instance baru dari `Calc`, dan memanggil metode` kenaikan` pada instance ini. Karena properti count berada dalam konstruktor kelas `Calc`, properti count tidak digunakan bersama pada prototipe` Calc`. Ini berarti bahwa nilai hitungan belum diperbarui untuk contoh yang ditunjuk kalk, hitungan masih `0`.
+
+</p>
+</details>
