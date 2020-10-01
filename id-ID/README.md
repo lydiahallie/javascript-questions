@@ -3276,7 +3276,7 @@ This means that it waited for the `myPromise` to resolve with the value `I have 
 
 ---
 
-###### 103. What's the value of output?
+###### 103. Nilai apa yang akan jadi keluaran?
 
 ```javascript
 const set = new Set();
