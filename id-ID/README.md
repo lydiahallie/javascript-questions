@@ -4682,7 +4682,7 @@ const pet = new Flamingo();
 
 #### Jawaban: B
 
-We create the variable `pet` which is an instance of the `Flamingo` class. When we instantiate this instance, the `constructor` on `Flamingo` gets called. First, `"I'm pink. 🌸"` gets logged, after which we call `super()`. `super()` calls the constructor of the parent class, `Bird`. THe constructor in `Bird` gets called, and logs `"I'm a bird. 🦢"`.
+Kita membuat variabel `pet` yang merupakan turunan dari class `Flamingo`. Saat kita membuat turunan, `constructor` pada `Flamingo` dipanggil. Pertama, `"I'm pink. 🌸"` ditampilkan, setelah itu kita memanggil `super()`. `super()` memanggil konstruktor class induk, `Bird`. Constructor pada `Bird` dipanggil, dan menampilkan `"I'm a bird. 🦢"`.
 
 </p>
 </details>
