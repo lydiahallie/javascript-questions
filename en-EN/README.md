@@ -4995,7 +4995,7 @@ The `Promise.all` method runs the passed promises in parallel. If one promise fa
 
 ---
 
-###### <a name=20200612></a>153. What should the value of `method` be to log `{ name: "Lydia", age: 22 }`? 
+###### 153. What should the value of `method` be to log `{ name: "Lydia", age: 22 }`? 
 
 ```javascript
 const keys = ["name", "age"]
