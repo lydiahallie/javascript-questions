@@ -4581,7 +4581,7 @@ If we would've written `yield`, `return yield`, or `return`, the entire generato
 
 ---
 
-###### 141. What's the output?
+###### 141. What output you will see in the browser console.?
 
 ```javascript
 const person = {
