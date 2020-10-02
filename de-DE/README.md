@@ -1,12 +1,23 @@
-# JavaScript Fragen (für Fortgeschrittene)
+<div align="center">
+  <img height="60" src="https://img.icons8.com/color/344/javascript.png">
+  <h1>JavaScript Fragen (für Fortgeschrittene)</h1>
 
-Täglich poste ich mehrere Multiple-Choice-Fragen über JavaScript auf meinem [Instagram](https://www.instagram.com/theavocoder), die ich nun auch hier veröffentlichen werde.
+---
 
-Von einfach bis fortgeschritten: teste wie gut du JavaScript kennst, frische dein Wissen auf oder bereite dich auf ein Vorstellungsgespräch vor! :muscle: :rocket: Ich werde dieses Repo wöchentlich mit neuen Fragen erweitern.
+<span>Ich veröffentliche jeden Tag mehrere Multiple-Choice-Fragen über JavaScript auf meinem [Instagram-Account](https://www.instagram.com/theavocoder), die ich nun auch hier veröffentliche.
 
-Die Antworten sind unterhalb der Fragen versteckt. Du kannst einfach darauf klicken um die Antworten anzuzeigen. Viel Glück :heart:
+Von einfach bis fortgeschritten: teste, wie gut du JavaScript kennst, frische dein Wissen auf oder bereite dich auf ein Vorstellungsgespräch vor! :muscle: :rocket: Ich werde dieses Repo regelmäßig mit neuen Fragen erweitern. Die Antworten sind unterhalb der Fragen **versteckt**. Du kannst einfach darauf klicken, um die Antworten anzuzeigen. Viel Glück :heart:</span>
 
-### Alle verfügbaren Sprachen
+Kontaktiert mich, wenn ihr möchtet! 😊 <br />
+<a href="https://www.instagram.com/theavocoder">Instagram</a> || <a href="https://www.twitter.com/lydiahallie">Twitter</a> || <a href="https://www.linkedin.com/in/lydia-hallie">LinkedIn</a> || <a href="https://www.lydiahallie.dev">Blog</a>
+</div>
+
+| Benutzt die Fragen und Lösungen in einem Projekt! 😃  Ich würde mich _sehr_ freuen, wenn ihr dieses Repo verlinkt. Ich erstelle die Fragen und antworten (ja, ich bin traurig, lol) und die Community hilft mir unglaublich dabei, das ganze zu pflegen und verbessern! 💪🏼 Danke und habt Spaß!   |
+|---|
+
+<details><summary><b>Alle 17 verfügbaren Sprachen</b></summary>
+<p>
+
 * [English](../en-EN/README.md)
 * [العربية](../ar-AR/README_AR.md)
 * [اللغة العامية - Egyptian Arabic](../ar-EG/README_ar-EG.md)
@@ -24,6 +35,10 @@ Die Antworten sind unterhalb der Fragen versteckt. Du kannst einfach darauf klic
 * [中文版本](../zh-CN/README-zh_CN.md)
 * [Türkçe](../tr-TR/README-tr_TR.md)
 * [ไทย](../th-TH/README-th_TH.md)
+* [Indonesia](../id-ID/README.md)
+
+</p>
+</details>
 
 ---
 
@@ -2036,7 +2051,7 @@ Wenn wir keinen Wert einer Funktion ausgeben wird `undefined` ausgegeben. Beim n
 Beim vierten Call geben wir wieder nichts aus, sodass der Akkumulator wieder `undefined` ist und der aktuelle Wert `4`. `undefined` und `4` werden geloggt.
 </p>
 </details>
-  
+
 ---
 
 ###### 66. Mit welchem Constructor können wir die `Dog` Klasse erweitern?
@@ -2049,7 +2064,7 @@ class Dog {
 };
 
 class Labrador extends Dog {
-  // 1 
+  // 1
   constructor(name, size) {
     this.size = size;
   }
@@ -2063,7 +2078,7 @@ class Labrador extends Dog {
     super(name);
     this.size = size;
   }
-  // 4 
+  // 4
   constructor(name, size) {
     this.name = name;
     this.size = size;
@@ -2142,7 +2157,7 @@ console.log(Symbol('foo') === Symbol('foo'))
 
 #### Antwort: A
 
-Jedes Symbol ist eindeutig. Der Sinn des Argumentes, welches an das Symbol weitergegeben wird, ist dem Symbol eine Beschreibung zu geben. Der Wert des Symbols hängt nicht von diesem Argument ab. Beim vergleichen der Symbole werden zwei komplett neue Symbole erstellt: das erste `Symbol('foo')` und das zweite `Symbol('foo')`. Diese beiden Werte sind eindeutig und nicht identisch, weshalb `Symbol('foo') === Symbol('foo')` `false` ausgibt. 
+Jedes Symbol ist eindeutig. Der Sinn des Argumentes, welches an das Symbol weitergegeben wird, ist dem Symbol eine Beschreibung zu geben. Der Wert des Symbols hängt nicht von diesem Argument ab. Beim vergleichen der Symbole werden zwei komplett neue Symbole erstellt: das erste `Symbol('foo')` und das zweite `Symbol('foo')`. Diese beiden Werte sind eindeutig und nicht identisch, weshalb `Symbol('foo') === Symbol('foo')` `false` ausgibt.
 
 </p>
 </details>
@@ -2160,7 +2175,7 @@ console.log(name.padStart(2))
 - A: `"Lydia Hallie"`, `"Lydia Hallie"`
 - B: `"           Lydia Hallie"`, `"  Lydia Hallie"` (`"[13x whitespace]Lydia Hallie"`, `"[2x whitespace]Lydia Hallie"`)
 - C: `" Lydia Hallie"`, `"Lydia Hallie"` (`"[1x whitespace]Lydia Hallie"`, `"Lydia Hallie"`)
-- D: `"Lydia Hallie"`, `"Lyd"`, 
+- D: `"Lydia Hallie"`, `"Lyd"`,
 
 <details><summary><b>Antwort</b></summary>
 <p>
@@ -2688,7 +2703,7 @@ fetch('https://www.website.com/api/user/1')
 - A: Das Ergebnis der `fetch` Methode.
 - B: Das Ergebnis des zweiten Aufrufs der `fetch` Methode.
 - C: Das Ergebnis des Callbacks im vorhergehenden `.then()`.
-- D: Immer `undefined`. 
+- D: Immer `undefined`.
 
 <details><summary><b>Antwort</b></summary>
 <p>
@@ -2790,11 +2805,11 @@ Wenn man den Wert des Standard Paramenters gleich dem Parameter setztm der _dana
 ###### 89. Was ist der Output?
 
 ```javascript
-// module.js 
+// module.js
 export default () => "Hello world"
 export const name = "Lydia"
 
-// index.js 
+// index.js
 import * as data from "./module"
 
 console.log(data)
@@ -2897,8 +2912,8 @@ console.log(giveLydiaPizza.prototype)
 console.log(giveLydiaChocolate.prototype)
 ```
 
-- A: `{ constructor: ...}` `{ constructor: ...}` 
-- B: `{}` `{ constructor: ...}` 
+- A: `{ constructor: ...}` `{ constructor: ...}`
+- B: `{}` `{ constructor: ...}`
 - C: `{ constructor: ...}` `{}`
 - D: `{ constructor: ...}` `undefined`
 
@@ -2907,7 +2922,7 @@ console.log(giveLydiaChocolate.prototype)
 
 #### Antwort: D
 
-Reguläre Funktionen wie `giveLydiaPizza` haben eine `prototype` Property, die ein Objekt (Prototype Object) mit einem `constructor` ist. Arrow Funktionen dagegen (wie `giveLydiaChocolate`) haben keinen `prototype`. `undefined` wird ausgegeben, wenn wir versuchen den `prototype` mit `giveLydiaChocolate.prototype` aufzurufen. 
+Reguläre Funktionen wie `giveLydiaPizza` haben eine `prototype` Property, die ein Objekt (Prototype Object) mit einem `constructor` ist. Arrow Funktionen dagegen (wie `giveLydiaChocolate`) haben keinen `prototype`. `undefined` wird ausgegeben, wenn wir versuchen den `prototype` mit `giveLydiaChocolate.prototype` aufzurufen.
 
 </p>
 </details>
@@ -2928,7 +2943,7 @@ for (const [x, y] of Object.entries(person)) {
 ```
 
 - A: `name` `Lydia` und `age` `21`
-- B: `["name", "Lydia"]` und `["age", 21]` 
+- B: `["name", "Lydia"]` und `["age", 21]`
 - C: `["name", "age"]` und `undefined`
 - D: `Error`
 
@@ -2939,7 +2954,7 @@ for (const [x, y] of Object.entries(person)) {
 
 `Object.entries(person)` gibt ein Array mit verschachtelten Arrays der Keys aus:
 
-`[ [ 'name', 'Lydia' ], [ 'age', 21 ] ]` 
+`[ [ 'name', 'Lydia' ], [ 'age', 21 ] ]`
 
 Mit der `for-of` Schleife iterieren wir über jedes Element in dem Array, in diesem Fall die verschachtelten Arrays. Wir können die verschachtelten Arrays mit `const [x, y]` in der for-of Schleife destrukturieren. `x` ist gleich dem ersten Element, `y` ist gleich dem zweiten Element in dem verschachtelten Array.
 
@@ -2962,7 +2977,7 @@ getItems(["banana", "apple"], "pear", "orange")
 ```
 
 - A: `["banana", "apple", "pear", "orange"]`
-- B: `[["banana", "apple"], "pear", "orange"]` 
+- B: `[["banana", "apple"], "pear", "orange"]`
 - C: `["banana", "apple", ["pear"], "orange"]`
 - D: `SyntaxError`
 
@@ -2994,9 +3009,9 @@ function nums(a, b) {
   if
   (a > b)
   console.log('a is bigger')
-  else 
+  else
   console.log('b is bigger')
-  return 
+  return
   a + b
 }
 
@@ -3260,12 +3275,12 @@ Mit einem Promise sagen wir _Ich möchte diese Funktion ausführen, aber ich leg
 
 Wir können auf den Wert mit `.then()` oder `await` in einer `async` Funktion zugreifen, aber `.then()` und `await` unterscheiden sich in einem bestimmten Punkt.
 
-In `firstFunction` legen wir `myPromise` beiseite, während die Funktion durchläuft, aber wir arbeiten anderen Code ab, hier `console.log('second')`. 
-Dann wird die Funktion abgeschlossen und der String `I have resolved` wird ausgegeben, nachdem sich der Call Stack geleert hat. 
+In `firstFunction` legen wir `myPromise` beiseite, während die Funktion durchläuft, aber wir arbeiten anderen Code ab, hier `console.log('second')`.
+Dann wird die Funktion abgeschlossen und der String `I have resolved` wird ausgegeben, nachdem sich der Call Stack geleert hat.
 
 Mit dem `await` Keyword in `secondFunction` wird die Funktion gestoppt bis der Wert ausgegeben wurde, erst dann wird die nächste Zeile ausgeführt.
 
-Das bedeutet, dass auf `myPromise` gewartet und dann der Wert `I have resolved` ausgegeben wird und erst dann wird die nächste Zeile ausgeführt und `second` wird geloggt. 
+Das bedeutet, dass auf `myPromise` gewartet und dann der Wert `I have resolved` ausgegeben wird und erst dann wird die nächste Zeile ausgeführt und `second` wird geloggt.
 
 </p>
 </details>
@@ -3300,7 +3315,7 @@ Der `+` Operator wird nicht nur für numerische Werte verwendet, wir können mit
 
 Der erste Wert ist `1`, was ein numerischer Wert ist. `1 + 2` ergibt die Zahl `3`.
 
-Der zweite Wert hingegen ist der String `"Lydia"`. `"Lydia"` ist ein String und `2` ist eine Nummer: `2` wird in einem String umgewandelt. `"Lydia"` und `"2"` werden zusammengesetzt, was den String `"Lydia2"` ausgibt. 
+Der zweite Wert hingegen ist der String `"Lydia"`. `"Lydia"` ist ein String und `2` ist eine Nummer: `2` wird in einem String umgewandelt. `"Lydia"` und `"2"` werden zusammengesetzt, was den String `"Lydia2"` ausgibt.
 
 `{ name: "Lydia" }` ist ein Objekt. Weder eine Nummer, noch ein Objekt sind ein String, aber beide werden zu Strings konvertiert und `"[object Object]"` wird ausgegeben. `"[object Object]"` zusammengesetzt mit `"2"` wird `"[object Object]2"`.
 
@@ -3327,7 +3342,7 @@ Promise.resolve(5)
 
 Wir können jeden Wert an `Promise.resolve` übergeben, es muss nicht unbedingt ein Promise sein. Die Methode selbst gibt ein Promise zurück, was einen Wert ausgibt (`<fulfilled>`). Wenn man eine normale Funktion übergibt wird das Promise einen normalen Wert ausgeben. Wenn ein Promise übergeben wird so wird ein Promise gelöst und der Wert des gelösten Promises ausgegeben.
 
-In diesem Fall haben wir nur die Zahl `5` übergeben und diese wird genauso ausgegeben: `5`. 
+In diesem Fall haben wir nur die Zahl `5` übergeben und diese wird genauso ausgegeben: `5`.
 
 </p>
 </details>
@@ -3366,7 +3381,7 @@ Wir setzen den Standardwert für `person2` gleich dem `person` Objekt und überg
 
 Das bedeutet, dass beide Werte eine Referenz zum gleichen Ort im Speicher aufweisen und daher gleich sind.
 
-Der Code im `else` Statement wird aufgerufen und `They are the same!` wird geloggt. 
+Der Code im `else` Statement wird aufgerufen und `They are the same!` wird geloggt.
 
 </p>
 </details>
@@ -3399,7 +3414,7 @@ console.log(colorConfig.colors[1])
 
 #### Antwort: D
 
-In JavaScript gibt es zwei Wege auf Properties an Objekten zuzugreifen: Punkt-Notation oder Klammern-Notation. In diesem Beispiel nutzen wir Punkt-Notation (`colorConfig.colors`) anstelle von Klammern-Notation (`colorConfig["colors"]`). 
+In JavaScript gibt es zwei Wege auf Properties an Objekten zuzugreifen: Punkt-Notation oder Klammern-Notation. In diesem Beispiel nutzen wir Punkt-Notation (`colorConfig.colors`) anstelle von Klammern-Notation (`colorConfig["colors"]`).
 
 Mit Punkt-Notation versucht JavaScript die Property am Objekt mit diesem exakten Namen zu finden. In unserem Beispiel `colors` im `colorConfig` Objekt. Da es keine Property `colorConfig` gibt wird `undefined` ausgegeben. Dann versuchen wir den Wert des ersten Elements mit `[1]` aufzurufen, was an `undefined` nicht möglich ist, wodurch wir `TypeError: Cannot read property '1' of undefined` ausgegeben bekommen.
 
@@ -3431,7 +3446,7 @@ Emojis sind im Endeffekt nur Unicodes. Der Unicode für das Herz Emoji ist `"U+2
 
 ---
 
-###### 108. Welche Methode verändert das ursprüngliche Array? 
+###### 108. Welche Methode verändert das ursprüngliche Array?
 
 ```javascript
 const emojis = ['✨', '🥑', '😍']
@@ -3440,13 +3455,13 @@ emojis.map(x => x + '✨')
 emojis.filter(x => x !== '🥑')
 emojis.find(x => x !== '🥑')
 emojis.reduce((acc, cur) => acc + '✨')
-emojis.slice(1, 2, '✨') 
+emojis.slice(1, 2, '✨')
 emojis.splice(1, 2, '✨')
 ```
 
 - A: `All of them`
 - B: `map` `reduce` `slice` `splice`
-- C: `map` `slice` `splice` 
+- C: `map` `slice` `splice`
 - D: `splice`
 
 <details><summary><b>Antwort</b></summary>
@@ -3454,7 +3469,7 @@ emojis.splice(1, 2, '✨')
 
 #### Antwort: D
 
-Mit der `splice` Methode ändern wir das ursprüngliche Array durch löschen, ersetzen oder ergänzen von Elementen. In diesem Fall haben wir 2 Elemente vom Index 1 (`'🥑'` und `'😍'`) entfernt und ✨ stattdessen eingefügt. 
+Mit der `splice` Methode ändern wir das ursprüngliche Array durch löschen, ersetzen oder ergänzen von Elementen. In diesem Fall haben wir 2 Elemente vom Index 1 (`'🥑'` und `'😍'`) entfernt und ✨ stattdessen eingefügt.
 
 `map`, `filter` und `slice` geben ein neues Array aus, `find` gibt ein Element aus und `reduce` gibt einen neuen Wert aus.
 
@@ -3477,7 +3492,7 @@ console.log(food)
 
 - A: `['🍕', '🍫', '🥑', '🍔']`
 - B: `['🍝', '🍫', '🥑', '🍔']`
-- C: `['🍝', '🍕', '🍫', '🥑', '🍔']` 
+- C: `['🍝', '🍕', '🍫', '🥑', '🍔']`
 - D: `ReferenceError`
 
 <details><summary><b>Antwort</b></summary>
@@ -3531,7 +3546,7 @@ JSON.parse(jsonArray) // { name: 'Lydia' }
 
 ---
 
-###### 111. Was ist der Output? 
+###### 111. Was ist der Output?
 
 ```javascript
 let name = 'Lydia'
@@ -3642,7 +3657,7 @@ console.log(`${(x => x)('I love')} to program`)
 
 #### Antwort: A
 
-Expressions innerhalb von Template Literals werden zuerst berechnet. Das bedeutet, dass der String den ausgegebenen Wert der Expression beinhaltet, hier die IIFE (immediately invoked Function) `(x => x)('I love')`. Wir geben den Wert `'I love'` als Argument an die `x => x` Arrow Funktion. `x` ist gleich `'I love'` und wird ausgegeben. Das Ergebnis ist `I love to program`. 
+Expressions innerhalb von Template Literals werden zuerst berechnet. Das bedeutet, dass der String den ausgegebenen Wert der Expression beinhaltet, hier die IIFE (immediately invoked Function) `(x => x)('I love')`. Wir geben den Wert `'I love'` als Argument an die `x => x` Arrow Funktion. `x` ist gleich `'I love'` und wird ausgegeben. Das Ergebnis ist `I love to program`.
 
 </p>
 </details>
@@ -3704,7 +3719,7 @@ myMap.get(() => 'greeting'))
 
 #### Antwort: B
 
-Beim Setzen eines Key/Wert Paars mit der `set` Methode wird der Key als erstes Argument an die `set` Funktion übergeben und der Wert wird als zweites Argument eingegeben. Der Key ist die _Funktion_ `() => 'greeting'` und der Wert ist `'Hello world'`. `myMap` ist jetzt `{ () => 'greeting' => 'Hello world!' }`. 
+Beim Setzen eines Key/Wert Paars mit der `set` Methode wird der Key als erstes Argument an die `set` Funktion übergeben und der Wert wird als zweites Argument eingegeben. Der Key ist die _Funktion_ `() => 'greeting'` und der Wert ist `'Hello world'`. `myMap` ist jetzt `{ () => 'greeting' => 'Hello world!' }`.
 
 1 ist falsch, weil der Key nicht `'greeting'`, sondern `() => 'greeting'` ist.
 3 ist falsch, weil wir eine neue Funktion erstellen, indem wir sie als Argument übergeben. Objekte interagieren anhand von _Referenzen_. Funktionen sind Objekte, weshalb zwei Funktionen streng gesehen nie gleich sind, selbst wenn sie sich nicht unterscheiden.
