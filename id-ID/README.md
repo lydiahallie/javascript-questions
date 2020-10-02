@@ -4780,7 +4780,7 @@ Pernyataan `if` didalam perulangan `forEach` akan mengecek apakah nilai dari `nu
 ```javascript
 class Calc {
 	constructor() {
-		this.count = 0 
+		this.count = 0
 	}
 
 	increase() {
@@ -4947,3 +4947,36 @@ Fungsi `updateEmail` adalah fungsi panah, dan tidak terikat ke objek `user`. Art
 
 ---
 
+###### 154. Apa hasilnya?
+
+```javascript
+const createMember = ({ email, address = {}}) => {
+	const validEmail = /.+\@.+\..+/.test(email)
+	if (!validEmail) throw new Error("Valid email pls")
+
+	return {
+		email,
+		address: address ? address : null
+	}
+}
+
+const member = createMember({ email: "my@email.com" })
+console.log(member)
+```
+
+- A: `{ email: "my@email.com", address: null }`
+- B: `{ email: "my@email.com" }`
+- C: `{ email: "my@email.com", address: {} }`
+- D: `{ email: "my@email.com", address: undefined }`
+
+<details><summary><b>Answer</b></summary>
+<p>
+
+#### Answer: C
+
+Nilai default dari `address` adalah sebuah objek kosong `{}`. Saat ketika mengatur variable `member` sama dengan objek yang dikembalikan oleh fungsi `createMember`, kita tidak mengirimkan nilai untuk address, yang berarti bahwa nilai address adalah objek default kosong `{}`. Objek kosong adalah nilai kebenaran, yang berarti kondisi dari `address ? address : null` mengembalikan `true`. Nilai address adalah objek kosong`{}`.
+
+</p>
+</details>
+
+---
