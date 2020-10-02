@@ -1,4 +1,6 @@
-<h1>Pertanyaan JavaScript</h1>
+<div align="center">
+  <img height="60" src="https://img.icons8.com/color/344/javascript.png">
+  <h1>Pertanyaan JavaScript</h1>
 
   ---
 
@@ -8,8 +10,10 @@
 
 Jangan sungkan untuk terhubung dengan saya! 😊 <br />
 <a href="https://www.instagram.com/theavocoder">Instagram</a> || <a href="https://www.twitter.com/lydiahallie">Twitter</a> || <a href="https:/www.linkedin.com/in/lydia-hallie">LinkedIn</a> || <a href="www.lydiahallie.dev">Blog</a>
+</div>
 
-  </div>
+| Jangan ragu untuk menggunakannya dalam sebuah proyek! 😃 Saya akan _sangat_ menghargai referensi untuk repo ini, Saya membuat pertanyaan dan penjelasannya (ya, saya sedih lol) dan komunitas sangat membantu saya untuk memelihara dan meningkatkannya! 💪🏼 Terima kasih dan selamat bersenang-senang!  |
+|---|
 
 ---
 
@@ -4947,3 +4951,38 @@ Fungsi `updateEmail` adalah fungsi panah, dan tidak terikat ke objek `user`. Art
 
 ---
 
+###### 152. Apa hasilnya?
+
+```javascript
+const promise1 = Promise.resolve('First')
+const promise2 = Promise.resolve('Second')
+const promise3 = Promise.reject('Third')
+const promise4 = Promise.resolve('Fourth')
+
+const runPromises = async () => {
+	const res1 = await Promise.all([promise1, promise2])
+	const res2  = await Promise.all([promise3, promise4])
+	return [res1, res2]
+}
+
+runPromises()
+	.then(res => console.log(res))
+	.catch(err => console.log(err))
+```
+
+- A: `[['First', 'Second'], ['Fourth']]`
+- B: `[['First', 'Second'], ['Third', 'Fourth']]`
+- C: `[['First', 'Second']]`
+- D: `'Third'`
+
+<details><summary><b>Jawaban</b></summary>
+<p>
+
+#### Answer: D
+
+Metode `Promise.all` menjalankan promise yang diberikan secara paralel. Jika satu promise gagal, metode `Promise.all` _rejects) dengan nilai promise yang ditolak. Dalam kasus ini, `promise3` ditolak dengan nilai` "Third" `. Kami menangkap nilai yang ditolak dalam metode `catch` yang dirantai pada pemanggilan` runPromises` untuk menangkap setiap kesalahan dalam fungsi `runPromises`. Hanya `" Third "` yang dicatat, karena `promise3` ditolak dengan nilai ini.
+
+</p>
+</details>
+
+---
