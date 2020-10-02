@@ -316,9 +316,9 @@ console.log(greetign);
 
 #### Jawaban: A
 
-It logs the object, because we just created an empty object on the global object! When we mistyped `greeting` as `greetign`, the JS interpreter actually saw this as `global.greetign = {}` (or `window.greetign = {}` in a browser).
+Ini mencatat objek, karena kita baru saja membuat objek kosong di objek global! Saat kita salah mengetik `greeting` sebagai` greetign`, interpreter JS sebenarnya melihat ini sebagai `global.greetign = {}` (atau `window.greetign = {}` di browser).
 
-In order to avoid this, we can use `"use strict"`. This makes sure that you have declared a variable before setting it equal to anything.
+Untuk menghindari hal ini, kita bisa menggunakan `" use strict "`. Ini memastikan bahwa Anda telah mendeklarasikan variabel sebelum menetapkannya dengan apa pun.
 
 </p>
 </details>
@@ -345,9 +345,9 @@ bark.animal = 'dog';
 
 #### Jawaban: A
 
-This is possible in JavaScript, because functions are objects! (Everything besides primitive types are objects)
+Ini dimungkinkan dalam JavaScript, karena fungsi adalah objek! (Segala sesuatu selain tipe primitif adalah objek)
 
-A function is a special type of object. The code you write yourself isn't the actual function. The function is an object with properties. This property is invocable.
+Fungsi adalah jenis objek khusus. Kode yang Anda tulis sendiri bukanlah fungsi sebenarnya. Fungsinya adalah objek dengan properti. Properti ini tidak dapat dipanggil.
 
 </p>
 </details>
@@ -1084,16 +1084,16 @@ undefined;
 
 #### Jawaban: A
 
-There are only six falsy values:
+Hanya ada enam nilai yang salah:
 
 - `undefined`
 - `null`
 - `NaN`
 - `0`
-- `''` (empty string)
+- `''` (string kosong)
 - `false`
 
-Function constructors, like `new Number` and `new Boolean` are truthy.
+Konstruktor fungsi, seperti Number baru dan Boolean baru, benar.
 
 </p>
 </details>
@@ -1142,11 +1142,11 @@ console.log(numbers);
 
 #### Jawaban: C
 
-When you set a value to an element in an array that exceeds the length of the array, JavaScript creates something called "empty slots". These actually have the value of `undefined`, but you will see something like:
+Saat Anda menyetel nilai ke elemen dalam larik yang melebihi panjang larik, JavaScript membuat sesuatu yang disebut "slot kosong". Ini sebenarnya memiliki nilai `tidak terdefinisi`, tetapi Anda akan melihat sesuatu seperti:
 
 `[1, 2, 3, 7 x empty, 11]`
 
-depending on where you run it (it's different for every browser, node, etc.)
+tergantung di mana Anda menjalankannya (berbeda untuk setiap browser, node, dll.)
 
 </p>
 </details>
@@ -1288,7 +1288,7 @@ setInterval(() => console.log('Hi'), 1000);
 
 #### Jawaban: A
 
-It returns a unique id. This id can be used to clear that interval with the `clearInterval()` function.
+Itu adalah mengembalikan sebuah id unik. id unik dapat digunakan untuk menghapus interval dengan menggunakan fungsi clearInterval()
 
 </p>
 </details>
@@ -1311,7 +1311,7 @@ It returns a unique id. This id can be used to clear that interval with the `cle
 
 #### Jawaban: A
 
-A string is an iterable. The spread operator maps every character of an iterable to one element.
+Sebuah string adalah iterable. Operator memetakan setiap karakter dari sebuah iterable ke dalam satu elemen.
 
 </p>
 </details>
@@ -4763,10 +4763,10 @@ console.log(count)
 - C: 3
 - D: 4
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>Jawaban</b></summary>
 <p>
 
-#### Answer: C
+#### Jawaban: C
 
 Pernyataan `if` didalam perulangan `forEach` akan mengecek apakah nilai dari `num` benar atau salah. Sejak nilai pertama dari array `nums` adalah `0`, yang merupakan nilai salah, pernyataan `if` tidak akan dieksekusi. maka `count` yang mendapat increment hanya untuk 3 nomor yang lain di array `nums`, `1`, `2` dan `3`. sejak `count` mendapat increment `1` 3 kali, maka nilai dari `count` adalah `3`.
 
@@ -4774,3 +4774,176 @@ Pernyataan `if` didalam perulangan `forEach` akan mengecek apakah nilai dari `nu
 </details>
 
 ---
+
+###### 147. Apa hasilnya?
+
+```javascript
+class Calc {
+	constructor() {
+		this.count = 0 
+	}
+
+	increase() {
+		this.count ++
+	}
+}
+
+const calc = new Calc()
+new Calc().increase()
+
+console.log(calc.count)
+```
+
+- A: `0`
+- B: `1`
+- C: `undefined`
+- D: `ReferenceError`
+
+<details><summary><b>Jawaban</b></summary>
+<p>
+
+#### Jawaban: A
+
+Kami mengatur variabel `calc` sama dengan instance baru dari class `Calc`. Kemudian, kami membuat instance baru dari `Calc`, dan memanggil metode `increase` pada contoh ini. Karena properti count berada dalam konstruktor dari class `Calc`, properti count tidak dibagikan pada prototipe `Calc`. Ini berarti bahwa nilai hitungan belum diperbarui untuk contoh yang ditunjukkan kalk, hitung masih `0`.
+
+</p>
+</details>
+
+---
+
+###### 148. Apa hasilnya?
+
+```javascript
+const user = {
+	email: "e@mail.com",
+	password: "12345"
+}
+
+const updateUser = ({ email, password }) => {
+	if (email) {
+		Object.assign(user, { email })
+	}
+
+	if (password) {
+		user.password = password
+	}
+
+	return user
+}
+
+const updatedUser = updateUser({ email: "new@email.com" })
+
+console.log(updatedUser === user)
+```
+
+- A: `false`
+- B: `true`
+- C: `TypeError`
+- D: `ReferenceError`
+
+<details><summary><b>Jawaban</b></summary>
+<p>
+
+#### Jawaban: B
+
+Fungsi `updateUser` memperbarui nilai properti `email` dan `password` pada pengguna, jika nilainya diteruskan ke fungsi, setelah itu fungsi mengembalikan objek `user`. Nilai yang dikembalikan dari fungsi `updateUser` adalah objek `user`, yang berarti bahwa nilai updatedUser adalah referensi ke objek `user` yang sama dengan yang ditunjuk oleh `user`. `updatedUser === user` sama dengan `true`.
+
+</p>
+</details>
+
+---
+
+###### 149. Apa hasilnya?
+```javascript
+const fruit = ['🍌', '🍊', '🍎']
+
+fruit.slice(0, 1)
+fruit.splice(0, 1)
+fruit.unshift('🍇')
+```
+
+- A: `['🍌', '🍊', '🍎']`
+- B: `['🍊', '🍎']`
+- C: `['🍇', '🍊', '🍎']`
+- D: `['🍇', '🍌', '🍊', '🍎']`
+
+<details><summary><b>Jawaban</b></summary>
+<p>
+
+#### Jawaban: C
+
+Pertama, kita memanggil metode `slice` pada array fruit. Metode slice tidak mengubah array asli, tetapi mengembalikan nilai yang dipotongnya dari array: banana emoji.
+Kemudian, kita memanggil metode `splice` pada array fruit. Metode splice memang mengubah array asli, yang berarti array fruit sekarang terdiri dari `['🍊', '🍎']`.
+Akhirnya, kita memanggil metode `unshift` pada array `fruit`, yang memodifikasi array asli dengan menambahkan nilai yang diberikan, ‘🍇’ dalam hal ini, sebagai elemen pertama dalam array. Susunan fruit sekarang terdiri dari `['🍇', '🍊', '🍎']`.
+
+</p>
+</details>
+
+---
+
+###### 150. Apa hasilnya?
+
+```javascript
+const animals = {};
+let dog = { emoji: '🐶' }
+let cat = { emoji: '🐈' }
+
+animals[dog] = { ...dog, name: "Mara" }
+animals[cat] = { ...cat, name: "Sara" }
+
+console.log(animals[dog])
+```
+
+- A: `{ emoji: "🐶", name: "Mara" }`
+- B: `{ emoji: "🐈", name: "Sara" }`
+- C: `undefined`
+- D: `ReferenceError`
+
+<details><summary><b>Jawaban</b></summary>
+<p>
+
+#### Jawaban: B
+
+Kunci objek diubah menjadi string.
+
+Karena nilai `dog` adalah sebuah objek,  `animals[dog]`sebenarnya berarti kita membuat properti baru bernama `"object Object"`yang sama dengan objek baru. `animals["object Object"]` sekarang sama dengan `{ emoji: "🐶", name: "Mara"}`.
+
+`cat` juga merupakan objek, yang berarti bahwa `animals[cat]` sebenarnya berarti bahwa kami menimpa nilai `animals[``"``object Object``"``]` dengan properti cat yang baru.
+
+Mencatat `animals[dog]`, atau sebenarnya `animals["object Object"]` karena mengonversi objek `dog` menjadi string menghasilkan `"object Object"`, mengembalikan `{emoji: "🐈", nama: "Sara"}`.
+
+</p>
+</details>
+
+---
+
+###### 151. Apa hasilnya?
+
+```javascript
+const user = {
+	email: "my@email.com",
+	updateEmail: email => {
+		this.email = email
+	}
+}
+
+user.updateEmail("new@email.com")
+console.log(user.email)
+```
+
+- A: `my@email.com`
+- B: `new@email.com`
+- C: `undefined`
+- D: `ReferenceError`
+
+<details><summary><b>Jawaban</b></summary>
+<p>
+
+#### Jawaban: A
+
+Fungsi `updateEmail` adalah fungsi panah, dan tidak terikat ke objek `user`. Artinya, kata kunci `this` tidak merujuk ke objek `user`, tetapi merujuk pada cakupan global dalam kasus ini. Nilai `email` dalam objek `user` tidak diperbarui. Saat memasukkan nilai `user.email`, nilai asli `my@email.com` akan dikembalikan.
+</p>
+</details>
+
+---
+
