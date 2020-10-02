@@ -91,7 +91,7 @@ for (let i = 0; i < 3; i++) {
 
 #### Jawaban: C
 
-Karena antrean peristiwa di JavaScript, fungsi callback `setTimeout` disebut _after_ loop telah dijalankan. Karena variabel `i` di loop pertama dideklarasikan menggunakan kata kunci` var`, nilai ini adalah global. Selama perulangan, kita menambah nilai ʻi` sebesar `1` setiap kali, menggunakan operator unary` ++ `. Pada saat fungsi callback `setTimeout` dipanggil,` i` sama dengan `3` di contoh pertama.
+Karena antrean peristiwa di JavaScript, fungsi callback `setTimeout` disebut _after_ loop telah dijalankan. Karena variabel `i` di loop pertama dideklarasikan menggunakan kata kunci` var`, nilai ini adalah global. Selama perulangan, kita menambah nilai `i` sebesar `1` setiap kali, menggunakan operator unary` ++ `. Pada saat fungsi callback `setTimeout` dipanggil,` i` sama dengan `3` di contoh pertama.
 
 Pada perulangan kedua, variabel `i` dideklarasikan menggunakan kata kunci` let`: variabel yang dideklarasikan dengan kata kunci `let` (dan` const`) memiliki cakupan blok (blok adalah apa saja di antara `{}`). Selama setiap iterasi, `i` akan memiliki nilai baru, dan setiap nilai dicakup di dalam loop.
 </p>
@@ -2206,7 +2206,7 @@ With the `+` operator, you can concatenate strings. In this case, we are concate
 
 ---
 
-###### 71. How can we log the values that are commented out after the console.log statement?
+###### 71. Bagaimana cara mencatat nilai yang diberikan komentar pada perintah console.log?
 
 ```javascript
 function* startGame() {
@@ -3413,7 +3413,7 @@ JavaScript interprets (or unboxes) statements. When we use bracket notation, it 
 
 ---
 
-###### 107. What's its value?
+###### 107. Apakah hasil nilai dibawah ini ?
 
 ```javascript
 console.log('❤️' === '❤️');
@@ -3427,14 +3427,14 @@ console.log('❤️' === '❤️');
 
 #### Jawaban: A
 
-Under the hood, emojis are unicodes. The unicodes for the heart emoji is `"U+2764 U+FE0F"`. These are always the same for the same emojis, so we're comparing two equal strings to each other, which returns true.
+Di belakang layar, emoji adalah sebuah unicode. Unicode untuk emoji hati adalah `"U+2764 U+FE0F"`. Keduanya akan selalu sama untuk emoji yang sama, jadi sebetulnya kita telah membandingkan dua string yang sama satu sama lain, yang mana akan menghasilkan true.
 
 </p>
 </details>
 
 ---
 
-###### 108. Which of these methods modifies the original array?
+###### 108. Manakah metode berikut yang akan memodifikasi array aslinya?
 
 ```javascript
 const emojis = ['✨', '🥑', '😍'];
@@ -3457,9 +3457,9 @@ emojis.splice(1, 2, '✨');
 
 #### Jawaban: D
 
-With `splice` method, we modify the original array by deleting, replacing or adding elements. In this case, we removed 2 items from index 1 (we removed `'🥑'` and `'😍'`) and added the ✨ emoji instead.
+Metode `splice`, akan memodifikasi array aslinya dengan cara menghapus, mengganti atau menambahkan elemen. Dalam kasus ini, kami menghapus 2 item dari indeks 1 (kami menghapus `'🥑'` dan`' 😍'`) dan menambahkan emoji ✨ sebagai penggantinya.
 
-`map`, `filter` and `slice` return a new array, `find` returns an element, and `reduce` returns a reduced value.
+`map`,` filter` dan `slice` akan mengembalikan array baru,` find` akan mengembalikan elemen yang dicari, dan `reduce` akan mengembalikan nilai yang telah dikurangi.
 
 </p>
 </details>
@@ -4598,9 +4598,9 @@ obj.next(); // { value: "Lisa", done: false }
 
 #### Jawaban: B
 
-In order to iterate over the `members` in each element in the `teams` array, we need to pass `teams[i].members` to the `getMembers` generator function. The generator function returns a generator object. In order to iterate over each element in this generator object, we need to use `yield*`.
+Untuk melakukan pengulangan pada `members` dalam setiap elemen array `tim`, kita perlu melemparkan `tim[i].members` ke fungsi generator `getMembers`. Fungsi generator akan mengembalikan objek hasil generator. Untuk mengulang setiap elemen dalam objek generator ini, kita perlu menggunakan `yield*`.
 
-If we would've written `yield`, `return yield`, or `return`, the entire generator function would've gotten returned the first time we called the `next` method.
+Jika kita telah menulis `yield`, `return yield`, atau `return`, maka seluruh fungsi generator akan dikembalikan saat pertama kali kita memanggil metode `next`.
 
 </p>
 </details>
@@ -4780,7 +4780,7 @@ Pernyataan `if` didalam perulangan `forEach` akan mengecek apakah nilai dari `nu
 ```javascript
 class Calc {
 	constructor() {
-		this.count = 0 
+		this.count = 0
 	}
 
 	increase() {
@@ -4946,4 +4946,3 @@ Fungsi `updateEmail` adalah fungsi panah, dan tidak terikat ke objek `user`. Art
 </details>
 
 ---
-
