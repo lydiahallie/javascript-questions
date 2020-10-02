@@ -5092,5 +5092,21 @@ The condition within the `if` statement checks whether the value of `!typeof ran
 
 `!typeof randomValue === "string"` always returns false, since we're actually checking `false === "string"`. Since the condition returned `false`, the code block of the `else` statement gets run, and `Yay it's a string!` gets logged.
 
+###### 156. What's the output?
+
+What is 'this' keyword in JavaScript?
+
+- A: `This' keyword refers to the object from where it was called`
+- B: `This' keyword refers to the parent`
+- C: `TypeError`
+- D: `undefined`
+
+<details><summary><b>Answer</b></summary>
+<p>
+
+#### Answer: A
+
+'This' keyword refers to the object from where it was called
+
 </p>
 </details>
