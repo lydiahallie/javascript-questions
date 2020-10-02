@@ -4985,6 +4985,7 @@ Metode `Promise.all` menjalankan promise yang diberikan secara paralel. Jika sat
 
 ---
 
+
 ###### <a name=20200612></a>153.Berapa nilai `method` untuk mencatat `{name: "Lydia", age: 22}`?
 
 ````javascript
@@ -5037,16 +5038,13 @@ Metode `Promise.all` menjalankan promise yang diberikan secara paralel. Jika sat
 ###### <a name=20200612></a>153.Berapa nilai `method` untuk mencatat `{name: "Lydia", age: 22}`?
 
 ```javascript
-const keys = ["name", "age"];
-const values = ["Lydia", 22];
+const keys = ["name", "age"]
+const values = ["Lydia", 22]
 
-const method =
-  /* ?? */
-  Object[method](
-    keys.map((_, i) => {
-      return [keys[i], values[i]];
-    })
-  ); // { name: "Lydia", age: 22 }
+const method = /* ?? */
+Object[method](keys.map((_, i) => {
+	return [keys[i], values[i]]
+})) // { name: "Lydia", age: 22 }
 ```
 
 - A: `entries`
