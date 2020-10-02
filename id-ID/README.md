@@ -5013,3 +5013,66 @@ Ini membuat array subarray yang berisi kunci dan nilai yang benar, yang menghasi
 </details>
 
 ---
+###### 154. Apa hasilnya?
+
+```javascript
+const createMember = ({ email, address = {}}) => {
+	const validEmail = /.+\@.+\..+/.test(email)
+	if (!validEmail) throw new Error("Valid email pls")
+
+	return {
+		email,
+		address: address ? address : null
+	}
+}
+
+const member = createMember({ email: "my@email.com" })
+console.log(member)
+```
+
+- A: `{ email: "my@email.com", address: null }`
+- B: `{ email: "my@email.com" }`
+- C: `{ email: "my@email.com", address: {} }`
+- D: `{ email: "my@email.com", address: undefined }`
+
+<details><summary><b>Jawaban</b></summary>
+<p>
+
+#### Jawaban: C
+
+Nilai default dari `address` adalah objek kosong `{}`. Saat kita menyetel variabel `member` sama dengan objek yang dikembalikan oleh fungsi `createMember`, kita tidak meneruskan nilai untuk address, yang berarti bahwa nilai address adalah objek kosong default `{}`.Objek kosong adalah nilai sebenarnya, yang berarti kondisi `address ? address: null` mengembalikan `true`. Nilai address adalah objek kosong `{}`.
+
+</p>
+</details>
+
+---
+
+###### 155. Apa hasilnya?
+
+```javascript
+let randomValue = { name: "Lydia" }
+randomValue = 23
+
+if (!typeof randomValue === "string") {
+	console.log("It's not a string!")
+} else {
+	console.log("Yay it's a string!")
+}
+```
+
+- A: `It's not a string!`
+- B: `Yay it's a string!`
+- C: `TypeError`
+- D: `undefined`
+
+<details><summary><b>Jawaban</b></summary>
+<p>
+
+#### Jawaban: B
+
+Kondisi dalam pernyataan `if` memeriksa apakah nilai dari `!typeof randomValue` sama dengan `"string"`. Operator `!` Mengonversi nilai menjadi nilai boolean. Jika nilainya benar, nilai yang dikembalikan akan menjadi `false`, jika nilainya salah, nilai yang dikembalikan akan menjadi `true`. Dalam kasus ini, nilai yang dikembalikan dari `typeof randomValue` adalah nilai sebenarnya `"string"`, artinya nilai `!typeof randomValue` adalah nilai boolean `false`.
+
+`!typeof randomValue === "string"` selalu mengembalikan false, karena kita sebenarnya memeriksa `false === "string "`. Karena kondisi mengembalikan `false`, blok kode dari pernyataan `else` dijalankan, dan `Yay it's a string!` Akan dicatat.
+
+</p>
+</details>
