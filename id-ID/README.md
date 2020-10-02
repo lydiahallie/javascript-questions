@@ -116,10 +116,10 @@ console.log(shape.diameter());
 console.log(shape.perimeter());
 ```
 
-- A: `20` and `62.83185307179586`
-- B: `20` and `NaN`
-- C: `20` and `63`
-- D: `NaN` and `63`
+- A: `20` dan `62.83185307179586`
+- B: `20` dan `NaN`
+- C: `20` dan `63`
+- D: `NaN` dan `63`
 
 <details><summary><b>Jawaban</b></summary>
 <p>
@@ -144,16 +144,16 @@ Tidak ada nilai 'radius' pada objek itu, yang mengembalikan 'tidak ditentukan'.
 !"Lydia";
 ```
 
-- A: `1` and `false`
-- B: `false` and `NaN`
-- C: `false` and `false`
+- A: `1` dan `false`
+- B: `false` dan `NaN`
+- C: `false` dan `false`
 
 <details><summary><b>Jawaban</b></summary>
 <p>
 
 #### Jawaban: A
 
-Unary plus mencoba mengonversi operan menjadi angka. `benar` adalah `1`, dan `salah` adalah `0`.
+Unary plus mencoba mengkonversi operan menjadi angka. `benar` adalah `1`, dan `salah` adalah `0`.
 
 stringnya `'Lydia'` adalah nilai kebenaran. Apa yang sebenarnya kami tanyakan adalah "apakah nilai kebenaran ini salah?". pengembalian ini `salah`.
 
@@ -412,10 +412,10 @@ console.log(lydia);
 console.log(sarah);
 ```
 
-- A: `Person {firstName: "Lydia", lastName: "Hallie"}` and `undefined`
-- B: `Person {firstName: "Lydia", lastName: "Hallie"}` and `Person {firstName: "Sarah", lastName: "Smith"}`
-- C: `Person {firstName: "Lydia", lastName: "Hallie"}` and `{}`
-- D:`Person {firstName: "Lydia", lastName: "Hallie"}` and `ReferenceError`
+- A: `Person {firstName: "Lydia", lastName: "Hallie"}` dan `undefined`
+- B: `Person {firstName: "Lydia", lastName: "Hallie"}` dan `Person {firstName: "Sarah", lastName: "Smith"}`
+- C: `Person {firstName: "Lydia", lastName: "Hallie"}` dan `{}`
+- D:`Person {firstName: "Lydia", lastName: "Hallie"}` dan `ReferenceError`
 
 <details><summary><b>Jawaban</b></summary>
 <p>
