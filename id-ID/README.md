@@ -5034,6 +5034,42 @@ Metode `Promise.all` menjalankan promise yang diberikan secara paralel. Jika sat
 
 ---
 
+###### 152. Apa hasilnya?
+
+```javascript
+const promise1 = Promise.resolve("First");
+const promise2 = Promise.resolve("Second");
+const promise3 = Promise.reject("Third");
+const promise4 = Promise.resolve("Fourth");
+
+const runPromises = async () => {
+  const res1 = await Promise.all([promise1, promise2]);
+  const res2 = await Promise.all([promise3, promise4]);
+  return [res1, res2];
+};
+
+runPromises()
+  .then((res) => console.log(res))
+  .catch((err) => console.log(err));
+```
+
+- A: `[['First', 'Second'], ['Fourth']]`
+- B: `[['First', 'Second'], ['Third', 'Fourth']]`
+- C: `[['First', 'Second']]`
+- D: `'Third'`
+
+<details><summary><b>Jawaban</b></summary>
+<p>
+
+#### Jawaban: D
+
+Metode `Promise.all` menjalankan promise yang diberikan secara paralel. Jika satu promise gagal, metode `Promise.all` dengan nilai promise yang ditolak. Dalam kasus ini, `promise3` ditolak dengan nilai `"Third"`. Kami menangkap nilai yang ditolak dalam metode `catch` yang dirantai pada pemanggilan `runPromises` untuk menangkap setiap kesalahan dalam fungsi `runPromises`. Hanya `"Third"` yang dicatat, karena `promise3` ditolak dengan nilai ini.
+
+</p>
+</details>
+
+---
+
 ###### <a name=20200612></a>153.Berapa nilai `method` untuk mencatat `{name: "Lydia", age: 22}`?
 
 ```javascript
