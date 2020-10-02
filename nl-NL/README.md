@@ -3326,7 +3326,7 @@ Promise.resolve(5)
 
 - A: `5`
 - B: `Promise {<pending>: 5}`
-- C: `Promise {<resolved>: 5}`
+- C: `Promise {<fulfilled>: 5}`
 - D: `Error`
 
 <details><summary><b>Antwoord</b></summary>
@@ -3334,7 +3334,7 @@ Promise.resolve(5)
 
 #### Antwoord: C
 
-We kunnen elk type of waarde meegeven aan `Promise.resolve`, zowel een promise als een niet-promise. De methode zelf retourneert een promise met een opgeloste waarde. Als je een reguliere functie meegeeft zal het een opgeloste promise zijn met een reguliere waarde. Als je een promise meegeeft zal het een opgeloste promise zijn met een opgeloste waarde, of de doorgegeven promise.
+We kunnen elk type of waarde meegeven aan `Promise.resolve`, zowel een promise als een niet-promise. De methode zelf retourneert een promise met een opgeloste waarde (`<fulfilled>`). Als je een reguliere functie meegeeft zal het een opgeloste promise zijn met een reguliere waarde. Als je een promise meegeeft zal het een opgeloste promise zijn met een opgeloste waarde, of de doorgegeven promise.
 
 In dit geval geven we alleen de numerieke waarde `5` mee. Het geeft de opgeloste promise terug met de waarde `5`.
 

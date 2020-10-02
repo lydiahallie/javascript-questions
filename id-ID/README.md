@@ -92,10 +92,9 @@ for (let i = 0; i < 3; i++) {
 
 #### Jawaban: C
 
-Because of the event queue in JavaScript, the `setTimeout` callback function is called _after_ the loop has been executed. Since the variable `i` in the first loop was declared using the `var` keyword, this value was global. During the loop, we incremented the value of `i` by `1` each time, using the unary operator `++`. By the time the `setTimeout` callback function was invoked, `i` was equal to `3` in the first example.
+Karena antrean peristiwa di JavaScript, fungsi callback `setTimeout` disebut _after_ loop telah dijalankan. Karena variabel `i` di loop pertama dideklarasikan menggunakan kata kunci` var`, nilai ini adalah global. Selama perulangan, kita menambah nilai ʻi` sebesar `1` setiap kali, menggunakan operator unary` ++ `. Pada saat fungsi callback `setTimeout` dipanggil,` i` sama dengan `3` di contoh pertama.
 
-In the second loop, the variable `i` was declared using the `let` keyword: variables declared with the `let` (and `const`) keyword are block-scoped (a block is anything between `{ }`). During each iteration, `i` will have a new value, and each value is scoped inside the loop.
-
+Pada perulangan kedua, variabel `i` dideklarasikan menggunakan kata kunci` let`: variabel yang dideklarasikan dengan kata kunci `let` (dan` const`) memiliki cakupan blok (blok adalah apa saja di antara `{}`). Selama setiap iterasi, `i` akan memiliki nilai baru, dan setiap nilai dicakup di dalam loop.
 </p>
 </details>
 
@@ -126,11 +125,11 @@ console.log(shape.perimeter());
 
 #### Jawaban: B
 
-Note that the value of `diameter` is a regular function, whereas the value of `perimeter` is an arrow function.
+Perhatikan pada nilai 'diameter' adalah fungsi biasa, sedangkan nilai 'perimeter' yaitu fungsi panah.
 
-With arrow functions, the `this` keyword refers to its current surrounding scope, unlike regular functions! This means that when we call `perimeter`, it doesn't refer to the shape object, but to its surrounding scope (window for example).
+Dengan fungsi panah, kata kunci 'this' merujuk ke cakupan sekitarnya saat ini, tidak seperti fungsi biasa. Ini berarti bahwa ketika kita memanggil 'perimeter' itu tidak mengacu pada objek bentuk, tetapi pada lingkup sekitarnya.
 
-There is no value `radius` on that object, which returns `undefined`.
+Tidak ada nilai 'radius' pada objek itu, yang mengembalikan 'tidak ditentukan'.
 
 </p>
 </details>
@@ -153,16 +152,16 @@ There is no value `radius` on that object, which returns `undefined`.
 
 #### Jawaban: A
 
-The unary plus tries to convert an operand to a number. `true` is `1`, and `false` is `0`.
+Unary plus mencoba mengonversi operan menjadi angka. `benar` adalah `1`, dan `salah` adalah `0`.
 
-The string `'Lydia'` is a truthy value. What we're actually asking, is "is this truthy value falsy?". This returns `false`.
+stringnya `'Lydia'` adalah nilai kebenaran. Apa yang sebenarnya kami tanyakan adalah "apakah nilai kebenaran ini salah?". pengembalian ini `salah`.
 
 </p>
 </details>
 
 ---
 
-###### 5. Which one is true?
+###### 5. Mana yang benar?
 
 ```javascript
 const bird = {
@@ -220,13 +219,13 @@ console.log(d.greeting);
 
 #### Jawaban: A
 
-In JavaScript, all objects interact by _reference_ when setting them equal to each other.
+Dalam JavaScript, semua objek berinteraksi dengan _referensi_ saat menyetelnya agar sama satu sama lain.
 
-First, variable `c` holds a value to an object. Later, we assign `d` with the same reference that `c` has to the object.
+Pertama, variabel `c` memiliki nilai untuk sebuah objek. Kemudian, kami menetapkan `d` dengan referensi yang sama yang dimiliki `c` ke objek.
 
 <img src="https://i.imgur.com/ko5k0fs.png" width="200">
 
-When you change one object, you change all of them.
+Saat Anda mengubah satu objek, Anda mengubah semuanya.
 
 </p>
 </details>
@@ -318,16 +317,16 @@ console.log(greetign);
 
 #### Jawaban: A
 
-It logs the object, because we just created an empty object on the global object! When we mistyped `greeting` as `greetign`, the JS interpreter actually saw this as `global.greetign = {}` (or `window.greetign = {}` in a browser).
+Ini mencatat objek, karena kita baru saja membuat objek kosong di objek global! Saat kita salah mengetik `greeting` sebagai` greetign`, interpreter JS sebenarnya melihat ini sebagai `global.greetign = {}` (atau `window.greetign = {}` di browser).
 
-In order to avoid this, we can use `"use strict"`. This makes sure that you have declared a variable before setting it equal to anything.
+Untuk menghindari hal ini, kita bisa menggunakan `" use strict "`. Ini memastikan bahwa Anda telah mendeklarasikan variabel sebelum menetapkannya dengan apa pun.
 
 </p>
 </details>
 
 ---
 
-###### 10. What happens when we do this?
+###### 10. Apa yang terjadi jika kita melakukan ini?
 
 ```javascript
 function bark() {
@@ -347,9 +346,9 @@ bark.animal = 'dog';
 
 #### Jawaban: A
 
-This is possible in JavaScript, because functions are objects! (Everything besides primitive types are objects)
+Ini dimungkinkan dalam JavaScript, karena fungsi adalah objek! (Segala sesuatu selain tipe primitif adalah objek)
 
-A function is a special type of object. The code you write yourself isn't the actual function. The function is an object with properties. This property is invocable.
+Fungsi adalah jenis objek khusus. Kode yang Anda tulis sendiri bukanlah fungsi sebenarnya. Fungsinya adalah objek dengan properti. Properti ini tidak dapat dipanggil.
 
 </p>
 </details>
@@ -382,7 +381,7 @@ console.log(member.getFullName());
 
 #### Jawaban: A
 
-You can't add properties to a constructor like you can with regular objects. If you want to add a feature to all objects at once, you have to use the prototype instead. So in this case,
+Anda tidak dapat menambahkan properti ke constructor seperti yang Anda lakukan dengan objek biasa. Jika Anda ingin menambahkan fitur ke semua objek sekaligus, Anda harus menggunakan prototipe sebagai gantinya. Jadi dalam kasus ini,
 
 ```js
 Person.prototype.getFullName = function() {
@@ -390,7 +389,7 @@ Person.prototype.getFullName = function() {
 };
 ```
 
-would have made `member.getFullName()` work. Why is this beneficial? Say that we added this method to the constructor itself. Maybe not every `Person` instance needed this method. This would waste a lot of memory space, since they would still have that property, which takes of memory space for each instance. Instead, if we only add it to the prototype, we just have it at one spot in memory, yet they all have access to it!
+akan membuat `member.getFullName()` berfungsi. Mengapa ini bermanfaat? Katakanlah kita menambahkan metode ini ke konstruktor itu sendiri. Mungkin tidak setiap instance `Person` membutuhkan metode ini. Ini akan membuang banyak ruang memori, karena mereka masih memiliki properti itu, yang mengambil ruang memori untuk setiap instance. Sebaliknya, jika kita hanya menambahkannya ke prototipe, kita hanya memilikinya di satu tempat di memori, namun mereka semua memiliki akses ke sana!
 
 </p>
 </details>
@@ -452,7 +451,7 @@ During the **capturing** phase, the event goes through the ancestor elements dow
 
 ---
 
-###### 14. All object have prototypes.
+###### 14. Semua objek memiliki prototypes.
 
 - A: true
 - B: false
@@ -1086,16 +1085,16 @@ undefined;
 
 #### Jawaban: A
 
-There are only six falsy values:
+Hanya ada enam nilai yang salah:
 
 - `undefined`
 - `null`
 - `NaN`
 - `0`
-- `''` (empty string)
+- `''` (string kosong)
 - `false`
 
-Function constructors, like `new Number` and `new Boolean` are truthy.
+Konstruktor fungsi, seperti Number baru dan Boolean baru, benar.
 
 </p>
 </details>
@@ -1144,11 +1143,11 @@ console.log(numbers);
 
 #### Jawaban: C
 
-When you set a value to an element in an array that exceeds the length of the array, JavaScript creates something called "empty slots". These actually have the value of `undefined`, but you will see something like:
+Saat Anda menyetel nilai ke elemen dalam larik yang melebihi panjang larik, JavaScript membuat sesuatu yang disebut "slot kosong". Ini sebenarnya memiliki nilai `tidak terdefinisi`, tetapi Anda akan melihat sesuatu seperti:
 
 `[1, 2, 3, 7 x empty, 11]`
 
-depending on where you run it (it's different for every browser, node, etc.)
+tergantung di mana Anda menjalankannya (berbeda untuk setiap browser, node, dll.)
 
 </p>
 </details>
@@ -1290,7 +1289,7 @@ setInterval(() => console.log('Hi'), 1000);
 
 #### Jawaban: A
 
-It returns a unique id. This id can be used to clear that interval with the `clearInterval()` function.
+Itu adalah mengembalikan sebuah id unik. id unik dapat digunakan untuk menghapus interval dengan menggunakan fungsi clearInterval()
 
 </p>
 </details>
@@ -1313,7 +1312,7 @@ It returns a unique id. This id can be used to clear that interval with the `cle
 
 #### Jawaban: A
 
-A string is an iterable. The spread operator maps every character of an iterable to one element.
+Sebuah string adalah iterable. Operator memetakan setiap karakter dari sebuah iterable ke dalam satu elemen.
 
 </p>
 </details>
@@ -3322,7 +3321,7 @@ Promise.resolve(5);
 
 - A: `5`
 - B: `Promise {<pending>: 5}`
-- C: `Promise {<resolved>: 5}`
+- C: `Promise {<fulfilled>: 5}`
 - D: `Error`
 
 <details><summary><b>Jawaban</b></summary>
@@ -3330,7 +3329,7 @@ Promise.resolve(5);
 
 #### Jawaban: C
 
-We can pass any type of value we want to `Promise.resolve`, either a promise or a non-promise. The method itself returns a promise with the resolved value. If you pass a regular function, it'll be a resolved promise with a regular value. If you pass a promise, it'll be a resolved promise with the resolved value of that passed promise.
+We can pass any type of value we want to `Promise.resolve`, either a promise or a non-promise. The method itself returns a promise with the resolved value (`<fulfilled>`). If you pass a regular function, it'll be a resolved promise with a regular value. If you pass a promise, it'll be a resolved promise with the resolved value of that passed promise.
 
 In this case, we just passed the numerical value `5`. It returns a resolved promise with the value `5`.
 
@@ -4683,7 +4682,7 @@ const pet = new Flamingo();
 
 #### Jawaban: B
 
-We create the variable `pet` which is an instance of the `Flamingo` class. When we instantiate this instance, the `constructor` on `Flamingo` gets called. First, `"I'm pink. 🌸"` gets logged, after which we call `super()`. `super()` calls the constructor of the parent class, `Bird`. THe constructor in `Bird` gets called, and logs `"I'm a bird. 🦢"`.
+Kita membuat variabel `pet` yang merupakan turunan dari class `Flamingo`. Saat kita membuat turunan, `constructor` pada `Flamingo` dipanggil. Pertama, `"I'm pink. 🌸"` ditampilkan, setelah itu kita memanggil `super()`. `super()` memanggil konstruktor class induk, `Bird`. Constructor pada `Bird` dipanggil, dan menampilkan `"I'm a bird. 🦢"`.
 
 </p>
 </details>
@@ -4718,7 +4717,7 @@ Deklarasi `const` pada dasarnya berarti tidak dapat _mengubah_ nilai dari variab
 
 ---
 
-###### 145. What do we need to add to the `person` object to get `["Lydia Hallie", 21]` as the output of `[...person]`?
+###### 145. Apa yang harus kita tambahkan ke objek `person` untuk mendapatkan `["Lydia Hallie", 21]` sebagai output dari `[...person]`?
 
 ```javascript
 const person = {
@@ -4729,7 +4728,7 @@ const person = {
 [...person] // ["Lydia Hallie", 21]
 ```
 
-- A: Nothing, object are iterable by default
+- A: Tidak ada, objek adalah iterable secara default
 - B: `*[Symbol.iterator]() { for (let x in this) yield* this[x] }`
 - C: `*[Symbol.iterator]() { for (let x in this) yield* Object.values(this) }`
 - D: `*[Symbol.iterator]() { for (let x in this) yield this }`
@@ -4739,7 +4738,279 @@ const person = {
 
 #### Jawaban: C
 
-Objects aren't iterable by default. An iterable is an iterable if the iterator protocol is present. We can add this manually by adding the iterator symbol `[Symbol.iterator]`, which has to return a generator object, for example by making it a generator function `*[Symbol.iterator]() {}`. This generator function has to yield the `Object.values` of the `person` object if we want it to return the array `["Lydia Hallie", 21]`: `yield* Object.values(this)`.
+Objek tidak dapat diulang secara default. Sebuah iterable adalah sebuah iterable jika protokol iterator ada. Kita dapat menambahkan ini secara manual dengan menambahkan simbol iterator
+ `[Symbol.iterator]`, dimana harus mengembalikan objek generator, sebagai contoh dengan membuat fungsi generator `*[Symbol.iterator]() {}`. Fungsi generator ini harus menghasilkan `Object.values` dari objek `person` jika kita mau mengembalikan array `["Lydia Hallie", 21]`: `yield* Object.values(this)`.
 
 </p>
 </details>
+
+---
+
+###### 146. Apa yang akan tampil?
+
+```javascript
+let count = 0;
+const nums = [0, 1, 2, 3];
+
+nums.forEach(num => {
+	if (num) count += 1
+})
+
+console.log(count)
+```
+
+- A: 1
+- B: 2
+- C: 3
+- D: 4
+
+<details><summary><b>Jawaban</b></summary>
+<p>
+
+#### Jawaban: C
+
+Pernyataan `if` didalam perulangan `forEach` akan mengecek apakah nilai dari `num` benar atau salah. Sejak nilai pertama dari array `nums` adalah `0`, yang merupakan nilai salah, pernyataan `if` tidak akan dieksekusi. maka `count` yang mendapat increment hanya untuk 3 nomor yang lain di array `nums`, `1`, `2` dan `3`. sejak `count` mendapat increment `1` 3 kali, maka nilai dari `count` adalah `3`.
+
+</p>
+</details>
+
+---
+
+###### 147. Apa hasilnya?
+
+```javascript
+class Calc {
+	constructor() {
+		this.count = 0 
+	}
+
+	increase() {
+		this.count ++
+	}
+}
+
+const calc = new Calc()
+new Calc().increase()
+
+console.log(calc.count)
+```
+
+- A: `0`
+- B: `1`
+- C: `undefined`
+- D: `ReferenceError`
+
+<details><summary><b>Jawaban</b></summary>
+<p>
+
+#### Jawaban: A
+
+Kami mengatur variabel `calc` sama dengan instance baru dari class `Calc`. Kemudian, kami membuat instance baru dari `Calc`, dan memanggil metode `increase` pada contoh ini. Karena properti count berada dalam konstruktor dari class `Calc`, properti count tidak dibagikan pada prototipe `Calc`. Ini berarti bahwa nilai hitungan belum diperbarui untuk contoh yang ditunjukkan kalk, hitung masih `0`.
+
+</p>
+</details>
+
+---
+
+###### 148. Apa hasilnya?
+
+```javascript
+const user = {
+	email: "e@mail.com",
+	password: "12345"
+}
+
+const updateUser = ({ email, password }) => {
+	if (email) {
+		Object.assign(user, { email })
+	}
+
+	if (password) {
+		user.password = password
+	}
+
+	return user
+}
+
+const updatedUser = updateUser({ email: "new@email.com" })
+
+console.log(updatedUser === user)
+```
+
+- A: `false`
+- B: `true`
+- C: `TypeError`
+- D: `ReferenceError`
+
+<details><summary><b>Jawaban</b></summary>
+<p>
+
+#### Jawaban: B
+
+Fungsi `updateUser` memperbarui nilai properti `email` dan `password` pada pengguna, jika nilainya diteruskan ke fungsi, setelah itu fungsi mengembalikan objek `user`. Nilai yang dikembalikan dari fungsi `updateUser` adalah objek `user`, yang berarti bahwa nilai updatedUser adalah referensi ke objek `user` yang sama dengan yang ditunjuk oleh `user`. `updatedUser === user` sama dengan `true`.
+
+</p>
+</details>
+
+---
+
+###### 149. Apa hasilnya?
+```javascript
+const fruit = ['🍌', '🍊', '🍎']
+
+fruit.slice(0, 1)
+fruit.splice(0, 1)
+fruit.unshift('🍇')
+```
+
+- A: `['🍌', '🍊', '🍎']`
+- B: `['🍊', '🍎']`
+- C: `['🍇', '🍊', '🍎']`
+- D: `['🍇', '🍌', '🍊', '🍎']`
+
+<details><summary><b>Jawaban</b></summary>
+<p>
+
+#### Jawaban: C
+
+Pertama, kita memanggil metode `slice` pada array fruit. Metode slice tidak mengubah array asli, tetapi mengembalikan nilai yang dipotongnya dari array: banana emoji.
+Kemudian, kita memanggil metode `splice` pada array fruit. Metode splice memang mengubah array asli, yang berarti array fruit sekarang terdiri dari `['🍊', '🍎']`.
+Akhirnya, kita memanggil metode `unshift` pada array `fruit`, yang memodifikasi array asli dengan menambahkan nilai yang diberikan, ‘🍇’ dalam hal ini, sebagai elemen pertama dalam array. Susunan fruit sekarang terdiri dari `['🍇', '🍊', '🍎']`.
+
+</p>
+</details>
+
+---
+
+###### 150. Apa hasilnya?
+
+```javascript
+const animals = {};
+let dog = { emoji: '🐶' }
+let cat = { emoji: '🐈' }
+
+animals[dog] = { ...dog, name: "Mara" }
+animals[cat] = { ...cat, name: "Sara" }
+
+console.log(animals[dog])
+```
+
+- A: `{ emoji: "🐶", name: "Mara" }`
+- B: `{ emoji: "🐈", name: "Sara" }`
+- C: `undefined`
+- D: `ReferenceError`
+
+<details><summary><b>Jawaban</b></summary>
+<p>
+
+#### Jawaban: B
+
+Kunci objek diubah menjadi string.
+
+Karena nilai `dog` adalah sebuah objek,  `animals[dog]`sebenarnya berarti kita membuat properti baru bernama `"object Object"`yang sama dengan objek baru. `animals["object Object"]` sekarang sama dengan `{ emoji: "🐶", name: "Mara"}`.
+
+`cat` juga merupakan objek, yang berarti bahwa `animals[cat]` sebenarnya berarti bahwa kami menimpa nilai `animals[``"``object Object``"``]` dengan properti cat yang baru.
+
+Mencatat `animals[dog]`, atau sebenarnya `animals["object Object"]` karena mengonversi objek `dog` menjadi string menghasilkan `"object Object"`, mengembalikan `{emoji: "🐈", nama: "Sara"}`.
+
+</p>
+</details>
+
+---
+
+###### 151. Apa hasilnya?
+
+```javascript
+const user = {
+	email: "my@email.com",
+	updateEmail: email => {
+		this.email = email
+	}
+}
+
+user.updateEmail("new@email.com")
+console.log(user.email)
+```
+
+- A: `my@email.com`
+- B: `new@email.com`
+- C: `undefined`
+- D: `ReferenceError`
+
+<details><summary><b>Jawaban</b></summary>
+<p>
+
+#### Jawaban: A
+
+Fungsi `updateEmail` adalah fungsi panah, dan tidak terikat ke objek `user`. Artinya, kata kunci `this` tidak merujuk ke objek `user`, tetapi merujuk pada cakupan global dalam kasus ini. Nilai `email` dalam objek `user` tidak diperbarui. Saat memasukkan nilai `user.email`, nilai asli `my@email.com` akan dikembalikan.
+</p>
+</details>
+
+---
+
+###### 152. Apa hasilnya?
+
+```javascript
+const promise1 = Promise.resolve('First')
+const promise2 = Promise.resolve('Second')
+const promise3 = Promise.reject('Third')
+const promise4 = Promise.resolve('Fourth')
+
+const runPromises = async () => {
+	const res1 = await Promise.all([promise1, promise2])
+	const res2  = await Promise.all([promise3, promise4])
+	return [res1, res2]
+}
+
+runPromises()
+	.then(res => console.log(res))
+	.catch(err => console.log(err))
+```
+
+- A: `[['First', 'Second'], ['Fourth']]`
+- B: `[['First', 'Second'], ['Third', 'Fourth']]`
+- C: `[['First', 'Second']]`
+- D: `'Third'`
+
+<details><summary><b>Jawaban</b></summary>
+<p>
+
+#### Jawaban: D
+
+Metode `Promise.all` menjalankan promise yang diberikan secara paralel. Jika satu promise gagal, metode `Promise.all` dengan nilai promise yang ditolak. Dalam kasus ini, `promise3` ditolak dengan nilai `"Third"`. Kami menangkap nilai yang ditolak dalam metode `catch` yang dirantai pada pemanggilan `runPromises` untuk menangkap setiap kesalahan dalam fungsi `runPromises`. Hanya `"Third"` yang dicatat, karena `promise3` ditolak dengan nilai ini.
+
+</p>
+</details>
+
+---
+
+###### <a name=20200612></a>153.Berapa nilai `method` untuk mencatat `{name: "Lydia", age: 22}`?
+
+```javascript
+const keys = ["name", "age"]
+const values = ["Lydia", 22]
+
+const method = /* ?? */
+Object[method](keys.map((_, i) => {
+	return [keys[i], values[i]]
+})) // { name: "Lydia", age: 22 }
+```
+
+- A: `entries`
+- B: `values`
+- C: `fromEntries`
+- D: `forEach`
+
+<details><summary><b>Jawaban</b></summary>
+<p>
+
+#### Jawaban: C
+
+Metode `fromEntries` mengubah array 2d menjadi objek. Elemen pertama di setiap subarray akan menjadi kuncinya, dan elemen kedua di setiap subarray akan menjadi nilainya. Dalam hal ini, kami memetakan di atas array `keys`, yang mengembalikan array yang elemen pertamanya adalah item pada array kunci pada indeks saat ini, dan elemen kedua adalah item dari array nilai pada indeks saat ini.
+
+Ini membuat array subarray yang berisi kunci dan nilai yang benar, yang menghasilkan `{name:" Lydia ", age: 22}`
+
+</p>
+</details>
+
+---

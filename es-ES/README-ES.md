@@ -3319,7 +3319,7 @@ Promise.resolve(5)
 
 - A: `5`
 - B: `Promise {<pending>: 5}`
-- C: `Promise {<resolved>: 5}`
+- C: `Promise {<fulfilled>: 5}`
 - D: `Error`
 
 <details><summary><b>Solución</b></summary>
@@ -3327,7 +3327,7 @@ Promise.resolve(5)
 
 #### Answer: C
 
-Podemos pasar cualquier tipo de valor que queramos a `Promise.resolve`, ya sea una promesa o no promesa. El método en sí mismo devuelve una promesa con el valor resuelto. Si pasas una función estandar, será una promesa resuelta con un valor normal. Si pasas una promesa, será una promesa resuelta con el valor resuelto de esa promesa pasada.
+Podemos pasar cualquier tipo de valor que queramos a `Promise.resolve`, ya sea una promesa o no promesa. El método en sí mismo devuelve una promesa con el valor resuelto (`<fulfilled>`). Si pasas una función estandar, será una promesa resuelta con un valor normal. Si pasas una promesa, será una promesa resuelta con el valor resuelto de esa promesa pasada.
 
 En este caso, acabamos de pasar el valor numérico `5`. Devuelve una promesa resuelta con el valor `5`. 
 

@@ -1964,3 +1964,43 @@ L'opérateur arithmétique `++` _renvoie en premier_ la valeur de l'opérande, _
 
 </p>
 </details>
+
+---
+
+###### 64. Quelle est la sortie?
+
+```javascript
+const value = { number: 10 };
+
+const multiply = (x = { ...value }) => {
+  console.log((x.number *= 2));
+};
+
+multiply();
+multiply();
+multiply(value);
+multiply(value);
+```
+
+- A: `20`, `40`, `80`, `160`
+- B: `20`, `40`, `20`, `40`
+- C: `20`, `20`, `20`, `40`
+- D: `NaN`, `NaN`, `20`, `40`
+
+<details><summary><b>Répondre</b></summary>
+<p>
+
+#### Répondre: C
+
+Dans ES6, nous pouvons initialiser les paramètres avec une valeur par défaut. La valeur du paramètre sera la valeur par défaut, si aucune autre valeur n'a été passée à la fonction, ou si la valeur du paramètre est `"undefined"`. Dans ce cas, nous répartissons les propriétés de l'objet `value` dans un nouvel objet, donc `x` a la valeur par défaut `{number: 10}`.
+
+L'argument par défaut est évalué at _call time_! Chaque fois que nous appelons la fonction, un a _new_ object  créé. Nous invoquons la fonction `multiply` les deux premières fois sans passer de valeur: `x` a la valeur par défaut `{number: 10}`. Nous enregistrons ensuite la valeur multipliée de ce nombre, qui est `20`.
+
+La troisième fois que nous invoquons multiplier, nous passons un argument: l'objet appelé `value`. L'opérateur `* =` est en fait un raccourci pour `x.number = x.number * 2`: nous modifions la valeur de `x.number`, et enregistrons la valeur multipliée `20`.
+
+La quatrième fois, nous passons à nouveau l'objet `value`. `x.number` a été précédemment modifié en `20`, donc `x.number * = 2` enregistre «40».
+
+</p>
+</details>
+
+---
