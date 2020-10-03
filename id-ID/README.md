@@ -114,10 +114,10 @@ console.log(shape.diameter());
 console.log(shape.perimeter());
 ```
 
-- A: `20` and `62.83185307179586`
-- B: `20` and `NaN`
-- C: `20` and `63`
-- D: `NaN` and `63`
+- A: `20` dan `62.83185307179586`
+- B: `20` dan `NaN`
+- C: `20` dan `63`
+- D: `NaN` dan `63`
 
 <details><summary><b>Jawaban</b></summary>
 <p>
@@ -142,9 +142,9 @@ Tidak ada nilai 'radius' pada objek itu, yang mengembalikan 'tidak ditentukan'.
 !'Lydia';
 ```
 
-- A: `1` and `false`
-- B: `false` and `NaN`
-- C: `false` and `false`
+- A: `1` dan `false`
+- B: `false` dan `NaN`
+- C: `false` dan `false`
 
 <details><summary><b>Jawaban</b></summary>
 <p>
@@ -155,12 +155,13 @@ Tia unary plus mencoba mengonversi operan menjadi angka. `true` adalah` 1`, dan 
 
 String "'Lydia'` adalah nilai yang benar. Apa yang sebenarnya kami tanyakan adalah "apakah nilai kebenaran ini salah?". Ini mengembalikan `salah`.
 
+
 </p>
 </details>
 
 ---
 
-###### 5. Which one is true?
+###### 5. Mana yang benar?
 
 ```javascript
 const bird = {
@@ -324,7 +325,7 @@ Untuk menghindari hal ini, kita bisa menggunakan `" use strict "`. Ini memastika
 
 ---
 
-###### 10. What happens when we do this?
+###### 10. Apa yang terjadi jika kita melakukan ini?
 
 ```javascript
 function bark() {
@@ -379,7 +380,7 @@ console.log(member.getFullName());
 
 #### Jawaban: A
 
-You can't add properties to a constructor like you can with regular objects. If you want to add a feature to all objects at once, you have to use the prototype instead. So in this case,
+Anda tidak dapat menambahkan properti ke constructor seperti yang Anda lakukan dengan objek biasa. Jika Anda ingin menambahkan fitur ke semua objek sekaligus, Anda harus menggunakan prototipe sebagai gantinya. Jadi dalam kasus ini,
 
 ```js
 Person.prototype.getFullName = function() {
@@ -387,7 +388,7 @@ Person.prototype.getFullName = function() {
 };
 ```
 
-would have made `member.getFullName()` work. Why is this beneficial? Say that we added this method to the constructor itself. Maybe not every `Person` instance needed this method. This would waste a lot of memory space, since they would still have that property, which takes of memory space for each instance. Instead, if we only add it to the prototype, we just have it at one spot in memory, yet they all have access to it!
+akan membuat `member.getFullName()` berfungsi. Mengapa ini bermanfaat? Katakanlah kita menambahkan metode ini ke konstruktor itu sendiri. Mungkin tidak setiap instance `Person` membutuhkan metode ini. Ini akan membuang banyak ruang memori, karena mereka masih memiliki properti itu, yang mengambil ruang memori untuk setiap instance. Sebaliknya, jika kita hanya menambahkannya ke prototipe, kita hanya memilikinya di satu tempat di memori, namun mereka semua memiliki akses ke sana!
 
 </p>
 </details>
@@ -409,10 +410,10 @@ console.log(lydia);
 console.log(sarah);
 ```
 
-- A: `Person {firstName: "Lydia", lastName: "Hallie"}` and `undefined`
-- B: `Person {firstName: "Lydia", lastName: "Hallie"}` and `Person {firstName: "Sarah", lastName: "Smith"}`
-- C: `Person {firstName: "Lydia", lastName: "Hallie"}` and `{}`
-- D:`Person {firstName: "Lydia", lastName: "Hallie"}` and `ReferenceError`
+- A: `Person {firstName: "Lydia", lastName: "Hallie"}` dan `undefined`
+- B: `Person {firstName: "Lydia", lastName: "Hallie"}` dan `Person {firstName: "Sarah", lastName: "Smith"}`
+- C: `Person {firstName: "Lydia", lastName: "Hallie"}` dan `{}`
+- D:`Person {firstName: "Lydia", lastName: "Hallie"}` dan `ReferenceError`
 
 <details><summary><b>Jawaban</b></summary>
 <p>
@@ -449,7 +450,7 @@ During the **capturing** phase, the event goes through the ancestor elements dow
 
 ---
 
-###### 14. All object have prototypes.
+###### 14. Semua objek memiliki prototypes.
 
 - A: true
 - B: false
@@ -4946,3 +4947,69 @@ Fungsi `updateEmail` adalah fungsi panah, dan tidak terikat ke objek `user`. Art
 
 ---
 
+###### 152. Apa hasilnya?
+
+```javascript
+const promise1 = Promise.resolve('First')
+const promise2 = Promise.resolve('Second')
+const promise3 = Promise.reject('Third')
+const promise4 = Promise.resolve('Fourth')
+
+const runPromises = async () => {
+	const res1 = await Promise.all([promise1, promise2])
+	const res2  = await Promise.all([promise3, promise4])
+	return [res1, res2]
+}
+
+runPromises()
+	.then(res => console.log(res))
+	.catch(err => console.log(err))
+```
+
+- A: `[['First', 'Second'], ['Fourth']]`
+- B: `[['First', 'Second'], ['Third', 'Fourth']]`
+- C: `[['First', 'Second']]`
+- D: `'Third'`
+
+<details><summary><b>Jawaban</b></summary>
+<p>
+
+#### Jawaban: D
+
+Metode `Promise.all` menjalankan promise yang diberikan secara paralel. Jika satu promise gagal, metode `Promise.all` dengan nilai promise yang ditolak. Dalam kasus ini, `promise3` ditolak dengan nilai `"Third"`. Kami menangkap nilai yang ditolak dalam metode `catch` yang dirantai pada pemanggilan `runPromises` untuk menangkap setiap kesalahan dalam fungsi `runPromises`. Hanya `"Third"` yang dicatat, karena `promise3` ditolak dengan nilai ini.
+
+</p>
+</details>
+
+---
+
+###### <a name=20200612></a>153.Berapa nilai `method` untuk mencatat `{name: "Lydia", age: 22}`?
+
+```javascript
+const keys = ["name", "age"]
+const values = ["Lydia", 22]
+
+const method = /* ?? */
+Object[method](keys.map((_, i) => {
+	return [keys[i], values[i]]
+})) // { name: "Lydia", age: 22 }
+```
+
+- A: `entries`
+- B: `values`
+- C: `fromEntries`
+- D: `forEach`
+
+<details><summary><b>Jawaban</b></summary>
+<p>
+
+#### Jawaban: C
+
+Metode `fromEntries` mengubah array 2d menjadi objek. Elemen pertama di setiap subarray akan menjadi kuncinya, dan elemen kedua di setiap subarray akan menjadi nilainya. Dalam hal ini, kami memetakan di atas array `keys`, yang mengembalikan array yang elemen pertamanya adalah item pada array kunci pada indeks saat ini, dan elemen kedua adalah item dari array nilai pada indeks saat ini.
+
+Ini membuat array subarray yang berisi kunci dan nilai yang benar, yang menghasilkan `{name:" Lydia ", age: 22}`
+
+</p>
+</details>
+
+---
