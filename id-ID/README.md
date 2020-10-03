@@ -253,8 +253,7 @@ console.log(b === c);
 
 #### Jawaban: C
 
-`new Number()` is a built-in function constructor. Although it looks like a number, it's not really a number: it has a bunch of extra features and is an object.
-
+`new Number()` adalah sebuah fungsi built-in  constructor. Juga itu terlihat seperti nomor, Walaupun sebenarnya bukan nomor: itu memiliko bebeerapa fitur dan objek.
 When we use the `==` operator, it only checks whether it has the same _value_. They both have the value of `3`, so it returns `true`.
 
 However, when we use the `===` operator, both value _and_ type should be the same. It's not: `new Number()` is not a number, it's an **object**. Both return `false.`
@@ -487,7 +486,7 @@ sum(1, '2');
 
 #### Jawaban: C
 
-JavaScript is a **dynamically typed language**: we don't specify what types certain variables are. Values can automatically be converted into another type without you knowing, which is called _implicit type coercion_. **Coercion** is converting from one type into another.
+JavaScript adalah sebuah **bahasa penulisan dinamik**: kita tidak memerlukan  kodingan untuk spesifk variable. Nilainya akan otomatis diubah menjadi yang lain , which is called _implicit type coercion_. **Coercion** is converting from one type into another.
 
 In this example, JavaScript converts the number `1` into a string, in order for the function to make sense and return a value. During the addition of a numeric type (`1`) and a string type (`'2'`), the number is treated as a string. We can concatenate strings like `"Hello" + "World"`, so what's happening here is `"1" + "2"` which returns `"12"`.
 
