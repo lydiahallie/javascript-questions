@@ -173,23 +173,22 @@ const mouse = {
 };
 ```
 
-- A: `mouse.bird.size` is not valid
-- B: `mouse[bird.size]` is not valid
-- C: `mouse[bird["size"]]` is not valid
-- D: All of them are valid
+- A: `mouse.bird.size` tidak benar
+- B: `mouse[bird.size]` tidak benar
+- C: `mouse[bird["size"]]` tidak benar
+- D: Semua jawaban benar
 
 <details><summary><b>Jawaban</b></summary>
 <p>
 
 #### Jawaban: A
+Pada JavaScript, semua kunci objek adalah string (kecuali jika itu berupa Simbol). Meskipun kita mungkin tidak mengetiknya sebagai string, tetap saja mereka selalu berubah menjadi string didalamnya.
 
-In JavaScript, all object keys are strings (unless it's a Symbol). Even though we might not _type_ them as strings, they are always converted into strings under the hood.
+JavaScript menginterpretasikan (atau membuka) pernyataan-pernyataan. Saat kita menggunakan notasi kurung siku, ia melihat kurung buka pertama `[` dan terus berjalan sampai menemukan kurung tutup `]`. Baru setelah itu akan mengevaluasi penyataannya.
 
-JavaScript interprets (or unboxes) statements. When we use bracket notation, it sees the first opening bracket `[` and keeps going until it finds the closing bracket `]`. Only then, it will evaluate the statement.
+`mouse[bird.size]`: Pertama, ini mengevaluasi `bird.size`, yang mana `"small"`. `mouse["small"]` mengembalikan nilai `true`
 
-`mouse[bird.size]`: First it evaluates `bird.size`, which is `"small"`. `mouse["small"]` returns `true`
-
-However, with dot notation, this doesn't happen. `mouse` does not have a key called `bird`, which means that `mouse.bird` is `undefined`. Then, we ask for the `size` using dot notation: `mouse.bird.size`. Since `mouse.bird` is `undefined`, we're actually asking `undefined.size`. This isn't valid, and will throw an error similar to `Cannot read property "size" of undefined`.
+Namun, dengan notasi dot (.), hal ini tidak terjadi. `mouse` tidak memiliki kunci dengan nama `bird`, yang menyebabkan `mouse.bird` bernilai `undefined`. Kemudian, kita meminta `size` untuk menggunakan notasi dot (.): `mouse.bird.size`. Kita mengetahui bahwa `mouse.bird` bernilai `undefined`, yang sebenarnya kita minta adalah `undefined.size`. Yang mana hal ini tidak valid, dan akan memunculkan kesalahan yang mirip dengan `Cannot read property "size" of undefined`.
 
 </p>
 </details>
@@ -253,11 +252,11 @@ console.log(b === c);
 
 #### Jawaban: C
 
-`new Number()` is a built-in function constructor. Although it looks like a number, it's not really a number: it has a bunch of extra features and is an object.
+`new Number()` adalah konstruktor fungsi bawaan pada JavaScript. Meskipun hasilnya terlihat seperti integer, namun sebenarnya itu bukan integer: aslinya memiliki banyak fitur tambahan dan merupakan sebuah objek.
 
-When we use the `==` operator, it only checks whether it has the same _value_. They both have the value of `3`, so it returns `true`.
+Saat kita menggunakan operator `==`, hal ini hanya akan memeriksa bahwa keduanya memiliki nilai yang sama. Pada kasus ini kedua variabel tersebut memiliki nilai yang sama, yaitu `3`, maka akan mengembalikan nilai `true`.
 
-However, when we use the `===` operator, both value _and_ type should be the same. It's not: `new Number()` is not a number, it's an **object**. Both return `false.`
+Namun, saat kita menggunakan operator `===`, operator ini memeriksa bahwa kedua variabel memiliki nilai dan tipe yang sama. Bagaimanapun: `new Number()` bukanlah sebuah integer, ini adalah sebuah **object**. Keduanya akan mengembalikan nilai `false.`
 
 </p>
 </details>
@@ -292,8 +291,7 @@ console.log(freddie.colorChange('orange'));
 
 #### Jawaban: D
 
-The `colorChange` function is static. Static methods are designed to live only on the constructor in which they are created, and cannot be passed down to any children. Since `freddie` is a child, the function is not passed down, and not available on the `freddie` instance: a `TypeError` is thrown.
-
+Fungsi `colorChange` adalah statis. Metode statis dirancang hanya dapat aktif pada kontruktor dimana fungsi itu dibuat, dan tidak bisa dibawa ke-turunannya. Kita tahu bahwa `freddie` adalah sebuah turunan, maka fungsi itu tidak bisa turun, dan tidak tersedia pada instance `freddie`: sebuah pesan `TypeError` akan dikembalikan.
 </p>
 </details>
 
