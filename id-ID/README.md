@@ -5041,6 +5041,6 @@ console.log(member)
 
 #### Answer: C
 
-Nilai default dari `address` adalah sebuah objek kosong `{}`. Saat ketika mengatur variable `member` sama dengan objek yang dikembalikan oleh fungsi `createMember`, kita tidak mengirimkan nilai untuk address, yang berarti bahwa nilai address adalah objek default kosong `{}`. Objek kosong adalah nilai kebenaran, yang berarti kondisi dari `address ? address : null` mengembalikan `true`. Nilai address adalah objek kosong`{}`.
+Nilai default dari `address` adalah objek kosong `{}`. Ketika kita mengatur variable `member` sama dengan objek yang dikembalikan oleh fungsi `createMember`, kita tidak meneruskan nilai untuk address, yang berarti bahwa nilai address adalah objek kosong secara default `{}`. Objek kosong adalah nilai kebenaran, yang berarti kondisi `address ? address : null` mengembalikan `true`. Nilai address adalah objek kosong`{}`.
 
 ---
