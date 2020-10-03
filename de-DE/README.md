@@ -4037,3 +4037,98 @@ myFunc(1, 2, 3);
 
 </p>
 </details>
+
+---
+
+###### 126. Was ist der Output?
+
+```javascript
+function getFine(speed, amount) {
+  const formattedSpeed = new Intl.NumberFormat('en-US', {
+    style: 'unit',
+    unit: 'mile-per-hour'
+  }).format(speed);
+
+  const formattedAmount = new Intl.NumberFormat('en-US', {
+    style: 'currency',
+    currency: 'USD'
+  }).format(amount);
+
+  return `The driver drove ${formattedSpeed} and has to pay ${formattedAmount}`;
+}
+
+console.log(getFine(130, 300))
+```
+
+- A: The driver drove 130 and has to pay 300
+- B: The driver drove 130 mph and has to pay \$300.00
+- C: The driver drove undefined and has to pay undefined
+- D: The driver drove 130.00 and has to pay 300.00
+
+<details><summary><b>Antwort</b></summary>
+<p>
+
+#### Antwort: B
+
+Mit der Methode `Intl.NumberFormat` können wir einen numerischen Wert in einen sprachabhängigen Wert formatieren. Wir formatieren den Zahlenwert `130` zu einem Wert der Sprache `en-US` mit der Einheit (`unit`) in `mile-per-hour`, was `130 mph` ergibt. Analog formatieren wir `300` als eine Währung (`currency`) der Sprache `en-US` in `USD`, was `$300.00` ergibt.
+
+</p>
+</details>
+
+---
+
+###### 127. Was ist der Output?
+
+```javascript
+const spookyItems = ['👻', '🎃', '🕸'];
+({ item: spookyItems[3] } = { item: '💀' });
+
+console.log(spookyItems);
+```
+
+- A: `["👻", "🎃", "🕸"]`
+- B: `["👻", "🎃", "🕸", "💀"]`
+- C: `["👻", "🎃", "🕸", { item: "💀" }]`
+- D: `["👻", "🎃", "🕸", "[object Object]"]`
+
+<details><summary><b>Antwort</b></summary>
+<p>
+
+#### Antwort: B
+
+Durch die destrukturierende Zuweisung können wir Werte des Ojekts von der rechten Seite der Zuweisung extrahieren und diese Werte einem Property mit dem selben Namen dem Objekt auf der linken Seite zuweisen. In diesem Fall wird der Wert "💀" an `spookyItems[3]` zugewiesen. Das bedeutet, dass wir das Array `spookyItems` modifizieren, in dem wir "💀" hinzufügen. Beim Loggen von `spookyItems` wird darum `["👻", "🎃", "🕸", "💀"]` ausgegeben.
+
+</p>
+</details>
+
+---
+
+###### 128. Was ist der Output?
+
+```javascript
+const name = 'Lydia Hallie';
+const age = 21;
+
+console.log(Number.isNaN(name));
+console.log(Number.isNaN(age));
+
+console.log(isNaN(name));
+console.log(isNaN(age));
+```
+
+- A: `true` `false` `true` `false`
+- B: `true` `false` `false` `false`
+- C: `false` `false` `true` `false`
+- D: `false` `true` `false` `true`
+
+<details><summary><b>Antwort</b></summary>
+<p>
+
+#### Antwort: C
+
+Mit der Methode `Number.isNaN` kann geprüft werden, ob der übergebene Parameter vom Typ _Number_ mit Wert  `NaN` ist. `name` ist kein numerischer Wert, deswegen ist der Rückgabewert von `Number.isNaN(name)` in diesem Fall `false`. `age` ist zwar ein numerischer Wert, aber nicht gleich `NaN`, weswegen `Number.isNaN(age)` `false` ausgibt.
+
+Die Methode `isNaN` prüft, ob der Eingabeparameter nicht vom Typ _Number_ ist. `name` ist ein String, darum gibt `isNaN(name)` `true` zurück. `age` ist ein numerischer Wert, weswegen `isNaN(age)` `false` ausgibt.
+
+</p>
+</details>
