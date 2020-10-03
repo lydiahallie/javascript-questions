@@ -176,7 +176,7 @@ const mouse = {
 - A: `mouse.bird.size` is not valid
 - B: `mouse[bird.size]` is not valid
 - C: `mouse[bird["size"]]` is not valid
-- D: All of them are valid
+- D: Semuanya Valid
 
 <details><summary><b>Jawaban</b></summary>
 <p>
@@ -335,9 +335,9 @@ function bark() {
 bark.animal = 'dog';
 ```
 
-- A: Nothing, this is totally fine!
-- B: `SyntaxError`. You cannot add properties to a function this way.
-- C: `"Woof"` gets logged.
+- A: Tidak terjadi apa-apa! Semuanya aman.
+- B: `SyntaxError`. Anda tidak bisa menambahkan "properties" ke dalam sebuah "function" dengan cara ini.
+- C: `"Woof"` ter-logged.
 - D: `ReferenceError`
 
 <details><summary><b>Jawaban</b></summary>
@@ -684,10 +684,10 @@ const sum = eval('10*10+5');
 sessionStorage.setItem('cool_secret', 123);
 ```
 
-- A: Forever, the data doesn't get lost.
-- B: When the user closes the tab.
-- C: When the user closes the entire browser, not only the tab.
-- D: When the user shuts off their computer.
+- A: Selamanya, datanya tidak hilang
+- B: Ketika user menutup tab
+- C: Ketika user menutup seluruh browser, tidak hanya tab
+- D: Ketika user mematikan komputer mereka
 
 <details><summary><b>Jawaban</b></summary>
 <p>
@@ -961,7 +961,7 @@ This is where an event loop starts to work. An **event loop** looks at the stack
 - A: Outer `div`
 - B: Inner `div`
 - C: `button`
-- D: An array of all nested elements.
+- D: Sebuah array dari semua nested elements
 
 <details><summary><b>Jawaban</b></summary>
 <p>
