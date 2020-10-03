@@ -4132,3 +4132,33 @@ Die Methode `isNaN` prüft, ob der Eingabeparameter nicht vom Typ _Number_ ist. 
 
 </p>
 </details>
+
+---
+
+###### 129. Was ist der Output?
+
+```javascript
+const randomValue = 21;
+
+function getInfo() {
+  console.log(typeof randomValue);
+  const randomValue = 'Lydia Hallie';
+}
+
+getInfo();
+```
+
+- A: `"number"`
+- B: `"string"`
+- C: `undefined`
+- D: `ReferenceError`
+
+<details><summary><b>Antwort</b></summary>
+<p>
+
+#### Antwort: D
+
+Variablen die mit `const` deklariert werden, können nicht vor ihrer Initialisierung referenziert werden, das ist die so genannte "zeitweilige tote Zone" (_temporal dead zone_). In der Funktion `getInfo` befindet sich die Variable `randomValue` im Geltungsbereich der Funktion. In der Zeile, in welcher der Wert von `typeof randomValue` geloggt werden soll, ist die Variable noch nicht initialisiert. Entsprechend wird ein `ReferenceError` geworfen! Die Engine versucht nicht in der Kette der Geltungsbereiche hinab zu steigen, da die Variable `randomValue` im Geltungsbereich von `getInfo` deklariert und damit gefunden wurde.
+
+</p>
+</details>
