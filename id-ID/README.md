@@ -2514,7 +2514,7 @@ With a _for-of_ loop, we can iterate over **iterables**. An array is an iterable
 
 ---
 
-###### 80. What is the output?
+###### 80. Apa yang akan tampil?
 
 ```javascript
 const list = [1 + 2, 1 * 2, 1 / 2];
@@ -2531,16 +2531,16 @@ console.log(list);
 
 #### Jawaban: C
 
-Array elements can hold any value. Numbers, strings, objects, other arrays, null, boolean values, undefined, and other expressions such as dates, functions, and calculations.
+Elemen array dapat berisi beberapa nilai. angka, string, objek, array lain, null, nilai boolean, undefined, dan lainnya seperti tanggal, fungsi, dan kalkulasi.
 
-The element will be equal to the returned value. `1 + 2` returns `3`, `1 * 2` returns `2`, and `1 / 2` returns `0.5`.
+elemen akan sama dengan nilai hasilnya. `1 + 2` menghasilkan `3`, `1 * 2` menghasilkan `2`, dan `1 / 2` menghasilkan `0.5`.
 
 </p>
 </details>
 
 ---
 
-###### 81. What is the output?
+###### 81. Apa yang akan tampil?
 
 ```javascript
 function sayHi(name) {
@@ -2560,13 +2560,13 @@ console.log(sayHi());
 
 #### Jawaban: B
 
-By default, arguments have the value of `undefined`, unless a value has been passed to the function. In this case, we didn't pass a value for the `name` argument. `name` is equal to `undefined` which gets logged.
+Secara default, arguments memiliki nilai `undefined`, kecuali nilai telah diisi ke fungsi. Pada kasus ini, kita tidak mengisi nilai untuk argument `name`. `name` sama dengan `undefined` yang mana mendapat catatan.
 
-In ES6, we can overwrite this default `undefined` value with default parameters. For example:
+Di ES6, kita dapat menulis ulang nilai default `undefined` dengan parameter default. Sebagai contoh:
 
 `function sayHi(name = "Lydia") { ... }`
 
-In this case, if we didn't pass a value or if we passed `undefined`, `name` would always be equal to the string `Lydia`
+Pada kasus ini, juka kita tidak mengisi nilai atau mengisi `undefined`, `name` akan selalu sama dengan string `Lydia`
 
 </p>
 </details>
