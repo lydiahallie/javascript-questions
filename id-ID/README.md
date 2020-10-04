@@ -1335,7 +1335,7 @@ console.log(gen.next().value);
 - A: `[0, 10], [10, 20]`
 - B: `20, 20`
 - C: `10, 20`
-- D: `0, 10 and 10, 20`
+- D: `0, 10 dan 10, 20`
 
 <details><summary><b>Jawaban</b></summary>
 <p>
@@ -2222,10 +2222,10 @@ console.log(/* 1 */); // Do you love JavaScript?
 console.log(/* 2 */); // JavaScript loves you back ❤️
 ```
 
-- A: `game.next("Yes").value` and `game.next().value`
-- B: `game.next.value("Yes")` and `game.next.value()`
-- C: `game.next().value` and `game.next("Yes").value`
-- D: `game.next.value()` and `game.next.value("Yes")`
+- A: `game.next("Yes").value` dan `game.next().value`
+- B: `game.next.value("Yes")` dan `game.next.value()`
+- C: `game.next().value` dan `game.next("Yes").value`
+- D: `game.next.value()` dan `game.next.value("Yes")`
 
 <details><summary><b>Jawaban</b></summary>
 <p>
