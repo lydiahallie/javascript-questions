@@ -2933,9 +2933,9 @@ for (const [x, y] of Object.entries(person)) {
 }
 ```
 
-- A: `name` `Lydia` and `age` `21`
-- B: `["name", "Lydia"]` and `["age", 21]`
-- C: `["name", "age"]` and `undefined`
+- A: `name` `Lydia` dan `age` `21`
+- B: `["name", "Lydia"]` dan `["age", 21]`
+- C: `["name", "age"]` dan `undefined`
 - D: `Error`
 
 <details><summary><b>Jawaban</b></summary>
