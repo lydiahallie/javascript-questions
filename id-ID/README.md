@@ -5013,3 +5013,37 @@ Ini membuat array subarray yang berisi kunci dan nilai yang benar, yang menghasi
 </details>
 
 ---
+
+###### 154. Bagaimana hasil outputnya?
+
+```javascript
+const createMember = ({ email, address = {}}) => {
+	const validEmail = /.+\@.+\..+/.test(email)
+	if (!validEmail) throw new Error("Valid email pls")
+
+	return {
+		email,
+		address: address ? address : null
+	}
+}
+
+const member = createMember({ email: "my@email.com" })
+console.log(member)
+```
+
+- A: `{ email: "my@email.com", address: null }`
+- B: `{ email: "my@email.com" }`
+- C: `{ email: "my@email.com", address: {} }`
+- D: `{ email: "my@email.com", address: undefined }`
+
+<details><summary><b>Jawaban</b></summary>
+<p>
+
+#### Answer: C
+
+Nilai default dari `address` adalah objek kosong `{}`.Saat kita menyetel variabel  `member` sama dengan objek yang dikembalikan oleh fungsi `createMember`,kita tidak meneruskan nilai untuk alamat, yang berarti bahwa nilai alamat adalah objek kosong default `{}`. Objek kosong adalah nilai kebenaran, yang berarti kondisi `address ? address : null` kondisi mengembalikan  `true`. Nilai alamat adalah objek kosong  `{}`.
+
+</p>
+</details>
+
+---
