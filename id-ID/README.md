@@ -4506,10 +4506,10 @@ myFunc();
 myFunc(3);
 ```
 
-- A: `2` `4` and `3` `6`
-- B: `2` `NaN` and `3` `NaN`
-- C: `2` `Error` and `3` `6`
-- D: `2` `4` and `3` `Error`
+- A: `2` `4` dan `3` `6`
+- B: `2` `NaN` dan `3` `NaN`
+- C: `2` `Error` dan `3` `6`
+- D: `2` `4` dan `3` `Error`
 
 <details><summary><b>Jawaban</b></summary>
 <p>
