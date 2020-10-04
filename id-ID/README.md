@@ -3063,7 +3063,7 @@ console.log(member.name);
 
 #### Jawaban: B
 
-We can set classes equal to other classes/function constructors. In this case, we set `Person` equal to `AnotherPerson`. The name on this constructor is `Sarah`, so the name property on the new `Person` instance `member` is `"Sarah"`.
+Kita dapat mengatur kelas yang sama dengan kelas / fungsi konstruktor lainnya. Dalam kasus ini, kita mengatur `Person` sama dengan `AnotherPerson`. Nama pada konstruktor ini adalah `Sarah`, jadi nama properti yang baru pada `Person` instance `member` adalah `"Sarah"`.
 
 </p>
 </details>
@@ -3091,9 +3091,9 @@ console.log(Object.keys(info));
 
 #### Jawaban: D
 
-A Symbol is not _enumerable_. The Object.keys method returns all _enumerable_ key properties on an object. The Symbol won't be visible, and an empty array is returned. When logging the entire object, all properties will be visible, even non-enumerable ones.
+Simbol bukanlah merupakan suatu _enumerable_. Metode Object.keys akan mengembalikan semua properti kunci _enumerable_ pada sebuah objek. Simbol tidak akan terlihat, dan array kosong dikembalikan. Saat mencatat seluruh objek, semua properti akan terlihat, bahkan yang bukan non-enumerable.
 
-This is one of the many qualities of a symbol: besides representing an entirely unique value (which prevents accidental name collision on objects, for example when working with 2 libraries that want to add properties to the same object), you can also "hide" properties on objects this way (although not entirely. You can still access symbols using the `Object.getOwnPropertySymbols()` method).
+Ini adalah salah satu dari banyak kualitas simbol: Disamping selain mewakili nilai yang sepenuhnya unik  (yang mencegah terjadinya benturan nama yang tidak disengaja pada objek, misalnya saat bekerja dengan 2 library yang ingin menambahkan properti ke objek yang sama),  anda juga dapat "menyembunyikan"  properti pada objek dengan cara ini (meskipun tidak seluruhnya. Anda masih dapat mengakses simbol menggunakan metode `Object.getOwnPropertySymbols()`).
 
 </p>
 </details>
@@ -3123,17 +3123,17 @@ console.log(getUser(user))
 
 #### Jawaban: A
 
-The `getList` function receives an array as its argument. Between the parentheses of the `getList` function, we destructure this array right away. You could see this as:
+Fungsi `getList` menerima array sebagai argumennya. Di antara tanda kurung pada fungsi `getList`, Kita akan menstruktur ulang. Anda dapat melihat ini sebagai:
 
 `[x, ...y] = [1, 2, 3, 4]`
 
-With the rest parameter `...y`, we put all "remaining" arguments in an array. The remaining arguments are `2`, `3` and `4` in this case. The value of `y` is an array, containing all the rest parameters. The value of `x` is equal to `1` in this case, so when we log `[x, y]`, `[1, [2, 3, 4]]` gets logged.
+Dengan parameter sisa `...y`, kita akan meletakkan semua argumen "yang tersisa" dalam array. Dalam kasus ini argumen yang tersisa adalah `2`, `3` dan `4`. Nilai dari `y` merupakan suatu array, yang berisi semua parameter lainnya. Pada kasus ini nilai dari `x` sama dengan `1`, jadi saat kita mencatat `[x, y]`,  maka catatannya `[1, [2, 3, 4]]`.
 
-The `getUser` function receives an object. With arrow functions, we don't _have_ to write curly brackets if we just return one value. However, if you want to return an _object_ from an arrow function, you have to write it between parentheses, otherwise no value gets returned! The following function would have returned an object:
+Fungsi `getUser` menerima sebuah objek. Dengan fungsi tanda panah, kita tidak _perlu_ menulis tanda kurung kurawal jika hanya mengembalikan satu nilai. Namun, jika anda mengembalikan nilai _object_ dari fungsi tanda panah, Anda harus menuliskannya di antara tanda kurung, jika tidak maka tidak ada nilai yang dikembalikan! Fungsi berikut akan mengembalikan sebuah objek:
 
 `const getUser = user => ({ name: user.name, age: user.age })`
 
-Since no value gets returned in this case, the function returns `undefined`.
+Karena tidak ada nilai yang dikembalikan dalam kasus ini, maka fungsi akan mengembalikan `undefined`.
 
 </p>
 </details>
@@ -3158,12 +3158,12 @@ console.log(name());
 
 #### Jawaban: C
 
-The variable `name` holds the value of a string, which is not a function, thus cannot invoke.
+Variabel `name` menyimpan nilai string, yang bukan merupakan suatu fungsi, sehingga tidak dapat dipanggil.
 
-TypeErrors get thrown when a value is not of the expected type. JavaScript expected `name` to be a function since we're trying to invoke it. It was a string however, so a TypeError gets thrown: name is not a function!
+TypeErrors dilemparkan ketika nilai yang didapatkan bukan dari jenis yang kita harapkan. JavaScript mengharapkan `name` menjadi sebuah fungsi karena kita mencoba untuk memanggilnya. Namun itu adalah sebuah string, sehingga akan muncul TypeError gets thrown: name is not a function!
 
-SyntaxErrors get thrown when you've written something that isn't valid JavaScript, for example when you've written the word `return` as `retrun`.
-ReferenceErrors get thrown when JavaScript isn't able to find a reference to a value that you're trying to access.
+SyntaxErrors muncul ketika anda salah menulis suatu Javascript, seperti `return` menjadi `retrun`.
+ReferenceErrors muncul ketika JavaScript tidak dapat menemukan nilai referensi ke nilai yang anda coba akses.
 
 </p>
 </details>
