@@ -4162,3 +4162,156 @@ Variablen die mit `const` deklariert werden, können nicht vor ihrer Initialisie
 
 </p>
 </details>
+
+---
+
+###### 130. Was ist der Output?
+
+```javascript
+const myPromise = Promise.resolve('Woah some cool data');
+
+(async () => {
+  try {
+    console.log(await myPromise);
+  } catch {
+    throw new Error(`Oops didn't work`);
+  } finally {
+    console.log('Oh finally!');
+  }
+})();
+```
+
+- A: `Woah some cool data`
+- B: `Oh finally!`
+- C: `Woah some cool data` `Oh finally!`
+- D: `Oops didn't work` `Oh finally!`
+
+<details><summary><b>Antwort</b></summary>
+<p>
+
+#### Antwort: C
+
+Im `try`-Block loggen wir den mit dem `await`-Operator den Wert der Variable `myPromise`: `"Woah some cool data"`. Da in diesem Block kein Fehler geworfen wird, wird der Code im `catch`-Block nicht ausgeführt. Der Code im `finally`-Block wird _immer_ ausgeführt, `"Oh finally!"` wird geloggt.
+
+</p>
+</details>
+
+---
+
+###### 131. Was ist der Output?
+
+```javascript
+const emojis = ['🥑', ['✨', '✨', ['🍕', '🍕']]];
+
+console.log(emojis.flat(1));
+```
+
+- A: `['🥑', ['✨', '✨', ['🍕', '🍕']]]`
+- B: `['🥑', '✨', '✨', ['🍕', '🍕']]`
+- C: `['🥑', ['✨', '✨', '🍕', '🍕']]`
+- D: `['🥑', '✨', '✨', '🍕', '🍕']`
+
+<details><summary><b>Antwort</b></summary>
+<p>
+
+#### Antwort: B
+
+Mit der Methode `flat` erzeugen wir ein neues, "flacheres" Array. Die Tiefe des neuen Arrays hängt vom Parameter ab, den wir an `flat` übergeben. In diesem Fall wird der Wert `1` übergeben (welcher der Standardwert der Funktion ist, wir hätten ihn in diesem Fall also nicht explizit übergeben müssen). Das bedeutet, das alle Arrays bis zur ersten Tiefe zusammengefügt werden: `['🥑']` und `['✨', '✨', ['🍕', '🍕']]` in diesem Fall. Das Zusammenfügen dieser beiden Arrays resultiert in: `['🥑', '✨', '✨', ['🍕', '🍕']]`.
+
+</p>
+</details>
+
+---
+
+###### 132. Was ist der Output?
+
+```javascript
+class Counter {
+  constructor() {
+    this.count = 0;
+  }
+
+  increment() {
+    this.count++;
+  }
+}
+
+const counterOne = new Counter();
+counterOne.increment();
+counterOne.increment();
+
+const counterTwo = counterOne;
+counterTwo.increment();
+
+console.log(counterOne.count);
+```
+
+- A: `0`
+- B: `1`
+- C: `2`
+- D: `3`
+
+<details><summary><b>Antwort</b></summary>
+<p>
+
+#### Antwort: D
+
+`counterOne` ist eine Instanz der Klasse `Counter`. Diese Klasse enthält ein Property `count` in seinem Konstruktor, sowie eine Methode `increment`. Zuerst wird die Methode `increment` zweimal durch `counterOne.increment()` aufgerufen. Der Wert von `counterOne.count` ist danach `2`.
+
+<img src="https://i.imgur.com/KxLlTm9.png" width="400">
+
+Danach erzeugen wir eine neue Variable `counterTwo` und setzen sie gleich `counterOne`. Da Objekte via Referenz übergeben werden, erzeugen wir somit lediglich eine neue Referenz auf den selben Bereich im Speicher, auf den auch `counterOne` zeigt. Da der gleiche Speicherbereich verwendet wird, haben alle Änderungen, die am Objekt vorgenommen werden, auf das `counterTwo` zeigt, auch Auswirkungen auf `counterOne`. Aktuell ist `counterTwo.count` somit `2`.
+
+Wir rufen nun `counterTwo.increment()` auf, wodurch der Wert von `count` auf `3` gesetzt wird. Danach loggen wir den Zustand von `counterOne`, wodurch `3` ausgegeben wird.
+
+<img src="https://i.imgur.com/BNBHXmc.png" width="400">
+
+</p>
+</details>
+
+---
+
+###### 133. Was ist der Output?
+
+```javascript
+const myPromise = Promise.resolve(Promise.resolve('Promise!'));
+
+function funcOne() {
+  myPromise.then(res => res).then(res => console.log(res));
+  setTimeout(() => console.log('Timeout!', 0));
+  console.log('Last line!');
+}
+
+async function funcTwo() {
+  const res = await myPromise;
+  console.log(await res);
+  setTimeout(() => console.log('Timeout!', 0));
+  console.log('Last line!');
+}
+
+funcOne();
+funcTwo();
+```
+
+- A: `Promise! Last line! Promise! Last line! Last line! Promise!`
+- B: `Last line! Timeout! Promise! Last line! Timeout! Promise!`
+- C: `Promise! Last line! Last line! Promise! Timeout! Timeout!`
+- D: `Last line! Promise! Promise! Last line! Timeout! Timeout!`
+
+<details><summary><b>Antwort</b></summary>
+<p>
+
+#### Antwort: D
+
+Zuerst rufen wir die Funktion `funcOne()` auf. In der ersten Zeile in `funcOne` wird das Promise `myPromise` aufgerufen, was eine _asynchrone_ Operation ist. Während die Engine damit beschäftigt ist dieses Promise zu erfüllen, wird die Funktion `funcOne` weiter ausgeführt. Die nächste Zeile ist die _asynchrone_ Funktion `setTimeout`, von welcher der Callback an die Web API geschickt wird (siehe mein Artikel zu Event Loops).
+
+Sowohl Promise als auch Timeout sind asynchrone Operationen. Die Funktion läuft also weiter, während sie parallel damit beschäfigt ist diese beiden Operationen zu bearbeiten. Das bedeutet, dass `Last line!` zuerst geloggt wird, da dies keine asynchrone Operation ist. Es ist die letzte Zeile von `funcOne`, das Promise wird erfüllt und `Promise!` geloggt. Da wir jedoch auch `funcTwo()` aufrufen, ist der Call Stack nicht leer und der Callback der Funktion `setTimeout` kann noch nicht zum Call Stack hinzugefügt werden.
+
+In `funcTwo` warten wir zuerst auf das Promise von `myPromise`. Mit dem `await`-Operator pausieren wir die Ausführung der Funktion bis das Promise erfüllt (oder zurück gewiesen) wurde. Anschließend loggen wir (wieder mit dem `await-Operator`, da das Promise selbst ein Promise zurückgibt) den Wert von `res`. Dadurch wird `Promise!` geloggt.
+
+Die nächste Zeile ist die _asynchrone_ Funktion `setTimeout`, deren Callback an die Web API gesendet wird.
+
+Wir kommen zur letzten Zeile in `funcTwo`, die `Last line!` in der Console ausgibt. Da `funcTwo` abgearbeitet und aus dem Call Stack entfernt wurde, ist der Call Stack leer. Die wartenden Callbacks (`() => console.log("Timeout!")` aus `funcOne` und `() => console.log("Timeout!")` aus `funcTwo`) werden dem Call Stack nacheinander hinzugefügt. Der erste Callback loggt `Timeout!` und wird aus dem Stack entfernt. Anschließend loggt der zweite Callback `Timeout!` und wird aus dem Stack entfernt. Somit ist das Ergebnis `Last line! Promise! Promise! Last line! Timeout! Timeout!`
+
+</p>
+</details>
