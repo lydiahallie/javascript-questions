@@ -19,7 +19,7 @@ Feel free to reach out to me! 😊 <br />
 
 <details><summary><b> See 17 Available Translations 🇪🇸🇮🇹🇩🇪 🇫🇷🇷🇺🇨🇳🇵🇹</b></summary>
 <p>
-
+##Thanks for translate in 17 Translations
 * [English](./en-EN/README.md)
 * [العربية](./ar-AR/README_AR.md)
 * [اللغة العامية - Egyptian Arabic](./ar-EG/README_ar-EG.md)
