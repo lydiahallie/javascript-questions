@@ -15,9 +15,6 @@ Kontaktiert mich, wenn ihr möchtet! 😊 <br />
 | Benutzt die Fragen und Lösungen in einem Projekt! 😃  Ich würde mich _sehr_ freuen, wenn ihr dieses Repo verlinkt. Ich erstelle die Fragen und antworten (ja, ich bin traurig, lol) und die Community hilft mir unglaublich dabei, das ganze zu pflegen und verbessern! 💪🏼 Danke und habt Spaß!   |
 |---|
 
-<details><summary><b>Alle 17 verfügbaren Sprachen</b></summary>
-<p>
-
 </div>
 
 ---
