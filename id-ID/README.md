@@ -151,9 +151,10 @@ Tidak ada nilai 'radius' pada objek itu, yang mengembalikan 'tidak ditentukan'.
 
 #### Jawaban: A
 
-Unary plus mencoba mengkonversi operan menjadi angka. `benar` adalah `1`, dan `salah` adalah `0`.
+Tia unary plus mencoba mengonversi operan menjadi angka. `true` adalah` 1`, dan `false` adalah` 0`.
 
-stringnya `'Lydia'` adalah nilai kebenaran. Apa yang sebenarnya kami tanyakan adalah "apakah nilai kebenaran ini salah?". pengembalian ini `salah`.
+String "'Lydia'` adalah nilai yang benar. Apa yang sebenarnya kami tanyakan adalah "apakah nilai kebenaran ini salah?". Ini mengembalikan `salah`.
+
 
 </p>
 </details>
@@ -183,13 +184,13 @@ const mouse = {
 
 #### Jawaban: A
 
-In JavaScript, all object keys are strings (unless it's a Symbol). Even though we might not _type_ them as strings, they are always converted into strings under the hood.
+Dalam JavaScript, semua kunci objek adalah string (kecuali jika itu Simbol). Meskipun kita mungkin tidak _type_ mereka sebagai string, mereka selalu diubah menjadi string di bawah tenda.
 
-JavaScript interprets (or unboxes) statements. When we use bracket notation, it sees the first opening bracket `[` and keeps going until it finds the closing bracket `]`. Only then, it will evaluate the statement.
+JavaScript menginterpretasikan (atau membuka kotak) pernyataan. Saat kita menggunakan notasi kurung siku, ia melihat kurung buka pertama `[` dan terus berjalan sampai menemukan kurung tutup `]`. Baru setelah itu, itu akan mengevaluasi pernyataan itu.
 
-`mouse[bird.size]`: First it evaluates `bird.size`, which is `"small"`. `mouse["small"]` returns `true`
+`mouse [bird.size]`: Pertama, ia mengevaluasi `bird.size`, yang mana` "small" `. `mouse [" small "]` mengembalikan `true`
 
-However, with dot notation, this doesn't happen. `mouse` does not have a key called `bird`, which means that `mouse.bird` is `undefined`. Then, we ask for the `size` using dot notation: `mouse.bird.size`. Since `mouse.bird` is `undefined`, we're actually asking `undefined.size`. This isn't valid, and will throw an error similar to `Cannot read property "size" of undefined`.
+Namun, dengan notasi titik, hal ini tidak terjadi. `mouse` tidak memiliki kunci bernama` bird`, yang berarti `mouse.bird` adalah` undefined`. Kemudian, kami meminta `ukuran` menggunakan notasi titik:` mouse.bird.size`. Karena `mouse.bird` adalah ʻundefined`, kami sebenarnya menanyakan ʻundefined.size`. Ini tidak valid, dan akan memunculkan kesalahan yang mirip dengan `Tidak dapat membaca properti" ukuran "dari tidak ditentukan`.
 
 </p>
 </details>
@@ -218,9 +219,9 @@ console.log(d.greeting);
 
 #### Jawaban: A
 
-Dalam JavaScript, semua objek berinteraksi dengan _referensi_ saat menyetelnya agar sama satu sama lain.
+Dalam JavaScript, semua objek berinteraksi dengan _reference_ saat menyetelnya agar sama satu sama lain.
 
-Pertama, variabel `c` memiliki nilai untuk sebuah objek. Kemudian, kami menetapkan `d` dengan referensi yang sama yang dimiliki `c` ke objek.
+Pertama, variabel `c` menyimpan nilai ke sebuah objek. Nanti, kita menetapkan `d` dengan referensi yang sama yang dimiliki` c` ke objek.
 
 <img src="https://i.imgur.com/ko5k0fs.png" width="200">
 
@@ -253,12 +254,11 @@ console.log(b === c);
 
 #### Jawaban: C
 
-`new Number()` is a built-in function constructor. Although it looks like a number, it's not really a number: it has a bunch of extra features and is an object.
+`new Number ()` adalah konstruktor fungsi bawaan. Meskipun terlihat seperti angka, sebenarnya ini bukan angka: ia memiliki banyak fitur tambahan dan merupakan objek.
 
-When we use the `==` operator, it only checks whether it has the same _value_. They both have the value of `3`, so it returns `true`.
+Saat kita menggunakan operator `==`, ini hanya memeriksa apakah ia memiliki _value_ yang sama. Keduanya memiliki nilai `3`, sehingga mengembalikan` true`.
 
-However, when we use the `===` operator, both value _and_ type should be the same. It's not: `new Number()` is not a number, it's an **object**. Both return `false.`
-
+Namun, saat kita menggunakan operator `===`, kedua nilai _and_ type harus sama. Ini bukan: `new Number ()` bukan angka, ini adalah ** objek **. Keduanya mengembalikan `false.`
 </p>
 </details>
 
@@ -292,7 +292,7 @@ console.log(freddie.colorChange('orange'));
 
 #### Jawaban: D
 
-The `colorChange` function is static. Static methods are designed to live only on the constructor in which they are created, and cannot be passed down to any children. Since `freddie` is a child, the function is not passed down, and not available on the `freddie` instance: a `TypeError` is thrown.
+Fungsi `colorChange` bersifat statis. Metode statis dirancang untuk hidup hanya pada konstruktor tempat mereka dibuat, dan tidak dapat diturunkan ke turunan mana pun. Karena `freddie` adalah anak, fungsinya tidak diturunkan, dan tidak tersedia pada instance` freddie`: `TypeError` dilempar.
 
 </p>
 </details>
@@ -2514,7 +2514,7 @@ With a _for-of_ loop, we can iterate over **iterables**. An array is an iterable
 
 ---
 
-###### 80. What is the output?
+###### 80. Apa yang akan tampil?
 
 ```javascript
 const list = [1 + 2, 1 * 2, 1 / 2];
@@ -2531,16 +2531,16 @@ console.log(list);
 
 #### Jawaban: C
 
-Array elements can hold any value. Numbers, strings, objects, other arrays, null, boolean values, undefined, and other expressions such as dates, functions, and calculations.
+Elemen array dapat berisi beberapa nilai. angka, string, objek, array lain, null, nilai boolean, undefined, dan lainnya seperti tanggal, fungsi, dan kalkulasi.
 
-The element will be equal to the returned value. `1 + 2` returns `3`, `1 * 2` returns `2`, and `1 / 2` returns `0.5`.
+elemen akan sama dengan nilai hasilnya. `1 + 2` menghasilkan `3`, `1 * 2` menghasilkan `2`, dan `1 / 2` menghasilkan `0.5`.
 
 </p>
 </details>
 
 ---
 
-###### 81. What is the output?
+###### 81. Apa yang akan tampil?
 
 ```javascript
 function sayHi(name) {
@@ -2560,13 +2560,13 @@ console.log(sayHi());
 
 #### Jawaban: B
 
-By default, arguments have the value of `undefined`, unless a value has been passed to the function. In this case, we didn't pass a value for the `name` argument. `name` is equal to `undefined` which gets logged.
+Secara default, arguments memiliki nilai `undefined`, kecuali nilai telah diisi ke fungsi. Pada kasus ini, kita tidak mengisi nilai untuk argument `name`. `name` sama dengan `undefined` yang mana mendapat catatan.
 
-In ES6, we can overwrite this default `undefined` value with default parameters. For example:
+Di ES6, kita dapat menulis ulang nilai default `undefined` dengan parameter default. Sebagai contoh:
 
 `function sayHi(name = "Lydia") { ... }`
 
-In this case, if we didn't pass a value or if we passed `undefined`, `name` would always be equal to the string `Lydia`
+Pada kasus ini, juka kita tidak mengisi nilai atau mengisi `undefined`, `name` akan selalu sama dengan string `Lydia`
 
 </p>
 </details>
@@ -4780,7 +4780,7 @@ Pernyataan `if` didalam perulangan `forEach` akan mengecek apakah nilai dari `nu
 ```javascript
 class Calc {
 	constructor() {
-		this.count = 0 
+		this.count = 0
 	}
 
 	increase() {
@@ -5013,6 +5013,7 @@ Ini membuat array subarray yang berisi kunci dan nilai yang benar, yang menghasi
 </details>
 
 ---
+
 ###### 154. Apa hasilnya?
 
 ```javascript
@@ -5076,3 +5077,5 @@ Kondisi dalam pernyataan `if` memeriksa apakah nilai dari `!typeof randomValue` 
 
 </p>
 </details>
+
+---
