@@ -16,23 +16,24 @@ Jangan sungkan untuk terhubung dengan saya! 😊 <br />
 <details><summary><b> Lihat 17 Terjemahan yang tersedia 🇪🇸🇮🇹🇩🇪 🇫🇷🇷🇺🇨🇳🇵🇹</b></summary>
 <p>
 
-- [English](../en-EN/README.md)
-- [العربية](../ar-AR/README_AR.md)
-- [اللغة العامية - Egyptian Arabic](../ar-EG/README_ar-EG.md)
-- [Bosanski](../bs-BS/README-bs_BS.md)
-- [Deutsch](../de-DE/README.md)
-- [Español](../es-ES/README-ES.md)
-- [Français](../fr-FR/README_fr-FR.md)
-- [日本語](../ja-JA/README-ja_JA.md)
-- [한국어](../ko-KR/README-ko_KR.md)
-- [Português Brasil](../pt-BR/README_pt_BR.md)
-- [Русский](../ru-RU/README.md)
-- [Українська мова](../ua-UA/README-ua_UA.md)
-- [Tiếng Việt](../vi-VI/README-vi.md)
-- [中文版本](../zh-CN/README-zh_CN.md)
-- [Türkçe](../tr-TR/README-tr_TR.md)
-- [ไทย](../th-TH/README-th_TH.md)
-- [Indonesia](../id-ID/README.md)
+- [🇸🇦 العربية](./ar-AR/README_AR.md)
+- [🇪🇬 اللغة العامية](./ar-EG/README_ar-EG.md)
+- [🇧🇦 Bosanski](./bs-BS/README-bs_BS.md)
+- [🇩🇪 Deutsch](./de-DE/README.md)
+- [🇬🇧 English](../README.md)
+- [🇪🇸 Español](./es-ES/README-ES.md)
+- [🇫🇷 Français](./fr-FR/README_fr-FR.md)
+- [🇯🇵 日本語](./ja-JA/README-ja_JA.md)
+- [🇰🇷 한국어](./ko-KR/README-ko_KR.md)
+- [🇳🇱 Nederlands](./nl-NL/README.md)
+- [🇧🇷 Português Brasil](./pt-BR/README_pt_BR.md)
+- [🇷🇺 Русский](./ru-RU/README.md)
+- [🇹🇭 ไทย](./th-TH/README-th_TH.md)
+- [🇹🇷 Türkçe](./tr-TR/README-tr_TR.md)
+- [🇺🇦 Українська мова](./ua-UA/README-ua_UA.md)
+- [🇻🇳 Tiếng Việt](./vi-VI/README-vi.md)
+- [🇨🇳 简体中文](./zh-CN/README-zh_CN.md)
+- [🇹🇼 繁體中文](./zh-TW/README_zh-TW.md)
 
 </p>
 </details>
@@ -151,9 +152,16 @@ Tidak ada nilai 'radius' pada objek itu, yang mengembalikan 'tidak ditentukan'.
 
 #### Jawaban: A
 
+<<<<<<< HEAD
 The unary plus tries to convert an operand to a number. `true` is `1`, and `false` is `0`.
 
 The string `'Lydia'` is a truthy value. What we're actually asking, is "is this truthy value falsy?". This returns `false`.
+=======
+Tia unary plus mencoba mengonversi operan menjadi angka. `true` adalah` 1`, dan `false` adalah` 0`.
+
+String "'Lydia'` adalah nilai yang benar. Apa yang sebenarnya kami tanyakan adalah "apakah nilai kebenaran ini salah?". Ini mengembalikan `salah`.
+
+>>>>>>> af42bcd7c6066395a68ef91dc3eb0783b6b1bd77
 
 </p>
 </details>
@@ -173,23 +181,20 @@ const mouse = {
 };
 ```
 
-- A: `mouse.bird.size` is not valid
-- B: `mouse[bird.size]` is not valid
-- C: `mouse[bird["size"]]` is not valid
-- D: All of them are valid
+- A: `mouse.bird.size` tidak benar
+- B: `mouse[bird.size]` tidak benar
+- C: `mouse[bird["size"]]` tidak benar
+- D: Semua jawaban benar
 
 <details><summary><b>Jawaban</b></summary>
 <p>
 
 #### Jawaban: A
+Pada JavaScript, semua kunci objek adalah string (kecuali jika itu berupa Simbol). Meskipun kita mungkin tidak mengetiknya sebagai string, tetap saja mereka selalu berubah menjadi string didalamnya.
 
-In JavaScript, all object keys are strings (unless it's a Symbol). Even though we might not _type_ them as strings, they are always converted into strings under the hood.
+JavaScript menginterpretasikan (atau membuka) pernyataan-pernyataan. Saat kita menggunakan notasi kurung siku, ia melihat kurung buka pertama `[` dan terus berjalan sampai menemukan kurung tutup `]`. Baru setelah itu akan mengevaluasi penyataannya. `mouse[bird.size]`: Pertama, ini mengevaluasi `bird.size`, yang mana `"small"`. `mouse["small"]` mengembalikan nilai `true`. 
 
-JavaScript interprets (or unboxes) statements. When we use bracket notation, it sees the first opening bracket `[` and keeps going until it finds the closing bracket `]`. Only then, it will evaluate the statement.
-
-`mouse[bird.size]`: First it evaluates `bird.size`, which is `"small"`. `mouse["small"]` returns `true`
-
-However, with dot notation, this doesn't happen. `mouse` does not have a key called `bird`, which means that `mouse.bird` is `undefined`. Then, we ask for the `size` using dot notation: `mouse.bird.size`. Since `mouse.bird` is `undefined`, we're actually asking `undefined.size`. This isn't valid, and will throw an error similar to `Cannot read property "size" of undefined`.
+Namun, dengan notasi dot (.), hal ini tidak terjadi. `mouse` tidak memiliki kunci dengan nama `bird`, yang menyebabkan `mouse.bird` bernilai `undefined`. Kemudian, kita meminta `size` untuk menggunakan notasi dot (.): `mouse.bird.size`. Kita mengetahui bahwa `mouse.bird` bernilai `undefined`, yang sebenarnya kita minta adalah `undefined.size`. Yang mana hal ini tidak valid, dan akan memunculkan kesalahan yang mirip dengan `Cannot read property "size" of undefined`.
 
 </p>
 </details>
@@ -218,9 +223,15 @@ console.log(d.greeting);
 
 #### Jawaban: A
 
+<<<<<<< HEAD
 In JavaScript, all objects interact by _reference_ when setting them equal to each other.
 
 First, variable `c` holds a value to an object. Later, we assign `d` with the same reference that `c` has to the object.
+=======
+Dalam JavaScript, semua objek berinteraksi dengan _reference_ saat menyetelnya agar sama satu sama lain.
+
+Pertama, variabel `c` menyimpan nilai ke sebuah objek. Nanti, kita menetapkan `d` dengan referensi yang sama yang dimiliki` c` ke objek.
+>>>>>>> af42bcd7c6066395a68ef91dc3eb0783b6b1bd77
 
 <img src="https://i.imgur.com/ko5k0fs.png" width="200">
 
@@ -253,11 +264,11 @@ console.log(b === c);
 
 #### Jawaban: C
 
-`new Number()` is a built-in function constructor. Although it looks like a number, it's not really a number: it has a bunch of extra features and is an object.
+`new Number()` adalah konstruktor fungsi bawaan pada JavaScript. Meskipun hasilnya terlihat seperti integer, namun sebenarnya itu bukan integer: aslinya memiliki banyak fitur tambahan dan merupakan sebuah objek.
 
-When we use the `==` operator, it only checks whether it has the same _value_. They both have the value of `3`, so it returns `true`.
+Saat kita menggunakan operator `==`, hal ini hanya akan memeriksa bahwa keduanya memiliki nilai yang sama. Pada kasus ini kedua variabel tersebut memiliki nilai yang sama, yaitu `3`, maka akan mengembalikan nilai `true`.
 
-However, when we use the `===` operator, both value _and_ type should be the same. It's not: `new Number()` is not a number, it's an **object**. Both return `false.`
+Namun, saat kita menggunakan operator `===`, operator ini memeriksa bahwa kedua variabel memiliki nilai dan tipe yang sama. Bagaimanapun: `new Number()` bukanlah sebuah integer, ini adalah sebuah **object**. Keduanya akan mengembalikan nilai `false.`
 
 </p>
 </details>
@@ -292,7 +303,7 @@ console.log(freddie.colorChange('orange'));
 
 #### Jawaban: D
 
-The `colorChange` function is static. Static methods are designed to live only on the constructor in which they are created, and cannot be passed down to any children. Since `freddie` is a child, the function is not passed down, and not available on the `freddie` instance: a `TypeError` is thrown.
+Fungsi `colorChange` adalah statis. Metode statis dirancang hanya dapat aktif pada kontruktor dimana fungsi itu dibuat, dan tidak bisa dibawa ke-turunannya. Kita tahu bahwa `freddie` adalah sebuah turunan, maka fungsi itu tidak bisa turun, dan tidak tersedia pada instance `freddie`: sebuah pesan `TypeError` akan dikembalikan
 
 </p>
 </details>
@@ -1335,7 +1346,7 @@ console.log(gen.next().value);
 - A: `[0, 10], [10, 20]`
 - B: `20, 20`
 - C: `10, 20`
-- D: `0, 10 and 10, 20`
+- D: `0, 10 dan 10, 20`
 
 <details><summary><b>Jawaban</b></summary>
 <p>
@@ -2222,10 +2233,10 @@ console.log(/* 1 */); // Do you love JavaScript?
 console.log(/* 2 */); // JavaScript loves you back ❤️
 ```
 
-- A: `game.next("Yes").value` and `game.next().value`
-- B: `game.next.value("Yes")` and `game.next.value()`
-- C: `game.next().value` and `game.next("Yes").value`
-- D: `game.next.value()` and `game.next.value("Yes")`
+- A: `game.next("Yes").value` dan `game.next().value`
+- B: `game.next.value("Yes")` dan `game.next.value()`
+- C: `game.next().value` dan `game.next("Yes").value`
+- D: `game.next.value()` dan `game.next.value("Yes")`
 
 <details><summary><b>Jawaban</b></summary>
 <p>
@@ -2514,7 +2525,7 @@ With a _for-of_ loop, we can iterate over **iterables**. An array is an iterable
 
 ---
 
-###### 80. What is the output?
+###### 80. Apa yang akan tampil?
 
 ```javascript
 const list = [1 + 2, 1 * 2, 1 / 2];
@@ -2531,16 +2542,16 @@ console.log(list);
 
 #### Jawaban: C
 
-Array elements can hold any value. Numbers, strings, objects, other arrays, null, boolean values, undefined, and other expressions such as dates, functions, and calculations.
+Elemen array dapat berisi beberapa nilai. angka, string, objek, array lain, null, nilai boolean, undefined, dan lainnya seperti tanggal, fungsi, dan kalkulasi.
 
-The element will be equal to the returned value. `1 + 2` returns `3`, `1 * 2` returns `2`, and `1 / 2` returns `0.5`.
+elemen akan sama dengan nilai hasilnya. `1 + 2` menghasilkan `3`, `1 * 2` menghasilkan `2`, dan `1 / 2` menghasilkan `0.5`.
 
 </p>
 </details>
 
 ---
 
-###### 81. What is the output?
+###### 81. Apa yang akan tampil?
 
 ```javascript
 function sayHi(name) {
@@ -2560,13 +2571,13 @@ console.log(sayHi());
 
 #### Jawaban: B
 
-By default, arguments have the value of `undefined`, unless a value has been passed to the function. In this case, we didn't pass a value for the `name` argument. `name` is equal to `undefined` which gets logged.
+Secara default, arguments memiliki nilai `undefined`, kecuali nilai telah diisi ke fungsi. Pada kasus ini, kita tidak mengisi nilai untuk argument `name`. `name` sama dengan `undefined` yang mana mendapat catatan.
 
-In ES6, we can overwrite this default `undefined` value with default parameters. For example:
+Di ES6, kita dapat menulis ulang nilai default `undefined` dengan parameter default. Sebagai contoh:
 
 `function sayHi(name = "Lydia") { ... }`
 
-In this case, if we didn't pass a value or if we passed `undefined`, `name` would always be equal to the string `Lydia`
+Pada kasus ini, juka kita tidak mengisi nilai atau mengisi `undefined`, `name` akan selalu sama dengan string `Lydia`
 
 </p>
 </details>
@@ -3063,7 +3074,7 @@ console.log(member.name);
 
 #### Jawaban: B
 
-We can set classes equal to other classes/function constructors. In this case, we set `Person` equal to `AnotherPerson`. The name on this constructor is `Sarah`, so the name property on the new `Person` instance `member` is `"Sarah"`.
+Kita dapat mengatur kelas yang sama dengan kelas / fungsi konstruktor lainnya. Dalam kasus ini, kita mengatur `Person` sama dengan `AnotherPerson`. Nama pada konstruktor ini adalah `Sarah`, jadi nama properti yang baru pada `Person` instance `member` adalah `"Sarah"`.
 
 </p>
 </details>
@@ -3091,9 +3102,9 @@ console.log(Object.keys(info));
 
 #### Jawaban: D
 
-A Symbol is not _enumerable_. The Object.keys method returns all _enumerable_ key properties on an object. The Symbol won't be visible, and an empty array is returned. When logging the entire object, all properties will be visible, even non-enumerable ones.
+Simbol bukanlah merupakan suatu _enumerable_. Metode Object.keys akan mengembalikan semua properti kunci _enumerable_ pada sebuah objek. Simbol tidak akan terlihat, dan array kosong dikembalikan. Saat mencatat seluruh objek, semua properti akan terlihat, bahkan yang bukan non-enumerable.
 
-This is one of the many qualities of a symbol: besides representing an entirely unique value (which prevents accidental name collision on objects, for example when working with 2 libraries that want to add properties to the same object), you can also "hide" properties on objects this way (although not entirely. You can still access symbols using the `Object.getOwnPropertySymbols()` method).
+Ini adalah salah satu dari banyak kualitas simbol: Disamping selain mewakili nilai yang sepenuhnya unik  (yang mencegah terjadinya benturan nama yang tidak disengaja pada objek, misalnya saat bekerja dengan 2 library yang ingin menambahkan properti ke objek yang sama),  anda juga dapat "menyembunyikan"  properti pada objek dengan cara ini (meskipun tidak seluruhnya. Anda masih dapat mengakses simbol menggunakan metode `Object.getOwnPropertySymbols()`).
 
 </p>
 </details>
@@ -3123,17 +3134,17 @@ console.log(getUser(user))
 
 #### Jawaban: A
 
-The `getList` function receives an array as its argument. Between the parentheses of the `getList` function, we destructure this array right away. You could see this as:
+Fungsi `getList` menerima array sebagai argumennya. Di antara tanda kurung pada fungsi `getList`, Kita akan menstruktur ulang. Anda dapat melihat ini sebagai:
 
 `[x, ...y] = [1, 2, 3, 4]`
 
-With the rest parameter `...y`, we put all "remaining" arguments in an array. The remaining arguments are `2`, `3` and `4` in this case. The value of `y` is an array, containing all the rest parameters. The value of `x` is equal to `1` in this case, so when we log `[x, y]`, `[1, [2, 3, 4]]` gets logged.
+Dengan parameter sisa `...y`, kita akan meletakkan semua argumen "yang tersisa" dalam array. Dalam kasus ini argumen yang tersisa adalah `2`, `3` dan `4`. Nilai dari `y` merupakan suatu array, yang berisi semua parameter lainnya. Pada kasus ini nilai dari `x` sama dengan `1`, jadi saat kita mencatat `[x, y]`,  maka catatannya `[1, [2, 3, 4]]`.
 
-The `getUser` function receives an object. With arrow functions, we don't _have_ to write curly brackets if we just return one value. However, if you want to return an _object_ from an arrow function, you have to write it between parentheses, otherwise no value gets returned! The following function would have returned an object:
+Fungsi `getUser` menerima sebuah objek. Dengan fungsi tanda panah, kita tidak _perlu_ menulis tanda kurung kurawal jika hanya mengembalikan satu nilai. Namun, jika anda mengembalikan nilai _object_ dari fungsi tanda panah, Anda harus menuliskannya di antara tanda kurung, jika tidak maka tidak ada nilai yang dikembalikan! Fungsi berikut akan mengembalikan sebuah objek:
 
 `const getUser = user => ({ name: user.name, age: user.age })`
 
-Since no value gets returned in this case, the function returns `undefined`.
+Karena tidak ada nilai yang dikembalikan dalam kasus ini, maka fungsi akan mengembalikan `undefined`.
 
 </p>
 </details>
@@ -3158,12 +3169,12 @@ console.log(name());
 
 #### Jawaban: C
 
-The variable `name` holds the value of a string, which is not a function, thus cannot invoke.
+Variabel `name` menyimpan nilai string, yang bukan merupakan suatu fungsi, sehingga tidak dapat dipanggil.
 
-TypeErrors get thrown when a value is not of the expected type. JavaScript expected `name` to be a function since we're trying to invoke it. It was a string however, so a TypeError gets thrown: name is not a function!
+TypeErrors dilemparkan ketika nilai yang didapatkan bukan dari jenis yang kita harapkan. JavaScript mengharapkan `name` menjadi sebuah fungsi karena kita mencoba untuk memanggilnya. Namun itu adalah sebuah string, sehingga akan muncul TypeError gets thrown: name is not a function!
 
-SyntaxErrors get thrown when you've written something that isn't valid JavaScript, for example when you've written the word `return` as `retrun`.
-ReferenceErrors get thrown when JavaScript isn't able to find a reference to a value that you're trying to access.
+SyntaxErrors muncul ketika anda salah menulis suatu Javascript, seperti `return` menjadi `retrun`.
+ReferenceErrors muncul ketika JavaScript tidak dapat menemukan nilai referensi ke nilai yang anda coba akses.
 
 </p>
 </details>
@@ -4506,10 +4517,10 @@ myFunc();
 myFunc(3);
 ```
 
-- A: `2` `4` and `3` `6`
-- B: `2` `NaN` and `3` `NaN`
-- C: `2` `Error` and `3` `6`
-- D: `2` `4` and `3` `Error`
+- A: `2` `4` dan `3` `6`
+- B: `2` `NaN` dan `3` `NaN`
+- C: `2` `Error` dan `3` `6`
+- D: `2` `4` dan `3` `Error`
 
 <details><summary><b>Jawaban</b></summary>
 <p>
@@ -4780,7 +4791,7 @@ Pernyataan `if` didalam perulangan `forEach` akan mengecek apakah nilai dari `nu
 ```javascript
 class Calc {
 	constructor() {
-		this.count = 0 
+		this.count = 0
 	}
 
 	increase() {
@@ -5100,5 +5111,36 @@ Ini membuat array subarray yang berisi kunci dan nilai yang benar, yang menghasi
 
 </p>
 </details>
+
+---
+
+###### 154. Apa hasilnya?
+
+```javascript
+const createMember = ({ email, address = {}}) => {
+	const validEmail = /.+\@.+\..+/.test(email)
+	if (!validEmail) throw new Error("Valid email pls")
+
+	return {
+		email,
+		address: address ? address : null
+	}
+}
+
+const member = createMember({ email: "my@email.com" })
+console.log(member)
+```
+
+- A: `{ email: "my@email.com", address: null }`
+- B: `{ email: "my@email.com" }`
+- C: `{ email: "my@email.com", address: {} }`
+- D: `{ email: "my@email.com", address: undefined }`
+
+<details><summary><b>Answer</b></summary>
+<p>
+
+#### Answer: C
+
+Nilai default dari `address` adalah objek kosong `{}`. Ketika kita mengatur variable `member` sama dengan objek yang dikembalikan oleh fungsi `createMember`, kita tidak meneruskan nilai untuk address, yang berarti bahwa nilai address adalah objek kosong secara default `{}`. Objek kosong adalah nilai kebenaran, yang berarti kondisi `address ? address : null` mengembalikan `true`. Nilai address adalah objek kosong`{}`.
 
 ---

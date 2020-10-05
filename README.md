@@ -1,5 +1,5 @@
 <div align="center">
-  <img height="60" src="https://img.icons8.com/color/344/javascript.png"> 
+  <img height="60" src="https://img.icons8.com/color/344/javascript.png">
   <h1>JavaScript Questions</h1>
 
 ---
@@ -17,28 +17,27 @@ Feel free to reach out to me! 😊 <br />
 
 ---
 
-<details><summary><b> See 17 Available Translations 🇪🇸🇮🇹🇩🇪 🇫🇷🇷🇺🇨🇳🇵🇹</b></summary>
+<details><summary><b> See 18 Available Translations 🇸🇦🇪🇬🇧🇦🇩🇪🇪🇸🇫🇷🇮🇩🇯🇵🇰🇷🇳🇱🇧🇷🇷🇺🇹🇭🇹🇷🇺🇦🇻🇳🇨🇳🇹🇼</b></summary>
 <p>
 
-* [English](./en-EN/README.md)
-* [العربية](./ar-AR/README_AR.md)
-* [اللغة العامية - Egyptian Arabic](./ar-EG/README_ar-EG.md)
-* [Bosanski](./bs-BS/README-bs_BS.md)  
-* [Deutsch](./de-DE/README.md)  
-* [Español](./es-ES/README-ES.md)
-* [Français](./fr-FR/README_fr-FR.md)
-* [日本語](./ja-JA/README-ja_JA.md)  
-* [한국어](./ko-KR/README-ko_KR.md)
-* [Nederlands](./nl-NL/README.md)
-* [Português Brasil](./pt-BR/README_pt_BR.md)  
-* [Русский](./ru-RU/README.md)
-* [Українська мова](./ua-UA/README-ua_UA.md)  
-* [Tiếng Việt](./vi-VI/README-vi.md)
-* [简体中文](./zh-CN/README-zh_CN.md)
-* [繁體中文](./zh-TW/README_zh-TW.md)
-* [Türkçe](./tr-TR/README-tr_TR.md)
-* [ไทย](./th-TH/README-th_TH.md)
-* [Indonesia](./id-ID/README.md)
+- [🇸🇦 العربية](./ar-AR/README_AR.md)
+- [🇪🇬 اللغة العامية](./ar-EG/README_ar-EG.md)
+- [🇧🇦 Bosanski](./bs-BS/README-bs_BS.md)
+- [🇩🇪 Deutsch](./de-DE/README.md)
+- [🇪🇸 Español](./es-ES/README-ES.md)
+- [🇫🇷 Français](./fr-FR/README_fr-FR.md)
+- [🇮🇩 Indonesia](./id-ID/README.md)
+- [🇯🇵 日本語](./ja-JA/README-ja_JA.md)
+- [🇰🇷 한국어](./ko-KR/README-ko_KR.md)
+- [🇳🇱 Nederlands](./nl-NL/README.md)
+- [🇧🇷 Português Brasil](./pt-BR/README_pt_BR.md)
+- [🇷🇺 Русский](./ru-RU/README.md)
+- [🇹🇭 ไทย](./th-TH/README-th_TH.md)
+- [🇹🇷 Türkçe](./tr-TR/README-tr_TR.md)
+- [🇺🇦 Українська мова](./ua-UA/README-ua_UA.md)
+- [🇻🇳 Tiếng Việt](./vi-VI/README-vi.md)
+- [🇨🇳 简体中文](./zh-CN/README-zh_CN.md)
+- [🇹🇼 繁體中文](./zh-TW/README_zh-TW.md)
 
 </p>
 </details>
@@ -4070,7 +4069,7 @@ console.log(getFine(130, 300))
 
 #### Answer: B
 
-With the `Intl.NumberFormat` method, we can format numeric values to any locale. We format the numeric value `130` to the `en-US` locale as a `unit` in `mile-per-hour`, which results in `130 mph`. The numeric value `300` to the `en-US` locale as a `currentcy` in `USD` results in `$300.00`.
+With the `Intl.NumberFormat` method, we can format numeric values to any locale. We format the numeric value `130` to the `en-US` locale as a `unit` in `mile-per-hour`, which results in `130 mph`. The numeric value `300` to the `en-US` locale as a `currency` in `USD` results in `$300.00`.
 
 </p>
 </details>
