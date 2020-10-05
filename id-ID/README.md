@@ -183,13 +183,16 @@ const mouse = {
 
 #### Jawaban: A
 
-In JavaScript, all object keys are strings (unless it's a Symbol). Even though we might not _type_ them as strings, they are always converted into strings under the hood.
+Di javascript, semua objek kunci adalah string (terkadang simbol). Meskipun tidak _type_ mereka sebagai string, Mereka selalu di konversikan ke string dibawah the hood.
 
-JavaScript interprets (or unboxes) statements. When we use bracket notation, it sees the first opening bracket `[` and keeps going until it finds the closing bracket `]`. Only then, it will evaluate the statement.
 
-`mouse[bird.size]`: First it evaluates `bird.size`, which is `"small"`. `mouse["small"]` returns `true`
+JavaScript menginterpretasikan (atau membuka kotak) pernyataan. 
+Saat kita menggunakan notasi braket, ia melihat braket pembuka pertama`[` 
+dan terus berjalan sampai menemukan kurung tutup `]`. Baru setelah itu, itu akan mengevaluasi pernyataan itu.
 
-However, with dot notation, this doesn't happen. `mouse` does not have a key called `bird`, which means that `mouse.bird` is `undefined`. Then, we ask for the `size` using dot notation: `mouse.bird.size`. Since `mouse.bird` is `undefined`, we're actually asking `undefined.size`. This isn't valid, and will throw an error similar to `Cannot read property "size" of undefined`.
+`mouse[bird.size]`: Pertama mengevaluasi `bird.size`, yang mana `"small"`. `mouse["small"]` mengembalikan `true`
+
+Namun, dengan notasi titik, hal ini tidak terjadi. `mouse` tidak memiliki kunci yang dipanggil `bird`,itu artinya `mouse.bird` adalah `undefined`. Lalu, kita bertanya `size` memakai notasi titik: `mouse.bird.size`. Sejak `mouse.bird` adalah `undefined`, kami sebenarnya bertanya `undefined.size`. Ini tidak valid, dan akan menampilkan kesalahan yang mirip dengan `Cannot read property "size" of undefined`.
 
 </p>
 </details>
