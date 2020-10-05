@@ -175,23 +175,20 @@ const mouse = {
 };
 ```
 
-- A: `mouse.bird.size` is not valid
-- B: `mouse[bird.size]` is not valid
-- C: `mouse[bird["size"]]` is not valid
-- D: All of them are valid
+- A: `mouse.bird.size` tidak benar
+- B: `mouse[bird.size]` tidak benar
+- C: `mouse[bird["size"]]` tidak benar
+- D: Semua jawaban benar
 
 <details><summary><b>Jawaban</b></summary>
 <p>
 
 #### Jawaban: A
+Pada JavaScript, semua kunci objek adalah string (kecuali jika itu berupa Simbol). Meskipun kita mungkin tidak mengetiknya sebagai string, tetap saja mereka selalu berubah menjadi string didalamnya.
 
-Dalam JavaScript, semua kunci objek adalah string (kecuali jika itu Simbol). Meskipun kita mungkin tidak _type_ mereka sebagai string, mereka selalu diubah menjadi string di bawah tenda.
+JavaScript menginterpretasikan (atau membuka) pernyataan-pernyataan. Saat kita menggunakan notasi kurung siku, ia melihat kurung buka pertama `[` dan terus berjalan sampai menemukan kurung tutup `]`. Baru setelah itu akan mengevaluasi penyataannya. `mouse[bird.size]`: Pertama, ini mengevaluasi `bird.size`, yang mana `"small"`. `mouse["small"]` mengembalikan nilai `true`. 
 
-JavaScript menginterpretasikan (atau membuka kotak) pernyataan. Saat kita menggunakan notasi kurung siku, ia melihat kurung buka pertama `[` dan terus berjalan sampai menemukan kurung tutup `]`. Baru setelah itu, itu akan mengevaluasi pernyataan itu.
-
-`mouse [bird.size]`: Pertama, ia mengevaluasi `bird.size`, yang mana` "small" `. `mouse [" small "]` mengembalikan `true`
-
-Namun, dengan notasi titik, hal ini tidak terjadi. `mouse` tidak memiliki kunci bernama` bird`, yang berarti `mouse.bird` adalah` undefined`. Kemudian, kami meminta `ukuran` menggunakan notasi titik:` mouse.bird.size`. Karena `mouse.bird` adalah ʻundefined`, kami sebenarnya menanyakan ʻundefined.size`. Ini tidak valid, dan akan memunculkan kesalahan yang mirip dengan `Tidak dapat membaca properti" ukuran "dari tidak ditentukan`.
+Namun, dengan notasi dot (.), hal ini tidak terjadi. `mouse` tidak memiliki kunci dengan nama `bird`, yang menyebabkan `mouse.bird` bernilai `undefined`. Kemudian, kita meminta `size` untuk menggunakan notasi dot (.): `mouse.bird.size`. Kita mengetahui bahwa `mouse.bird` bernilai `undefined`, yang sebenarnya kita minta adalah `undefined.size`. Yang mana hal ini tidak valid, dan akan memunculkan kesalahan yang mirip dengan `Cannot read property "size" of undefined`.
 
 </p>
 </details>
@@ -255,11 +252,12 @@ console.log(b === c);
 
 #### Jawaban: C
 
-`new Number ()` adalah konstruktor fungsi bawaan. Meskipun terlihat seperti angka, sebenarnya ini bukan angka: ia memiliki banyak fitur tambahan dan merupakan objek.
+`new Number()` adalah konstruktor fungsi bawaan pada JavaScript. Meskipun hasilnya terlihat seperti integer, namun sebenarnya itu bukan integer: aslinya memiliki banyak fitur tambahan dan merupakan sebuah objek.
 
-Saat kita menggunakan operator `==`, ini hanya memeriksa apakah ia memiliki _value_ yang sama. Keduanya memiliki nilai `3`, sehingga mengembalikan` true`.
+Saat kita menggunakan operator `==`, hal ini hanya akan memeriksa bahwa keduanya memiliki nilai yang sama. Pada kasus ini kedua variabel tersebut memiliki nilai yang sama, yaitu `3`, maka akan mengembalikan nilai `true`.
 
-Namun, saat kita menggunakan operator `===`, kedua nilai _and_ type harus sama. Ini bukan: `new Number ()` bukan angka, ini adalah ** objek **. Keduanya mengembalikan `false.`
+Namun, saat kita menggunakan operator `===`, operator ini memeriksa bahwa kedua variabel memiliki nilai dan tipe yang sama. Bagaimanapun: `new Number()` bukanlah sebuah integer, ini adalah sebuah **object**. Keduanya akan mengembalikan nilai `false.`
+
 </p>
 </details>
 
@@ -293,7 +291,7 @@ console.log(freddie.colorChange('orange'));
 
 #### Jawaban: D
 
-Fungsi `colorChange` bersifat statis. Metode statis dirancang untuk hidup hanya pada konstruktor tempat mereka dibuat, dan tidak dapat diturunkan ke turunan mana pun. Karena `freddie` adalah anak, fungsinya tidak diturunkan, dan tidak tersedia pada instance` freddie`: `TypeError` dilempar.
+Fungsi `colorChange` adalah statis. Metode statis dirancang hanya dapat aktif pada kontruktor dimana fungsi itu dibuat, dan tidak bisa dibawa ke-turunannya. Kita tahu bahwa `freddie` adalah sebuah turunan, maka fungsi itu tidak bisa turun, dan tidak tersedia pada instance `freddie`: sebuah pesan `TypeError` akan dikembalikan
 
 </p>
 </details>
