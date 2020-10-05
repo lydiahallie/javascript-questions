@@ -152,16 +152,10 @@ Tidak ada nilai 'radius' pada objek itu, yang mengembalikan 'tidak ditentukan'.
 
 #### Jawaban: A
 
-<<<<<<< HEAD
-The unary plus tries to convert an operand to a number. `true` is `1`, and `false` is `0`.
-
-The string `'Lydia'` is a truthy value. What we're actually asking, is "is this truthy value falsy?". This returns `false`.
-=======
 Tia unary plus mencoba mengonversi operan menjadi angka. `true` adalah` 1`, dan `false` adalah` 0`.
 
 String "'Lydia'` adalah nilai yang benar. Apa yang sebenarnya kami tanyakan adalah "apakah nilai kebenaran ini salah?". Ini mengembalikan `salah`.
 
->>>>>>> af42bcd7c6066395a68ef91dc3eb0783b6b1bd77
 
 </p>
 </details>
@@ -223,15 +217,9 @@ console.log(d.greeting);
 
 #### Jawaban: A
 
-<<<<<<< HEAD
-In JavaScript, all objects interact by _reference_ when setting them equal to each other.
-
-First, variable `c` holds a value to an object. Later, we assign `d` with the same reference that `c` has to the object.
-=======
 Dalam JavaScript, semua objek berinteraksi dengan _reference_ saat menyetelnya agar sama satu sama lain.
 
 Pertama, variabel `c` menyimpan nilai ke sebuah objek. Nanti, kita menetapkan `d` dengan referensi yang sama yang dimiliki` c` ke objek.
->>>>>>> af42bcd7c6066395a68ef91dc3eb0783b6b1bd77
 
 <img src="https://i.imgur.com/ko5k0fs.png" width="200">
 
