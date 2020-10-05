@@ -1335,7 +1335,7 @@ console.log(gen.next().value);
 - A: `[0, 10], [10, 20]`
 - B: `20, 20`
 - C: `10, 20`
-- D: `0, 10 and 10, 20`
+- D: `0, 10 dan 10, 20`
 
 <details><summary><b>Jawaban</b></summary>
 <p>
@@ -2222,10 +2222,10 @@ console.log(/* 1 */); // Do you love JavaScript?
 console.log(/* 2 */); // JavaScript loves you back ❤️
 ```
 
-- A: `game.next("Yes").value` and `game.next().value`
-- B: `game.next.value("Yes")` and `game.next.value()`
-- C: `game.next().value` and `game.next("Yes").value`
-- D: `game.next.value()` and `game.next.value("Yes")`
+- A: `game.next("Yes").value` dan `game.next().value`
+- B: `game.next.value("Yes")` dan `game.next.value()`
+- C: `game.next().value` dan `game.next("Yes").value`
+- D: `game.next.value()` dan `game.next.value("Yes")`
 
 <details><summary><b>Jawaban</b></summary>
 <p>
@@ -4506,10 +4506,10 @@ myFunc();
 myFunc(3);
 ```
 
-- A: `2` `4` and `3` `6`
-- B: `2` `NaN` and `3` `NaN`
-- C: `2` `Error` and `3` `6`
-- D: `2` `4` and `3` `Error`
+- A: `2` `4` dan `3` `6`
+- B: `2` `NaN` dan `3` `NaN`
+- C: `2` `Error` dan `3` `6`
+- D: `2` `4` dan `3` `Error`
 
 <details><summary><b>Jawaban</b></summary>
 <p>
