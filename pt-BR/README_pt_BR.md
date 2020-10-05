@@ -2173,3 +2173,40 @@ Com o operador `+`, você pode concatenar seqüências de caracteres (strings). 
 </details>
 
 ---
+
+###### 71. Como podemos registrar os valores comentados após a instrução console.log?
+
+```javascript
+function* iniciarJogo() {
+  const resposta = yield 'Você ama JavaScript?';
+  if (resposta !== 'Sim') {
+    return "Uau... Acho que entramos aqui";
+  }
+  return 'O JavaScript também ama você ❤️';
+}
+
+const jogo = iniciarJogo();
+console.log(/* 1 */); // Você ama JavaScript?
+console.log(/* 2 */); // O JavaScript também ama você ❤️
+```
+
+- A: `jogo.next("Sim").value` and `jogo.next().value`
+- B: `jogo.next.value("Sim")` and `jogo.next.value()`
+- C: `jogo.next().value` and `jogo.next("Sim").value`
+- D: `jogo.next.value()` and `jogo.next.value("Sim")`
+
+<details><summary><b>Resposta</b></summary>
+<p>
+
+#### Resposta: C
+
+Uma função geradora "pausa" a sua execução quando encontra a palavra-chave `yield`. Primeiro, temos que deixar a função produzir a string "Você ama JavaScript?", o que pode ser feito chamando `game.next().value`.
+
+Cada linha é executada, até encontrar a primeira palavra-chave `yield`. Há uma palavra-chave `yield` na primeira linha da função: a execução para com o primeiro retorno! _Isso significa que a variável `resposta` ainda não foi definida!_
+
+Quando chamamos `game.next("Sim").value`, o `yield` anterior é substituído pelo valor dos parâmetros passados para a função `next()`, `"Sim"` neste caso. O valor da variável `"resposta"` agora é igual a `"Sim"`. A condição da instrução if retorna `false` e `JavaScript também ama você ❤️` é registrada.
+
+</p>
+</details>
+
+---
