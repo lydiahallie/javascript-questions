@@ -92,7 +92,7 @@ for (let i = 0; i < 3; i++) {
 
 #### Jawaban: C
 
-Karena antrean peristiwa di JavaScript, fungsi callback `setTimeout` disebut _after_ loop telah dijalankan. Karena variabel `i` di loop pertama dideklarasikan menggunakan kata kunci` var`, nilai ini adalah global. Selama perulangan, kita menambah nilai ʻi` sebesar `1` setiap kali, menggunakan operator unary` ++ `. Pada saat fungsi callback `setTimeout` dipanggil,` i` sama dengan `3` di contoh pertama.
+Karena antrean peristiwa di JavaScript, fungsi callback `setTimeout` disebut _after_ loop telah dijalankan. Karena variabel `i` di loop pertama dideklarasikan menggunakan kata kunci` var`, nilai ini adalah global. Selama perulangan, kita menambah nilai `i` sebesar `1` setiap kali, menggunakan operator unary` ++ `. Pada saat fungsi callback `setTimeout` dipanggil,` i` sama dengan `3` di contoh pertama.
 
 Pada perulangan kedua, variabel `i` dideklarasikan menggunakan kata kunci` let`: variabel yang dideklarasikan dengan kata kunci `let` (dan` const`) memiliki cakupan blok (blok adalah apa saja di antara `{}`). Selama setiap iterasi, `i` akan memiliki nilai baru, dan setiap nilai dicakup di dalam loop.
 </p>
@@ -379,7 +379,7 @@ console.log(member.getFullName());
 
 #### Jawaban: A
 
-Anda tidak dapat menambahkan properti ke constructor seperti yang Anda lakukan dengan objek biasa. Jika Anda ingin menambahkan fitur ke semua objek sekaligus, Anda harus menggunakan prototipe sebagai gantinya. Jadi dalam kasus ini,
+Anda tidak dapat menambahkan properti ke constructor seperti yang Anda lakukan dengan objek biasa. Jika Anda ingin menambahkan fitur ke semua objek sekaligus, Anda harus menggunakan prototipe sebagai gantinya. Jadi dalam kasus ini:
 
 ```js
 Person.prototype.getFullName = function() {
@@ -387,7 +387,7 @@ Person.prototype.getFullName = function() {
 };
 ```
 
-akan membuat `member.getFullName()` berfungsi. Mengapa ini bermanfaat? Katakanlah kita menambahkan metode ini ke konstruktor itu sendiri. Mungkin tidak setiap instance `Person` membutuhkan metode ini. Ini akan membuang banyak ruang memori, karena mereka masih memiliki properti itu, yang mengambil ruang memori untuk setiap instance. Sebaliknya, jika kita hanya menambahkannya ke prototipe, kita hanya memilikinya di satu tempat di memori, namun mereka semua memiliki akses ke sana!
+Akan membuat `member.getFullName()` berfungsi. Mengapa ini bermanfaat? Katakanlah kita menambahkan metode ini ke konstruktor itu sendiri. Mungkin tidak setiap instance `Person` membutuhkan metode ini. Ini akan membuang banyak ruang memori, karena mereka masih memiliki properti itu, yang mengambil ruang memori untuk setiap instance. Sebaliknya, jika kita hanya menambahkannya ke prototipe, kita hanya memilikinya di satu tempat di memori, namun mereka semua memiliki akses ke sana!
 
 </p>
 </details>
@@ -2685,8 +2685,8 @@ Variables with the `const` and `let` keyword are _block-scoped_. A block is anyt
 
 ```javascript
 fetch('https://www.website.com/api/user/1')
-  .then(res => res.json())
-  .then(res => console.log(res));
+        .then(res => res.json())
+        .then(res => console.log(res))
 ```
 
 - A: The result of the `fetch` method.
@@ -3412,7 +3412,7 @@ JavaScript interprets (or unboxes) statements. When we use bracket notation, it 
 
 ---
 
-###### 107. What's its value?
+###### 107. Apakah hasil nilai dibawah ini ?
 
 ```javascript
 console.log('❤️' === '❤️');
@@ -3426,24 +3426,24 @@ console.log('❤️' === '❤️');
 
 #### Jawaban: A
 
-Under the hood, emojis are unicodes. The unicodes for the heart emoji is `"U+2764 U+FE0F"`. These are always the same for the same emojis, so we're comparing two equal strings to each other, which returns true.
+Di belakang layar, emoji adalah sebuah unicode. Unicode untuk emoji hati adalah `"U+2764 U+FE0F"`. Keduanya akan selalu sama untuk emoji yang sama, jadi sebetulnya kita telah membandingkan dua string yang sama satu sama lain, yang mana akan menghasilkan true.
 
 </p>
 </details>
 
 ---
 
-###### 108. Which of these methods modifies the original array?
+###### 108. Manakah metode berikut yang akan memodifikasi array aslinya?
 
 ```javascript
-const emojis = ['✨', '🥑', '😍'];
+const emojis = ["✨", "🥑", "😍"];
 
-emojis.map(x => x + '✨');
-emojis.filter(x => x !== '🥑');
-emojis.find(x => x !== '🥑');
-emojis.reduce((acc, cur) => acc + '✨');
-emojis.slice(1, 2, '✨');
-emojis.splice(1, 2, '✨');
+emojis.map((x) => x + "✨");
+emojis.filter((x) => x !== "🥑");
+emojis.find((x) => x !== "🥑");
+emojis.reduce((acc, cur) => acc + "✨");
+emojis.slice(1, 2, "✨");
+emojis.splice(1, 2, "✨");
 ```
 
 - A: `All of them`
@@ -3456,9 +3456,9 @@ emojis.splice(1, 2, '✨');
 
 #### Jawaban: D
 
-With `splice` method, we modify the original array by deleting, replacing or adding elements. In this case, we removed 2 items from index 1 (we removed `'🥑'` and `'😍'`) and added the ✨ emoji instead.
+Metode `splice`, akan memodifikasi array aslinya dengan cara menghapus, mengganti atau menambahkan elemen. Dalam kasus ini, kami menghapus 2 item dari indeks 1 (kami menghapus `'🥑'` dan`' 😍'`) dan menambahkan emoji ✨ sebagai penggantinya.
 
-`map`, `filter` and `slice` return a new array, `find` returns an element, and `reduce` returns a reduced value.
+`map`,` filter` dan `slice` akan mengembalikan array baru,` find` akan mengembalikan elemen yang dicari, dan `reduce` akan mengembalikan nilai yang telah dikurangi.
 
 </p>
 </details>
@@ -4597,9 +4597,9 @@ obj.next(); // { value: "Lisa", done: false }
 
 #### Jawaban: B
 
-In order to iterate over the `members` in each element in the `teams` array, we need to pass `teams[i].members` to the `getMembers` generator function. The generator function returns a generator object. In order to iterate over each element in this generator object, we need to use `yield*`.
+Untuk melakukan pengulangan pada `members` dalam setiap elemen array `tim`, kita perlu melemparkan `tim[i].members` ke fungsi generator `getMembers`. Fungsi generator akan mengembalikan objek hasil generator. Untuk mengulang setiap elemen dalam objek generator ini, kita perlu menggunakan `yield*`.
 
-If we would've written `yield`, `return yield`, or `return`, the entire generator function would've gotten returned the first time we called the `next` method.
+Jika kita telah menulis `yield`, `return yield`, atau `return`, maka seluruh fungsi generator akan dikembalikan saat pertama kali kita memanggil metode `next`.
 
 </p>
 </details>
@@ -4920,14 +4920,14 @@ Mencatat `animals[dog]`, atau sebenarnya `animals["object Object"]` karena mengo
 
 ```javascript
 const user = {
-	email: "my@email.com",
-	updateEmail: email => {
-		this.email = email
-	}
-}
+        email: "my@email.com",
+        updateEmail: (email) => {
+          this.email = email;
+        },
+};
 
-user.updateEmail("new@email.com")
-console.log(user.email)
+user.updateEmail("new@email.com");
+console.log(user.email);
 ```
 
 - A: `my@email.com`
@@ -4941,6 +4941,7 @@ console.log(user.email)
 #### Jawaban: A
 
 Fungsi `updateEmail` adalah fungsi panah, dan tidak terikat ke objek `user`. Artinya, kata kunci `this` tidak merujuk ke objek `user`, tetapi merujuk pada cakupan global dalam kasus ini. Nilai `email` dalam objek `user` tidak diperbarui. Saat memasukkan nilai `user.email`, nilai asli `my@email.com` akan dikembalikan.
+
 </p>
 </details>
 
@@ -4955,9 +4956,9 @@ const promise3 = Promise.reject('Third')
 const promise4 = Promise.resolve('Fourth')
 
 const runPromises = async () => {
-	const res1 = await Promise.all([promise1, promise2])
-	const res2  = await Promise.all([promise3, promise4])
-	return [res1, res2]
+      const res1 = await Promise.all([promise1, promise2]);
+      const res2 = await Promise.all([promise3, promise4]);
+      return [res1, res2];
 }
 
 runPromises()
@@ -4982,16 +4983,19 @@ Metode `Promise.all` menjalankan promise yang diberikan secara paralel. Jika sat
 
 ---
 
-###### <a name=20200612></a>153.Berapa nilai `method` untuk mencatat `{name: "Lydia", age: 22}`?
+###### 153.Berapa nilai `method` untuk mencatat `{name: "Lydia", age: 22}`?
 
 ```javascript
-const keys = ["name", "age"]
-const values = ["Lydia", 22]
+const keys = ["name", "age"];
+const values = ["Lydia", 22];
 
-const method = /* ?? */
-Object[method](keys.map((_, i) => {
-	return [keys[i], values[i]]
-})) // { name: "Lydia", age: 22 }
+const method =
+  /* ?? */
+  Object[method](
+    keys.map((_, i) => {
+      return [keys[i], values[i]];
+    })
+  ); // { name: "Lydia", age: 22 }
 ```
 
 - A: `entries`
