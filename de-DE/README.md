@@ -15,34 +15,38 @@ Kontaktiert mich, wenn ihr möchtet! 😊 <br />
 | Benutzt die Fragen und Lösungen in einem Projekt! 😃  Ich würde mich _sehr_ freuen, wenn ihr dieses Repo verlinkt. Ich erstelle die Fragen und antworten (ja, ich bin traurig, lol) und die Community hilft mir unglaublich dabei, das ganze zu pflegen und verbessern! 💪🏼 Danke und habt Spaß!   |
 |---|
 
-<details><summary><b>Alle 17 verfügbaren Sprachen</b></summary>
+</div>
+
+---
+
+<details><summary><b> Alle 18 Übersetzungen anzeigen 🇸🇦🇪🇬🇧🇦🇩🇪🇪🇸🇫🇷🇮🇩🇯🇵🇰🇷🇳🇱🇧🇷🇷🇺🇹🇭🇹🇷🇺🇦🇻🇳🇨🇳🇹🇼</b></summary>
 <p>
 
-* [English](../en-EN/README.md)
-* [العربية](../ar-AR/README_AR.md)
-* [اللغة العامية - Egyptian Arabic](../ar-EG/README_ar-EG.md)
-* [Bosanski](../bs-BS/README-bs_BS.md)  
-* [Deutsch](../de-DE/README.md)  
-* [Español](../es-ES/README-ES.md)
-* [Français](../fr-FR/README_fr-FR.md)
-* [日本語](../ja-JA/README-ja_JA.md)  
-* [한국어](../ko-KR/README-ko_KR.md)
-* [Nederlands](./nl-NL/README.md)
-* [Português Brasil](../pt-BR/README_pt_BR.md)  
-* [Русский](../ru-RU/README.md)
-* [Українська мова](../ua-UA/README-ua_UA.md)  
-* [Tiếng Việt](../vi-VI/README-vi.md)
-* [中文版本](../zh-CN/README-zh_CN.md)
-* [Türkçe](../tr-TR/README-tr_TR.md)
-* [ไทย](../th-TH/README-th_TH.md)
-* [Indonesia](../id-ID/README.md)
+- [🇸🇦 العربية](./ar-AR/README_AR.md)
+- [🇪🇬 اللغة العامية](./ar-EG/README_ar-EG.md)
+- [🇧🇦 Bosanski](./bs-BS/README-bs_BS.md)
+- [🇬🇧 English](../README.md)
+- [🇪🇸 Español](./es-ES/README-ES.md)
+- [🇫🇷 Français](./fr-FR/README_fr-FR.md)
+- [🇮🇩 Indonesia](./id-ID/README.md)
+- [🇯🇵 日本語](./ja-JA/README-ja_JA.md)
+- [🇰🇷 한국어](./ko-KR/README-ko_KR.md)
+- [🇳🇱 Nederlands](./nl-NL/README.md)
+- [🇧🇷 Português Brasil](./pt-BR/README_pt_BR.md)
+- [🇷🇺 Русский](./ru-RU/README.md)
+- [🇹🇭 ไทย](./th-TH/README-th_TH.md)
+- [🇹🇷 Türkçe](./tr-TR/README-tr_TR.md)
+- [🇺🇦 Українська мова](./ua-UA/README-ua_UA.md)
+- [🇻🇳 Tiếng Việt](./vi-VI/README-vi.md)
+- [🇨🇳 简体中文](./zh-CN/README-zh_CN.md)
+- [🇹🇼 繁體中文](./zh-TW/README_zh-TW.md)
 
 </p>
 </details>
 
 ---
 
-###### 1. Was ist der Output?
+###### 1. Was wird ausgegeben?
 
 ```javascript
 function sayHi() {
@@ -74,7 +78,7 @@ Variablen mit dem `let` (oder `const`) Keyword werden ebenfalls gehoisted, aber 
 
 ---
 
-###### 2. Was ist der Output?
+###### 2. Was wird ausgegeben?
 
 ```javascript
 for (var i = 0; i < 3; i++) {
@@ -104,7 +108,7 @@ In der zweiten Schleife wurde die Variable `i` mit dem `let` Keyword definiert: 
 
 ---
 
-###### 3. Was ist der Output?
+###### 3. Was wird ausgegeben?
 
 ```javascript
 const shape = {
@@ -140,7 +144,7 @@ Es gibt keinen Wert `radius` in dem Object, daher wird `undefined` zurückgegebe
 
 ---
 
-###### 4. Was ist der Output?
+###### 4. Was wird ausgegeben?
 
 ```javascript
 +true;
@@ -201,7 +205,7 @@ Mit der Dot Notation ist das nicht der Fall. `mouse` hat keinen Key namens `bird
 
 ---
 
-###### 6. Was ist der Output?
+###### 6. Was wird ausgegeben?
 
 ```javascript
 let c = { greeting: "Hey!" };
@@ -236,7 +240,7 @@ Wenn ein Object geändert wird, werden alle Referenzen zu diesem Object ebenfall
 
 ---
 
-###### 7. Was ist der Output?
+###### 7. Was wird ausgegeben?
 
 ```javascript
 let a = 3;
@@ -269,7 +273,7 @@ Wenn wir aber `===` nutzen müssen sowohl der Wert _als auch_ der Typ übereinst
 
 ---
 
-###### 8. Was ist der Output?
+###### 8. Was wird ausgegeben?
 
 ```javascript
 class Chameleon {
@@ -304,7 +308,7 @@ Die `colorChange` Funktion ist statisch (`static`). Statische Methoden existiere
 
 ---
 
-###### 9. Was ist der Output?
+###### 9. Was wird ausgegeben?
 
 ```javascript
 let greeting;
@@ -359,7 +363,7 @@ Eine Funktion ist ein spezieller Typ eines Objekts. Der Code, den wir schreiben 
 
 ---
 
-###### 11. Was ist der Output?
+###### 11. Was wird ausgegeben?
 
 ```javascript
 function Person(firstName, lastName) {
@@ -401,7 +405,7 @@ Stattdessen haben wir sie nur dem Prototype zugewiesen, sodass sie nur an einer 
 
 ---
 
-###### 12. Was ist der Output?
+###### 12. Was wird ausgegeben?
 
 ```javascript
 function Person(firstName, lastName) {
@@ -473,7 +477,7 @@ Alle Objekte haben Prototypes, außer dem **Basis Objekt**. Das Basis Objekt hat
 
 ---
 
-###### 15. Was ist der Output?
+###### 15. Was wird ausgegeben?
 
 ```javascript
 function sum(a, b) {
@@ -502,7 +506,7 @@ In diesem Beispiel wandelt JavaScript die Nummer `1` in einem String um, sodass 
 
 ---
 
-###### 16. Was ist der Output?
+###### 16. Was wird ausgegeben?
 
 ```javascript
 let number = 0;
@@ -538,7 +542,7 @@ Der Output ist daher `0 2 2`.
 
 ---
 
-###### 17. Was ist der Output?
+###### 17. Was wird ausgegeben?
 
 ```javascript
 function getPersonInfo(one, two, three) {
@@ -569,7 +573,7 @@ Wenn man Template Literals verwendet ist das erste Argument immer ein Array der 
 
 ---
 
-###### 18. Was ist der Output?
+###### 18. Was wird ausgegeben?
 
 ```javascript
 function checkAge(data) {
@@ -605,7 +609,7 @@ Deshalb werfen sowohl `{ age: 18 } === { age: 18 }` als auch `{ age: 18 } == { a
 
 ---
 
-###### 19. Was ist der Output?
+###### 19. Was wird ausgegeben?
 
 ```javascript
 function getAge(...args) {
@@ -632,7 +636,7 @@ Der Spread Operator (`...args`) gibt ein Array mit Argumenten zurück. Ein Array
 
 ---
 
-###### 20. Was ist der Output?
+###### 20. Was wird ausgegeben?
 
 ```javascript
 function getAge() {
@@ -709,7 +713,7 @@ Wenn man stattdessen `localStorage` verwendet, bleibt der Wert für immer besteh
 
 ---
 
-###### 23. Was ist der Output?
+###### 23. Was wird ausgegeben?
 
 ```javascript
 var num = 8;
@@ -737,7 +741,7 @@ Das ist nicht möglich mit `let` oder `const`, da diese dem Block Scope unterlie
 
 ---
 
-###### 24. Was ist der Output?
+###### 24. Was wird ausgegeben?
 
 ```javascript
 const obj = { 1: "a", 2: "b", 3: "c" };
@@ -768,7 +772,7 @@ Das funktioniert nicht für Set. Da wir keine `'1'` in unserem Set haben wirft `
 
 ---
 
-###### 25. Was ist der Output?
+###### 25. Was wird ausgegeben?
 
 ```javascript
 const obj = { a: "one", b: "two", a: "three" };
@@ -810,7 +814,7 @@ Der Base Execution Context entspricht dem Global Execution Context und ist über
 
 ---
 
-###### 27. Was ist der Output?
+###### 27. Was wird ausgegeben?
 
 ```javascript
 for (let i = 1; i < 5; i++) {
@@ -836,7 +840,7 @@ for (let i = 1; i < 5; i++) {
 
 ---
 
-###### 28. Was ist der Output?
+###### 28. Was wird ausgegeben?
 
 ```javascript
 String.prototype.giveLydiaPizza = () => {
@@ -865,7 +869,7 @@ name.giveLydiaPizza();
 
 ---
 
-###### 29. Was ist der Output?
+###### 29. Was wird ausgegeben?
 
 ```javascript
 const a = {};
@@ -899,7 +903,7 @@ Dann loggen wir `a[b]`, was eigentlich `a["object Object"]` ist und gerade von u
 
 ---
 
-###### 30. Was ist der Output?
+###### 30. Was wird ausgegeben?
 
 ```javascript
 const foo = () => console.log("First");
@@ -1008,7 +1012,7 @@ Wenn wir auf den Paragraph klicken, sehen wir zwei logs: `p` und `div`. Während
 
 ---
 
-###### 33. Was ist der Output?
+###### 33. Was wird ausgegeben?
 
 ```javascript
 const person = { name: "Lydia" };
@@ -1040,7 +1044,7 @@ In beiden Fällen können wir das Objekt weiter reichen, auf welches sich das `t
 
 ---
 
-###### 34. Was ist der Output?
+###### 34. Was wird ausgegeben?
 
 ```javascript
 function sayHi() {
@@ -1106,7 +1110,7 @@ Funktions-Constructor, wie `new Number` und `new Boolean` sind truthy.
 
 ---
 
-###### 36. Was ist der Output?
+###### 36. Was wird ausgegeben?
 
 ```javascript
 console.log(typeof typeof 1);
@@ -1130,7 +1134,7 @@ console.log(typeof typeof 1);
 
 ---
 
-###### 37. Was ist der Output?
+###### 37. Was wird ausgegeben?
 
 ```javascript
 const numbers = [1, 2, 3];
@@ -1159,7 +1163,7 @@ abhängig davon wo das Array ausgeführt wird (die Ausgabe ist unterschiedlich f
 
 ---
 
-###### 38. Was ist der Output?
+###### 38. Was wird ausgegeben?
 
 ```javascript
 (() => {
@@ -1219,7 +1223,7 @@ Was einen primitiven Typ von einem Objekt unterscheidet ist, dass Primitive kein
 
 ---
 
-###### 40. Was ist der Output?
+###### 40. Was wird ausgegeben?
 
 ```javascript
 [[0, 1], [2, 3]].reduce(
@@ -1249,7 +1253,7 @@ Dann entspricht `acc` gleich `[1, 2, 0, 1]` und `cur` ist gleich `[2, 3]`. Wir v
 
 ---
 
-###### 41. Was ist der Output?
+###### 41. Was wird ausgegeben?
 
 ```javascript
 !!null;
@@ -1324,7 +1328,7 @@ Ein String ist ein Iterable. Der Spread Operator mappt jedes Zeichen eines Itera
 
 ---
 
-###### 44. Was ist der Output?
+###### 44. Was wird ausgegeben?
 
 ```javascript
 function* generator(i) {
@@ -1390,7 +1394,7 @@ Wenn wir mehrere Promises in die `Promice.race` Methode eingegeben, wird das Pro
 
 ---
 
-###### 46. Was ist der Output?
+###### 46. Was wird ausgegeben?
 
 ```javascript
 let person = { name: "Lydia" };
@@ -1429,7 +1433,7 @@ Wir ändern nur den Wert der Variable `person` und nicht das erste Element im Ar
 
 ---
 
-###### 47. Was ist der Output?
+###### 47. Was wird ausgegeben?
 
 ```javascript
 const person = {
@@ -1459,7 +1463,7 @@ Mit einer `for-in` Schleife können wir über Objekt Keys iterieren - in diesem 
 
 ---
 
-###### 48. Was ist der Output?
+###### 48. Was wird ausgegeben?
 
 ```javascript
 console.log(3 + 4 + "5");
@@ -1511,7 +1515,7 @@ Nur die erste Zahl im String wird ausgegeben. Aufgrund des _radix_ (das zweite A
 
 ---
 
-###### 50. Was ist der Output?
+###### 50. Was wird ausgegeben?
 
 ```javascript
 [1, 2, 3].map(num => {
@@ -1539,7 +1543,7 @@ Allerdings geben wir keinen Wert aus. Wenn unsere Funktion keinen Wert ausgibt, 
 
 ---
 
-###### 51. Was ist der Output?
+###### 51. Was wird ausgegeben?
 
 ```javascript
 function getInfo(member, year) {
@@ -1576,7 +1580,7 @@ Der Wert von `person` ist ein Objekt, sodass das Argument `member` eine Kopie de
 
 ---
 
-###### 52. Was ist der Output?
+###### 52. Was wird ausgegeben?
 
 ```javascript
 function greeting() {
@@ -1614,7 +1618,7 @@ Mit dem `catch` Statement können wir definieren, was passiert, wenn die Excepti
 
 ---
 
-###### 53. Was ist der Output?
+###### 53. Was wird ausgegeben?
 
 ```javascript
 function Car() {
@@ -1643,7 +1647,7 @@ Wenn man eine Property ausgibt ist der Wert der Property gleich dem ausgegeben W
 
 ---
 
-###### 54. Was ist der Output?
+###### 54. Was wird ausgegeben?
 
 ```javascript
 (() => {
@@ -1683,7 +1687,7 @@ Da wir die Variable `y` aber global erstellt haben ist ihr Wert `10` auch hier v
 
 ---
 
-###### 55. Was ist der Output?
+###### 55. Was wird ausgegeben?
 
 ```javascript
 class Dog {
@@ -1724,7 +1728,7 @@ Wenn wir versuchen etwas auszuführen, was keine Funktion ist, wird ein `TypeErr
 
 ---
 
-###### 56. Was ist der Output?
+###### 56. Was wird ausgegeben?
 
 ```javascript
 const set = new Set([1, 1, 2, 3, 4]);
@@ -1751,7 +1755,7 @@ Wir übergeben `[1, 1, 2, 3, 4]` mit einer doppelten `1`. Da wir keine doppelten
 
 ---
 
-###### 57. Was ist der Output?
+###### 57. Was wird ausgegeben?
 
 ```javascript
 // counter.js
@@ -1787,7 +1791,7 @@ Wenn wir also den Wert von `myCounter` erhöhen bekommen wir den Fehler `myCount
 
 ---
 
-###### 58. Was ist der Output?
+###### 58. Was wird ausgegeben?
 
 ```javascript
 const name = "Lydia";
@@ -1816,7 +1820,7 @@ Der Wert von `name` wurde mit `const` deklariert, weshalb `delete` nicht möglic
 
 ---
 
-###### 59. Was ist der Output?
+###### 59. Was wird ausgegeben?
 
 ```javascript
 const numbers = [1, 2, 3, 4, 5];
@@ -1858,7 +1862,7 @@ Das bedeutet, dass der Wert von `y` gleich des ersten Wertes im Array ist, spric
 
 ---
 
-###### 60. Was ist der Output?
+###### 60. Was wird ausgegeben?
 
 ```javascript
 const user = { name: "Lydia", age: 21 };
@@ -1884,7 +1888,7 @@ Es ist möglich Objekte mit dem Spread Operator `...` zu verbinden. Dieser erste
 
 ---
 
-###### 61. Was ist der Output?
+###### 61. Was wird ausgegeben?
 
 ```javascript
 const person = { name: "Lydia" };
@@ -1914,7 +1918,7 @@ Properties, die mit `defineProperty` erstellt wurden sind standardmäßig unver�
 
 ---
 
-###### 62. Was ist der Output?
+###### 62. Was wird ausgegeben?
 
 ```javascript
 const settings = {
@@ -1948,7 +1952,7 @@ Wenn der Replacer eine _Funktion_ ist, so wird diese Funktion für jede Property
 
 ---
 
-###### 63. Was ist der Output?
+###### 63. Was wird ausgegeben?
 
 ```javascript
 let num = 10;
@@ -1984,7 +1988,7 @@ Der unäre Operator `++` _gibt zuerst_ den Wert des Operanden aus und _erhöht d
 
 ---
 
-###### <a name=20190707></a>64. Was ist der Output?
+###### <a name=20190707></a>64. Was wird ausgegeben?
 
 ```javascript
 const value = { number: 10 };
@@ -2022,7 +2026,7 @@ Beim vierten Mal übergeben wir wieder eine `value`. `x.number` wurde zuvor in `
 
 ---
 
-###### 65. Was ist der Output?
+###### 65. Was wird ausgegeben?
 
 ```javascript
 [1, 2, 3, 4].reduce((x, y) => console.log(x, y));
@@ -2139,7 +2143,7 @@ Das ist der große Unterschied zwischen `require()` in CommonJS und `import`. Mi
 
 ---
 
-###### 68. Was ist der Output?
+###### 68. Was wird ausgegeben?
 
 ```javascript
 console.log(Number(2) === Number(2))
@@ -2164,7 +2168,7 @@ Jedes Symbol ist eindeutig. Der Sinn des Argumentes, welches an das Symbol weite
 
 ---
 
-###### 69. Was ist der Output?
+###### 69. Was wird ausgegeben?
 
 ```javascript
 const name = "Lydia Hallie"
@@ -2191,7 +2195,7 @@ Falls der Wert, der an `padStart` übergeben wurde kleiner ist, als die Länge d
 
 ---
 
-###### 70. Was ist der Output?
+###### 70. Was wird ausgegeben?
 
 ```javascript
 console.log("🥑" + "💻");
@@ -2251,7 +2255,7 @@ Wenn wir `game.next("Yes").value` aufrufen wird das vorhergehende `yield` durch 
 
 ---
 
-###### 72. Was ist der Output?
+###### 72. Was wird ausgegeben?
 
 ```javascript
 console.log(String.raw`Hello\nworld`);
@@ -2286,7 +2290,7 @@ In unserem Fall ist das Ergebnis `Hello\nworld`, was geloggt wird.
 
 ---
 
-###### 73. Was ist der Output?
+###### 73. Was wird ausgegeben?
 
 ```javascript
 async function getData() {
@@ -2320,7 +2324,7 @@ Das hätte `"I made it!"` ausgegeben.
 
 ---
 
-###### 74. Was ist der Output?
+###### 74. Was wird ausgegeben?
 
 ```javascript
 function addToList(item, list) {
@@ -2350,7 +2354,7 @@ Die `push` Methode verändert das ursprüngliche Array. Wenn wir das _Array_ der
 
 ---
 
-###### 75. Was ist der Output?
+###### 75. Was wird ausgegeben?
 
 ```javascript
 const box = { x: 10, y: 20 };
@@ -2385,7 +2389,7 @@ Da `shape` eingefroren ist und der Wert von `x` kein Objekt ist, können wir den
 
 ---
 
-###### 76. Was ist der Output?
+###### 76. Was wird ausgegeben?
 
 ```javascript
 const { name: myName } = { name: "Lydia" };
@@ -2439,7 +2443,7 @@ Die `sum` Funktion gibt daher immer das gleiche Ergebnis aus. Wenn wir `1` und `
 
 ---
 
-###### 78. Was ist der Output?
+###### 78. Was wird ausgegeben?
 
 ```javascript
 const add = () => {
@@ -2486,7 +2490,7 @@ Beim dritten Mal geben wir `5 * 2` als Argument in die Funktion ein, was `10` er
 
 ---
 
-###### <a name=20190726></a>79. Was ist der Output?
+###### <a name=20190726></a>79. Was wird ausgegeben?
 
 ```javascript
 const myLifeSummedUp = ["☕", "💻", "🍷", "🍫"]
@@ -2523,7 +2527,7 @@ Mit einer _for-of_ Schleife können wir über **wiederholbare** Elemente iterier
 
 ---
 
-###### 80. Was ist der Output?
+###### 80. Was wird ausgegeben?
 
 ```javascript
 const list = [1 + 2, 1 * 2, 1 / 2]
@@ -2549,7 +2553,7 @@ Das Element ist gleich dem ausgegebenen Wert. `1 + 2` ergibt `3`, `1 * 2` ergibt
 
 ---
 
-###### 81. Was ist der Output?
+###### 81. Was wird ausgegeben?
 
 ```javascript
 function sayHi(name) {
@@ -2582,7 +2586,7 @@ In diesem Fall, falls wir kein Argument oder `undefined` eingeben ist `name` imm
 
 ---
 
-###### 82. Was ist der Output?
+###### 82. Was wird ausgegeben?
 
 ```javascript
 var status = "😎"
@@ -2622,7 +2626,7 @@ Mit der `call` Methode können wir das Objekt, auf welches sich das `this` Keywo
 
 ---
 
-###### 83. Was ist der Output?
+###### 83. Was wird ausgegeben?
 
 ```javascript
 const person = {
@@ -2659,7 +2663,7 @@ Wenn wir `person` loggen bekommen wir daher das unveränderte Objekt angezeigt.
 
 ---
 
-###### 84. Was ist der Output?
+###### 84. Was wird ausgegeben?
 
 ```javascript
 function checkAge(age) {
@@ -2748,7 +2752,7 @@ Wenn wir `hasName` gleich `name` setzen, so beinhaltet `hasName` den Wert von `n
 
 ---
 
-###### <a name=20190805></a>87. Was ist der Output?
+###### <a name=20190805></a>87. Was wird ausgegeben?
 
 ```javascript
 console.log("I want pizza"[0])
@@ -2773,7 +2777,7 @@ Diese Methode funktioniert nicht in IE7 und davor. Hier muss `.charAt()` verwend
 
 ---
 
-###### 88. Was ist der Output?
+###### 88. Was wird ausgegeben?
 
 ```javascript
 function sum(num1, num2 = num1) {
@@ -2802,7 +2806,7 @@ Wenn man den Wert des Standard Paramenters gleich dem Parameter setztm der _dana
 
 ---
 
-###### 89. Was ist der Output?
+###### 89. Was wird ausgegeben?
 
 ```javascript
 // module.js
@@ -2834,7 +2838,7 @@ Das `data` Objekt hat eine Standard Property für alle Standard Exporte, andere 
 
 ---
 
-###### 90. Was ist der Output?
+###### 90. Was wird ausgegeben?
 
 ```javascript
 class Person {
@@ -2872,7 +2876,7 @@ Das Aufrufen eines Funktionskonstruktors mit `new` hat zur Folge, dass eine Inst
 
 ---
 
-###### 91. Was ist der Output?
+###### 91. Was wird ausgegeben?
 
 ```javascript
 let newList = [1, 2, 3].push(4)
@@ -2899,7 +2903,7 @@ Dann versuchen wir die `.push` Methode auf `newList` anzuwenden. Da `newList` de
 
 ---
 
-###### 92. Was ist der Output?
+###### 92. Was wird ausgegeben?
 
 ```javascript
 function giveLydiaPizza() {
@@ -2929,7 +2933,7 @@ Reguläre Funktionen wie `giveLydiaPizza` haben eine `prototype` Property, die e
 
 ---
 
-###### 93. Was ist der Output?
+###### 93. Was wird ausgegeben?
 
 ```javascript
 const person = {
@@ -2966,7 +2970,7 @@ Das zweite verschachtelte Array ist `[ "age", 21 ]`. `x` ist gleich `"age"` und 
 
 ---
 
-###### 94. Was ist der Output?
+###### 94. Was wird ausgegeben?
 
 ```javascript
 function getItems(fruitList, ...args, favoriteFruit) {
@@ -3002,7 +3006,7 @@ Dieses Beispiel würde funktionieren und `[ 'banana', 'apple', 'orange', 'pear' 
 
 ---
 
-###### <a name=20190817></a>95. Was ist der Output?
+###### <a name=20190817></a>95. Was wird ausgegeben?
 
 ```javascript
 function nums(a, b) {
@@ -3046,7 +3050,7 @@ Bedenke: Semikolons werden **nicht** automatisch nach `if/else` Statements geset
 
 ---
 
-###### 96. Was ist der Output?
+###### 96. Was wird ausgegeben?
 
 ```javascript
 class Person {
@@ -3082,7 +3086,7 @@ Wir können Klassen gleich anderen Klassen oder Funktions Konstruktoren setzen. 
 
 ---
 
-###### 97. Was ist der Output?
+###### 97. Was wird ausgegeben?
 
 ```javascript
 const info = {
@@ -3113,7 +3117,7 @@ Bedenke: Man kann die Symbole dennoch mit der `Object.getOwnPropertySymbols()` M
 
 ---
 
-###### 98. Was ist der Output?
+###### 98. Was wird ausgegeben?
 
 ```javascript
 const getList = ([x, ...y]) => [x, y]
@@ -3153,7 +3157,7 @@ Da kein Wert ausgegeben wird, gibt die Funktion `undefined` aus.
 
 ---
 
-###### 99. Was ist der Output?
+###### 99. Was wird ausgegeben?
 
 ```javascript
 const name = "Lydia"
@@ -3184,7 +3188,7 @@ ReferenceErrors werden ausgeworfen, wenn JavaScript eine Referenz zu einem Wert 
 
 ---
 
-###### 100. Was ist der Output?
+###### 100. Was wird ausgegeben?
 
 ```javascript
 // 🎉✨ Das ist unsere 100. Frage! ✨🎉
@@ -3212,7 +3216,7 @@ You should${'' && `n't`} see a therapist after so much JavaScript lol`
 
 ---
 
-###### 101. Was ist der Output?
+###### 101. Was wird ausgegeben?
 
 ```javascript
 const one = (false || {} || null)
@@ -3287,7 +3291,7 @@ Das bedeutet, dass auf `myPromise` gewartet und dann der Wert `I have resolved` 
 
 ---
 
-###### 103. Was ist der Output?
+###### 103. Was wird ausgegeben?
 
 ```javascript
 const set = new Set()
@@ -3479,7 +3483,7 @@ Mit der `splice` Methode ändern wir das ursprüngliche Array durch löschen, er
 
 ---
 
-###### <a name=20191009></a>109. Was ist der Output?
+###### <a name=20191009></a>109. Was wird ausgegeben?
 
 ```javascript
 const food = ['🍕', '🍫', '🥑', '🍔']
@@ -3546,7 +3550,7 @@ JSON.parse(jsonArray) // { name: 'Lydia' }
 
 ---
 
-###### 111. Was ist der Output?
+###### 111. Was wird ausgegeben?
 
 ```javascript
 let name = 'Lydia'
@@ -3590,7 +3594,7 @@ getName() // Lydia
 
 ---
 
-###### 112. Was ist der Output?
+###### 112. Was wird ausgegeben?
 
 ```javascript
 function* generatorOne() {
@@ -3641,7 +3645,7 @@ console.log(two.next().value) // undefined
 
 ---
 
-###### 113. Was ist der Output?
+###### 113. Was wird ausgegeben?
 
 ```javascript
 console.log(`${(x => x)('I love')} to program`)
@@ -3729,7 +3733,7 @@ Beim Setzen eines Key/Wert Paars mit der `set` Methode wird der Key als erstes A
 
 ---
 
-###### 116. Was ist der Output?
+###### 116. Was wird ausgegeben?
 
 ```javascript
 const person = {
