@@ -2685,8 +2685,8 @@ Variables with the `const` and `let` keyword are _block-scoped_. A block is anyt
 
 ```javascript
 fetch('https://www.website.com/api/user/1')
-  .then(res => res.json())
-  .then(res => console.log(res));
+        .then(res => res.json())
+        .then(res => console.log(res))
 ```
 
 - A: The result of the `fetch` method.
@@ -4920,10 +4920,10 @@ Mencatat `animals[dog]`, atau sebenarnya `animals["object Object"]` karena mengo
 
 ```javascript
 const user = {
-  email: "my@email.com",
-  updateEmail: (email) => {
-    this.email = email;
-  },
+        email: "my@email.com",
+        updateEmail: (email) => {
+          this.email = email;
+        },
 };
 
 user.updateEmail("new@email.com");
@@ -4950,20 +4950,20 @@ Fungsi `updateEmail` adalah fungsi panah, dan tidak terikat ke objek `user`. Art
 ###### 152. Apa hasilnya?
 
 ```javascript
-const promise1 = Promise.resolve("First");
-const promise2 = Promise.resolve("Second");
-const promise3 = Promise.reject("Third");
-const promise4 = Promise.resolve("Fourth");
+const promise1 = Promise.resolve('First')
+const promise2 = Promise.resolve('Second')
+const promise3 = Promise.reject('Third')
+const promise4 = Promise.resolve('Fourth')
 
 const runPromises = async () => {
-  const res1 = await Promise.all([promise1, promise2]);
-  const res2 = await Promise.all([promise3, promise4]);
-  return [res1, res2];
-};
+      const res1 = await Promise.all([promise1, promise2]);
+      const res2 = await Promise.all([promise3, promise4]);
+      return [res1, res2];
+}
 
 runPromises()
-  .then((res) => console.log(res))
-  .catch((err) => console.log(err));
+	.then(res => console.log(res))
+	.catch(err => console.log(err))
 ```
 
 - A: `[['First', 'Second'], ['Fourth']]`
