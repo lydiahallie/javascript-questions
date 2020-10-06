@@ -419,9 +419,9 @@ console.log(sarah);
 
 #### Jawaban: A
 
-For `sarah`, we didn't use the `new` keyword. When using `new`, it refers to the new empty object we create. However, if you don't add `new` it refers to the **global object**!
+Pada `sarah`, kita tidak menggunakan kata kunci `new`. Saat menggunakan `new`, Ini mengacu pada object kosong yang kita buat. Namun, jika Anda tidak menambahkan `new` ini merujuk pada **global object**!
 
-We said that `this.firstName` equals `"Sarah"` and `this.lastName` equals `"Smith"`. What we actually did, is defining `global.firstName = 'Sarah'` and `global.lastName = 'Smith'`. `sarah` itself is left `undefined`, since we don't return a value from the `Person` function.
+Kita tahu bahwa `this.firstName` setara dengan `"Sarah"` dan `this.lastName` sama dengan `"Smith"`. Apa yang sebenarnya kami lakukan adalah mendefinisikan `global.firstName = 'Sarah'` dan `global.lastName = 'Smith'`. `sarah` sendiri dibiarkan `undefined`, karena kita tidak mengembalikan nilai dari fungsi `Person`.
 
 </p>
 </details>
@@ -486,9 +486,9 @@ sum(1, '2');
 
 #### Jawaban: C
 
-JavaScript is a **dynamically typed language**: we don't specify what types certain variables are. Values can automatically be converted into another type without you knowing, which is called _implicit type coercion_. **Coercion** is converting from one type into another.
+JavaScript adalah **Bahasa yang bersifat dinamis**: yang tidak menentukan jenis variabel tertentu. Values dapat secara otomatis diubah menjadi jenis lain tanpa Anda sadari, yang disebut _implicit type coercion_. **Coercion** adalah mengubah dari satu jenis ke jenis lainnya.
 
-In this example, JavaScript converts the number `1` into a string, in order for the function to make sense and return a value. During the addition of a numeric type (`1`) and a string type (`'2'`), the number is treated as a string. We can concatenate strings like `"Hello" + "World"`, so what's happening here is `"1" + "2"` which returns `"12"`.
+Pada contoh ini, JavaScript mengubah number `1` menjadi sebuah string, agar fungsi tersebut masuk akal dan mengembalikan nilai. Selama penambahan tipe numerik (`1`) dan tipe string (`'2'`), angka tersebut diperlakukan sebagai string. Kita bisa menggabungkan string seperti `"Hello" + "World"`, jadi yang terjadi di sini adalah `"1" + "2"` yang mengembalikan `"12"`.
 
 </p>
 </details>
