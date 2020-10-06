@@ -822,7 +822,7 @@ for (let i = 1; i < 5; i++) {
 
 #### Jawaban: C
 
-Pernyataan `continue` melewatkan iterasi jika kondisi tertentu mengembalikan` true`.
+Pernyataan `continue` melewatkan iterasi jika kondisi tertentu mengembalikan `true`.
 
 </p>
 </details>
