@@ -186,7 +186,7 @@ const mouse = {
 #### Jawaban: A
 Pada JavaScript, semua kunci objek adalah string (kecuali jika itu berupa Simbol). Meskipun kita mungkin tidak mengetiknya sebagai string, tetap saja mereka selalu berubah menjadi string didalamnya.
 
-JavaScript menginterpretasikan (atau membuka) pernyataan-pernyataan. Saat kita menggunakan notasi kurung siku, ia melihat kurung buka pertama `[` dan terus berjalan sampai menemukan kurung tutup `]`. Baru setelah itu akan mengevaluasi penyataannya. `mouse[bird.size]`: Pertama, ini mengevaluasi `bird.size`, yang mana `"small"`. `mouse["small"]` mengembalikan nilai `true`.
+JavaScript menginterpretasikan (atau membuka) pernyataan-pernyataan. Saat kita menggunakan notasi kurung siku, ia melihat kurung buka pertama `[` dan terus berjalan sampai menemukan kurung tutup `]`. Baru setelah itu akan mengevaluasi pernyataannya. `mouse[bird.size]`: Pertama, ini mengevaluasi `bird.size`, yang mana `"small"`. `mouse["small"]` mengembalikan nilai `true`.
 
 Namun, dengan notasi dot (.), hal ini tidak terjadi. `mouse` tidak memiliki kunci dengan nama `bird`, yang menyebabkan `mouse.bird` bernilai `undefined`. Kemudian, kita meminta `size` untuk menggunakan notasi dot (.): `mouse.bird.size`. Kita mengetahui bahwa `mouse.bird` bernilai `undefined`, yang sebenarnya kita minta adalah `undefined.size`. Yang mana hal ini tidak valid, dan akan memunculkan kesalahan yang mirip dengan `Cannot read property "size" of undefined`.
 
