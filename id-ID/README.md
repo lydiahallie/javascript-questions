@@ -677,25 +677,25 @@ const sum = eval('10*10+5');
 
 ---
 
-###### 22. How long is cool_secret accessible?
+###### 22. Sampai berapa lama kah cool_secret dapat diakses?
 
 ```javascript
 sessionStorage.setItem('cool_secret', 123);
 ```
 
-- A: Forever, the data doesn't get lost.
-- B: When the user closes the tab.
-- C: When the user closes the entire browser, not only the tab.
-- D: When the user shuts off their computer.
+- A: Selamanya, data tersebut tidak akan hilang.
+- B: Saat pengguna menutup tab browser.
+- C: Saat pengguna menutup seluruh browser, tidak hanya tab.
+- D: Saat pengguna mematikan komputernya.
 
 <details><summary><b>Jawaban</b></summary>
 <p>
 
 #### Jawaban: B
 
-The data stored in `sessionStorage` is removed after closing the _tab_.
+Data yang disimpan di `sessionStorage` akan dihapus setelah menutup _tab_.
 
-If you used `localStorage`, the data would've been there forever, unless for example `localStorage.clear()` is invoked.
+Jika anda menggunakan `localStorage`, data tersebut akan tersimpan selamanya, kecuali misalnya _method_ `localStorage.clear()` dipanggil.
 
 </p>
 </details>
