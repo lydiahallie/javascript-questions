@@ -428,7 +428,7 @@ Kita tahu bahwa `this.firstName` setara dengan `"Sarah"` dan `this.lastName` sam
 
 ---
 
-###### 13. What are the three phases of event propagation?
+###### 13. Apa tiga fase dari event propagation?
 
 - A: Target > Capturing > Bubbling
 - B: Bubbling > Target > Capturing
@@ -440,7 +440,7 @@ Kita tahu bahwa `this.firstName` setara dengan `"Sarah"` dan `this.lastName` sam
 
 #### Jawaban: D
 
-During the **capturing** phase, the event goes through the ancestor elements down to the target element. It then reaches the **target** element, and **bubbling** begins.
+Selama fase **capturing**, event melewati elemen ancestor hingga ke elemen target. Kemudian mencapai element **target**, dan **bubbling** dimulai.
 
 <img src="https://i.imgur.com/N18oRgd.png" width="200">
 
