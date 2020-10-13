@@ -428,7 +428,7 @@ Kita tahu bahwa `this.firstName` setara dengan `"Sarah"` dan `this.lastName` sam
 
 ---
 
-###### 13. What are the three phases of event propagation?
+###### 13. Apa tiga fase dari event propagation?
 
 - A: Target > Capturing > Bubbling
 - B: Bubbling > Target > Capturing
@@ -440,7 +440,7 @@ Kita tahu bahwa `this.firstName` setara dengan `"Sarah"` dan `this.lastName` sam
 
 #### Jawaban: D
 
-During the **capturing** phase, the event goes through the ancestor elements down to the target element. It then reaches the **target** element, and **bubbling** begins.
+Selama fase **capturing**, event melewati elemen ancestor hingga ke elemen target. Kemudian mencapai element **target**, dan **bubbling** dimulai.
 
 <img src="https://i.imgur.com/N18oRgd.png" width="200">
 
@@ -459,7 +459,7 @@ During the **capturing** phase, the event goes through the ancestor elements dow
 
 #### Jawaban: B
 
-All objects have prototypes, except for the **base object**. The base object is the object created by the user, or an object that is created using the `new` keyword. The base object has access to some methods and properties, such as `.toString`. This is the reason why you can use built-in JavaScript methods! All of such methods are available on the prototype. Although JavaScript can't find it directly on your object, it goes down the prototype chain and finds it there, which makes it accessible for you.
+Semua objek memiliki prototypes, kecuali **objek dasar**. Objek dasar adalah objek yang dibuat oleh pengguna, atau objek yang dibuat dengan menggunakan kata kunci `baru`. Objek dasar memiliki akses ke beberapa metode dan properti, seperti `.toString`. Inilah alasan mengapa Anda dapat menggunakan metode JavaScript bawaan! Semua metode tersebut tersedia di prototipe. Meskipun JavaScript tidak dapat menemukannya secara langsung di objek Anda, JavaScript berada di rantai prototipe dan menemukannya di sana, yang membuatnya dapat diakses untuk Anda.
 
 </p>
 </details>
@@ -514,17 +514,17 @@ console.log(number);
 
 #### Jawaban: C
 
-The **postfix** unary operator `++`:
+**Akhiran** operator unary `++`:
 
-1. Returns the value (this returns `0`)
-2. Increments the value (number is now `1`)
+1. Mengembalikan nilai (ini mengembalikan `0`)
+2. Menambahkan nilai (angkanya sekarang `1`)
 
-The **prefix** unary operator `++`:
+**Awalan** operator unary `++`:
 
-1. Increments the value (number is now `2`)
-2. Returns the value (this returns `2`)
+1. Menambah nilai (angkanya sekarang `2`)
+2. Mengembalikan nilai (ini mengembalikan `2`)
 
-This returns `0 2 2`.
+Ini mengembalikan `0 2 2`.
 
 </p>
 </details>
@@ -555,7 +555,7 @@ getPersonInfo`${person} is ${age} years old`;
 
 #### Jawaban: B
 
-If you use tagged template literals, the value of the first argument is always an array of the string values. The remaining arguments get the values of the passed expressions!
+Jika Anda menggunakan literal template yang diberi tag, nilai argumen pertama selalu berupa array bernilai string. Argumen yang tersisa mendapatkan nilai dari ekspresi yang diteruskan!
 
 </p>
 </details>
@@ -587,11 +587,11 @@ checkAge({ age: 18 });
 
 #### Jawaban: C
 
-When testing equality, primitives are compared by their _value_, while objects are compared by their _reference_. JavaScript checks if the objects have a reference to the same location in memory.
+Saat menguji persamaan, primitif dibandingkan dengan nilainya, sedangkan objek dibandingkan dengan referensinya. JavaScript memeriksa apakah objek memiliki referensi ke lokasi yang sama di memori.
 
-The two objects that we are comparing don't have that: the object we passed as a parameter refers to a different location in memory than the object we used in order to check equality.
+Dua objek yang kita bandingkan tidak memiliki itu: objek yang kita lewati sebagai parameter merujuk ke lokasi yang berbeda dalam memori dari objek yang kita gunakan untuk memeriksa persamaan.
 
-This is why both `{ age: 18 } === { age: 18 }` and `{ age: 18 } == { age: 18 }` return `false`.
+Inilah mengapa `{age: 18} === {age: 18}` dan `{age: 18} == {age: 18}` mengembalikan nilai `false`.
 
 </p>
 </details>
@@ -618,7 +618,7 @@ getAge(21);
 
 #### Jawaban: C
 
-The rest parameter (`...args`.) lets us "collect" all remaining arguments into an array. An array is an object, so `typeof args` returns `"object"`
+Parameter sisanya (`... args`.) Memungkinkan kita "mengumpulkan" semua argumen yang tersisa ke dalam sebuah array. Array adalah sebuah objek, jadi `typeof args` mengembalikan "objek"
 
 </p>
 </details>
@@ -647,7 +647,7 @@ getAge();
 
 #### Jawaban: C
 
-With `"use strict"`, you can make sure that you don't accidentally declare global variables. We never declared the variable `age`, and since we use `"use strict"`, it will throw a reference error. If we didn't use `"use strict"`, it would have worked, since the property `age` would have gotten added to the global object.
+Dengan `" use strict "`, Anda dapat memastikan bahwa Anda tidak mendeklarasikan variabel global secara tidak sengaja. Kita tidak pernah mendeklarasikan variabel `age`, dan karena kita menggunakan `" use strict "`, ini akan memunculkan kesalahan referensi. Jika kita tidak menggunakan `" use strict "`, ini akan berhasil, karena properti `age` akan ditambahkan ke objek global.
 
 </p>
 </details>
