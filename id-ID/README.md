@@ -555,7 +555,7 @@ getPersonInfo`${person} is ${age} years old`;
 
 #### Jawaban: B
 
-If you use tagged template literals, the value of the first argument is always an array of the string values. The remaining arguments get the values of the passed expressions!
+Jika Anda menggunakan literal template yang diberi tag, nilai argumen pertama selalu berupa array bernilai string. Argumen yang tersisa mendapatkan nilai dari ekspresi yang diteruskan!
 
 </p>
 </details>
