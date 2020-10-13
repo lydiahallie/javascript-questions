@@ -618,7 +618,7 @@ getAge(21);
 
 #### Jawaban: C
 
-The rest parameter (`...args`.) lets us "collect" all remaining arguments into an array. An array is an object, so `typeof args` returns `"object"`
+Parameter sisanya (`... args`.) Memungkinkan kita "mengumpulkan" semua argumen yang tersisa ke dalam sebuah array. Array adalah sebuah objek, jadi `typeof args` mengembalikan "objek"
 
 </p>
 </details>
