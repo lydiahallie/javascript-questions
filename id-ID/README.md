@@ -514,17 +514,17 @@ console.log(number);
 
 #### Jawaban: C
 
-The **postfix** unary operator `++`:
+**Akhiran** operator unary `++`:
 
-1. Returns the value (this returns `0`)
-2. Increments the value (number is now `1`)
+1. Mengembalikan nilai (ini mengembalikan `0`)
+2. Menambahkan nilai (angkanya sekarang `1`)
 
-The **prefix** unary operator `++`:
+**Awalan** operator unary `++`:
 
-1. Increments the value (number is now `2`)
-2. Returns the value (this returns `2`)
+1. Menambah nilai (angkanya sekarang `2`)
+2. Mengembalikan nilai (ini mengembalikan `2`)
 
-This returns `0 2 2`.
+Ini mengembalikan `0 2 2`.
 
 </p>
 </details>
