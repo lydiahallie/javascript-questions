@@ -721,9 +721,9 @@ console.log(num);
 
 #### Jawaban: B
 
-With the `var` keyword, you can declare multiple variables with the same name. The variable will then hold the latest value.
+Dengan kata kunci `var`, Anda dapat mendeklarasikan beberapa variabel dengan nama yang sama. Variabel kemudian akan menyimpan nilai terbaru.
 
-You cannot do this with `let` or `const` since they're block-scoped.
+Anda tidak dapat melakukan ini dengan `let` atau` const` karena memiliki cakupan blok.
 
 </p>
 </details>
