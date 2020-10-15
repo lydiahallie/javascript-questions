@@ -4329,7 +4329,7 @@ import * as sum from './sum';
 
 #### Jawaban: C
 
-With the asterisk `*`, we import all exported values from that file, both default and named. If we had the following file:
+Dengan tanda bintang *, kami mengimpor semua nilai yang diekspor dari file itu, baik default maupun bernama. Jika kami memiliki file berikut:
 
 ```javascript
 // info.js
