@@ -266,24 +266,24 @@ Namun, saat kita menggunakan operator `===`, operator ini memeriksa bahwa kedua 
 ###### 8. Apa yang akan tampil?
 
 ```javascript
-class Chameleon {
-  static colorChange(newColor) {
-    this.newColor = newColor;
-    return this.newColor;
+class Bunglon {
+  static gantiWarna(warnaBaru) {
+    this.warnaBaru = warnaBaru;
+    return this.warnaBaru;
   }
 
-  constructor({ newColor = 'green' } = {}) {
-    this.newColor = newColor;
+  constructor({ warnaBaru = 'hijau' } = {}) {
+    this.warnaBaru = warnaBaru;
   }
 }
 
-const freddie = new Chameleon({ newColor: 'purple' });
-console.log(freddie.colorChange('orange'));
+const freddie = new Bunglon({ warnaBaru: 'ungu' });
+console.log(freddie.gantiWarna('oranye'));
 ```
 
-- A: `orange`
-- B: `purple`
-- C: `green`
+- A: `oranye`
+- B: `ungu`
+- C: `hijau`
 - D: `TypeError`
 
 <details><summary><b>Jawaban</b></summary>
