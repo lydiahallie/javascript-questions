@@ -4714,3 +4714,375 @@ const person = {
 
 </p>
 </details>
+
+---
+
+###### 145. 输出什么？
+```javascript
+let count = 0;
+const nums = [0, 1, 2, 3];
+
+nums.forEach(num => {
+	if (num) count += 1
+})
+
+console.log(count)
+```
+
+- A: 1
+- B: 2
+- C: 3
+- D: 4
+<details><summary><b>答案</b></summary>
+<p>
+
+#### 答案: C
+
+在 `forEach` 循环内部的 `if` 会判断 `num` 的值是truthy或者是falsy。因为 `nums` 数组的第一个数字是 `0`，一个falsy值， `if` 语句代码块不会被执行。`count` 仅仅在 `nums` 数组的其他3个数字 `1`，`2`，`3` 时加1。因为 `count` 执行了3次加 `1` 运算，所以 `count` 的值为 `3`。
+
+</p>
+</details>
+
+---
+
+###### 146. 输出是什么？
+
+```javascript
+function getFruit(fruits) {
+	console.log(fruits?.[1]?.[1])
+}
+
+getFruit([['🍊', '🍌'], ['🍍']])
+getFruit()
+getFruit([['🍍'], ['🍊', '🍌']])
+```
+
+- A: `null`, `undefined`, 🍌
+- B: `[]`, `null`, 🍌
+- C: `[]`, `[]`, 🍌
+- D: `undefined`, `undefined`, 🍌
+
+<details><summary><b>答案</b></summary>
+<p>
+
+#### 答案: D
+
+`?` 允许我们去选择性地访问对象内部更深层的嵌套属性。 我们尝试打印 `fruits` 数组索引值为 `1` 的子数组内部的索引值为 `1` 的元素。 如果在 `fruits` 数组索引值 为 `1` 的位置不存在元素，会直接返回 `undefined`。 如果 `fruits` 数组在索引值为 `1` 的位置存在元素，但是子数组在索引值为 `1` 的位置不存在元素，也会返回 `undefined`。
+
+首先，我们尝试打印 `[['🍊', '🍌'], ['🍍']]` 的子数组 `['🍍']` 的第2个元素。这个子数组只包含一个元素，也就意味着在索引值为 `1` 的位置不存在元素，所以返回的是 `undefined` 。
+
+其次，我们在没有传入任何参数调用了 `getFruits` 函数，也就意味着形参 `fruits` 的默认值为`undefined`。因为我们选择性地链接了 `fruits` 在索引值为 `1` 的元素，因为在索引值为 `1` 的位置不存在元素，因此返回的是 `undefined` 。
+
+最后，我们尝试打印 `['🍍'], ['🍊', '🍌']` 的子数组 `['🍊', '🍌']` 的第2个元素。子数组索引值为 `1`的位置为 `🍌` ，因此它被打印出了。
+
+</p>
+</details>
+
+---
+
+###### 147. 输出什么？
+
+```javascript
+class Calc {
+	constructor() {
+		this.count = 0 
+	}
+
+	increase() {
+		this.count ++
+	}
+}
+
+const calc = new Calc()
+new Calc().increase()
+
+console.log(calc.count)
+```
+
+- A: `0`
+- B: `1`
+- C: `undefined`
+- D: `ReferenceError`
+
+<details><summary><b>答案</b></summary>
+<p>
+
+#### 答案: A
+
+我们设置 `calc` 变量为 `Calc` 类的一个新实例。 然后，我们初始化一个 `Calc` 的新实例，而且调用了这个实例的 `increase` 方法。因为count属性是在 `Calc` class的constructor内部的，所以count属性不会在 `Calc` 的原型链上共享出去。这就意味着calc实例的count值不会被更新，count仍然是 `0`。
+
+</p>
+</details>
+
+---
+
+###### 148. 输出什么?
+
+```javascript
+const user = {
+	email: "e@mail.com",
+	password: "12345"
+}
+
+const updateUser = ({ email, password }) => {
+	if (email) {
+		Object.assign(user, { email })
+	}
+
+	if (password) {
+		user.password = password
+	}
+
+	return user
+}
+
+const updatedUser = updateUser({ email: "new@email.com" })
+
+console.log(updatedUser === user)
+```
+
+- A: `false`
+- B: `true`
+- C: `TypeError`
+- D: `ReferenceError`
+
+<details><summary><b>答案</b></summary>
+<p>
+
+#### 答案: B
+
+ `updateUser` 函数更新user的 `email` 和 `password` 属性的值， 如果它们的值传入函数， 函数返回的就是 `user` 对象。 `updateUser` 函数的返回值是 `user` 对象，意味着updatedUser的值与 `user` 指向的是同一个 `user` 对象。`updatedUser === user` 为 `true`.
+
+</p>
+</details>
+
+---
+
+###### 149. 输出什么?
+
+```javascript
+const fruit = ['🍌', '🍊', '🍎']
+
+fruit.slice(0, 1)
+fruit.splice(0, 1)
+fruit.unshift('🍇')
+
+console.log(fruit)
+```
+
+- A: `['🍌', '🍊', '🍎']`
+- B: `['🍊', '🍎']`
+- C: `['🍇', '🍊', '🍎']`
+- D: `['🍇', '🍌', '🍊', '🍎']`
+
+<details><summary><b>答案</b></summary>
+<p>
+
+#### 答案: C
+
+首先，我们在fruit数组上调用 `slice` 方法。 slice方法不会修改原始数组，但是会返回从数组切片下来的值：香蕉emoji。
+其次，我们在fruit数组上调用 `splice` 方法。 splice方法会修改原始数组，也就意味着fruit数组此时为 `['🍊', '🍎']`。
+最后，我们在fruit数组上调用 `unshift` 方法，通过添加一个值的方式改变了原始数组，添加的是'🍇'，它成为了数组的第一个元素。现在fruit数组的组成为 `['🍇', '🍊', '🍎']`。
+
+</p>
+</details>
+
+---
+
+###### 150. 输出什么?
+
+```javascript
+const animals = {};
+let dog = { emoji: '🐶' }
+let cat = { emoji: '🐈' }
+
+animals[dog] = { ...dog, name: "Mara" }
+animals[cat] = { ...cat, name: "Sara" }
+
+console.log(animals[dog])
+```
+
+- A: `{ emoji: "🐶", name: "Mara" }`
+- B: `{ emoji: "🐈", name: "Sara" }`
+- C: `undefined`
+- D: `ReferenceError`
+
+<details><summary><b>答案</b></summary>
+<p>
+
+#### 答案: B
+
+对象的键会被转换为字符串。
+
+因为  `dog` 的值是一个对象，   `animals[dog]` 实际上意味着我们创建了一个叫做 `"object Object"` 的属性来代表新的对象。  `animals["object Object"]` 现在等于 `{ emoji: "🐶", name: "Mara"}`。
+
+`cat` 也是一个对象，`animals[cat]` 实际上意味着我们在用新的cat的属性覆盖  `animals[``"``object Object``"``]` 的值。
+
+打印  `animals[dog]`，实际上是`animals["object Object"]`，这是因为转化`dog`对象为一个字符串结果 `"object Object"` ，所以返回 `{ emoji: "🐈", name: "Sara" }`。
+
+</p>
+</details>
+
+---
+
+###### 151. 输出什么?
+
+```javascript
+const user = {
+	email: "my@email.com",
+	updateEmail: email => {
+		this.email = email
+	}
+}
+
+user.updateEmail("new@email.com")
+console.log(user.email)
+```
+
+- A: `my@email.com`
+- B: `new@email.com`
+- C: `undefined`
+- D: `ReferenceError`
+
+<details><summary><b>答案</b></summary>
+<p>
+
+#### 答案: A
+
+`updateEmail` 函数是一个箭头函数，它没有和 `user` 对象绑定。这就意味着 `this` 关键字不会引用到 `user` 对象，但是会引用到全局对象。 `user` 对象内部的 `email` 的值不会更新。当打印 `user.email` 的时候， 原始值 `my@email.com` 被返回。
+
+</p>
+</details>
+
+---
+
+###### 152. 输出什么?
+
+```javascript
+const promise1 = Promise.resolve('First')
+const promise2 = Promise.resolve('Second')
+const promise3 = Promise.reject('Third')
+const promise4 = Promise.resolve('Fourth')
+
+const runPromises = async () => {
+	const res1 = await Promise.all([promise1, promise2])
+	const res2  = await Promise.all([promise3, promise4])
+	return [res1, res2]
+}
+
+runPromises()
+	.then(res => console.log(res))
+	.catch(err => console.log(err))
+```
+
+- A: `[['First', 'Second'], ['Fourth']]`
+- B: `[['First', 'Second'], ['Third', 'Fourth']]`
+- C: `[['First', 'Second']]`
+- D: `'Third'`
+
+<details><summary><b>答案</b></summary>
+<p>
+
+#### 答案: D
+
+ `Promise.all` 方法可以并行式运行promise。如果其中一个promise失败了，`Promise.all` 方法会带上被reject的promise的值_rejects_。在这个例子中， `promise3` 带着 `"Third"` 值reject。我们在调用 `runPromises` 时在 `runPromises` 函数内部的 `catch` 方法去捕获任意error从而捕获到被reject的值。因为 `promise3` 带着 `"Third"` 被reject，所以只有 `"Third"` 打印。
+
+</p>
+</details>
+
+---
+
+###### 153. 哪个作为`method`的值可以打印`{ name: "Lydia", age: 22 }`?
+
+```javascript
+const keys = ["name", "age"]
+const values = ["Lydia", 22]
+
+const method = /* ?? */
+Object[method](keys.map((_, i) => {
+	return [keys[i], values[i]]
+})) // { name: "Lydia", age: 22 }
+```
+
+- A: `entries`
+- B: `values`
+- C: `fromEntries`
+- D: `forEach`
+
+<details><summary><b>答案</b></summary>
+<p>
+
+#### 答案: C
+
+ `fromEntries` 方法可以将二维数组转换为对象。在每个子数组的第一个元素是key，在每个子数组的第二个元素是value。在这个例子中，我们映射了 `keys` 数组，它返回了一个数组，数组的第一个元素为keys数组当前索引的值，第二个元素为values数组当前索引的值。
+
+这样就创建了一个包含正确keys和values的子数组的数组，因此结果为`{ name: "Lydia", age: 22 }`。
+
+</p>
+</details>
+
+---
+
+###### 154. 输出什么?
+
+```javascript
+const createMember = ({ email, address = {}}) => {
+	const validEmail = /.+\@.+\..+/.test(email)
+	if (!validEmail) throw new Error("Valid email pls")
+
+	return {
+		email,
+		address: address ? address : null
+	}
+}
+
+const member = createMember({ email: "my@email.com" })
+console.log(member)
+```
+
+- A: `{ email: "my@email.com", address: null }`
+- B: `{ email: "my@email.com" }`
+- C: `{ email: "my@email.com", address: {} }`
+- D: `{ email: "my@email.com", address: undefined }`
+
+<details><summary><b>答案</b></summary>
+<p>
+
+#### 答案: C
+
+ `address` 的默认值是一个空对象 `{}`。当我们设置 `member` 变量为 `createMember` 函数返回的对象，我们没有为address参数传值，意味着address的值为默认的空对象 `{}`。一个空对象是一个truthy值，意味着 `address ? address : null` 条件会返回 `true`。address的值为空对象 `{}`。
+
+</p>
+</details>
+
+---
+
+###### 155. 输出什么?
+
+```javascript
+let randomValue = { name: "Lydia" }
+randomValue = 23
+
+if (!typeof randomValue === "string") {
+	console.log("It's not a string!")
+} else {
+	console.log("Yay it's a string!")
+}
+```
+
+- A: `It's not a string!`
+- B: `Yay it's a string!`
+- C: `TypeError`
+- D: `undefined`
+
+<details><summary><b>答案</b></summary>
+<p>
+
+#### 答案: B
+
+ `if` 语句的条件判断 `!typeof randomValue` 的值是否等于 `"string"`。 `!` 操作符将这个值转化为一个布尔值。如果值是truthy的话，返回值会是 `false`，如果值是falsy，返回值会是 `true`。在这里， `typeof randomValue` 的返回值是一个truthy值 `"number"`，意味着 `!typeof randomValue` 的值是一个布尔值 `false`。
+
+ `!typeof randomValue === "string"` 总是返回false，因为我们实际上是在执行 `false === "string"`。因为条件返回的是 `false`，所以 `else` 语句中的代码块会被运行，因此打印 `Yay it's a string!` 。
+
+</p>
+</details>
