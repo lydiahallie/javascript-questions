@@ -1,5 +1,5 @@
 <div align="center">
-  <img height="60" src="https://img.icons8.com/color/344/javascript.png"> 
+  <img height="60" src="https://img.icons8.com/color/344/javascript.png">
   <h1>JavaScript Questions</h1>
 
 ---
@@ -17,28 +17,27 @@ Feel free to reach out to me! 😊 <br />
 
 ---
 
-<details><summary><b> See 17 Available Translations 🇪🇸🇮🇹🇩🇪 🇫🇷🇷🇺🇨🇳🇵🇹</b></summary>
+<details><summary><b> See 18 Available Translations 🇸🇦🇪🇬🇧🇦🇩🇪🇪🇸🇫🇷🇮🇩🇯🇵🇰🇷🇳🇱🇧🇷🇷🇺🇹🇭🇹🇷🇺🇦🇻🇳🇨🇳🇹🇼</b></summary>
 <p>
 
-* [English](./en-EN/README.md)
-* [العربية](./ar-AR/README_AR.md)
-* [اللغة العامية - Egyptian Arabic](./ar-EG/README_ar-EG.md)
-* [Bosanski](./bs-BS/README-bs_BS.md)  
-* [Deutsch](./de-DE/README.md)  
-* [Español](./es-ES/README-ES.md)
-* [Français](./fr-FR/README_fr-FR.md)
-* [日本語](./ja-JA/README-ja_JA.md)  
-* [한국어](./ko-KR/README-ko_KR.md)
-* [Nederlands](./nl-NL/README.md)
-* [Português Brasil](./pt-BR/README_pt_BR.md)  
-* [Русский](./ru-RU/README.md)
-* [Українська мова](./ua-UA/README-ua_UA.md)  
-* [Tiếng Việt](./vi-VI/README-vi.md)
-* [简体中文](./zh-CN/README-zh_CN.md)
-* [繁體中文](./zh-TW/README_zh-TW.md)
-* [Türkçe](./tr-TR/README-tr_TR.md)
-* [ไทย](./th-TH/README-th_TH.md)
-* [Indonesia](./id-ID/README.md)
+- [🇸🇦 العربية](./ar-AR/README_AR.md)
+- [🇪🇬 اللغة العامية](./ar-EG/README_ar-EG.md)
+- [🇧🇦 Bosanski](./bs-BS/README-bs_BS.md)
+- [🇩🇪 Deutsch](./de-DE/README.md)
+- [🇪🇸 Español](./es-ES/README-ES.md)
+- [🇫🇷 Français](./fr-FR/README_fr-FR.md)
+- [🇮🇩 Indonesia](./id-ID/README.md)
+- [🇯🇵 日本語](./ja-JA/README-ja_JA.md)
+- [🇰🇷 한국어](./ko-KR/README-ko_KR.md)
+- [🇳🇱 Nederlands](./nl-NL/README.md)
+- [🇧🇷 Português Brasil](./pt-BR/README_pt_BR.md)
+- [🇷🇺 Русский](./ru-RU/README.md)
+- [🇹🇭 ไทย](./th-TH/README-th_TH.md)
+- [🇹🇷 Türkçe](./tr-TR/README-tr_TR.md)
+- [🇺🇦 Українська мова](./ua-UA/README-ua_UA.md)
+- [🇻🇳 Tiếng Việt](./vi-VI/README-vi.md)
+- [🇨🇳 简体中文](./zh-CN/README-zh_CN.md)
+- [🇹🇼 繁體中文](./zh-TW/README_zh-TW.md)
 
 </p>
 </details>
@@ -136,7 +135,7 @@ Note that the value of `diameter` is a regular function, whereas the value of `p
 
 With arrow functions, the `this` keyword refers to its current surrounding scope, unlike regular functions! This means that when we call `perimeter`, it doesn't refer to the shape object, but to its surrounding scope (window for example).
 
-There is no value `radius` on that object, which returns `undefined`.
+There is no value `radius` on that object, which returns `NaN`.
 
 </p>
 </details>
@@ -388,15 +387,15 @@ console.log(member.getFullName());
 
 #### Answer: A
 
-You can't add properties to a constructor like you can with regular objects. If you want to add a feature to all objects at once, you have to use the prototype instead. So in this case,
+In JavaScript, functions are objects, and therefore, the method `getFullName` gets added to the constructor function object itself. For that reason, we can call `Person.getFullName()`, but `member.getFullName` throws a `TypeError`. 
+
+If you want a method to be available to all object instances, you have to add it to the prototype property:
 
 ```js
 Person.prototype.getFullName = function() {
   return `${this.firstName} ${this.lastName}`;
 };
 ```
-
-would have made `member.getFullName()` work. Why is this beneficial? Say that we added this method to the constructor itself. Maybe not every `Person` instance needed this method. This would waste a lot of memory space, since they would still have that property, which takes of memory space for each instance. Instead, if we only add it to the prototype, we just have it at one spot in memory, yet they all have access to it!
 
 </p>
 </details>
@@ -421,7 +420,7 @@ console.log(sarah);
 - A: `Person {firstName: "Lydia", lastName: "Hallie"}` and `undefined`
 - B: `Person {firstName: "Lydia", lastName: "Hallie"}` and `Person {firstName: "Sarah", lastName: "Smith"}`
 - C: `Person {firstName: "Lydia", lastName: "Hallie"}` and `{}`
-- D:`Person {firstName: "Lydia", lastName: "Hallie"}` and `ReferenceError`
+- D: `Person {firstName: "Lydia", lastName: "Hallie"}` and `ReferenceError`
 
 <details><summary><b>Answer</b></summary>
 <p>
@@ -627,7 +626,7 @@ getAge(21);
 
 #### Answer: C
 
-The rest parameter (`...args`.) lets us "collect" all remaining arguments into an array. An array is an object, so `typeof args` returns `"object"`
+The rest parameter (`...args`) lets us "collect" all remaining arguments into an array. An array is an object, so `typeof args` returns `"object"`
 
 </p>
 </details>
@@ -663,7 +662,7 @@ With `"use strict"`, you can make sure that you don't accidentally declare globa
 
 ---
 
-###### 21. What's value of `sum`?
+###### 21. What's the value of `sum`?
 
 ```javascript
 const sum = eval('10*10+5');
@@ -892,9 +891,9 @@ console.log(a[b]);
 
 Object keys are automatically converted into strings. We are trying to set an object as a key to object `a`, with the value of `123`.
 
-However, when we stringify an object, it becomes `"[object Object]"`. So what we are saying here, is that `a["object Object"] = 123`. Then, we can try to do the same again. `c` is another object that we are implicitly stringifying. So then, `a["object Object"] = 456`.
+However, when we stringify an object, it becomes `"[object Object]"`. So what we are saying here, is that `a["[object Object]"] = 123`. Then, we can try to do the same again. `c` is another object that we are implicitly stringifying. So then, `a["[object Object]"] = 456`.
 
-Then, we log `a[b]`, which is actually `a["object Object"]`. We just set that to `456`, so it returns `456`.
+Then, we log `a[b]`, which is actually `a["[object Object]"]`. We just set that to `456`, so it returns `456`.
 
 </p>
 </details>
@@ -1062,7 +1061,7 @@ console.log(typeof sayHi());
 
 #### Answer: B
 
-The `sayHi` function returns the returned value of the immediately invoked function (IIFE). This function returned `0`, which is type `"number"`.
+The `sayHi` function returns the returned value of the immediately invoked function expression (IIFE). This function returned `0`, which is type `"number"`.
 
 FYI: there are only 7 built-in types: `null`, `undefined`, `boolean`, `number`, `string`, `object`, and `symbol`. `"function"` is not a type, since functions are objects, it's of type `"object"`.
 
@@ -1092,14 +1091,16 @@ undefined;
 
 #### Answer: A
 
-There are only six falsy values:
+There are 8 falsy values:
 
 - `undefined`
 - `null`
 - `NaN`
-- `0`
-- `''` (empty string)
 - `false`
+- `''` (empty string)
+- `0`
+- `-0`
+- `0n` (BigInt(0))
 
 Function constructors, like `new Number` and `new Boolean` are truthy.
 
@@ -1214,7 +1215,7 @@ JavaScript only has primitive types and objects.
 
 Primitive types are `boolean`, `null`, `undefined`, `bigint`, `number`, `string`, and `symbol`.
 
-What differentiates a primitive from an object is that primitives do not have any properties or methods; however, you'll note that `'foo'.toUpperCase()` evaluates to `'FOO'` and does not result in a `TypeError`. This is because when you try to access a property or method on a primitive like a string, JavaScript will implicitly wrap the object using one of the wrapper classes, i.e. `String`, and then immediately discard the wrapper after the expression evaluates. All primitives except for `null` and `undefined` exhibit this behaviour.
+What differentiates a primitive from an object is that primitives do not have any properties or methods; however, you'll note that `'foo'.toUpperCase()` evaluates to `'FOO'` and does not result in a `TypeError`. This is because when you try to access a property or method on a primitive like a string, JavaScript will implicitly wrap the primitive type using one of the wrapper classes, i.e. `String`, and then immediately discard the wrapper after the expression evaluates. All primitives except for `null` and `undefined` exhibit this behaviour.
 
 </p>
 </details>
@@ -1513,7 +1514,7 @@ Only the first numbers in the string is returned. Based on the _radix_ (the seco
 
 ---
 
-###### 50. What's the output`?
+###### 50. What's the output?
 
 ```javascript
 [1, 2, 3].map(num => {
@@ -1607,9 +1608,9 @@ sayHi();
 
 #### Answer: D
 
-With the `throw` statement, we can create custom errors. With this statement, you can throw exceptions. An exception can be a <b>string</b>, a <b>number</b>, a <b>boolean</b> or an <b>object</b>. In this case, our exception is the string `'Hello world'`.
+With the `throw` statement, we can create custom errors. With this statement, you can throw exceptions. An exception can be a <b>string</b>, a <b>number</b>, a <b>boolean</b> or an <b>object</b>. In this case, our exception is the string `'Hello world!'`.
 
-With the `catch` statement, we can specify what to do if an exception is thrown in the `try` block. An exception is thrown: the string `'Hello world'`. `e` is now equal to that string, which we log. This results in `'Oh an error: Hello world'`.
+With the `catch` statement, we can specify what to do if an exception is thrown in the `try` block. An exception is thrown: the string `'Hello world!'`. `e` is now equal to that string, which we log. This results in `'Oh an error: Hello world!'`.
 
 </p>
 </details>
@@ -1666,7 +1667,7 @@ console.log(typeof y);
 
 #### Answer: A
 
-`let x = y = 10;` is actually shorthand for:
+`let x = (y = 10);` is actually shorthand for:
 
 ```javascript
 y = 10;
@@ -1675,7 +1676,7 @@ let x = y;
 
 When we set `y` equal to `10`, we actually add a property `y` to the global object (`window` in browser, `global` in Node). In a browser, `window.y` is now equal to `10`.
 
-Then, we declare a variable `x` with the value of `y`, which is `10`. Variables declared with the `let` keyword are _block scoped_, they are only defined within the block they're declared in; the immediately-invoked function (IIFE) in this case. When we use the `typeof` operator, the operand `x` is not defined: we are trying to access `x` outside of the block it's declared in. This means that `x` is not defined. Values who haven't been assigned a value or declared are of type `"undefined"`. `console.log(typeof x)` returns `"undefined"`.
+Then, we declare a variable `x` with the value of `y`, which is `10`. Variables declared with the `let` keyword are _block scoped_, they are only defined within the block they're declared in; the immediately invoked function expression (IIFE) in this case. When we use the `typeof` operator, the operand `x` is not defined: we are trying to access `x` outside of the block it's declared in. This means that `x` is not defined. Values who haven't been assigned a value or declared are of type `"undefined"`. `console.log(typeof x)` returns `"undefined"`.
 
 However, we created a global variable `y` when setting `y` equal to `10`. This value is accessible anywhere in our code. `y` is defined, and holds a value of type `"number"`. `console.log(typeof y)` returns `"number"`.
 
@@ -3009,7 +3010,7 @@ The above example works. This returns the array `[ 'banana', 'apple', 'orange', 
 function nums(a, b) {
   if (a > b) console.log('a is bigger');
   else console.log('b is bigger');
-  return;
+  return
   a + b;
 }
 
@@ -3329,7 +3330,7 @@ Promise.resolve(5);
 
 - A: `5`
 - B: `Promise {<pending>: 5}`
-- C: `Promise {<resolved>: 5}`
+- C: `Promise {<fulfilled>: 5}`
 - D: `Error`
 
 <details><summary><b>Answer</b></summary>
@@ -3337,7 +3338,7 @@ Promise.resolve(5);
 
 #### Answer: C
 
-We can pass any type of value we want to `Promise.resolve`, either a promise or a non-promise. The method itself returns a promise with the resolved value. If you pass a regular function, it'll be a resolved promise with a regular value. If you pass a promise, it'll be a resolved promise with the resolved value of that passed promise.
+We can pass any type of value we want to `Promise.resolve`, either a promise or a non-promise. The method itself returns a promise with the resolved value (`<fulfilled>`). If you pass a regular function, it'll be a resolved promise with a regular value. If you pass a promise, it'll be a resolved promise with the resolved value of that passed promise.
 
 In this case, we just passed the numerical value `5`. It returns a resolved promise with the value `5`.
 
@@ -3496,7 +3497,7 @@ console.log(food);
 
 #### Answer: A
 
-We set the value of the `favoriteFood` property on the `info` object equal to the string with the pizza emoji, `'🍕'`. A string is a primitive data type. In JavaScript, primitive data types act by reference
+We set the value of the `favoriteFood` property on the `info` object equal to the string with the pizza emoji, `'🍕'`. A string is a primitive data type. In JavaScript, primitive data types don't interact by reference.
 
 In JavaScript, primitive data types (everything that's not an object) interact by _value_. In this case, we set the value of the `favoriteFood` property on the `info` object equal to the value of the first element in the `food` array, the string with the pizza emoji in this case (`'🍕'`). A string is a primitive data type, and interact by value (see my [blogpost](https://www.theavocoder.com/complete-javascript/2018/12/21/by-value-vs-by-reference) if you're interested in learning more)
 
@@ -3841,7 +3842,7 @@ console.log(member.getLastName?.());
 ```
 
 - A: `undefined` `undefined` `undefined` `undefined`
-- B: `Mara` `undefined` `Lydia Hallie` `undefined`
+- B: `Mara` `undefined` `Lydia Hallie` `ReferenceError`
 - C: `Mara` `null` `Lydia Hallie` `null`
 - D: `null` `ReferenceError` `null` `ReferenceError`
 
@@ -4042,17 +4043,17 @@ myFunc(1, 2, 3);
 
 ```javascript
 function getFine(speed, amount) {
-  const formattedSpeed = new Intl.NumberFormat({
-    'en-US',
-    { style: 'unit', unit: 'mile-per-hour' }
-  }).format(speed)
+  const formattedSpeed = new Intl.NumberFormat('en-US', {
+    style: 'unit',
+    unit: 'mile-per-hour'
+  }).format(speed);
 
-  const formattedAmount = new Intl.NumberFormat({
-    'en-US',
-    { style: 'currency', currency: 'USD' }
-  }).format(amount)
+  const formattedAmount = new Intl.NumberFormat('en-US', {
+    style: 'currency',
+    currency: 'USD'
+  }).format(amount);
 
-  return `The driver drove ${formattedSpeed} and has to pay ${formattedAmount}`
+  return `The driver drove ${formattedSpeed} and has to pay ${formattedAmount}`;
 }
 
 console.log(getFine(130, 300))
@@ -4068,7 +4069,7 @@ console.log(getFine(130, 300))
 
 #### Answer: B
 
-With the `Intl.NumberFormat` method, we can format numeric values to any locale. We format the numeric value `130` to the `en-US` locale as a `unit` in `mile-per-hour`, which results in `130 mph`. The numeric value `300` to the `en-US` locale as a `currentcy` in `USD` results in `$300.00`.
+With the `Intl.NumberFormat` method, we can format numeric values to any locale. We format the numeric value `130` to the `en-US` locale as a `unit` in `mile-per-hour`, which results in `130 mph`. The numeric value `300` to the `en-US` locale as a `currency` in `USD` results in `$300.00`.
 
 </p>
 </details>
@@ -4398,7 +4399,7 @@ person.name;
 
 #### Answer: C
 
-With a Proxy object, we can add custom behavior to an object that we pass to it as the second argument. In tis case, we pass the `handler` object which contained to properties: `set` and `get`. `set` gets invoked whenever we _set_ property values, `get` gets invoked whenever we _get_ (access) property values.
+With a Proxy object, we can add custom behavior to an object that we pass to it as the second argument. In this case, we pass the `handler` object which contained to properties: `set` and `get`. `set` gets invoked whenever we _set_ property values, `get` gets invoked whenever we _get_ (access) property values.
 
 The first argument is an empty object `{}`, which is the value of `person`. To this object, the custom behavior specified in the `handler` object gets added. If we add a property to the `person` object, `set` will get invoked. If we access a property on the `person` object, `get` gets invoked.
 
@@ -4658,7 +4659,7 @@ const pet = new Flamingo();
 
 #### Answer: B
 
-We create the variable `pet` which is an instance of the `Flamingo` class. When we instantiate this instance, the `constructor` on `Flamingo` gets called. First, `"I'm pink. 🌸"` gets logged, after which we call `super()`. `super()` calls the constructor of the parent class, `Bird`. THe constructor in `Bird` gets called, and logs `"I'm a bird. 🦢"`.
+We create the variable `pet` which is an instance of the `Flamingo` class. When we instantiate this instance, the `constructor` on `Flamingo` gets called. First, `"I'm pink. 🌸"` gets logged, after which we call `super()`. `super()` calls the constructor of the parent class, `Bird`. The constructor in `Bird` gets called, and logs `"I'm a bird. 🦢"`.
 
 </p>
 </details>
@@ -4686,7 +4687,7 @@ const emojis = ['🎄', '🎅🏼', '🎁', '⭐'];
 
 #### Answer: D
 
-The `const` keyword simply means we cannot _redeclare_ the value of that variable, it's _read-only_. However, the value itself isn't immutable. The propeties on the `emojis` array can be modified, for example by pushing new values, splicing them, or setting the length of the array to 0.
+The `const` keyword simply means we cannot _redeclare_ the value of that variable, it's _read-only_. However, the value itself isn't immutable. The properties on the `emojis` array can be modified, for example by pushing new values, splicing them, or setting the length of the array to 0.
 
 </p>
 </details>
@@ -4721,7 +4722,7 @@ Objects aren't iterable by default. An iterable is an iterable if the iterator p
 
 ---
 
-###### 146. What's the output?
+###### 145. What's the output?
 
 ```javascript
 let count = 0;
@@ -4751,7 +4752,7 @@ The `if` condition within the `forEach` loop checks whether the value of `num` i
 
 ---
 
-###### 147. What's the output?
+###### 146. What's the output?
 
 ```javascript
 function getFruit(fruits) {
@@ -4775,7 +4776,7 @@ getFruit([['🍍'], ['🍊', '🍌']])
 
 The `?` allows us to optionally access deeper nested properties within objects. We're trying to log the item on index `1` within the subarray that's on index `1` of the `fruits` array. If the subarray on index `1` in the `fruits` array doesn't exist, it'll simply return `undefined`. If the subarray on index `1` in the `fruits` array exists, but this subarray doesn't have an item on its `1` index, it'll also return `undefined`. 
 
-First, we're trying to log the second item in the `['🍍']` subarray of `[['🍊', '🍌'], ['🍍']]]`. This subarray only contains one item, which means there is no item on index `1`, and returns `undefined`.
+First, we're trying to log the second item in the `['🍍']` subarray of `[['🍊', '🍌'], ['🍍']]`. This subarray only contains one item, which means there is no item on index `1`, and returns `undefined`.
 
 Then, we're invoking the `getFruits` function without passing a value as an argument, which means that `fruits` has a value of `undefined` by default. Since we're conditionally chaining the item on index `1` of`fruits`, it returns `undefined` since this item on index `1` does not exist. 
 
@@ -4786,7 +4787,7 @@ Lastly, we're trying to log the second item in the `['🍊', '🍌']` subarray o
 
 ---
 
-###### 148. What's the output?
+###### 147. What's the output?
 
 ```javascript
 class Calc {
@@ -4822,7 +4823,7 @@ We set the variable `calc` equal to a new instance of the `Calc` class. Then, we
 
 ---
 
-###### 149. What's the output?
+###### 148. What's the output?
 
 ```javascript
 const user = {
@@ -4864,7 +4865,7 @@ The `updateUser` function updates the values of the `email` and `password` prope
 
 ---
 
-###### 150. What's the output?
+###### 149. What's the output?
 
 ```javascript
 const fruit = ['🍌', '🍊', '🍎']
@@ -4872,6 +4873,8 @@ const fruit = ['🍌', '🍊', '🍎']
 fruit.slice(0, 1)
 fruit.splice(0, 1)
 fruit.unshift('🍇')
+
+console.log(fruit)
 ```
 
 - A: `['🍌', '🍊', '🍎']`
@@ -4893,7 +4896,7 @@ At last, we invoke the `unshift` method on the `fruit` array, which modifies the
 
 ---
 
-###### 151. What's the output?
+###### 150. What's the output?
 
 ```javascript
 const animals = {};
@@ -4929,7 +4932,7 @@ Logging `animals[dog]`, or actually `animals["object Object"]` since converting 
 
 ---
 
-###### 152. What's the output?
+###### 151. What's the output?
 
 ```javascript
 const user = {
@@ -4960,7 +4963,7 @@ The `updateEmail` function is an arrow function, and is not bound to the `user` 
 
 ---
 
-###### 153. What's the output?
+###### 152. What's the output?
 
 ```javascript
 const promise1 = Promise.resolve('First')
@@ -4989,14 +4992,14 @@ runPromises()
 
 #### Answer: D
 
-The `Promise.all` method runs the passed promises in parallel. If one promise fails, the `Promise.all` method _rejects) with the value of the rejected promise. In this case, `promise3` rejected with the value `"Third"`. We’re catching the rejected value in the chained `catch` method on the `runPromises` invocation to catch any errors  within the `runPromises` function. Only `"Third"` gets logged, since `promise3` rejected with this value.
+The `Promise.all` method runs the passed promises in parallel. If one promise fails, the `Promise.all` method _rejects_ with the value of the rejected promise. In this case, `promise3` rejected with the value `"Third"`. We’re catching the rejected value in the chained `catch` method on the `runPromises` invocation to catch any errors  within the `runPromises` function. Only `"Third"` gets logged, since `promise3` rejected with this value.
 
 </p>
 </details>
 
 ---
 
-###### <a name=20200612></a>154. What should the value of `method` be to log `{ name: "Lydia", age: 22 }`? 
+###### 153. What should the value of `method` be to log `{ name: "Lydia", age: 22 }`? 
 
 ```javascript
 const keys = ["name", "age"]
@@ -5027,7 +5030,7 @@ This creates an array of subarrays containing the correct keys and values, which
 
 ---
 
-###### 155. What's the output?
+###### 154. What's the output?
 
 ```javascript
 const createMember = ({ email, address = {}}) => {
@@ -5061,7 +5064,7 @@ The default value of `address` is an empty object `{}`. When we set the variable
 
 ---
 
-###### 156. What's the output?
+###### 155. What's the output?
 
 ```javascript
 let randomValue = { name: "Lydia" }

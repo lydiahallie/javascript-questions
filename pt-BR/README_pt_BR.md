@@ -6,23 +6,24 @@ Do básico ao avançado: Teste quão bem você conhece o JavaScript, refresque u
 
 As respostas estão em seções recolhidas abaixo das questões, basta clicar nelas para expandir. Boa sorte :heart:
 
-* [English](../en-EN/README.md)
-* [العربية](../ar-AR/README_AR.md)
-* [اللغة العامية - Egyptian Arabic](../ar-EG/README_ar-EG.md)
-* [Bosanski](../bs-BS/README-bs_BS.md)  
-* [Deutsch](../de-DE/README.md)  
-* [Español](../es-ES/README-ES.md)
-* [Français](../fr-FR/README_fr-FR.md)
-* [日本語](../ja-JA/README-ja_JA.md)  
-* [한국어](../ko-KR/README-ko_KR.md)
-* [Nederlands](./nl-NL/README.md)
-* [Português Brasil](../pt-BR/README_pt_BR.md)  
-* [Русский](../ru-RU/README.md)
-* [Українська мова](../ua-UA/README-ua_UA.md)  
-* [Tiếng Việt](../vi-VI/README-vi.md)
-* [中文版本](../zh-CN/README-zh_CN.md)
-* [Türkçe](../tr-TR/README-tr_TR.md)
-* [ไทย](../th-TH/README-th_TH.md)
+- [🇸🇦 العربية](./ar-AR/README_AR.md)
+- [🇪🇬 اللغة العامية](./ar-EG/README_ar-EG.md)
+- [🇧🇦 Bosanski](./bs-BS/README-bs_BS.md)
+- [🇩🇪 Deutsch](./de-DE/README.md)
+- [🇬🇧 English](../README.md)
+- [🇪🇸 Español](./es-ES/README-ES.md)
+- [🇫🇷 Français](./fr-FR/README_fr-FR.md)
+- [🇮🇩 Indonesia](./id-ID/README.md)
+- [🇯🇵 日本語](./ja-JA/README-ja_JA.md)
+- [🇰🇷 한국어](./ko-KR/README-ko_KR.md)
+- [🇳🇱 Nederlands](./nl-NL/README.md)
+- [🇷🇺 Русский](./ru-RU/README.md)
+- [🇹🇭 ไทย](./th-TH/README-th_TH.md)
+- [🇹🇷 Türkçe](./tr-TR/README-tr_TR.md)
+- [🇺🇦 Українська мова](./ua-UA/README-ua_UA.md)
+- [🇻🇳 Tiếng Việt](./vi-VI/README-vi.md)
+- [🇨🇳 简体中文](./zh-CN/README-zh_CN.md)
+- [🇹🇼 繁體中文](./zh-TW/README_zh-TW.md)
 
 
 ---
@@ -666,7 +667,7 @@ const sum = eval("10*10+5");
 
 #### Resposta: A
 
-`eval` executa o código mesmo se passado como string. Se é uma expressão, como nesse caso, ele cálcula a expressão. A expressão é `10 * 10 + 5`. Isso retorna o número `105`.
+`eval` executa o código mesmo se passado como string. Se é uma expressão, como nesse caso, ele calcula a expressão. A expressão é `10 * 10 + 5`. Isso retorna o número `105`.
 
 </p>
 </details>
@@ -1904,13 +1905,308 @@ console.log(data);
 <details><summary><b>Resposta</b></summary>
 <p>
 
-#### Answer: A
+#### Resposta: A
 
 O segundo argumento de `JSON.stringify` é o _substituo_. O substituto pode ser uma função ou um array, e deixa você controlar o que deve ser "stringfied", isto é, ser usado pelo método `JSON.stringfy`.
 
 Se o substituto (replacer) for um _array_, apenas os nomes de propriedades incluídos no array serão adicionados à string JSON. Nesse caso, apenas as propriedades com os nomes `"level"` ed `"health"` são incluída, `"username"` é excluída. `data` agora é igual a `"{"level":19, "health":90}"`.
 
 Se o substituto (replacer) for uma _função_, essa função é chamada em c ada propriedade no objeto que está sendo "Stringfied". O valor retornado dessa função será o valor da propriedade quanto adicionado à string JSON. Se o valor for `undefined`, essa propriedade é excluída da string JSON.
+</p>
+</details>
+
+---
+###### 63. Qual é a saída?
+
+```javascript
+let num = 10;
+
+const increaseNumber = () => num++;
+const increasePassedNumber = number => number++;
+
+const num1 = increaseNumber();
+const num2 = increasePassedNumber(num1);
+
+console.log(num1);
+console.log(num2);
+```
+
+- A: `10`, `10`
+- B: `10`, `11`
+- C: `11`, `11`
+- D: `11`, `12`
+
+<details><summary><b>Resposta</b></summary>
+<p>
+
+#### Resposta: A
+
+O operador unário `++` primeiro _retorna_ o valor do operando, depois _incrementa_ esse valor. O valor de `num1` é `10`, pois a função `increaseNumber` retorna primeiro o valor de` num`, que é `10`, e apenas incrementa o valor de `num` posteriormente.
+
+`num2` é `10`, já que passamos `num1` para o `increasePassedNumber`. `number` é igual a` 10` (o valor de `num1`. Novamente, o operador unário `++` primeiro _retorna_ o valor do operando, depois _aumenta_ esse valor. O valor de` number` é `10`, então `num2` é igual a `10`.
+
+</p>
+</details>
+
+---
+###### 64. Qual é a saída?
+
+```javascript
+const value = { number: 10 };
+
+const multiply = (x = { ...value }) => {
+  console.log((x.number *= 2));
+};
+
+multiply();
+multiply();
+multiply(value);
+multiply(value);
+```
+
+- A: `20`, `40`, `80`, `160`
+- B: `20`, `40`, `20`, `40`
+- C: `20`, `20`, `20`, `40`
+- D: `NaN`, `NaN`, `20`, `40`
+
+<details><summary><b>Resposta</b></summary>
+<p>
+
+#### Resposta: C
+
+No ES6, podemos inicializar parâmetros com um valor padrão. O valor do parâmetro será o valor padrão, se nenhum outro valor tiver sido passado para a função ou se o valor do parâmetro for `"undefined"`. Nesse caso, espalhamos (spread) as propriedades do objeto `value` para um novo objeto, para que `x` tenha o valor padrão de `{number: 10}`.
+
+O argumento padrão é executado _a cada chamada_! Toda vez que chamamos a função, um _novo_ objeto é criado. Invocamos a função `multiply` as duas primeiras vezes sem passar um valor: `x` tem o valor padrão de `{number: 10}`. Em seguida, registramos (log) o valor multiplicado desse número, que é `20`.
+
+Na terceira vez que invocamos multiply, passamos um argumento: o objeto chamado `value`. O operador `*=` é na verdade uma abreviação de `x.number = x.number * 2`: modificamos o valor de `x.number` e registramos (log) o valor multiplicado `20`.
+
+Na quarta vez, passamos o objeto `value` novamente. `x.number` foi modificado anteriormente para `20`, então `x.number *= 2` registra `40`.
+
+</p>
+</details>
+
+---
+###### 65. Qual é a saída?
+
+```javascript
+[1, 2, 3, 4].reduce((x, y) => console.log(x, y));
+```
+
+- A: `1` `2` and `3` `3` and `6` `4`
+- B: `1` `2` and `2` `3` and `3` `4`
+- C: `1` `undefined` and `2` `undefined` and `3` `undefined` and `4` `undefined`
+- D: `1` `2` and `undefined` `3` and `undefined` `4`
+
+<details><summary><b>Resposta</b></summary>
+<p>
+
+#### Resposta: D
+
+O primeiro argumento que o método `reduce` recebe é o _acumulador_, `x` neste caso. O segundo argumento é o _valor atual_, `y`. Com o método `reduce`, executamos uma função de retorno de chamada (callback function) em todos os elementos da matriz, o que pode resultar em um único valor.
+
+Neste exemplo, não estamos retornando nenhum valor, estamos simplesmente registrando os valores do acumulador e o valor atual.
+
+O valor do acumulador é igual ao valor retornado anteriormente da função de retorno de chamada (callback function). Se você não passar o argumento opcional `initialValue` para o método `reduce`, o acumulador será igual ao primeiro elemento na primeira chamada.
+
+Na primeira chamada, o acumulador (`x`) é `1` e o valor atual (`y`) é `2`. Não retornamos da função de retorno de chamada, registramos o acumulador e o valor atual: `1` e` 2` são registrados.
+
+Se você não retornar um valor de uma função, ele retornará `undefined`. Na próxima chamada, o acumulador é "undefined" e o valor atual é "3". `undefined` e `3` são registrados.
+
+Na quarta chamada, novamente não retornamos nada da função de retorno de chamada. O acumulador é novamente `undefined` e o valor atual é `4`. `undefined` e `4` são registrados.
+
+</p>
+</details>
+  
+---
+###### 66. Com qual construtor podemos estender com sucesso a classe `Dog`?
+
+```javascript
+class Dog {
+  constructor(name) {
+    this.name = name;
+  }
+};
+
+class Labrador extends Dog {
+  // 1
+  constructor(name, size) {
+    this.size = size;
+  }
+  // 2
+  constructor(name, size) {
+    super(name);
+    this.size = size;
+  }
+  // 3
+  constructor(size) {
+    super(name);
+    this.size = size;
+  }
+  // 4
+  constructor(name, size) {
+    this.name = name;
+    this.size = size;
+  }
+
+};
+```
+
+- A: 1
+- B: 2
+- C: 3
+- D: 4
+
+<details><summary><b>Resposta</b></summary>
+<p>
+
+#### Resposta: B
+
+Em uma classe derivada, você não pode acessar a palavra-chave `this` antes de chamar `super`. Se você tentar fazer isso, ele lançará um erro de referência (ReferenceError): 1 e 4 lançará um erro de referência.
+
+Com a palavra-chave `super`, chamamos o construtor dessa classe pai com os argumentos fornecidos. O construtor do pai recebe o argumento `name`, portanto, precisamos passar `name` para `super`.
+
+A classe `Labrador` recebe dois argumentos, `name`, pois estende `Dog`, e `size` como uma propriedade extra na classe `Labrador`. Ambos precisam ser passados para a função construtora no `Labrador`, que é feita corretamente usando o construtor 2.
+
+</p>
+</details>
+
+---
+###### 67. Qual é a saída?
+
+```javascript
+// index.js
+console.log('running index.js');
+import { sum } from './sum.js';
+console.log(sum(1, 2));
+
+// sum.js
+console.log('running sum.js');
+export const sum = (a, b) => a + b;
+```
+
+- A: `running index.js`, `running sum.js`, `3`
+- B: `running sum.js`, `running index.js`, `3`
+- C: `running sum.js`, `3`, `running index.js`
+- D: `running index.js`, `undefined`, `running sum.js`
+
+<details><summary><b>Resposta</b></summary>
+<p>
+
+#### Resposta: B
+
+Com a palavra-chave `import`, todos os módulos importados são _pre-parsed_. Isso significa que os módulos importados são executados _primeiro_, o código no arquivo que importa o módulo é executado _depois_.
+
+Esta é uma diferença entre `require()` no CommonJS e `import`! Com `require()`, você pode carregar dependências sob demanda enquanto o código está sendo executado. Se tivéssemos usado `require` em vez de `import`, `running index.js`,` running sum.js`, `3` teriam sido registrados no console.
+
+</p>
+</details>
+
+---
+###### 68. Qual é a saída?
+
+```javascript
+console.log(Number(2) === Number(2));
+console.log(Boolean(false) === Boolean(false));
+console.log(Symbol('foo') === Symbol('foo'));
+```
+
+- A: `true`, `true`, `false`
+- B: `false`, `true`, `false`
+- C: `true`, `false`, `true`
+- D: `true`, `true`, `true`
+
+<details><summary><b>Resposta</b></summary>
+<p>
+
+#### Resposta: A
+
+Todo símbolo (Symbol) é totalmente único. O objetivo do argumento passado ao símbolo é fornecer uma descrição ao símbolo. O valor do símbolo não depende do argumento passado. Ao testarmos a igualdade, estamos criando dois símbolos totalmente novos: o primeiro `Symbol('foo')` e o segundo `Symbol('foo')`. Esses dois valores são únicos e não são iguais entre si, `Symbol('foo') === Symbol('foo')` retorna `false`.
+
+</p>
+</details>
+
+---
+###### 69. Qual é a saída?
+
+```javascript
+const name = 'Lydia Hallie';
+console.log(name.padStart(13));
+console.log(name.padStart(2));
+```
+
+- A: `"Lydia Hallie"`, `"Lydia Hallie"`
+- B: `" Lydia Hallie"`, `" Lydia Hallie"` (`"[13x whitespace]Lydia Hallie"`, `"[2x whitespace]Lydia Hallie"`)
+- C: `" Lydia Hallie"`, `"Lydia Hallie"` (`"[1x whitespace]Lydia Hallie"`, `"Lydia Hallie"`)
+- D: `"Lydia Hallie"`, `"Lyd"`,
+
+<details><summary><b>Resposta</b></summary>
+<p>
+
+#### Resposta: C
+
+Com o método `padStart`, podemos adicionar preenchimento (padding) ao início de uma string. O valor passado para esse método é o comprimento _total_ da string junto com o preenchimento. A string `"Lydia Hallie"` tem um comprimento de `12`. `name.padStart(13)` insere 1 espaço no início da string, porque 12 + 1 é 13.
+
+Se o argumento passado para o método `padStart` for menor que o comprimento da matriz, nenhum preenchimento será adicionado.
+
+</p>
+</details>
+
+---
+###### 70. Qual é a saída?
+
+```javascript
+console.log('🥑' + '💻');
+```
+
+- A: `"🥑💻"`
+- B: `257548`
+- C: A string containing their code points
+- D: Error
+
+<details><summary><b>Resposta</b></summary>
+<p>
+
+#### Resposta: A
+
+Com o operador `+`, você pode concatenar seqüências de caracteres (strings). Neste caso, estamos concatenando a string `"🥑"` com a string `"💻"`, resultando em `"🥑💻"`.
+
+</p>
+</details>
+
+---
+
+###### 71. Como podemos registrar os valores comentados após a instrução console.log?
+
+```javascript
+function* iniciarJogo() {
+  const resposta = yield 'Você ama JavaScript?';
+  if (resposta !== 'Sim') {
+    return "Uau... Acho que entramos aqui";
+  }
+  return 'O JavaScript também ama você ❤️';
+}
+
+const jogo = iniciarJogo();
+console.log(/* 1 */); // Você ama JavaScript?
+console.log(/* 2 */); // O JavaScript também ama você ❤️
+```
+
+- A: `jogo.next("Sim").value` and `jogo.next().value`
+- B: `jogo.next.value("Sim")` and `jogo.next.value()`
+- C: `jogo.next().value` and `jogo.next("Sim").value`
+- D: `jogo.next.value()` and `jogo.next.value("Sim")`
+
+<details><summary><b>Resposta</b></summary>
+<p>
+
+#### Resposta: C
+
+Uma função geradora "pausa" a sua execução quando encontra a palavra-chave `yield`. Primeiro, temos que deixar a função produzir a string "Você ama JavaScript?", o que pode ser feito chamando `game.next().value`.
+
+Cada linha é executada, até encontrar a primeira palavra-chave `yield`. Há uma palavra-chave `yield` na primeira linha da função: a execução para com o primeiro retorno! _Isso significa que a variável `resposta` ainda não foi definida!_
+
+Quando chamamos `game.next("Sim").value`, o `yield` anterior é substituído pelo valor dos parâmetros passados para a função `next()`, `"Sim"` neste caso. O valor da variável `"resposta"` agora é igual a `"Sim"`. A condição da instrução if retorna `false` e `JavaScript também ama você ❤️` é registrada.
+
 </p>
 </details>
 
