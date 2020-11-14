@@ -551,7 +551,7 @@ function getPersonInfo(one, two, three) {
 const person = 'Lydia';
 const age = 21;
 
-getPersonInfo(`${person} is ${age} years old`);
+getPersonInfo`${person} is ${age} years old`;
 ```
 
 - A: `"Lydia"` `21` `["", " is ", " years old"]`
