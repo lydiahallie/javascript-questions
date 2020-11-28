@@ -5093,3 +5093,26 @@ The condition within the `if` statement checks whether the value of `!typeof ran
 
 </p>
 </details>
+
+###### 156. What's the output?
+
+```javascript
+let p =5+'30'-5;
+p=Math.sqrt(p);
+```
+
+- A: `25`
+- B: `23`
+- C: `525`
+- D: `5`
+
+<details><summary><b>Answer</b></summary>
+<p>
+
+#### Answer: B
+
+Whenever there is a number and a string in a statement,the number automatically be converted to a string when the plus (+) operator is used (concatenated).  However the opposite will occur when the minus(-) operator is used.  Therefor pin the the first line first becomes '530'.  Then when the minus operator is used it becomes (530-5). the square root of the answer to that is found.
+
+
+</p>
+</details>
