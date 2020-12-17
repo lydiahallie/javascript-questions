@@ -63,9 +63,9 @@ sayHi();
 
 #### Jawaban: D
 
-Di dalam function, kita buat variabel `name` dan variabel declaration-nya menggunakan `var`. Artinya variable tersebut hoisted (dalam fase pembuatan ini menggunakan memory penyimpanan) dengan isi standar-nya `undefined`, hingga kita benar berada di baris code pembuatan variabel-nya. Kita belum membuat variabel tersebut saat kita memanggil variabel `name`, jadi isi dari varabel tersebut masih `undefined`
+Di dalam function, kita membuat sebuah variabel `name` dan variabel tersebut di deklarasikan menggunakan `var`. Artinya variable tersebut di hoisting (dalam fase pembuatan ini menggunakan memory penyimpanan) dengan isi standar-nya `undefined`, saat javascript mengeksekusi baris code pembuatan variabel-nya. variabel `name` isinya masih undefined, jadi isi dari variabel tersebut `undefined`
 
-Variabel declaration yang menggunakan `let` (dan `const`) juga hoisted, tapi tidak seperti `var`, variabel declaration `let` dan `const` tidak ditentukan isi standar-nya. `let` dan `const` tidak bisa diakses sebelum di tentukan dulu isi-nya. Kejadian ini disebut "temporal dead zone". Saat kita mencoba memanggil variabel yang belum ditentukan isi-nya, Javascript mengeluarkan error `ReferenceError`.
+Mendeklarasikan varibel menggunakan `let` (dan `const`) juga terkena hoisting, tidak seperti `var`, variabel declaration `let` dan `const` tidak ditentukan isi standar-nya. `let` dan `const` tidak bisa diakses sebelum di tentukan dulu isi-nya. Kejadian ini disebut "temporal dead zone". Saat kita mencoba memanggil variabel yang belum ditentukan isi-nya, Javascript mengeluarkan error `ReferenceError`.
 </p>
 </details>
 
