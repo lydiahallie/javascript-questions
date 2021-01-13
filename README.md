@@ -4317,7 +4317,7 @@ We get to the last line of `funcTwo`, which logs `Last line!` to the console. No
 
 ---
 
-###### 134. How can we invoke `sum` in `index.js` from `sum.js?`
+###### 134. How can we invoke `sum` in `sum.js` from `index.js?`
 
 ```javascript
 // sum.js
