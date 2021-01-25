@@ -2157,3 +2157,30 @@ console.log(Symbol('foo') === Symbol('foo'));
 </details>
 
 ---
+
+###### 69. 將會輸出什麽內容？
+
+```javascript
+const name = 'Lydia Hallie';
+console.log(name.padStart(13));
+console.log(name.padStart(2));
+```
+
+- A: `"Lydia Hallie"`, `"Lydia Hallie"`
+- B: `" Lydia Hallie"`, `" Lydia Hallie"` (`"[13x whitespace]Lydia Hallie"`, `"[2x whitespace]Lydia Hallie"`)
+- C: `" Lydia Hallie"`, `"Lydia Hallie"` (`"[1x whitespace]Lydia Hallie"`, `"Lydia Hallie"`)
+- D: `"Lydia Hallie"`, `"Lyd"`,
+
+<details><summary><b>答案</b></summary>
+<p>
+
+#### 答案: C
+
+使用 `padStart` 函數，我們可以在字串的前面加上填充字串。傳遞給此函數的參數是字串的總長度（包含填充字串）。字串 Lydia Hallie 的長度為 `12` , 因此 `name.padStart(13)` 在字串的開頭只會插入1個空格，因為 12 + 1 等於 13。
+
+如果傳給 `padStart` 函數的參數小於字串的長度，則不會加上填充字串。
+
+</p>
+</details>
+
+---
