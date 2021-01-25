@@ -2086,16 +2086,48 @@ class Labrador extends Dog {
 - C: 3
 - D: 4
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>答案</b></summary>
 <p>
 
-#### Answer: B
+#### 答案: B
 
 在子類別中，在呼叫 `super` 前不能存取 `this` 關鍵字，如果你這麼做，它將拋出一個 `ReferenceError`，建構式1與4會引發這個錯誤。
 
 使用 `super` 關鍵字時，我們要提供參數給父類別呼叫其建構式。父類別需要接受一個 `name` 參數，所以我們需要把 `name` 傳給 `super`。
 
 `Labrador` 類別接收兩個參數， `name` 參數是由於它繼承了 `Dog` ， `size` 作為`Labrador` 類的額外屬性，它們都需要傳遞給 `Labrador` 的建構式，因此使用建構式2是正確答案。
+
+</p>
+</details>
+
+---
+
+###### 67. 將會輸出什麽內容？
+
+```javascript
+// index.js
+console.log('running index.js');
+import { sum } from './sum.js';
+console.log(sum(1, 2));
+
+// sum.js
+console.log('running sum.js');
+export const sum = (a, b) => a + b;
+```
+
+- A: `running index.js`, `running sum.js`, `3`
+- B: `running sum.js`, `running index.js`, `3`
+- C: `running sum.js`, `3`, `running index.js`
+- D: `running index.js`, `undefined`, `running sum.js`
+
+<details><summary><b>答案</b></summary>
+<p>
+
+#### 答案: B
+
+`import` 命令是 _編譯階段_ 執行的。這代表被引入的模組會優先執行，而引入模組的檔案會 _之後執行_。
+
+這是 `CommonJS` 中 `require()` 和 `import` 之間的區別！使用 `require()`，您可以在執行程式時根據需要戴入依賴的項目。如果我們使用 `require` 而不是 `import` 來執行此題， 結果將會依 `running index.js`，`running sum.js`，`3` 的順序輸出。
 
 </p>
 </details>
