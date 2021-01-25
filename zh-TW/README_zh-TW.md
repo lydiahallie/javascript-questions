@@ -2047,3 +2047,57 @@ multiply(value);
 </details>
   
 ---
+
+###### 66. 使用哪個建構式可以成功繼承 Dog 類別？
+
+```javascript
+class Dog {
+  constructor(name) {
+    this.name = name;
+  }
+};
+
+class Labrador extends Dog {
+  // 1
+  constructor(name, size) {
+    this.size = size;
+  }
+  // 2
+  constructor(name, size) {
+    super(name);
+    this.size = size;
+  }
+  // 3
+  constructor(size) {
+    super(name);
+    this.size = size;
+  }
+  // 4
+  constructor(name, size) {
+    this.name = name;
+    this.size = size;
+  }
+
+};
+```
+
+- A: 1
+- B: 2
+- C: 3
+- D: 4
+
+<details><summary><b>Answer</b></summary>
+<p>
+
+#### Answer: B
+
+在子類別中，在呼叫 `super` 前不能存取 `this` 關鍵字，如果你這麼做，它將拋出一個 `ReferenceError`，建構式1與4會引發這個錯誤。
+
+使用 `super` 關鍵字時，我們要提供參數給父類別呼叫其建構式。父類別需要接受一個 `name` 參數，所以我們需要把 `name` 傳給 `super`。
+
+`Labrador` 類別接收兩個參數， `name` 參數是由於它繼承了 `Dog` ， `size` 作為`Labrador` 類的額外屬性，它們都需要傳遞給 `Labrador` 的建構式，因此使用建構式2是正確答案。
+
+</p>
+</details>
+
+---
