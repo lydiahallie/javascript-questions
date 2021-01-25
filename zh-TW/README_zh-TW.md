@@ -2184,3 +2184,24 @@ console.log(name.padStart(2));
 </details>
 
 ---
+
+###### 70. 將會輸出什麽內容？
+
+```javascript
+console.log('🥑' + '💻');
+```
+
+- A: `"🥑💻"`
+- B: `257548`
+- C: 一個包含碼位(code point)的字串
+- D: 錯誤
+
+<details><summary><b>答案</b></summary>
+<p>
+
+#### 答案: A
+
+使用 `+` 運算元，你可以連接字串。在此例，我們將字串“🥑”與字串”💻“連接起來，產生”🥑💻“。
+
+</p>
+</details>
