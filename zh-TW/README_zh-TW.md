@@ -1,10 +1,9 @@
 <div align="center">
   <img height="60" src="https://img.icons8.com/color/344/javascript.png"> 
   <h1>JavaScript 進階題目列表</h1>
-
 ---
 
-<span>我會在我的 [Instagram](https://www.instagram.com/theavocoder) 上發布關於 JavaScript 的複選題，同時也會更新到這個 Repo 當中。更新日期： <a href=#20191224><b>2019 年 12 月 24 日</b></a>
+<span>我會在我的 [Instagram](https://www.instagram.com/theavocoder) 上發布關於 JavaScript 的複選題，同時也會更新到這個 Repo 當中。更新日期： <a href=#20200612><b>2020 年 06 月 12 日</b></a>
 
 從基礎到進階程度，測試你有多了解 JavaScript，不僅更新你的知識，更能幫助你的 coding 面試！
 :muscle: :rocket: 我每週都會在這個 Repo 中更新新的題目。
@@ -16,6 +15,9 @@
 
   </div>
 
+---
+
+歡迎在項目中使用它們 😃 我 _真的_ 很感激這個repo的參考，我創造了問題和解釋（是的，我很傷心lol），社區幫助我如此之多地維護和改進它！我很喜歡這個repo。 💪🏼 謝謝你，祝你玩得開心!
 
 ---
 
