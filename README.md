@@ -387,7 +387,7 @@ console.log(member.getFullName());
 
 #### Answer: A
 
-In JavaScript, functions are objects, and therefore, the method `getFullName` gets added to the constructor function object itself. For that reason, we can call `Person.getFullName()`, but `member.getFullName` throws a `TypeError`.
+In JavaScript, functions are objects, and therefore, the method `getFullName` gets added to the constructor function object itself. For that reason, we can call `Person.getFullName()`, but `member.getFullName` throws a `TypeError`. 
 
 If you want a method to be available to all object instances, you have to add it to the prototype property:
 
@@ -2052,7 +2052,7 @@ On the fourth call, we again don't return from the callback function. The accumu
 
 </p>
 </details>
-
+  
 ---
 
 ###### 66. With which constructor can we successfully extend the `Dog` class?
@@ -2402,13 +2402,13 @@ console.log(name);
 <details><summary><b>Answer</b></summary>
 <p>
 
-#### Answer: A
+#### Answer: D
 
 When we unpack the property `name` from the object on the right-hand side, we assign its value `"Lydia"` to a variable with the name `myName`.
 
 With `{ name: myName }`, we tell JavaScript that we want to create a new variable called `myName` with the value of the `name` property on the right-hand side.
 
-Since we try to log `name`, a variable that is not defined, `undefined` is returned on the left side assignment. Later, the value of `Lydia` is stored through the destructuring  assignment. 
+Since we try to log `name`, a variable that is not defined, a ReferenceError gets thrown.
 
 </p>
 </details>
@@ -4774,11 +4774,11 @@ getFruit([['🍍'], ['🍊', '🍌']])
 
 #### Answer: D
 
-The `?` allows us to optionally access deeper nested properties within objects. We're trying to log the item on index `1` within the subarray that's on index `1` of the `fruits` array. If the subarray on index `1` in the `fruits` array doesn't exist, it'll simply return `undefined`. If the subarray on index `1` in the `fruits` array exists, but this subarray doesn't have an item on its `1` index, it'll also return `undefined`.
+The `?` allows us to optionally access deeper nested properties within objects. We're trying to log the item on index `1` within the subarray that's on index `1` of the `fruits` array. If the subarray on index `1` in the `fruits` array doesn't exist, it'll simply return `undefined`. If the subarray on index `1` in the `fruits` array exists, but this subarray doesn't have an item on its `1` index, it'll also return `undefined`. 
 
 First, we're trying to log the second item in the `['🍍']` subarray of `[['🍊', '🍌'], ['🍍']]`. This subarray only contains one item, which means there is no item on index `1`, and returns `undefined`.
 
-Then, we're invoking the `getFruits` function without passing a value as an argument, which means that `fruits` has a value of `undefined` by default. Since we're conditionally chaining the item on index `1` of`fruits`, it returns `undefined` since this item on index `1` does not exist.
+Then, we're invoking the `getFruits` function without passing a value as an argument, which means that `fruits` has a value of `undefined` by default. Since we're conditionally chaining the item on index `1` of`fruits`, it returns `undefined` since this item on index `1` does not exist. 
 
 Lastly, we're trying to log the second item in the `['🍊', '🍌']` subarray of `['🍍'], ['🍊', '🍌']`. The item on index `1` within this subarray is `🍌`, which gets logged.
 
@@ -4792,7 +4792,7 @@ Lastly, we're trying to log the second item in the `['🍊', '🍌']` subarray o
 ```javascript
 class Calc {
 	constructor() {
-		this.count = 0
+		this.count = 0 
 	}
 
 	increase() {
@@ -4919,11 +4919,11 @@ console.log(animals[dog])
 
 #### Answer: B
 
-Object keys are converted to strings.
+Object keys are converted to strings. 
 
 Since the value of  `dog` is an object,  `animals[dog]` actually means that we’re creating a new property called `"object Object"` equal to the new object. `animals["object Object"]` is now equal to `{ emoji: "🐶", name: "Mara"}`.
 
-`cat` is also an object, which means that `animals[cat]` actually means that we’re overwriting the value of  `animals[``"``object Object``"``]` with the new cat properties.
+`cat` is also an object, which means that `animals[cat]` actually means that we’re overwriting the value of  `animals[``"``object Object``"``]` with the new cat properties. 
 
 Logging `animals[dog]`, or actually `animals["object Object"]` since converting the `dog` object to a string results `"object Object"`, returns the `{ emoji: "🐈", name: "Sara" }`.
 
@@ -4956,7 +4956,7 @@ console.log(user.email)
 
 #### Answer: A
 
-The `updateEmail` function is an arrow function, and is not bound to the `user` object. This means that the `this` keyword is not referring to the `user` object, but refers to  the global scope in this case. The value of `email` within the `user` object does not get updated. When logging the value of `user.email`, the original value of `my@email.com` gets returned.
+The `updateEmail` function is an arrow function, and is not bound to the `user` object. This means that the `this` keyword is not referring to the `user` object, but refers to  the global scope in this case. The value of `email` within the `user` object does not get updated. When logging the value of `user.email`, the original value of `my@email.com` gets returned. 
 
 </p>
 </details>
@@ -4999,7 +4999,7 @@ The `Promise.all` method runs the passed promises in parallel. If one promise fa
 
 ---
 
-###### 153. What should the value of `method` be to log `{ name: "Lydia", age: 22 }`?
+###### 153. What should the value of `method` be to log `{ name: "Lydia", age: 22 }`? 
 
 ```javascript
 const keys = ["name", "age"]
@@ -5021,7 +5021,7 @@ Object[method](keys.map((_, i) => {
 
 #### Answer: C
 
-The `fromEntries` method turns a 2d array into an object. The first element in each subarray will be the key, and the second element in each subarray will be the value. In this case, we’re mapping over the `keys` array, which returns an array which first element is the item on the key array on the current index, and the second element is the item of the values array on the current index.
+The `fromEntries` method turns a 2d array into an object. The first element in each subarray will be the key, and the second element in each subarray will be the value. In this case, we’re mapping over the `keys` array, which returns an array which first element is the item on the key array on the current index, and the second element is the item of the values array on the current index. 
 
 This creates an array of subarrays containing the correct keys and values, which results in `{ name: "Lydia", age: 22 }`
 
