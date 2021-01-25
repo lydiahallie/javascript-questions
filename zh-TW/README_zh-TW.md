@@ -2133,3 +2133,27 @@ export const sum = (a, b) => a + b;
 </details>
 
 ---
+###### 68. 將會輸出什麽內容？
+
+```javascript
+console.log(Number(2) === Number(2));
+console.log(Boolean(false) === Boolean(false));
+console.log(Symbol('foo') === Symbol('foo'));
+```
+
+- A: `true`, `true`, `false`
+- B: `false`, `true`, `false`
+- C: `true`, `false`, `true`
+- D: `true`, `true`, `true`
+
+<details><summary><b>答案</b></summary>
+<p>
+
+#### 答案: A
+
+每個 Symbol 都是完全唯一的。傳遞給 Symbol 的參數只是給 Symbol 的一個描述。 Symbol 的值不依賴於傳遞的參數。當我們建立兩個全新的 Symbol 去比較時：第一個`Symbol('foo')`，第二個`Symbol('foo')`, 因這兩個值是唯一的，彼此不相等，因此 `Symbol('foo') === Symbol('foo')` 會得到 `false`。
+
+</p>
+</details>
+
+---
