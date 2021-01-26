@@ -2246,3 +2246,38 @@ console.log(/* 2 */); // JavaScript 也愛你 ❤️
 </details>
 
 ---
+
+###### 72. 將會輸出什麽內容？
+
+```javascript
+console.log(String.raw`Hello\nworld`);
+```
+
+- A: `Hello world!`
+- B: `Hello` <br />&nbsp; &nbsp; &nbsp;`world`
+- C: `Hello\nworld`
+- D: `Hello\n` <br /> &nbsp; &nbsp; &nbsp;`world`
+
+<details><summary><b>答案</b></summary>
+<p>
+
+#### 答案: C
+
+`String.raw`會回傳一個字串，其中轉義符(`/n`, `/v`, `/t`等)被忽略! 反斜線可能是一個問題，因為你可能會有這樣的結果。
+
+`const path = "C:\Documents\Projects\table.html"`。
+
+將會得到：
+
+`C:DocumentsProjects able.html`
+
+如果使用`String.raw`，它將直接忽略轉譯並輸出。
+
+`C:\Documents\Projects\table.html`。
+
+在這種情況下，字串會以 "Hello\nworld"，被記錄下來。
+
+</p>
+</details>
+
+---
