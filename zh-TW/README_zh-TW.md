@@ -2207,3 +2207,42 @@ console.log('🥑' + '💻');
 
 </p>
 </details>
+
+---
+
+###### 71. /* 1 */ 與 /* 2 */ 該填入什麼才能輸出 console.log 之後的值？
+
+```javascript
+function* startGame() {
+  const answer = yield '你喜歡 JavaScript 嗎?';
+  if (answer !== 'Yes') {
+    return "哦，我想我們該走了";
+  }
+  return 'JavaScript 也愛你 ❤️';
+}
+
+const game = startGame();
+console.log(/* 1 */); // 你喜歡 JavaScript 嗎?
+console.log(/* 2 */); // JavaScript 也愛你 ❤️
+```
+
+- A: `game.next("Yes").value` and `game.next().value`
+- B: `game.next.value("Yes")` and `game.next.value()`
+- C: `game.next().value` and `game.next("Yes").value`
+- D: `game.next.value()` and `game.next.value("Yes")`
+
+<details><summary><b>答案</b></summary>
+<p>
+
+#### 答案: C
+
+`generator` 函數在遇到 yield 關鍵字時會 “暫停” 執行。首先，我們需要讓函數產生字串 "你喜歡 JavaScript 嗎?"，這可以透過呼叫 `game.next().value` 來完成。
+
+`startGame()` 函數會一行一行執行直到遇到 `yield` 關鍵字，在函數裡第一個就有一個 `yield` 關鍵字：所以執行到第一行就停止了！ _此時answer變數還尚未定義_
+
+當我們呼叫 `game.next("Yes").value`，前一個 `yield` 被傳遞給 `next()` 的參數值所取代。此例我們使用 `Yes`。變數 `answer` 的值現在等於 `Yes`。 if 語句的條件返回 `false`，並且會返回 `JavaScript 也愛你 ❤️` 。
+
+</p>
+</details>
+
+---
