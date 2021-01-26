@@ -2281,3 +2281,37 @@ console.log(String.raw`Hello\nworld`);
 </details>
 
 ---
+
+###### 73. 將會輸出什麽內容？
+
+```javascript
+async function getData() {
+  return await Promise.resolve('I made it!');
+}
+
+const data = getData();
+console.log(data);
+```
+
+- A: `"I made it!"`
+- B: `Promise {<resolved>: "I made it!"}`
+- C: `Promise {<pending>}`
+- D: `undefined`
+
+<details><summary><b>答案</b></summary>
+<p>
+
+#### 答案: C
+
+一個異步函數總是返回一個 promise 。 `await` 仍然要等待 promise 的 resolve：當我們呼叫 `getData()` 等於 `data` 時，會得到一個等待的 promise。
+
+如果我們想獲取 resolve 後的值`"I made it"`，我們可以在`data`上使用`.then()`函數：
+
+`data.then(res => console.log(res))`。
+
+這樣就會出現 `"I made it!"` 的記錄。
+
+</p>
+</details>
+
+---
