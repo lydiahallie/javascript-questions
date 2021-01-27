@@ -2345,3 +2345,37 @@ console.log(result);
 </details>
 
 ---
+
+###### 75. 將會輸出什麽內容？
+
+```javascript
+const box = { x: 10, y: 20 };
+
+Object.freeze(box);
+
+const shape = box;
+shape.x = 100;
+
+console.log(shape);
+```
+
+- A: `{ x: 100, y: 20 }`
+- B: `{ x: 10, y: 20 }`
+- C: `{ x: 100 }`
+- D: `ReferenceError`
+
+<details><summary><b>答案</b></summary>
+<p>
+
+#### 答案: B
+
+`Object.freeze` 使我們無法增加、刪除或修改Object的屬性（除非該屬性的值是另一個Object）。
+
+當我們建立變數`shape`並等同被凍結的Object`box`時，`shape`也是指一個被凍結的Object。你可以透過使用`Object.isFrozen`檢查一個Object是否被凍結。在這種情況下，`Object.isFrozen(shape)`回傳true，因為變數`shape`也指向一個凍結Object。
+
+由於`shape`是被凍結的，而且`x`的值不是一個Object，所以我們不能修改`x`的屬性。 `x`仍然等於`10`，於是`{ x: 10, y: 20 }`被記錄下來。
+
+</p>
+</details>
+
+---
