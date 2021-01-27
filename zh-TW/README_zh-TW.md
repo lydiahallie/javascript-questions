@@ -2315,3 +2315,33 @@ console.log(data);
 </details>
 
 ---
+
+###### 74. 將會輸出什麽內容？
+
+```javascript
+function addToList(item, list) {
+  return list.push(item);
+}
+
+const result = addToList('apple', ['banana']);
+console.log(result);
+```
+
+- A: `['apple', 'banana']`
+- B: `2`
+- C: `true`
+- D: `undefined`
+
+<details><summary><b>答案</b></summary>
+<p>
+
+#### 答案: B
+
+`.push()`函數回傳的是陣列的長度！原本陣列包含一個元素（字串`"香蕉"`），長度為`1`。後來將字串 `"apple"` 加到陣列中後，陣列包含兩個元素。所以會從`addToList`函數中得到，長度為 `"2"`。
+
+`push`函數修改了原來的陣列。如果你想從函數中返回 _陣列_ 而不是 _陳列的長度_ ，你應該在加完`item`到陣列後，回傳`list`。
+
+</p>
+</details>
+
+---
