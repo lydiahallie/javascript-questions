@@ -4706,3 +4706,35 @@ Mặc định ta không thể duyệt qua được object. Trừ phi nó đượ
 
 </p>
 </details>
+
+###### 145. Output là gì?
+
+```javascript
+let count = 0;
+const nums = [0, 1, 2, 3];
+
+nums.forEach(num => {
+	if (num) count += 1
+})
+
+console.log(count)
+```
+
+- A: 1
+- B: 2
+- C: 3
+- D: 4
+
+<details><summary><b>Đáp án</b></summary>
+<p>
+
+#### Answer: C
+
+The `if` condition within the `forEach` loop checks whether the value of `num` is truthy or falsy. Since the first number in the `nums` array is `0`, a falsy value, the `if` statement's code block won't be executed. `count` only gets incremented for the other 3 numbers in the `nums` array, `1`, `2` and `3`. Since `count` gets incremented by `1` 3 times, the value of `count` is `3`.
+
+Câu lệnh `if` trong vòng lập `forEach` kiểm tra giá trị của `num` là truthy hay falsy. Vì số đầu tiên trong mảng `nums` là `0`, giá trị falsy, code trong câu lệnh `if` sẽ không chạy. `count` chỉ tăng giá trị đối với 3 số còn lại trong mảng `nums`, `1`, `2` và `3`. Vì giá trị của `count` tăng thêm `1` trong 3 lần, giá trị của `count` sẽ là `3`.
+
+</p>
+</details>
+
+---
