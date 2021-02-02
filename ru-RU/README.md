@@ -4301,3 +4301,61 @@ funcTwo();
 
 </p>
 </details>
+
+---
+
+###### 134. Как мы можем вызвать функцию `sum` в `sum.js` из `index.js?`
+
+```javascript
+// sum.js
+export default function sum(x) {
+  return x + x;
+}
+
+// index.js
+import * as sum from './sum';
+```
+
+- A: `sum(4)`
+- B: `sum.sum(4)`
+- C: `sum.default(4)`
+- D: Нельзя импортировать значения по умолчанию используя `*`, только именованные экспорты
+
+<details><summary><b>Ответ</b></summary>
+<p>
+
+#### Ответ: C
+
+Используя звездочку `*` мы импортируем все экспортируемые значения из этого файла, как по умолчанию, так и именованные. Если бы у нас был следующий файл:
+
+```javascript
+// info.js
+export const name = 'Lydia';
+export const age = 21;
+export default 'I love JavaScript';
+
+// index.js
+import * as info from './info';
+console.log(info);
+```
+
+В лог попадёт следующее:
+
+```javascript
+{
+  default: "I love JavaScript",
+  name: "Lydia",
+  age: 21
+}
+```
+
+Для примера `sum` это означает, что импортированное значение `sum` выглядит так:
+
+```javascript
+{ default: function sum(x) { return x + x } }
+```
+
+Мы можем вызвать эту функцию с помощью `sum.default`
+
+</p>
+</details>
