@@ -4359,3 +4359,40 @@ console.log(info);
 
 </p>
 </details>
+
+---
+
+###### 135. Что будет на выходе?
+
+```javascript
+const handler = {
+  set: () => console.log('Added a new property!'),
+  get: () => console.log('Accessed a property!'),
+};
+
+const person = new Proxy({}, handler);
+
+person.name = 'Lydia';
+person.name;
+```
+
+- A: `Added a new property!`
+- B: `Accessed a property!`
+- C: `Added a new property!` `Accessed a property!`
+- D: В лог ничего не попадёт
+
+<details><summary><b>Ответ</b></summary>
+<p>
+
+#### Ответ: C
+
+C помощью Proxy мы можем добавить собственное поведению объекту, которое мы передаем вторым аргументом. В нашем случае мы передаем объект `handler` который содержит свойства: `set` и `get`. `set` вызывается каждый раз когда мы _устанавливаем_ значения свойств, `get` же вызывается всякий раз когда мы _получаем_ значения свойств.
+
+Первый аргумент — пустой объект `{}`, который является значением `person`. Для него будет добавлено собственное поведение, описанное в объекте `handler`. При добавлении значения для объекта `person` будет вызвано свойство `set`. При запросе к значению `person` вызовется свойство `get`.
+
+Сначала мы устанавливаем новое свойство `name` для объекта Proxy (`person.name = "Lydia"`). Вызывается `set` и в лог попадает `"Added a new property!"`.
+
+Затем мы обращаемся к значению Proxy-объекта. Вызывается свойство `get` объекта `handler`. `"Accessed a property!"` попадает в лог.
+
+</p>
+</details>
