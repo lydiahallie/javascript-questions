@@ -4706,3 +4706,68 @@ Mặc định ta không thể duyệt qua được object. Trừ phi nó đượ
 
 </p>
 </details>
+
+###### 145. Output là gì?
+
+```javascript
+let count = 0;
+const nums = [0, 1, 2, 3];
+
+nums.forEach(num => {
+	if (num) count += 1
+})
+
+console.log(count)
+```
+
+- A: 1
+- B: 2
+- C: 3
+- D: 4
+
+<details><summary><b>Đáp án</b></summary>
+<p>
+
+#### Đáp án: C
+
+Câu lệnh `if` trong vòng lập `forEach` kiểm tra giá trị của `num` là truthy hay falsy. Vì số đầu tiên trong mảng `nums` là `0`, giá trị falsy, code trong câu lệnh `if` sẽ không chạy. `count` chỉ tăng giá trị đối với 3 số còn lại trong mảng `nums`, `1`, `2` và `3`. Vì giá trị của `count` tăng thêm `1` trong 3 lần, giá trị của `count` sẽ là `3`.
+
+</p>
+</details>
+
+---
+
+###### 146. Output là gì?
+
+```javascript
+function getFruit(fruits) {
+	console.log(fruits?.[1]?.[1])
+}
+
+getFruit([['🍊', '🍌'], ['🍍']])
+getFruit()
+getFruit([['🍍'], ['🍊', '🍌']])
+```
+
+- A: `null`, `undefined`, 🍌
+- B: `[]`, `null`, 🍌
+- C: `[]`, `[]`, 🍌
+- D: `undefined`, `undefined`, 🍌
+
+<details><summary><b>Answer</b></summary>
+<p>
+
+#### Đáp án: D
+
+Phép toán `?` cho phép ta truy cập giá trị bên trong của object. Chúng ta thử in ra phần tử có thứ tự là `1` trong mảng con với thứ tự là `1` trong mảng `fruits`. Nếu mảng con với thứ tự là `1` trong mảng `fruits` không tồn tại, nó sẽ trả về `undefined`. Nếu mảng con với thứ tự là `1` trong mảng `fruits` tồn tại, nhưng mảng con này không có phần tử nào mang thứ tự `1`, nó cũng sẽ trả về `undefined`.
+
+Trước tiên, chúng ta thử in ra phần tử thứ hai trong mảng con `['🍍']` của `[['🍊', '🍌'], ['🍍']]`. Mảng con này chỉ chứa một phần tử, nghĩa là không có phần tử nào với thứ tự là `1`, và trả về `undefined`.
+
+Sau đó, ta gọi hàm `getFruits` khi không truyền vào một đối số nào, nghĩa là `fruits` có giá trị mặc định là `undefined`. Vì ta truyền phần tử mang thứ tự `1` của `fruits`, nó trả về `undefined` do phần tử này không tồn tại. 
+
+Cuối cùng, ta thử in ra phần tử thứ hai trong mảng con `['🍊', '🍌']` của mảng `['🍍'], ['🍊', '🍌']`. Phần tử mang thứ tự `1` bên trong mảng con này là `🍌` sẽ được in ra.
+
+</p>
+</details>
+
+---

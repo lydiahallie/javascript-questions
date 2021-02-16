@@ -3685,7 +3685,11 @@ config = null;
 
 #### Answer: C
 
-Normally when we set objects equal to `null`, those objects get _garbage collected_ as there is no reference anymore to that object. However, since the callback function within `setInterval` is an arrow function (thus bound to the `config` object), the callback function still holds a reference to the `config` object. As long as there is a reference, the object won't get garbage collected. Since it's not garbage collected, the `setInterval` callback function will still get invoked every 1000ms (1s).
+Normally when we set objects equal to `null`, those objects get _garbage collected_ as there is no reference anymore to that object. However, since the callback function within `setInterval` is an arrow function (thus bound to the `config` object), the callback function still holds a reference to the `config` object. 
+As long as there is a reference, the object won't get garbage collected. 
+Since this is an interval, setting `config` to `null` or `delete`-ing `config.alert` won't garbage-collect the interval, so the interval will still be called. 
+It should be cleared with `clearInterval(config.alert)` to remove it from memory.
+Since it was not cleared, the `setInterval` callback function will still get invoked every 1000ms (1s).
 
 </p>
 </details>
@@ -4277,14 +4281,14 @@ const myPromise = Promise.resolve(Promise.resolve('Promise!'));
 
 function funcOne() {
   myPromise.then(res => res).then(res => console.log(res));
-  setTimeout(() => console.log('Timeout!', 0));
+  setTimeout(() => console.log('Timeout!'), 0);
   console.log('Last line!');
 }
 
 async function funcTwo() {
   const res = await myPromise;
   console.log(await res);
-  setTimeout(() => console.log('Timeout!', 0));
+  setTimeout(() => console.log('Timeout!'), 0);
   console.log('Last line!');
 }
 
@@ -4302,7 +4306,7 @@ funcTwo();
 
 #### Answer: D
 
-First, we invoke `funcOne`. On the first line of `funcOne`, we call the `myPromise` promise, which is an _asynchronous_ operation. While the engine is busy completing the promise, it keeps on running the function `funcOne`. The next line is the _asynchronous_ `setTimeout` function, from which the callback is sent to the Web API. (see my article on the event loop here.)
+First, we invoke `funcOne`. On the first line of `funcOne`, we call the `myPromise` promise, which is an _asynchronous_ operation. While the engine is busy completing the promise, it keeps on running the function `funcOne`. The next line is the _asynchronous_ `setTimeout` function, from which the callback is sent to the Web API. (see my article on the event loop <a href="https://dev.to/lydiahallie/javascript-visualized-event-loop-3dif">here</a>.)
 
 Both the promise and the timeout are asynchronous operations, the function keeps on running while it's busy completing the promise and handling the `setTimeout` callback. This means that `Last line!` gets logged first, since this is not an asynchonous operation. This is the last line of `funcOne`, the promise resolved, and `Promise!` gets logged. However, since we're invoking `funcTwo()`, the call stack isn't empty, and the callback of the `setTimeout` function cannot get added to the callstack yet.
 

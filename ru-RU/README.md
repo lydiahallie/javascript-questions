@@ -4255,3 +4255,171 @@ console.log(counterOne.count);
 </p>
 </details>
 
+---
+
+###### 133. Что будет на выходе?
+
+```javascript
+const myPromise = Promise.resolve(Promise.resolve('Promise!'));
+
+function funcOne() {
+  myPromise.then(res => res).then(res => console.log(res));
+  setTimeout(() => console.log('Timeout!', 0));
+  console.log('Last line!');
+}
+
+async function funcTwo() {
+  const res = await myPromise;
+  console.log(await res);
+  setTimeout(() => console.log('Timeout!', 0));
+  console.log('Last line!');
+}
+
+funcOne();
+funcTwo();
+```
+
+- A: `Promise! Last line! Promise! Last line! Last line! Promise!`
+- B: `Last line! Timeout! Promise! Last line! Timeout! Promise!`
+- C: `Promise! Last line! Last line! Promise! Timeout! Timeout!`
+- D: `Last line! Promise! Promise! Last line! Timeout! Timeout!`
+
+<details><summary><b>Ответ</b></summary>
+<p>
+
+#### Ответ: D
+
+Сначала мы вызываем функцию `funcOne`. В первой строке `funcOne` происходит вызов обещания `myPromise`, которое является _асинхронной_ операцией. Пока движок занят обработкой обещания, он продолжает выполнение функции `funcOne`. Следующая строка является _асинхронной_ функцией `setTimeout`, поэтому её обратный вызов будет отправлен в Web API. (см. мою статью о цикле событий [здесь](https://dev.to/lydiahallie/javascript-visualized-event-loop-3dif).)
+
+Обещание, как и таймер, является асинхронной операцией, поэтому функция продолжит выполняться несмотря на обработку обещания и обратного вызова `setTimeout`. Выходит так, что `Last line!` попадет в консоль первой, т.к. не является асинхронной операцией. Далее, в следующей строке `funcOne`, обещание будет выполнено и `Promise!` выводится в консоль. Однако, т.к. далее мы вызываем `funcTwo()`, стэк вызывов не будет пустым, из-за чего обратный вызов функции `setTimeout` _пока_ не будет добавлен в стэк вызовов.
+
+В первой строке `funcTwo` мы _ожидаем_ выполнения обещания myPromise. С помощью ключевого слова `await` мы приостанавливаем выполнение функции пока обещание не будет выполнено (или отклонено). Затем выводим в консоль _ожидаемое_ значение `res` (т.к. предыдущее обещание вернуло обещание). После чего в консоль попадает `Promise!`.
+
+Следующая строка является _асинхронной_ функцией `setTimeout`, которая отправляет обратный вызов в Web API.
+
+Мы перешли к следующей строке функции `funcTwo` которая выводит в консоль `Last line!`. Теперь, когда стэк вызовов извлечен из `funcTwo`, он становится пустым. Обратные вызовы, которые ожидали очереди (`() => console.log("Timeout!")` из `funcOne`, и `() => console.log("Timeout!")` из `funcTwo`) добавлены в стэк вызовов один за другим. Первый вызов выведет в консоль `Timeout!` и будет извлечен из стэка. Следующий вызов также выведет `Timeout!` и тоже будет извлечен из стэка вызовов. Лог будет равен `Last line! Promise! Promise! Last line! Timeout! Timeout!`
+
+</p>
+</details>
+
+---
+
+###### 134. Как мы можем вызвать функцию `sum` в `sum.js` из `index.js?`
+
+```javascript
+// sum.js
+export default function sum(x) {
+  return x + x;
+}
+
+// index.js
+import * as sum from './sum';
+```
+
+- A: `sum(4)`
+- B: `sum.sum(4)`
+- C: `sum.default(4)`
+- D: Нельзя импортировать значения по умолчанию используя `*`, только именованные экспорты
+
+<details><summary><b>Ответ</b></summary>
+<p>
+
+#### Ответ: C
+
+Используя звездочку `*`, мы импортируем все экспортируемые значения из файла, включая именнованные экспорты и экспорты по умолчанию. Если бы у нас был следующий файл:
+
+```javascript
+// info.js
+export const name = 'Lydia';
+export const age = 21;
+export default 'I love JavaScript';
+
+// index.js
+import * as info from './info';
+console.log(info);
+```
+
+В лог попадёт следующее:
+
+```javascript
+{
+  default: "I love JavaScript",
+  name: "Lydia",
+  age: 21
+}
+```
+
+Для примера `sum` это означает, что импортированное значение `sum` будет таким:
+
+```javascript
+{ default: function sum(x) { return x + x } }
+```
+
+Следовательно, мы можем вызвать эту функцию используя `sum.default`
+
+</p>
+</details>
+
+---
+
+###### 135. Что будет на выходе?
+
+```javascript
+const handler = {
+  set: () => console.log('Added a new property!'),
+  get: () => console.log('Accessed a property!'),
+};
+
+const person = new Proxy({}, handler);
+
+person.name = 'Lydia';
+person.name;
+```
+
+- A: `Added a new property!`
+- B: `Accessed a property!`
+- C: `Added a new property!` `Accessed a property!`
+- D: В лог ничего не попадёт
+
+<details><summary><b>Ответ</b></summary>
+<p>
+
+#### Ответ: C
+
+C помощью Proxy мы можем добавить собственное поведению объекту, которое мы передаем вторым аргументом. В нашем случае мы передаем объект `handler` который содержит свойства: `set` и `get`. `set` вызывается каждый раз когда мы _устанавливаем_ значения свойств, `get` же вызывается всякий раз когда мы _получаем_ значения свойств.
+
+Первый аргумент — пустой объект `{}`, который является значением `person`. Для него будет добавлено собственное поведение, описанное в объекте `handler`. При добавлении значения для объекта `person` будет вызвано свойство `set`. При запросе к значению `person` вызовется свойство `get`.
+
+Сначала мы устанавливаем новое свойство `name` для объекта Proxy (`person.name = "Lydia"`). Вызывается `set` и в лог попадает `"Added a new property!"`.
+
+Затем мы обращаемся к значению Proxy-объекта. Вызывается свойство `get` объекта `handler`. `"Accessed a property!"` попадает в лог.
+
+</p>
+</details>
+
+---
+
+###### 136. Какое из перечисленных действий может модифицировать объект `person`?
+
+```javascript
+const person = { name: 'Lydia Hallie' };
+
+Object.seal(person);
+```
+
+- A: `person.name = "Evan Bacon"`
+- B: `person.age = 21`
+- C: `delete person.name`
+- D: `Object.assign(person, { age: 21 })`
+
+<details><summary><b>Ответ</b></summary>
+<p>
+
+#### Ответ: A
+
+С помощью `Object.seal` мы можем предотвращать как _добавление_ новых свойств, так и _удаление_ существующих.
+
+Однако, изменение существующих свойств остаётся доступным.
+
+</p>
+</details>
