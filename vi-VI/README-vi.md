@@ -4754,7 +4754,7 @@ getFruit([['🍍'], ['🍊', '🍌']])
 - C: `[]`, `[]`, 🍌
 - D: `undefined`, `undefined`, 🍌
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>Đáp án</b></summary>
 <p>
 
 #### Đáp án: D
@@ -4771,3 +4771,308 @@ Cuối cùng, ta thử in ra phần tử thứ hai trong mảng con `['🍊', '�
 </details>
 
 ---
+
+###### 147. Output là gì?
+
+```javascript
+class Calc {
+	constructor() {
+		this.count = 0 
+	}
+
+	increase() {
+		this.count ++
+	}
+}
+
+const calc = new Calc()
+new Calc().increase()
+
+console.log(calc.count)
+```
+
+- A: `0`
+- B: `1`
+- C: `undefined`
+- D: `ReferenceError`
+
+<details><summary><b>Đáp án</b></summary>
+<p>
+
+#### Đáp án: A
+
+Ta set biến `calc` bằng một instance mới của `Calc` class. Sau đó ta tạo ra instance mới của `Calc` và gọi `increase` hàm trên instance đó. Vì thuộc tính count nằm trong constructor của `Calc` class, thuộc tính count không được sử dụng trên prototype của `Calc`. Điều này nghĩa là giá trị của count chưa được thay đổi cho instance mà calc trỏ vào, giá trị của count vẫn là `0`.
+
+</p>
+</details>
+
+---
+
+###### 148. Output là gi?
+
+```javascript
+const user = {
+	email: "e@mail.com",
+	password: "12345"
+}
+
+const updateUser = ({ email, password }) => {
+	if (email) {
+		Object.assign(user, { email })
+	}
+
+	if (password) {
+		user.password = password
+	}
+
+	return user
+}
+
+const updatedUser = updateUser({ email: "new@email.com" })
+
+console.log(updatedUser === user)
+```
+
+- A: `false`
+- B: `true`
+- C: `TypeError`
+- D: `ReferenceError`
+
+<details><summary><b>Đáp án</b></summary>
+<p>
+
+#### Đáp án: B
+
+Hàm `updateUser` thay đổi các giá trị của thuộc tính `email` và `password` của user, nếu các giá trị của chúng được truyền vào hàm sau và sau đó hàm trả về `user` object. Giá trị trả về của hàm `updateUser` là `user` object, tức là giá trị của updateUser là trỏ đến cùng một `user` object mà `user` trỏ vào. `updatedUser === user` bằng `true`.
+
+</p>
+</details>
+
+---
+
+###### 149. Output là gi?
+
+```javascript
+const fruit = ['🍌', '🍊', '🍎']
+
+fruit.slice(0, 1)
+fruit.splice(0, 1)
+fruit.unshift('🍇')
+
+console.log(fruit)
+```
+
+- A: `['🍌', '🍊', '🍎']`
+- B: `['🍊', '🍎']`
+- C: `['🍇', '🍊', '🍎']`
+- D: `['🍇', '🍌', '🍊', '🍎']`
+
+<details><summary><b>Đáp án</b></summary>
+<p>
+
+#### Đáp án: C
+
+Trước tiên, ta gọi hàm `slice` trên mảng fruit. Hàm slice không thay đổi mảng ban đầu nhưng sẽ trả về giá trị mà nó cắt từ mảng đó: banana emoji. Sau đó ta gọi hàm `splice` trên mảng fruit. Hàm splice sẽ thay đổi mảng ban đầu, nghĩa là mảng fruit bây giờ sẽ bao gồm `['🍊', '🍎']`. Cuối cùng, ta gọi mảng `unshift` trên mảng `fruit` để thay đổi mảng ban đầu bằng cách cộng thêm giá trị được đưa ra, trong trường hợp này là ‘🍇’, phần tử đầu tiên của mảng. Mảng fruit bây giờ bao gồm ['🍇', '🍊', '🍎']`.
+
+</p>
+</details>
+
+---
+
+###### 150. Output là gì?
+
+```javascript
+const animals = {};
+let dog = { emoji: '🐶' }
+let cat = { emoji: '🐈' }
+
+animals[dog] = { ...dog, name: "Mara" }
+animals[cat] = { ...cat, name: "Sara" }
+
+console.log(animals[dog])
+```
+
+- A: `{ emoji: "🐶", name: "Mara" }`
+- B: `{ emoji: "🐈", name: "Sara" }`
+- C: `undefined`
+- D: `ReferenceError`
+
+<details><summary><b>Đáp án</b></summary>
+<p>
+
+#### Đáp án: B
+
+Các keys của object được chuyển thành các chuỗi.
+
+Do giá trị của `dog` là một object, `animals[dog]` thực sự nghĩa là ta tạo ra một thuộc tính mới gọi là `"object Object"` bằng với object mới. `animals["object Object"]` lúc này bằng với `{ emoji: "🐶", name: "Mara"}`.
+
+`cat` cũng là một object, nên `animals[cat]` thực sự nghĩa là ta thay đổi giá trị của `animals[``"``object Object``"``]` bằng thuộc tính cat mới.
+
+Khi in ra `animals[dog]`, hoặc thực chất là `animals["object Object"]` vì thay `dog` object bằng một chuỗi thì nó trả về `"object Object"`, ta nhận được `{ emoji: "🐈", name: "Sara" }`.
+
+</p>
+</details>
+
+---
+
+###### 151. Output là gì?
+
+```javascript
+const user = {
+	email: "my@email.com",
+	updateEmail: email => {
+		this.email = email
+	}
+}
+
+user.updateEmail("new@email.com")
+console.log(user.email)
+```
+
+- A: `my@email.com`
+- B: `new@email.com`
+- C: `undefined`
+- D: `ReferenceError`
+
+<details><summary><b>Đáp án</b></summary>
+<p>
+
+#### Đáp án: A
+
+Hàm `updateEmail` là một cú pháp arrow function và nó không gắn với `user` object. Điều này cho thấy từ khoá `this` không trỏ tới `user` object mà trỏ tới global scope. Giá trị của `email` trong `user` object không thay đổi. Khi ta in ra giá trị của `user.email`, nó trả về giá trị ban đầu của `my@email.com`.
+
+</p>
+</details>
+
+---
+
+###### 152. Output là gì?
+
+```javascript
+const promise1 = Promise.resolve('First')
+const promise2 = Promise.resolve('Second')
+const promise3 = Promise.reject('Third')
+const promise4 = Promise.resolve('Fourth')
+
+const runPromises = async () => {
+	const res1 = await Promise.all([promise1, promise2])
+	const res2  = await Promise.all([promise3, promise4])
+	return [res1, res2]
+}
+
+runPromises()
+	.then(res => console.log(res))
+	.catch(err => console.log(err))
+```
+
+- A: `[['First', 'Second'], ['Fourth']]`
+- B: `[['First', 'Second'], ['Third', 'Fourth']]`
+- C: `[['First', 'Second']]`
+- D: `'Third'`
+
+<details><summary><b>Đáp án</b></summary>
+<p>
+
+#### Đáp án: D
+
+Hàm `Promise.all` trả về những promise truyền vào song song nhau. Nếu một promise thất bại, hàm `Promise.all` _rejects_ với giá trị của promise đó. Trong trường hợp này, `promise3` bị reject với giá trị `"Third"`. Ta đang kiểm tra giá trị bị reject trong chuỗi hàm `catch` khi goi hàm `runPromises` để tìm ra lỗi trong hàm `runPromises`. Chỉ có `"Third"` được trả về vì `promise3` reject giá trị này.
+
+</p>
+</details>
+
+---
+
+###### 153. Giá trị nào của `method` sẽ được trả về với log `{ name: "Lydia", age: 22 }`? 
+
+```javascript
+const keys = ["name", "age"]
+const values = ["Lydia", 22]
+
+const method = /* ?? */
+Object[method](keys.map((_, i) => {
+	return [keys[i], values[i]]
+})) // { name: "Lydia", age: 22 }
+```
+
+- A: `entries`
+- B: `values`
+- C: `fromEntries`
+- D: `forEach`
+
+<details><summary><b>Đáp án</b></summary>
+<p>
+
+#### Đáp án: C
+
+Hàm `fromEntries` trả về một mảng 2d trong một object. Phần tử đầu tiên trong từng mảng con sẽ là từ khoá và phần tử thứ hai trong từng mảng con sẽ là giá trị. Trong trường hợp này, ta tiến hành map qua mảng `keys`, nó sẽ trả về một mảng mà phần tử đầu tiên của mảng đó là phần tử trên thứ tự hiện tại của mảng key, và phần tử thứ hai của mảng đó là phần tử trên thứ tự hiện tại của mảng values.
+
+Theo như trên thì ta tạo ra một mảng gồm những mảng con chứa đựng những từ khoá và giá trị đúng, và nó trả về `{ name: "Lydia", age: 22 }`.
+
+</p>
+</details>
+
+---
+
+###### 154. Output là gì?
+
+```javascript
+const createMember = ({ email, address = {}}) => {
+	const validEmail = /.+\@.+\..+/.test(email)
+	if (!validEmail) throw new Error("Valid email pls")
+
+	return {
+		email,
+		address: address ? address : null
+	}
+}
+
+const member = createMember({ email: "my@email.com" })
+console.log(member)
+```
+
+- A: `{ email: "my@email.com", address: null }`
+- B: `{ email: "my@email.com" }`
+- C: `{ email: "my@email.com", address: {} }`
+- D: `{ email: "my@email.com", address: undefined }`
+
+<details><summary><b>Đáp án</b></summary>
+<p>
+
+#### Đáp án: C
+
+Giá trị mặc định của `address` là một object rỗng `{}`. Khi ta cho biến `member` bằng với object được trả về bởi hàm `createMember`, ta đã không truyền vào một giá trị của address, nghĩa là giá trị của address là object rỗng `{}` được mặc định. Object rỗng mang giá trị truthy, tức là điều kiện `address ? address : null` trả về `true`. Giá trị của address là một object rỗng `{}`.
+
+</p>
+</details>
+
+---
+
+###### 155. Output là gì?
+
+```javascript
+let randomValue = { name: "Lydia" }
+randomValue = 23
+
+if (!typeof randomValue === "string") {
+	console.log("It's not a string!")
+} else {
+	console.log("Yay it's a string!")
+}
+```
+
+- A: `It's not a string!`
+- B: `Yay it's a string!`
+- C: `TypeError`
+- D: `undefined`
+
+<details><summary><b>Đáp án</b></summary>
+<p>
+
+#### Đáp án: B
+
+Điều kiện trong mệnh đề `if` kiểm tra xem giá trị của `!typeof randomValue` bằng với `"string"` hay không. Phép toán `!` chuyển giá trị đó thành giá trị boolean. Nếu giá trị là truthy, giá trị trả về sẽ là `false`, nếu giá trị là falsy, giá trị trả về sẽ là `true`. Trong trường hợp này, giá trị trả về của `typeof randomValue` là giá trị truthy `"number"`, nghĩa là giá trị của `!typeof randomValue` là một giá trị boolean `false`.
+
+`!typeof randomValue === "string"` luôn trả về false, vì ta thực sự đang kiểm tra `false === "string"`. Vì điều kiện đã trả về `false`, code của mệnh đề `else` sẽ chạy và `Yay it's a string!` được in ra.
+
+</p>
+</details>
