@@ -4423,3 +4423,35 @@ Object.seal(person);
 
 </p>
 </details>
+
+---
+
+###### 137. Какое из перечисленных действий может модифицировать объект `person`?
+
+```javascript
+const person = {
+  name: 'Lydia Hallie',
+  address: {
+    street: '100 Main St',
+  },
+};
+
+Object.freeze(person);
+```
+
+- A: `person.name = "Evan Bacon"`
+- B: `delete person.address`
+- C: `person.address.street = "101 Main St"`
+- D: `person.pet = { name: "Mara" }`
+
+<details><summary><b>Ответ</b></summary>
+<p>
+
+#### Ответ: C
+
+С помощью метода `Object.freeze` мы можем _заморозить_ объект. Свойства не могут быть добавлены, изменены или удалены.
+
+Однако, это _неглубоко_ замораживает объект. Замораживаются только _непосредственные_ свойства объекта. Если свойством является другой объект(в нашем примере `address`), свойства этого объекта не замораживаются и могут быть изменены.
+
+</p>
+</details>
