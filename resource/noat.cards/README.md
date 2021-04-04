@@ -149,7 +149,7 @@ However, with dot notation, this doesn't happen. `mouse` does not have a key cal
 
 
 
-##### 6. What's the output?
+#### 6. What's the output?
 
 ```javascript
 let c = { greeting: 'Hey!' };
@@ -160,11 +160,11 @@ c.greeting = 'Hello';
 console.log(d.greeting);
 ```
 
-- [ ] `Hello`
+- [x] `Hello`
 - [ ] `Hey!`
 - [ ] `undefined`
 - [ ] `ReferenceError`
-- E: `TypeError`
+- [ ] `TypeError`
 
 ----
 
