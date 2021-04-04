@@ -1,10 +1,9 @@
 <div align="center">
   <img height="60" src="https://img.icons8.com/color/344/javascript.png"> 
   <h1>JavaScript 進階題目列表</h1>
-
 ---
 
-<span>我會在我的 [Instagram](https://www.instagram.com/theavocoder) 上發布關於 JavaScript 的複選題，同時也會更新到這個 Repo 當中。更新日期： <a href=#20191224><b>2019 年 12 月 24 日</b></a>
+<span>我會在我的 [Instagram](https://www.instagram.com/theavocoder) 上發布關於 JavaScript 的複選題，同時也會更新到這個 Repo 當中。更新日期： <a href=#20200612><b>2020 年 06 月 12 日</b></a>
 
 從基礎到進階程度，測試你有多了解 JavaScript，不僅更新你的知識，更能幫助你的 coding 面試！
 :muscle: :rocket: 我每週都會在這個 Repo 中更新新的題目。
@@ -16,6 +15,9 @@
 
   </div>
 
+---
+
+歡迎在項目中使用它們 😃 我 _真的_ 很感激這個repo的參考，我創造了問題和解釋（是的，我很傷心lol），社區幫助我如此之多地維護和改進它！我很喜歡這個repo。 💪🏼 謝謝你，祝你玩得開心!
 
 ---
 
@@ -2046,4 +2048,334 @@ multiply(value);
 </p>
 </details>
   
+---
+
+###### 66. 使用哪個建構式可以成功繼承 Dog 類別？
+
+```javascript
+class Dog {
+  constructor(name) {
+    this.name = name;
+  }
+};
+
+class Labrador extends Dog {
+  // 1
+  constructor(name, size) {
+    this.size = size;
+  }
+  // 2
+  constructor(name, size) {
+    super(name);
+    this.size = size;
+  }
+  // 3
+  constructor(size) {
+    super(name);
+    this.size = size;
+  }
+  // 4
+  constructor(name, size) {
+    this.name = name;
+    this.size = size;
+  }
+
+};
+```
+
+- A: 1
+- B: 2
+- C: 3
+- D: 4
+
+<details><summary><b>答案</b></summary>
+<p>
+
+#### 答案: B
+
+在子類別中，在呼叫 `super` 前不能存取 `this` 關鍵字，如果你這麼做，它將拋出一個 `ReferenceError`，建構式1與4會引發這個錯誤。
+
+使用 `super` 關鍵字時，我們要提供參數給父類別呼叫其建構式。父類別需要接受一個 `name` 參數，所以我們需要把 `name` 傳給 `super`。
+
+`Labrador` 類別接收兩個參數， `name` 參數是由於它繼承了 `Dog` ， `size` 作為`Labrador` 類的額外屬性，它們都需要傳遞給 `Labrador` 的建構式，因此使用建構式2是正確答案。
+
+</p>
+</details>
+
+---
+
+###### 67. 將會輸出什麽內容？
+
+```javascript
+// index.js
+console.log('running index.js');
+import { sum } from './sum.js';
+console.log(sum(1, 2));
+
+// sum.js
+console.log('running sum.js');
+export const sum = (a, b) => a + b;
+```
+
+- A: `running index.js`, `running sum.js`, `3`
+- B: `running sum.js`, `running index.js`, `3`
+- C: `running sum.js`, `3`, `running index.js`
+- D: `running index.js`, `undefined`, `running sum.js`
+
+<details><summary><b>答案</b></summary>
+<p>
+
+#### 答案: B
+
+`import` 命令是 _編譯階段_ 執行的。這代表被引入的模組會優先執行，而引入模組的檔案會 _之後執行_。
+
+這是 `CommonJS` 中 `require()` 和 `import` 之間的區別！使用 `require()`，您可以在執行程式時根據需要戴入依賴的項目。如果我們使用 `require` 而不是 `import` 來執行此題， 結果將會依 `running index.js`，`running sum.js`，`3` 的順序輸出。
+
+</p>
+</details>
+
+---
+###### 68. 將會輸出什麽內容？
+
+```javascript
+console.log(Number(2) === Number(2));
+console.log(Boolean(false) === Boolean(false));
+console.log(Symbol('foo') === Symbol('foo'));
+```
+
+- A: `true`, `true`, `false`
+- B: `false`, `true`, `false`
+- C: `true`, `false`, `true`
+- D: `true`, `true`, `true`
+
+<details><summary><b>答案</b></summary>
+<p>
+
+#### 答案: A
+
+每個 Symbol 都是完全唯一的。傳遞給 Symbol 的參數只是給 Symbol 的一個描述。 Symbol 的值不依賴於傳遞的參數。當我們建立兩個全新的 Symbol 去比較時：第一個`Symbol('foo')`，第二個`Symbol('foo')`, 因這兩個值是唯一的，彼此不相等，因此 `Symbol('foo') === Symbol('foo')` 會得到 `false`。
+
+</p>
+</details>
+
+---
+
+###### 69. 將會輸出什麽內容？
+
+```javascript
+const name = 'Lydia Hallie';
+console.log(name.padStart(13));
+console.log(name.padStart(2));
+```
+
+- A: `"Lydia Hallie"`, `"Lydia Hallie"`
+- B: `" Lydia Hallie"`, `" Lydia Hallie"` (`"[13x whitespace]Lydia Hallie"`, `"[2x whitespace]Lydia Hallie"`)
+- C: `" Lydia Hallie"`, `"Lydia Hallie"` (`"[1x whitespace]Lydia Hallie"`, `"Lydia Hallie"`)
+- D: `"Lydia Hallie"`, `"Lyd"`,
+
+<details><summary><b>答案</b></summary>
+<p>
+
+#### 答案: C
+
+使用 `padStart` 函數，我們可以在字串的前面加上填充字串。傳遞給此函數的參數是字串的總長度（包含填充字串）。字串 Lydia Hallie 的長度為 `12` , 因此 `name.padStart(13)` 在字串的開頭只會插入1個空格，因為 12 + 1 等於 13。
+
+如果傳給 `padStart` 函數的參數小於字串的長度，則不會加上填充字串。
+
+</p>
+</details>
+
+---
+
+###### 70. 將會輸出什麽內容？
+
+```javascript
+console.log('🥑' + '💻');
+```
+
+- A: `"🥑💻"`
+- B: `257548`
+- C: 一個包含碼位(code point)的字串
+- D: 錯誤
+
+<details><summary><b>答案</b></summary>
+<p>
+
+#### 答案: A
+
+使用 `+` 運算元，你可以連接字串。在此例，我們將字串“🥑”與字串”💻“連接起來，產生”🥑💻“。
+
+</p>
+</details>
+
+---
+
+###### 71. /* 1 */ 與 /* 2 */ 該填入什麼才能輸出 console.log 之後的值？
+
+```javascript
+function* startGame() {
+  const answer = yield '你喜歡 JavaScript 嗎?';
+  if (answer !== 'Yes') {
+    return "哦，我想我們該走了";
+  }
+  return 'JavaScript 也愛你 ❤️';
+}
+
+const game = startGame();
+console.log(/* 1 */); // 你喜歡 JavaScript 嗎?
+console.log(/* 2 */); // JavaScript 也愛你 ❤️
+```
+
+- A: `game.next("Yes").value` and `game.next().value`
+- B: `game.next.value("Yes")` and `game.next.value()`
+- C: `game.next().value` and `game.next("Yes").value`
+- D: `game.next.value()` and `game.next.value("Yes")`
+
+<details><summary><b>答案</b></summary>
+<p>
+
+#### 答案: C
+
+`generator` 函數在遇到 yield 關鍵字時會 “暫停” 執行。首先，我們需要讓函數產生字串 "你喜歡 JavaScript 嗎?"，這可以透過呼叫 `game.next().value` 來完成。
+
+`startGame()` 函數會一行一行執行直到遇到 `yield` 關鍵字，在函數裡第一個就有一個 `yield` 關鍵字：所以執行到第一行就停止了！ _此時answer變數還尚未定義_
+
+當我們呼叫 `game.next("Yes").value`，前一個 `yield` 被傳遞給 `next()` 的參數值所取代。此例我們使用 `Yes`。變數 `answer` 的值現在等於 `Yes`。 if 語句的條件返回 `false`，並且會返回 `JavaScript 也愛你 ❤️` 。
+
+</p>
+</details>
+
+---
+
+###### 72. 將會輸出什麽內容？
+
+```javascript
+console.log(String.raw`Hello\nworld`);
+```
+
+- A: `Hello world!`
+- B: `Hello` <br />&nbsp; &nbsp; &nbsp;`world`
+- C: `Hello\nworld`
+- D: `Hello\n` <br /> &nbsp; &nbsp; &nbsp;`world`
+
+<details><summary><b>答案</b></summary>
+<p>
+
+#### 答案: C
+
+`String.raw`會回傳一個字串，其中轉義符(`/n`, `/v`, `/t`等)被忽略! 反斜線可能是一個問題，因為你可能會有這樣的結果。
+
+`const path = "C:\Documents\Projects\table.html"`。
+
+將會得到：
+
+`C:DocumentsProjects able.html`
+
+如果使用`String.raw`，它將直接忽略轉譯並輸出。
+
+`C:\Documents\Projects\table.html`。
+
+在這種情況下，字串會以 "Hello\nworld"，被記錄下來。
+
+</p>
+</details>
+
+---
+
+###### 73. 將會輸出什麽內容？
+
+```javascript
+async function getData() {
+  return await Promise.resolve('I made it!');
+}
+
+const data = getData();
+console.log(data);
+```
+
+- A: `"I made it!"`
+- B: `Promise {<resolved>: "I made it!"}`
+- C: `Promise {<pending>}`
+- D: `undefined`
+
+<details><summary><b>答案</b></summary>
+<p>
+
+#### 答案: C
+
+一個異步函數總是返回一個 promise 。 `await` 仍然要等待 promise 的 resolve：當我們呼叫 `getData()` 等於 `data` 時，會得到一個等待的 promise。
+
+如果我們想獲取 resolve 後的值`"I made it"`，我們可以在`data`上使用`.then()`函數：
+
+`data.then(res => console.log(res))`。
+
+這樣就會出現 `"I made it!"` 的記錄。
+
+</p>
+</details>
+
+---
+
+###### 74. 將會輸出什麽內容？
+
+```javascript
+function addToList(item, list) {
+  return list.push(item);
+}
+
+const result = addToList('apple', ['banana']);
+console.log(result);
+```
+
+- A: `['apple', 'banana']`
+- B: `2`
+- C: `true`
+- D: `undefined`
+
+<details><summary><b>答案</b></summary>
+<p>
+
+#### 答案: B
+
+`.push()`函數回傳的是陣列的長度！原本陣列包含一個元素（字串`"香蕉"`），長度為`1`。後來將字串 `"apple"` 加到陣列中後，陣列包含兩個元素。所以會從`addToList`函數中得到，長度為 `"2"`。
+
+`push`函數修改了原來的陣列。如果你想從函數中返回 _陣列_ 而不是 _陳列的長度_ ，你應該在加完`item`到陣列後，回傳`list`。
+
+</p>
+</details>
+
+---
+
+###### 75. 將會輸出什麽內容？
+
+```javascript
+const box = { x: 10, y: 20 };
+
+Object.freeze(box);
+
+const shape = box;
+shape.x = 100;
+
+console.log(shape);
+```
+
+- A: `{ x: 100, y: 20 }`
+- B: `{ x: 10, y: 20 }`
+- C: `{ x: 100 }`
+- D: `ReferenceError`
+
+<details><summary><b>答案</b></summary>
+<p>
+
+#### 答案: B
+
+`Object.freeze` 使我們無法增加、刪除或修改Object的屬性（除非該屬性的值是另一個Object）。
+
+當我們建立變數`shape`並等同被凍結的Object`box`時，`shape`也是指一個被凍結的Object。你可以透過使用`Object.isFrozen`檢查一個Object是否被凍結。在這種情況下，`Object.isFrozen(shape)`回傳true，因為變數`shape`也指向一個凍結Object。
+
+由於`shape`是被凍結的，而且`x`的值不是一個Object，所以我們不能修改`x`的屬性。 `x`仍然等於`10`，於是`{ x: 10, y: 20 }`被記錄下來。
+
+</p>
+</details>
+
 ---
