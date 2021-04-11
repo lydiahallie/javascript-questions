@@ -90,22 +90,20 @@ for (let i = 0; i < 3; i++) {
 }
 ```
 
-- A: `0 1 2` and `0 1 2`
-- B: `0 1 2` and `3 3 3`
-- C: `3 3 3` and `0 1 2`
-
+- A: `0 1 2` , `0 1 2`
+- B: `0 1 2` , `3 3 3`
+- C: `3 3 3` , `0 1 2`
+<div dir='rtl'>
 <details><summary><b>پاسخ</b></summary>
 <p>
 
 #### پاسخ: C
 
-Because of the event queue in JavaScript, the `setTimeout` callback function is called _after_ the loop has been executed. Since the variable `i` in the first loop was declared using the `var` keyword, this value was global. During the loop, we incremented the value of `i` by `1` each time, using the unary operator `++`. By the time the `setTimeout` callback function was invoked, `i` was equal to `3` in the first example.
-
-In the second loop, the variable `i` was declared using the `let` keyword: variables declared with the `let` (and `const`) keyword are block-scoped (a block is anything between `{ }`). During each iteration, `i` will have a new value, and each value is scoped inside the loop.
-
+در جاوااسکریپت هنگام استفاده از `setTimeout`، تابع کال‌بک (callback function) فراخوانی شده و پس از حلقه اجرا می‌شود. از آنجایی که متغیر `i` در اولین حلقه با کلمه کلیدی `var` تعریف شده، مقدار آن به صورت سراسری است. در داخل حلقه مقدار `i` با استفاده از عملگر `++` هربار `1` تا افزایش می‌یابد.زمانی که تابع کال‌بک در `setTimeout` فراخوانی شده، مقدار `i` برابر با `3` است.
+در حلقه دوم متغیر `i` با کلمه کلیدی `let` تعریف شده: در حالتی که متغیر (یا ثابت) را با `let` یا `const` تعریف می‌کنیم، اسکوپ‌ها باعث میشوند که مقدار متغیر فقط در همان اسکوپ در دسترس باشد و `i` در هربار تکرار حلقه مقداری جدید خواهد داشت و هرمقدار در اسکوپ مخصوص به خود در دسترس خواهد بود(در اینجا مقادیر به اصطلاح کپچر می‌شوند) و مقدار `i` را بر اساس زمانی که `setTimeout` فراخوانی شده چاپ می‌کند.
 </p>
 </details>
-
+</div>
 ---
 
 ###### 3. خروجی چیست?
