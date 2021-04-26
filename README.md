@@ -316,7 +316,7 @@ console.log(greeting);
 ```
 
 - A: `{}`
-- B: `ReferenceError: greetign is not defined`
+- B: `ReferenceError: greeting is not defined`
 - C: `undefined`
 
 <details><summary><b>Answer</b></summary>
