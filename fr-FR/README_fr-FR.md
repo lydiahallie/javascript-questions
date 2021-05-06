@@ -175,7 +175,7 @@ const mouse = {
 
 En JavaScript, toutes les clés d'objet sont des chaînes de caractères (sauf si c'est un Symbol). Bien que nous ne puissions pas les _typer_ comme des chaînes de caractères, elles sont converties en chaînes de caractères sous le capot.
 
-JavaScript interprète (ou décompresse) les instructions. Lorsque nous utilisons la notation pas crochet, il voit le premier crochet `[` et continue jusqu'à ce qu'il trouve le crochet fermant `]`. Seulement après, il évalue l'instruction.
+JavaScript interprète (ou décompresse) les instructions. Lorsque nous utilisons la notation par crochet, il voit le premier crochet `[` et continue jusqu'à ce qu'il trouve le crochet fermant `]`. Seulement après, il évalue l'instruction.
 
 `mouse[bird.size]` : Premièrement, il évalue `bird.size`, qui est `"small"`. `mouse["small"]` retourne `true`.
 
