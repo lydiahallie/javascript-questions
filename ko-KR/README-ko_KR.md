@@ -2802,8 +2802,8 @@ import * as data from "./module"
 console.log(data)
 ```
 
-- A: `{ default: function default(), name: "Lydia" }`
-- B: `{ default: function default() }`
+- A: `{ default: [Function (anonymous)], name: "Lydia" }`
+- B: `{ default: [Function (anonymous)] }`
 - C: `{ default: "Hello world", name: "Lydia" }`
 - D: Global object of `module.js`
 
