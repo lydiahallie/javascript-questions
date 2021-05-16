@@ -145,8 +145,8 @@ There is no value `radius` on that object, which returns `NaN`.
 ###### 4. What's the output?
 
 ```javascript
-+true;
-!'Lydia';
+console.log(+true);
+console.log(!'Lydia');
 ```
 
 - A: `1` and `false`
