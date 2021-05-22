@@ -3860,7 +3860,7 @@ With the optional chaining operator `?.`, we no longer have to explicitly check 
 `person.pet?.name`: `person` has a property named `pet`: `person.pet` is not nullish. It has a property called `name`, and returns `Mara`.
 `person.pet?.family?.name`: `person` has a property named `pet`: `person.pet` is not nullish. `pet` does _not_ have a property called `family`, `person.pet.family` is nullish. The expression returns `undefined`.
 `person.getFullName?.()`: `person` has a property named `getFullName`: `person.getFullName()` is not nullish and can get invoked, which returns `Lydia Hallie`.
-`member.getLastName?.()`: `member` is not defined: `member.getLastName()` is nullish. The expression returns `undefined`.
+`member.getLastName?.()`: variable `member` is non existent therefore a `ReferenceError` gets thrown!
 
 </p>
 </details>
