@@ -417,7 +417,7 @@ console.log(sarah);
 
 `sarah`에게 `new` 키워드를 사용하지 않았어요. `new`를 사용한 경우, 이것은 우리가 만든 새로운 빈 객체를 참조해요. 그러나, `new`를 추가하지 않으면 **전역변수**를 참조해요!
 
-`this.firstName`은 `"Sarah"`이고, `this.lastName`은 `"Smith"`이리고 말했었어요. (그렇지만) 우리는 실제로 한 일은 `global.firstName = 'Sarah'` 그리고 `global.lastName = 'Smith'`를 정의하는 것이에요. `sarah` 자체는 `undefined`로 남아있어요. 따라서 `Person`함수의 값을 리턴하지 않아요.
+`this.firstName`은 `"Sarah"`이고, `this.lastName`은 `"Smith"`이라고 말했었어요. (그렇지만) 우리가 실제로 한 일은 `global.firstName = 'Sarah'` 그리고 `global.lastName = 'Smith'`를 정의하는 것이에요. `sarah` 자체는 `undefined`로 남아있어요. 따라서 `Person`함수의 값을 리턴하지 않아요.
 
 </p>
 </details>
@@ -2802,8 +2802,8 @@ import * as data from "./module"
 console.log(data)
 ```
 
-- A: `{ default: function default(), name: "Lydia" }`
-- B: `{ default: function default() }`
+- A: `{ default: [Function (anonymous)], name: "Lydia" }`
+- B: `{ default: [Function (anonymous)] }`
 - C: `{ default: "Hello world", name: "Lydia" }`
 - D: Global object of `module.js`
 
