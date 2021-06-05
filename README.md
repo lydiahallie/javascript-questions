@@ -299,7 +299,7 @@ console.log(freddie.colorChange('orange'));
 
 #### Answer: D
 
-The `colorChange` function is static. Static methods are designed to live only on the constructor in which they are created, and cannot be passed down to any children. Since `freddie` is a child, the function is not passed down, and not available on the `freddie` instance: a `TypeError` is thrown.
+The `colorChange` function is static. Static methods are designed to live only on the constructor in which they are created, and cannot be called on class objects. Since `freddie` is an object of class Chameleon, the function cannot be called upon it, and not available on the `freddie` instance: a `TypeError` is thrown.
 
 </p>
 </details>
