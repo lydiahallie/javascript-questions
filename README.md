@@ -1063,7 +1063,7 @@ console.log(typeof sayHi());
 
 The `sayHi` function returns the returned value of the immediately invoked function expression (IIFE). This function returned `0`, which is type `"number"`.
 
-FYI: there are only 7 built-in types: `null`, `undefined`, `boolean`, `number`, `string`, `object`, and `symbol`. `"function"` is not a type, since functions are objects, it's of type `"object"`.
+FYI: there are 8 built-in types:  `undefined`, `Boolean`, `Number`, `String`, `BigInt`, `Symbol`,`object` and `"function"`.  Note that null is a structural root primitive, but not a type.
 
 </p>
 </details>
