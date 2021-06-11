@@ -467,7 +467,15 @@ During the **capturing** phase, the event goes through the ancestor elements dow
 
 #### Answer: B
 
-All objects have prototypes, except for the **base object**. The base object is the object created by the user, or an object that is created using the `new` keyword. The base object has access to some methods and properties, such as `.toString`. This is the reason why you can use built-in JavaScript methods! All of such methods are available on the prototype. Although JavaScript can't find it directly on your object, it goes down the prototype chain and finds it there, which makes it accessible for you.
+Almost all objects have prototypes, except for the **bare object**. The bare object is an object that is created intentionally without a prototype. 
+
+```
+const obj = Object.create(null)
+console.log(Object.getPrototypeOf(obj)) // null
+```
+All other objects created have a prototype which delegates to `Object.prototype`. Note all built-in object methods are found on the `Object.prototype`. When trying to access built-in object methods although JavaScript can't find it directly on your object, it goes down the prototype chain and finds it there, which makes it accessible for you. This is the reason why you can use built-in JavaScript methods on any object! 
+
+The fact that the bare object does not have a prototype means it does not have access to the built in methods available to all other objects. 
 
 </p>
 </details>
