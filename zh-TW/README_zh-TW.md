@@ -2379,3 +2379,32 @@ console.log(shape);
 </details>
 
 ---
+
+###### 76. 將會輸出什麽內容？
+
+```javascript
+const { name: myName } = { name: "Lydia" };
+
+console.log(name);
+```
+
+- A: `"Lydia"`
+- B: `"myName"`
+- C: `undefined`
+- D: `ReferenceError`
+
+<details><summary><b>答案</b></summary>
+<p>
+
+#### 答案: D
+
+當我們從右側的物件解構屬性`name`時，我們將其值`Lydia`分配給名為`myName`的變數。
+
+使用`{name：myName}`，我們是在告訴JavaScript我們要建立一個名為`myName`的新變數，並且其值是右側物件的`name`屬性的值。
+
+當我們嘗試輸出`name`，一個未定義的變數時，就會引發`ReferenceError`。
+
+</p>
+</details>
+
+---
