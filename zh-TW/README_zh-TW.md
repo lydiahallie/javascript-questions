@@ -1434,7 +1434,7 @@ for (const item in person) {
 
 #### 答案: B
 
-通過 `for-in` 循環，我們可以遍歷對象的鍵，在這個題目中的鍵是 `name` 和 `age`。 在內部，對象鍵是字串(strings)（如果它們不是 Symbol）。
+通過 `for-in` 循環，我們可以遍歷物件的鍵，在這個題目中的鍵是 `name` 和 `age`。 在內部，物件鍵是字串(strings)（如果它們不是 Symbol）。
 在每次循環中，我們將 `item` 的值設置為等於其迭代的當前鍵。 第一輪循環中，`item` 等於 `name`，並輸出內容。 接著， `item` 等於 `age`，並輸出內容。
 
 </p>
@@ -2403,6 +2403,88 @@ console.log(name);
 使用`{name：myName}`，我們是在告訴JavaScript我們要建立一個名為`myName`的新變數，並且其值是右側物件的`name`屬性的值。
 
 當我們嘗試輸出`name`，一個未定義的變數時，就會引發`ReferenceError`。
+
+</p>
+</details>
+
+---
+
+###### 77. 以下是純函數嗎?
+
+```javascript
+function sum(a, b) {
+  return a + b;
+}
+```
+
+- A: Yes
+- B: No
+
+<details><summary><b>答案</b></summary>
+<p>
+
+#### 答案: B
+
+純函數一種若輸入參數相同，則永遠會得到相同輸出的函數。
+
+在特定情況下，即使輸入相同參數，也不能得到相同的返回值：
+
+<pre>
+var a = b = {}
+a[Symbol.toPrimitive] = b[Symbol.toPrimitive] = () => Math.random()
+sum(a, b) // Uncertain
+</pre>
+
+所以它不是純函數。
+
+</p>
+</details>
+
+---
+
+###### 78. 將會輸出什麽內容？
+
+```javascript
+const add = () => {
+  const cache = {};
+  return num => {
+    if (num in cache) {
+      return `From cache! ${cache[num]}`;
+    } else {
+      const result = num + 10;
+      cache[num] = result;
+      return `Calculated! ${result}`;
+    }
+  };
+};
+
+const addFunction = add();
+console.log(addFunction(10));
+console.log(addFunction(10));
+console.log(addFunction(5 * 2));
+```
+
+- A: `Calculated! 20` `Calculated! 20` `Calculated! 20`
+- B: `Calculated! 20` `From cache! 20` `Calculated! 20`
+- C: `Calculated! 20` `From cache! 20` `From cache! 20`
+- D: `Calculated! 20` `From cache! 20` `Error`
+
+<details><summary><b>答案</b></summary>
+<p>
+
+#### 答案: C
+
+`add`函數是一個記憶函數。通過記憶化，我們可以暫存函數的結果，以加快其執行速度。上述情況，我們建立一個`cache`物件，用於存儲先前存過的值。
+
+如果我們使用相同的參數多次呼叫`addFunction`函數，它首先檢查暫存中是否已有該值，如果有，則回傳暫存值，節省執行時間。如果沒有，那麼它將計算該值，並存儲在暫存中。
+
+我們用相同的值三次呼叫了`addFunction`函數：
+
+在第一次呼叫，`num`等於`10`時函數的值尚未暫存，if語句`num in cache`回傳`false`，else塊的代碼被執行：`Calculated! 20`，並且其結果被添加到暫存物件，`cache`現在看起來像`{10：20}`。
+
+第二次，`cache`物件包含`10`的回傳值。 if語句 `num in cache` 回傳`true`，印出`From cache! 20`。
+
+第三次，我們將`5 * 2`(值為10)傳遞給函數。 `cache`物件包含`10`的回傳值。 if語句 `num in cache` 回傳`true`，印出`From cache! 20`。
 
 </p>
 </details>
