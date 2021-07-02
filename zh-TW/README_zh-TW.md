@@ -1594,7 +1594,7 @@ sayHi();
 #### 答案: D
 
 使用 `throw` 語句，我們可以建立自定義的錯誤。 使用此語句，您可以觸發例外(exception)。例外可以是 `<b>string</ b>`，`<b>number</ b>`，`<b>boolean</ b>` 或 `<b>object</ b>`。 
-在這種情況下，我們的例外是字符串 `Hello world`。
+在這種情況下，我們的例外是字串 `Hello world`。
 
 通過 `catch` 語句，我們可以指定如果在 `try` 的程式區塊中拋出例外時該怎麼辦。 例如拋出例外：字串 `'Hello world'`。 
 現在， `e` 等於我們記錄的字串。 因此輸出結果將會是 `'Oh an error: Hello world'`。
@@ -2649,7 +2649,7 @@ console.log(person)
 
 請注意，我們沒有引用`person`物件本身，只是將變數`city`設置為等於`person`物件上`city`屬性的當前值。
 
-然後，我們將`city`設置為等於字符串`“Amsterdam”`。這不會更改person物件：沒有對該物件的引用。
+然後，我們將`city`設置為等於字串`“Amsterdam”`。這不會更改person物件：沒有對該物件的引用。
 
 因此輸出`person`物件時，會返回未修改的物件。
 
@@ -2798,6 +2798,37 @@ test() // Uncaught ReferenceError: Cannot access 'n' before initialization
 test(3) // 3 2
 test(3, 4) // 3 4
 ```
+
+</p>
+</details>
+
+---
+###### 89. 將會輸出什麽內容？
+
+```javascript
+// module.js 
+export default () => "Hello world"
+export const name = "Lydia"
+
+// index.js 
+import * as data from "./module"
+
+console.log(data)
+```
+
+- A: `{ default: function default(), name: "Lydia" }`
+- B: `{ default: function default() }`
+- C: `{ default: "Hello world", name: "Lydia" }`
+- D: Global object of `module.js`
+
+<details><summary><b>答案</b></summary>
+<p>
+
+#### 答案: A
+
+使用`import * as name`語法，我們將`module.js`文件中所有`export`匯入到`index.js`文件中，並且建立了一個名為`data`的新物件。在`module.js`文件中，有兩個匯出：預設匯出和命名匯出。預設匯出是一個返回字串“Hello World”的函數，命名匯出是一個名為`name`的變數，其值為字串`“Lydia”`。
+
+`data`物件具有預設匯出的`default`屬性，其他屬性具有指定exports的名稱及其對應的值。
 
 </p>
 </details>
