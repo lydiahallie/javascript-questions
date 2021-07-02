@@ -2552,3 +2552,35 @@ console.log(list)
 </details>
 
 ---
+###### 81. 將會輸出什麽內容？
+
+```javascript
+function sayHi(name) {
+  return `Hi there, ${name}`
+}
+
+console.log(sayHi())
+```
+
+- A: `Hi there, `
+- B: `Hi there, undefined`
+- C: `Hi there, null`
+- D:  `ReferenceError`
+
+<details><summary><b>答案</b></summary>
+<p>
+
+#### 答案: B
+
+預設情況下，如果不傳參數給函數，函數內參數的值將為`undefined`。上述情況，我們沒有給參數`name`傳值。 `name`等於`undefined`，並被印出。
+
+在ES6中，我們可以使用預設參數覆蓋此預設的`undefined`值。例如：
+
+`function sayHi（name =“Lydia”）{...}`
+
+在這種情況下，如果我們沒有傳遞值或者如果我們傳遞`undefined`，`name`總是等於字符`Lydia`
+
+</p>
+</details>
+
+---
