@@ -3106,3 +3106,43 @@ console.log(Object.keys(info))
 </details>
 
 ---
+###### 98. 將會輸出什麽內容？
+
+```javascript
+const getList = ([x, ...y]) => [x, y]
+const getUser = user => { name: user.name, age: user.age }
+
+const list = [1, 2, 3, 4]
+const user = { name: "Lydia", age: 21 }
+
+console.log(getList(list))
+console.log(getUser(user))
+```
+
+- A: `[1, [2, 3, 4]]` and `undefined`
+- B: `[1, [2, 3, 4]]` and `{ name: "Lydia", age: 21 }`
+- C: `[1, 2, 3, 4]` and `{ name: "Lydia", age: 21 }`
+- D: `Error` and `{ name: "Lydia", age: 21 }`
+
+<details><summary><b>答案</b></summary>
+<p>
+
+#### 答案: A
+
+`getList`函數接收一個陣列作為其參數。在`getList`函數的括號之間，我們立即解構這個陣列。您可以這樣表達：
+
+ `[x, ...y] = [1, 2, 3, 4]`
+
+
+使用剩餘的參數`... y`，我們將所有剩餘參數放在一個陣列中。在這種情況下，其餘的參數是`2`，`3`和`4`。 `y`的值是一個陣列，包含所有其餘參數。在這種情況下，`x`的值等於`1`，所以當我們輸出`[x，y]`時，會輸出`[1，[2,3,4]]`。
+
+ `getUser`函數接收一個物件。對於箭頭函數，如果只回傳一個值，我們不必編寫大括號。但是，如果您想從一個箭頭函數回傳一個物件，您必須在小括號之間編寫它，否則不會回傳任何值!下面的函數將回傳一個物件:
+
+```const getUser = user => ({ name: user.name, age: user.age })```
+
+由於在這種情況下不回傳任何值，因此該函數回傳`undefined`。
+
+</p>
+</details>
+
+---
