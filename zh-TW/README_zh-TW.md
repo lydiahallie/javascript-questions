@@ -3076,3 +3076,33 @@ console.log(member.name)
 </details>
 
 ---
+###### 97. 將會輸出什麽內容？
+
+```javascript
+const info = {
+  [Symbol('a')]: 'b'
+}
+
+console.log(info)
+console.log(Object.keys(info))
+```
+
+- A: `{Symbol('a'): 'b'}` and `["{Symbol('a')"]`
+- B: `{}` and `[]`
+- C: `{ a: "b" }` and `["a"]`
+- D: `{Symbol('a'): 'b'}` and `[]`
+
+<details><summary><b>答案</b></summary>
+<p>
+
+#### 答案: D
+
+
+`Symbol`類型是不可枚舉的。 `Object.keys`函數回傳物件上的所有可枚舉的鍵屬性。 `Symbol`類型是不可見的，並返回一個空陣列。記錄整個物件時，所有屬性都是可見的，甚至是不可枚舉的屬性。
+
+這是`Symbol`的眾多特性之一：除了表示完全唯一的值（防止物件意外名稱衝突，例如當使用2個想要向同一物件添加屬性的庫時），您還可以`隱藏`這種方式物件的屬性（儘管不完全。你仍然可以使用`Object.getOwnPropertySymbols()`函數存取`Symbol`。
+
+</p>
+</details>
+
+---
