@@ -2731,7 +2731,7 @@ function getName(name) {
 
 #### 答案: A
 
-使用邏輯非運算符`!`，將返回一個布林值，使用`!! name`，我們可以確定`name`的值是`true`還是`false`。如果`name`是`true`，那麼`!name`返回`false`。 `!false`返回`true`。
+使用邏輯非運算子`!`，將返回一個布林值，使用`!! name`，我們可以確定`name`的值是`true`還是`false`。如果`name`是`true`，那麼`!name`返回`false`。 `!false`返回`true`。
 
 通過將`hasName`設置為`name`，可以將`hasName`設置為等於傳遞給`getName`函數的值，而不是布林值`true`。
 
@@ -3195,7 +3195,7 @@ You should${'' && `n't`} see a therapist after so much JavaScript lol`
 #### 答案: B
 
 
-`[]`是一個真值。使用`&&`運算符，如果左側值是真值，則回傳右側值。在這種情況下，左側值`[]`是一個真值，所以回傳`Im`。
+`[]`是一個真值。使用`&&`運算子，如果左側值是真值，則回傳右側值。在這種情況下，左側值`[]`是一個真值，所以回傳`Im`。
 
 `""`是一個假值。如果左側值是假的，則不回傳任何內容。 `n't`不會被退回。
 
@@ -3273,6 +3273,42 @@ secondFunction()
 
 在`secondFunction`函數中，我們通過`await`關鍵字，暫停了後面程式的執行，直到異步函數的值被解析才開始後面程式的執行。這意味著，它會等著直到 `myPromise` 以值`I have resolved`被`resolve`之後，下一行`second`才開始執行。
 
+
+</p>
+</details>
+
+---
+###### 103. 將會輸出什麽內容？
+
+```javascript
+const set = new Set()
+
+set.add(1)
+set.add("Lydia")
+set.add({ name: "Lydia" })
+
+for (let item of set) {
+  console.log(item + 2)
+}
+```
+
+- A: `3`, `NaN`, `NaN`
+- B: `3`, `7`, `NaN`
+- C: `3`, `Lydia2`, `[Object object]2`
+- D: `"12"`, `Lydia2`, `[Object object]2`
+
+<details><summary><b>答案</b></summary>
+<p>
+
+#### 答案: C
+
+“+”運算子不僅用於相加數字，還可以使用它來連接字串。每當JavaScript引擎發現一個或多個值不是數字時，就會將數字強制為字串。
+
+第一個是數字1。 1 + 2得到數字3。
+
+但是，第二個是字串“Lydia”。 “Lydia”是一個字串，2是一個數字：2被強制轉換為字串。 “Lydia”和“2”被連接起來，產生字串“Lydia2”。
+
+`{name：“ Lydia”}`是一個物件。數字和物件都不是字串，因此將二者都字串化。每當我們對正規式物件進行字串化時，它就會變成`[Object object]`。與“2”串聯的“ [Object object]”成為“[Object object]2”。
 
 </p>
 </details>
