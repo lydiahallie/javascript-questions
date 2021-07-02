@@ -2996,3 +2996,46 @@ getItems(["banana", "apple"], "pear", "orange")
 </details>
 
 ---
+###### 95. 將會輸出什麽內容？
+
+```javascript
+function nums(a, b) {
+  if
+  (a > b)
+  console.log('a is bigger')
+  else 
+  console.log('b is bigger')
+  return 
+  a + b
+}
+
+console.log(nums(4, 2))
+console.log(nums(1, 2))
+```
+
+- A: `a is bigger`, `6` and `b is bigger`, `3`
+- B: `a is bigger`, `undefined` and `b is bigger`, `undefined`
+- C: `undefined` and `undefined`
+- D: `SyntaxError`
+
+<details><summary><b>答案</b></summary>
+<p>
+
+#### 答案: B
+
+
+在JavaScript中，我們不必硬性寫分號(`;`)，但是JavaScript引擎仍然在語法之後自動補上分號。這稱為**自動分號插入**。例如，一個語法可以是變數，或者像`throw`、`return`、`break`這樣的關鍵字。
+
+在這裡，我們在新的一行上寫了一個`return`語法和另一個值`a + b `。然而，由於它是一個新的一行，引擎並不知道它實際上是我們想要回傳的值。相反，它會在`return`後面自動補上分號。你可以這樣看:
+
+```javascript
+  return;
+  a + b
+```
+
+這意味著永遠不會到達`a + b`，因為函數在`return`關鍵字之後停止運行。如果沒有回傳值，就像這裡，函數回傳`undefined`。注意，在`if/else`語法之後沒有自動插入!
+
+</p>
+</details>
+
+---
