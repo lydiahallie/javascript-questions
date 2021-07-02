@@ -2834,3 +2834,40 @@ console.log(data)
 </details>
 
 ---
+###### 90. 將會輸出什麽內容？
+
+```javascript
+class Person {
+  constructor(name) {
+    this.name = name
+  }
+}
+
+const member = new Person("John")
+console.log(typeof member)
+```
+
+- A: `"class"`
+- B: `"function"`
+- C: `"object"`
+- D: `"string"`
+
+<details><summary><b>答案</b></summary>
+<p>
+
+#### 答案: C
+
+class是建構函數的語法糖，如果用建構函數的方式來重寫`Person`class則會是：
+
+```javascript
+function Person() {
+  this.name = name
+}
+```
+
+透過`new`來呼叫建構函數，將會產生建構函數`Person`的實例，對實例執行`typeof`關鍵字將返回`"object"`，上述情況輸出`"object"`。
+
+</p>
+</details>
+
+---
