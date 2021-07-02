@@ -3146,3 +3146,32 @@ console.log(getUser(user))
 </details>
 
 ---
+###### 99. 將會輸出什麽內容？
+
+```javascript
+const name = "Lydia"
+
+console.log(name())
+```
+
+- A: `SyntaxError`
+- B: `ReferenceError`
+- C: `TypeError`
+- D: `undefined`
+
+<details><summary><b>答案</b></summary>
+<p>
+
+#### 答案: C
+
+變數`name`保存字串的值，該字串不是函數，因此無法呼叫。
+
+當值不是預期類型時，會拋出`TypeErrors`。 JavaScript期望`name`是一個函數，因為我們試圖呼叫它。但它是一個字串，因此拋出`TypeError`：`name is not a function`
+
+當你編寫了一些非有效的JavaScript時，會拋出語法錯誤，例如當你把`return`這個詞寫成`retrun`時。
+當JavaScript無法找到您嘗試存取的值的引用時，拋出`ReferenceErrors`。
+
+</p>
+</details>
+
+---
