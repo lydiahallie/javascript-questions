@@ -2926,3 +2926,38 @@ console.log(giveLydiaChocolate.prototype)
 </details>
 
 ---
+###### 93. 將會輸出什麽內容？
+
+```javascript
+const person = {
+  name: "Lydia",
+  age: 21
+}
+
+for (const [x, y] of Object.entries(person)) {
+  console.log(x, y)
+}
+```
+
+- A: `name` `Lydia` and `age` `21`
+- B: `["name", "Lydia"]` and `["age", 21]` 
+- C: `["name", "age"]` and `undefined`
+- D: `Error`
+
+<details><summary><b>答案</b></summary>
+<p>
+
+#### 答案: A
+`Object.entries()`函數回傳一個給定物件本身可枚舉屬性的鍵值對陣列，上述情況回傳一個二維陣列，陣列每個元素是一個包含鍵和值的陣列：
+
+`[['name'，'Lydia']，['age'，21]]`
+
+使用`for-of`循環，我們可以迭代陣列中的每個元素，上述情況是子陣列。我們可以使用`const [x，y]`在`for-of`循環中解構子陣列。 `x`等於子陣列中的第一個元素，`y`等於子陣列中的第二個元素。
+
+第一個子陣列是`[“name”，“Lydia”]`，其中`x`等於`name`，而`y`等於`Lydia`。
+第二個子陣列是`[“age”，21]`，其中`x`等於`age`，而`y`等於`21`。
+
+</p>
+</details>
+
+---
