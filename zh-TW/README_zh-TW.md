@@ -3039,3 +3039,40 @@ console.log(nums(1, 2))
 </details>
 
 ---
+###### 96. 將會輸出什麽內容？
+
+```javascript
+class Person {
+  constructor() {
+    this.name = "Lydia"
+  }
+}
+
+Person = class AnotherPerson {
+  constructor() {
+    this.name = "Sarah"
+  }
+}
+
+const member = new Person()
+console.log(member.name)
+```
+
+- A: `"Lydia"`
+- B: `"Sarah"`
+- C: `Error: cannot redeclare Person`
+- D: `SyntaxError`
+
+<details><summary><b>答案</b></summary>
+<p>
+
+#### 答案: B
+
+
+我們可以將class設置為等於其他class/函數建構函數。在這種情況下，我們將`Person`設置為`AnotherPerson`。這個建構函數的名字是`Sarah`，所以新的`Person`實例`member`上的name屬性是`Sarah`。
+
+
+</p>
+</details>
+
+---
