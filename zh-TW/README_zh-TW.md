@@ -3415,3 +3415,457 @@ JavaScript解釋（或取消裝箱）語句。當我們使用中括號表示法�
 </details>
 
 ---
+###### 107. 將會輸出什麽內容？
+
+```javascript
+console.log('❤️' === '❤️')
+```
+
+- A: `true`
+- B: `false`
+
+<details><summary><b>答案</b></summary>
+<p>
+
+#### 答案: A
+
+在內部，表情符號是unicode。 heat表情符號的unicode是`“ U + 2764 U + FE0F”`。對於相同的表情符號，它們總是相同的，因此我們將兩個相等的字串相互比較，這將返回true。
+
+</p>
+</details>
+
+---
+###### 108. 哪些函數修改了原本的陣列?
+
+
+```javascript
+const emojis = ['✨', '🥑', '😍']
+
+emojis.map(x => x + '✨')
+emojis.filter(x => x !== '🥑')
+emojis.find(x => x !== '🥑')
+emojis.reduce((acc, cur) => acc + '✨')
+emojis.slice(1, 2, '✨') 
+emojis.splice(1, 2, '✨')
+```
+
+- A: `All of them`
+- B: `map` `reduce` `slice` `splice`
+- C: `map` `slice` `splice` 
+- D: `splice`
+
+<details><summary><b>答案</b></summary>
+<p>
+
+#### 答案: D
+
+使用`splice`方法，我們透過刪除，取代或增加元素來修改原始陣列。在這種情況下，我們從索引1中刪除了2個元素（我們刪除了`'🥑'`和`'😍'`），同時增加了✨emoji表情。
+
+`map`，`filter`和`slice`回傳一個新陣列，`find`回傳一個元素，而`reduce`回傳一個計算過的值。
+
+</p>
+</details>
+
+---
+###### 109. 將會輸出什麽內容？
+
+```javascript
+const food = ['🍕', '🍫', '🥑', '🍔']
+const info = { favoriteFood: food[0] }
+
+info.favoriteFood = '🍝'
+
+console.log(food)
+```
+
+- A: `['🍕', '🍫', '🥑', '🍔']`
+- B: `['🍝', '🍫', '🥑', '🍔']`
+- C: `['🍝', '🍕', '🍫', '🥑', '🍔']` 
+- D: `ReferenceError`
+
+<details><summary><b>答案</b></summary>
+<p>
+
+#### 答案: A
+
+我們將`info`物件上的`favoriteFood`屬性的值設置為披薩表情符號“🍕”的字串。字串是原始內容類型。在JavaScript中，原始內容類型通過值起作用
+
+在這種情況下，我們將`info`物件上的`favoriteFood`屬性的值設置為等於`food`陣列中的第一個元素的值，字串為披薩表情符號（`'🍕'` ）。字串是原始內容類型，並且通過值進行交換，我們更改`info`物件上`favoriteFood`屬性的值。 food陣列沒有改變，因為favoriteFood的值只是該陣列中第一個元素的值的複製，並且與該元素上的元素沒有相同的緩存引用食物`[0]`。當我們記錄食物時，它仍然是原始陣列`['🍕'，'🍫'，'🥑'，'🍔']`。
+
+</p>
+</details>
+
+---
+###### 110. 這函數做了什麼
+
+```javascript
+JSON.parse()
+```
+
+- A: Parses JSON to a JavaScript value
+- B: Parses a JavaScript object to JSON
+- C: Parses any JavaScript value to JSON
+- D: Parses JSON to a JavaScript object only
+
+<details><summary><b>答案</b></summary>
+<p>
+
+#### 答案: A
+
+使用`JSON.parse()`函數，我們可以將JSON字串解析為JavaScript值。
+
+```javascript
+// 將數字字串化為有效的JSON，然後將JSON字串解析為JavaScript值:
+const jsonNumber = JSON.stringify(4) // '4'
+JSON.parse(jsonNumber) // 4
+
+// 將數組值字串化為有效的JSON，然後將JSON字串解析為JavaScript值:
+const jsonArray = JSON.stringify([1, 2, 3]) // '[1, 2, 3]'
+JSON.parse(jsonArray) // [1, 2, 3]
+
+// 將物件字串化為有效的JSON，然後將JSON字串解析為JavaScript值:
+const jsonArray = JSON.stringify({ name: "Lydia" }) // '{"name":"Lydia"}'
+JSON.parse(jsonArray) // { name: 'Lydia' }
+```
+</p>
+</details>
+
+---
+###### 111. 將會輸出什麽內容？
+
+```javascript
+let name = 'Lydia'
+
+function getName() {
+  console.log(name)
+  let name = 'Sarah'
+}
+
+getName()
+```
+
+- A: Lydia
+- B: Sarah
+- C: `undefined`
+- D: `ReferenceError`
+
+<details><summary><b>答案</b></summary>
+<p>
+
+#### 答案: D 
+
+每個函數都有其自己的執行上下文。 `getName`函數首先在其自身的上下文（範圍）內查找，以查看其是否包含我們嘗試存取的變數`name`。上述情況，`getName`函數包含其自己的`name`變數：我們用`let`關鍵字和`Sarah`的值定義變數`name`。
+
+帶有`let`關鍵字（和`const`）的變數被提升，但是與`var`不同，它不會被***初始化***。在我們定義（初始化）它們之前，無法存取它們。這稱為“暫時性死區”。當我們嘗試在定義變數之前存取變數時，JavaScript會拋出`ReferenceError: Cannot access 'name' before initialization`。
+
+如果我們不在`getName`函數中定義`name`變數，則javascript引擎會查看原型鏈。會找到其外部作用域有一個名為`name`的變數，其值為`Lydia`。在這種情況下，它將輸出`Lydia`：
+
+```javascript
+let name = 'Lydia'
+
+function getName() {
+  console.log(name)
+}
+
+getName() // Lydia
+```
+
+</p>
+</details>
+
+---
+###### 112. 將會輸出什麽內容？
+
+```javascript
+function* generatorOne() {
+  yield ['a', 'b', 'c'];
+}
+
+function* generatorTwo() {
+  yield* ['a', 'b', 'c'];
+}
+
+const one = generatorOne()
+const two = generatorTwo()
+
+console.log(one.next().value)
+console.log(two.next().value)
+```
+
+- A: `a` and `a`
+- B: `a` and `undefined`
+- C: `['a', 'b', 'c']` and `a`
+- D: `a` and `['a', 'b', 'c']`
+
+<details><summary><b>答案</b></summary>
+<p>
+
+#### 答案: C
+
+透過`yield` 關鍵字, 我們在`Generator` 函數裡執行`yield`語法. 透過`yield*` 關鍵字, 我們可以在一個`Generator` 函數裡面執行（`yield`語法）另一個`Generator ` 函數, 或可遍歷的物件(如陣列).
+
+在函數 `generatorOne` 中, 我們透過 `yield` 關鍵字 yield 了一個完整的陣列 `['a', 'b', 'c']`。函數`one`透過`next`方法返回的物件的`value` 屬性的值 (`one.next().value`) 等價於陣列 `['a', 'b', 'c']`.
+
+```javascript
+console.log(one.next().value) // ['a', 'b', 'c']
+console.log(one.next().value) // undefined
+```
+
+在函數 `generatorTwo` 中, 我們使用 `yield*` 關鍵字。就相當於函數`two`第一個`yield`的值, 等價於在迭代器中第一個 `yield` 的值。陣列`['a', 'b', 'c']`就是這個迭代器. 第一個`yield` 的值就是`a`, 所以我們第一次調用`two.next().value`時, 就返回`a`。
+
+```javascript
+console.log(two.next().value) // 'a'
+console.log(two.next().value) // 'b'
+console.log(two.next().value) // 'c'
+console.log(two.next().value) // undefined
+```
+
+</p>
+</details>
+
+---
+
+###### 113. 將會輸出什麽內容？
+
+```javascript
+console.log(`${(x => x)('I love')} to program`)
+```
+
+- A: `I love to program`
+- B: `undefined to program`
+- C: `${(x => x)('I love') to program`
+- D: `TypeError`
+
+<details><summary><b>答案</b></summary>
+<p>
+
+#### 答案: A
+
+帶有模板字面量的表達式優先被執行。相當於字串會包含表達式，這個立即執行函數`(x => x)('I love')` 回傳的值. 我們向箭頭函數`x => x` 傳遞`'I love'` 作為參數。 `x` 等價於回傳的 `'I love'`。這就是結果 `I love to program`。
+
+</p>
+</details>
+
+---
+###### 114. 這會發生什麼？
+
+```javascript
+let config = {
+  alert: setInterval(() => {
+    console.log('Alert!')
+  }, 1000)
+}
+
+config = null
+```
+
+- A: `setInterval` 裡的函數不會被呼叫
+- B: `setInterval` 裡的函數被呼叫一次
+- C: `setInterval` 裡的函數仍然會被每秒鐘呼叫
+- D: 我們從沒呼叫過 `config.alert()`, config 為 `null`
+
+<details><summary><b>答案</b></summary>
+<p>
+
+#### 答案: C
+
+一般情況下當我們將物件賦值為 `null`, 那些物件會被進行 _垃圾回收（garbage collected）_ 因為已經沒有對這些物件的引用了。然而，`setInterval`的參數是一個箭頭函數（所以上下文綁定到物件 `config` 了），函數仍然保留著對 `config`的引用。只要存在引用，物件就不會被垃圾回收。因為沒有被垃圾回收，`setInterval` 的每1000ms (1s)會被呼叫一次。
+
+</p>
+</details>
+
+---
+###### 115. 哪一个函數會回傳 `'Hello world!'` ？
+
+```javascript
+const myMap = new Map()
+const myFunc = () => 'greeting'
+
+myMap.set(myFunc, 'Hello world!')
+
+//1
+myMap.get('greeting')
+//2
+myMap.get(myFunc)
+//3
+myMap.get(() => 'greeting')
+```
+
+- A: 1
+- B: 2
+- C: 2 and 3
+- D: All of them
+
+<details><summary><b>答案</b></summary>
+<p>
+
+#### 答案: B
+
+當透過 `set` 函數增加一個鍵值對，一個傳遞給 `set`函數的參數將會是鍵名，第二個參數將會是值。在這個case裡，鍵名為 _函數_ `() => 'greeting'`，值為`'Hello world'`。 `myMap` 現在就是 `{ () => 'greeting' => 'Hello world!' }`。
+
+1 是錯的，因為鍵名不是 `'greeting'` 而是 `() => 'greeting'`。
+3 是錯的，因為我們給`get` 函數傳遞了一個新的函數。物件受 _引用_ 影響。函數也是物件，因此兩個函數嚴格上並不等價，儘管他們相同：他們有兩個不同的緩存引用地址。
+
+</p>
+</details>
+
+---
+###### 116. 將會輸出什麽內容？
+
+```javascript
+const person = {
+  name: "Lydia",
+  age: 21
+}
+
+const changeAge = (x = { ...person }) => x.age += 1
+const changeAgeAndName = (x = { ...person }) => {
+  x.age += 1
+  x.name = "Sarah"
+}
+
+changeAge(person)
+changeAgeAndName()
+
+console.log(person)
+```
+
+- A: `{name: "Sarah", age: 22}`
+- B: `{name: "Sarah", age: 23}`
+- C: `{name: "Lydia", age: 22}`
+- D: `{name: "Lydia", age: 23}`
+
+<details><summary><b>答案</b></summary>
+<p>
+
+#### 答案: C
+
+函數 `changeAge` 和函數 `changeAgeAndName` 有著不同的參數，定義一個 _新_ 生成的物件 `{ ...person }`。這個物件有著所有 `person` 物件 中 k/v 值的副本。
+
+首項, 我們呼叫 `changeAge` 函數並傳遞 `person` 物件作為它的參數。這個函數對 `age` 屬性進行加一操作。 `person` 現在是 `{ name: "Lydia", age: 22 }`。
+
+然後，我們呼叫函數 `changeAgeAndName` ，然而我們沒有傳遞參數。取而代之，`x` 的值等價 _new_ 生成的物件: `{ ...person }`。因為它是一個新生成的物件，它並不會對物件 `person` 造成任何副作用。 `person` 仍然等價於 `{ name: "Lydia", age: 22 }`。
+
+</p>
+</details>
+
+---
+###### 117. 下面哪個選項會回傳 `6`?
+
+```javascript
+function sumValues(x, y, z) {
+	return x + y + z;
+}
+```
+
+- A: `sumValues([...1, 2, 3])`
+- B: `sumValues([...[1, 2, 3]])`
+- C: `sumValues(...[1, 2, 3])`
+- D: `sumValues([1, 2, 3])`
+
+<details><summary><b>答案</b></summary>
+<p>
+
+#### 答案: C
+
+通過展開語法 `...`，我們可以 _展開_ 單個可迭代的元素。函數 `sumValues` function 接收三個參數： `x`, `y` 和 `z`。 `...[1, 2, 3]` 的執行結果為 `1, 2, 3`，將會傳遞給函數 `sumValues`。
+
+</p>
+</details>
+
+---
+###### 118. 將會輸出什麽內容？
+
+```javascript
+let num = 1;
+const list = ["🥳", "🤠", "🥰", "🤪"];
+
+console.log(list[(num += 1)]);
+```
+
+- A: `🤠`
+- B: `🥰`
+- C: `SyntaxError`
+- D: `ReferenceError`
+
+<details><summary><b>答案</b></summary>
+<p>
+
+#### 答案: B
+
+透過 `+=` 運算子，我們對變數 `num` 進行加 `1` 操作。 `num` 有初始值 `1`，因此 `1 + 1` 的執行結果為 `2`。陣列 `list` 的第二項為 🥰，`console.log(list[2])` 輸出 🥰.
+
+</p>
+</details>
+
+---
+###### 119. 將會輸出什麽內容？
+
+```javascript
+const person = {
+	firstName: "Lydia",
+	lastName: "Hallie",
+	pet: {
+		name: "Mara",
+		breed: "Dutch Tulip Hound"
+	},
+	getFullName() {
+		return `${this.firstName} ${this.lastName}`;
+	}
+};
+
+console.log(person.pet?.name);
+console.log(person.pet?.family?.name);
+console.log(person.getFullName?.());
+console.log(member.getLastName?.());
+```
+
+- A: `undefined` `undefined` `undefined` `undefined`
+- B: `Mara` `undefined` `Lydia Hallie` `undefined`
+- C: `Mara` `null` `Lydia Hallie` `null`
+- D: `null` `ReferenceError` `null` `ReferenceError`
+
+<details><summary><b>答案</b></summary>
+<p>
+
+#### 答案: B
+
+通過ES10 或TS3.7+[可選鏈運算子`?.`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/%E5%8F%AF% E9%80%89%E9%93%BE)，我們不再需要顯式檢測更深層的嵌套值是否有效。如果我們嘗試存取 `undefined` 或 `null` 的值 (_nullish_)，表達將會短路並返回 `undefined`.
+
+`person.pet?.name`： `person` 有一個名為 `pet` 的屬性： `person.pet` 不是 nullish。它有個名為 `name` 的屬性，並返回字串 `Mara`。
+`person.pet?.family?.name`： `person` 有一個名為`pet` 的屬性： `person.pet` 不是nullish. `pet` _並沒有_ 一個名為`family` 的屬性, ` person.pet.family` 是nullish。表達式返回 `undefined`。
+`person.getFullName?.()`： `person` 有一個名為 `getFullName` 的屬性： `person.getFullName()` 不是 nullish 並可以被呼叫，返回字串 `Lydia Hallie`。
+`member.getLastName?.()`: `member` is not defined: `member.getLastName()` is nullish. The expression returns `undefined`.
+
+</p>
+</details>
+
+---
+###### 120. 將會輸出什麽內容？
+
+```javascript
+const groceries = ["banana", "apple", "peanuts"];
+
+if (groceries.indexOf("banana")) {
+	console.log("We have to buy bananas!");
+} else {
+	console.log(`We don't have to buy bananas!`);
+}
+```
+
+- A: We have to buy bananas!
+- B: We don't have to buy bananas
+- C: `undefined`
+- D: `1`
+
+<details><summary><b>答案</b></summary>
+<p>
+
+#### 答案: B
+
+我們傳遞了一個狀態 `groceries.indexOf("banana")` 給if語法。 `groceries.indexOf("banana")` 回傳 `0`， 一個 falsy 的值。因為if語法的狀態為 falsy，`else` 塊區內的代碼執行，並且 `We don't have to buy bananas!` 被輸出.
+
+</p>
+</details>
+
+---
