@@ -2742,3 +2742,28 @@ function getName(name) {
 </p>
 </details>
 ---
+
+###### 87. 將會輸出什麽內容？
+
+```javascript
+console.log("I want pizza"[0])
+```
+
+- A: `"""`
+- B: `"I"`
+- C: `SyntaxError`
+- D: `undefined`
+
+<details><summary><b>答案</b></summary>
+<p>
+
+#### 答案: B
+
+可以使用雙括號表示法獲取字串中特定索引的字串，字串中的第一個字串具有索引0，依此類推。在這種情況下，我們想要得到索引為0的元素，字串`'I'`被記錄。
+
+請注意，IE7及更低版本不支援此方法。應該使用`.charAt（）`
+
+</p>
+</details>
+
+---
