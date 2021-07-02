@@ -2871,3 +2871,29 @@ function Person() {
 </details>
 
 ---
+###### 91. 將會輸出什麽內容？
+
+```javascript
+let newList = [1, 2, 3].push(4)
+
+console.log(newList.push(5))
+```
+
+- A: `[1, 2, 3, 4, 5]`
+- B: `[1, 2, 3, 5]`
+- C: `[1, 2, 3, 4]`
+- D: `Error`
+
+<details><summary><b>答案</b></summary>
+<p>
+
+#### 答案: D
+
+`.push`函數回傳陣列的長度，而不是陣列本身！通過將`newList`設置為`[1,2,3].push(4)`，實際上`newList`等於陣列的新長度：`4`。
+
+然後，嘗試在`newList`上使用`.push`函數。由於`newList`是數值`4`，拋出TypeError。
+
+</p>
+</details>
+
+---
