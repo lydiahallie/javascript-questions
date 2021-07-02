@@ -1324,13 +1324,13 @@ console.log(gen.next().value);
 
 #### 答案: C
 
-一般函式不能在被調用後中途停止。但是， generator 可以在中途 "停止" 且之後可以從停止的位置繼續運行。
+一般函式不能在被呼叫後中途停止。但是， generator 可以在中途 "停止" 且之後可以從停止的位置繼續運行。
 每當一個 generator 函式遇到一個 `yield` 關鍵字時，該函式就會產生其後指定的值。 請注意，在這種情況下，generator 函式不是 _return_ 值，而是 _yields_ 值。
 
-首先，我們使用等於 "10" 的 "i" 初始化 generator 函式。 我們使用 "next（)" 方法調用 generator 函式。 第一次調用 generator 函式時， "i" 等於 "10"。
+首先，我們使用等於 "10" 的 "i" 初始化 generator 函式。 我們使用 "next（)" 方法呼叫 generator 函式。 第一次呼叫 generator 函式時， "i" 等於 "10"。
 它遇到第一個 `yield` 關鍵字：它產生 `i` 的值。 現在，generator 已 "暫停"， 並且記錄了 "10"。
 
-然後，我們使用 `next（）` 方法再次調用該函式。 它將從先前停止的地方繼續，仍然是 "i" 等於 "10"。 現在，它遇到下一個 `yield` 關鍵字，並產生 `i * 2` 。 
+然後，我們使用 `next（）` 方法再次呼叫該函式。 它將從先前停止的地方繼續，仍然是 "i" 等於 "10"。 現在，它遇到下一個 `yield` 關鍵字，並產生 `i * 2` 。 
 "i" 等於 "10"，因此返回 "10 * 2"，即 "20"。 故結果為10、20。
 
 </p>
@@ -1709,7 +1709,7 @@ pet.bark();
 透過 `delete` 關鍵字，我們可以從物件中刪除它的屬性。同樣適用在原型(prototype)。通過刪除原型上的屬性，該屬性在原型鏈中將不可再被使用。
 在這個案例中， `bark` 函式在 `delete Dog.prototype.bark` 之後的原型上不再可用，但是我們仍然嘗試訪問它。
 
-因此當我們嘗試調用不是函式的東西時，程式將拋出 `TypeError`。 在這個案例中，將為 `TypeError: pet.bark is not a function` ，因為 `pet.bark` 是 `undefined`。
+因此當我們嘗試呼叫不是函式的東西時，程式將拋出 `TypeError`。 在這個案例中，將為 `TypeError: pet.bark is not a function` ，因為 `pet.bark` 是 `undefined`。
 
 </p>
 </details>
@@ -2006,7 +2006,7 @@ multiply(value);
 
 在ES6中，我們可以使用預設值初始化參數。如果沒有其他值傳遞給該函式或是傳入的參數是 `undefined`，則該參數的值為預設值。此案例中，我們將 `value` 物件的屬性擴展到一個新物件中，因此 `x` 具有預設值 `{number：10}`。
 
-預設值是在 _呼叫_ 時被 evaluated。每次調用該函式時，都會創建一個 _新_ 物件。我們在沒有傳遞值的情況下呼叫了 `multiply` 函式兩次：`x` 的預設值是 `{{number：10}`。因此，我們輸出該數字的相乘值，即 `20`。
+預設值是在 _呼叫_ 時被 evaluated。每次呼叫該函式時，都會創建一個 _新_ 物件。我們在沒有傳遞值的情況下呼叫了 `multiply` 函式兩次：`x` 的預設值是 `{{number：10}`。因此，我們輸出該數字的相乘值，即 `20`。
 
 第三次呼叫時，我們確實傳遞了一個參數：名為 `value` 的物件。 `*=` 運算子實際上是 `x.number = x.number * 2` 的簡寫：因此我們修改了 `x.number` 的值，並記錄相乘後的值 `20`。
 
@@ -2580,6 +2580,43 @@ console.log(sayHi())
 
 在這種情況下，如果我們沒有傳遞值或者如果我們傳遞`undefined`，`name`總是等於字符`Lydia`
 
+</p>
+</details>
+
+---
+###### 82. 將會輸出什麽內容？
+
+```javascript
+var status = "😎"
+
+setTimeout(() => {
+  const status = "😍"
+
+  const data = {
+    status: "🥑",
+    getStatus() {
+      return this.status
+    }
+  }
+
+  console.log(data.getStatus())
+  console.log(data.getStatus.call(this))
+}, 0)
+```
+
+- A: `"🥑"` and `"😍"`
+- B: `"🥑"` and `"😎"`
+- C: `"😍"` and `"😎"`
+- D: `"😎"` and `"😎"`
+
+<details><summary><b>答案</b></summary>
+<p>
+
+#### 答案: B
+
+`this`關鍵字的指向取決於使用它的位置。在**函數**中，比如`getStatus`，`this`指向的是呼叫它的物件，上述例子中`data`物件呼叫了`getStatus`，因此`this`指向的就是`data`物件。當我們輸出`this.status`時，`data`物件的`status`屬性被輸出，即`"🥑"`。
+
+使用`call`方法，可以更改`this`指向的物件。 `data.getStatus.call(this)`是將`this`的指向由`data`物件更改為全局物件。在全局對像上，有一個名為`status`的變數，其值為`”😎“`。因此輸出`this.status`時，會輸出`“😎”`。
 </p>
 </details>
 
