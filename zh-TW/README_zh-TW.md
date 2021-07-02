@@ -3235,3 +3235,46 @@ console.log(one, two, three)
 </details>
 
 ---
+###### 102. 依序輸出什麼內容？
+
+```javascript
+const myPromise = () => Promise.resolve('I have resolved!')
+
+function firstFunction() {
+  myPromise().then(res => console.log(res))
+  console.log('second')
+}
+
+async function secondFunction() {
+  console.log(await myPromise())
+  console.log('second')
+}
+
+firstFunction()
+secondFunction()
+```
+
+- A: `I have resolved!`, `second` and `I have resolved!`, `second`
+- B: `second`, `I have resolved!` and `second`, `I have resolved!`
+- C: `I have resolved!`, `second` and `second`, `I have resolved!`
+- D: `second`, `I have resolved!` and `I have resolved!`, `second`
+
+<details><summary><b>答案</b></summary>
+<p>
+
+#### 答案: D
+
+
+有了promise，我們通常會說：當我想要呼叫某個函數，但是由於它可能需要一段時間，因此暫時將它放在一邊。只有當某個值被resolved/rejected，並且執行序為空時才使用這個值。
+
+我們可以在`async`函數中通過`.then`和`await`關鍵字獲得該值。儘管我們可以通過`.then`和`await`獲得promise的值，但是它們的運作方式不同。
+
+在`firstFunction`中，當執行到`myPromise`函數時我們將其放在一邊，即promise進入微任務佇列，其他後面的程式（`console.log('second')`）照常執行，因此`second `被輸出，`firstFunction`函數到此執行完畢，執行序中任務佇列被清空，此時開始執行微任務佇列中的任務，`I have resolved`被輸出。
+
+在`secondFunction`函數中，我們通過`await`關鍵字，暫停了後面程式的執行，直到異步函數的值被解析才開始後面程式的執行。這意味著，它會等著直到 `myPromise` 以值`I have resolved`被`resolve`之後，下一行`second`才開始執行。
+
+
+</p>
+</details>
+
+---
