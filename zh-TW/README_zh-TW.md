@@ -3203,3 +3203,35 @@ You should${'' && `n't`} see a therapist after so much JavaScript lol`
 </details>
 
 ---
+###### 101.將會輸出什麽內容？
+
+```javascript
+const one = (false || {} || null)
+const two = (null || false || "")
+const three = ([] || 0 || true)
+
+console.log(one, two, three)
+```
+
+- A: `false` `null` `[]`
+- B: `null` `""` `true`
+- C: `{}` `""` `[]`
+- D: `null` `null` `true`
+
+<details><summary><b>答案</b></summary>
+<p>
+
+#### 答案: C
+
+使用`||`運算子，我們可以得到第一個真值。如果所有值都是假值，則得到最後一個值。
+
+`（false || {} || null）`：空物件`{}`是一個真值。這是第一個（也是唯一的）真值，它將被得到。 `one`等於`{}`。
+
+`（null || false ||“”）`：所有值都是假值。這意味著得到傳遞的值`""`。 `two`等於`""`。
+
+`（[] || 0 ||“”）`：空陣列`[]`是一個真值。這是第一個得到的真值。 `three`等於`[]`。
+
+</p>
+</details>
+
+---
