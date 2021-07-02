@@ -2657,3 +2657,35 @@ console.log(person)
 </details>
 
 ---
+###### 84. 將會輸出什麽內容？
+
+```javascript
+function checkAge(age) {
+  if (age < 18) {
+    const message = "Sorry, you're too young."
+  } else {
+    const message = "Yay! You're old enough!"
+  }
+
+  return message
+}
+
+console.log(checkAge(21))
+```
+
+- A: `"Sorry, you're too young."`
+- B: `"Yay! You're old enough!"`
+- C: `ReferenceError`
+- D: `undefined`
+
+<details><summary><b>答案</b></summary>
+<p>
+
+#### 答案: C
+
+`const`和`let`定義的變數是具有**區塊作用域**的，區塊是大括號（`{}`）之間的任何東西, 即上述情況`if / else`語句的大括號。由於區塊作用域，我們無法在定義的塊之外引用變數，因此拋出`ReferenceError`。
+
+</p>
+</details>
+
+---
