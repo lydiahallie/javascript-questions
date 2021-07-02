@@ -2961,3 +2961,38 @@ for (const [x, y] of Object.entries(person)) {
 </details>
 
 ---
+###### 94. 將會輸出什麽內容？
+
+```javascript
+function getItems(fruitList, ...args, favoriteFruit) {
+  return [...fruitList, ...args, favoriteFruit]
+}
+
+getItems(["banana", "apple"], "pear", "orange")
+```
+
+- A: `["banana", "apple", "pear", "orange"]`
+- B: `[["banana", "apple"], "pear", "orange"]` 
+- C: `["banana", "apple", ["pear"], "orange"]`
+- D: `SyntaxError`
+
+<details><summary><b>答案</b></summary>
+<p>
+
+#### 答案: D
+
+`... args`是剩餘參數，剩餘參數的值是一個包含所有剩餘參數的陣列，**並且只能作為最後一個參數**。上面示範中，剩餘參數是第二個參數，這是不可能的，並會拋出語法錯誤。
+
+```javascript
+function getItems(fruitList, favoriteFruit, ...args) {
+  return [...fruitList, ...args, favoriteFruit]
+}
+
+getItems(["banana", "apple"], "pear", "orange")
+```
+
+上面示範中是有效的，將會回傳陣列：`[ 'banana', 'apple', 'orange', 'pear' ]`
+</p>
+</details>
+
+---
