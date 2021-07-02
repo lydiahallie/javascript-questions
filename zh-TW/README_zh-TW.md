@@ -3175,3 +3175,31 @@ console.log(name())
 </details>
 
 ---
+###### 100. 將會輸出什麽內容？
+
+```javascript
+// 🎉✨ 耶! 我終於翻到100題了! 噢耶! ✨🎉
+
+const output = `${[] && 'Im'}possible!
+You should${'' && `n't`} see a therapist after so much JavaScript lol`
+```
+
+- A: `possible! You should see a therapist after so much JavaScript lol`
+- B: `Impossible! You should see a therapist after so much JavaScript lol`
+- C: `possible! You shouldn't see a therapist after so much JavaScript lol`
+- D: `Impossible! You shouldn't see a therapist after so much JavaScript lol`
+
+<details><summary><b>答案</b></summary>
+<p>
+
+#### 答案: B
+
+
+`[]`是一個真值。使用`&&`運算符，如果左側值是真值，則回傳右側值。在這種情況下，左側值`[]`是一個真值，所以回傳`Im`。
+
+`""`是一個假值。如果左側值是假的，則不回傳任何內容。 `n't`不會被退回。
+
+</p>
+</details>
+
+---
