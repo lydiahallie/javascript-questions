@@ -2767,3 +2767,39 @@ console.log("I want pizza"[0])
 </details>
 
 ---
+###### 88. 將會輸出什麽內容？
+
+```javascript
+function sum(num1, num2 = num1) {
+  console.log(num1 + num2)
+}
+
+sum(10)
+```
+
+- A: `NaN`
+- B: `20`
+- C: `ReferenceError`
+- D: `undefined`
+
+<details><summary><b>答案</b></summary>
+<p>
+
+#### 答案: B
+
+您可以將預設參數的值設置為函數的另一個參數，只要另一個參數定義在其之前即可。我們將值`10`傳遞給`sum`函數。如果`sum`函數只接收1個參數，則意味著沒有傳遞`num2`的值，這種情況下，`num1`的值等於傳遞的值`10`。 `num2`的預設值是`num1`的值，即`10`。 ```num1 + num2```返回`20`。
+
+如果您嘗試將預設參數的值設置為後面定義的參數，則可能導致參數的值尚未初始化，從而引發錯誤。比如：
+```js
+function test(m = n, n = 2) {
+	console.log(m, n)
+}
+test() // Uncaught ReferenceError: Cannot access 'n' before initialization
+test(3) // 3 2
+test(3, 4) // 3 4
+```
+
+</p>
+</details>
+
+---
