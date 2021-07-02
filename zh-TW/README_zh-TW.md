@@ -2689,3 +2689,27 @@ console.log(checkAge(21))
 </details>
 
 ---
+###### 85. 將會輸出什麽內容？
+
+```javascript
+fetch('https://www.website.com/api/user/1')
+  .then(res => res.json())
+  .then(res => console.log(res))
+```
+
+- A: `fetch`函數的結果
+- B: 第二次呼叫`fetch`函數的結果
+- C: 前一個`.then()`中回傳函數返回的結果
+- D: 總是`undefined`
+
+<details><summary><b>答案</b></summary>
+<p>
+
+#### 答案: C
+
+第二個`.then`中`res`的值等於前一個`.then`中函數返回的值。你可以像這樣繼續連接`.then`，將值傳遞給下一個處理程序。
+
+</p>
+</details>
+
+---
