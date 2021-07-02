@@ -3376,3 +3376,42 @@ compareMembers(person)
 </details>
 
 ---
+###### 106. 將會輸出什麽內容？
+
+
+```javascript
+const colorConfig = {
+  red: true,
+  blue: false,
+  green: true,
+  black: true,
+  yellow: false,
+}
+
+const colors = ["pink", "red", "blue"]
+
+console.log(colorConfig.colors[1])
+```
+
+- A: `true`
+- B: `false`
+- C: `undefined`
+- D: `TypeError`
+
+<details><summary><b>答案</b></summary>
+<p>
+
+#### 答案: D
+
+在JavaScript中，我們有兩種存取物件屬性的方法：括號表示法或點表示法。在此範例中，我們使用點表示法（`colorConfig.colors`）代替括號表示法（`colorConfig [“ colors”]`）。
+
+使用點表示法，JavaScript會嘗試使用該確切名稱在物件上查找屬性。在此範例中，JavaScript嘗試在colorconfig物件上找到名為colors的屬性。沒有名為“colors”的屬性，因此得到“undefined”。
+然後，我們嘗試使用`[1]`存取第一個元素的值。我們無法對未定義的值執行此操作，因此會拋出`Cannot read property '1' of undefined`。
+
+JavaScript解釋（或取消裝箱）語句。當我們使用中括號表示法時，它會看到第一個左方括號`[`並一直進行下去，直到找到右方括號`]`。只有這樣，它才會評估該語句。如果我們使用了colorConfig [colors [1]]，它將得到colorConfig物件上red屬性的值。
+
+
+</p>
+</details>
+
+---
