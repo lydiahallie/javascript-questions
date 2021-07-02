@@ -3314,3 +3314,26 @@ for (let item of set) {
 </details>
 
 ---
+###### 104. 將得到什麼
+
+```javascript
+Promise.resolve(5)
+```
+
+- A: `5`
+- B: `Promise {<pending>: 5}`
+- C: `Promise {<fulfilled>: 5}`
+- D: `Error`
+
+<details><summary><b>答案</b></summary>
+<p>
+
+#### 答案: C
+
+我們可以將我們想要的任何類型的值傳遞`Promise.resolve`，無論是否`promise`。該函數本身返回帶有已解析值的`Promise` (`<fulfilled>`)。如果您傳遞正規式函數，它將是具有正規式值的已解決`promise`。如果你通過了promise，它將是一個已經resolved的且帶有傳的值的promise。
+
+上述情況，我們傳了數字5，因此返回一個resolved狀態的promise，resolve值為`5`
+
+</p>
+</details>
+---
