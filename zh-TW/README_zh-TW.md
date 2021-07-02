@@ -2897,3 +2897,32 @@ console.log(newList.push(5))
 </details>
 
 ---
+###### 92. 將會輸出什麽內容？
+
+```javascript
+function giveLydiaPizza() {
+  return "Here is pizza!"
+}
+
+const giveLydiaChocolate = () => "Here's chocolate... now go hit the gym already."
+
+console.log(giveLydiaPizza.prototype)
+console.log(giveLydiaChocolate.prototype)
+```
+
+- A: `{ constructor: ...}` `{ constructor: ...}` 
+- B: `{}` `{ constructor: ...}` 
+- C: `{ constructor: ...}` `{}`
+- D: `{ constructor: ...}` `undefined`
+
+<details><summary><b>答案</b></summary>
+<p>
+
+#### 答案: D
+
+正規式函數，例如`giveLydiaPizza`函數，有一個`prototype`屬性，它是一個帶有`constructor`屬性的物件（原型物件）。然而，箭頭函數，例如`giveLydiaChocolate`函數，沒有這個`prototype`屬性。嘗試使用`giveLydiaChocolate.prototype`存取`prototype`屬性時會得到`undefined`。
+
+</p>
+</details>
+
+---
