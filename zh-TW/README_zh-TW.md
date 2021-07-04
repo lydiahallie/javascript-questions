@@ -44,7 +44,7 @@ sayHi()
 
 #### 答案：D
 
-在函式內部，我們首先透過 `var` 關鍵字宣告了 `name` 變數。這表示變數被提升了（記憶體位置在創建時期就被設置好了），直到程式執行到定義變數的那行之前，預設值都是 `undefined`。因為當我們印出 `name` 變數時，還沒有執行到定義變數的那一行程式碼，因此變數的值保持為 `undefined`。
+在函式內部，我們首先透過 `var` 關鍵字宣告了 `name` 變數。這表示變數被提升了（記憶體位置在建立時期就被設置好了），直到程式執行到定義變數的那行之前，預設值都是 `undefined`。因為當我們印出 `name` 變數時，還沒有執行到定義變數的那一行程式碼，因此變數的值保持為 `undefined`。
 
 透過 `let` 和 `const` 關鍵字宣告的變數也會提升，但是和 `var` 不同，它們不會被<i>初始化</i>，在我們初始化之前是不能訪問它們的，這個行為被稱之為暫時性死區。當我們嘗試在初始化之前訪問它們時，JavaScript 將會抛出一個 `ReferenceError` 錯誤。
 
@@ -302,7 +302,7 @@ console.log(greetign)
 
 #### 答案：A
 
-程式碼印出了一個物件，這是因為我們在全域物件上創建了一個空物件！當我們將 `greeting` 寫錯成 `greetign` 時，JS 解譯器實際上將它視爲 `global.greetign = {}` （或者在瀏覽器中視為 `window.greetign = {}`）。
+程式碼印出了一個物件，這是因為我們在全域物件上建立了一個空物件！當我們將 `greeting` 寫錯成 `greetign` 時，JS 解譯器實際上將它視爲 `global.greetign = {}` （或者在瀏覽器中視為 `window.greetign = {}`）。
 
 為了避免這個狀況，我們可以使用 `"use strict"`，來確保當你宣告變數時，必須賦值。
 
@@ -977,7 +977,7 @@ WebAPI 不能隨時向堆疊内新增内容。相反，它會將回呼函式彈�
 #### 答案: A
 
 輸出內容是 `p` 及 `div`。在事件傳播(event propagation) 期間，分為三個階段：捕獲(capturing)，目標(target) 和冒泡(bubbling)。
-默認情況下，事件處理(event handlers) 在冒泡階段執行（除非您將useCapture設置為true)。 它從巢狀元素的最深層向外層。
+預設情況下，事件處理(event handlers) 在冒泡階段執行（除非您將useCapture設置為true)。 它從巢狀元素的最深層向外層。
 
 </p>
 </details>
@@ -1035,7 +1035,7 @@ console.log(typeof sayHi());
 
 #### 答案: B
 
-`sayHi` 函數會返回立即執行函式表示式(IIFE）的返回值。 該函數返回類型為 `"number"` 的 `0`。
+`sayHi` 函數會回傳立即執行函式表示式(IIFE）的回傳值。 該函數回傳類型為 `"number"` 的 `0`。
 FYI: JS只有7種原生類型(type) : `null`, `undefined`, `boolean`, `number`, `string`, `object`, `symbol`, 和 `bigint`. `"function"` 不是一種類型而是物件。
 
 </p>
@@ -1096,8 +1096,8 @@ console.log(typeof typeof 1);
 
 #### 答案: B
 
-`typeof 1` 返回 `"number"`
-`typeof "number"` 返回 `"string"`
+`typeof 1` 回傳 `"number"`
+`typeof "number"` 回傳 `"string"`
 
 </p>
 </details>
@@ -1162,7 +1162,7 @@ console.log(numbers);
 
 接著我們將此區塊變數 `x` 設置為等於 `1`，並設置變數 `y` 的值， 現在我們 console.log 區塊變數 `x`，無意外地它輸出 `1`。
 
-而在 `catch` 區塊之外的 `x` 仍然是 `undefined` 且 `y` 是 `2`。 因此當我們想在 `catch` 區塊之外使用 `console.log（x)` 時，它返回 `undefined`，而 `y` 返回 `2`。
+而在 `catch` 區塊之外的 `x` 仍然是 `undefined` 且 `y` 是 `2`。 因此當我們想在 `catch` 區塊之外使用 `console.log（x)` 時，它回傳 `undefined`，而 `y` 回傳 `2`。
 
 </p>
 </details>
@@ -1243,18 +1243,18 @@ Primitive 不同於 object 的是它沒有任何的屬性(properties) 和方法(
 
 #### 答案: B
 
-`null` 是 falsy. `!null` 返回 `true`. `!true` 返回 `false`.
+`null` 是 falsy. `!null` 回傳 `true`. `!true` 回傳 `false`.
 
-`""` 是 falsy. `!""` 返回 `true`. `!true` 返回 `false`.
+`""` 是 falsy. `!""` 回傳 `true`. `!true` 回傳 `false`.
 
-`1` 是 truthy. `!1` 返回 `false`. `!false` 返回 `true`.
+`1` 是 truthy. `!1` 回傳 `false`. `!false` 回傳 `true`.
 
 </p>
 </details>
 
 ---
 
-###### 42. 在瀏覽器中 `setInterval` 方法會返回什麼？
+###### 42. 在瀏覽器中 `setInterval` 方法會回傳什麼？
 
 ```javascript
 setInterval(() => console.log('Hi'), 1000);
@@ -1270,14 +1270,14 @@ setInterval(() => console.log('Hi'), 1000);
 
 #### 答案: A
 
-會返回一個唯一的 id，並可用於 `clearInterval()` 以清除該 interval。
+會回傳一個唯一的 id，並可用於 `clearInterval()` 以清除該 interval。
 
 </p>
 </details>
 
 ---
 
-###### 43. 將會返回何種結果？
+###### 43. 將會回傳何種結果？
 
 ```javascript
 [...'Lydia'];
@@ -1324,21 +1324,21 @@ console.log(gen.next().value);
 
 #### 答案: C
 
-一般函式不能在被呼叫後中途停止。但是， generator 可以在中途 "停止" 且之後可以從停止的位置繼續運行。
+一般函式不能在被呼叫後中途停止。但是， generator 可以在中途 "停止" 且之後可以從停止的位置繼續執行。
 每當一個 generator 函式遇到一個 `yield` 關鍵字時，該函式就會產生其後指定的值。 請注意，在這種情況下，generator 函式不是 _return_ 值，而是 _yields_ 值。
 
 首先，我們使用等於 "10" 的 "i" 初始化 generator 函式。 我們使用 "next（)" 方法呼叫 generator 函式。 第一次呼叫 generator 函式時， "i" 等於 "10"。
 它遇到第一個 `yield` 關鍵字：它產生 `i` 的值。 現在，generator 已 "暫停"， 並且記錄了 "10"。
 
 然後，我們使用 `next（）` 方法再次呼叫該函式。 它將從先前停止的地方繼續，仍然是 "i" 等於 "10"。 現在，它遇到下一個 `yield` 關鍵字，並產生 `i * 2` 。 
-"i" 等於 "10"，因此返回 "10 * 2"，即 "20"。 故結果為10、20。
+"i" 等於 "10"，因此回傳 "10 * 2"，即 "20"。 故結果為10、20。
 
 </p>
 </details>
 
 ---
 
-###### 45. 將會返回何種結果？
+###### 45. 將會回傳何種結果？
 
 ```javascript
 const firstPromise = new Promise((res, rej) => {
@@ -1486,7 +1486,7 @@ const num = parseInt('7*6', 10);
 
 #### 答案: C
 
-僅會返回字串中的第一個數字。 基於 _radix_ (第二個參數，用於指定我們要將其解析為哪種類型的數字：以10為基數，十六進制，八進制，二進制等），`parseInt` 檢查字串中的字元是否有效。
+僅會回傳字串中的第一個數字。 基於 _radix_ (第二個參數，用於指定我們要將其解析為哪種類型的數字：以10為基數，十六進制，八進制，二進制等），`parseInt` 檢查字串中的字元是否有效。
 一旦遇到基數中無效數字的字元，它將停止解析並忽略以下字元。
 
 `*` 不是合法的 `number`，所以程式僅將字串形態的 `"7"` 轉換至 decimal 形態的 `7`，故 `num` 現在的值為 `7`。
@@ -1515,10 +1515,10 @@ const num = parseInt('7*6', 10);
 
 #### 答案: C
 
-當對陣列做映射(map) 時，`num` 的值等同於它當前正在循環的元素。在這種情況中元素均為 numbers，所以條件式 `typeof num === "number"` 會返回 `true` 的值。
-map 函式會建立一個新陣列，並插入該函式返回的值。
+當對陣列做映射(map) 時，`num` 的值等同於它當前正在循環的元素。在這種情況中元素均為 numbers，所以條件式 `typeof num === "number"` 會回傳 `true` 的值。
+map 函式會建立一個新陣列，並插入該函式回傳的值。
 
-但是我們不返回任何值。當我們不從函式返回值時，函式將返回 `undefined`。由於陣列中的每個元素都會呼叫該函式，因此對於每個元素，我們都返回 `undefined`。
+但是我們不回傳任何值。當我們不從函式回傳值時，函式將回傳 `undefined`。由於陣列中的每個元素都會呼叫該函式，因此對於每個元素，我們都回傳 `undefined`。
 
 </p>
 </details>
@@ -1626,7 +1626,7 @@ console.log(myCar.make);
 
 #### 答案: B
 
-當您返回屬性(property) 時，該屬性的值等於 _returned_ 的值，而不是在函式建構式(constructor function)中設置的值。 我們返回字串 `Maserati`，因此 `mycar.make` 等於 `Maserati`。
+當您回傳屬性(property) 時，該屬性的值等於 _returned_ 的值，而不是在函式建構式(constructor function)中設置的值。 我們回傳字串 `Maserati`，因此 `mycar.make` 等於 `Maserati`。
 
 </p>
 </details>
@@ -1664,10 +1664,10 @@ let x = y;
 當我們將 `y `設置為等於 `10` 時，我們實際上將屬性 `y` 加入到 global object 中（瀏覽器中的 `window`，Node中的 `global`）。 現在，瀏覽器中 `window.y` 現在等於 `10`。
 
 接著我們宣告一個變數 `x`，並將其值賦予為 `y`，即 `10`。 用` let` 關鍵字宣告的變數是 _block scoped_ ，它們僅在宣告它們的區塊中定義； 另外此案例的函示是，立即函示表達式（IIFE）。
-當我們使用 `typeof` 運算子時， `x` 並未被定義：我們試圖在宣告它的區塊外訪問 `x`。這將獲得 `x` 並未被定義的結果。 未分配值或未宣告的值的類型為 `"undefined"`。 `console.log(typeof x)` 返回 `"undefined"`。
+當我們使用 `typeof` 運算子時， `x` 並未被定義：我們試圖在宣告它的區塊外訪問 `x`。這將獲得 `x` 並未被定義的結果。 未分配值或未宣告的值的類型為 `"undefined"`。 `console.log(typeof x)` 回傳 `"undefined"`。
 
-但是，當將 `y` 設置為 `10` 時，我們創建了global variable `y`。 在我們程式中的任何位置均可訪問此值。
-`y` 被定義，並且為類型 `number` 的值。 因此 `console.log（typeof y` 返回 `"number"`。
+但是，當將 `y` 設置為 `10` 時，我們建立了global variable `y`。 在我們程式中的任何位置均可訪問此值。
+`y` 被定義，並且為類型 `number` 的值。 因此 `console.log（typeof y` 回傳 `"number"`。
 
 </p>
 </details>
@@ -1799,9 +1799,9 @@ console.log(delete age);
 
 #### 答案: A
 
-`delete` 運算子會返回一個布林值: 成功刪除物件的情況下會返回 `true`，反之則為 `false`。 但是經由 `var`，`const` 或是 `let` 關鍵字所宣告的變數是無法使用 `delete` 運算子刪除的。
+`delete` 運算子會回傳一個布林值: 成功刪除物件的情況下會回傳 `true`，反之則為 `false`。 但是經由 `var`，`const` 或是 `let` 關鍵字所宣告的變數是無法使用 `delete` 運算子刪除的。
 
-此處， `name` 無法成功刪除且會返回 `fasle`，因為它是經由 `const` 所宣告。當我們宣告 `age` 的值為 `21` 時，實際上我們做的是將一個名為 `age` 的屬性為添加到了全球物件中，您可以透過 `delete` 來刪除物件中的屬性，因此您也能刪除全球物件中的屬性，故將返回 `true`。
+此處， `name` 無法成功刪除且會回傳 `fasle`，因為它是經由 `const` 所宣告。當我們宣告 `age` 的值為 `21` 時，實際上我們做的是將一個名為 `age` 的屬性為添加到了全球物件中，您可以透過 `delete` 來刪除物件中的屬性，因此您也能刪除全球物件中的屬性，故將回傳 `true`。
 
 </p>
 </details>
@@ -1870,7 +1870,7 @@ console.log(admin);
 #### 答案: B
 
 使用 spread 運算子可以合併物件(`...`)。它使您可以建立一個物件的鍵/值的複製，並將其添加到另一物件中。
-在這裡我們創建了 `user` 物件的複製並將其添加至 `admin` 物件。因此將輸出 `{ admin: true, name: "Lydia", age: 21 }`。
+在這裡我們建立了 `user` 物件的複製並將其添加至 `admin` 物件。因此將輸出 `{ admin: true, name: "Lydia", age: 21 }`。
 
 </p>
 </details>
@@ -1937,7 +1937,7 @@ console.log(data);
 如果替換者是 _陣列_ ，僅將陣列中包含的屬性名稱加到 JSON 字串中。
 此案例中，僅有 `"level"` and `"health"` 被包含，`"username"` 沒有被包含在內，因此 `data` 的值將為 `"{"level":19, "health":90}"`。
 
-如果替換者是 _函式_ ，在要字串化的每個物件屬性上將會呼叫此函式。從此函式返回的值將是加到 JSON 字串中的屬性的值。如果值為 `undefined`，則此屬性從 JSON 字串中排除。
+如果替換者是 _函式_ ，在要字串化的每個物件屬性上將會呼叫此函式。從此函式回傳的值將是加到 JSON 字串中的屬性的值。如果值為 `undefined`，則此屬性從 JSON 字串中排除。
 
 </p>
 </details>
@@ -1969,9 +1969,9 @@ console.log(num2);
 
 #### 答案: A
 
-單元運算子 `++` 首先 _返回_ 操作數的值，然後 _遞增_ 操作數的值。 `num1` 的值是 `10`，因為 `increaseNumber`  函式首先返回 `num` 的值，即 `10`，之後才遞增 `num` 的值。
+單元運算子 `++` 首先 _回傳_ 操作數的值，然後 _遞增_ 操作數的值。 `num1` 的值是 `10`，因為 `increaseNumber`  函式首先回傳 `num` 的值，即 `10`，之後才遞增 `num` 的值。
 
-`num2` 是 `10`， 因為我們將 `num1` 傳遞給了 `increasePassedNumber`。 `number` 等於 `10`（ `num1` 的值。同樣，單元運算子 `++` 首先 _返回_ 操作數的值，然後 _遞增_ 操作數的值。
+`num2` 是 `10`， 因為我們將 `num1` 傳遞給了 `increasePassedNumber`。 `number` 等於 `10`（ `num1` 的值。同樣，單元運算子 `++` 首先 _回傳_ 操作數的值，然後 _遞增_ 操作數的值。
 `number` 的值是 `10`，因此 `num2` 等於 `10`。
 
 </p>
@@ -2006,7 +2006,7 @@ multiply(value);
 
 在ES6中，我們可以使用預設值初始化參數。如果沒有其他值傳遞給該函式或是傳入的參數是 `undefined`，則該參數的值為預設值。此案例中，我們將 `value` 物件的屬性擴展到一個新物件中，因此 `x` 具有預設值 `{number：10}`。
 
-預設值是在 _呼叫_ 時被 evaluated。每次呼叫該函式時，都會創建一個 _新_ 物件。我們在沒有傳遞值的情況下呼叫了 `multiply` 函式兩次：`x` 的預設值是 `{{number：10}`。因此，我們輸出該數字的相乘值，即 `20`。
+預設值是在 _呼叫_ 時被 evaluated。每次呼叫該函式時，都會建立一個 _新_ 物件。我們在沒有傳遞值的情況下呼叫了 `multiply` 函式兩次：`x` 的預設值是 `{{number：10}`。因此，我們輸出該數字的相乘值，即 `20`。
 
 第三次呼叫時，我們確實傳遞了一個參數：名為 `value` 的物件。 `*=` 運算子實際上是 `x.number = x.number * 2` 的簡寫：因此我們修改了 `x.number` 的值，並記錄相乘後的值 `20`。
 
@@ -2035,15 +2035,15 @@ multiply(value);
 
 `reduce` 方法接收的第一個參數是 _累加器(accumulator)_ ，在這種情況下是 `x`。 第二個參數是 _current value_ `y`。 使用 `reduce` 方法，我們對陣列中的每個元素執行一個 callback 函式，並在最終回一個值。
 
-在此示例中，我們不返回任何值，僅記錄了累加器的值和當前值。
+在此示例中，我們不回傳任何值，僅記錄了累加器的值和當前值。
 
-累加器的值等於 callback 函式先前返回的值。 如果沒有 `initialValue` 參數傳遞給 `reduce` 方法，則累加器的初始值將會等於第一個元素。
+累加器的值等於 callback 函式先前回傳的值。 如果沒有 `initialValue` 參數傳遞給 `reduce` 方法，則累加器的初始值將會等於第一個元素。
 
-在第一個呼叫中，累加器（`x`）為`1`，當前值（`y`）為`2`。 我們不從 callback 函式返回，而是輸出累加器和當前值：`1` 和 `2`。
+在第一個呼叫中，累加器（`x`）為`1`，當前值（`y`）為`2`。 我們不從 callback 函式回傳，而是輸出累加器和當前值：`1` 和 `2`。
 
-如果您不從 callback 函式返回值，則它將返回 `undefined`。 在下一次呼叫時，累加器為 `undefined`，當前值為 `3`。 於是 `undefined` 和 `3` 被輸出。
+如果您不從 callback 函式回傳值，則它將回傳 `undefined`。 在下一次呼叫時，累加器為 `undefined`，當前值為 `3`。 於是 `undefined` 和 `3` 被輸出。
 
-在第四次呼叫中，我們再次不從 callback 函式返回。 累加器再次為 `undefined`，當前值為 `4`。於是 `undefined` 和 `4` 被輸出。
+在第四次呼叫中，我們再次不從 callback 函式回傳。 累加器再次為 `undefined`，當前值為 `4`。於是 `undefined` 和 `4` 被輸出。
 
 </p>
 </details>
@@ -2240,7 +2240,7 @@ console.log(/* 2 */); // JavaScript 也愛你 ❤️
 
 `startGame()` 函數會一行一行執行直到遇到 `yield` 關鍵字，在函數裡第一個就有一個 `yield` 關鍵字：所以執行到第一行就停止了！ _此時answer變數還尚未定義_
 
-當我們呼叫 `game.next("Yes").value`，前一個 `yield` 被傳遞給 `next()` 的參數值所取代。此例我們使用 `Yes`。變數 `answer` 的值現在等於 `Yes`。 if 語句的條件返回 `false`，並且會返回 `JavaScript 也愛你 ❤️` 。
+當我們呼叫 `game.next("Yes").value`，前一個 `yield` 被傳遞給 `next()` 的參數值所取代。此例我們使用 `Yes`。變數 `answer` 的值現在等於 `Yes`。 if 語句的條件回傳 `false`，並且會回傳 `JavaScript 也愛你 ❤️` 。
 
 </p>
 </details>
@@ -2303,7 +2303,7 @@ console.log(data);
 
 #### 答案: C
 
-一個異步函數總是返回一個 promise 。 `await` 仍然要等待 promise 的 resolve：當我們呼叫 `getData()` 等於 `data` 時，會得到一個等待的 promise。
+一個異步函數總是回傳一個 promise 。 `await` 仍然要等待 promise 的 resolve：當我們呼叫 `getData()` 等於 `data` 時，會得到一個等待的 promise。
 
 如果我們想獲取 resolve 後的值`"I made it"`，我們可以在`data`上使用`.then()`函數：
 
@@ -2339,7 +2339,7 @@ console.log(result);
 
 `.push()`函數回傳的是陣列的長度！原本陣列包含一個元素（字串`"香蕉"`），長度為`1`。後來將字串 `"apple"` 加到陣列中後，陣列包含兩個元素。所以會從`addToList`函數中得到，長度為 `"2"`。
 
-`push`函數修改了原來的陣列。如果你想從函數中返回 _陣列_ 而不是 _陳列的長度_ ，你應該在加完`item`到陣列後，回傳`list`。
+`push`函數修改了原來的陣列。如果你想從函數中回傳 _陣列_ 而不是 _陳列的長度_ ，你應該在加完`item`到陣列後，回傳`list`。
 
 </p>
 </details>
@@ -2427,7 +2427,7 @@ function sum(a, b) {
 
 純函數一種若輸入參數相同，則永遠會得到相同輸出的函數。
 
-在特定情況下，即使輸入相同參數，也不能得到相同的返回值：
+在特定情況下，即使輸入相同參數，也不能得到相同的回傳值：
 
 <pre>
 var a = b = {}
@@ -2544,7 +2544,7 @@ console.log(list)
 
 #### 答案: C
 
-陣列元素可以包含任何值。數字，字符，布爾，物件，陣列，`null`，`undeifned`, 以及其他表達式，如日期，函數和計算式。
+陣列元素可以包含任何值。數字，字符，布林，物件，陣列，`null`，`undeifned`, 以及其他表達式，如日期，函數和計算式。
 
 元素將等於回傳的值。 `1 + 2`回傳`3`，`1 * 2`回傳'2`，'1 / 2`回傳`0.5`。
 
@@ -2651,7 +2651,7 @@ console.log(person)
 
 然後，我們將`city`設置為等於字串`“Amsterdam”`。這不會更改person物件：沒有對該物件的引用。
 
-因此輸出`person`物件時，會返回未修改的物件。
+因此輸出`person`物件時，會回傳未修改的物件。
 
 </p>
 </details>
@@ -2699,7 +2699,7 @@ fetch('https://www.website.com/api/user/1')
 
 - A: `fetch`函數的結果
 - B: 第二次呼叫`fetch`函數的結果
-- C: 前一個`.then()`中回傳函數返回的結果
+- C: 前一個`.then()`中回傳函數回傳的結果
 - D: 總是`undefined`
 
 <details><summary><b>答案</b></summary>
@@ -2707,7 +2707,7 @@ fetch('https://www.website.com/api/user/1')
 
 #### 答案: C
 
-第二個`.then`中`res`的值等於前一個`.then`中函數返回的值。你可以像這樣繼續連接`.then`，將值傳遞給下一個處理程序。
+第二個`.then`中`res`的值等於前一個`.then`中函數回傳的值。你可以像這樣繼續連接`.then`，將值傳遞給下一個處理程序。
 
 </p>
 </details>
@@ -2731,13 +2731,13 @@ function getName(name) {
 
 #### 答案: A
 
-使用邏輯非運算子`!`，將返回一個布林值，使用`!! name`，我們可以確定`name`的值是`true`還是`false`。如果`name`是`true`，那麼`!name`返回`false`。 `!false`返回`true`。
+使用邏輯非運算子`!`，將回傳一個布林值，使用`!! name`，我們可以確定`name`的值是`true`還是`false`。如果`name`是`true`，那麼`!name`回傳`false`。 `!false`回傳`true`。
 
 通過將`hasName`設置為`name`，可以將`hasName`設置為等於傳遞給`getName`函數的值，而不是布林值`true`。
 
-`new Boolean（true）`返回一個物件包裝器，而不是布林值本身。
+`new Boolean（true）`回傳一個物件包裝器，而不是布林值本身。
 
-`name.length`返回傳遞的參數的長度，而不是布林值`true`。
+`name.length`回傳傳遞的參數的長度，而不是布林值`true`。
 
 </p>
 </details>
@@ -2787,7 +2787,7 @@ sum(10)
 
 #### 答案: B
 
-您可以將預設參數的值設置為函數的另一個參數，只要另一個參數定義在其之前即可。我們將值`10`傳遞給`sum`函數。如果`sum`函數只接收1個參數，則意味著沒有傳遞`num2`的值，這種情況下，`num1`的值等於傳遞的值`10`。 `num2`的預設值是`num1`的值，即`10`。 ```num1 + num2```返回`20`。
+您可以將預設參數的值設置為函數的另一個參數，只要另一個參數定義在其之前即可。我們將值`10`傳遞給`sum`函數。如果`sum`函數只接收1個參數，則意味著沒有傳遞`num2`的值，這種情況下，`num1`的值等於傳遞的值`10`。 `num2`的預設值是`num1`的值，即`10`。 ```num1 + num2```回傳`20`。
 
 如果您嘗試將預設參數的值設置為後面定義的參數，則可能導致參數的值尚未初始化，從而引發錯誤。比如：
 ```js
@@ -2826,7 +2826,7 @@ console.log(data)
 
 #### 答案: A
 
-使用`import * as name`語法，我們將`module.js`文件中所有`export`匯入到`index.js`文件中，並且建立了一個名為`data`的新物件。在`module.js`文件中，有兩個匯出：預設匯出和命名匯出。預設匯出是一個返回字串“Hello World”的函數，命名匯出是一個名為`name`的變數，其值為字串`“Lydia”`。
+使用`import * as name`語法，我們將`module.js`文件中所有`export`匯入到`index.js`文件中，並且建立了一個名為`data`的新物件。在`module.js`文件中，有兩個匯出：預設匯出和命名匯出。預設匯出是一個回傳字串“Hello World”的函數，命名匯出是一個名為`name`的變數，其值為字串`“Lydia”`。
 
 `data`物件具有預設匯出的`default`屬性，其他屬性具有指定exports的名稱及其對應的值。
 
@@ -2865,7 +2865,7 @@ function Person() {
 }
 ```
 
-透過`new`來呼叫建構函數，將會產生建構函數`Person`的實例，對實例執行`typeof`關鍵字將返回`"object"`，上述情況輸出`"object"`。
+透過`new`來呼叫建構函數，將會產生建構函數`Person`的實例，對實例執行`typeof`關鍵字將回傳`"object"`，上述情況輸出`"object"`。
 
 </p>
 </details>
@@ -3033,7 +3033,7 @@ console.log(nums(1, 2))
   a + b
 ```
 
-這意味著永遠不會到達`a + b`，因為函數在`return`關鍵字之後停止運行。如果沒有回傳值，就像這裡，函數回傳`undefined`。注意，在`if/else`語法之後沒有自動插入!
+這意味著永遠不會到達`a + b`，因為函數在`return`關鍵字之後停止執行。如果沒有回傳值，就像這裡，函數回傳`undefined`。注意，在`if/else`語法之後沒有自動插入!
 
 </p>
 </details>
@@ -3098,7 +3098,7 @@ console.log(Object.keys(info))
 #### 答案: D
 
 
-`Symbol`類型是不可枚舉的。 `Object.keys`函數回傳物件上的所有可枚舉的鍵屬性。 `Symbol`類型是不可見的，並返回一個空陣列。記錄整個物件時，所有屬性都是可見的，甚至是不可枚舉的屬性。
+`Symbol`類型是不可枚舉的。 `Object.keys`函數回傳物件上的所有可枚舉的鍵屬性。 `Symbol`類型是不可見的，並回傳一個空陣列。記錄整個物件時，所有屬性都是可見的，甚至是不可枚舉的屬性。
 
 這是`Symbol`的眾多特性之一：除了表示完全唯一的值（防止物件意外名稱衝突，例如當使用2個想要向同一物件添加屬性的庫時），您還可以`隱藏`這種方式物件的屬性（儘管不完全。你仍然可以使用`Object.getOwnPropertySymbols()`函數存取`Symbol`。
 
@@ -3330,9 +3330,9 @@ Promise.resolve(5)
 
 #### 答案: C
 
-我們可以將我們想要的任何類型的值傳遞`Promise.resolve`，無論是否`promise`。該函數本身返回帶有已解析值的`Promise` (`<fulfilled>`)。如果您傳遞正規式函數，它將是具有正規式值的已解決`promise`。如果你通過了promise，它將是一個已經resolved的且帶有傳的值的promise。
+我們可以將我們想要的任何類型的值傳遞`Promise.resolve`，無論是否`promise`。該函數本身回傳帶有已解析值的`Promise` (`<fulfilled>`)。如果您傳遞正規式函數，它將是具有正規式值的已解決`promise`。如果你通過了promise，它將是一個已經resolved的且帶有傳的值的promise。
 
-上述情況，我們傳了數字5，因此返回一個resolved狀態的promise，resolve值為`5`
+上述情況，我們傳了數字5，因此回傳一個resolved狀態的promise，resolve值為`5`
 
 </p>
 </details>
@@ -3366,11 +3366,11 @@ compareMembers(person)
 
 物件通過參考位址傳遞。當我們檢查物件的嚴格相等性（===）時，我們正在比較它們的參考位址。
 
-我們將“person2”的預設值設置為“person”物件，並將“person”對像作為“person1”的值傳遞。
+我們將“person2”的預設值設置為“person”物件，並將“person”物件作為“person1”的值傳遞。
 
-這意味著兩個值都引用內存中的同一位置，因此它們是相等的。
+這意味著兩個值都引用緩存中的同一位置，因此它們是相等的。
 
-運行“ else”語句中的代碼塊，並記錄`They are the same!` 。
+執行“ else”語句中的代碼塊，並記錄`They are the same!` 。
 
 </p>
 </details>
@@ -3429,7 +3429,7 @@ console.log('❤️' === '❤️')
 
 #### 答案: A
 
-在內部，表情符號是unicode。 heat表情符號的unicode是`“ U + 2764 U + FE0F”`。對於相同的表情符號，它們總是相同的，因此我們將兩個相等的字串相互比較，這將返回true。
+在內部，表情符號是unicode。 heat表情符號的unicode是`“ U + 2764 U + FE0F”`。對於相同的表情符號，它們總是相同的，因此我們將兩個相等的字串相互比較，這將回傳true。
 
 </p>
 </details>
@@ -3519,7 +3519,7 @@ JSON.parse()
 const jsonNumber = JSON.stringify(4) // '4'
 JSON.parse(jsonNumber) // 4
 
-// 將數組值字串化為有效的JSON，然後將JSON字串解析為JavaScript值:
+// 將陣列值字串化為有效的JSON，然後將JSON字串解析為JavaScript值:
 const jsonArray = JSON.stringify([1, 2, 3]) // '[1, 2, 3]'
 JSON.parse(jsonArray) // [1, 2, 3]
 
@@ -3604,14 +3604,14 @@ console.log(two.next().value)
 
 透過`yield` 關鍵字, 我們在`Generator` 函數裡執行`yield`語法. 透過`yield*` 關鍵字, 我們可以在一個`Generator` 函數裡面執行（`yield`語法）另一個`Generator ` 函數, 或可遍歷的物件(如陣列).
 
-在函數 `generatorOne` 中, 我們透過 `yield` 關鍵字 yield 了一個完整的陣列 `['a', 'b', 'c']`。函數`one`透過`next`方法返回的物件的`value` 屬性的值 (`one.next().value`) 等價於陣列 `['a', 'b', 'c']`.
+在函數 `generatorOne` 中, 我們透過 `yield` 關鍵字 yield 了一個完整的陣列 `['a', 'b', 'c']`。函數`one`透過`next`方法回傳的物件的`value` 屬性的值 (`one.next().value`) 等價於陣列 `['a', 'b', 'c']`.
 
 ```javascript
 console.log(one.next().value) // ['a', 'b', 'c']
 console.log(one.next().value) // undefined
 ```
 
-在函數 `generatorTwo` 中, 我們使用 `yield*` 關鍵字。就相當於函數`two`第一個`yield`的值, 等價於在迭代器中第一個 `yield` 的值。陣列`['a', 'b', 'c']`就是這個迭代器. 第一個`yield` 的值就是`a`, 所以我們第一次調用`two.next().value`時, 就返回`a`。
+在函數 `generatorTwo` 中, 我們使用 `yield*` 關鍵字。就相當於函數`two`第一個`yield`的值, 等價於在迭代器中第一個 `yield` 的值。陣列`['a', 'b', 'c']`就是這個迭代器. 第一個`yield` 的值就是`a`, 所以我們第一次呼叫`two.next().value`時, 就回傳`a`。
 
 ```javascript
 console.log(two.next().value) // 'a'
@@ -3830,11 +3830,11 @@ console.log(member.getLastName?.());
 
 #### 答案: B
 
-通過ES10 或TS3.7+[可選鏈運算子`?.`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/%E5%8F%AF% E9%80%89%E9%93%BE)，我們不再需要顯式檢測更深層的嵌套值是否有效。如果我們嘗試存取 `undefined` 或 `null` 的值 (_nullish_)，表達將會短路並返回 `undefined`.
+通過ES10 或TS3.7+[可選鏈運算子`?.`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/%E5%8F%AF% E9%80%89%E9%93%BE)，我們不再需要顯式檢測更深層的嵌套值是否有效。如果我們嘗試存取 `undefined` 或 `null` 的值 (_nullish_)，表達將會短路並回傳 `undefined`.
 
-`person.pet?.name`： `person` 有一個名為 `pet` 的屬性： `person.pet` 不是 nullish。它有個名為 `name` 的屬性，並返回字串 `Mara`。
-`person.pet?.family?.name`： `person` 有一個名為`pet` 的屬性： `person.pet` 不是nullish. `pet` _並沒有_ 一個名為`family` 的屬性, ` person.pet.family` 是nullish。表達式返回 `undefined`。
-`person.getFullName?.()`： `person` 有一個名為 `getFullName` 的屬性： `person.getFullName()` 不是 nullish 並可以被呼叫，返回字串 `Lydia Hallie`。
+`person.pet?.name`： `person` 有一個名為 `pet` 的屬性： `person.pet` 不是 nullish。它有個名為 `name` 的屬性，並回傳字串 `Mara`。
+`person.pet?.family?.name`： `person` 有一個名為`pet` 的屬性： `person.pet` 不是nullish. `pet` _並沒有_ 一個名為`family` 的屬性, ` person.pet.family` 是nullish。表達式回傳 `undefined`。
+`person.getFullName?.()`： `person` 有一個名為 `getFullName` 的屬性： `person.getFullName()` 不是 nullish 並可以被呼叫，回傳字串 `Lydia Hallie`。
 `member.getLastName?.()`: `member` is not defined: `member.getLastName()` is nullish. The expression returns `undefined`.
 
 </p>
@@ -3869,3 +3869,1198 @@ if (groceries.indexOf("banana")) {
 </details>
 
 ---
+###### 121. 將會輸出什麽內容？
+
+```javascript
+const config = {
+	languages: [],
+	set language(lang) {
+		return this.languages.push(lang);
+	}
+};
+
+console.log(config.language);
+```
+
+- A: `function language(lang) { this.languages.push(lang }`
+- B: `0`
+- C: `[]`
+- D: `undefined`
+
+<details><summary><b>答案</b></summary>
+<p>
+
+#### 答案: D
+
+函數 `language` 是一個 `setter`。 Setters 並不保存一個實際值，它們的使命在於 _修改_ 屬性。當呼叫函數 `setter`， 回傳 `undefined`。
+
+</p>
+</details>
+
+---
+
+###### 122. 將會輸出什麽內容？
+
+```javascript
+const name = "Lydia Hallie";
+
+console.log(!typeof name === "object");
+console.log(!typeof name === "string");
+```
+
+- A: `false` `true`
+- B: `true` `false`
+- C: `false` `false`
+- D: `true` `true`
+
+<details><summary><b>答案</b></summary>
+<p>
+
+#### 答案: C
+
+`typeof name` 回傳 `"string"`。字串 `"string"` 是一個 truthy 的值，因此 `!typeof name` 回傳一個布林值 `false`。 `false === "object"` 和 `false === "string"` 都回傳 `false`。
+
+（如果我們想檢測一個值的類型，我們應該用 `!==` 而不是 `!typeof`）
+
+</p>
+</details>
+
+---
+###### 123. 將會輸出什麽內容？
+
+```javascript
+const add = x => y => z => {
+	console.log(x, y, z);
+	return x + y + z;
+};
+
+add(4)(5)(6);
+```
+
+- A: `4` `5` `6`
+- B: `6` `5` `4`
+- C: `4` `function` `function`
+- D: `undefined` `undefined` `6`
+
+<details><summary><b>答案</b></summary>
+<p>
+
+#### 答案: A
+
+函數 `add` 是一個回傳 回傳箭頭函數的箭頭函數 的箭頭函數（still with me?）。第一個函數接收一個值為 `4` 的參數 `x`。我們呼叫第二個函數，它接收一個值為 `5` 的參數 `y`。然後我們呼叫第三個函數，它接收一個值為 `6` 的參數 `z`。當我們嘗試在最後一個箭頭函數中獲取 `x`, `y` 和 `z` 的值，JS 引擎根據作用域鏈去找 `x` 和 `y` 的值。得到 `4` `5` `6`.
+
+</p>
+</details>
+
+---
+###### 124. 將會輸出什麽內容？
+
+```javascript
+async function* range(start, end) {
+	for (let i = start; i <= end; i++) {
+		yield Promise.resolve(i);
+	}
+}
+
+(async () => {
+	const gen = range(1, 3);
+	for await (const item of gen) {
+		console.log(item);
+	}
+})();
+```
+
+- A: `Promise {1}` `Promise {2}` `Promise {3}`
+- B: `Promise {<pending>}` `Promise {<pending>}` `Promise {<pending>}`
+- C: `1` `2` `3`
+- D: `undefined` `undefined` `undefined`
+
+<details><summary><b>答案</b></summary>
+<p>
+
+#### 答案: C
+
+我們給 函數range 傳遞： `Promise{1}`, `Promise{2}`, `Promise{3}`，Generator 函數 `range` 回傳一個全是 async object promise 陣列。我們將 async object 賦值給變數 `gen`，之後我們使用`for await ... of` 進行循環遍歷。我們將回傳的 Promise 實例賦值給 `item`： 第一個回傳 `Promise{1}`， 第二個回傳 `Promise{2}`，之後是 `Promise{3}`。因為我們正 _awaiting_ `item` 的值，resolved 狀態的 promsie，promise陣列的resolved _值_ 以此為： `1`，`2`，`3`.
+
+</p>
+</details>
+
+---
+###### 125. 將會輸出什麽內容？
+
+```javascript
+const myFunc = ({ x, y, z }) => {
+	console.log(x, y, z);
+};
+
+myFunc(1, 2, 3);
+```
+
+- A: `1` `2` `3`
+- B: `{1: 1}` `{2: 2}` `{3: 3}`
+- C: `{ 1: undefined }` `undefined` `undefined`
+- D: `undefined` `undefined` `undefined`
+
+<details><summary><b>答案</b></summary>
+<p>
+
+#### 答案: D
+
+`myFunc` 預期接收一個包含 `x`, `y` 和 `z` 屬性的物件作為它的參數。因為我們僅僅傳遞三個單獨的數字值(1, 2, 3) 而不是一個含有`x`, `y` 和`z` 屬性的物件({x: 1, y: 2, z: 3}) ， `x`, `y` 和`z` 有著各自的預設值`undefined`.
+
+</p>
+</details>
+
+---
+###### 126. 將會輸出什麽內容？
+
+```javascript
+function getFine(speed, amount) {
+  const formattedSpeed = new Intl.NumberFormat({
+    'en-US',
+    { style: 'unit', unit: 'mile-per-hour' }
+  }).format(speed)
+
+  const formattedAmount = new Intl.NumberFormat({
+    'en-US',
+    { style: 'currency', currency: 'USD' }
+  }).format(amount)
+
+  return `The driver drove ${formattedSpeed} and has to pay ${formattedAmount}`
+}
+
+console.log(getFine(130, 300))
+```
+
+- A: The driver drove 130 and has to pay 300
+- B: The driver drove 130 mph and has to pay \$300.00
+- C: The driver drove undefined and has to pay undefined
+- D: The driver drove 130.00 and has to pay 300.00
+
+<details><summary><b>答案</b></summary>
+<p>
+
+#### 答案: B
+
+通過函數 `Intl.NumberFormat`，我們可以格式化任意區域的數字值。我們對數字值 `130` 進行 `mile-per-hour` 作為 `unit` 的 `en-US` 區域 格式化，結果為 `130 mph`。對數字值 `300` 進行 `USD` 作為 `currentcy` 的 `en-US` 區域格式化，結果為 `$300.00`.
+
+</p>
+</details>
+
+---
+
+###### 127. 將會輸出什麽內容？
+
+```javascript
+const spookyItems = ["👻", "🎃", "🕸"];
+({ item: spookyItems[3] } = { item: "💀" });
+
+console.log(spookyItems);
+```
+
+- A: `["👻", "🎃", "🕸"]`
+- B: `["👻", "🎃", "🕸", "💀"]`
+- C: `["👻", "🎃", "🕸", { item: "💀" }]`
+- D: `["👻", "🎃", "🕸", "[object Object]"]`
+
+<details><summary><b>答案</b></summary>
+<p>
+
+#### 答案: B
+
+通過解構物件們，我們可以從右手邊的物件中拆出值，並且將拆出的值分配給左手邊物件同名的屬性。在這種情況下，我們將值 "💀" 分配給 `spookyItems[3]`。相當於我們正在篡改陣列 `spookyItems`，我們給它添加了值 "💀"。當輸出 `spookyItems` 時，結果為 `["👻", "🎃", "🕸", "💀"]`。
+
+</p>
+</details>
+
+---
+
+###### 128. 將會輸出什麽內容？
+
+```javascript
+const name = "Lydia Hallie";
+const age = 21;
+
+console.log(Number.isNaN(name));
+console.log(Number.isNaN(age));
+
+console.log(isNaN(name));
+console.log(isNaN(age));
+```
+
+- A: `true` `false` `true` `false`
+- B: `true` `false` `false` `false`
+- C: `false` `false` `true` `false`
+- D: `false` `true` `false` `true`
+
+<details><summary><b>答案</b></summary>
+<p>
+
+#### 答案: C
+
+通過函數 `Number.isNaN`，你可以檢測你傳遞的值是否為 _數字值_ 並且是否等於 `NaN`。 `name` 不是一個數字值，因此 `Number.isNaN(name)` 回傳 `false`。 `age` 是一個數字值，但它不等於 `NaN`，因此 `Number.isNaN(age)` 回傳 `false`.
+
+通過函數 `isNaN`， 你可以檢測你傳遞的值是否一個 number。 `name` 不是一個 `number`，因此 `isNaN(name)` 回傳 `true`. `age` 是一個 `number` 因此 `isNaN(age)` 回傳 `false`.
+
+</p>
+</details>
+
+---
+
+###### 129. 將會輸出什麽內容？
+
+```javascript
+const randomValue = 21;
+
+function getInfo() {
+	console.log(typeof randomValue);
+	const randomValue = "Lydia Hallie";
+}
+
+getInfo();
+```
+
+- A: `"number"`
+- B: `"string"`
+- C: `undefined`
+- D: `ReferenceError`
+
+<details><summary><b>答案</b></summary>
+<p>
+
+#### 答案: D
+
+通過 `const` 關鍵字定義的變數在被初始化之前不可被引用：這被稱之為 _暫時性死區_。在函數 `getInfo` 中, 變數 `randomValue` 定義在`getInfo` 的作用域的此法環境中。在想要對`typeof randomValue` 進行log之前，變數`randomValue` 仍未被初始化： 錯誤`ReferenceError` 被拋出! JS引擎並不會根據作用域鍊網上尋找該變數，因為我們已經在`getInfo`函數中定義了`randomValue` 變數。
+
+</p>
+</details>
+
+---
+
+###### 130. 將會輸出什麽內容？
+
+```javascript
+const myPromise = Promise.resolve("Woah some cool data");
+
+(async () => {
+	try {
+		console.log(await myPromise);
+	} catch {
+		throw new Error(`Oops didn't work`);
+	} finally {
+		console.log("Oh finally!");
+	}
+})();
+```
+
+- A: `Woah some cool data`
+- B: `Oh finally!`
+- C: `Woah some cool data` `Oh finally!`
+- D: `Oops didn't work` `Oh finally!`
+
+<details><summary><b>答案</b></summary>
+<p>
+
+#### 答案: C
+
+在 `try` 塊區，我們輸出 `myPromise` 變數的 awaited 值： `"Woah some cool data"`。因為`try` 塊區沒有錯誤拋出，`catch` 塊區的代碼並不執行。 `finally` 塊區的代碼 _總是_ 執行，`"Oh finally!"` 被輸出。
+
+</p>
+</details>
+
+---
+
+###### 131. 將會輸出什麽內容？
+
+```javascript
+const emojis = ["🥑", ["✨", "✨", ["🍕", "🍕"]]];
+
+console.log(emojis.flat(1));
+```
+
+- A: `['🥑', ['✨', '✨', ['🍕', '🍕']]]`
+- B: `['🥑', '✨', '✨', ['🍕', '🍕']]`
+- C: `['🥑', ['✨', '✨', '🍕', '🍕']]`
+- D: `['🥑', '✨', '✨', '🍕', '🍕']`
+
+<details><summary><b>答案</b></summary>
+<p>
+
+#### 答案: B
+
+通過函數 `flat`， 我們可以建立一個新的, 已被扁平化的陣列。被扁平化的深度取決於我們傳遞的值。在這個case裡，我們傳遞了值 `1` (並不必要，這是預設值)，相當於只有第一層的陣列才會被連接。即這個 case 裡的 `['🥑']` and `['✨', '✨', ['🍕', '🍕']]`。連接這兩個陣列得到結果 `['🥑', '✨', '✨', ['🍕', '🍕']]`.
+
+</p>
+</details>
+
+---
+
+###### 132. 將會輸出什麽內容？
+
+```javascript
+class Counter {
+	constructor() {
+		this.count = 0;
+	}
+
+	increment() {
+		this.count++;
+	}
+}
+
+const counterOne = new Counter();
+counterOne.increment();
+counterOne.increment();
+
+const counterTwo = counterOne;
+counterTwo.increment();
+
+console.log(counterOne.count);
+```
+
+- A: `0`
+- B: `1`
+- C: `2`
+- D: `3`
+
+<details><summary><b>答案</b></summary>
+<p>
+
+#### 答案: D
+
+`counterOne` 是類 `Counter` 的一個實例。類 Counter 包含一個`count` 屬性在它的建構函數里， 和一個 `increment` 函數。首先，我們通過 `counterOne.increment()` 呼叫函數 `increment` 兩次。現在, `counterOne.count` 為 `2`.
+
+<img src="https://i.imgur.com/KxLlTm9.png" width="400">
+
+然後，我們建立一個新的變數 `counterTwo` 並將 `counterOne` 的引用地址賦值給它。因為物件受引用地址的影響，我們剛剛建立了一個新的物件，其引用地址和 `counterOne` 的等價。因此它們指向同一塊緩存地址，任何對其的副作用都會影響 `counterTwo`。現在 `counterTwo.count` 為 `2`。
+
+我們呼叫 `counterTwo.increment()` 將 `count` 的值設為 `3`。然後，我們輸出 `counterOne` 裡的count，結果為 `3`。
+
+<img src="https://i.imgur.com/BNBHXmc.png" width="400">
+
+</p>
+</details>
+
+---
+
+###### 133. 將會輸出什麽內容？
+
+```javascript
+const myPromise = Promise.resolve(Promise.resolve("Promise!"));
+
+function funcOne() {
+	myPromise.then(res => res).then(res => console.log(res));
+	setTimeout(() => console.log("Timeout!", 0));
+	console.log("Last line!");
+}
+
+async function funcTwo() {
+	const res = await myPromise;
+	console.log(await res);
+	setTimeout(() => console.log("Timeout!", 0));
+	console.log("Last line!");
+}
+
+funcOne();
+funcTwo();
+```
+
+- A: `Promise! Last line! Promise! Last line! Last line! Promise!`
+- B: `Last line! Timeout! Promise! Last line! Timeout! Promise!`
+- C: `Promise! Last line! Last line! Promise! Timeout! Timeout!`
+- D: `Last line! Promise! Promise! Last line! Timeout! Timeout!`
+
+<details><summary><b>答案</b></summary>
+<p>
+
+#### 答案: D
+
+首先，我們呼叫 `funcOne`。在函數 `funcOne` 的第一行，我們呼叫`myPromise` promise _異步操作_。當JS引擎在忙於執行 promise，它繼續執行函數 `funcOne`。下一行 _異步操作_ `setTimeout`，其回呼函數被 Web API 呼叫。 (詳情請參考我關於event loop的文章.)
+
+promise 和 timeout 都是異步操作，函數繼續執行當JS引擎忙於執行promise 和 處理 `setTimeout` 的呼叫。相當於 `Last line!` 首先被輸出， 因為它不是異步操作。執行完 `funcOne` 的最後一行，promise 狀態轉變為 resolved，`Promise!` 被輸出。然而，因為我們呼叫了 `funcTwo()`, 呼叫堆疊不為空，`setTimeout` 的回呼仍不能入堆疊。
+
+我們現在處於 `funcTwo`，先 _awaiting_ myPromise。通過 `await` 關鍵字， 我們暫停了函數的執行直到 promise 狀態變為 resolved (或 rejected)。然後，我們輸出 `res` 的 awaited 值（因為 promise 本身回傳一個 promise）。接著輸出 `Promise!`。
+
+下一行就是 _異步操作_ `setTimeout`，其回呼函數被 Web API 呼叫。
+
+我們執行到函數 `funcTwo` 的最後一行，輸出 `Last line!`。現在，因為 `funcTwo` 出堆疊，呼叫堆疊為空。在事件佇列中等待的回呼函數（`() => console.log("Timeout!")` from `funcOne`, and `() => console.log("Timeout!")` from `funcTwo`）以此入堆疊。第一個回呼輸出 `Timeout!`，並出堆疊。然後，第二個回呼輸出 `Timeout!`，並出堆疊。得到結果 `Last line! Promise! Promise! Last line! Timeout! Timeout!`
+
+</p>
+</details>
+
+---
+
+###### 134. 我们怎样才能在 `index.js` 中调用 `sum.js?` 中的 `sum`？
+
+```javascript
+// sum.js
+export default function sum(x) {
+	return x + x;
+}
+
+// index.js
+import * as sum from "./sum";
+```
+
+- A: `sum(4)`
+- B: `sum.sum(4)`
+- C: `sum.default(4)`
+- D: 預設導出不用 `*` 來導入，只能具名導出
+
+<details><summary><b>答案</b></summary>
+<p>
+
+#### 答案: C
+
+使用符號 `*`，我們引入文件中的所有值，包括預設和具名。如果我們有以下文件：
+
+```javascript
+// info.js
+export const name = "Lydia";
+export const age = 21;
+export default "I love JavaScript";
+
+// index.js
+import * as info from "./info";
+console.log(info);
+```
+
+將會輸出以下內容：
+
+```javascript
+{
+  default: "I love JavaScript",
+  name: "Lydia",
+  age: 21
+}
+```
+
+以 `sum` 為例，相當於以下形式引入值 `sum`：
+
+```javascript
+{ default: function sum(x) { return x + x } }
+```
+
+我們可以通過呼叫 `sum.default` 來呼叫該函數
+
+</p>
+</details>
+
+---
+
+###### 135. 將會輸出什麽內容？
+
+```javascript
+const handler = {
+	set: () => console.log("Added a new property!"),
+	get: () => console.log("Accessed a property!")
+};
+
+const person = new Proxy({}, handler);
+
+person.name = "Lydia";
+person.name;
+```
+
+- A: `Added a new property!`
+- B: `Accessed a property!`
+- C: `Added a new property!` `Accessed a property!`
+- D: 沒有任何輸出
+
+<details><summary><b>答案</b></summary>
+<p>
+
+#### 答案: C
+
+使用 Proxy 物件，我們可以給一個物件添加自定義行為。在這個 case，我們傳遞一個包含以下屬性的物件 `handler` : `set` and `get`。每當我門 _設置_ 屬性值時 `set` 被呼叫，每當我們 _獲取_ 時 `get` 被呼叫。
+
+第一個參數是一個空物件 `{}`，作為 `person` 的值。對於這個物件，自定義行為被定義在物件 `handler`。如果我們向物件 `person` 添加屬性，`set` 將被呼叫。如果我們獲取 `person` 的屬性, `get` 將被呼叫。
+
+首先，我們向 proxy 物件(`person.name = "Lydia"`)添加一個屬性 `name`。 `set` 被呼叫並輸出 `"Added a new property!"`。
+
+然後，我們獲取 proxy 物件的一個屬性，物件 handler 的屬性 `get` 被呼叫。輸出 `"Accessed a property!"`。
+
+</p>
+</details>
+
+---
+
+###### 136. 以下哪一項會對物件 `person` 有副作用？
+
+```javascript
+const person = { name: "Lydia Hallie" };
+
+Object.seal(person);
+```
+
+- A: `person.name = "Evan Bacon"`
+- B: `person.age = 21`
+- C: `delete person.name`
+- D: `Object.assign(person, { age: 21 })`
+
+<details><summary><b>答案</b></summary>
+<p>
+
+#### 答案: A
+
+使用 `Object.seal` 我們可以防止新屬性 _被添加_，或者存在屬性 _被移除_.
+
+然而，你仍然可以對存在屬性進行更改。
+
+</p>
+</details>
+
+---
+
+###### 137. 以下哪一項會對物件 `person` 有副作用？
+
+```javascript
+const person = {
+	name: "Lydia Hallie",
+	address: {
+		street: "100 Main St"
+	}
+};
+
+Object.freeze(person);
+```
+
+- A: `person.name = "Evan Bacon"`
+- B: `delete person.address`
+- C: `person.address.street = "101 Main St"`
+- D: `person.pet = { name: "Mara" }`
+
+<details><summary><b>答案</b></summary>
+<p>
+
+#### 答案: C
+
+使用函數 `Object.freeze` 對一個物件進行 _凍結_。不能對屬性進行添加，修改，刪除。
+
+然而，它僅 對物件進行 _淺_ 凍結，意味著只有 物件中的 _直接_ 屬性被凍結。如果屬性是另一個 object，像案例中的 `address`，`address` 中的屬性沒有被凍結，仍然可以被修改。
+
+</p>
+</details>
+
+---
+
+###### 138. 將會輸出什麽內容？
+
+```javascript
+const add = x => x + x;
+
+function myFunc(num = 2, value = add(num)) {
+	console.log(num, value);
+}
+
+myFunc();
+myFunc(3);
+```
+
+- A: `2` `4` and `3` `6`
+- B: `2` `NaN` and `3` `NaN`
+- C: `2` `Error` and `3` `6`
+- D: `2` `4` and `3` `Error`
+
+<details><summary><b>答案</b></summary>
+<p>
+
+#### 答案: A
+
+首先我們不傳遞任何參數呼叫 `myFunc()`。因為我們沒有傳遞參數，`num` 和 `value` 獲取它們各自的預設值：num 為 `2`, 而 `value` 為函數 `add` 的回傳值。對於函數 `add`，我們傳遞值為2的 `num` 作為參數。函數 `add` 回傳 `4` 作為 `value` 的值。
+
+然後，我們呼叫 `myFunc(3)` 並傳遞值 `3` 參數 `num` 的值。我們沒有給 `value` 傳遞值。因為我們沒有給參數 `value` 傳遞值，它獲取預設值：函數 `add` 的回傳值。對於函數 `add`，我們傳遞值為3的 `num`給它。函數 `add` 回傳 `6` 作為 `value` 的值。
+
+</p>
+</details>
+
+---
+
+###### 139. 將會輸出什麽內容？
+
+```javascript
+class Counter {
+  #number = 10
+
+  increment() {
+    this.#number++
+  }
+
+  getNum() {
+    return this.#number
+  }
+}
+
+const counter = new Counter()
+counter.increment()
+
+console.log(counter.#number)
+```
+
+- A: `10`
+- B: `11`
+- C: `undefined`
+- D: `SyntaxError`
+
+<details><summary><b>答案</b></summary>
+<p>
+
+#### 答案: D
+
+在 ES2020 中，通過 `#` 我們可以給 class 添加私有變數。在 class 的外部我們無法存取該值。當我們嘗試輸出 `counter.#number`，語法錯誤被拋出：我們無法在 class `Counter` 外部存取它!
+
+</p>
+</details>
+
+---
+
+###### 140. 选择哪一个？
+
+```javascript
+const teams = [
+	{ name: "Team 1", members: ["Paul", "Lisa"] },
+	{ name: "Team 2", members: ["Laura", "Tim"] }
+];
+
+function* getMembers(members) {
+	for (let i = 0; i < members.length; i++) {
+		yield members[i];
+	}
+}
+
+function* getTeams(teams) {
+	for (let i = 0; i < teams.length; i++) {
+		// ✨ SOMETHING IS MISSING HERE ✨
+	}
+}
+
+const obj = getTeams(teams);
+obj.next(); // { value: "Paul", done: false }
+obj.next(); // { value: "Lisa", done: false }
+```
+
+- A: `yield getMembers(teams[i].members)`
+- B: `yield* getMembers(teams[i].members)`
+- C: `return getMembers(teams[i].members)`
+- D: `return yield getMembers(teams[i].members)`
+
+<details><summary><b>答案</b></summary>
+<p>
+
+#### 答案: B
+
+為了遍歷 `teams` 陣列中物件的屬性 `members` 中的每一項，我們需要將 `teams[i].members` 傳遞給 Generator 函數 `getMembers`。 Generator 函數回傳一個 generator 物件。為了遍歷這個 generator 物件中的每一項，我們需要使用 `yield*`.
+
+如果我們沒有寫 `yield`，`return yield` 或者 `return`，整個 Generator 函數不會第一時間 return 當我們呼叫 `next` 函數.
+
+</p>
+</details>
+
+---
+
+###### 141. 將會輸出什麽內容？
+
+```javascript
+const person = {
+	name: "Lydia Hallie",
+	hobbies: ["coding"]
+};
+
+function addHobby(hobby, hobbies = person.hobbies) {
+	hobbies.push(hobby);
+	return hobbies;
+}
+
+addHobby("running", []);
+addHobby("dancing");
+addHobby("baking", person.hobbies);
+
+console.log(person.hobbies);
+```
+
+- A: `["coding"]`
+- B: `["coding", "dancing"]`
+- C: `["coding", "dancing", "baking"]`
+- D: `["coding", "running", "dancing", "baking"]`
+
+<details><summary><b>答案</b></summary>
+<p>
+
+#### 答案: C
+
+函數 `addHobby` 接受兩個參數，`hobby` 和有著物件 `person` 中陣列 `hobbies` 預設值的 `hobbies`。
+
+首相，我們呼叫函數 `addHobby`，並給 `hobby` 傳遞 `"running"` 以及給 `hobbies` 傳遞一個空陣列。因為我們給 `hobbies` 傳遞了空陣列，`"running"` 被添加到這個空陣列。
+
+然後，我們呼叫函數 `addHobby`，並給 `hobby` 傳遞 `"dancing"`。我們不向 `hobbies` 傳遞值，因此它獲取其預設值 —— 物件 `person` 的 屬性 `hobbies`。我們向陣列 `person.hobbies` push `dancing`。
+
+最後，我們呼叫函數 `addHobby`，並向 `hobby` 傳遞 值 `"bdaking"`，並且向 `hobbies` 傳遞 `person.hobbies`。我們向陣列 `person.hobbies` push `dancing`。
+
+pushing `dancing` 和 `baking` 之後，`person.hobbies` 的值為 `["coding", "dancing", "baking"]`
+
+</p>
+</details>
+
+---
+
+###### 142. 將會輸出什麽內容？
+
+```javascript
+class Bird {
+	constructor() {
+		console.log("I'm a bird. 🦢");
+	}
+}
+
+class Flamingo extends Bird {
+	constructor() {
+		console.log("I'm pink. 🌸");
+		super();
+	}
+}
+
+const pet = new Flamingo();
+```
+
+- A: `I'm pink. 🌸`
+- B: `I'm pink. 🌸` `I'm a bird. 🦢`
+- C: `I'm a bird. 🦢` `I'm pink. 🌸`
+- D: Nothing, we didn't call any method
+
+<details><summary><b>答案</b></summary>
+<p>
+
+#### 答案: B
+
+我們建立了class `Flamingo` 的實例 `pet`。當我們實例化這個實例，`Flamingo` 中的 `constructor` 被呼叫。首相，輸出 `"I'm pink. 🌸"`, 之後我們呼叫`super()`。 `super()` 呼叫父class的建構函數，`Bird`。 `Bird` 的建構函數被呼叫，並輸出 `"I'm a bird. 🦢"`。
+
+</p>
+</details>
+
+---
+
+###### 143. 哪一個選項會導致報錯？
+
+```javascript
+const emojis = ["🎄", "🎅🏼", "🎁", "⭐"];
+
+/* 1 */ emojis.push("🦌");
+/* 2 */ emojis.splice(0, 2);
+/* 3 */ emojis = [...emojis, "🥂"];
+/* 4 */ emojis.length = 0;
+```
+
+- A: 1
+- B: 1 and 2
+- C: 3 and 4
+- D: 3
+
+<details><summary><b>答案</b></summary>
+<p>
+
+#### 答案: D
+
+`const` 關鍵字意味著我們不能 _重定義_ 變數中的值，它 _僅可讀_。而然，值本身不可修改。陣列 `emojis` 中的值可被修改，如 push 新的值, 拼接，又或者將陣列的長度設置為0。
+
+</p>
+</details>
+
+---
+
+###### 144. 我們需要向對象 `person` 添加什麼，以致執行 `[...person]` 時獲得形如 `["Lydia Hallie", 21]` 的輸出？
+
+```javascript
+const person = {
+  name: "Lydia Hallie",
+  age: 21
+}
+
+[...person] // ["Lydia Hallie", 21]
+```
+
+- A: 不需要，物件預設就是可迭代的
+- B: `*[Symbol.iterator]() { for (let x in this) yield* this[x] }`
+- C: `*[Symbol.iterator]() { for (let x in this) yield* Object.values(this) }`
+- D: `*[Symbol.iterator]() { for (let x in this) yield this }`
+
+<details><summary><b>答案</b></summary>
+<p>
+
+#### 答案: C
+
+物件預設並不是可迭代的。如果迭代規則被定義，則一個物件是可迭代的（An iterable is an iterable if the iterator protocol is present）。我們可以通過添加迭代器symbol `[Symbol.iterator]` 來定義迭代規則，其回傳一個 generator 物件，比如說構建一個 generator 函數 `*[Symbol.iterator]() {}`。如果我們想要回傳陣列 `["Lydia Hallie", 21]`: `yield* Object.values(this)`，這個 generator 函數一定要 yield 物件 `person` 的`Object.values`。
+
+</p>
+</details>
+
+---
+
+###### 145. 將會輸出什麽內容？
+```javascript
+let count = 0;
+const nums = [0, 1, 2, 3];
+
+nums.forEach(num => {
+	if (num) count += 1
+})
+
+console.log(count)
+```
+
+- A: 1
+- B: 2
+- C: 3
+- D: 4
+<details><summary><b>答案</b></summary>
+<p>
+
+#### 答案: C
+
+在 `forEach` 循環內部的 `if` 會判斷 `num` 的值是truthy或者是falsy。因為 `nums` 陣列的第一個數字是 `0`，一個falsy值， `if` 語句代碼塊不會被執行。 `count` 僅僅在 `nums` 陣列的其他3個數字 `1`，`2`，`3` 時加1。因為 `count` 執行了3次加 `1` 運算，所以 `count` 的值為 `3`。
+
+</p>
+</details>
+
+---
+
+###### 146. 將會輸出什麽內容？
+
+```javascript
+function getFruit(fruits) {
+	console.log(fruits?.[1]?.[1])
+}
+
+getFruit([['🍊', '🍌'], ['🍍']])
+getFruit()
+getFruit([['🍍'], ['🍊', '🍌']])
+```
+
+- A: `null`, `undefined`, 🍌
+- B: `[]`, `null`, 🍌
+- C: `[]`, `[]`, 🍌
+- D: `undefined`, `undefined`, 🍌
+
+<details><summary><b>答案</b></summary>
+<p>
+
+#### 答案: D
+
+`?` 允許我們去選擇性地訪問物件內部更深層的嵌套屬性。我們嘗試輸出 `fruits` 陣列索引值為 `1` 的子陣列內部的索引值為 `1` 的元素。如果在 `fruits` 陣列索引值 為 `1` 的位置不存在元素，會直接回傳 `undefined`。如果 `fruits` 陣列在索引值為 `1` 的位置存在元素，但是子陣列在索引值為 `1` 的位置不存在元素，也會回傳 `undefined`。
+
+首先，我們嘗試輸出 `[['🍊', '🍌'], ['🍍']]` 的子陣列 `['🍍']` 的第2個元素。這個子陣列只包含一個元素，也就意味著在索引值為 `1` 的位置不存在元素，所以回傳的是 `undefined` 。
+
+其次，我們在沒有傳入任何參數呼叫了 `getFruits` 函數，也就意味著形參 `fruits` 的預設值為`undefined`。因為我們選擇性地鏈接了 `fruits` 在索引值為 `1` 的元素，因為在索引值為 `1` 的位置不存在元素，因此回傳的是 `undefined` 。
+
+最後，我們嘗試輸出 `['🍍'], ['🍊', '🍌']` 的子陣列 `['🍊', '🍌']` 的第2個元素。子陣列索引值為 `1`的位置為 `🍌` ，因此它被輸出出了。
+
+</p>
+</details>
+
+---
+
+###### 147. 將會輸出什麽內容？
+
+```javascript
+class Calc {
+	constructor() {
+		this.count = 0 
+	}
+
+	increase() {
+		this.count ++
+	}
+}
+
+const calc = new Calc()
+new Calc().increase()
+
+console.log(calc.count)
+```
+
+- A: `0`
+- B: `1`
+- C: `undefined`
+- D: `ReferenceError`
+
+<details><summary><b>答案</b></summary>
+<p>
+
+#### 答案: A
+
+我們設置 `calc` 變數為 `Calc` 類的一個新實例。然後，我們初始化一個 `Calc` 的新實例，而且呼叫了這個實例的 `increase` 函數。因為count屬性是在 `Calc` class的constructor內部的，所以count屬性不會在 `Calc` 的原型鏈上共享出去。這就意味著calc實例的count值不會被更新，count仍然是 `0`。
+
+</p>
+</details>
+
+---
+
+###### 148. 將會輸出什麽內容？
+
+```javascript
+const user = {
+	email: "e@mail.com",
+	password: "12345"
+}
+
+const updateUser = ({ email, password }) => {
+	if (email) {
+		Object.assign(user, { email })
+	}
+
+	if (password) {
+		user.password = password
+	}
+
+	return user
+}
+
+const updatedUser = updateUser({ email: "new@email.com" })
+
+console.log(updatedUser === user)
+```
+
+- A: `false`
+- B: `true`
+- C: `TypeError`
+- D: `ReferenceError`
+
+<details><summary><b>答案</b></summary>
+<p>
+
+#### 答案: B
+
+ `updateUser` 函數更新user的 `email` 和 `password` 屬性的值， 如果它們的值傳入函數， 函數回傳的就是 `user` 物件。 `updateUser` 函數的回傳值是 `user` 物件，意味著updatedUser的值與 `user` 指向的是同一個 `user` 物件。 `updatedUser === user` 為 `true`.
+
+</p>
+</details>
+
+---
+
+###### 149. 將會輸出什麽內容？
+
+```javascript
+const fruit = ['🍌', '🍊', '🍎']
+
+fruit.slice(0, 1)
+fruit.splice(0, 1)
+fruit.unshift('🍇')
+
+console.log(fruit)
+```
+
+- A: `['🍌', '🍊', '🍎']`
+- B: `['🍊', '🍎']`
+- C: `['🍇', '🍊', '🍎']`
+- D: `['🍇', '🍌', '🍊', '🍎']`
+
+<details><summary><b>答案</b></summary>
+<p>
+
+#### 答案: C
+
+首先，我們在fruit陣列上呼叫 `slice` 函數。 slice函數不會修改原始陣列，但是會回傳從陣列切片下來的值：香蕉emoji。
+其次，我們在fruit陣列上呼叫 `splice` 函數。 splice函數會修改原始陣列，也就意味著fruit陣列此時為 `['🍊', '🍎']`。
+最後，我們在fruit陣列上呼叫 `unshift` 函數，通過添加一個值的方式改變了原始陣列，添加的是'🍇'，它成為了陣列的第一個元素。現在fruit陣列的組成為 `['🍇', '🍊', '🍎']`。
+
+</p>
+</details>
+
+---
+
+###### 150. 將會輸出什麽內容？
+
+```javascript
+const animals = {};
+let dog = { emoji: '🐶' }
+let cat = { emoji: '🐈' }
+
+animals[dog] = { ...dog, name: "Mara" }
+animals[cat] = { ...cat, name: "Sara" }
+
+console.log(animals[dog])
+```
+
+- A: `{ emoji: "🐶", name: "Mara" }`
+- B: `{ emoji: "🐈", name: "Sara" }`
+- C: `undefined`
+- D: `ReferenceError`
+
+<details><summary><b>答案</b></summary>
+<p>
+
+#### 答案: B
+
+物件的鍵會被轉換為字符串。
+
+因為 `dog` 的值是一個物件， `animals[dog]` 實際上意味著我們建立了一個叫做 `"object Object"` 的屬性來代表新的物件。 `animals["object Object"]` 現在等於 `{ emoji: "🐶", name: "Mara"}`。
+
+`cat` 也是一個物件，`animals[cat]` 實際上意味著我們在用新的cat的屬性覆蓋 `animals[``"``object Object``"``]` 的值。
+
+輸出`animals[dog]`，實際上是`animals["object Object"]`，這是因為轉化`dog`物件為一個字符串結果`"object Object"` ，所以回傳`{ emoji: "🐈" , name: "Sara" }`。
+
+</p>
+</details>
+
+---
+
+###### 151. 將會輸出什麽內容？
+
+```javascript
+const user = {
+	email: "my@email.com",
+	updateEmail: email => {
+		this.email = email
+	}
+}
+
+user.updateEmail("new@email.com")
+console.log(user.email)
+```
+
+- A: `my@email.com`
+- B: `new@email.com`
+- C: `undefined`
+- D: `ReferenceError`
+
+<details><summary><b>答案</b></summary>
+<p>
+
+#### 答案: A
+
+`updateEmail` 函數是一個箭頭函數，它沒有和 `user` 物件綁定。這就意味著 `this` 關鍵字不會引用到 `user` 物件，但是會引用到全局物件。 `user` 物件內部的 `email` 的值不會更新。當輸出​​ `user.email` 的時候， 原始值 `my@email.com` 被回傳。
+
+</p>
+</details>
+
+---
+
+###### 152. 將會輸出什麽內容？
+
+```javascript
+const promise1 = Promise.resolve('First')
+const promise2 = Promise.resolve('Second')
+const promise3 = Promise.reject('Third')
+const promise4 = Promise.resolve('Fourth')
+
+const runPromises = async () => {
+	const res1 = await Promise.all([promise1, promise2])
+	const res2  = await Promise.all([promise3, promise4])
+	return [res1, res2]
+}
+
+runPromises()
+	.then(res => console.log(res))
+	.catch(err => console.log(err))
+```
+
+- A: `[['First', 'Second'], ['Fourth']]`
+- B: `[['First', 'Second'], ['Third', 'Fourth']]`
+- C: `[['First', 'Second']]`
+- D: `'Third'`
+
+<details><summary><b>答案</b></summary>
+<p>
+
+#### 答案: D
+
+ `Promise.all` 函數可以並行式執行promise。如果其中一個promise失敗了，`Promise.all` 函數會帶上被reject的promise的值_rejects_。在這個例子中， `promise3` 帶著 `"Third"` 值reject。我們在呼叫 `runPromises` 時在 `runPromises` 函數內部的 `catch` 函數去捕獲任意error從而捕獲到被reject的值。因為 `promise3` 帶著 `"Third"` 被reject，所以只有 `"Third"` 輸出。
+
+</p>
+</details>
+
+---
+
+###### 153. 哪個作為`method`的值可以輸出`{ name: "Lydia", age: 22 }`?
+
+```javascript
+const keys = ["name", "age"]
+const values = ["Lydia", 22]
+
+const method = /* ?? */
+Object[method](keys.map((_, i) => {
+	return [keys[i], values[i]]
+})) // { name: "Lydia", age: 22 }
+```
+
+- A: `entries`
+- B: `values`
+- C: `fromEntries`
+- D: `forEach`
+
+<details><summary><b>答案</b></summary>
+<p>
+
+#### 答案: C
+
+`fromEntries` 函數可以將二維陣列轉換為物件。在每個子陣列的第一個元素是key，在每個子陣列的第二個元素是value。在這個例子中，我們映射了 `keys` 陣列，它回傳了一個陣列，陣列的第一個元素為keys陣列當前索引的值，第二個元素為values陣列當前索引的值。
+
+這樣就建立了一個包含正確keys和values的子陣列的陣列，因此結果為`{ name: "Lydia", age: 22 }`。
+
+</p>
+</details>
+
+---
+
+###### 154. 將會輸出什麽內容？
+
+```javascript
+const createMember = ({ email, address = {}}) => {
+	const validEmail = /.+\@.+\..+/.test(email)
+	if (!validEmail) throw new Error("Valid email pls")
+
+	return {
+		email,
+		address: address ? address : null
+	}
+}
+
+const member = createMember({ email: "my@email.com" })
+console.log(member)
+```
+
+- A: `{ email: "my@email.com", address: null }`
+- B: `{ email: "my@email.com" }`
+- C: `{ email: "my@email.com", address: {} }`
+- D: `{ email: "my@email.com", address: undefined }`
+
+<details><summary><b>答案</b></summary>
+<p>
+
+#### 答案: C
+
+ `address` 的預設值是一個空物件 `{}`。當我們設置 `member` 變數為 `createMember` 函數回傳的物件，我們沒有為address參數傳值，意味著address的值為預設的空物件 `{}`。一個空物件是一個truthy值，意味著 `address ? address : null` 條件會回傳 `true`。 address的值為空物件 `{}`。
+
+</p>
+</details>
+
+---
+
+###### 155. 將會輸出什麽內容？
+
+```javascript
+let randomValue = { name: "Lydia" }
+randomValue = 23
+
+if (!typeof randomValue === "string") {
+	console.log("It's not a string!")
+} else {
+	console.log("Yay it's a string!")
+}
+```
+
+- A: `It's not a string!`
+- B: `Yay it's a string!`
+- C: `TypeError`
+- D: `undefined`
+
+<details><summary><b>答案</b></summary>
+<p>
+
+#### 答案: B
+
+ `if` 語句的條件判斷 `!typeof randomValue` 的值是否等於 `"string"`。 `!` 操作符將這個值轉化為一個布林值。如果值是truthy的話，回傳值會是 `false`，如果值是falsy，回傳值會是 `true`。在這裡， `typeof randomValue` 的回傳值是一個truthy值 `"number"`，意味著 `!typeof randomValue` 的值是一個布林值 `false`。
+
+ `!typeof randomValue === "string"` 總是回傳false，因為我們實際上是在執行 `false === "string"`。因為條件回傳的是 `false`，所以 `else` 語句中的代碼塊會被執行，因此輸出 `Yay it's a string!` 。
+
+</p>
+</details>
