@@ -3123,7 +3123,7 @@ console.log(getList(list))
 console.log(getUser(user))
 ```
 
-- A: `[1, [2, 3, 4]]` and `undefined`
+- A: `[1, [2, 3, 4]]` and `SyntaxError`
 - B: `[1, [2, 3, 4]]` and `{ name: "Lydia", age: 21 }`
 - C: `[1, 2, 3, 4]` and `{ name: "Lydia", age: 21 }`
 - D: `Error` and `{ name: "Lydia", age: 21 }`
@@ -3139,11 +3139,11 @@ The `getList` function receives an array as its argument. Between the parenthese
 
 With the rest parameter `...y`, we put all "remaining" arguments in an array. The remaining arguments are `2`, `3` and `4` in this case. The value of `y` is an array, containing all the rest parameters. The value of `x` is equal to `1` in this case, so when we log `[x, y]`, `[1, [2, 3, 4]]` gets logged.
 
-The `getUser` function receives an object. With arrow functions, we don't _have_ to write curly brackets if we just return one value. However, if you want to return an _object_ from an arrow function, you have to write it between parentheses, otherwise no value gets returned! The following function would have returned an object:
+The `getUser` function receives an object. With arrow functions, we don't _have_ to write curly brackets if we just return one value. However, if you want to instantly return an _object_ from an arrow function, you have to write it between parentheses, otherwise everything between the two braces will be interpreted as a block statement. In this case the code between the braces is not a valid JavaScript code, so a `SyntaxError` gets thrown. 
+
+The following function would have returned an object:
 
 `const getUser = user => ({ name: user.name, age: user.age })`
-
-Since no value gets returned in this case, the function returns `undefined`.
 
 </p>
 </details>
