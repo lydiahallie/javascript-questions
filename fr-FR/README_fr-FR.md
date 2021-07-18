@@ -1069,7 +1069,7 @@ undefined;
 - A: `0`, `''`, `undefined`
 - B: `0`, `new Number(0)`, `''`, `new Boolean(false)`, `undefined`
 - C: `0`, `''`, `new Boolean(false)`, `undefined`
-- D: All of them are falsy
+- D: Toutes sont fausses
 
 <details><summary><b>Réponse</b></summary>
 <p>
