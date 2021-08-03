@@ -1320,7 +1320,7 @@ It returns a unique id. This id can be used to clear that interval with the `cle
 
 #### Answer: A
 
-A string is an iterable. The spread operator maps every character of an iterable to one element.
+A string is an iterable. The spread operator maps every character of an iterable to its own element.
 
 </p>
 </details>
