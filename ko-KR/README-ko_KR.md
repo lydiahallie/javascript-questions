@@ -1320,7 +1320,7 @@ setInterval(() => console.log('Hi'), 1000);
 
 #### 답: A
 
-문자열은 반복 가능한 객체예요. 스프레드 연산자는 반복 가능한 객체의 모든 문자를 하나의 요소로 매핑해요.
+문자열은 반복 가능한 객체예요. spread 연산자는 반복 가능한 객체의 모든 문자를 하나의 요소로 매핑해요.
 
 </p>
 </details>
@@ -1879,7 +1879,7 @@ console.log(admin);
 
 #### 답: B
 
-스프레드 연산자 `...` 를 사용해 객체를 결합할 수 있어요. 이것은 한 객체의 키/값 쌍을 복사본으로 만들어, 다른 객체에 추가해요. 이 경우, `user` 객체의 복사본을 만들어, `admin` 객체에 추가해요. `admin` 객체는 이제 복사된 키/값 쌍이 들어있고, 결과는 `{ admin: true, name: "Lydia", age: 21 }` 예요.
+spread 연산자 `...` 를 사용해 객체를 결합할 수 있어요. 이것은 한 객체의 키/값 쌍을 복사본으로 만들어, 다른 객체에 추가해요. 이 경우, `user` 객체의 복사본을 만들어, `admin` 객체에 추가해요. `admin` 객체는 이제 복사된 키/값 쌍이 들어있고, 결과는 `{ admin: true, name: "Lydia", age: 21 }` 예요.
 
 </p>
 </details>
@@ -2918,7 +2918,7 @@ console.log(giveLydiaChocolate.prototype);
 - C: `{ constructor: ...}` `{}`
 - D: `{ constructor: ...}` `undefined`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>답</b></summary>
 <p>
 
 #### 답: D
@@ -3010,7 +3010,7 @@ getItems(['banana', 'apple'], 'pear', 'orange');
 function nums(a, b) {
   if (a > b) console.log('a is bigger');
   else console.log('b is bigger');
-  return
+  return;
   a + b;
 }
 
@@ -3497,7 +3497,7 @@ console.log(food);
 
 #### 답: A
 
-`info` 객체의 `favoriteFood` 속성 값을 피자 이모지 `'🍕'`으로 설정했어요. 문자는 원시 데이터 형이에요. JavaScript에서 원시 데이터 형은 참조로 상호 작용 하지 않아요. 
+`info` 객체의 `favoriteFood` 속성 값을 피자 이모지 `'🍕'`으로 설정했어요. 문자는 원시 데이터 형이에요. JavaScript에서 원시 데이터 형은 참조로 상호 작용 하지 않아요.
 
 JavaScript에서, 원시 데이터 형은 (객체가 아닌 모든 것) _값_ 으로 상호 작용해요. 이 경우, `info` 객체의 `favoriteFood` 속성 값을 `food` 배열 안의 첫 번째 요소로 설정했어요. 이 경우 (`'🍕'`) 피자 이모지는 문자열이에요. 문자열은 원시 데이터 형이므로 값으로 상호 작용해요. (좀 더 알고싶다면 내 [블로그 포스트](https://www.theavocoder.com/complete-javascript/2018/12/21/by-value-vs-by-reference)를 참고하세요.)
 
@@ -3770,3 +3770,311 @@ console.log(person);
 
 </p>
 </details>
+
+---
+
+###### 117. 다음 선택지 중 어느 것이 `6`을 반환 할까요?
+
+```javascript
+function sumValues(x, y, z) {
+  return x + y + z;
+}
+```
+
+- A: `sumValues([...1, 2, 3])`
+- B: `sumValues([...[1, 2, 3]])`
+- C: `sumValues(...[1, 2, 3])`
+- D: `sumValues([1, 2, 3])`
+
+<details><summary><b>답</b></summary>
+<p>
+
+#### 답: C
+
+연산자 `...`를 사용하면, 반복 가능한 객체를 개별요소로 _spread_ 펼칠 수 있어요. `sumValues` 함수는 인수 3개를 받았어요: `x`, `y` 그리고 `z`. `...[1, 2, 3]`를 `sumValues` 함수에 전달하면 `1, 2, 3` 가 될 거예요.
+
+</p>
+</details>
+
+---
+
+###### 118. 무엇이 출력 될까요?
+
+```javascript
+let num = 1;
+const list = ['🥳', '🤠', '🥰', '🤪'];
+
+console.log(list[(num += 1)]);
+```
+
+- A: `🤠`
+- B: `🥰`
+- C: `SyntaxError`
+- D: `ReferenceError`
+
+<details><summary><b>답</b></summary>
+<p>
+
+#### 답: B
+
+`+=` 연산자를 사용하면, `num`의 값을 `1` 씩 증가시켜요. `num`은 초기값 `1`을 가지고 있어요, 그래서 `1 + 1` 은 `2`예요.`list` 배열의 2번째 인덱스 아이템은 🥰 예요, `console.log(list[2])` 는 🥰 을 출력해요.
+
+</p>
+</details>
+
+---
+
+###### 119. 무엇이 출력 될까요?
+
+```javascript
+const person = {
+  firstName: 'Lydia',
+  lastName: 'Hallie',
+  pet: {
+    name: 'Mara',
+    breed: 'Dutch Tulip Hound',
+  },
+  getFullName() {
+    return `${this.firstName} ${this.lastName}`;
+  },
+};
+
+console.log(person.pet?.name);
+console.log(person.pet?.family?.name);
+console.log(person.getFullName?.());
+console.log(member.getLastName?.());
+```
+
+- A: `undefined` `undefined` `undefined` `undefined`
+- B: `Mara` `undefined` `Lydia Hallie` `ReferenceError`
+- C: `Mara` `null` `Lydia Hallie` `null`
+- D: `null` `ReferenceError` `null` `ReferenceError`
+
+<details><summary><b>답</b></summary>
+<p>
+
+#### 답: B
+
+optional chaining 연산자 `?.`를 사용하면, 더 깊이 중첩된 값이 유효한지 여부를 더는 분명하게 확인하지 않아도 돼요.`undefined` 또는 `null` 값 (_nullish_) 속성에 접근 하려고 할 때, 표현식을 평가하지 않고 `undefined`을 반환해요.
+
+`person.pet?.name`: `person`은 속성이름 `pet`을 가지고 있어요: `person.pet`은 nullish(null 또는 undefined)가 아니에요. `name`이라는 속성 이름을 가지고 있어, `Mara`를 반환해요.
+`person.pet?.family?.name`: `person`은 속성이름 `pet`을 가지고 있어요: `person.pet`은 nullish가 아니에요. `pet`은 _not_ have a property called `family`라는 속성이 _없어요_, `person.pet.family`은 nullish예요. 표현식은 `undefined`을 반환해요.
+`person.getFullName?.()`: `person`은 속성이름`getFullName`을 가지고 있어요: `person.getFullName()` 은 nullish기 아니고 호출 할 수 있어요, 따라서 `Lydia Hallie`을 반환해요.
+`member.getLastName?.()`: `member`은 정의되지 않았어요: `member.getLastName()`은 nullish예요. 표현식은 `undefined`을 반환해요.
+
+</p>
+</details>
+
+---
+
+###### 120. 무엇이 출력 될까요?
+
+```javascript
+const groceries = ['banana', 'apple', 'peanuts'];
+
+if (groceries.indexOf('banana')) {
+  console.log('We have to buy bananas!');
+} else {
+  console.log(`We don't have to buy bananas!`);
+}
+```
+
+- A: We have to buy bananas!
+- B: We don't have to buy bananas
+- C: `undefined`
+- D: `1`
+
+<details><summary><b>답</b></summary>
+<p>
+
+#### 답: B
+
+if문에 조건 `groceries.indexOf("banana")`을 전달했어요. `groceries.indexOf("banana")`은 `0`을 반환하고, 이건 거짓 같은 값이에요. if문의 조건이 거짓 같은 값이기 때문에, 코드는 `else` 블록을 실행하고, `We don't have to buy bananas!`이 출력돼요.
+
+</p>
+</details>
+
+---
+
+###### 121. 무엇이 출력 될까요?
+
+```javascript
+const config = {
+  languages: [],
+  set language(lang) {
+    return this.languages.push(lang);
+  },
+};
+
+console.log(config.language);
+```
+
+- A: `function language(lang) { this.languages.push(lang }`
+- B: `0`
+- C: `[]`
+- D: `undefined`
+
+<details><summary><b>답</b></summary>
+<p>
+
+#### 답: D
+
+`language` 메소드는 `setter`예요. Setters는 실제 값을 유지하지 않아요, 그들의 목적은 속성을 _수정_ 하는 거예요. `setter` 메소드를 부르면, `undefined`가 반환돼요.
+
+</p>
+</details>
+
+---
+
+###### 122. 무엇이 출력 될까요?
+
+```javascript
+const name = 'Lydia Hallie';
+
+console.log(!typeof name === 'object');
+console.log(!typeof name === 'string');
+```
+
+- A: `false` `true`
+- B: `true` `false`
+- C: `false` `false`
+- D: `true` `true`
+
+<details><summary><b>답</b></summary>
+<p>
+
+#### 답: C
+
+`typeof name`은 `"string"`을 반환해요. 문자열 `"string"`은 진짜 같은 값이고, `!typeof name`은 불리언 값 `false`을 반환해요. `false === "object"` 그리고 `false === "string"` 둘다 `false`을 반환해요.
+
+(특정한 형과 같은지(다른지) 알고 싶다면, `!typeof` 대신 `!==`을 사용 해야 해요.)
+
+</p>
+</details>
+
+---
+
+###### 123. 무엇이 출력 될까요?
+
+```javascript
+const add = (x) => (y) => (z) => {
+  console.log(x, y, z);
+  return x + y + z;
+};
+
+add(4)(5)(6);
+```
+
+- A: `4` `5` `6`
+- B: `6` `5` `4`
+- C: `4` `function` `function`
+- D: `undefined` `undefined` `6`
+
+<details><summary><b>답</b></summary>
+<p>
+
+#### 답: A
+
+`add`함수는 화살표 함수를 반환하는 함수를 반환하고, 반환한 함수는 화살표 함수를 반환하고, 반환한 함수는 화살표 함수를 반환해요(아직 나와 함께인가요?). 첫 번째 함수는 값이 `4`인 인수 `x`를 받아요. 값이 `5`인 인수 `y`를 받은 두 번째 함수를 호출해요. 그리고 우리는 값이 `6`인 인수 `z`를 받은 세 번째 함수를 호출해요. 값 `x`, `y` 그리고 `z`를 가진 마지막 화살표 함수에 접근하려고 할 때, JS 엔진은 그에 따른 값 `x` 그리고 `y`를 찾기 위해 스코프 체인을 올라가요. 이건 `4` `5` `6`을 반환해요.
+
+</p>
+</details>
+
+---
+
+###### 124. 무엇이 출력 될까요?
+
+```javascript
+async function* range(start, end) {
+  for (let i = start; i <= end; i++) {
+    yield Promise.resolve(i);
+  }
+}
+
+(async () => {
+  const gen = range(1, 3);
+  for await (const item of gen) {
+    console.log(item);
+  }
+})();
+```
+
+- A: `Promise {1}` `Promise {2}` `Promise {3}`
+- B: `Promise {<pending>}` `Promise {<pending>}` `Promise {<pending>}`
+- C: `1` `2` `3`
+- D: `undefined` `undefined` `undefined`
+
+<details><summary><b>답</b></summary>
+<p>
+
+#### 답: C
+
+제너레이터 함수 `range`은 range에 전달한 각각의 아이템에 promise를 가진 async 객체를 반환해요: `Promise{1}`, `Promise{2}`, `Promise{3}`. 변수 `gen`을 async 객체로 만들고, 그후에 `for await ... of` 루프를 사용해서 순환해요. 변수 `item`은 반환된 Promise 값 만들어요: 첫번째는 `Promise{1}`, 그다음은 `Promise{2}`, 그다음은 `Promise{3}`. `item`의 값인 프로미스를 resolved 하기 위해 _기다리고_, resolved 된 프로미스의 _값_ 은 반환돼요: `1`, `2`, 그리고 `3`.
+
+</p>
+</details>
+
+---
+
+###### 125. 무엇이 출력 될까요?
+
+```javascript
+const myFunc = ({ x, y, z }) => {
+  console.log(x, y, z);
+};
+
+myFunc(1, 2, 3);
+```
+
+- A: `1` `2` `3`
+- B: `{1: 1}` `{2: 2}` `{3: 3}`
+- C: `{ 1: undefined }` `undefined` `undefined`
+- D: `undefined` `undefined` `undefined`
+
+<details><summary><b>답</b></summary>
+<p>
+
+#### 답: D
+
+`myFunc`는 속성 `x`, `y` 그리고 `z`를 속성으로 가진 객체가 인수라고 예상해요. `x`, `y` 그리고 `z`의 속성을 가진 하나의 객체({x: 1, y: 2, z: 3}) 대신, 분리된 숫자 값 (1, 2, 3)을 전달했기 때문에 `x`, `y` 그리고 `z`는 기본값 `undefined`을 가져요.
+
+</p>
+</details>
+
+---
+
+###### 126. 무엇이 출력 될까요?
+
+```javascript
+function getFine(speed, amount) {
+  const formattedSpeed = new Intl.NumberFormat('en-US', {
+    style: 'unit',
+    unit: 'mile-per-hour',
+  }).format(speed);
+
+  const formattedAmount = new Intl.NumberFormat('en-US', {
+    style: 'currency',
+    currency: 'USD',
+  }).format(amount);
+
+  return `The driver drove ${formattedSpeed} and has to pay ${formattedAmount}`;
+}
+
+console.log(getFine(130, 300));
+```
+
+- A: The driver drove 130 and has to pay 300
+- B: The driver drove 130 mph and has to pay \$300.00
+- C: The driver drove undefined and has to pay undefined
+- D: The driver drove 130.00 and has to pay 300.00
+
+<details><summary><b>답</b></summary>
+<p>
+
+#### 답: B
+
+`Intl.NumberFormat` 메소드를 사용하면, 숫자 값을 원하는 로케일로 만들 수 있어요. 숫자 값 `130`을 `unit`이 `mile-per-hour`인 로케일 `en-US`로 만들면, `130 mph`가 돼요. 숫자 값 `300`을 `currency`가 `USD`인 로케일 `en-US`로 만들면 `$300.00`가 돼요.
+
+</p>
+</details>
+
