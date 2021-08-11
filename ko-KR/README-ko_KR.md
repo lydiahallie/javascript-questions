@@ -4078,3 +4078,367 @@ console.log(getFine(130, 300));
 </p>
 </details>
 
+---
+
+###### 127. 무엇이 출력 될까요?
+
+```javascript
+const spookyItems = ['👻', '🎃', '🕸'];
+({ item: spookyItems[3] } = { item: '💀' });
+
+console.log(spookyItems);
+```
+
+- A: `["👻", "🎃", "🕸"]`
+- B: `["👻", "🎃", "🕸", "💀"]`
+- C: `["👻", "🎃", "🕸", { item: "💀" }]`
+- D: `["👻", "🎃", "🕸", "[object Object]"]`
+
+<details><summary><b>답</b></summary>
+<p>
+
+#### 답: B
+
+객체를 분해함으로써, 오른쪽 객체의 값을 꺼내고, 꺼낸 값은 왼쪽 객체에 같은 속성 이름의 값으로 할당 할 수 있어요. 이 경우, 값 "💀"을 `spookyItems[3]`에 할당했어요. 이건 `spookyItems`을 수정, 즉 배열에 "💀"을 추가한다는 의미예요. `spookyItems`을 출력하면, `["👻", "🎃", "🕸", "💀"]`이 출력ㅗ대요.
+
+</p>
+</details>
+
+---
+
+###### 128. 무엇이 출력 될까요?
+
+```javascript
+const name = 'Lydia Hallie';
+const age = 21;
+
+console.log(Number.isNaN(name));
+console.log(Number.isNaN(age));
+
+console.log(isNaN(name));
+console.log(isNaN(age));
+```
+
+- A: `true` `false` `true` `false`
+- B: `true` `false` `false` `false`
+- C: `false` `false` `true` `false`
+- D: `false` `true` `false` `true`
+
+<details><summary><b>답</b></summary>
+<p>
+
+#### 답: C
+
+`Number.isNaN` 메소드를 사용하면, 전달한 값이 _숫자 값_ 그리고 `NaN`인지 확인 할 수 있어요. `name`은 숫자 값이 아니에요, 따라서 `Number.isNaN(name)` 은 `false`을 반환해요. `age`는 숫자 값이지만, `NaN`은 아니에요, 따라서 `Number.isNaN(age)`은 `false`을 반환해요.
+
+`isNaN` 메소드를 사용하면, 전달한 값이 숫자가 아닌지 확인할 수 있어요. `name`은 숫자가 아니에요, 따라서 `isNaN(name)`은 true를 반환해요. `age`은 숫자이고, 따라서 `isNaN(age)`은 `false`을 반환해요.
+
+</p>
+</details>
+
+---
+
+###### 129. 무엇이 출력 될까요?
+
+```javascript
+const randomValue = 21;
+
+function getInfo() {
+  console.log(typeof randomValue);
+  const randomValue = 'Lydia Hallie';
+}
+
+getInfo();
+```
+
+- A: `"number"`
+- B: `"string"`
+- C: `undefined`
+- D: `ReferenceError`
+
+<details><summary><b>답</b></summary>
+<p>
+
+#### 답: D
+
+`const` 키워드를 사용해 선언된 변수는 초기화 되기 전에 참조 할 수 없어요: 이건 _일시적 사각지대_ 라고 불려요. `getInfo`힘수에서, 변수 `randomValue`는 함수 `getInfo`의 스코프 안에 있어요. `typeof randomValue`의 값을 출력하고 싶은 줄에서, 변수 `randomValue`는 아직 초기화 되지 않았어요: `ReferenceError`가 던져져요! 변수 `randomValue`를 함수 `getInfo`안에 선언했기 때문에 엔진은 스코프 체인 아래로 내려가지 않아요.
+
+</p>
+</details>
+
+---
+
+###### 130. 무엇이 출력 될까요?
+
+```javascript
+const myPromise = Promise.resolve('Woah some cool data');
+
+(async () => {
+  try {
+    console.log(await myPromise);
+  } catch {
+    throw new Error(`Oops didn't work`);
+  } finally {
+    console.log('Oh finally!');
+  }
+})();
+```
+
+- A: `Woah some cool data`
+- B: `Oh finally!`
+- C: `Woah some cool data` `Oh finally!`
+- D: `Oops didn't work` `Oh finally!`
+
+<details><summary><b>답</b></summary>
+<p>
+
+#### 답: C
+
+`try` 블록에서, `myPromise`의 awaited 값을 출력하고 있어요: `"Woah some cool data"`. `try` 블록에서 오류가 없기 때문에, `catch` 블록 안의 코드는 실행되지 않아요. `finally` 블록 안의 코드는 _항상_ 실행되고, `"Oh finally!"`가 출력돼요.
+
+</p>
+</details>
+
+---
+
+###### 131. 무엇이 출력 될까요?
+
+```javascript
+const emojis = ['🥑', ['✨', '✨', ['🍕', '🍕']]];
+
+console.log(emojis.flat(1));
+```
+
+- A: `['🥑', ['✨', '✨', ['🍕', '🍕']]]`
+- B: `['🥑', '✨', '✨', ['🍕', '🍕']]`
+- C: `['🥑', ['✨', '✨', '🍕', '🍕']]`
+- D: `['🥑', '✨', '✨', '🍕', '🍕']`
+
+<details><summary><b>답</b></summary>
+<p>
+
+#### 답: B
+
+`flat`를 사용하면, 새로운 평평한 배열을 만들어요. 평평한 배열의 깊이는 전달한 값에 달려있어요. 이 경우, 값 `1`(기본 값)을 전달했고,, 1번째 깊이에 있는 배열만 연결된다는 뜻이에요. 이 경우에선 `['🥑']` 그리고 `['✨', '✨', ['🍕', '🍕']]`. 두 배열을 연결하면 `['🥑', '✨', '✨', ['🍕', '🍕']]`가 돼요.
+
+</p>
+</details>
+
+---
+
+###### 132. 무엇이 출력 될까요?
+
+```javascript
+class Counter {
+  constructor() {
+    this.count = 0;
+  }
+
+  increment() {
+    this.count++;
+  }
+}
+
+const counterOne = new Counter();
+counterOne.increment();
+counterOne.increment();
+
+const counterTwo = counterOne;
+counterTwo.increment();
+
+console.log(counterOne.count);
+```
+
+- A: `0`
+- B: `1`
+- C: `2`
+- D: `3`
+
+<details><summary><b>답</b></summary>
+<p>
+
+#### 답: D
+
+`counterOne`는 클래스 `Counter`의 인스턴스예요. counter 클래스는 생성자 안에 속성 `count`와 `increment` 메소드를 포함해요. 우선, `counterOne.increment()`를 사용해 `increment` 메소드를 두 번 호출해요. 현재, `counterOne.count`는 `2`예요.
+
+<img src="https://i.imgur.com/KxLlTm9.png" width="400">
+
+그리고서, 새로운 변수 `counterTwo`를 만들고, `counterOne`과 동일하게 설정해요. 객체는 참조로 상호작용 하므로, `counterOne`을 가리키는 같은 메모리 영역에 새로운 참조를 만들었어요. 메모리의 같은 장소에 존재 하므로, 참조를 가진 `counterTwo` 객체의 모든 변화는, `counterOne` 객체에도 적용돼요. 지금, `counterTwo.count`은 `2`예요.
+
+`count`를 `3`으로 만드는 `counterTwo.increment()`를 호출해요. 그리고서, `counterOne`의 count를 출력하고, `3`이 출력돼요.
+
+<img src="https://i.imgur.com/BNBHXmc.png" width="400">
+
+</p>
+</details>
+
+---
+
+###### 133. 무엇이 출력 될까요?
+
+```javascript
+const myPromise = Promise.resolve(Promise.resolve('Promise!'));
+
+function funcOne() {
+  myPromise.then((res) => res).then((res) => console.log(res));
+  setTimeout(() => console.log('Timeout!'), 0);
+  console.log('Last line!');
+}
+
+async function funcTwo() {
+  const res = await myPromise;
+  console.log(await res);
+  setTimeout(() => console.log('Timeout!'), 0);
+  console.log('Last line!');
+}
+
+funcOne();
+funcTwo();
+```
+
+- A: `Promise! Last line! Promise! Last line! Last line! Promise!`
+- B: `Last line! Timeout! Promise! Last line! Timeout! Promise!`
+- C: `Promise! Last line! Last line! Promise! Timeout! Timeout!`
+- D: `Last line! Promise! Promise! Last line! Timeout! Timeout!`
+
+<details><summary><b>답</b></summary>
+<p>
+
+#### 답: D
+
+우선, `funcOne`를 호출했어요. `funcOne`의 첫 번째 줄에서, _비동기_ 작업 `myPromise` 프로미스를 불러요. 엔진이 프로미스를 처리하느라고 바쁜 와중에도, 계속해서 `funcOne` 함수를 실행해요. 다음 줄은  _비동기_ `setTimeout` 함수이고, 콜백을 Web API로 보내요. (내가 작성한 이벤트 루프에 대한 글 보기 <a href="https://dev.to/lydiahallie/javascript-visualized-event-loop-3dif">여기</a>.)
+
+프라미스와 타임아웃 모두 비동기 작업이고, 함수는 프라미스 함수와 `setTimeout` 콜백을 처리하느라고 바쁜 와중에도 계속해서 실행해요. 이건 비동기 작업이 아닌 `Last line!`가 첫 번째로 출력된다는 걸 의미해요. 이건 `funcOne` 함수의 마지막 줄에 있고, 프라미스가 resolved 되어, `Promise!`가 출력돼요. 그러나, `funcTwo()`를 호출 했기 때문에, 콜 스택은 비어있지 않고, `setTimeout` 콜백 함수는 아직 콜 스택에 추가할 수 없어요.
+
+`funcTwo`에서, 우선 myPromise 프라미스를 _기다려요_. `await`키워드를 사용해서, 프라미스가 resolved (or rejected) 될 때까지 함수의 실행을 멈췄어요. 그리고서, `res`의 값을 기다렸다가 출력해요. (프라미스 자체가 프라미스를 반환하기 때문에). 이건 `Promise!`을 출력해요.
+
+다음 줄은 _비동기_ `setTimeout` 함수로, 콜백을 Web API로 보내요.
+
+`funcTwo`의 마지막 줄에서, `Last line!`가 콘솔에 출력돼요. 지금, `funcTwo`가 콜 스택에서 제거되었기 때문에, 콜 스택은 비어있어요. 대기열에서 대기 중인 콜백은(`funcOne`에서의 (`() => console.log("Timeout!")`, 그리고 `funcTwo`에서의 `() => console.log("Timeout!")`) 호출 스택에 하나씩 추가되어요. 첫 번째 콜백은 `Timeout!`을 출력하고, 스택에서 제거돼요. 그리고서, 두 번째 콜백은 `Timeout!`을 출력하고, 스택에서 제거돼요. 이건 `Last line! Promise! Promise! Last line! Timeout! Timeout!`을 출력해요.
+
+</p>
+</details>
+
+---
+
+###### 134. `index.js`에서 `sum.js` 안에 있는 `sum`을 호출 하려면 어떻게 해야하나요?
+
+```javascript
+// sum.js
+export default function sum(x) {
+  return x + x;
+}
+
+// index.js
+import * as sum from './sum';
+```
+
+- A: `sum(4)`
+- B: `sum.sum(4)`
+- C: `sum.default(4)`
+- D: Default aren't imported with `*`, only named exports
+
+<details><summary><b>답</b></summary>
+<p>
+
+#### 답: C
+
+별표 `*`를 사용하면, 파일에서 내보낸 모든 값(기본값과 명명된 것 모두)을 가져와요. 만약 다음 파일을 가지고 있다면:
+
+```javascript
+// info.js
+export const name = 'Lydia';
+export const age = 21;
+export default 'I love JavaScript';
+
+// index.js
+import * as info from './info';
+console.log(info);
+```
+
+아래와 같이 출력될 거예요:
+
+```javascript
+{
+  default: "I love JavaScript",
+  name: "Lydia",
+  age: 21
+}
+```
+
+`sum`을 예로 들자면, 가져온 `sum`의 값은 다음처럼 보인다는 의미에요:
+
+```javascript
+{ default: function sum(x) { return x + x } }
+```
+
+`sum.default`을 불러 함수를 호출 할 수 있어요.
+
+</p>
+</details>
+
+---
+
+###### 135. 무엇이 출력 될까요?
+
+```javascript
+const handler = {
+  set: () => console.log('Added a new property!'),
+  get: () => console.log('Accessed a property!'),
+};
+
+const person = new Proxy({}, handler);
+
+person.name = 'Lydia';
+person.name;
+```
+
+- A: `Added a new property!`
+- B: `Accessed a property!`
+- C: `Added a new property!` `Accessed a property!`
+- D: Nothing gets logged
+
+<details><summary><b>답</b></summary>
+<p>
+
+#### 답: C
+
+Proxy 객체를 사용하면, 두번째 인수로 전달 한 객체에 사용자 지정 동작을 추가 할 수 있어요. 이 경우엔, 두 개의 속성을 가진 `handler` 객체를 전달 했어요: `set` 과 `get` 속성 값을 _설정_ 할 때마다 `set`은 호출되고, `get`은 속성 값을 _얻을_ (접근)때 마다 호출되어요.
+
+첫 번째 인수는 빈 객체 `{}`고, `person`의 값이에요. 이 객체에 객체 `handler`의 사용자 지정 동작을 추가했어요. `person` 객체에 속성을 추가하면, `set` 이 호출 돼요. `person` 객체의 속성에 접근하면, `get` 이 호출 돼요.
+
+우선, 프록시 객체에 새로운 속성 `name`을 추가했어요(`person.name = "Lydia"`). `set`이 호출되고, `"Added a new property!"`을 출력 해요.
+
+그리고서, 프록시 객체의 속성 값에 접근하고, handler 객체의 속성 `get` 이 호출 돼요. `"Accessed a property!"`을 출력 해요.
+
+</p>
+</details>
+
+---
+
+###### 136. 다음 중 어느 것이 `person` 객체를 수정 할 수 있을까요?
+
+```javascript
+const person = { name: 'Lydia Hallie' };
+
+Object.seal(person);
+```
+
+- A: `person.name = "Evan Bacon"`
+- B: `person.age = 21`
+- C: `delete person.name`
+- D: `Object.assign(person, { age: 21 })`
+
+<details><summary><b>답</b></summary>
+<p>
+
+#### 답: A
+
+`Object.seal`을 사용하면, 새로운 속성이 _추가_ 되거나, 혹은 존재하는 속성이 _제거_ 되는 것을 막을 수 있어요.
+
+그러나, 여전히 존재하는 속성의 값을 수정 할 수 있어요.
+
+</p>
+</details>
+
+---
