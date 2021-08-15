@@ -1067,7 +1067,7 @@ console.log(typeof sayHi());
 
 ---
 
-###### 35. 이 값 중 어느 것이 거짓 같은 값 일까요?
+###### 35. 이 값 중 어느 것이 거짓 같은 값일까요?
 
 ```javascript
 0;
@@ -2415,7 +2415,7 @@ console.log(name);
 
 ---
 
-###### 77. 이것은 순수 함수 일까요?
+###### 77. 이것은 순수 함수일까요?
 
 ```javascript
 function sum(a, b) {
@@ -2717,7 +2717,7 @@ fetch('https://www.website.com/api/user/1')
 
 ---
 
-###### 86. `true`를 인수로 전달 할 수 없도록 주어졌을 때, `hasName`을 `true`로 설정할 수 있는 방법은 어느 것 일까요?
+###### 86. `true`를 인수로 전달 할 수 없도록 주어졌을 때, `hasName`을 `true`로 설정할 수 있는 방법은 어느 것일까요?
 
 ```javascript
 function getName(name) {
@@ -3725,7 +3725,7 @@ myMap.get(() => 'greeting');
 키/값을 쌍으로 추가할 때 `set` 메소드를 사용하면, 키는 `set` 함수로 전달 된 첫 번째 인수의 값이 되고, 값은 `set` 함수로 전달된 두 번째 인수의 값이 될 거에요. 이 경우에 키는 _함수_ `() => 'greeting'`이고, 값은 `'Hello world'`예요. `myMap`은 이제 `{ () => 'greeting' => 'Hello world!' }` 예요.
 
 1은 틀렸어요, 키는 `'greeting'`가 아니라 `() => 'greeting'`이기 때문이에요.
-3은 틀렸어요, `get`메소드에 새로 생성한 함수를 파라미터로 전달 했기 때문이에요. 객체는 *참조*로 상호작용해요. 함수는 객체이기 때문에, 두 함수가 같다고 하더라도 절대로 동일하지 않아요: 메모리 안에 다른 장소의 참조를 가지고 있어요.
+3은 틀렸어요, `get`메소드에 새로 생성한 함수를 파라미터로 전달 했기 때문이에요. 객체는 _참조_ 로 상호작용해요. 함수는 객체이기 때문에, 두 함수가 같다고 하더라도 절대로 동일하지 않아요: 메모리 안에 다른 장소의 참조를 가지고 있어요.
 
 </p>
 </details>
@@ -4306,7 +4306,7 @@ funcTwo();
 
 #### 답: D
 
-우선, `funcOne`를 호출했어요. `funcOne`의 첫 번째 줄에서, _비동기_ 작업 `myPromise` 프로미스를 불러요. 엔진이 프로미스를 처리하느라고 바쁜 와중에도, 계속해서 `funcOne` 함수를 실행해요. 다음 줄은  _비동기_ `setTimeout` 함수이고, 콜백을 Web API로 보내요. (내가 작성한 이벤트 루프에 대한 글 보기 <a href="https://dev.to/lydiahallie/javascript-visualized-event-loop-3dif">여기</a>.)
+우선, `funcOne`를 호출했어요. `funcOne`의 첫 번째 줄에서, _비동기_ 작업 `myPromise` 프로미스를 불러요. 엔진이 프로미스를 처리하느라고 바쁜 와중에도, 계속해서 `funcOne` 함수를 실행해요. 다음 줄은 _비동기_ `setTimeout` 함수이고, 콜백을 Web API로 보내요. (내가 작성한 이벤트 루프에 대한 글 보기 <a href="https://dev.to/lydiahallie/javascript-visualized-event-loop-3dif">여기</a>.)
 
 프라미스와 타임아웃 모두 비동기 작업이고, 함수는 프라미스 함수와 `setTimeout` 콜백을 처리하느라고 바쁜 와중에도 계속해서 실행해요. 이건 비동기 작업이 아닌 `Last line!`가 첫 번째로 출력된다는 걸 의미해요. 이건 `funcOne` 함수의 마지막 줄에 있고, 프라미스가 resolved 되어, `Promise!`가 출력돼요. 그러나, `funcTwo()`를 호출 했기 때문에, 콜 스택은 비어있지 않고, `setTimeout` 콜백 함수는 아직 콜 스택에 추가할 수 없어요.
 
@@ -4442,3 +4442,658 @@ Object.seal(person);
 </details>
 
 ---
+
+###### 137. 다음 중 어느 것이 `person` 객체를 수정 할 수 있을까요?
+
+```javascript
+const person = {
+  name: 'Lydia Hallie',
+  address: {
+    street: '100 Main St',
+  },
+};
+
+Object.freeze(person);
+```
+
+- A: `person.name = "Evan Bacon"`
+- B: `delete person.address`
+- C: `person.address.street = "101 Main St"`
+- D: `person.pet = { name: "Mara" }`
+
+<details><summary><b>답</b></summary>
+<p>
+
+#### 답: C
+
+`Object.freeze` 메소드는 객체를 _얼려요_ . 속성을 추가, 수정, 제거 할 수 없어요.
+
+하지만, 객체를 _얕은_ 수준으로만 얼리고, 이건 객체의 _직접적인_ 속성만 얼려진다는 의미예요. 속성이 `address` 와 같은 객체인 경우, 객체의 속성은 얼려지지 않고, 수정될 수 있어요.
+
+</p>
+</details>
+
+---
+
+###### 138. 무엇이 출력 될까요?
+
+```javascript
+const add = (x) => x + x;
+
+function myFunc(num = 2, value = add(num)) {
+  console.log(num, value);
+}
+
+myFunc();
+myFunc(3);
+```
+
+- A: `2` `4` and `3` `6`
+- B: `2` `NaN` and `3` `NaN`
+- C: `2` `Error` and `3` `6`
+- D: `2` `4` and `3` `Error`
+
+<details><summary><b>답</b></summary>
+<p>
+
+#### 답: A
+
+우선, `myFunc()` 를 어떤 인수도 전달하지 않고 호출했어요. 인수를 전달하지 않았기 때문에, `num` 와 `value` 는 그들의 기본값을 가져요: num 는 `2`, `value` 함수 `add`에서 반환된 값. `add` 함수에서, 값이 `2`인 `num`를 인수로 전달했어요. `add`는 `value`의 값인 `4`를 반환해요.
+
+그리고서, `myFunc(3)`를 호출하고 인수 `num`의 값으로 값 `3`을 전달했어요. `value` 값은 전달하지 않았어요. 인수 `value`에 값을 전달하지 않았기 때문에, 기본값을 가져요: 함수 `add`에서 반환된 값. `add`에서, 값 `3`을 가진 `num`을 전달해요. `add`는 `value`의 값으로 `6`을 반환해요.
+
+</p>
+</details>
+
+---
+
+###### 139. 무엇이 출력 될까요?
+
+```javascript
+class Counter {
+  #number = 10;
+
+  increment() {
+    this.#number++;
+  }
+
+  getNum() {
+    return this.#number;
+  }
+}
+
+const counter = new Counter();
+counter.increment();
+
+console.log(counter.#number);
+```
+
+- A: `10`
+- B: `11`
+- C: `undefined`
+- D: `SyntaxError`
+
+<details><summary><b>답</b></summary>
+<p>
+
+#### 답: D
+
+ES2020에서, `#`을 사용한 private 변수를 추가 할 수 있어요. 클래스 외부에서 private 변수에 접근 할 수 없어요. `counter.#number`을 출력하려고 할 때, SyntaxError가 던져져요: `Counter` 클래스 외부에서 private 변수에 접근 할 수 없어요!
+
+</p>
+</details>
+
+---
+
+###### 140. 무엇이 빠졌을까요?
+
+```javascript
+const teams = [
+  { name: 'Team 1', members: ['Paul', 'Lisa'] },
+  { name: 'Team 2', members: ['Laura', 'Tim'] },
+];
+
+function* getMembers(members) {
+  for (let i = 0; i < members.length; i++) {
+    yield members[i];
+  }
+}
+
+function* getTeams(teams) {
+  for (let i = 0; i < teams.length; i++) {
+    // ✨ SOMETHING IS MISSING HERE ✨
+  }
+}
+
+const obj = getTeams(teams);
+obj.next(); // { value: "Paul", done: false }
+obj.next(); // { value: "Lisa", done: false }
+```
+
+- A: `yield getMembers(teams[i].members)`
+- B: `yield* getMembers(teams[i].members)`
+- C: `return getMembers(teams[i].members)`
+- D: `return yield getMembers(teams[i].members)`
+
+<details><summary><b>답</b></summary>
+<p>
+
+#### 답: B
+
+`teams` 배열의 `members`의 각 요소를 계속해서 반복하기 위해선, `teams[i].members`를 제너레이터 함수 `getMembers`에 전달해야해요. 제너레이터 함수는 제너리에터 객체를 리턴해요. 제너레이터 객체의 각 요소를 계속해서 반복 하기 위해선, `yield*`를 사용해야 해요.
+
+`yield`, `return yield` 또는 `return`를 쓰면, 모든 제너레이터 함수는 첫번째로 호출한 `next` 메소드가 반환한 값을 가져요.
+
+</p>
+</details>
+
+---
+
+###### 141. 무엇이 출력 될까요?
+
+```javascript
+const person = {
+  name: 'Lydia Hallie',
+  hobbies: ['coding'],
+};
+
+function addHobby(hobby, hobbies = person.hobbies) {
+  hobbies.push(hobby);
+  return hobbies;
+}
+
+addHobby('running', []);
+addHobby('dancing');
+addHobby('baking', person.hobbies);
+
+console.log(person.hobbies);
+```
+
+- A: `["coding"]`
+- B: `["coding", "dancing"]`
+- C: `["coding", "dancing", "baking"]`
+- D: `["coding", "running", "dancing", "baking"]`
+
+<details><summary><b>답</b></summary>
+<p>
+
+#### 답: C
+
+`addHobby` 함수는 인수 두 개 `hobby` 와 `person` 객체의 배열 `hobbies`의 값을 기본값으로 가진 `hobbies`를 받아요.
+
+우선, `addHobby` 함수를 호출하고, `hobby`의 값으로 `"running"`을 그리고 `hobbies`의 값으로 빈 배열을 전달해요. `hobbies`의 값으로 빈 배열을 전달했기 때문에, `"running"`은 빈 배열에 추가돼요.
+
+그리고서, `addHobby` 함수를 호출하고, `hobby`의 값으로 `"dancing"`를 전달해요. `hobbies`에 값을 전달하지 않았고, `person` 객체의 속성 `hobbies`을 기본값으로 가져요. 배열 `person.hobbies`에 `dancing`를 추가해요.
+
+마지막으로, `addHobby` 함수를 호출해, `hobby`의 값으로 `"baking"`를 전달하고, `hobbies`의 값으로 배열 `person.hobbies`을 전달해요. 배열 `person.hobbies`에 `baking`을 추가해요.
+
+`dancing` 과 `baking`을 추가한 후, `person.hobbies`의 값은 `["coding", "dancing", "baking"]`예요.
+
+</p>
+</details>
+
+---
+
+###### 142. 무엇이 출력 될까요?
+
+```javascript
+class Bird {
+  constructor() {
+    console.log("I'm a bird. 🦢");
+  }
+}
+
+class Flamingo extends Bird {
+  constructor() {
+    console.log("I'm pink. 🌸");
+    super();
+  }
+}
+
+const pet = new Flamingo();
+```
+
+- A: `I'm pink. 🌸`
+- B: `I'm pink. 🌸` `I'm a bird. 🦢`
+- C: `I'm a bird. 🦢` `I'm pink. 🌸`
+- D: Nothing, we didn't call any method
+
+<details><summary><b>답</b></summary>
+<p>
+
+#### 답: B
+
+`Flamingo` 클래스의 인스턴스인 변수 `pet` 생성했어요. 인스턴스를 인스턴스화 할 때, `Flamingo`의 `constructor`를 불러요. 우선, `"I'm pink. 🌸"`가 출력되고, 그 후에 `super()`를 불러요. `super()`는 부모 클래스 `Bird`의 constructor를 불러요. `Bird`의 constructor 를 불러, `"I'm a bird. 🦢"`가 출력돼요.
+
+</p>
+</details>
+
+---
+
+###### 143. 다음 중 어느 것의 결과가 오류일까요?
+
+```javascript
+const emojis = ['🎄', '🎅🏼', '🎁', '⭐'];
+
+/* 1 */ emojis.push('🦌');
+/* 2 */ emojis.splice(0, 2);
+/* 3 */ emojis = [...emojis, '🥂'];
+/* 4 */ emojis.length = 0;
+```
+
+- A: 1
+- B: 1 and 2
+- C: 3 and 4
+- D: 3
+
+<details><summary><b>답</b></summary>
+<p>
+
+#### 답: D
+
+`const` 키워드는 단순히 변수의 값을 _재선언_ 할 수 없고, _읽기만_ 가능하다는 의미예요. 하지만, 값 자체가 불변하는 건 아니에요. 배열 `emojis`의 속성을 수정할 수 있는데, 예를 들자면 새로운 값을 추가하거나, 원본 배열 자체를 수정(splice)하거나, 배열의 길이를 0으로 설정 할 수 있어요.
+
+</p>
+</details>
+
+---
+
+###### 144. `person`에 무엇을 추가해야 `[...person]`의 결과로 `["Lydia Hallie", 21]`를 얻을 수 있을까요?
+
+```javascript
+const person = {
+  name: "Lydia Hallie",
+  age: 21
+}
+
+[...person] // ["Lydia Hallie", 21]
+```
+
+- A: 객체는 기본적으로 반복 가능 하므로, 아무것도 하지 않아요.
+- B: `*[Symbol.iterator]() { for (let x in this) yield* this[x] }`
+- C: `*[Symbol.iterator]() { yield* Object.values(this) }`
+- D: `*[Symbol.iterator]() { for (let x in this) yield this }`
+
+<details><summary><b>답</b></summary>
+<p>
+
+#### 답: C
+
+객체는 기본적으로 반복 불가능해요. 반복 가능한 객체는 iterator protocol이 제공되면 반복 가능해요. 제너레이터 함수 `*[Symbol.iterator]() {}`을 만드는 제너레이터 객체를 반환하는 iterator symbol `[Symbol.iterator]`을 수동으로 추가 할 수 있어요. 배열 `["Lydia Hallie", 21]`을 반환 하려면 제너레이터 함수는 `person` 객체의 `Object.values`를 yield 해야해요: `yield* Object.values(this)`.
+
+</p>
+</details>
+
+---
+
+###### 145. 무엇이 출력 될까요?
+
+```javascript
+let count = 0;
+const nums = [0, 1, 2, 3];
+
+nums.forEach((num) => {
+  if (num) count += 1;
+});
+
+console.log(count);
+```
+
+- A: 1
+- B: 2
+- C: 3
+- D: 4
+
+<details><summary><b>답</b></summary>
+<p>
+
+#### 답: C
+
+`forEach` 순환에 포함 된 `if` 조건문은 `num`의 값이 진짜 같은 값인지 또는 가짜 같은 값인지 확인해요. `nums`배열의 첫 번째 값은 거짓 같은 값 `0`이고, `if` 조건문의 코드 블럭은 실행되지 않아요. `count` 는 오직 `nums` 배열의 다른 숫자 3개에 대해서만 증가해요. `1`, `2` 그리고 `3`. `count`는 3번 동안 `1` 씩 증가하고, `count`의 값은 `3`이에요.
+
+</p>
+</details>
+
+---
+
+###### 146. 무엇이 출력 될까요?
+
+```javascript
+function getFruit(fruits) {
+  console.log(fruits?.[1]?.[1]);
+}
+
+getFruit([['🍊', '🍌'], ['🍍']]);
+getFruit();
+getFruit([['🍍'], ['🍊', '🍌']]);
+```
+
+- A: `null`, `undefined`, 🍌
+- B: `[]`, `null`, 🍌
+- C: `[]`, `[]`, 🍌
+- D: `undefined`, `undefined`, 🍌
+
+<details><summary><b>답</b></summary>
+<p>
+
+#### 답: D
+
+`?`는 객체 내에서 더 깊이 중첩된 속성에 접근하는 것을 선택적으로 허용해요. `fruits`배열의 인덱스 `1`에 있는 하위 배열의 인덱스 `1`의 아이템을 출력하려해요. `fruits`배열의 인덱스 `1`에 하위 배열이 존재하지 않는다면, 간단히 `undefined`를 반환할 거예요. `fruits` 배열의 인덱스 `1`에 하위배열이 있지만, 하위 배열에 인덱스 `1` 의 아이템이 없다면, 그것 역시 `undefined`를 반환해요.
+
+우선, `[['🍊', '🍌'], ['🍍']]`의 하위 배열의 두 번째 아이템 `['🍍']`을 출력해요 . 하위 배열은 아이템 하나만 가지고 있고, 이건 인덱스 `1`에 대한 아이템을 갖고 있지 않다는 의미로 `undefined`를 반환해요.
+
+그리고서, 인수에 어떤 값도 전달하지 않은 `getFruits` 함수를 호출 하고, `fruits`은 기본값으로 값 `undefined`을 가져요. `fruits`의 인덱스 `1`의 아이템을 선택적으로 연결(conditionally chaining)하기 때문에, 인덱스 `1`에 아이템이 존재하지 않아 `undefined`를 반환해요.
+
+마지막으로, `['🍍'], ['🍊', '🍌']`의 하위 배열 `['🍊', '🍌']`의 두번째 아이템을 출력하려고 해요. 하위 배열의 인덱스 `1`의 아이템인 `🍌`이 출력돼요.
+
+</p>
+</details>
+
+---
+
+###### 147. 무엇이 출력 될까요?
+
+```javascript
+class Calc {
+	constructor() {
+		this.count = 0 
+	}
+
+	increase() {
+		this.count ++
+	}
+}
+
+const calc = new Calc()
+new Calc().increase()
+
+console.log(calc.count)
+```
+
+- A: `0`
+- B: `1`
+- C: `undefined`
+- D: `ReferenceError`
+
+<details><summary><b>답</b></summary>
+<p>
+
+#### 답: A
+
+변수 `calc`를 `Calc` 클래스의 새로운 인스턴스로 설정 했어요. 그리고서, 새로운 인스턴스 `Calc`를 인스턴스화 하고, 이 인스턴스의 `increase` 메소드를 호출 했어요. 속성 count은 `Calc` 클래스의 생성자 안에 있기 때문에 , 속성 count은 `Calc`의 프로토타입에 공유될 수 없어요. 인스턴스 calc이 가리키는 count의 값은 업데이트 되지 않고, count는 여전히 `0`예요.
+
+</p>
+</details>
+
+---
+
+###### 148. 무엇이 출력 될까요?
+
+```javascript
+const user = {
+	email: "e@mail.com",
+	password: "12345"
+}
+
+const updateUser = ({ email, password }) => {
+	if (email) {
+		Object.assign(user, { email })
+	}
+
+	if (password) {
+		user.password = password
+	}
+
+	return user
+}
+
+const updatedUser = updateUser({ email: "new@email.com" })
+
+console.log(updatedUser === user)
+```
+
+- A: `false`
+- B: `true`
+- C: `TypeError`
+- D: `ReferenceError`
+
+<details><summary><b>답</b></summary>
+<p>
+
+#### 답: B
+
+`updateUser` 함수는 값이 전달 되면 user의 속성 `email` 과 `password`의 값을 업데이트 하고, `user`객체를 반환해요. `updateUser` 함수의 반환된 값은 객체 `user` 이고, updateUser의 값은 `user`가 가리키는 `user` 객체의 참조와 같다는 의미예요. `updatedUser === user`는 `true`예요.
+
+</p>
+</details>
+
+---
+
+###### 149. 무엇이 출력 될까요?
+
+```javascript
+const fruit = ['🍌', '🍊', '🍎']
+
+fruit.slice(0, 1)
+fruit.splice(0, 1)
+fruit.unshift('🍇')
+
+console.log(fruit)
+```
+
+- A: `['🍌', '🍊', '🍎']`
+- B: `['🍊', '🍎']`
+- C: `['🍇', '🍊', '🍎']`
+- D: `['🍇', '🍌', '🍊', '🍎']`
+
+<details><summary><b>답</b></summary>
+<p>
+
+#### 답: C
+
+우선, fruit 배열에 `slice` 메소드를 호출해요. slice 메소드는 원본 배열을 수정하지 않지만, 배열에서 잘라낸(slice) 값을 반환해요: 바나나 이모지.
+그리고서, fruit 배열에 `splice` 메소드를 호출해요. splice 메소드는 원본 배열을 수정하고, 이제 fruit 배열은 `['🍊', '🍎']`로 구성돼요.
+마지막엔, `fruit` 배열에 `unshift` 메소드를 호출하고, 이 경우엔 제공된 값 ‘🍇’을 배열의 첫 번째 요소로 추가해 원본 배열을 수정해요. 이제 fruit 배열은 `['🍇', '🍊', '🍎']`로 구성돼요.
+
+</p>
+</details>
+
+---
+
+###### 150. 무엇이 출력 될까요?
+
+```javascript
+const animals = {};
+let dog = { emoji: '🐶' }
+let cat = { emoji: '🐈' }
+
+animals[dog] = { ...dog, name: "Mara" }
+animals[cat] = { ...cat, name: "Sara" }
+
+console.log(animals[dog])
+```
+
+- A: `{ emoji: "🐶", name: "Mara" }`
+- B: `{ emoji: "🐈", name: "Sara" }`
+- C: `undefined`
+- D: `ReferenceError`
+
+<details><summary><b>답</b></summary>
+<p>
+
+#### 답: B
+
+객체의 키는 문자열로 변환돼요.
+
+`dog`의 값은 객체 이므로, 사실 `animals[dog]`는 새로운 객체에 `"object Object"`라고 불리는 새로운 속성을 만든 걸 의미해요. 이제 `animals["object Object"]`는 `{ emoji: "🐶", name: "Mara"}`예요.
+
+`cat`도 물론 객체고, 사실 `animals[cat]`은 `animals[``"``object Object``"``]`을 새로운 속성 cat으로 덮어쓰고 있다는 것을 의미해요.
+
+`animals[dog]` 또는 `animals["object Object"]`(`dog` 객체를 문자열로 변환한 결과는 `"object Object"`)를 출력하면, `{ emoji: "🐈", name: "Sara" }`를 반환해요.
+
+</p>
+</details>
+
+---
+
+###### 151. 무엇이 출력 될까요?
+
+```javascript
+const user = {
+	email: "my@email.com",
+	updateEmail: email => {
+		this.email = email
+	}
+}
+
+user.updateEmail("new@email.com")
+console.log(user.email)
+```
+
+- A: `my@email.com`
+- B: `new@email.com`
+- C: `undefined`
+- D: `ReferenceError`
+
+<details><summary><b>답</b></summary>
+<p>
+
+#### 답: A
+
+`updateEmail`함수는 화살표 함수로, `user`객체에 바인딩 되지 않았어요. `this`키워드는 `user`객체를 참조하지 않지만, 이 경우엔 전역 범위를 참조하고 있다는 의미예요. `user` 객체의 `email` 는 업데이트 되지 않아요. `user.email`을 출력할 때, `my@email.com`의 원래의 값이 반환되어요.
+
+</p>
+</details>
+
+---
+
+###### 152. 무엇이 출력 될까요?
+
+```javascript
+const promise1 = Promise.resolve('First')
+const promise2 = Promise.resolve('Second')
+const promise3 = Promise.reject('Third')
+const promise4 = Promise.resolve('Fourth')
+
+const runPromises = async () => {
+	const res1 = await Promise.all([promise1, promise2])
+	const res2  = await Promise.all([promise3, promise4])
+	return [res1, res2]
+}
+
+runPromises()
+	.then(res => console.log(res))
+	.catch(err => console.log(err))
+```
+
+- A: `[['First', 'Second'], ['Fourth']]`
+- B: `[['First', 'Second'], ['Third', 'Fourth']]`
+- C: `[['First', 'Second']]`
+- D: `'Third'`
+
+<details><summary><b>답</b></summary>
+<p>
+
+#### 답: D
+
+`Promise.all` 메소드는 프로미스를 병렬로 실행해요. 만약 하나의 프로미스가 실패하면, `Promise.all` 메소드는 rejected 프로미스의 값을 가지고 _rejects_ 되어요. 이 경우, `promise3`는 값 `"Third"`과 함께 rejected 되었어요. `runPromises` 호출에 연결되어 있고 `runPromises` 함수 안에서 모든 에러를 잡은 `catch` 메소드에서 rejected 값을 잡아요. `promise3`가 이 값과 함께 rejected 되어 `"Third"`만 출력돼요.
+
+</p>
+</details>
+
+---
+
+###### 153. 무엇이 `method`의 값이어야 `{ name: "Lydia", age: 22 }`를 출력할까요?
+
+```javascript
+const keys = ["name", "age"]
+const values = ["Lydia", 22]
+
+const method = /* ?? */
+Object[method](keys.map((_, i) => {
+	return [keys[i], values[i]]
+})) // { name: "Lydia", age: 22 }
+```
+
+- A: `entries`
+- B: `values`
+- C: `fromEntries`
+- D: `forEach`
+
+<details><summary><b>답</b></summary>
+<p>
+
+#### 답: C
+
+`fromEntries` 메소드는 2차원 배열을 객체로 변환해요. 각 하위 배열의 첫번 째 요소는 키가 될거고, 각 하위 배열의 요소의 두번째 요소는 값이 될거에요. 이 경우엔, keys배열에서 현재 인덱스의 아이템을 첫 번재 요소로, values의 배열에서 현재 인덱스의 아이템을 두번째 요소로 반환하는 `keys` 배열을 매핑해요.
+
+키와 값의 집합을 포함하고 있는 하위 배열을 만들었고, `{ name: "Lydia", age: 22 }`가 되어.
+
+</p>
+</details>
+
+---
+
+###### 154. 무엇이 출력 될까요?
+
+```javascript
+const createMember = ({ email, address = {}}) => {
+	const validEmail = /.+\@.+\..+/.test(email)
+	if (!validEmail) throw new Error("Valid email pls")
+
+	return {
+		email,
+		address: address ? address : null
+	}
+}
+
+const member = createMember({ email: "my@email.com" })
+console.log(member)
+```
+
+- A: `{ email: "my@email.com", address: null }`
+- B: `{ email: "my@email.com" }`
+- C: `{ email: "my@email.com", address: {} }`
+- D: `{ email: "my@email.com", address: undefined }`
+
+<details><summary><b>답</b></summary>
+<p>
+
+#### 답: C
+
+`address`의 기본 값은 빈 객체 `{}`예요. 변수 `member`의 값을 `createMember` 함수에서 반환한 값으로 설정하고, address의 값을 전달하지 않았어요, address의 값은 빈 객체 `{}`가 기본 값이예요. 빈객체는 진짜 같은 값으로, 조건 `address ? address : null`에서 `true`를 반환한다는 의미예요. address의 값은 빈 객체 `{}`예요.
+
+</p>
+</details>
+
+---
+
+###### 155. 무엇이 출력 될까요?
+
+```javascript
+let randomValue = { name: "Lydia" }
+randomValue = 23
+
+if (!typeof randomValue === "string") {
+	console.log("It's not a string!")
+} else {
+	console.log("Yay it's a string!")
+}
+```
+
+- A: `It's not a string!`
+- B: `Yay it's a string!`
+- C: `TypeError`
+- D: `undefined`
+
+<details><summary><b>답</b></summary>
+<p>
+
+#### 답: B
+
+`if`문 안에 조건은 `!typeof randomValue`값이 `"string"`와 같은지 여부를 확인해요. `!` 연산자는 값을 불리언 값으로 변환해요. 값이 진짜 같은 값이라면 반환될 값은 `false`가 될 거고, 만약 값이 가짜 같은 값이라면 반환될 값은 `true`가 될 거예요. 이 경우에서, `typeof randomValue`의 반환된 값은 진짜 같은 값인 `"number"`이고, `!typeof randomValue`의 값은 불리언 값 `false`라는 의미예요.
+
+`!typeof randomValue === "string"`은 실제로 `false === "string"`을 확인하기 때문에 항상 false를 반환해요. 조건은 `false`을 반환 하므로, `else`문의 코드 블록이 실행되어 `Yay it's a string!`가 출력돼요.
+
+</p>
+</details>
