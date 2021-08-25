@@ -3619,7 +3619,7 @@ console.log(two.next().value);
 
 With the `yield` keyword, we `yield` values in a generator function. With the `yield*` keyword, we can yield values from another generator function, or iterable object (for example an array).
 
-In `generatorOne`, we yield the entire array `['a', 'b', 'c']` using the `yield` keyword. The value of `value` property on the object returned by the `next` method on `one` (`one.next().value`) is equal to the entire array `['a', 'b', 'c']`.
+In `generatorOne`, we yield the entire array `['a', 'b', 'c']` using the `yield` keyword. The value of the `value` property on the object returned by the `next` method on `one` (`one.next().value`) is equal to the entire array `['a', 'b', 'c']`.
 
 ```javascript
 console.log(one.next().value); // ['a', 'b', 'c']
