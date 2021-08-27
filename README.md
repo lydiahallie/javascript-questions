@@ -2951,7 +2951,7 @@ for (const [x, y] of Object.entries(person)) {
 <details><summary><b>Answer</b></summary>
 <p>
 
-#### Answer: A
+#### Answer: B
 
 `Object.entries(person)` returns an array of nested arrays, containing the keys and objects:
 
