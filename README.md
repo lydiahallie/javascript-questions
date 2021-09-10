@@ -4336,7 +4336,7 @@ import * as sum from './sum';
 - A: `sum(4)`
 - B: `sum.sum(4)`
 - C: `sum.default(4)`
-- D: Default aren't imported with `*`, only named exports
+- D: Default exports aren't imported with `*`; only named exports are.
 
 <details><summary><b>Answer</b></summary>
 <p>
@@ -4372,7 +4372,7 @@ For the `sum` example, it means that the imported value `sum` looks like this:
 { default: function sum(x) { return x + x } }
 ```
 
-We can invoke this function, by calling `sum.default`
+We can invoke this function, by calling `sum.default`.
 
 </p>
 </details>
