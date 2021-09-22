@@ -4032,15 +4032,15 @@ myFunc(1, 2, 3);
 
 ```javascript
 function getFine(speed, amount) {
-  const formattedSpeed = new Intl.NumberFormat({
+  const formattedSpeed = new Intl.NumberFormat(
     'en-US',
     { style: 'unit', unit: 'mile-per-hour' }
-  }).format(speed)
+  ).format(speed)
 
-  const formattedAmount = new Intl.NumberFormat({
+  const formattedAmount = new Intl.NumberFormat(
     'en-US',
     { style: 'currency', currency: 'USD' }
-  }).format(amount)
+  ).format(amount)
 
   return `The driver drove ${formattedSpeed} and has to pay ${formattedAmount}`
 }
