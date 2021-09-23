@@ -5126,3 +5126,35 @@ The first prototype of `g` is `Graph` which itself inherits `Object` prototype. 
 </p>
 </details>
 
+---
+
+###### 157. What is the output?
+
+```javascript
+sum(10, 20);
+remainder(10, 20);
+function sum(x, y) {
+  return x + y;
+}
+
+const remainder = function (x, y) {
+  return x % y;
+};
+```
+
+- A: `30, 10`
+- B: `30, 0`
+- C: `ReferenceError, 10`
+- D: `30, ReferenceError`
+
+<details><summary><b>Answer</b></summary>
+<p>
+
+#### Answer: C
+
+When you define functions using the `function` keyword it doesn't matter where you define them in the current scope. But when you define a function using a variable, the code will run in order, so the function which is assigned to the variable is not available in the lines before definition and calling it will result in `ReferenceError`.
+</p>
+</details>
+
+
+
