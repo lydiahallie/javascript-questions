@@ -5097,3 +5097,32 @@ The condition within the `if` statement checks whether the value of `!typeof ran
 
 </p>
 </details>
+
+---
+
+###### 156. How many prototype objects are in the chain for the `g` object?
+
+```javascript
+function Graph() {
+  this.vertices = [];
+  this.edges = [];
+}
+
+g = new Graph();
+```
+
+- A: `3`
+- B: `0`
+- C: `2`
+- D: `1`
+
+<details><summary><b>Answer</b></summary>
+<p>
+
+#### Answer: C
+
+The first prototype of `g` is `Graph` which itself inherits `Object` prototype. (` g ---> Graph.prototype ---> Object.prototype ---> null`)
+
+</p>
+</details>
+
