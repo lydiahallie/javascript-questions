@@ -31,7 +31,7 @@
 - [🇷🇺 Русский](./ru-RU/README.md)
 - [🇹🇭 ไทย](./th-TH/README-th_TH.md)
 - [🇹🇷 Türkçe](./tr-TR/README-tr_TR.md)
-- [🇺🇦 Українська мова](./ua-UA/README-ua_UA.md)
+- [🇺🇦 Українська мова](./uk-UA/README.md)
 - [🇻🇳 Tiếng Việt](./vi-VI/README-vi.md)
 - [🇨🇳 简体中文](./zh-CN/README-zh_CN.md)
 - [🇹🇼 繁體中文](./zh-TW/README_zh-TW.md)
@@ -4613,7 +4613,7 @@ console.log(person.hobbies);
 
 De functie `addHobby` ontvangt twee arguemnten, `hobby` en `hobbies` met als standaard waarde de waarde van de array `hobbies` op het object `person`.
 
-Eerst roepen we de functie `addHobby` aan en geven `"running"` mee als de waarde voor `hobby`, en een lege array als de waarde voor `hobbies`. Omdat we een lege array meegeven als de waarde voor `y` wordt `"running"` toegevoegd aan deze lege array.
+Eerst roepen we de functie `addHobby` aan en geven `"running"` mee als de waarde voor `hobby`, en een lege array als de waarde voor `hobbies`. Omdat we een lege array meegeven als de waarde voor `hobbies` wordt `"running"` toegevoegd aan deze lege array.
 
 Daarna roepen we de functie `addHobby` aan en geven `"dancing"` mee als de waarde voor `hobby`. We gaven geen waarde mee voor `hobbies` dus krijgt het de standaard waarde, de propertie `hobbies` op het object `person`. We pushen daar de hobby `dancing` naar de array `person.hobbies`.
 

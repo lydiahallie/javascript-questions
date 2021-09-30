@@ -30,7 +30,7 @@ Jangan sungkan untuk terhubung dengan saya! 😊 <br />
 - [🇷🇺 Русский](./ru-RU/README.md)
 - [🇹🇭 ไทย](./th-TH/README-th_TH.md)
 - [🇹🇷 Türkçe](./tr-TR/README-tr_TR.md)
-- [🇺🇦 Українська мова](./ua-UA/README-ua_UA.md)
+- [🇺🇦 Українська мова](./uk-UA/README.md)
 - [🇻🇳 Tiếng Việt](./vi-VI/README-vi.md)
 - [🇨🇳 简体中文](./zh-CN/README-zh_CN.md)
 - [🇹🇼 繁體中文](./zh-TW/README_zh-TW.md)
@@ -4639,7 +4639,7 @@ console.log(person.hobbies);
 
 The `addHobby` function receives two arguments, `hobby` and `hobbies` with the default value of the `hobbies` array on the `person` object.
 
-First, we invoke the `addHobby` function, and pass `"running"` as the value for `hobby` and an empty array as the value for `hobbies`. Since we pass an empty array as the value for `y`, `"running"` gets added to this empty array.
+First, we invoke the `addHobby` function, and pass `"running"` as the value for `hobby` and an empty array as the value for `hobbies`. Since we pass an empty array as the value for `hobbies`, `"running"` gets added to this empty array.
 
 Then, we invoke the `addHobby` function, and pass `"dancing"` as the value for `hobby`. We didn't pass a value for `hobbies`, so it gets the default value, the `hobbies` property on the `person` object. We push the hobby `dancing` to the `person.hobbies` array.
 

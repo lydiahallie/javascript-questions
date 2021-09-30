@@ -2401,19 +2401,13 @@ function sum(a, b) {
 <details><summary><b>答案</b></summary>
 <p>
 
-#### 答案: B
+#### 答案: A
 
-纯函数一种若输入参数相同，则永远会得到相同输出的函数。
+纯函数在相同的输入值时，需产生相同的输出，其输出的结果，与输入值以外的其他隐藏信息或状态无关，也和由I/O设备产生的外部输出无关。
+纯函数不会产生副作用。
 
-在特定情况下，即使输入相同参数，也不能得到相同的返回值：
-
-<pre>
-var a = b = {}
-a[Symbol.toPrimitive] = b[Symbol.toPrimitive] = () => Math.random()
-sum(a, b) // Uncertain
-</pre>
-
-所以它不是一个纯函数。
+纯函数与副作用的定义可参考：
+https://zh.wikipedia.org/wiki/%E5%89%AF%E4%BD%9C%E7%94%A8_(%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6)
 
 </p>
 </details>
@@ -3567,7 +3561,7 @@ getName()
 
 带有`let`关键字（和`const`）的变量被提升，但是与`var`不同，它不会被***初始化***。 在我们声明（初始化）它们之前，无法访问它们。 这称为“暂时性死区”。 当我们尝试在声明变量之前访问变量时，JavaScript会抛出`ReferenceError: Cannot access 'name' before initialization`。
 
-如果我们不在`getName`函数中声明`name`变量，则javascript引擎会查看原型练。会找到其外部作用域有一个名为`name`的变量，其值为`Lydia`。 在这种情况下，它将打印`Lydia`：
+如果我们不在`getName`函数中声明`name`变量，则javascript引擎会查看原型链。会找到其外部作用域有一个名为`name`的变量，其值为`Lydia`。 在这种情况下，它将打印`Lydia`：
 
 ```javascript
 let name = 'Lydia'
@@ -4038,15 +4032,15 @@ myFunc(1, 2, 3);
 
 ```javascript
 function getFine(speed, amount) {
-  const formattedSpeed = new Intl.NumberFormat({
+  const formattedSpeed = new Intl.NumberFormat(
     'en-US',
     { style: 'unit', unit: 'mile-per-hour' }
-  }).format(speed)
+  ).format(speed)
 
-  const formattedAmount = new Intl.NumberFormat({
+  const formattedAmount = new Intl.NumberFormat(
     'en-US',
     { style: 'currency', currency: 'USD' }
-  }).format(amount)
+  ).format(amount)
 
   return `The driver drove ${formattedSpeed} and has to pay ${formattedAmount}`
 }
@@ -4272,14 +4266,14 @@ const myPromise = Promise.resolve(Promise.resolve("Promise!"));
 
 function funcOne() {
 	myPromise.then(res => res).then(res => console.log(res));
-	setTimeout(() => console.log("Timeout!", 0));
+	setTimeout(() => console.log("Timeout!"), 0);
 	console.log("Last line!");
 }
 
 async function funcTwo() {
 	const res = await myPromise;
 	console.log(await res);
-	setTimeout(() => console.log("Timeout!", 0));
+	setTimeout(() => console.log("Timeout!"), 0);
 	console.log("Last line!");
 }
 
@@ -4394,7 +4388,7 @@ person.name;
 
 #### 答案: C
 
-使用 Proxy 对象，我们可以给一个对象添加自定义行为。在这个 case，我们传递一个包含以下属性的对象 `handler` : `set` and `get`。每当我门 _设置_ 属性值时 `set` 被调用，每当我们 _获取_ 时 `get` 被调用。
+使用 Proxy 对象，我们可以给一个对象添加自定义行为。在这个 case，我们传递一个包含以下属性的对象 `handler` : `set` and `get`。每当我们 _设置_ 属性值时 `set` 被调用，每当我们 _获取_ 时 `get` 被调用。
 
 第一个参数是一个空对象 `{}`，作为 `person` 的值。对于这个对象，自定义行为被定义在对象 `handler`。如果我们向对象 `person` 添加属性，`set` 将被调用。如果我们获取 `person` 的属性, `get` 将被调用。
 
@@ -4702,7 +4696,7 @@ const person = {
 
 - A: 不需要，对象默认就是可迭代的
 - B: `*[Symbol.iterator]() { for (let x in this) yield* this[x] }`
-- C: `*[Symbol.iterator]() { for (let x in this) yield* Object.values(this) }`
+- C: `*[Symbol.iterator]() { yield* Object.values(this) }`
 - D: `*[Symbol.iterator]() { for (let x in this) yield this }`
 
 <details><summary><b>答案</b></summary>
