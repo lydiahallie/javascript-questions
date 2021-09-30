@@ -2,9 +2,9 @@
 
   ---
 
-  <span>Saya post pertanyaan pilihan ganda ke [Instagram](https://www.instagram.com/theavocoder) **stories** saya, yang saya post juga di sini ! update terakhir: <a href=#20191224><b>December 24th</b></a>
+  <span>Saya telah posting beberapa pertanyaan pilihan ganda di [Instagram](https://www.instagram.com/theavocoder) **stories** saya, dan yang saya post juga disini ! update terakhir: <a href=#20191224><b>December 24th</b></a>
 
-  Mulai tingkat dasar ke mahir: tes seberapa paham kamu tentang javascript, segarkan sedikit pengetahuan kamu, atau bersiap-siap untuk coding interview kamu! :muscle: :rocket: Saya update repo ini secara berkala dengan pertanyaan baru. Saya masukkan jawaban dibagian yang **tersembunyi** di bawah pertanyaan, cukup klik pada bagian itu untuk menampilkannya. Pertanyaan ini hanya untuk bersenang-senang, Semoga berhasil :heart:</span>
+  Mulai dari tingkat dasar ke tingkat mahir: tes seberapa paham kamu tentang javascript, segarkan sedikit pengetahuan kamu, atau bersiap-siap untuk coding interview kamu! :muscle: :rocket: Saya update repo ini secara berkala dengan pertanyaan baru. Saya juga masukkan jawaban dibagian yang **tersembunyi** di bawah pertanyaan, cukup klik pada bagian itu untuk menampilkannya. Pertanyaan ini hanya untuk bersenang-senang, Semoga berhasil :heart:</span>
 
 Jangan sungkan untuk terhubung dengan saya! 😊 <br />
 <a href="https://www.instagram.com/theavocoder">Instagram</a> || <a href="https://www.twitter.com/lydiahallie">Twitter</a> || <a href="https:/www.linkedin.com/in/lydia-hallie">LinkedIn</a> || <a href="www.lydiahallie.dev">Blog</a>
@@ -125,7 +125,7 @@ console.log(shape.perimeter());
 
 #### Jawaban: B
 
-Perhatikan pada nilai 'diameter' adalah fungsi biasa, sedangkan nilai 'perimeter' yaitu fungsi panah.
+Perhatikan properti 'diameter' di objek shape properti tersebut adalah fungsi biasa, sedangkan properti 'perimeter' yaitu fungsi panah atau biasa disebut dengan arrow function.
 
 Dengan fungsi panah, kata kunci 'this' merujuk ke cakupan sekitarnya saat ini, tidak seperti fungsi biasa. Ini berarti bahwa ketika kita memanggil 'perimeter' itu tidak mengacu pada objek bentuk, tetapi pada lingkup sekitarnya.
 
