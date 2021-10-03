@@ -4947,3 +4947,31 @@ Fungsi `updateEmail` adalah fungsi panah, dan tidak terikat ke objek `user`. Art
 
 ---
 
+```javascript
+const user = {
+	name: "hendy",
+	updateName: function () {
+		this.name = name
+	}
+}
+
+user.updateName("budi")
+console.log(user.email)
+```
+
+- A: `hendy`
+- B: `budi`
+- C: `undefined`
+- D: `ReferenceError`
+
+<details><summary><b>Jawaban</b></summary>
+<p>
+
+#### Jawaban: B
+
+Fungsi `updateName` terikat dengan object sehingga `this.name` merujuk pada name object
+</p>
+</details>
+
+---
+
