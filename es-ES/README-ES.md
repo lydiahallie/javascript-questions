@@ -375,11 +375,11 @@ console.log(member.getFullName());
 
 #### Respuesta correcta: A
 
-En JS no se pueden añadir propiedades a un constructor como se puede hacer con los objetos. Si se desea añadir una característica a todos los objetos a la vez, se debe utilizar el [prototipo](https://www.w3schools.com/js/js_object_prototypes.asp) en su lugar. Así que en este caso,
+En JS no se pueden añadir propiedades a un constructor como se puede hacer con los objetos. Si se desea añadir una característica a todos los objetos a la vez, se debe utilizar [prototype](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Object_prototypes) en su lugar. Así que en este caso,
 
 ```js
-Persona.prototipo.getFullName = función () {)
-  devuelve `${este.nombre} ${este.apellido}`;
+Person.prototype.getFullName = function () {)
+  return `${this.firstName} ${this.lastName}`;
 }
 ```
 
