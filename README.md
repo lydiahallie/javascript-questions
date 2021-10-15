@@ -5101,3 +5101,27 @@ The condition within the `if` statement checks whether the value of `!typeof ran
 
 </p>
 </details>
+
+###### 156. What's the output?
+
+```javascript
+const dynamicKeyObject = { `${1+2}`: "Lydia" }
+console.log(dynamicKeyObject)
+```
+
+- A: `{ '12': "Lydia" }`
+- B: `{ '3': "Lydia" }`
+- C: `{ '3': 'Lydia' }`
+- D: `Uncaught SyntaxError: Unexpected template string`
+
+<details><summary><b>Answer</b></summary>
+<p>
+
+#### Answer: D
+
+Currently it is not allowed to define dynamic key via template string. In order to do that it is used square brackets.
+The correct way of do this is the following
+`const dynamicKeyObject = { [1+2]: "Lydia" }`
+
+</p>
+</details>
