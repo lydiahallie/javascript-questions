@@ -1064,7 +1064,7 @@ undefined
 - `null`
 - `NaN`
 - `false`
-- `''` (空字串)
+- `''` (empty string)
 - `0`
 - `-0`
 - `0n` (BigInt(0))
