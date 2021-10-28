@@ -1056,16 +1056,18 @@ undefined
 
 #### 答案: A
 
-只有 6 种 [falsy](https://developer.mozilla.org/zh-CN/docs/Glossary/Falsy) 值:
+只有 8 种 [falsy](https://developer.mozilla.org/zh-CN/docs/Glossary/Falsy) 值:
 
 
 
 - `undefined`
 - `null`
 - `NaN`
-- `0`
-- `''` (empty string)
 - `false`
+- `''` (空字串)
+- `0`
+- `-0`
+- `0n` (BigInt(0))
 
 `Function` 构造函数, 比如 `new Number` 和 `new Boolean`，是 [truthy](https://developer.mozilla.org/zh-CN/docs/Glossary/Truthy)。
 
