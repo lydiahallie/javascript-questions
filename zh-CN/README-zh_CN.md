@@ -1035,7 +1035,7 @@ typeof sayHi()
 
 ---
 
-###### 35. 下面哪些值是 falsy?
+###### 35. 下面哪些值是 false?
 
 ```javascript
 0
