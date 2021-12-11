@@ -1064,14 +1064,16 @@ undefined;
 
 #### 答案: A
 
-只有六個值是 falsy
+只有八個值是 falsy
 
 - `undefined`
 - `null`
 - `NaN`
-- `0`
-- `''` (空字串)
 - `false`
+- `''` (空字串)
+- `0`
+- `-0`
+- `0n` (BigInt(0))
 
 函式建構式(Function constructors) 如 `new Number` 和 `new Boolean` 都為 truthy。
 

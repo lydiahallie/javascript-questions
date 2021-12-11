@@ -2402,7 +2402,7 @@ console.log(name);
 <details><summary><b>Answer</b></summary>
 <p>
 
-#### Answer: A
+#### Answer: C
 
 When we unpack the property `name` from the object on the right-hand side, we assign its value `"Lydia"` to a variable with the name `myName`.
 
