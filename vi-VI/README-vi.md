@@ -20,7 +20,7 @@ Danh sách các ngôn ngữ khác:
 - [🇳🇱 Nederlands](../nl-NL/README.md)
 - [🇧🇷 Português Brasil](../pt-BR/README_pt_BR.md)
 - [🇷🇺 Русский](../ru-RU/README.md)
-- [🇹🇭 ไทย](../th-TH/README-th_TH.md)
+- [🇹🇭 ไทย](../th-TH/README.md)
 - [🇹🇷 Türkçe](../tr-TR/README-tr_TR.md)
 - [🇺🇦 Українська мова](../uk-UA/README.md)
 - [🇨🇳 简体中文](../zh-CN/README-zh_CN.md)

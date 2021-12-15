@@ -29,7 +29,7 @@
 - [🇰🇷 한국어](../ko-KR/README-ko_KR.md)
 - [🇧🇷 Português Brasil](../pt-BR/README_pt_BR.md)
 - [🇷🇺 Русский](../ru-RU/README.md)
-- [🇹🇭 ไทย](../th-TH/README-th_TH.md)
+- [🇹🇭 ไทย](../th-TH/README.md)
 - [🇹🇷 Türkçe](../tr-TR/README-tr_TR.md)
 - [🇺🇦 Українська мова](../uk-UA/README.md)
 - [🇻🇳 Tiếng Việt](../vi-VI/README-vi.md)
