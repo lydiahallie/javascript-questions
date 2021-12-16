@@ -1901,13 +1901,14 @@ console.log(Object.keys(person));
 - B: `{ name: "Lydia", age: 21 }`, `["name"]`
 - C: `{ name: "Lydia"}`, `["name", "age"]`
 - D: `{ name: "Lydia"}`, `["age"]`
+- E: `{ name: "Lydia"}`, `["name"]`
 
 <details><summary><b>Answer</b></summary>
 <p>
 
 #### Answer: B
 
-With the `defineProperty` method, we can add new properties to an object, or modify existing ones. When we add a property to an object using the `defineProperty` method, they are by default _not enumerable_. The `Object.keys` method returns all _enumerable_ property names from an object, in this case only `"name"`.
+With the `defineProperty` method, we can add new properties to an object, or modify existing ones. When we add a property to an object using the `defineProperty` method, they are by default _not enumerable_. As such they will not be shown in `Object.keys`, `for...in` loop, `console.log`, neither will be stringify by `JSON.stringify`. So the correct answer is E. (Note: Chrome's console will still show you the _not enumerable_ properties in a dimmed way, but this is browser magic) 
 
 Properties added using the `defineProperty` method are immutable by default. You can override this behavior using the `writable`, `configurable` and `enumerable` properties. This way, the `defineProperty` method gives you a lot more control over the properties you're adding to an object.
 
