@@ -82,8 +82,8 @@ const shape = {
   perimeter: () => 2 * Math.PI * this.radius
 }
 
-shape.diameter()
-shape.perimeter()
+console.log(shape.diameter());
+console.log(shape.perimeter());
 ```
 
 - A: `20` and `62.83185307179586`
@@ -110,8 +110,8 @@ shape.perimeter()
 ###### 4. 输出是什么？
 
 ```javascript
-+true;
-!"Lydia";
+console.log(+true);
+console.log(!"Lydia");
 ```
 
 - A: `1` and `false`
@@ -251,7 +251,7 @@ class Chameleon {
 }
 
 const freddie = new Chameleon({ newColor: 'purple' })
-freddie.colorChange('orange')
+console.log(freddie.colorChange('orange'))
 ```
 
 - A: `orange`
@@ -290,7 +290,7 @@ console.log(greetign)
 
 代码打印出了一个对象，这是因为我们在全局对象上创建了一个空对象！当我们将 `greeting` 写错成 `greetign` 时，JS 解释器实际在上浏览器中将它视为 `global.greetign = {}` （或者 `window.greetign = {}`）。
 
-为了避免这个为题，我们可以使用 `"use strict"。这能确保当你声明变量时必须赋值。
+为了避免这个问题，我们可以使用 `"use strict"。这能确保当你声明变量时必须赋值。
 
 </p>
 </details>
@@ -446,7 +446,7 @@ function sum(a, b) {
   return a + b
 }
 
-sum(1, '2')
+console.log(sum(1, '2'))
 ```
 
 - A: `NaN`
@@ -709,10 +709,10 @@ console.log(num)
 const obj = { 1: 'a', 2: 'b', 3: 'c' }
 const set = new Set([1, 2, 3, 4, 5])
 
-obj.hasOwnProperty('1')
-obj.hasOwnProperty(1)
-set.has('1')
-set.has(1)
+console.log(obj.hasOwnProperty('1'))
+console.log(obj.hasOwnProperty(1))
+console.log(set.has('1'))
+console.log(set.has(1))
 ```
 
 - A: `false` `true` `false` `true`
@@ -4612,7 +4612,7 @@ console.log(person.hobbies);
 
 然后，我们调用函数 `addHobby`，并给 `hobby` 传递 `"dancing"`。我们不向 `hobbies` 传递值，因此它获取其默认值 —— 对象 `person` 的 属性 `hobbies`。我们向数组 `person.hobbies` push `dancing`。
 
-最后，我们调用函数 `addHobby`，并向 `hobby` 传递 值 `"bdaking"`，并且向 `hobbies` 传递 `person.hobbies`。我们向数组 `person.hobbies` push `dancing`。
+最后，我们调用函数 `addHobby`，并向 `hobby` 传递 值 `"baking"`，并且向 `hobbies` 传递 `person.hobbies`。我们向数组 `person.hobbies` push `baking`。
 
 pushing `dancing` 和 `baking` 之后，`person.hobbies` 的值为 `["coding", "dancing", "baking"]`
 
