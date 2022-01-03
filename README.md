@@ -3687,7 +3687,7 @@ config = null;
 
 Normally when we set objects equal to `null`, those objects get _garbage collected_ as there is no reference anymore to that object. However, since the callback function within `setInterval` is an arrow function (thus bound to the `config` object), the callback function still holds a reference to the `config` object. 
 As long as there is a reference, the object won't get garbage collected. 
-Since this is an interval, setting `config` to `null` or `delete`-ing `config.alert` won't garbage-collect the interval, so the interval will still be called. 
+Since this is a reference, setting `config` to `null` or `delete`-ing `config.alert` won't garbage-collect the interval, so the interval will still be called. 
 It should be cleared with `clearInterval(config.alert)` to remove it from memory.
 Since it was not cleared, the `setInterval` callback function will still get invoked every 1000ms (1s).
 
@@ -4570,8 +4570,8 @@ function* getTeams(teams) {
 }
 
 const obj = getTeams(teams);
-obj.next(); // { value: "Paul", done: false }
-obj.next(); // { value: "Lisa", done: false }
+console.log(obj.next()); // { value: "Paul", done: false }
+console.log(obj.next()); // { value: "Lisa", done: false }
 ```
 
 - A: `yield getMembers(teams[i].members)`
@@ -4710,7 +4710,7 @@ const person = {
   age: 21
 }
 
-[...person] // ["Lydia Hallie", 21]
+console.log([...person]) // ["Lydia Hallie", 21]
 ```
 
 - A: Nothing, object are iterable by default

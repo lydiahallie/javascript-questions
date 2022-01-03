@@ -4553,8 +4553,8 @@ function* getTeams(teams) {
 }
 
 const obj = getTeams(teams);
-obj.next(); // { value: "Paul", done: false }
-obj.next(); // { value: "Lisa", done: false }
+console.log(obj.next()); // { value: "Paul", done: false }
+console.log(obj.next()); // { value: "Lisa", done: false }
 ```
 
 - A: `yield getMembers(teams[i].members)`
@@ -4693,7 +4693,7 @@ const person = {
   age: 21
 }
 
-[...person] // ["Lydia Hallie", 21]
+console.log([...person]) // ["Lydia Hallie", 21]
 ```
 
 - A: 不需要，对象默认就是可迭代的
