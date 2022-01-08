@@ -1942,7 +1942,7 @@ console.log(num2);
 
 一元操作符 `++` _先返回_ 操作值, _再累加_ 操作值。`num1`的值是`10`, 因为`increaseNumber`函数首先返回`num`的值，也就是`10`，随后再进行 `num`的累加。
 
-`num2`是`10`因为我们将 `num1`传入`increasePassedNumber`. `number`等于`10`（`num1`的值。同样道理，`++` _先返回_ 操作值, _再累加_ 操作值。） `number`是`10`，所以`num2`也是`10`.
+`num2`是`10`因为我们将 `num1`传入`increasePassedNumber`. `number`等于`10`（`num1`的值）。同样道理，`++` _先返回_ 操作值, _再累加_ 操作值。 `number`是`10`，所以`num2`也是`10`.
 
 </p>
 </details>

@@ -1977,7 +1977,7 @@ console.log(num2);
 
 The unary operator `++` _first returns_ the value of the operand, _then increments_ the value of the operand. The value of `num1` is `10`, since the `increaseNumber` function first returns the value of `num`, which is `10`, and only increments the value of `num` afterwards.
 
-`num2` is `10`, since we passed `num1` to the `increasePassedNumber`. `number` is equal to `10`(the value of `num1`. Again, the unary operator `++` _first returns_ the value of the operand, _then increments_ the value of the operand. The value of `number` is `10`, so `num2` is equal to `10`.
+`num2` is `10`, since we passed `num1` to the `increasePassedNumber`. `number` is equal to `10` (the value of `num1`). Again, the unary operator `++` _first returns_ the value of the operand, _then increments_ the value of the operand. The value of `number` is `10`, so `num2` is equal to `10`.
 
 </p>
 </details>
@@ -3199,7 +3199,7 @@ You should${'' && `n't`} see a therapist after so much JavaScript lol`;
 
 #### Answer: B
 
-`[]` is a truthy value. With the `&&` operator, the right-hand value will be returned if the left-hand value is a truthy value. In this case, the left-hand value `[]` is a truthy value, so `"Im'` gets returned.
+`[]` is a truthy value. With the `&&` operator, the right-hand value will be returned if the left-hand value is a truthy value. In this case, the left-hand value `[]` is a truthy value, so `Im` gets returned.
 
 `""` is a falsy value. If the left-hand value is falsy, nothing gets returned. `n't` doesn't get returned.
 
