@@ -1873,7 +1873,7 @@ console.log(Object.keys(person));
 
 通过`defineProperty`方法，我们可以给对象添加一个新属性，或者修改已经存在的属性。而我们使用`defineProperty`方法给对象添加了一个属性之后，属性默认为 _不可枚举(not enumerable)_. `Object.keys`方法仅返回对象中 _可枚举(enumerable)_ 的属性，因此只剩下了`"name"`.
 
-用`defineProperty`方法添加的属性默认不可变。你可以通过`writable`, `configurable` 和 `enumerable`属性来改变这一行为。这样的话， 相比于自己添加的属性，`defineProperty`方法添加的属性有了更多的控制权。
+用`defineProperty`方法添加的属性默认不可变。你可以通过`writable`, `configurable` 和 `enumerable`属性来改变这一行为。这样，`defineProperty`方法可以让您更好地控制要添加到对象的属性。
 
 </p>
 </details>
@@ -3110,7 +3110,7 @@ console.log(getList(list))
 console.log(getUser(user))
 ```
 
-- A: `[1, [2, 3, 4]]` and `undefined`
+- A: `[1, [2, 3, 4]]` and `SyntaxError`
 - B: `[1, [2, 3, 4]]` and `{ name: "Lydia", age: 21 }`
 - C: `[1, 2, 3, 4]` and `{ name: "Lydia", age: 21 }`
 - D: `Error` and `{ name: "Lydia", age: 21 }`
@@ -3127,11 +3127,11 @@ console.log(getUser(user))
 
 使用剩余的参数`... y`，我们将所有剩余参数放在一个数组中。 在这种情况下，其余的参数是`2`，`3`和`4`。 `y`的值是一个数组，包含所有其余参数。 在这种情况下，`x`的值等于`1`，所以当我们打印`[x，y]`时，会打印`[1，[2,3,4]]`。
 
- `getUser`函数接收一个对象。对于箭头函数，如果只返回一个值，我们不必编写花括号。但是，如果您想从一个箭头函数返回一个对象，您必须在圆括号之间编写它，否则不会返回任何值!下面的函数将返回一个对象:
+ `getUser`函数接收一个对象。对于箭头函数，如果只返回一个值，我们不必编写花括号。但是，如果您想从一个箭头函数返回一个对象，您必须将它写在圆括号之间，否则两个花括号之间的所有内容都将被解释为一个块语句!在这种情况下，花括号之间的代码不是有效的 JavaScript 代码，因此会抛出SyntaxError。
 
-```const getUser = user => ({ name: user.name, age: user.age })```
+以下函数将返回一个对象：
 
-由于在这种情况下不返回任何值，因此该函数返回`undefined`。
+`const getUser = user => ({ name: user.name, age: user.age })`
 
 </p>
 </details>
@@ -3833,7 +3833,7 @@ console.log(member.getLastName?.());
 ```
 
 - A: `undefined` `undefined` `undefined` `undefined`
-- B: `Mara` `undefined` `Lydia Hallie` `undefined`
+- B: `Mara` `undefined` `Lydia Hallie` `ReferenceError`
 - C: `Mara` `null` `Lydia Hallie` `null`
 - D: `null` `ReferenceError` `null` `ReferenceError`
 
@@ -3847,7 +3847,7 @@ console.log(member.getLastName?.());
 `person.pet?.name`： `person` 有一个名为 `pet` 的属性： `person.pet` 不是 nullish。它有个名为 `name` 的属性，并返回字符串 `Mara`。
 `person.pet?.family?.name`： `person` 有一个名为 `pet` 的属性： `person.pet` 不是 nullish. `pet` _并没有_ 一个名为 `family` 的属性, `person.pet.family` 是 nullish。表达式返回 `undefined`。
 `person.getFullName?.()`： `person` 有一个名为 `getFullName` 的属性： `person.getFullName()` 不是 nullish 并可以被调用，返回字符串 `Lydia Hallie`。
-`member.getLastName?.()`: `member` is not defined: `member.getLastName()` is nullish. The expression returns `undefined`.
+`member.getLastName?.()`: 变量`member` 不存在，因此会抛出错误`ReferenceError`。
 
 </p>
 </details>
