@@ -1,22 +1,29 @@
+<div align="center">
+  <img height="60" src="https://img.icons8.com/color/344/javascript.png">
+  <h1>JavaScript Questions</h1>
 
-# Lista de preguntas (avanzadas) de JavaScript 
+---
 
- Publico diariamente preguntas de opción múltiple en JavaScript en mi [Instagram](https://www.instagram.com/theavocoder), ¡que también publicaré aquí! 
- 
- Desde lo básico a lo avanzado: comprueba si realmente conoces _Javascript_, actualiza tus conocimientos o simplemente prepárate para tu próxima entrevista 💪 🚀 Actualizaré este repo semanalmente con nuevas preguntas.
- 
- Las respuestas se encuentran en las secciones contraídas debajo de las preguntas, simplemente haz clic en ellas para expandirlas. Buena suerte ❤️
+<span>Publico diariamente preguntas de opción múltiple en JavaScript en mi [Instagram](https://www.instagram.com/theavocoder), ¡que también publicaré aquí! Última actualización: <a href=#20200612><b>June 12th</b></a>
 
-¿Quieres recibir un email cada vez que agregue más preguntas? <br />
-<a target="_blank" href="https://www.theavocoder.com/subscribe"><b>✨✉Suscríbete a las actualizaciones por email✉✨</b></a>
+Desde lo básico a lo avanzado: comprueba si realmente conoces _Javascript_, actualiza tus conocimientos o simplemente prepárate para tu próxima entrevista 💪 🚀 Actualizaré este repo semanalmente con nuevas preguntas. Las respuestas se encuentran en las secciones contraídas debajo de las preguntas, simplemente haz clic en ellas para expandirlas. Buena suerte :heart:
 
 
-Lista de lenguajes disponibles:
+<a href="https://www.instagram.com/theavocoder">Instagram</a> || <a href="https://www.twitter.com/lydiahallie">Twitter</a> || <a href="https://www.linkedin.com/in/lydia-hallie">LinkedIn</a> || <a href="https://www.lydiahallie.dev">Blog</a>
+</div>
+
+---
+
+
+<details><summary><b> Lista de lenguajes disponibles: 🇸🇦🇪🇬🇧🇦🇩🇪🇪🇸🇫🇷🇮🇩🇯🇵🇰🇷🇳🇱🇧🇷🇷🇺🇹🇭🇹🇷🇺🇦🇻🇳🇨🇳🇹🇼</b></summary>
+<p>
+
+- [🇺🇸 English](/)
 - [🇸🇦 العربية](./ar-AR/README_AR.md)
 - [🇪🇬 اللغة العامية](./ar-EG/README_ar-EG.md)
 - [🇧🇦 Bosanski](./bs-BS/README-bs_BS.md)
 - [🇩🇪 Deutsch](./de-DE/README.md)
-- [🇬🇧 English](../README.md)
+- [🇪🇸 Español](./es-ES/README-ES.md)
 - [🇫🇷 Français](./fr-FR/README_fr-FR.md)
 - [🇮🇩 Indonesia](./id-ID/README.md)
 - [🇯🇵 日本語](./ja-JA/README-ja_JA.md)
@@ -31,10 +38,13 @@ Lista de lenguajes disponibles:
 - [🇨🇳 简体中文](./zh-CN/README-zh_CN.md)
 - [🇹🇼 繁體中文](./zh-TW/README_zh-TW.md)
 
+</p>
+</details>
+
 
 ---
 
-###### 1. ¿Qué devuelve la siguiente función?
+#### 1. ¿Qué devuelve la siguiente función?
 
 ```javascript
 function sayHi() {
@@ -65,7 +75,7 @@ Las variables con la palabra clave `let` (y` const`) se _elevan_, pero a diferen
 
 ---
 
-###### 2. ¿Qué devuelve la siguiente función?
+#### 2. ¿Qué devuelve la siguiente función?
 
 ```javascript
 for (var i = 0; i < 3; i++) {
@@ -95,7 +105,7 @@ En el segundo bucle, la variable `i` se declaró utilizando la palabra reservada
 
 ---
 
-###### 3. ¿Qué devuelve la siguiente función?
+#### 3. ¿Qué devuelve la siguiente función?
 
 ```javascript
 const shape = {
@@ -131,7 +141,7 @@ No hay valor `radius` en ese objeto, que devuelve` undefined`.
 
 ---
 
-###### 4. ¿Qué devuelve la siguiente función?
+#### 4. ¿Qué devuelve la siguiente función?
 
 ```javascript
 +true;
@@ -156,7 +166,7 @@ En el segundo caso la cadena `'Lydia'` es un valor verdadero. Lo que realmente e
 
 ---
 
-###### 5. ¿Cuál NO es válida?
+#### 5. ¿Cuál NO es válida?
 
 ```javascript
 const bird = {
@@ -192,7 +202,7 @@ Sin embargo, con la notación de puntos, esto no sucede. `mouse` no tiene una cl
 
 ---
 
-###### 6. ¿Qué devuelve la siguiente función?
+#### 6. ¿Qué devuelve la siguiente función?
 
 ```javascript
 let c = { greeting: "Hey!" };
@@ -226,7 +236,7 @@ Cuando cambias un objeto, cambias todos ellos.
 
 ---
 
-###### 7. ¿Qué devuelve la siguiente función?
+#### 7. ¿Qué devuelve la siguiente función?
 
 ```javascript
 let a = 3;
@@ -259,7 +269,7 @@ Sin embargo, cuando usamos el operador `===`, tanto el **valor** como el **tipo*
 
 ---
 
-###### 8. ¿Qué devuelve la siguiente función?
+#### 8. ¿Qué devuelve la siguiente función?
 
 ```javascript
 class Chameleon {
@@ -294,7 +304,7 @@ La función `colorChange` es estática. Los métodos estáticos están diseñado
 
 ---
 
-###### 9. ¿Qué devuelve la siguiente función?
+#### 9. ¿Qué devuelve la siguiente función?
 
 ```javascript
 let greeting;
@@ -320,7 +330,7 @@ Para evitar esto, podemos usar el ["uso estricto"](https://developer.mozilla.org
 
 ---
 
-###### 10. ¿Qué ocurre cuando hacemos esto?
+#### 10. ¿Qué ocurre cuando hacemos esto?
 
 ```javascript
 function bark() {
@@ -349,7 +359,7 @@ Una función es un tipo especial de objeto. El código que escribes tú mismo no
 
 ---
 
-###### 11. ¿Qué devuelve la siguiente función?
+#### 11. ¿Qué devuelve la siguiente función?
 
 ```javascript
 function Person(firstName, lastName) {
@@ -390,7 +400,7 @@ habría hecho que `member.getFullName()` funcionara. ¿Por qué es bueno? Imagin
 
 ---
 
-###### 12. ¿Qué devuelve la siguiente función?
+#### 12. ¿Qué devuelve la siguiente función?
 
 ```javascript
 function Person(firstName, lastName) {
@@ -424,7 +434,7 @@ En el ejemplo `this.firstName` equivale a `"Sarah"` y `this.lastName` equivale a
 
 ---
 
-###### 13. ¿Cuáles son las tres fases de la propagación de eventos?
+#### 13. ¿Cuáles son las tres fases de la propagación de eventos?
 
 - A: Target > Capturing > Bubbling
 - B: Bubbling > Target > Capturing
@@ -445,7 +455,7 @@ Durante la fase de **Capturing**, el evento pasa a través de los elementos ance
 
 ---
 
-###### 14. All object have prototypes.
+#### 14. All object have prototypes.
 
 - A: true
 - B: false
@@ -462,7 +472,7 @@ Todos los objetos tienen prototipos, excepto el **objeto base** (Más info [aqu�
 
 ---
 
-###### 15. ¿Qué devuelve la siguiente función?
+#### 15. ¿Qué devuelve la siguiente función?
 
 ```javascript
 function sum(a, b) {
@@ -491,7 +501,7 @@ En este ejemplo, JavaScript convierte el número `1` en una cadena, para que la 
 
 ---
 
-###### 16. ¿Qué devuelve la siguiente función?
+#### 16. ¿Qué devuelve la siguiente función?
 
 ```javascript
 let number = 0;
@@ -527,7 +537,7 @@ Por lo tanto, devuelve `0 2 2 2`.
 
 ---
 
-###### 17. ¿Qué devuelve la siguiente función?
+#### 17. ¿Qué devuelve la siguiente función?
 
 ```javascript
 function getPersonInfo(one, two, three) {
@@ -558,7 +568,7 @@ _Tagged templates_ es un caso de uso de [template literals](https://codeburst.io
 
 ---
 
-###### 18. ¿Qué devuelve la siguiente función?
+#### 18. ¿Qué devuelve la siguiente función?
 
 ```javascript
 function checkAge(data) {
@@ -594,7 +604,7 @@ Esta es la razón por la que ambos `{ edad: 18 } === { edad: 18 }` y `{ edad: 18
 
 ---
 
-###### 19. ¿Qué devuelve la siguiente función?
+#### 19. ¿Qué devuelve la siguiente función?
 
 ```javascript
 function getAge(...args) {
@@ -621,7 +631,7 @@ El operador spread (`...args`.) devuelve un array con argumentos. Una matriz es 
 
 ---
 
-###### 20. ¿Qué devuelve la siguiente función?
+#### 20. ¿Qué devuelve la siguiente función?
 
 ```javascript
 function getAge() {
@@ -650,7 +660,7 @@ Con `"use strict"`, es posible asegurarse de que no se declara accidentalmente v
 
 ---
 
-###### 21. ¿Cuál es el valor de `sum`?
+#### 21. ¿Cuál es el valor de `sum`?
 
 ```javascript
 const sum = eval("10*10+5");
@@ -673,7 +683,7 @@ const sum = eval("10*10+5");
 
 ---
 
-###### 22. ¿Cuánto tiempo es accesible cool_secret?
+#### 22. ¿Cuánto tiempo es accesible cool_secret?
 
 ```javascript
 sessionStorage.setItem("cool_secret", 123);
@@ -698,7 +708,7 @@ Si se usó `localStorage`, los datos habrían estado allí siempre, a menos que 
 
 ---
 
-###### 23. ¿Qué devuelve la siguiente función?
+#### 23. ¿Qué devuelve la siguiente función?
 
 ```javascript
 var num = 8;
@@ -726,7 +736,7 @@ No es posible hacer esto con `let` o `const` ya que tienen un alcance de bloque.
 
 ---
 
-###### 24. ¿Qué devuelve la siguiente función?
+#### 24. ¿Qué devuelve la siguiente función?
 
 ```javascript
 const obj = { 1: "a", 2: "b", 3: "c" };
@@ -758,7 +768,7 @@ No funciona así para un conjunto. No hay un "1" en nuestro set: `set.has('1')` 
 
 ---
 
-###### 25. ¿Qué devuelve la siguiente función?
+#### 25. ¿Qué devuelve la siguiente función?
 
 ```javascript
 const obj = { a: "one", b: "two", a: "three" };
@@ -782,7 +792,7 @@ Si tiene dos claves con el mismo nombre, la clave será reemplazada. Seguirá es
 
 ---
 
-###### 26. El contexto de ejecución de JS crea dos cosas: el objecto global y la palabra reservada "this".
+#### 26. El contexto de ejecución de JS crea dos cosas: el objecto global y la palabra reservada "this".
 
 - A: true
 - B: false
@@ -800,7 +810,7 @@ El contexto de ejecución base es el contexto de ejecución global: es accesible
 
 ---
 
-###### 27. ¿Qué devuelve la siguiente función?
+#### 27. ¿Qué devuelve la siguiente función?
 
 ```javascript
 for (let i = 1; i < 5; i++) {
@@ -825,7 +835,7 @@ La sentencia `continue` omite una iteración si una cierta condición, en este c
 
 ---
 
-###### 28. ¿Qué devuelve la siguiente función?
+#### 28. ¿Qué devuelve la siguiente función?
 
 ```javascript
 String.prototype.giveLydiaPizza = () => {
@@ -854,7 +864,7 @@ name.giveLydiaPizza();
 
 ---
 
-###### 29. ¿Qué devuelve la siguiente función?
+#### 29. ¿Qué devuelve la siguiente función?
 
 ```javascript
 const a = {};
@@ -888,7 +898,7 @@ Para finalizar, registramos `a[b]`, que en realidad es `a["Object"]`. Acabamos d
 
 ---
 
-###### 30. ¿Qué devuelve la siguiente función?
+#### 30. ¿Qué devuelve la siguiente función?
 
 ```javascript
 const foo = () => console.log("First");
@@ -941,7 +951,7 @@ Se invoca el `bar`, se registra el `"Second"` y se quita de la pila.
 
 ---
 
-###### 31. ¿Cuál es la referencia al objeto que lanza el evento cuando se hace click en el botón?
+#### 31. ¿Cuál es la referencia al objeto que lanza el evento cuando se hace click en el botón?
 
 ```html
 <div onclick="console.log('first div')">
@@ -970,7 +980,7 @@ El elemento anidado más profundo que causa el evento es el destino de ese event
 
 ---
 
-###### 32. Al hacer click en el párrafo, ¿qué se muestra por pantalla?
+#### 32. Al hacer click en el párrafo, ¿qué se muestra por pantalla?
 
 ```html
 <div onclick="console.log('div')">
@@ -997,7 +1007,7 @@ Si hacemos clic en `p`, vemos dos _outputs_: `p` y `div`. Durante la propagació
 
 ---
 
-###### 33. ¿Qué devuelve la siguiente función?
+#### 33. ¿Qué devuelve la siguiente función?
 
 ```javascript
 const person = { name: "Lydia" };
@@ -1029,7 +1039,7 @@ En ambos  podemos pasar el objeto al que queremos que se refiera la palabra rese
 
 ---
 
-###### 34. ¿Qué devuelve la siguiente función?
+#### 34. ¿Qué devuelve la siguiente función?
 
 ```javascript
 function sayHi() {
@@ -1058,7 +1068,7 @@ En JS solo hay 7 tipos incorporados (En inglés se llaman _built-in types_, y pu
 
 ---
 
-###### 35. ¿Cuáles de estos valores son falsos?
+#### 35. ¿Cuáles de estos valores son falsos?
 
 ```javascript
 0;
@@ -1096,7 +1106,7 @@ Los constructores de funciones, como `new Number` y `new Boolean` son correctos.
 
 ---
 
-###### 36. ¿Qué devuelve la siguiente función?
+#### 36. ¿Qué devuelve la siguiente función?
 
 ```javascript
 console.log(typeof typeof 1);
@@ -1120,7 +1130,7 @@ console.log(typeof typeof 1);
 
 ---
 
-###### 37. ¿Qué devuelve la siguiente función?
+#### 37. ¿Qué devuelve la siguiente función?
 
 ```javascript
 const numbers = [1, 2, 3];
@@ -1149,7 +1159,7 @@ dependiendo de dónde lo ejecute (es diferente para cada navegador, nodo, etc.)
 
 ---
 
-###### 38. ¿Qué devuelve la siguiente función?
+#### 38. ¿Qué devuelve la siguiente función?
 
 ```javascript
 (() => {
@@ -1186,7 +1196,7 @@ Fuera del bloque `catch`,` x` sigue siendo `undefined`, e `y` es `2`. Cuando que
 
 ---
 
-###### 39. Todo en Javascript es o bien un(a)..
+#### 39. Todo en Javascript es o bien un(a)..
 
 - A: tipo primitivo o un objeto
 - B: función u objeto
@@ -1209,7 +1219,7 @@ Lo que diferencia a un tipo primitivo de un objeto es que los primeros no tienen
 
 ---
 
-###### 40. ¿Qué devuelve la siguiente función?
+#### 40. ¿Qué devuelve la siguiente función?
 
 ```javascript
 [[0, 1], [2, 3]].reduce(
@@ -1239,7 +1249,7 @@ Entonces, `[1, 2, 0, 1]` es `acc` y` [2, 3]` es `cur`. Los concatenamos, y obten
 
 ---
 
-###### 41. ¿Qué devuelve la siguiente función?
+#### 41. ¿Qué devuelve la siguiente función?
 
 ```javascript
 !!null;
@@ -1268,7 +1278,7 @@ Entonces, `[1, 2, 0, 1]` es `acc` y` [2, 3]` es `cur`. Los concatenamos, y obten
 
 ---
 
-###### 42. ¿Qué devuelveel método `setInterval`?
+#### 42. ¿Qué devuelveel método `setInterval`?
 
 ```javascript
 setInterval(() => console.log("Hi"), 1000);
@@ -1291,7 +1301,7 @@ Devuelve una identificación única, un id único. Este id se puede usar para bo
 
 ---
 
-###### 43. ¿Qué devuelve la siguiente función?
+#### 43. ¿Qué devuelve la siguiente función?
 
 ```javascript
 [..."Lydia"];
@@ -1314,7 +1324,7 @@ Una cadena es un iterable. El [operador de propagación](https://developer.mozil
 
 ---
 
-###### 44. ¿Cuál es el resultado?
+#### 44. ¿Cuál es el resultado?
 
 ```javascript
 function* generator(i) {
@@ -1349,7 +1359,7 @@ Después, invocamos la función otra vez con el método `next()`. Continúa dond
 
 ---
 
-###### 45. ¿Qué devuelve esto?
+#### 45. ¿Qué devuelve esto?
 
 ```javascript
 const firstPromise = new Promise((res, rej) => {
@@ -1380,7 +1390,7 @@ Cuando pasamos múltiples promesas al método `Promise.race`, resuelve/rechaza l
 
 ---
 
-###### 46. ¿Cuál es el resultado?
+#### 46. ¿Cuál es el resultado?
 
 ```javascript
 let person = { name: "Lydia" };
@@ -1419,7 +1429,7 @@ Solo estamos modificando el valor de la variable `person`, y no el primer elemen
 
 ---
 
-###### 47. ¿Cuál es el resultado?
+#### 47. ¿Cuál es el resultado?
 
 ```javascript
 const person = {
@@ -1449,7 +1459,7 @@ Con un bucle `for-in`, podemos iterar sobre claves de objetos, en este caso `nam
 
 ---
 
-###### 48. ¿Cuál es el resultado?
+#### 48. ¿Cuál es el resultado?
 
 ```javascript
 console.log(3 + 4 + "5");
@@ -1476,7 +1486,7 @@ La asociatividad de operadores es el orden en el que el compilador evalúa las e
 
 ---
 
-###### 49. ¿Cuál es el valor de `num`?
+#### 49. ¿Cuál es el valor de `num`?
 
 ```javascript
 const num = parseInt("7*6", 10);
@@ -1501,7 +1511,7 @@ Solo el primer número en el string es devuelto. Según en la _base_ seleccionad
 
 ---
 
-###### 50. ¿Cuál es el resultado?
+#### 50. ¿Cuál es el resultado?
 
 ```javascript
 [1, 2, 3].map(num => {
@@ -1529,7 +1539,7 @@ Sin embargo, no devolvemos un valor. Cuando no devolvemos un valor desde la func
 
 ---
 
-###### 51. ¿Cuál es el resultado?
+#### 51. ¿Cuál es el resultado?
 
 ```javascript
 function getInfo(member, year) {
@@ -1566,7 +1576,7 @@ El valor de `person` es un objeto. El argumento `member` tiene una referencia (c
 
 ---
 
-###### 52. ¿Cuál es el resultado?
+#### 52. ¿Cuál es el resultado?
 
 ```javascript
 function greeting() {
@@ -1604,7 +1614,7 @@ Con la sentencia `catch`, podemos especificar qué queremos hacer si una excepci
 
 ---
 
-###### 53. ¿Cuál es el resultado?
+#### 53. ¿Cuál es el resultado?
 
 ```javascript
 function Car() {
@@ -1633,7 +1643,7 @@ Cuando devuelves una propiedad, el valor de la propiedad es igual al valor _reto
 
 ---
 
-###### 54. ¿Cuál es el resultado?
+#### 54. ¿Cuál es el resultado?
 
 ```javascript
 (() => {
@@ -1672,7 +1682,7 @@ Sin embargo, hemos creado una variable global `y` cuando la hemos igualado a `10
 
 ---
 
-###### 55. ¿Cuál es el resultado?
+#### 55. ¿Cuál es el resultado?
 
 ```javascript
 class Dog {
@@ -1713,7 +1723,7 @@ Cuando intentamos invocar algo que no es una función, un `TypeError` es lanzado
 
 ---
 
-###### 56. ¿Cuál es el resultado?
+#### 56. ¿Cuál es el resultado?
 
 ```javascript
 const set = new Set([1, 1, 2, 3, 4]);
@@ -1740,7 +1750,7 @@ Pasamos el iterable `[1, 1, 2, 3, 4]` con el valor `1` duplicado. Como no podemo
 
 ---
 
-###### 57. ¿Cuál es el resultado?
+#### 57. ¿Cuál es el resultado?
 
 ```javascript
 // counter.js
@@ -1776,7 +1786,7 @@ Cuando intentamos incrementar el valor de `myCounter`, lanza un error: `myCounte
 
 ---
 
-###### 58. ¿Cuál es el resultado?
+#### 58. ¿Cuál es el resultado?
 
 ```javascript
 const name = "Lydia";
@@ -1805,7 +1815,7 @@ La variable `name` se declara con `const`, por lo que su eliminación no es exit
 
 ---
 
-###### 59. ¿Cuál es el resultado?
+#### 59. ¿Cuál es el resultado?
 
 ```javascript
 const numbers = [1, 2, 3, 4, 5];
@@ -1847,7 +1857,7 @@ Esto significa que el valor de `y` es igual al primer valor del array, el cual e
 
 ---
 
-###### 60. ¿Cuál es el resultado?
+#### 60. ¿Cuál es el resultado?
 
 ```javascript
 const user = { name: "Lydia", age: 21 };
@@ -1873,7 +1883,7 @@ Se pueden combinar objetos usando el operador de propagación `...`. Te permite 
 
 ---
 
-###### 61. ¿Cuál es el resultado?
+#### 61. ¿Cuál es el resultado?
 
 ```javascript
 const person = { name: "Lydia" };
@@ -1903,7 +1913,7 @@ Las propiedades añadidas usando el método `defineProperty` son inmutables por 
 
 ---
 
-###### 62. ¿Cuál es el resultado?
+#### 62. ¿Cuál es el resultado?
 
 ```javascript
 const settings = {
@@ -1937,7 +1947,7 @@ Si el reemplazador es una _función_, esta función es llamada en cada propiedad
 
 ---
 
-###### 63. ¿Cuál es el resultado?
+#### 63. ¿Cuál es el resultado?
 
 ```javascript
 let num = 10;
@@ -1971,7 +1981,7 @@ El operador unario `++` _devuelve primero_ el valor del operando, _y después in
 
 ---
 
-###### 64. ¿Cuál es el resultado?
+#### 64. ¿Cuál es el resultado?
 
 ```javascript
 const value = { number: 10 };
@@ -2009,7 +2019,7 @@ La cuarta vez, pasamos el objeto `value` otra vez. `x.number` fue previamente mo
 
 ---
 
-###### 65. ¿Cuál es el resultado?
+#### 65. ¿Cuál es el resultado?
 
 ```javascript
 [1, 2, 3, 4].reduce((x, y) => console.log(x, y));
@@ -2042,7 +2052,7 @@ En la cuarta llamada, otra vez no devolvemos desde la función de callback. El a
   
 ---
 
-###### 66. ¿Con qué constructor podemos extender correctamente la clase `Dog`?
+#### 66. ¿Con qué constructor podemos extender correctamente la clase `Dog`?
 
 ```javascript
 class Dog {
@@ -2096,7 +2106,7 @@ La clase `Labrador` recibe dos argumentos, `name` porque extiende de `Dog`, y `s
 
 ---
 
-###### 67. ¿Cuál es el resultado?
+#### 67. ¿Cuál es el resultado?
 
 ```javascript
 // index.js
@@ -2128,7 +2138,7 @@ Con `import`, todos los módulos importados son _pre-convertidos_. Esto signific
 
 ---
 
-###### 68. ¿Cuál es el resultado?
+#### 68. ¿Cuál es el resultado?
 
 ```javascript
 console.log(Number(2) === Number(2))
@@ -2153,7 +2163,7 @@ Cada Symbol es completamente único. El propósito del argumento pasado a Symbol
 
 ---
 
-###### 69. ¿Cuál es el resultado?
+#### 69. ¿Cuál es el resultado?
 
 ```javascript
 const name = "Lydia Hallie"
@@ -2180,7 +2190,7 @@ Si el argumento pasado al método `padStart` es más pequeño que la longitud de
 
 ---
 
-###### 70. ¿Cuál es el resultado?
+#### 70. ¿Cuál es el resultado?
 
 ```javascript
 console.log("🥑" + "💻");
@@ -2203,7 +2213,7 @@ Con el operador `+` puedes concatenar strings. En este caso, estamos concatenand
 
 ---
 
-###### 71. ¿Cómo puedes mostrar por consola los valores comentados junto a las sentencias console.log?
+#### 71. ¿Cómo puedes mostrar por consola los valores comentados junto a las sentencias console.log?
 
 ```javascript
 function* startGame() {
@@ -2240,7 +2250,7 @@ Cuando llamamos a `game.next("Yes").value`, el `yield` anterior se reemplaza con
 
 ---
 
-###### 72. ¿Cuál es el resultado?
+#### 72. ¿Cuál es el resultado?
 
 ```javascript
 console.log(String.raw`Hello\nworld`);
@@ -2275,7 +2285,7 @@ En este caso, el string es `Hello\nworld`, que es lo que se muestra por consola.
 
 ---
 
-###### 73. ¿Cuál es el resultado?
+#### 73. ¿Cuál es el resultado?
 
 ```javascript
 async function getData() {
@@ -2309,7 +2319,7 @@ Esto habría mostrado por consola `"I made it!"`
 
 ---
 
-###### 74. ¿Cuál es el resultado?
+#### 74. ¿Cuál es el resultado?
 
 ```javascript
 function addToList(item, list) {
@@ -2339,7 +2349,7 @@ El método `push` modifica el array original. Si quisieras devolver el _array_ d
 
 ---
 
-###### 75. ¿Cuál es el resultado?
+#### 75. ¿Cuál es el resultado?
 
 ```javascript
 const box = { x: 10, y: 20 };
@@ -2373,7 +2383,7 @@ Como `shape` está congelado, y como el valor de `x` no es un objeto, no podemos
 
 ---
 
-###### 76. ¿Cuál es el resultado?
+#### 76. ¿Cuál es el resultado?
 
 ```javascript
 const { name: myName } = { name: "Lydia" };
@@ -2402,7 +2412,7 @@ Como intentamos mostrar por consola `name`, una variable que no está definida, 
 
 ---
 
-###### 77. ¿Esta es una función pura?
+#### 77. ¿Esta es una función pura?
 
 ```javascript
 function sum(a, b) {
@@ -2427,7 +2437,7 @@ La función `sum` siempre devuelve el mismo resultado. Si pasamos `1` y `2`, _si
 
 ---
 
-###### 78. ¿Cuál es el resultado?
+#### 78. ¿Cuál es el resultado?
 
 ```javascript
 const add = () => {
@@ -2474,7 +2484,7 @@ La tercera vez, pasamos `5 * 2` a la función, que se evalúa como `10`. El obje
 
 ---
 
-###### 79. ¿Cuál es el resultado?
+#### 79. ¿Cuál es el resultado?
 
 ```javascript
 const myLifeSummedUp = ["☕", "💻", "🍷", "🍫"]
@@ -2511,7 +2521,7 @@ Con un bucle _for-of_, podemos iterar sobre **iterables**. Un array es un iterab
 
 ---
 
-###### 80. ¿Cuál es el resultado?
+#### 80. ¿Cuál es el resultado?
 
 ```javascript
 const list = [1 + 2, 1 * 2, 1 / 2]
@@ -2537,7 +2547,7 @@ El elemento será igual al valor retornado. `1 + 2` devuelve `3`, `1 * 2` devuel
 
 ---
 
-###### 81. ¿Cuál es el resultado?
+#### 81. ¿Cuál es el resultado?
 
 ```javascript
 function sayHi(name) {
@@ -2570,7 +2580,7 @@ En ese caso, si no pasáramos un valor o si pasáramos `undefined`, `name` siemp
 
 ---
 
-###### 82. ¿Cuál es el resultado?
+#### 82. ¿Cuál es el resultado?
 
 ```javascript
 var status = "😎"
@@ -2609,7 +2619,7 @@ Con el método `call`, podemos cambiar el objeto al cual `this` referencia. En *
 
 ---
 
-###### 83. ¿Cuál es el resultado?
+#### 83. ¿Cuál es el resultado?
 
 ```javascript
 const person = {
@@ -2646,7 +2656,7 @@ Cuando se muestra por consola el objeto `person`, se devuelve el objeto sin modi
 
 ---
 
-###### 84. ¿Cuál es el resultado?
+#### 84. ¿Cuál es el resultado?
 
 ```javascript
 function checkAge(age) {
@@ -2679,7 +2689,7 @@ Las variables con `const` y `let` tienen _alcance de bloque_. Un bloque es cualq
 
 ---
 
-###### 85. ¿Qué tipo de información se mostrará por consola?
+#### 85. ¿Qué tipo de información se mostrará por consola?
 
 ```javascript
 fetch('https://www.website.com/api/user/1')
@@ -2704,7 +2714,7 @@ El valor de `res` en el segundo `.then` es igual al valor retornado por el `.the
 
 ---
 
-###### 86. ¿Qué opción es una forma de igualar `hasName` a `true`, teniendo en cuenta que no se puede pasar `true` como argumento?
+#### 86. ¿Qué opción es una forma de igualar `hasName` a `true`, teniendo en cuenta que no se puede pasar `true` como argumento?
 
 ```javascript
 function getName(name) {
@@ -2735,7 +2745,7 @@ Asignándole a `hasName` el valor de `name`, asignas a `hasName` cualquier valor
 
 ---
 
-###### 87. ¿Cuál es el resultado?
+#### 87. ¿Cuál es el resultado?
 
 ```javascript
 console.log("I want pizza"[0])
@@ -2760,7 +2770,7 @@ Observa que este método no está soportado en IE7 y versiones anteriores. En es
 
 ---
 
-###### 88. ¿Cuál es el resultado?
+#### 88. ¿Cuál es el resultado?
 
 ```javascript
 function sum(num1, num2 = num1) {
@@ -2789,7 +2799,7 @@ Si estuvieras intentando asignar un valor por defecto a un parámetro igual a ot
 
 ---
 
-###### 89. ¿Cuál es el resultado?
+#### 89. ¿Cuál es el resultado?
 
 ```javascript
 // module.js 
@@ -2821,7 +2831,7 @@ El objeto `data` tiene una propiedad `default` para la exportación por defecto,
 
 ---
 
-###### 90. ¿Cuál es el resultado?
+#### 90. ¿Cuál es el resultado?
 
 ```javascript
 class Person {
@@ -2859,7 +2869,7 @@ Llamar a un constructor de funciones con `new` crea una instancia de `Person`, `
 
 ---
 
-###### 91. ¿Cuál es el resultado?
+#### 91. ¿Cuál es el resultado?
 
 ```javascript
 let newList = [1, 2, 3].push(4)
@@ -2886,7 +2896,7 @@ Después, intentamos usar el método `.push` en `newList`. Como `newList` es el 
 
 ---
 
-###### 92. ¿Cuál es el resultado?
+#### 92. ¿Cuál es el resultado?
 
 ```javascript
 function giveLydiaPizza() {
@@ -2916,7 +2926,7 @@ Las funciones regulares, como la función `giveLydiaPizza`, tienen la propiedad 
 
 ---
 
-###### 93. ¿Cuál es el resultado?
+#### 93. ¿Cuál es el resultado?
 
 ```javascript
 const person = {
@@ -2954,7 +2964,7 @@ El segundo subarray es `[ "age", 21 ]`, con `x` igual a `"age"` e `y` igual a `2
 
 ---
 
-###### 94. ¿Cuál es el resultado?
+#### 94. ¿Cuál es el resultado?
 
 ```javascript
 function getItems(fruitList, ...args, favoriteFruit) {
@@ -2990,7 +3000,7 @@ El ejemplo de arriba sí que funciona. Devuelve el array `[ 'banana', 'apple', '
 
 ---
 
-###### 95. ¿Cuál es el resultado?
+#### 95. ¿Cuál es el resultado?
 
 ```javascript
 function nums(a, b) {
@@ -3033,7 +3043,7 @@ Esto significa que nunca se alcanza `a + b`, ya que una función deja de ejecuta
 
 ---
 
-###### 96. ¿Cuál es el resultado?
+#### 96. ¿Cuál es el resultado?
 
 ```javascript
 class Person {
@@ -3069,7 +3079,7 @@ Podemos establecer clases iguales a otros constructures de clases/funciones. En 
 
 ---
 
-###### 97. ¿Cuál es el resultado?
+#### 97. ¿Cuál es el resultado?
 
 ```javascript
 const info = {
@@ -3099,7 +3109,7 @@ Esta es una de las muchas cualidades de un símbolo: además de representar un v
 
 ---
 
-###### 98. ¿Cuál es el resultado?
+#### 98. ¿Cuál es el resultado?
 
 ```javascript
 const getList = ([x, ...y]) => [x, y]
@@ -3139,7 +3149,7 @@ Como no se devuelve ningún valor en este caso, la función devuelve `undefined`
 
 ---
 
-###### 99. ¿Cuál es el resultado?
+#### 99. ¿Cuál es el resultado?
 
 ```javascript
 const name = "Lydia"
@@ -3169,7 +3179,7 @@ Se lanzan errores del tipo ReferenceError cuando JavaScript no puede encontrar u
 
 ---
 
-###### 100. ¿Cuál es el valor de la salida?
+#### 100. ¿Cuál es el valor de la salida?
 
 ```javascript
 // 🎉✨ This is my 100th question! ✨🎉
@@ -3197,7 +3207,7 @@ You should${'' && `n't`} see a therapist after so much JavaScript lol`
 
 ---
 
-###### 101. ¿Cuál es el valor de la salida?
+#### 101. ¿Cuál es el valor de la salida?
 
 ```javascript
 const one = (false || {} || null)
@@ -3230,7 +3240,7 @@ Con el operador `||`, podemos devolver el primer operando verdadero. Si todos lo
 
 ---
 
-###### 102. ¿Cuál es el valor de la salida?
+#### 102. ¿Cuál es el valor de la salida?
 
 ```javascript
 const myPromise = () => Promise.resolve('I have resolved!')
@@ -3274,7 +3284,7 @@ Esto significa que se esperó a que `myPromise` resolviera con el valor `I have 
 
 ---
 
-###### 103. ¿Cuál es el valor de la salida?
+#### 103. ¿Cuál es el valor de la salida?
 
 ```javascript
 const set = new Set()
@@ -3311,7 +3321,7 @@ Sin embargo, el segundo es la cadena `"Lydia"`. `"Lydia"` es una cadena y `2` es
 
 ---
 
-###### 104. ¿Cuál es el valor?
+#### 104. ¿Cuál es el valor?
 
 ```javascript
 Promise.resolve(5)
@@ -3336,7 +3346,7 @@ En este caso, acabamos de pasar el valor numérico `5`. Devuelve una promesa res
 
 ---
 
-###### 105. ¿Cuál es el valor?
+#### 105. ¿Cuál es el valor?
 
 ```javascript
 function compareMembers(person1, person2 = person) {
@@ -3375,7 +3385,7 @@ El bloque de código en la instrucción `else` se ejecuta, y se imprime `They ar
 
 ---
 
-###### 106. ¿Cuál es el valor?
+#### 106. ¿Cuál es el valor?
 
 ```javascript
 const colorConfig = {
@@ -3412,7 +3422,7 @@ JavaScript interpreta (o descompone) las sentencias. Cuando usamos la notación 
 
 ---
 
-###### 107. ¿Cuál es el valor?
+#### 107. ¿Cuál es el valor?
 
 ```javascript
 console.log('❤️' === '❤️')
@@ -3433,7 +3443,7 @@ Bajo el capó, los emojis son caracteres unicode. Los valores unicode para el em
 
 ---
 
-###### 108. ¿Cuál de estos métodos modifica el array original?
+#### 108. ¿Cuál de estos métodos modifica el array original?
 
 ```javascript
 const emojis = ['✨', '🥑', '😍']
@@ -3465,7 +3475,7 @@ Con el método `splice`, modificamos el array original eliminando, reemplazando 
 
 ---
 
-###### <a name=20191009></a>109. ¿Cuál es el resultado?
+#### <a name=20191009></a>109. ¿Cuál es el resultado?
 
 ```javascript
 const food = ['🍕', '🍫', '🥑', '🍔']
@@ -3497,7 +3507,7 @@ Luego, cambiamos el valor de la propiedad `favoriteFood` en el objeto` info`. El
 
 ---
 
-###### 110. ¿Qué hace este método?
+#### 110. ¿Qué hace este método?
 
 ```javascript
 JSON.parse()
@@ -3534,7 +3544,7 @@ JSON.parse(jsonArray) // { name: 'Lydia' }
 
 ---
 
-###### 111. ¿Cuál es el resultado? 
+#### 111. ¿Cuál es el resultado? 
 
 ```javascript
 let name = 'Lydia'
@@ -3578,7 +3588,7 @@ getName() // Lydia
 
 ---
 
-###### 112. ¿Cuál es el resultado?
+#### 112. ¿Cuál es el resultado?
 
 ```javascript
 function* generatorOne() {
@@ -3629,7 +3639,7 @@ console.log(two.next().value) // undefined
 
 ---
 
-###### 113. ¿Cuál es el resultado?
+#### 113. ¿Cuál es el resultado?
 
 ```javascript
 console.log(`${(x => x)('I love')} to program`)
@@ -3652,7 +3662,7 @@ Las expresiones dentro de las plantillas de cadena de texto se evalúan primero.
 
 ---
 
-###### 114. ¿Qué ocurrirá?
+#### 114. ¿Qué ocurrirá?
 
 ```javascript
 let config = {
@@ -3681,7 +3691,7 @@ Normalmente, cuando establecemos objetos iguales a `null`, esos objetos se recog
 
 ---
 
-###### 115. ¿Qué método(s) devolverá el valor `'Hello world!'`?
+#### 115. ¿Qué método(s) devolverá el valor `'Hello world!'`?
 
 ```javascript
 const myMap = new Map()
@@ -3717,7 +3727,7 @@ Al agregar un par clave/valor utilizando el método `set`, la clave será el val
 
 ---
 
-###### 116. ¿Cuál es el resultado?
+#### 116. ¿Cuál es el resultado?
 
 ```javascript
 const person = {
