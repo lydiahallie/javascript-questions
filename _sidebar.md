@@ -1,7 +1,6 @@
 * See 18 Available Translations
 
-  * [🇪🇳 English](/)
-  * [🇸🇦 العربية](/ar-AR/README_AR.md)
+  * [🇺🇸 English](/)
   * [🇸🇦 العربية](/ar-AR/README_AR.md)
   * [🇪🇬 اللغة العامية](/ar-EG/README_ar-EG.md)
   * [🇧🇦 Bosanski](/bs-BS/README-bs_BS.md)

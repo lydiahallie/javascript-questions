@@ -1,0 +1,53 @@
+:root {
+  --padrao: #fff;
+  --check: #000;
+  --ball: #fff;
+}
+
+.dark {
+  --padrao: #000;
+  --check: #fff;
+  --ball: #000;
+}
+
+.dark-mode {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  z-index: 10;
+  display: flex;
+  width: 100px;
+  height: 50px;
+  justify-content: center;
+  align-items: center;
+}
+
+.checkbox:checked + .label .ball {
+  transform: translateX(24px);
+}
+
+.checkbox {
+  opacity: 0;
+  position: absolute;
+}
+
+.label {
+  width: 50px;
+  height: 26px;
+  background: var(--check);
+  border-radius: 50px;
+  padding: 5px;
+  position: relative;
+}
+
+.ball {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 22px;
+  height: 22px;
+  background: var(--ball);
+  border-radius: 50%;
+
+  transition: transform 0.2s linear;
+}

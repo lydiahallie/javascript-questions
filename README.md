@@ -20,7 +20,7 @@ Feel free to reach out to me! 😊 <br />
 <details><summary><b> See 18 Available Translations 🇸🇦🇪🇬🇧🇦🇩🇪🇪🇸🇫🇷🇮🇩🇯🇵🇰🇷🇳🇱🇧🇷🇷🇺🇹🇭🇹🇷🇺🇦🇻🇳🇨🇳🇹🇼</b></summary>
 <p>
 
-- [🇪🇳 English](/)
+- [🇺🇸 English](/)
 - [🇸🇦 العربية](./ar-AR/README_AR.md)
 - [🇪🇬 اللغة العامية](./ar-EG/README_ar-EG.md)
 - [🇧🇦 Bosanski](./bs-BS/README-bs_BS.md)
