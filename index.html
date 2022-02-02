@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>JavaScript Questions</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="description" content="Description" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify-themeable@0/dist/css/theme-simple.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify-themeable@0/dist/css/theme-simple.css" disabled>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify-themeable@0/dist/css/theme-simple-dark.css">
+    <style>
+      :root {
+        --padrao: #fff;
+        --check: #000;
+        --ball: #fff;
+      }
+
+      .dark {
+        --padrao: #000;
+        --check: #fff;
+        --ball: #000;
+      }
+
+      .dark-mode {
+        position: fixed;
+        bottom: 0;
+        right: 0;
+        z-index: 10;
+        display: flex;
+        width: 100px;
+        height: 50px;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .checkbox:checked + .label .ball {
+        transform: translateX(24px);
+      }
+
+      .checkbox {
+        opacity: 0;
+        position: absolute;
+      }
+
+      .label {
+        width: 50px;
+        height: 26px;
+        background: var(--check);
+        border-radius: 50px;
+        padding: 5px;
+        position: relative;
+      }
+
+      .ball {
+        position: absolute;
+        top: 2px;
+        left: 2px;
+        width: 22px;
+        height: 22px;
+        background: var(--ball);
+        border-radius: 50%;
+
+        transition: transform 0.2s linear;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="dark-mode">
+      <input type="checkbox" class="checkbox" id="checkbox" checked="true" />
+      <label for="checkbox" class="label">
+        <div class="ball"></div>
+      </label>
+    </div>
+    <div id="app">Please wait...</div>
+    <script>
+      const check = document.querySelector('#checkbox')
+
+      check.addEventListener('change', function () {
+        const lightTheme = document.getElementsByTagName('link')[1]
+        const darkTheme = document.getElementsByTagName('link')[2]
+        if (check.checked) {
+          darkTheme.disabled = false
+          lightTheme.disabled = true
+        } else {
+          lightTheme.disabled = false
+          darkTheme.disabled = true
+        }
+      })
+
+      window.$docsify = {
+        name: 'javascript-questions',
+        repo: 'https://github.com/lydiahallie/javascript-questions',
+        loadSidebar: 'sidebar.md',
+        auto2top: true
+      }
+    </script>
+    <!-- Docsify v4 -->
+    <script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
+    <script src="https://cdn.jsdelivr.net/npm/docsify-themeable@0/dist/js/docsify-themeable.min.js"></script>
+  </body>
+</html>
