@@ -139,6 +139,7 @@ There is no value `radius` on that object, which returns `NaN`.
 
 </p>
 </details>
+read this https://medium.com/tech-tajawal/javascript-this-4-rules-7354abdb274c
 
 ---
 
