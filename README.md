@@ -2717,11 +2717,11 @@ The value of `res` in the second `.then` is equal to the returned value of the p
 
 ---
 
-###### 86. Which option is a way to set `hasName` equal to `true`, provided you cannot pass `true` as an argument?
+###### 86. Which option is a way to set `hasName` equal to `true`, provided you cannot pass `true` as an argument, but only other truthy values?
 
 ```javascript
-function getName(name) {
-  const hasName = //
+function setName(name) {
+  const hasName = /* insert answer here */
 }
 ```
 
@@ -2737,7 +2737,7 @@ function getName(name) {
 
 With `!!name`, we determine whether the value of `name` is truthy or falsy. If name is truthy, which we want to test for, `!name` returns `false`. `!false` (which is what `!!name` practically is) returns `true`.
 
-By setting `hasName` equal to `name`, you set `hasName` equal to whatever value you passed to the `getName` function, not the boolean value `true`.
+By setting `hasName` equal to `name`, you set `hasName` equal to whatever value you passed to the `setName` function, not the boolean value `true`.
 
 `new Boolean(true)` returns an object wrapper, not the boolean value itself.
 
