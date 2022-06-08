@@ -13,6 +13,7 @@ Les réponses se trouvent dans les sections repliées en dessous des questions, 
 - [🇬🇧 English](../README.md)
 - [🇪🇸 Español](./es-ES/README-ES.md)
 - [🇮🇩 Indonesia](./id-ID/README.md)
+- [🇮🇹 Italiano](./it-IT/README.md)
 - [🇯🇵 日本語](./ja-JA/README-ja_JA.md)
 - [🇰🇷 한국어](./ko-KR/README-ko_KR.md)
 - [🇳🇱 Nederlands](./nl-NL/README.md)

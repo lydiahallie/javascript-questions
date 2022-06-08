@@ -14,6 +14,7 @@ As respostas estão em seções recolhidas abaixo das questões, basta clicar ne
 - [🇪🇸 Español](./es-ES/README-ES.md)
 - [🇫🇷 Français](./fr-FR/README_fr-FR.md)
 - [🇮🇩 Indonesia](./id-ID/README.md)
+- [🇮🇹 Italiano](./it-IT/README.md)
 - [🇯🇵 日本語](./ja-JA/README-ja_JA.md)
 - [🇰🇷 한국어](./ko-KR/README-ko_KR.md)
 - [🇳🇱 Nederlands](./nl-NL/README.md)
