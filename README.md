@@ -1898,7 +1898,7 @@ console.log(Object.keys(person));
 ```
 
 - A: `{ name: "Lydia", age: 21 }`, `["name", "age"]`
-- B: `{ name: "Lydia", age: 21 }`, `["name"]`
+- B: `{ name: "Lydia" }`, `["name"]`
 - C: `{ name: "Lydia"}`, `["name", "age"]`
 - D: `{ name: "Lydia"}`, `["age"]`
 
