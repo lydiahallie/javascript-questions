@@ -4439,7 +4439,7 @@ Object.seal(person);
 
 #### Answer: A
 
-With `Object.seal` we can prevent new properies from being _added_, or existing properties to be _removed_.
+With `Object.seal` we can prevent new properties from being _added_, or existing properties to be _removed_.
 
 However, you can still modify the value of existing properties.
 
