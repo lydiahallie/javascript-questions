@@ -19,6 +19,7 @@ Lista de lenguajes disponibles:
 - [🇬🇧 English](../README.md)
 - [🇫🇷 Français](./fr-FR/README_fr-FR.md)
 - [🇮🇩 Indonesia](./id-ID/README.md)
+- [🇮🇹 Italiano](./it-IT/README.md)
 - [🇯🇵 日本語](./ja-JA/README-ja_JA.md)
 - [🇰🇷 한국어](./ko-KR/README-ko_KR.md)
 - [🇳🇱 Nederlands](./nl-NL/README.md)

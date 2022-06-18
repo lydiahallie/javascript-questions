@@ -29,6 +29,7 @@
 - [🇪🇸 Español](./es-ES/README-ES.md)
 - [🇫🇷 Français](./fr-FR/README_fr-FR.md)
 - [🇮🇩 Indonesia](./id-ID/README.md)
+- [🇮🇹 Italiano](./it-IT/README.md)
 - [🇯🇵 日本語](./ja-JA/README-ja_JA.md)
 - [🇳🇱 Nederlands](./nl-NL/README.md)
 - [🇧🇷 Português Brasil](./pt-BR/README_pt_BR.md)
