@@ -311,8 +311,8 @@ The `colorChange` function is static. Static methods are designed to live only o
 
 ```javascript
 let greeting;
-greeting = {}; // Typo!
-console.log(greeting);
+greetign = {}; // Typo!
+console.log(greetign);
 ```
 
 - A: `{}`
