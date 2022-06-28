@@ -5,9 +5,9 @@ Svakodnevno postavljam JavaScript pitanja s višestrukim izborom na moj
 [Instagram](https://www.instagram.com/theavocoder), koja  također objavljujem
 ovdje!
 
-Od osnovnog do naprednog: testirajte koliko dobro znate JavaScript, osvježite svoj
-znanje malo, ili pripremiti za svoj intervju! :muscle: :rocket:
-Ovaj tjedni repo ažuriram s novim pitanjima.
+Od osnovnog do naprednog: testirajte koliko dobro znate JavaScript, osvježite svoje
+znanje malo, ili pripremite za svoj intervju! :muscle: :rocket:
+Ovaj repo ažuriram sa novim pitanjima svake sedmice.
 
 Odgovori su jednostavno dijelovima ispod pitanja
 kliknite na njih da biste ih proširili. Sretno :heart:
