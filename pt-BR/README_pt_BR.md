@@ -29,7 +29,7 @@ As respostas estão em seções recolhidas abaixo das questões, basta clicar ne
 
 ---
 
-###### 1. Qual é a saída?
+###### 1. Qual o resultado?
 
 ```javascript
 function sayHi() {
@@ -61,7 +61,7 @@ Variáveis com a palavra-chave `let` (e `const`) são elevadas, mas diferente de
 
 ---
 
-###### 2. Qual é a saída?
+###### 2. Qual o resultado?
 
 ```javascript
 for (var i = 0; i < 3; i++) {
@@ -91,7 +91,7 @@ No segundo laço, a variável `i` foi declarada usando a palavra-chave `let`: Va
 
 ---
 
-###### 3. Qual é a saída?
+###### 3. Qual o resultado?
 
 ```javascript
 const shape = {
@@ -127,7 +127,7 @@ Não há `radius` fora de <i>shape</i>, então retorna `undefined`.
 
 ---
 
-###### 4. Qual é a saída?
+###### 4. Qual o resultado?
 
 ```javascript
 +true;
@@ -189,7 +189,7 @@ Por outro lado, com a notação de ponto `.`, isso não acontece. `mouse` não t
 
 ---
 
-###### 6. Qual é a saída?
+###### 6. Qual o resultado?
 
 ```javascript
 let c = { greeting: "Hey!" };
@@ -224,7 +224,7 @@ Quando você muda um objeto, você muda todos eles.
 
 ---
 
-###### 7. Qual é a saída?
+###### 7. Qual o resultado?
 
 ```javascript
 let a = 3;
@@ -257,7 +257,7 @@ Contudo, quando usamos o operador `===`, ambos valor <i>e</i> tipo tem de ser o 
 
 ---
 
-###### 8. Qual é a saída?
+###### 8. Qual o resultado?
 
 ```javascript
 class Chameleon {
@@ -293,7 +293,7 @@ Já que `freddie` é filho de `Chameleon`, a função não é herdada, e não es
 
 ---
 
-###### 9. Qual é a saída?
+###### 9. Qual o resultado?
 
 ```javascript
 let greeting;
@@ -348,7 +348,7 @@ Uma função é um tipo especial de objeto. O código que você escreve não é 
 
 ---
 
-###### 11. Qual é a saída?
+###### 11. Qual o resultado?
 
 ```javascript
 function Person(firstName, lastName) {
@@ -391,7 +391,7 @@ faria `member.getFullName()` funcionar. Por quê isso é beneficial? Digamos que
 
 ---
 
-###### 12. Qual é a saída?
+###### 12. Qual o resultado?
 
 ```javascript
 function Person(firstName, lastName) {
@@ -464,7 +464,7 @@ Todos objetos tem protótipos, exceto pelo **base object**. O base object tem ac
 
 ---
 
-###### 15. Qual é a saída?
+###### 15. Qual o resultado?
 
 ```javascript
 function sum(a, b) {
@@ -493,7 +493,7 @@ Nesse exemplo, JavaScript converte o número `1` em uma string, para que a funç
 
 ---
 
-###### 16. Qual é a saída?
+###### 16. Qual o resultado?
 
 ```javascript
 let number = 0;
@@ -529,7 +529,7 @@ Isso retorna `0 2 2`.
 
 ---
 
-###### 17. Qual é a saída?
+###### 17. Qual o resultado?
 
 ```javascript
 function getPersonInfo(one, two, three) {
@@ -560,7 +560,7 @@ Se usamos template literals marcadas, ou tagged template literals, o valor do pr
 
 ---
 
-###### 18. Qual é a saída?
+###### 18. Qual o resultado?
 
 ```javascript
 function checkAge(data) {
@@ -596,7 +596,7 @@ Os dois objetos que estamos comparando não são assim: O objeto que passamos co
 
 ---
 
-###### 19. Qual é a saída?
+###### 19. Qual o resultado?
 
 ```javascript
 function getAge(...args) {
@@ -623,7 +623,7 @@ O operador _spread_ (`...args`.) retorna um array com os argumentos. Um array é
 
 ---
 
-###### 20. Qual é a saída?
+###### 20. Qual o resultado?
 
 ```javascript
 function getAge() {
@@ -700,7 +700,7 @@ Se usássemos `localStorage`, o dado seria guardado para sempre, exceto se `loca
 
 ---
 
-###### 23. Qual é a saída?
+###### 23. Qual o resultado?
 
 ```javascript
 var num = 8;
@@ -728,7 +728,7 @@ Você não pode fazer isso com `let` ou `const` uma vez que eles conferem o bloc
 
 ---
 
-###### 24. Qual é a saída?
+###### 24. Qual o resultado?
 
 ```javascript
 const obj = { 1: "a", 2: "b", 3: "c" };
@@ -759,7 +759,7 @@ Não funciona assim para `Set`. Não tem um `'1'` no nosso set: `set.has('1')` r
 
 ---
 
-###### 25. Qual é a saída?
+###### 25. Qual o resultado?
 
 ```javascript
 const obj = { a: "one", b: "two", a: "three" };
@@ -801,7 +801,7 @@ O contexto base de execução é o contexto global: É aquilo que está acessív
 
 ---
 
-###### 27. Qual é a saída?
+###### 27. Qual o resultado?
 
 ```javascript
 for (let i = 1; i < 5; i++) {
@@ -827,7 +827,7 @@ A palavra-chave `continue` pula uma iteração se a condição retorna `true`.
 
 ---
 
-###### 28. Qual é a saída?
+###### 28. Qual o resultado?
 
 ```javascript
 String.prototype.giveLydiaPizza = () => {
@@ -856,7 +856,7 @@ name.giveLydiaPizza();
 
 ---
 
-###### 29. Qual é a saída?
+###### 29. Qual o resultado?
 
 ```javascript
 const a = {};
@@ -890,7 +890,7 @@ Então, fazemos o log de `a[b]`, o que na verdade é `a["object Object"]`. Acabm
 
 ---
 
-###### 30. Qual é a saída?
+###### 30. Qual o resultado?
 
 ```javascript
 const foo = () => console.log("First");
@@ -999,7 +999,7 @@ Se clicarmos em `p`, veremos dois itens adicionaos ao log: `p` e `div`. Durante 
 
 ---
 
-###### 33. Qual é a saída?
+###### 33. Qual o resultado?
 
 ```javascript
 const person = { name: "Lydia" };
@@ -1031,7 +1031,7 @@ Com ambos, podemos passar o objeto que queremos que o `this` faça referência. 
 
 ---
 
-###### 34. Qual é a saída?
+###### 34. Qual o resultado?
 
 ```javascript
 function sayHi() {
@@ -1121,7 +1121,7 @@ console.log(typeof typeof 1);
 
 ---
 
-###### 37. Qual é a saída?
+###### 37. Qual o resultado?
 
 ```javascript
 const numbers = [1, 2, 3];
@@ -1150,7 +1150,7 @@ dependendo de onde você o executa, pois é diferente para cada navegador, node 
 
 ---
 
-###### 38. Qual é a saída?
+###### 38. Qual o resultado?
 
 ```javascript
 (() => {
@@ -1210,7 +1210,7 @@ O que diferencia um primitivo de um objeto é que primitivos não métodos ou pr
 
 ---
 
-###### 40. Qual é a saída?
+###### 40. Qual o resultado?
 
 ```javascript
 [[0, 1], [2, 3]].reduce(
@@ -1240,7 +1240,7 @@ Então, `[1, 2, 0, 1]` é `acc` e `[2, 3]` é o `cur`. Concatenamos novamente, e
 
 ---
 
-###### 41. Qual é a saída?
+###### 41. Qual o resultado?
 
 ```javascript
 !!null;
@@ -1315,7 +1315,7 @@ Strings são iteráveis. O operador do spread `...` mapeia todo caractére de um
 
 ---
 
-###### 44. Qual é a saída?
+###### 44. Qual o resultado?
 
 ```javascript
 function* generator(i) {
@@ -1380,7 +1380,7 @@ Quando passamos múltiplas "promises" para a função `Promise.race`, ele resolv
 
 ---
 
-###### 46. Qual é a saída?
+###### 46. Qual o resultado?
 
 ```javascript
 let person = { name: "Lydia" };
@@ -1419,7 +1419,7 @@ Estamos apenas modificando o valor da variável `person`, e não o primeiro elem
 
 ---
 
-###### 47. Qual é a saída?
+###### 47. Qual o resultado?
 
 ```javascript
 const person = {
@@ -1449,7 +1449,7 @@ Utilizando o loop `for-in`, podemos interar através das chaves do objeto, neste
 
 ---
 
-###### 48. Qual é a saída?
+###### 48. Qual o resultado?
 
 ```javascript
 console.log(3 + 4 + "5");
@@ -1501,7 +1501,7 @@ Apenas os primeiros números da string é retornado. Baseado no _radix_ (o segun
 
 ---
 
-###### 50. Qual é a saída?
+###### 50. Qual o resultado?
 
 ```javascript
 [1, 2, 3].map(num => {
@@ -1529,7 +1529,7 @@ Entretanto, não se retorna o valor. Quando não se retorna um valor para a fun�
 
 ---
 
-###### 51. Qual é a saída?
+###### 51. Qual o resultado?
 
 ```javascript
 function getInfo(member, year) {
@@ -1563,7 +1563,7 @@ O valor de `person` é um objeto. O argumento `member` possui uma referência (c
 
 ---
 
-###### 52. Qual é a saída?
+###### 52. Qual o resultado?
 
 ```javascript
 function greeting() {
@@ -1599,7 +1599,7 @@ Com a declaração `catch`, podemos especificar o que fazer se uma exceção for
 
 ---
 
-###### 53. Qual é a saída?
+###### 53. Qual o resultado?
 
 ```javascript
 function Car() {
@@ -1627,7 +1627,7 @@ Quando você retorna uma propriedade, o valor da propriedade é igual ao valor _
 
 ---
 
-###### 54. Qual é a saída?
+###### 54. Qual o resultado?
 
 ```javascript
 (() => {
@@ -1665,7 +1665,7 @@ No entanto, criamos uma variável global `y` ao definir `y` igual a `10`. Este v
 
 ---
 
-###### 55. Qual é a saída?
+###### 55. Qual o resultado?
 
 ```javascript
 class Dog {
@@ -1701,7 +1701,7 @@ Quando tentamos invocar algo que não é uma função, um `TypeError` é lançad
 
 ---
 
-###### 56. Qual é a saída?
+###### 56. Qual o resultado?
 
 ```javascript
 const set = new Set([1, 1, 2, 3, 4]);
@@ -1727,7 +1727,7 @@ Passamos o iterável `[1, 1, 2, 3, 4]` com um valor `1` duplicado. Como não pod
 
 ---
 
-###### 57. Qual é a saída?
+###### 57. Qual o resultado?
 
 ```javascript
 // counter.js
@@ -1761,7 +1761,7 @@ Quando tentamos aumentar o valor de `myCounter`, recebemos um erro: `myCounter` 
 
 ---
 
-###### 58. Qual é a saída?
+###### 58. Qual o resultado?
 
 ```javascript
 const name = "Lydia";
@@ -1789,7 +1789,7 @@ A variável `name` foi declarada com `const`, portanto sua exclusão não é bem
 
 ---
 
-###### 59. Qual é a saída?
+###### 59. Qual o resultado?
 
 ```javascript
 const numbers = [1, 2, 3, 4, 5];
@@ -1830,7 +1830,7 @@ Isso significa que o valor de `y` é igual ao primeiro valor no array, que é o 
 
 ---
 
-###### 60. Qual é a saída?
+###### 60. Qual o resultado?
 
 ```javascript
 const user = { name: "Lydia", age: 21 };
@@ -1885,7 +1885,7 @@ Assim, o método `defineProperty` dá a você muito mais controle sobre as propr
 
 ---
 
-###### 62. Qual é a saída?
+###### 62. Qual o resultado?
 
 ```javascript
 const settings = {
@@ -1917,7 +1917,7 @@ Se o substituto (replacer) for uma _função_, essa função é chamada em c ada
 </details>
 
 ---
-###### 63. Qual é a saída?
+###### 63. Qual o resultado?
 
 ```javascript
 let num = 10;
@@ -1950,7 +1950,7 @@ O operador unário `++` primeiro _retorna_ o valor do operando, depois _incremen
 </details>
 
 ---
-###### 64. Qual é a saída?
+###### 64. Qual o resultado?
 
 ```javascript
 const value = { number: 10 };
@@ -1987,7 +1987,7 @@ Na quarta vez, passamos o objeto `value` novamente. `x.number` foi modificado an
 </details>
 
 ---
-###### 65. Qual é a saída?
+###### 65. Qual o resultado?
 
 ```javascript
 [1, 2, 3, 4].reduce((x, y) => console.log(x, y));
@@ -2072,7 +2072,7 @@ A classe `Labrador` recebe dois argumentos, `name`, pois estende `Dog`, e `size`
 </details>
 
 ---
-###### 67. Qual é a saída?
+###### 67. Qual o resultado?
 
 ```javascript
 // index.js
@@ -2103,7 +2103,7 @@ Esta é uma diferença entre `require()` no CommonJS e `import`! Com `require()`
 </details>
 
 ---
-###### 68. Qual é a saída?
+###### 68. Qual o resultado?
 
 ```javascript
 console.log(Number(2) === Number(2));
@@ -2127,7 +2127,7 @@ Todo símbolo (Symbol) é totalmente único. O objetivo do argumento passado ao 
 </details>
 
 ---
-###### 69. Qual é a saída?
+###### 69. Qual o resultado?
 
 ```javascript
 const name = 'Lydia Hallie';
@@ -2153,7 +2153,7 @@ Se o argumento passado para o método `padStart` for menor que o comprimento da 
 </details>
 
 ---
-###### 70. Qual é a saída?
+###### 70. Qual o resultado?
 
 ```javascript
 console.log('🥑' + '💻');
@@ -2207,6 +2207,301 @@ Uma função geradora "pausa" a sua execução quando encontra a palavra-chave `
 Cada linha é executada, até encontrar a primeira palavra-chave `yield`. Há uma palavra-chave `yield` na primeira linha da função: a execução para com o primeiro retorno! _Isso significa que a variável `resposta` ainda não foi definida!_
 
 Quando chamamos `game.next("Sim").value`, o `yield` anterior é substituído pelo valor dos parâmetros passados para a função `next()`, `"Sim"` neste caso. O valor da variável `"resposta"` agora é igual a `"Sim"`. A condição da instrução if retorna `false` e `JavaScript também ama você ❤️` é registrada.
+
+</p>
+</details>
+
+---
+
+###### 72. Qual é o resultado?
+
+```javascript
+console.log(String.raw`Hello\nworld`);
+```
+
+- A: `Hello world!`
+- B: `Hello` <br />&nbsp; &nbsp; &nbsp;`world`
+- C: `Hello\nworld`
+- D: `Hello\n` <br /> &nbsp; &nbsp; &nbsp;`world`
+
+<details><summary><b>Answer</b></summary>
+<p>
+
+#### Answer: C
+
+`String.raw` retorna um texto onde os escape (`\n`, `\v`, `\t` etc.) são ignorados! As barras invertidas podem ser um problema, pois você pode acabar com algo como:
+
+`` caminho const = `C:\Documents\Projects\table.html` ``
+
+O que resultaria em:
+
+`"C:DocumentsProjectstable.html"`
+
+Com `String.raw`, ele simplesmente ignoraria o escape e imprimiria:
+
+`C:\Documents\Projects\table.html`
+
+Neste caso, a string é `Hello\nworld`, que é registrada.
+
+</p>
+</details>
+
+---
+###### 73. Qual o resultado?
+
+```javascript
+async function getData() {
+  return await Promise.resolve('I made it!');
+}
+
+const data = getData();
+console.log(data);
+```
+
+- A: `"I made it!"`
+- B: `Promise {<resolved>: "I made it!"}`
+- C: `Promise {<pending>}`
+- D: `undefined`
+
+<details><summary><b>Answer</b></summary>
+<p>
+
+#### Resposta: C
+
+Uma função assíncrona sempre retorna uma promise. O `await` ainda tem que esperar que a promise seja resolvida: uma promise pendente é retornada quando chamamos `getData()` para definir `data` igual a ela.
+
+Se quiséssemos ter acesso ao valor resolvido `"I made it"`, poderíamos ter usado o método `.then()` em `data`:
+
+`data.then(res => console.log(res))`
+
+Isso teria registrado `"Consegui!"`
+
+</p>
+</details>
+
+---
+###### 74. Qual o resultado?
+
+```javascript
+function addToList(item, list) {
+  return list.push(item);
+}
+
+const result = addToList('apple', ['banana']);
+console.log(result);
+```
+
+- A: `['apple', 'banana']`
+- B: `2`
+- C: `true`
+- D: `undefined`
+
+<details><summary><b>Answer</b></summary>
+<p>
+
+#### Answer: B
+
+O método `.push()` retorna o _length_ do novo array! Anteriormente, a matriz continha um elemento (a string `"banana"`) e tinha um comprimento de `1`. Depois de adicionar a string `"apple"` ao array, o array contém dois elementos e tem um comprimento de `2`. Isso é retornado da função `addToList`.
+
+O método `push` modifica o array original. Se você quisesse retornar o _array_ da função ao invés do _tamanho do array_, você deveria ter retornado `list` depois de enviar `item` para ele.
+
+</p>
+</details>
+
+---
+
+###### 75. Qual o resultado?
+
+```javascript
+const box = { x: 10, y: 20 };
+
+Object.freeze(box);
+
+const shape = box;
+shape.x = 100;
+
+console.log(shape);
+```
+
+- A: `{ x: 100, y: 20 }`
+- B: `{ x: 10, y: 20 }`
+- C: `{ x: 100 }`
+- D: `ReferenceError`
+
+<details><summary><b>Answer</b></summary>
+<p>
+
+#### Answer: B
+
+`Object.freeze` torna impossível adicionar, remover ou modificar propriedades de um objeto (a menos que o valor da propriedade seja outro objeto).
+
+Quando criamos a variável `shape` e a definimos igual ao objeto congelado `box`, `shape` também se refere a um objeto congelado. Você pode verificar se um objeto está congelado usando `Object.isFrozen`. Neste caso, `Object.isFrozen(shape)` retorna true, pois a variável `shape` tem uma referência a um objeto congelado.
+
+Como `shape` está congelado, e como o valor de `x` não é um objeto, não podemos modificar a propriedade `x`. `x` ainda é igual a `10`, e `{ x: 10, y: 20 }` é registrado.
+
+</p>
+</details>
+
+---
+
+###### 76.Qual o resultado?
+
+```javascript
+const { name: myName } = { name: 'Lydia' };
+
+console.log(name);
+```
+
+- A: `"Lydia"`
+- B: `"myName"`
+- C: `undefined`
+- D: `ReferenceError`
+
+<details><summary><b>Answer</b></summary>
+<p>
+
+#### Answer: C
+
+Quando descompactamos a propriedade `name` do objeto do lado direito, atribuímos seu valor `"Lydia"` a uma variável com o nome `myName`.
+
+Com `{ name: myName }`, informamos ao JavaScript que queremos criar uma nova variável chamada `myName` com o valor da propriedade `name` no lado direito.
+
+Como tentamos registrar `name`, uma variável que não está definida, `undefined` é retornado na atribuição do lado esquerdo. Mais tarde, o valor de `Lydia` é armazenado através da atribuição de desestruturação.
+
+</p>
+</details>
+
+---
+
+###### 77. É uma função pura?
+
+```javascript
+function sum(a, b) {
+  return a + b;
+}
+```
+
+- A: Yes
+- B: No
+
+<details><summary><b>Answer</b></summary>
+<p>
+
+#### Answer: A
+
+Uma função pura é uma função que _sempre_ retorna o mesmo resultado, se os mesmos argumentos forem passados.
+
+A função `sum` sempre retorna o mesmo resultado. Se passarmos `1` e` 2`, ele _sempre_ retornará `3` sem efeitos colaterais. Se passarmos `5` e `10`, ele _sempre_ retornará `15`, e assim por diante. Esta é a definição de uma função pura.
+
+</p>
+</details>
+
+---
+
+###### 78. Qual o resultado?
+
+```javascript
+const add = () => {
+  const cache = {};
+  return num => {
+    if (num in cache) {
+      return `From cache! ${cache[num]}`;
+    } else {
+      const result = num + 10;
+      cache[num] = result;
+      return `Calculated! ${result}`;
+    }
+  };
+};
+
+const addFunction = add();
+console.log(addFunction(10));
+console.log(addFunction(10));
+console.log(addFunction(5 * 2));
+```
+
+- A: `Calculated! 20` `Calculated! 20` `Calculated! 20`
+- B: `Calculated! 20` `From cache! 20` `Calculated! 20`
+- C: `Calculated! 20` `From cache! 20` `From cache! 20`
+- D: `Calculated! 20` `From cache! 20` `Error`
+
+<details><summary><b>Answer</b></summary>
+<p>
+
+#### Answer: C
+
+A função `add` é uma função _memoized_. Com a memorização, podemos armazenar em cache os resultados de uma função para acelerar sua execução. Nesse caso, criamos um objeto `cache` que armazena os valores retornados anteriormente.
+
+Se chamarmos a função `addFunction` novamente com o mesmo argumento, ela primeiro verifica se já obteve esse valor em seu cache. Se for o caso, o valor dos caches será retornado, o que economiza tempo de execução. Caso contrário, se não estiver armazenado em cache, ele calculará o valor e o armazenará posteriormente.
+
+Chamamos a função `addFunction` três vezes com o mesmo valor: na primeira chamada, o valor da função quando `num` é igual a `10` ainda não é armazenado em cache. A condição da instrução if `num in cache` retorna `false`, e o bloco else é executado: `Calculated! 20` é registrado e o valor do resultado é adicionado ao objeto de cache. `cache` agora se parece com` {10:20} `.
+
+Na segunda vez, o objeto `cache` contém o valor que é retornado para `10`. A condição da instrução if `num in cache` retorna `true`, e `'From cache! 20'` é registrado.
+
+Na terceira vez, passamos `5 * 2` para a função que é avaliada como `10`. O objeto `cache` contém o valor que é retornado para `10`. A condição da instrução if `num in cache` retorna `true`, e `'From cache! 20'` é registrado.
+
+</p>
+</details>
+
+---
+
+###### 79. Qual o resultado?
+
+```javascript
+const myLifeSummedUp = ['☕', '💻', '🍷', '🍫'];
+
+for (let item in myLifeSummedUp) {
+  console.log(item);
+}
+
+for (let item of myLifeSummedUp) {
+  console.log(item);
+}
+```
+
+- A: `0` `1` `2` `3` and `"☕"` `"💻"` `"🍷"` `"🍫"`
+- B: `"☕"` `"💻"` `"🍷"` `"🍫"` and `"☕"` `"💻"` `"🍷"` `"🍫"`
+- C: `"☕"` `"💻"` `"🍷"` `"🍫"` and `0` `1` `2` `3`
+- D: `0` `1` `2` `3` and `{0: "☕", 1: "💻", 2: "🍷", 3: "🍫"}`
+
+<details><summary><b>Answer</b></summary>
+<p>
+
+#### Answer: A
+
+Com um loop _for-in_, podemos iterar sobre propriedades **enumeráveis​​**. Em um array, as propriedades enumeráveis ​​são as "chaves" dos elementos do array, que na verdade são seus índices. Você pode ver uma matriz como:
+
+`{0:" ☕ ", 1:" 💻 ", 2:" 🍷 ", 3:" 🍫 "}`
+
+Onde as chaves são as propriedades enumeráveis. `0`` 1` `2`` 3` são registrados.
+
+Com um loop _for-of_, podemos iterar sobre **iteráveis**. Um array é um iterável. Quando iteramos sobre o array, a variável "item" é igual ao elemento sobre o qual está iterando no momento, `" ☕ "` `" 💻 "` `" 🍷 "` `" 🍫 "` são registrados.
+
+</p>
+</details>
+
+---
+
+###### 80. Qual o resultado?
+
+```javascript
+const list = [1 + 2, 1 * 2, 1 / 2];
+console.log(list);
+```
+
+- A: `["1 + 2", "1 * 2", "1 / 2"]`
+- B: `["12", 2, 0.5]`
+- C: `[3, 2, 0.5]`
+- D: `[1, 1, 1]`
+
+<details><summary><b>Answer</b></summary>
+<p>
+
+#### Answer: C
+
+Os elementos da matriz podem conter qualquer valor. Números, strings, objetos, outras matrizes, valores nulos, booleanos, indefinidos e outras expressões, como datas, funções e cálculos.
+
+O elemento será igual ao valor retornado. `1 + 2` retorna` 3`, `1 * 2` retorna` 2` e `1 / 2` retorna` 0,5`.
 
 </p>
 </details>
