@@ -2403,13 +2403,13 @@ console.log(name);
 <details><summary><b>Answer</b></summary>
 <p>
 
-#### Answer: C
+#### Answer: D
 
-When we unpack the property `name` from the object on the right-hand side, we assign its value `"Lydia"` to a variable with the name `myName`.
+![image](https://user-images.githubusercontent.com/74130928/179492390-4f06a513-e9ef-42f8-b231-ae37afa1cc23.png)
 
-With `{ name: myName }`, we tell JavaScript that we want to create a new variable called `myName` with the value of the `name` property on the right-hand side.
-
-Since we try to log `name`, a variable that is not defined, `undefined` is returned on the left side assignment. Later, the value of `Lydia` is stored through the destructuring  assignment. 
+Answer of this question should be D. as `"name"` isn't defined in the scope. 
+But on console logging to myName , the output will show `Lydia`. 
+![image](https://user-images.githubusercontent.com/74130928/179492771-9456d131-d4c3-40da-8eab-7e81b1375a2a.png)
 
 </p>
 </details>
