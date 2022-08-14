@@ -665,7 +665,7 @@ getAge();
 
 #### Risposta: C
 
-Con `"use strict"`, puoi assicurarti di non dichiarare variabili globali per sbaglio. In questo caso la variabile `age` non è mai stata dichiarata, e siccome usiamo `"use strict"`, genererà un `ReferenceError`. Se non avessimo usato `"use strict"`, avrebbe funzionato perchè la proprietà `age` sarebbe stata aggiunta all'oggetto globale.
+Con `"use strict"`, puoi assicurarti di non dichiarare variabili globali per sbaglio. In questo caso la variabile `age` non è mai stata dichiarata, e siccome usiamo `"use strict"`, genererà un `ReferenceError`. Se non avessimo usato `"use strict"`, avrebbe funzionato perché la proprietà `age` sarebbe stata aggiunta all'oggetto globale.
 
 </p>
 </details>
@@ -704,7 +704,7 @@ sessionStorage.setItem('cool_secret', 123);
 - A: Per sempre, i dati non vanno persi.
 - B: Fin quando l'utente chiude la scheda.
 - C: Fin quando l'utente chiude l'intero browser, non solo la scheda.
-- D: Finquando l'utente spegne il proprio computer.
+- D: Fin quando l'utente spegne il proprio computer.
 
 <details><summary><b>Risposta</b></summary>
 <p>
@@ -976,17 +976,17 @@ La WebAPI non può semplicemente aggiungere elementi allo stack ogni volta che �
 </div>
 ```
 
-- A: Outer `div`
-- B: Inner `div`
+- A: `div` esterno
+- B: `div` interno
 - C: `button`
-- D: An array of all nested elements.
+- D: Un array di tutti gli elementi nidificati
 
 <details><summary><b>Risposta</b></summary>
 <p>
 
 #### Risposta: C
 
-L'elemento annidato più in profondità è quello che ha causato l'evento ed è quindi l' event.target. Puoi stoppare la propagazione con `event.stopPropagation`
+L'elemento annidato più in profondità è quello che ha causato l'evento ed è quindi l'event.target. Puoi stoppare la propagazione con `event.stopPropagation`
 
 </p>
 </details>
@@ -1201,7 +1201,7 @@ a seconda di dove lo esegui (è diverso per ogni browser, node, ecc.)
 
 Il blocco `catch` riceve l'argomento `x` ma non è la stessa `x` della variabile, bensì passiamo un argomento della funzione. Questa "variabile" `x` è block-scoped quindi ha un ambito di blocco.
 
-Subito dopo impostiamo il valore di variabile block-scoped a "1" e impostiamo il valore della variabile "y". Ora facciamo un console.log della variabile block-scoped `x`, che è uguale a `1`.
+Subito dopo impostiamo il valore di variabile block-scoped a `1` e impostiamo il valore della variabile `y`. Ora facciamo un console.log della variabile block-scoped `x`, che è uguale a `1`.
 
 Fuori dal blocco `catch`, `x` è ancora `undefined` e `y` è `2` quindi quando facciamo `console.log(x)` al di fuori del blocco `catch`, otterremo `undefined` e `y` restituirà `2`.
 
@@ -1214,7 +1214,7 @@ Fuori dal blocco `catch`, `x` è ancora `undefined` e `y` è `2` quindi quando f
 
 - A: o un primitivo o un oggetto
 - B: o una funzione o un oggetto
-- C: Questa è unadomanda trabocchetto! Sono solo oggetti
+- C: Questa è una domanda trabocchetto! Sono solo oggetti
 - D: un numero o un oggetto
 
 <details><summary><b>Risposta</b></summary>
@@ -1226,7 +1226,7 @@ JavaScript ha solo tipi primitivi e oggetti.
 
 I tipi primitivi sono `boolean`, `null`, `undefined`, `bigint`, `number`, `string` e `symbol`.
 
-Ciò che differenzia un tipo primitivo da un oggetto è che i primitivi non hanno proprietà o metodi. Tuttavia, noterai che `'foo'.toUpperCase()` restituisce `'FOO'` e non genera un `TypeError`. Questo perché quando si tenta di accedere a una proprietà o a un metodo su di un tipo primitivo come lo è una stringa, JavaScript racchiuderà implicitamente il tipo primitivo utilizzando una delle classi wrapper, ovvero "String", valuterà l'espressione ed eliminerà il weapper una volta terminato. Tutti i primitivi tranne `null` e `undefined` subiscono questo comportamento.
+Ciò che differenzia un tipo primitivo da un oggetto è che i primitivi non hanno proprietà o metodi. Tuttavia, noterai che `'foo'.toUpperCase()` restituisce `'FOO'` e non genera un `TypeError`. Questo perché quando si tenta di accedere a una proprietà o a un metodo su di un tipo primitivo come lo è una stringa, JavaScript racchiuderà implicitamente il tipo primitivo utilizzando una delle classi wrapper, ovvero "String", valuterà l'espressione ed eliminerà il wrapper una volta terminato. Tutti i primitivi tranne `null` e `undefined` subiscono questo comportamento.
 
 </p>
 </details>
