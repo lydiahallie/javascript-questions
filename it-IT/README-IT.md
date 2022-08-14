@@ -3292,7 +3292,7 @@ secondFunction();
 
 Con una promise, in pratica diciamo _Voglio eseguire questa funzione, ma per ora la metto da parte mentre è in esecuzione poiché ciò potrebbe richiedere del tempo. Solo quando un determinato valore viene risolto (o rifiutato) e quando lo stack di chiamate è vuoto, voglio utilizzare questo valore._
 
-Possiamo ottenere questo valore sia con `.then` che con la chiave `await` in una funzione `async`. Sebbene possiamo ottenere il valore di una promessa sia con `.then` che con `await`, funzionano in modo leggermente diverso.
+Possiamo ottenere questo valore sia con `.then` che con la chiave `await` in una funzione `async`. Sebbene possiamo ottenere il valore di una promise sia con `.then` che con `await`, funzionano in modo leggermente diverso.
 
 Nella `first Function`, abbiamo (più o meno) messo da parte la funzione myPromise mentre era in esecuzione, ma abbiamo continuato a eseguire l'altro codice, che in questo caso è `console.log('second')`. Quindi, la funzione è stata risolta con la stringa `I have resolved`, che è stata quindi loggata dopo aver visto che lo stack di chiamate era vuoto.
 
@@ -3518,7 +3518,7 @@ console.log(food);
 
 Impostiamo il valore della proprietà `favoriteFood` sull'oggetto `info` uguale alla stringa con l'emoji della pizza, `'🍕'`. Una stringa è un tipo di dati primitivo. In JavaScript, i tipi di dati primitivi non interagiscono per riferimento.
 
-In JavaScript, i tipi di dati primitivi (tutto ciò che non è un oggetto) interagiscono per _value_. In questo caso, impostiamo il valore della proprietà `favoriteFood` sull'oggetto `info` uguale al valore del primo elemento nell'array `food`, in questo caso la stringa con l'emoji della pizza (`'🍕'`). Una stringa è un tipo di dati primitivo e interagisce per valore (vedi il mio [blogpost](https://www.theavocoder.com/complete-javascript/2018/12/21/by-value-vs-by-reference) se sei interessato a saperne di più)
+In JavaScript, i tipi di dati primitivi (tutto ciò che non è un oggetto) interagiscono per _value_. In questo caso, impostiamo il valore della proprietà `favoriteFood` sull'oggetto `info` uguale al valore del primo elemento nell'array `food`, in questo caso la stringa con l'emoji della pizza (`'🍕'`). Una stringa è un tipo di dati primitivo e interagisce per valore (vedi il mio [blogpost](https://www.theavocoder.com/complete-javascript/2018/12/21/by-value-vs-by-reference) se sei interessato a saperne di più).
 
 Quindi, cambiamo il valore della proprietà `favoriteFood` sull'oggetto `info`. L'array `food` non è cambiato, poiché il valore di `favoriteFood` era semplicemente una _copia_ del valore del primo elemento nell'array e non ha un riferimento allo stesso punto in memoria dell'elemento su ` food[0]`. Quando logghiamo food, è ancora l'array originale, `['🍕', '🍫', '🥑', '🍔']`.
 </p>
@@ -3586,7 +3586,7 @@ getName();
 
 #### Risposta: D
 
-Ogni funzione ha il proprio _contesto di esecuzione_ (o _ambito_). La funzione `getName` cerca prima all'interno del proprio contesto (scope) per vedere se contiene la variabile `name` a cui stiamo cercando di accedere. In questo caso, la funzione `getName` contiene la propria variabile `name` perchè dichiariamo la variabile `name` con la chiave `let`, e con il valore di `'Sarah'`.
+Ogni funzione ha il proprio _contesto di esecuzione_ (o _ambito_). La funzione `getName` cerca prima all'interno del proprio contesto (scope) per vedere se contiene la variabile `name` a cui stiamo cercando di accedere. In questo caso, la funzione `getName` contiene la propria variabile `name` perché dichiariamo la variabile `name` con la chiave `let`, e con il valore di `'Sarah'`.
 
 Le variabili con la chiave `let` (e `const`) vengono sollevate, ma a differenza di `var`, non vengono <i>inizializzate</i>. Non sono quindi accessibili prima della riga in cui le dichiariamo (inizializziamo). Questa è chiamata "temporal dead zone". Quando proviamo ad accedere alle variabili prima che vengano dichiarate, JavaScript genera un `ReferenceError`.
 
@@ -3703,7 +3703,7 @@ config = null;
 
 #### Risposta: C
 
-Normalmente quando impostiamo oggetti uguali a `null`, quegli oggetti ottengono _garbage collected_ poiché non c'è più alcun riferimento a quell'oggetto. Tuttavia, poiché la funzione di callback all'interno di `setInterval` è una funzione freccia (quindi legata all'oggetto `config`), la funzione di callback mantiene ancora un riferimento all'oggetto `config`.
+Normalmente quando impostiamo oggetti uguali a `null`, quegli oggetti vengono _garbage collected_ poiché non c'è più alcun riferimento a quell'oggetto. Tuttavia, poiché la funzione di callback all'interno di `setInterval` è una funzione freccia (quindi legata all'oggetto `config`), la funzione di callback mantiene ancora un riferimento all'oggetto `config`.
 Finché c'è un riferimento, l'oggetto non verrà raccolto.
 Poiché si tratta di un intervallo, impostare `config` su `null` o `delete`-ing `config.alert` non raccoglierà l'intervallo, quindi l'intervallo verrà comunque chiamato.
 Dovrebbe essere cancellato con `clearInterval(config.alert)` per rimuoverlo dalla memoria.
@@ -4116,8 +4116,6 @@ console.log(spookyItems);
 
 #### Risposta: B
 
-By destructuring objects, we can unpack values from the right-hand object, and assign the unpacked value to the value of the same property name on the left-hand object. In this case, we're assigning the value "💀" to `spookyItems[3]`. This means that we're modifying the `spookyItems` array, we're adding the "💀" to it. When logging `spookyItems`, `["👻", "🎃", "🕸", "💀"]` gets logged.
-
 Destrutturando gli oggetti, possiamo decomprimere i valori dall'oggetto di destra e assegnare il valore decompresso al valore dello stesso nome di proprietà sull'oggetto di sinistra. In questo caso, stiamo assegnando il valore "💀" a `spookyItems[3]`. Ciò significa che stiamo modificando l'array `spookyItems`, stiamo aggiungendo il "💀" ad esso. Quando facciamo console.log di `spookyItems`, `["👻", "🎃", "🕸", "💀"]` viene loggato.
 
 </p>
@@ -4322,7 +4320,7 @@ funcTwo();
 
 #### Risposta: C
 
-Innanzitutto, invochiamo `funcOne`. Sulla prima riga di `funcOne`, chiamiamo la funzione _asincrona_ `setTimeout`, da cui la callback viene inviato all'API Web. (vedi l'articolo sul ciclo degli eventi <a href="https://dev.to/lydiahallie/javascript-visualized-event-loop-3dif">qui</a>.)
+Innanzitutto, invochiamo `funcOne`. Sulla prima riga di `funcOne`, chiamiamo la funzione _asincrona_ `setTimeout`, da cui la callback viene inviato all'API Web. (vedi l'articolo sul ciclo degli eventi [qui](https://dev.to/lydiahallie/javascript-visualized-event-loop-3dif))
 
 Quindi chiamiamo la promise `myPromise`, che è un'operazione _asincrona_.
 
@@ -4330,9 +4328,9 @@ Sia la promise che il timeout sono operazioni asincrone, la funzione continua a 
 
 Poiché la callstack non è ancora vuota, la funzione `setTimeout` e la promise in `funcOne` non possono ancora essere aggiunte al callstack.
 
-In `funcTwo`, la variabile `res` ottiene `Promise` perché `Promise.resolve(Promise.resolve('Promise'))` è equivalente a `Promise.resolve('Promise')` poiché risolvere una promise risolve semplicemente che è valore. L'"attesa" in questa riga interrompe l'esecuzione della funzione fino a quando non riceve la risoluzione della promise e quindi continua a funzionare in modo sincrono fino al completamento, quindi `Promise 2!` e poi `Last line 2!` vengono registrati e "setTimeout ` viene inviato all'API Web.
+In `funcTwo`, la variabile `res` ottiene `Promise` perché `Promise.resolve(Promise.resolve('Promise'))` è equivalente a `Promise.resolve('Promise')` poiché risolvere una promise risolve il suo valore. L'"attesa" in questa riga interrompe l'esecuzione della funzione fino a quando non riceve la risoluzione della promise e quindi continua a funzionare in modo sincrono fino al completamento, quindi `Promise 2!` e poi `Last line 2!` vengono registrati e `setTimeout` viene inviato all'API Web.
 
-Quindi lo stack di chiamate è vuoto. Le promise sono _microattività_ quindi vengono risolte per prime quando lo stack di chiamate è vuoto, quindi `Promise 1!` viene registrato.
+Quindi lo stack di chiamate è vuoto. Le promise sono _microattività_, quindi vengono risolte per prime quando lo stack di chiamate è vuoto, quindi `Promise 1!` viene registrato.
 
 Ora, da quando `funcTwo` è uscito dallo stack delle chiamate, lo stack delle chiamate è vuoto. Le callback in attesa nella coda (`() => console.log("Timeout 1!")` da `funcOne`, e `() => console.log("Timeout 2!")` da `funcTwo`) vengono aggiunti allo stack di chiamate uno per uno. Il primo callback registra `Timeout 1!` e viene eliminato dallo stack. Quindi, il secondo callback registra `Timeout 2!` e viene eliminato dallo stack.
 </p>
@@ -4883,7 +4881,7 @@ console.log(updatedUser === user)
 
 #### Risposta: B
 
-La funzione `updateUser` aggiorna i valori delle proprietà `email` e `password` sull'utente se i loro valori vengono passati alla funzione, dopodiché la funzione restituisce l'oggetto `user`. Il valore restituito dalla funzione `updateUser` è l'oggetto `user`, il che significa che il valore di updateUser è un riferimento allo stesso oggetto `user` a cui punta `user`. `updatedUser === user` è uguale a `true`.
+La funzione `updateUser` aggiorna i valori delle proprietà `email` e `password` sull'utente se i loro valori vengono passati alla funzione, dopodiché la funzione restituisce l'oggetto `user`. Il valore restituito dalla funzione `updateUser` è l'oggetto `user`, il che significa che il valore di `updateUser` è un riferimento allo stesso oggetto `user` a cui punta `user`. `updatedUser === user` è uguale a `true`.
 
 </p>
 </details>
@@ -5018,7 +5016,7 @@ runPromises()
 
 #### Risposta: D
 
-Il metodo `Promise.all` esegue le promise passate in parallelo. Se una promise fallisce, il metodo `Promise.all` effettua un _rejects_ con il valore della prmise rifiutata. In questo caso, `promise3` ha rifiutato con il valore `"Third"`. Stiamo rilevando il valore rifiutato nel metodo `catch` concatenato sulla chiamata `runPromises` per rilevare eventuali errori all'interno della funzione `runPromises`. Solo `"Third"` viene registrato, poiché `promise3` viene rifiutato con questo valore.
+Il metodo `Promise.all` esegue le promise passate in parallelo. Se una promise fallisce, il metodo `Promise.all` effettua un _rejects_ con il valore della promise rifiutata. In questo caso, `promise3` ha rifiutato con il valore `"Third"`. Stiamo rilevando il valore rifiutato nel metodo `catch` concatenato sulla chiamata `runPromises` per rilevare eventuali errori all'interno della funzione `runPromises`. Solo `"Third"` viene registrato, poiché `promise3` viene rifiutato con questo valore.
 
 </p>
 </details>
@@ -5083,7 +5081,7 @@ console.log(member)
 
 #### Risposta: C
 
-Il valore predefinito di `address` è un oggetto vuoto `{}`. Quando abbiamo impostato la variabile `member` uguale all'oggetto restituito dalla funzione `createMember`, non abbiamo passato un valore per address, il che significa che il valore di address è l'oggetto vuoto predefinito `{}`. Un oggetto vuoto è un valore veritiero, il che significa che la condizione `address ? address : null` restituisce `true`. Il valore di address è l'oggetto vuoto `{}`.
+Il valore predefinito di `address` è un oggetto vuoto `{}`. Quando abbiamo impostato la variabile `member` uguale all'oggetto restituito dalla funzione `createMember`, non abbiamo passato un valore per `address`, il che significa che il valore di `address` è l'oggetto vuoto predefinito `{}`. Un oggetto vuoto è un valore veritiero, il che significa che la condizione `address ? address : null` restituisce `true`. Il valore di `address` è l'oggetto vuoto `{}`.
 
 </p>
 </details>
