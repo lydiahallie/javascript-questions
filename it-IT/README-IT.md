@@ -203,7 +203,7 @@ JavaScript interpreta le istruzioni, quindi quando usiamo la bracket notation, v
 
 Quando in JavaScript richiamiamo `mouse[bird.size]`: per prima cosa viene valorizzato `bird.size`, che è `"small"`, per JS viene tradotto quindi come `mouse["small"]` che restituisce `true`.
 
-Con l'utilizzo del punto questo non accade perché `mouse` non ha una chiave chiamata `bird`, e questo significa che `mouse.bird` è `undefined`. Per Javascript quindi l'istruzione `mouse.bird.size` viene tradotta con `mouse.undefined.size` che è un valore non valido e che quindi genererà un errore simile a `Cannot read property "size" of undefined`.
+Con l'utilizzo del punto questo non accade perché `mouse` non ha una chiave chiamata `bird`, e questo significa che `mouse.bird` è `undefined`. Per JavaScript quindi l'istruzione `mouse.bird.size` viene tradotta con `mouse.undefined.size` che è un valore non valido e che quindi genererà un errore simile a `Cannot read property "size" of undefined`.
 
 </p>
 </details>
@@ -361,7 +361,7 @@ bark.animal = 'dog';
 
 #### Risposta: A
 
-In Javascript non succede nulla, perché le funzioni sono oggetti! (Tutto tranne i tipi primitivi sono oggetti).
+In JavaScript non succede nulla, perché le funzioni sono oggetti! (Tutto tranne i tipi primitivi sono oggetti).
 
 Una funzione è un tipo speciale di oggetto. Il codice che scrivi non è la funzione effettiva. La funzione è un oggetto con delle proprietà e quindi questa proprietà è invocabile.
 
@@ -3590,7 +3590,7 @@ Ogni funzione ha il proprio _contesto di esecuzione_ (o _ambito_). La funzione `
 
 Le variabili con la chiave `let` (e `const`) vengono sollevate, ma a differenza di `var`, non vengono <i>inizializzate</i>. Non sono quindi accessibili prima della riga in cui le dichiariamo (inizializziamo). Questa è chiamata "temporal dead zone". Quando proviamo ad accedere alle variabili prima che vengano dichiarate, JavaScript genera un `ReferenceError`.
 
-Se non avessimo dichiarato la variabile `name` all'interno della funzione `getName`, javascript avrebbe esaminato la _scope chain_. Lo scope esterno ha una variabile chiamata `name` con il valore di `Lydia`. In tal caso, avrebbe loggato "Lydia".
+Se non avessimo dichiarato la variabile `name` all'interno della funzione `getName`, JavaScript avrebbe esaminato la _scope chain_. Lo scope esterno ha una variabile chiamata `name` con il valore di `Lydia`. In tal caso, avrebbe loggato "Lydia".
 
 ```javascript
 let name = 'Lydia';
