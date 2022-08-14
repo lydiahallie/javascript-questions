@@ -2210,8 +2210,8 @@ console.log('🥑' + '💻');
 
 - A: `"🥑💻"`
 - B: `257548`
-- C: A string containing their code points
-- D: Error
+- C: Una stringa contenente i code points
+- D: Errore
 
 <details><summary><b>Risposta</b></summary>
 <p>
@@ -2318,16 +2318,7 @@ console.log(data);
 
 #### Risposta: C
 
-An async function always returns a promise. The `await` still has to wait for the promise to resolve: a pending promise gets returned when we call `getData()` in order to set `data` equal to it.
-
-If we wanted to get access to the resolved value `"I made it"`, we could have used the `.then()` method on `data`:
-
-`data.then(res => console.log(res))`
-
-This would've logged `"I made it!"`
-
-
-Una funzione asincrona restituisce sempre una promise. L'`await` deve ancora attendere che la promise si risolva: una promise in sospeso viene restituita quando chiamiamo "getData()" per impostare "data" uguale ad essa.
+Una funzione asincrona restituisce sempre una promise. L'`await` deve ancora attendere che la promise si risolva: una promise in sospeso viene restituita quando chiamiamo `getData()` per impostare `data` uguale ad essa.
 
 Se volessimo accedere al valore risolto `"I made it"`, potremmo usare il metodo `.then()` su `data`:
 
@@ -2364,7 +2355,7 @@ console.log(result);
 Il metodo `.push()` restituisce la _lunghezza_ del nuovo array! 
 Inizialmente, l'array conteneva un solo elemento (la stringa `"banana"`) e aveva una lunghezza di `1`. Dopo aver aggiunto la stringa `"apple"` allo stesso array, questo contiene due elementi e ha una lunghezza di `2` 
 
-Attravero la funzione `addToList`, il metodo `push` modifica l'array originale. 
+Attraverso la funzione `addToList`, il metodo `push` modifica l'array originale. 
 Per restituire l'_array_ dalla funzione invece della _lunghezza dell'array_, serve fare un return di `list` dopo aver inserito l'`item`.
 
 </p>
@@ -2497,7 +2488,7 @@ console.log(addFunction(5 * 2));
 La funzione `add` è una funzione _memoizzata_. Con la memorizzazione, possiamo memorizzare nella cache i risultati di una funzione per velocizzarne l'esecuzione. 
 In questo caso, creiamo un oggetto `cache` che memorizza i valori precedentemente restituiti.
 
-Se chiamiamo di nuovo la funzione `addFunction` con lo stesso argomento, prima controlla se ha già ottenuto quel valore nella sua cache, in tal caso, verrà restituito il valore delle cache, il che consente di risparmiare tempo di esecuzione. Altrimenti, se non è memorizzato nella cache, calcolerà il valore e lo memorizzerà in seguito.
+Se chiamiamo di nuovo la funzione `addFunction` con lo stesso argomento, prima controlla se ha già ottenuto quel valore nella sua cache, in tal caso, verrà restituito il valore della cache, consentendo di risparmiare tempo di esecuzione. Altrimenti, se non è memorizzato nella cache, calcolerà il valore e lo memorizzerà in seguito.
 
 Chiamiamo la funzione `addFunction` tre volte con lo stesso valore: alla prima chiamata, il valore della funzione quando `num` è uguale a `10` non è ancora memorizzato nella cache. 
 La condizione dell'istruzione if `num in cache` restituisce `false`, e il blocco else viene eseguito: `Calculated! 20` viene loggato e il valore del risultato viene aggiunto all'oggetto cache. 
@@ -2536,7 +2527,7 @@ for (let item of myLifeSummedUp) {
 
 #### Risposta: A
 
-Con un ciclo _for-in_, possiamo scorrere su proprietà **enumerabile**. In un array, le proprietà enumerabili sono le "chiavi" degli elementi dell'array, che sono in realtà i loro indici. Potresti immaginare un array come:
+Con un ciclo _for-in_, possiamo scorrere su proprietà **enumerabili**. In un array, le proprietà enumerabili sono le "chiavi" degli elementi dell'array, che sono in realtà i loro indici. Potresti immaginare un array come:
 
 `{0: "☕", 1: "💻", 2: "🍷", 3: "🍫"}`
 
@@ -2675,7 +2666,7 @@ Impostiamo la variabile `city` uguale al valore della proprietà chiamata `city`
 
 Nota che _non_ stiamo facendo riferimento all'oggetto `person`! Impostiamo semplicemente la variabile `city` uguale al valore corrente della proprietà `city` sull'oggetto `person`.
 
-Quindi, impostiamo `city` uguale alla stringa `"Amsterdam"`. Questo non cambia l'oggetto person: non c'è alcun riferimento a quell'oggetto.
+Quindi, impostiamo `city` uguale alla stringa `"Amsterdam"`. Questo non cambia l'oggetto `person`: non c'è alcun riferimento a quell'oggetto.
 
 Quando si logga l'oggetto `person`, viene restituito l'oggetto non modificato.
 
@@ -2717,7 +2708,7 @@ Le variabili con la chiave `const` e `let` sono _block-scoped_. Un blocco è qua
 
 ---
 
-###### 85. Che tipo di informazioni verrebbero registrate?
+###### 85. Che tipo di informazioni verrebbero loggate?
 
 ```javascript
 fetch('https://www.website.com/api/user/1')
@@ -2819,7 +2810,7 @@ sum(10);
 
 #### Risposta: B
 
-È possibile impostare il valore di un parametro predefinito uguale a un altro parametro della funzione, purché siano stati definiti _prima_ del parametro predefinito. Passiamo il valore `10` alla funzione `sum`. Se la funzione `sum` riceve solo 1 argomento, significa che il valore di `num2` non è passato e il valore di `num1` è uguale al valore passato `10` in questo caso. Il valore predefinito di `num2` è il valore di `num1`, che è `10`. `num1 + num2` restituisce `20`.
+È possibile impostare il valore di un parametro predefinito uguale a un altro parametro della funzione, purché sia stato definito _prima_ del parametro predefinito. Passiamo il valore `10` alla funzione `sum`. Se la funzione `sum` riceve solo 1 argomento, significa che il valore di `num2` non è passato e il valore di `num1` è uguale al valore passato `10` in questo caso. Il valore predefinito di `num2` è il valore di `num1`, che è `10`. `num1 + num2` restituisce `20`.
 
 Se stai cercando di impostare il valore di un parametro predefinito uguale a un parametro che è definito _dopo_ (a destra), il valore del parametro non è stato ancora inizializzato, il che genererà un errore.
 </p>
@@ -3052,10 +3043,10 @@ console.log(nums(1, 2));
 
 #### Risposta: B
 
-In JavaScript, non _è necessario_ scrivere il punto e virgola (`;`) in modo esplicito poichè il motore JavaScript li aggiunge comunque dopo le istruzioni. 
+In JavaScript, non _è necessario_ scrivere il punto e virgola (`;`) in modo esplicito poiché il motore JavaScript li aggiunge comunque dopo le istruzioni. 
 Questo procedimento è chiamato **Automatic Semicolon Insertion**. Un'istruzione può ad esempio essere una variabile o parole chiave come `throw`, `return`, `break`, ecc.
 
-Qui, abbiamo scritto un'istruzione di `return` e un altro valore `a + b` su una _nuova riga_. Tuttavia, trattandosi di una nuova linea, il motore non sa che in realtà è il valore che volevamo restituire. Invece, ha aggiunto automaticamente un punto e virgola dopo "return". 
+Qui, abbiamo scritto un'istruzione di `return` e un altro valore `a + b` su una _nuova riga_. Tuttavia, trattandosi di una nuova linea, il motore non sa che in realtà è il valore che volevamo restituire. Invece, ha aggiunto automaticamente un punto e virgola dopo `return`. 
 
 Potresti considerare ad esempio:
 
@@ -3168,7 +3159,7 @@ La funzione `getList` riceve un array come argomento. Tra le parentesi della fun
 Con il parametro rest `...y`, mettiamo tutti gli argomenti "rimanenti" in un array. Gli argomenti rimanenti sono `2`, `3` e `4` in questo caso. 
 Il valore di `y` è un array, contenente tutti i parametri rimanenti. Il valore di `x` è uguale a `1` in questo caso, quindi quando facciamo un console.log di `[x, y]`, viene loggato `[1, [2, 3, 4]]`.
 
-La funzione `getUser` riceve un oggetto. Con le arrow functions, non _è necessario_ scrivere parentesi graffe se restituiamo solo un valore. Tuttavia, se vuoi restituire istantaneamente un _oggetto_ da una arrow function, devi scriverlo tra parentesi, altrimenti tutto ciò che si trova tra le due parentesi verrà interpretato come un'istruzione di blocco. In questo caso il codice tra parentesi non è un codice JavaScript valido, quindi viene generato un `SyntaxError`.
+La funzione `getUser` riceve un oggetto. Con le arrow functions, non _è necessario_ scrivere parentesi graffe se restituiamo solo un valore. Tuttavia, se vuoi restituire istantaneamente un _oggetto_ da una arrow function, devi scriverlo tra parentesi tonde, altrimenti tutto ciò che si trova tra le due parentesi graffe verrà interpretato come un'istruzione di blocco. In questo caso il codice tra parentesi non è un codice JavaScript valido, quindi viene generato un `SyntaxError`.
 
 La seguente funzione avrebbe restituito un oggetto:
 
