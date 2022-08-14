@@ -1488,13 +1488,6 @@ console.log(3 + 4 + '5');
 
 #### Risposta: B
 
-Operator associativity is the order in which the compiler evaluates the expressions, either left-to-right or right-to-left. This only happens if all operators have the _same_ precedence. We only have one type of operator: `+`. For addition, the associativity is left-to-right.
-
-`3 + 4` gets evaluated first. This results in the number `7`.
-
-`7 + '5'` results in `"75"` because of coercion. JavaScript converts the number `7` into a string, see question 15. We can concatenate two strings using the `+`operator. `"7" + "5"` results in `"75"`.
-
-
 L'associazione è l'ordine in cui il compilatore valuta le espressioni, da sinistra a destra o da destra a sinistra. Questo accade solo se tutti gli operatori hanno la _stessa_ precedenza. Abbiamo solo un tipo di operatore: `+`. Inoltre, l'associazione è da sinistra a destra.
 
 `3 + 4` viene valutato per primo. E risulta nell'addizione dei due valori che restituiscono quindi `7`.
@@ -1798,7 +1791,7 @@ console.log(myCounter);
 
 Un modulo importato è di _sola lettura_: non è quindi possibile modificare il modulo importato. Solo il modulo che li esporta può cambiarne il valore.
 
-Quando proviamo ad incrementare il valore di `myCounter`, viene generato un errore: perchè `myCounter` è di sola lettura e non può essere modificato.
+Quando proviamo ad incrementare il valore di `myCounter`, viene generato un errore: perché `myCounter` è di sola lettura e non può essere modificato.
 
 </p>
 </details>
