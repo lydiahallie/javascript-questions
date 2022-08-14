@@ -138,9 +138,9 @@ console.log(shape.perimeter());
 
 #### Risposta: B
 
-Il valore di `diameter` è una funzione regolare, mentre il vaore di `perimeter` è gemerato con una arrow function.
+Il valore di `diameter` è una funzione regolare, mentre il valore di `perimeter` è generato con una arrow function.
 
-Nelle arrow functions, la chiave `this` fa riferimento al suo scope interno a differenza delle funzioni regolari. Questo vuol dire che quando richiamiamo `perimeter` non stiamo facendo riferimento all'oggetto shape, ma al suo ambito circostantr (ad esempio window).
+Nelle arrow functions, la chiave `this` fa riferimento al suo scope interno a differenza delle funzioni regolari. Questo vuol dire che quando richiamiamo `perimeter` non stiamo facendo riferimento all'oggetto shape, ma al suo ambito circostante (ad esempio window).
 
 Non troviamo quindi alcun valore `radius` in quell'oggetto e quindi viene restituito `NaN`.
 
@@ -201,9 +201,9 @@ In JavaScript, tutte le chiavi degli oggetti sono stringhe (a meno che non sia u
 
 JavaScript interpreta le istruzioni, quindi quando usiamo la bracket notation, vede la prima parentesi aperta `[` e continua finché non trova la parentesi chiusa `]`. Solo allora valuterà la dichiarazione.
 
-Quando in javascript richiamiamo `mouse[bird.size]`: per prima cosa viene valorizzato `bird.size`, che è `"small"`, per JS viene tradotto quindi come `mouse["small"]` che restituisce `true`.
+Quando in JavaScript richiamiamo `mouse[bird.size]`: per prima cosa viene valorizzato `bird.size`, che è `"small"`, per JS viene tradotto quindi come `mouse["small"]` che restituisce `true`.
 
-Con l'utilizzo del punto questo non accade perchè `mouse` non ha una chiave chiamata `bird`, e questo significa che `mouse.bird` è `undefined`. Per Javascript quindi l'istruzione `mouse.bird.size` viene tradotta con `mouse.undefined.size` che è un valore non valido e che quindi genererà un errore simile a `Cannot read property "size" of undefined`.
+Con l'utilizzo del punto questo non accade perché `mouse` non ha una chiave chiamata `bird`, e questo significa che `mouse.bird` è `undefined`. Per Javascript quindi l'istruzione `mouse.bird.size` viene tradotta con `mouse.undefined.size` che è un valore non valido e che quindi genererà un errore simile a `Cannot read property "size" of undefined`.
 
 </p>
 </details>
@@ -232,13 +232,13 @@ console.log(d.greeting);
 
 #### Risposta: A
 
-In JavaScript, tutti gli oggetti interagiscono per _referenza_ .
+In JavaScript, tutti gli oggetti interagiscono per _referenza_.
 
-La variabile `c` contiene come valore un oggetto. Alla variabile `d` assegnamo come valore il riferimento di `c` che quindi contiene l'oggetto (e non un suo clone).
+La variabile `c` contiene come valore un oggetto. Alla variabile `d` assegniamo come valore il riferimento di `c` che quindi contiene l'oggetto (e non un suo clone).
 
 <img src="https://i.imgur.com/ko5k0fs.png" width="200">
 
-Quando modifichi il valore di questo oggetto, lo stai modificando sia per c che per d che contiene il suo riferimento.
+Quando modifichi il valore di questo oggetto, lo stai modificando sia per `c`che per `d`, che contiene il suo riferimento.
 
 </p>
 </details>
@@ -269,7 +269,7 @@ console.log(b === c);
 
 `new Number()` è una funzione costruttore integrata. Nonostante sembri un numero, in realtà non lo è, si tratta infatti di un oggetto con un sacco di funzioni extra.
 
-Quando utilizziamo l'operatore `==`, stiamo verificando solo se il suo _valore_ è uguale . Entrambe le variabili hanno il valore di `3`, quindi il primo log restituisce `true`.
+Quando utilizziamo l'operatore `==`, stiamo verificando solo se il suo _valore_ è uguale. Entrambe le variabili hanno il valore di `3`, quindi il primo log restituisce `true`.
 
 Quando invece utilizziamo l'operatore `===`, stiamo verificando che sia il valore che il tipo di valore siano uguali. `new Number()` non è un numero, è un **oggetto** quindi entrambi i log restituiscono `false`.
 
@@ -306,8 +306,6 @@ console.log(freddie.colorChange('orange'));
 
 #### Risposta: D
 
-The `colorChange` function is static. Static methods are designed to live only on the constructor in which they are created, and cannot be passed down to any children or called upon class instances. Since `freddie` is an instance of class Chameleon, the function cannot be called upon it. A `TypeError` is thrown.
-
 La funzione `colorChange` è statica. I metodi statici sono progettati per vivere solo nel costruttore in cui vengono creati e non possono essere passati a nessun figlio o richiamati su istanze di classe. Poiché `freddie` è un'istanza della classe `Chameleon`, la funzione non può essere chiamata su di essa. Viene restituito quindi un errore di tipo `TypeError`.
 
 </p>
@@ -332,7 +330,8 @@ console.log(greetign);
 
 #### Risposta: A
 
-Il nostro log restituisce un oggetto perchè abbiamo appena creato un oggetto vuoto come oggetto globale nel momento in cui per errore abbiamo digitato `greetign` al posto di `greeting`.
+Il nostro log restituisce un oggetto perché abbiamo appena creato un oggetto vuoto come oggetto globale nel momento in cui per errore abbiamo digitato `greetign` al posto di `greeting`.
+
 Il nostro interprete a quel punto ha letto `global.greetign = {}` (o `window.greetign = {}` se parliamo di un browser).
 
 Per evitare ciò, possiamo usare `"use strict"`. Questo assicura di aver dichiarato una variabile prima di impostarla uguale a qualsiasi cosa.
@@ -362,7 +361,7 @@ bark.animal = 'dog';
 
 #### Risposta: A
 
-In Javasript non succede nulla, perché le funzioni sono oggetti! (Tutto tranne i tipi primitivi sono oggetti)
+In Javascript non succede nulla, perché le funzioni sono oggetti! (Tutto tranne i tipi primitivi sono oggetti).
 
 Una funzione è un tipo speciale di oggetto. Il codice che scrivi non è la funzione effettiva. La funzione è un oggetto con delle proprietà e quindi questa proprietà è invocabile.
 
@@ -440,7 +439,7 @@ console.log(sarah);
 
 Per la const `sarah`, non abbiamo usato la chiave `new`. Quando si usa `new`, `this` si riferisce al nuovo oggetto vuoto che creiamo. Tuttavia, se non aggiungiamo `new`, `this` si riferisce all'**oggetto globale**!
 
-Abbiamo quindi scritto che `this.firstName` equivale a `"Sarah"` e `this.lastName` equivale a `"Smith"`. Quello che abbiamo effettivamente fatto è definire `global.firstName = 'Sarah'` e `global.lastName = 'Smith'`. la const `sarah` viene lasciata come `non definita`, perchè non restituiamo un valore dalla funzione `Persona`.
+Abbiamo quindi scritto che `this.firstName` equivale a `"Sarah"` e `this.lastName` equivale a `"Smith"`. Quello che abbiamo effettivamente fatto è definire `global.firstName = 'Sarah'` e `global.lastName = 'Smith'`. La `const` `sarah` viene lasciata come `non definita`, perché non restituiamo un valore dalla funzione `Persona`.
 
 </p>
 </details>
@@ -478,7 +477,7 @@ Durante la fase di **capturing**, l'evento passa attraverso gli elementi predece
 
 #### Risposta: B
 
-Tutti gli oggetti hanno prototipi, ad eccezione dell'**oggetto base**. L'oggetto base è l'oggetto creato dall'utente, o un oggetto creato usando la parola chiave `new`. L'oggetto base ha accesso ad alcuni metodi e proprietà, come `.toString`. Questo è il motivo per cui puoi utilizzare i metodi JavaScript built-in! Tutti questi metodi sono disponibili sul prototype. Quindi, anche se JavaScript non riesca a trovarlo direttamente sul tuo oggetto, scende lungo la chain del prototype e lo trova lì, il che lo rende accessibile anche per l'oggetto creato da te.
+Tutti gli oggetti hanno prototipi, ad eccezione dell'**oggetto base**. L'oggetto base è l'oggetto creato dall'utente, o un oggetto creato usando la parola chiave `new`. L'oggetto base ha accesso ad alcuni metodi e proprietà, come `.toString`. Questo è il motivo per cui puoi utilizzare i metodi JavaScript built-in! Tutti questi metodi sono disponibili sul prototype. Quindi, anche se JavaScript non riesce a trovarlo direttamente sul tuo oggetto, scende lungo la chain del prototype e lo trova lì, il che lo rende accessibile anche per l'oggetto creato da te.
 
 </p>
 </details>
@@ -505,7 +504,7 @@ sum(1, '2');
 
 #### Risposta: C
 
-JavaScript è un **linguaggio tipizzato dinamicamente**: non specifichiamo quali tipi siano determinate variabili. I valori possono essere automaticamente convertiti in un altro tipo, questa azione è chiamato _coercizione implicita del tipo_. **Coercizione** è la conversione da un tipo all'altro.
+JavaScript è un **linguaggio tipizzato dinamicamente**: non specifichiamo quali tipi siano determinate variabili. I valori possono essere automaticamente convertiti in un altro tipo, questa azione è chiamata _coercizione implicita del tipo_. **Coercizione** è la conversione da un tipo all'altro.
 
 In questo esempio, JavaScript converte il numero `1` in una stringa, in modo che la funzione abbia un senso e restituisca un valore. Durante l'aggiunta di un tipo numerico (`1`) e di un tipo stringa (`'2'`), il numero viene trattato come una stringa. Possiamo concatenare stringhe come `"Hello" + "World"`, quindi quello che sta succedendo qui è `"1" + "2"` che restituisce `"12"`.
 
@@ -606,7 +605,7 @@ checkAge({ age: 18 });
 
 #### Risposta: C
 
-Quando si verifica l'uguaglianza, i primitivi vengono confrontate in base al loro _valore_, mentre gli oggetti vengono confrontati in base al loro _riferimento_. JavaScript controlla se gli oggetti hanno un riferimento alla stessa posizione in memoria.
+Quando si verifica l'uguaglianza, i primitivi vengono confrontati in base al loro _valore_, mentre gli oggetti vengono confrontati in base al loro _riferimento_. JavaScript controlla se gli oggetti hanno un riferimento alla stessa posizione in memoria.
 
 I due oggetti che stiamo confrontando non lo hanno: l'oggetto che abbiamo passato come parametro si riferisce a una posizione di memoria diversa rispetto all'oggetto che abbiamo usato per verificare l'uguaglianza.
 
