@@ -5102,3 +5102,47 @@ The condition within the `if` statement checks whether the value of `!typeof ran
 
 </p>
 </details>
+
+---
+
+###### 156. What's the output?
+
+```javascript
+let mixedArray = [1, '2', 3];
+
+let numberArray = mixedArray.map(parseInt);
+
+console.log(numberArray);
+```
+
+- A: `[1, NaN, 3]`
+- B: `[NaN, NaN, NaN]`
+- C: `[1, 2, 3]`
+- D: `[1, NaN, NaN]`
+
+<details><summary><d>Answer</d></summary>
+<p>
+
+#### Answer: D
+
+This line:
+```javascript
+let numberArray = mixedArray.map(parseInt);
+```
+
+is equivlent to the following:
+```javascript
+let numberArray = mixedArray.map((element, index, array) => {
+  return parseInt(element, index, array);
+});
+```
+
+Passing just the function in the `.map` looks alot cleaner but we have to remember that certain functions like `parseInt` take a 2nd parameter. And in this paticular case, it makes a big difference since the 2nd (optional parameter) is the `radix`. `radix` _is an integer between 2 and 36 that represents the radix (the base in mathematical numeral systems) of the string_. So the parseInt function is actually getting called 3 times like so: 
+
+`parseInt(1, 0, [1, '2', 3])` => 1 
+`parseInt('2', 1, [1, '2', 3])` => NaN
+`parseInt(3, 2, [1, '2', 3])`  => NaN
+
+
+</p>
+</details>
