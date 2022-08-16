@@ -5130,18 +5130,25 @@ This line:
 let numberArray = mixedArray.map(parseInt);
 ```
 
-is equivlent to the following:
+is equivalent to the following:
 ```javascript
 let numberArray = mixedArray.map((element, index, array) => {
   return parseInt(element, index, array);
 });
 ```
 
-Passing just the function in the `.map` looks alot cleaner but we have to remember that certain functions like `parseInt` take a 2nd parameter. And in this paticular case, it makes a big difference since the 2nd (optional parameter) is the `radix`. `radix` _is an integer between 2 and 36 that represents the radix (the base in mathematical numeral systems) of the string_. So the parseInt function is actually getting called 3 times like so: 
+Passing just the function in the `.map` looks alot cleaner but we have to remember that certain functions like `parseInt` take a 2nd parameter. And in this paticular case, it makes a big difference since the 2nd (optional parameter) is the `radix`. `radix` _is an integer between 2 and 36 that represents the radix (the base in mathematical numeral systems) of the string_. So the parseInt function is actually getting called 3 times with the following arguments
 
-`parseInt(1, 0, [1, '2', 3])` => 1 
-`parseInt('2', 1, [1, '2', 3])` => NaN
-`parseInt(3, 2, [1, '2', 3])`  => NaN
+```javascript
+parseInt(1, 0, [1, '2', 3]) // => 1 
+```
+```javascript
+parseInt('2', 1, [1, '2', 3]) // => NaN
+```
+
+```javascript
+parseInt(3, 2, [1, '2', 3])  // => NaN
+```
 
 
 </p>
