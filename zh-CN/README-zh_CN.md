@@ -5079,6 +5079,6 @@ if (!typeof randomValue === "string") {
  `if` 语句的条件判断 `!typeof randomValue` 的值是否等于 `"string"`。 `!` 操作符将这个值转化为一个布尔值。如果值是 truthy 的话，返回值会是 `false`，如果值是 falsy，返回值会是 `true`。在这里， `typeof randomValue` 的返回值是一个 truthy 值 `"number"`，意味着 `!typeof randomValue` 的值是一个布尔值 `false`。
 
  `!typeof randomValue === "string"` 总是返回 false，因为我们实际上是在执行 `false === "string"`。因为条件返回的是 `false`，所以 `else` 语句中的代码块会被运行，因此打印 `Yay it's a string!` 。
-
+//Good Question
 </p>
 </details>
