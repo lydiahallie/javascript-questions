@@ -1203,7 +1203,7 @@ JavaScript tem somente tipos primitivos e objetos.
 
 Tipos primitivos são `boolean`, `null`, `undefined`, `bigint`, `number`, `string`, e `symbol`.
 
-O que diferencia um primitivo de um objeto é que primitivos não métodos ou propriedades. Contudo, se você está atento vai lembrar que `'foo'.toUpperCase()` retorna `'FOO'` e não resulta em um `TypeError`. Isso acontece pois quando você tenta acessar uma propriedade ou método em um primitivo como, por exemplo, uma string, JavaScript vai transformar esse primitivo em objeto usando um _wrapper_, nesse caso o `String`, e discarta o wrapper imediatamente após executar o método ou propriedade. Todos os primitivos, com exceção de `null` e `undefined` exibem esse comportamento.
+O que diferencia um primitivo de um objeto é que primitivos não possuem métodos ou propriedades. Contudo, se você está atento vai lembrar que `'foo'.toUpperCase()` retorna `'FOO'` e não resulta em um `TypeError`. Isso acontece pois quando você tenta acessar uma propriedade ou método em um primitivo como, por exemplo, uma string, JavaScript vai transformar esse primitivo em objeto usando um _wrapper_, nesse caso o `String`, e discarta o wrapper imediatamente após executar o método ou propriedade. Todos os primitivos, com exceção de `null` e `undefined` exibem esse comportamento.
 
 </p>
 </details>
