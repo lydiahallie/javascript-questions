@@ -138,9 +138,9 @@ console.log(shape.perimeter());
 
 #### Risposta: B
 
-Il valore di `diameter` è una funzione regolare, mentre il vaore di `perimeter` è gemerato con una arrow function.
+Il valore di `diameter` è una funzione regolare, mentre il valore di `perimeter` è generato con una arrow function.
 
-Nelle arrow functions, la chiave `this` fa riferimento al suo scope interno a differenza delle funzioni regolari. Questo vuol dire che quando richiamiamo `perimeter` non stiamo facendo riferimento all'oggetto shape, ma al suo ambito circostantr (ad esempio window).
+Nelle arrow functions, la chiave `this` fa riferimento al suo scope interno a differenza delle funzioni regolari. Questo vuol dire che quando richiamiamo `perimeter` non stiamo facendo riferimento all'oggetto shape, ma al suo ambito circostante (ad esempio window).
 
 Non troviamo quindi alcun valore `radius` in quell'oggetto e quindi viene restituito `NaN`.
 
@@ -201,9 +201,9 @@ In JavaScript, tutte le chiavi degli oggetti sono stringhe (a meno che non sia u
 
 JavaScript interpreta le istruzioni, quindi quando usiamo la bracket notation, vede la prima parentesi aperta `[` e continua finché non trova la parentesi chiusa `]`. Solo allora valuterà la dichiarazione.
 
-Quando in javascript richiamiamo `mouse[bird.size]`: per prima cosa viene valorizzato `bird.size`, che è `"small"`, per JS viene tradotto quindi come `mouse["small"]` che restituisce `true`.
+Quando in JavaScript richiamiamo `mouse[bird.size]`: per prima cosa viene valorizzato `bird.size`, che è `"small"`, per JS viene tradotto quindi come `mouse["small"]` che restituisce `true`.
 
-Con l'utilizzo del punto questo non accade perchè `mouse` non ha una chiave chiamata `bird`, e questo significa che `mouse.bird` è `undefined`. Per Javascript quindi l'istruzione `mouse.bird.size` viene tradotta con `mouse.undefined.size` che è un valore non valido e che quindi genererà un errore simile a `Cannot read property "size" of undefined`.
+Con l'utilizzo del punto questo non accade perché `mouse` non ha una chiave chiamata `bird`, e questo significa che `mouse.bird` è `undefined`. Per JavaScript quindi l'istruzione `mouse.bird.size` viene tradotta con `mouse.undefined.size` che è un valore non valido e che quindi genererà un errore simile a `Cannot read property "size" of undefined`.
 
 </p>
 </details>
@@ -232,13 +232,13 @@ console.log(d.greeting);
 
 #### Risposta: A
 
-In JavaScript, tutti gli oggetti interagiscono per _referenza_ .
+In JavaScript, tutti gli oggetti interagiscono per _referenza_.
 
-La variabile `c` contiene come valore un oggetto. Alla variabile `d` assegnamo come valore il riferimento di `c` che quindi contiene l'oggetto (e non un suo clone).
+La variabile `c` contiene come valore un oggetto. Alla variabile `d` assegniamo come valore il riferimento di `c` che quindi contiene l'oggetto (e non un suo clone).
 
 <img src="https://i.imgur.com/ko5k0fs.png" width="200">
 
-Quando modifichi il valore di questo oggetto, lo stai modificando sia per c che per d che contiene il suo riferimento.
+Quando modifichi il valore di questo oggetto, lo stai modificando sia per `c`che per `d`, che contiene il suo riferimento.
 
 </p>
 </details>
@@ -269,7 +269,7 @@ console.log(b === c);
 
 `new Number()` è una funzione costruttore integrata. Nonostante sembri un numero, in realtà non lo è, si tratta infatti di un oggetto con un sacco di funzioni extra.
 
-Quando utilizziamo l'operatore `==`, stiamo verificando solo se il suo _valore_ è uguale . Entrambe le variabili hanno il valore di `3`, quindi il primo log restituisce `true`.
+Quando utilizziamo l'operatore `==`, stiamo verificando solo se il suo _valore_ è uguale. Entrambe le variabili hanno il valore di `3`, quindi il primo log restituisce `true`.
 
 Quando invece utilizziamo l'operatore `===`, stiamo verificando che sia il valore che il tipo di valore siano uguali. `new Number()` non è un numero, è un **oggetto** quindi entrambi i log restituiscono `false`.
 
@@ -306,8 +306,6 @@ console.log(freddie.colorChange('orange'));
 
 #### Risposta: D
 
-The `colorChange` function is static. Static methods are designed to live only on the constructor in which they are created, and cannot be passed down to any children or called upon class instances. Since `freddie` is an instance of class Chameleon, the function cannot be called upon it. A `TypeError` is thrown.
-
 La funzione `colorChange` è statica. I metodi statici sono progettati per vivere solo nel costruttore in cui vengono creati e non possono essere passati a nessun figlio o richiamati su istanze di classe. Poiché `freddie` è un'istanza della classe `Chameleon`, la funzione non può essere chiamata su di essa. Viene restituito quindi un errore di tipo `TypeError`.
 
 </p>
@@ -332,7 +330,8 @@ console.log(greetign);
 
 #### Risposta: A
 
-Il nostro log restituisce un oggetto perchè abbiamo appena creato un oggetto vuoto come oggetto globale nel momento in cui per errore abbiamo digitato `greetign` al posto di `greeting`.
+Il nostro log restituisce un oggetto perché abbiamo appena creato un oggetto vuoto come oggetto globale nel momento in cui per errore abbiamo digitato `greetign` al posto di `greeting`.
+
 Il nostro interprete a quel punto ha letto `global.greetign = {}` (o `window.greetign = {}` se parliamo di un browser).
 
 Per evitare ciò, possiamo usare `"use strict"`. Questo assicura di aver dichiarato una variabile prima di impostarla uguale a qualsiasi cosa.
@@ -362,7 +361,7 @@ bark.animal = 'dog';
 
 #### Risposta: A
 
-In Javasript non succede nulla, perché le funzioni sono oggetti! (Tutto tranne i tipi primitivi sono oggetti)
+In JavaScript non succede nulla, perché le funzioni sono oggetti! (Tutto tranne i tipi primitivi sono oggetti).
 
 Una funzione è un tipo speciale di oggetto. Il codice che scrivi non è la funzione effettiva. La funzione è un oggetto con delle proprietà e quindi questa proprietà è invocabile.
 
@@ -440,7 +439,7 @@ console.log(sarah);
 
 Per la const `sarah`, non abbiamo usato la chiave `new`. Quando si usa `new`, `this` si riferisce al nuovo oggetto vuoto che creiamo. Tuttavia, se non aggiungiamo `new`, `this` si riferisce all'**oggetto globale**!
 
-Abbiamo quindi scritto che `this.firstName` equivale a `"Sarah"` e `this.lastName` equivale a `"Smith"`. Quello che abbiamo effettivamente fatto è definire `global.firstName = 'Sarah'` e `global.lastName = 'Smith'`. la const `sarah` viene lasciata come `non definita`, perchè non restituiamo un valore dalla funzione `Persona`.
+Abbiamo quindi scritto che `this.firstName` equivale a `"Sarah"` e `this.lastName` equivale a `"Smith"`. Quello che abbiamo effettivamente fatto è definire `global.firstName = 'Sarah'` e `global.lastName = 'Smith'`. La `const` `sarah` viene lasciata come `non definita`, perché non restituiamo un valore dalla funzione `Persona`.
 
 </p>
 </details>
@@ -478,7 +477,7 @@ Durante la fase di **capturing**, l'evento passa attraverso gli elementi predece
 
 #### Risposta: B
 
-Tutti gli oggetti hanno prototipi, ad eccezione dell'**oggetto base**. L'oggetto base è l'oggetto creato dall'utente, o un oggetto creato usando la parola chiave `new`. L'oggetto base ha accesso ad alcuni metodi e proprietà, come `.toString`. Questo è il motivo per cui puoi utilizzare i metodi JavaScript built-in! Tutti questi metodi sono disponibili sul prototype. Quindi, anche se JavaScript non riesca a trovarlo direttamente sul tuo oggetto, scende lungo la chain del prototype e lo trova lì, il che lo rende accessibile anche per l'oggetto creato da te.
+Tutti gli oggetti hanno prototipi, ad eccezione dell'**oggetto base**. L'oggetto base è l'oggetto creato dall'utente, o un oggetto creato usando la parola chiave `new`. L'oggetto base ha accesso ad alcuni metodi e proprietà, come `.toString`. Questo è il motivo per cui puoi utilizzare i metodi JavaScript built-in! Tutti questi metodi sono disponibili sul prototype. Quindi, anche se JavaScript non riesce a trovarlo direttamente sul tuo oggetto, scende lungo la chain del prototype e lo trova lì, il che lo rende accessibile anche per l'oggetto creato da te.
 
 </p>
 </details>
@@ -505,7 +504,7 @@ sum(1, '2');
 
 #### Risposta: C
 
-JavaScript è un **linguaggio tipizzato dinamicamente**: non specifichiamo quali tipi siano determinate variabili. I valori possono essere automaticamente convertiti in un altro tipo, questa azione è chiamato _coercizione implicita del tipo_. **Coercizione** è la conversione da un tipo all'altro.
+JavaScript è un **linguaggio tipizzato dinamicamente**: non specifichiamo quali tipi siano determinate variabili. I valori possono essere automaticamente convertiti in un altro tipo, questa azione è chiamata _coercizione implicita del tipo_. **Coercizione** è la conversione da un tipo all'altro.
 
 In questo esempio, JavaScript converte il numero `1` in una stringa, in modo che la funzione abbia un senso e restituisca un valore. Durante l'aggiunta di un tipo numerico (`1`) e di un tipo stringa (`'2'`), il numero viene trattato come una stringa. Possiamo concatenare stringhe come `"Hello" + "World"`, quindi quello che sta succedendo qui è `"1" + "2"` che restituisce `"12"`.
 
@@ -606,7 +605,7 @@ checkAge({ age: 18 });
 
 #### Risposta: C
 
-Quando si verifica l'uguaglianza, i primitivi vengono confrontate in base al loro _valore_, mentre gli oggetti vengono confrontati in base al loro _riferimento_. JavaScript controlla se gli oggetti hanno un riferimento alla stessa posizione in memoria.
+Quando si verifica l'uguaglianza, i primitivi vengono confrontati in base al loro _valore_, mentre gli oggetti vengono confrontati in base al loro _riferimento_. JavaScript controlla se gli oggetti hanno un riferimento alla stessa posizione in memoria.
 
 I due oggetti che stiamo confrontando non lo hanno: l'oggetto che abbiamo passato come parametro si riferisce a una posizione di memoria diversa rispetto all'oggetto che abbiamo usato per verificare l'uguaglianza.
 
@@ -666,7 +665,7 @@ getAge();
 
 #### Risposta: C
 
-Con `"use strict"`, puoi assicurarti di non dichiarare variabili globali per sbaglio. In questo caso la variabile `age` non è mai stata dichiarata, e siccome usiamo `"use strict"`, genererà un `ReferenceError`. Se non avessimo usato `"use strict"`, avrebbe funzionato perchè la proprietà `age` sarebbe stata aggiunta all'oggetto globale.
+Con `"use strict"`, puoi assicurarti di non dichiarare variabili globali per sbaglio. In questo caso la variabile `age` non è mai stata dichiarata, e siccome usiamo `"use strict"`, genererà un `ReferenceError`. Se non avessimo usato `"use strict"`, avrebbe funzionato perché la proprietà `age` sarebbe stata aggiunta all'oggetto globale.
 
 </p>
 </details>
@@ -705,7 +704,7 @@ sessionStorage.setItem('cool_secret', 123);
 - A: Per sempre, i dati non vanno persi.
 - B: Fin quando l'utente chiude la scheda.
 - C: Fin quando l'utente chiude l'intero browser, non solo la scheda.
-- D: Finquando l'utente spegne il proprio computer.
+- D: Fin quando l'utente spegne il proprio computer.
 
 <details><summary><b>Risposta</b></summary>
 <p>
@@ -977,17 +976,17 @@ La WebAPI non può semplicemente aggiungere elementi allo stack ogni volta che �
 </div>
 ```
 
-- A: Outer `div`
-- B: Inner `div`
+- A: `div` esterno
+- B: `div` interno
 - C: `button`
-- D: An array of all nested elements.
+- D: Un array di tutti gli elementi nidificati
 
 <details><summary><b>Risposta</b></summary>
 <p>
 
 #### Risposta: C
 
-L'elemento annidato più in profondità è quello che ha causato l'evento ed è quindi l' event.target. Puoi stoppare la propagazione con `event.stopPropagation`
+L'elemento annidato più in profondità è quello che ha causato l'evento ed è quindi l'event.target. Puoi stoppare la propagazione con `event.stopPropagation`
 
 </p>
 </details>
@@ -1202,7 +1201,7 @@ a seconda di dove lo esegui (è diverso per ogni browser, node, ecc.)
 
 Il blocco `catch` riceve l'argomento `x` ma non è la stessa `x` della variabile, bensì passiamo un argomento della funzione. Questa "variabile" `x` è block-scoped quindi ha un ambito di blocco.
 
-Subito dopo impostiamo il valore di variabile block-scoped a "1" e impostiamo il valore della variabile "y". Ora facciamo un console.log della variabile block-scoped `x`, che è uguale a `1`.
+Subito dopo impostiamo il valore di variabile block-scoped a `1` e impostiamo il valore della variabile `y`. Ora facciamo un console.log della variabile block-scoped `x`, che è uguale a `1`.
 
 Fuori dal blocco `catch`, `x` è ancora `undefined` e `y` è `2` quindi quando facciamo `console.log(x)` al di fuori del blocco `catch`, otterremo `undefined` e `y` restituirà `2`.
 
@@ -1215,7 +1214,7 @@ Fuori dal blocco `catch`, `x` è ancora `undefined` e `y` è `2` quindi quando f
 
 - A: o un primitivo o un oggetto
 - B: o una funzione o un oggetto
-- C: Questa è unadomanda trabocchetto! Sono solo oggetti
+- C: Questa è una domanda trabocchetto! Sono solo oggetti
 - D: un numero o un oggetto
 
 <details><summary><b>Risposta</b></summary>
@@ -1227,7 +1226,7 @@ JavaScript ha solo tipi primitivi e oggetti.
 
 I tipi primitivi sono `boolean`, `null`, `undefined`, `bigint`, `number`, `string` e `symbol`.
 
-Ciò che differenzia un tipo primitivo da un oggetto è che i primitivi non hanno proprietà o metodi. Tuttavia, noterai che `'foo'.toUpperCase()` restituisce `'FOO'` e non genera un `TypeError`. Questo perché quando si tenta di accedere a una proprietà o a un metodo su di un tipo primitivo come lo è una stringa, JavaScript racchiuderà implicitamente il tipo primitivo utilizzando una delle classi wrapper, ovvero "String", valuterà l'espressione ed eliminerà il weapper una volta terminato. Tutti i primitivi tranne `null` e `undefined` subiscono questo comportamento.
+Ciò che differenzia un tipo primitivo da un oggetto è che i primitivi non hanno proprietà o metodi. Tuttavia, noterai che `'foo'.toUpperCase()` restituisce `'FOO'` e non genera un `TypeError`. Questo perché quando si tenta di accedere a una proprietà o a un metodo su di un tipo primitivo come lo è una stringa, JavaScript racchiuderà implicitamente il tipo primitivo utilizzando una delle classi wrapper, ovvero "String", valuterà l'espressione ed eliminerà il wrapper una volta terminato. Tutti i primitivi tranne `null` e `undefined` subiscono questo comportamento.
 
 </p>
 </details>
@@ -1488,13 +1487,6 @@ console.log(3 + 4 + '5');
 <p>
 
 #### Risposta: B
-
-Operator associativity is the order in which the compiler evaluates the expressions, either left-to-right or right-to-left. This only happens if all operators have the _same_ precedence. We only have one type of operator: `+`. For addition, the associativity is left-to-right.
-
-`3 + 4` gets evaluated first. This results in the number `7`.
-
-`7 + '5'` results in `"75"` because of coercion. JavaScript converts the number `7` into a string, see question 15. We can concatenate two strings using the `+`operator. `"7" + "5"` results in `"75"`.
-
 
 L'associazione è l'ordine in cui il compilatore valuta le espressioni, da sinistra a destra o da destra a sinistra. Questo accade solo se tutti gli operatori hanno la _stessa_ precedenza. Abbiamo solo un tipo di operatore: `+`. Inoltre, l'associazione è da sinistra a destra.
 
@@ -1799,7 +1791,7 @@ console.log(myCounter);
 
 Un modulo importato è di _sola lettura_: non è quindi possibile modificare il modulo importato. Solo il modulo che li esporta può cambiarne il valore.
 
-Quando proviamo ad incrementare il valore di `myCounter`, viene generato un errore: perchè `myCounter` è di sola lettura e non può essere modificato.
+Quando proviamo ad incrementare il valore di `myCounter`, viene generato un errore: perché `myCounter` è di sola lettura e non può essere modificato.
 
 </p>
 </details>
@@ -2218,8 +2210,8 @@ console.log('🥑' + '💻');
 
 - A: `"🥑💻"`
 - B: `257548`
-- C: A string containing their code points
-- D: Error
+- C: Una stringa contenente i code points
+- D: Errore
 
 <details><summary><b>Risposta</b></summary>
 <p>
@@ -2326,16 +2318,7 @@ console.log(data);
 
 #### Risposta: C
 
-An async function always returns a promise. The `await` still has to wait for the promise to resolve: a pending promise gets returned when we call `getData()` in order to set `data` equal to it.
-
-If we wanted to get access to the resolved value `"I made it"`, we could have used the `.then()` method on `data`:
-
-`data.then(res => console.log(res))`
-
-This would've logged `"I made it!"`
-
-
-Una funzione asincrona restituisce sempre una promise. L'`await` deve ancora attendere che la promise si risolva: una promise in sospeso viene restituita quando chiamiamo "getData()" per impostare "data" uguale ad essa.
+Una funzione asincrona restituisce sempre una promise. L'`await` deve ancora attendere che la promise si risolva: una promise in sospeso viene restituita quando chiamiamo `getData()` per impostare `data` uguale ad essa.
 
 Se volessimo accedere al valore risolto `"I made it"`, potremmo usare il metodo `.then()` su `data`:
 
@@ -2372,7 +2355,7 @@ console.log(result);
 Il metodo `.push()` restituisce la _lunghezza_ del nuovo array! 
 Inizialmente, l'array conteneva un solo elemento (la stringa `"banana"`) e aveva una lunghezza di `1`. Dopo aver aggiunto la stringa `"apple"` allo stesso array, questo contiene due elementi e ha una lunghezza di `2` 
 
-Attravero la funzione `addToList`, il metodo `push` modifica l'array originale. 
+Attraverso la funzione `addToList`, il metodo `push` modifica l'array originale. 
 Per restituire l'_array_ dalla funzione invece della _lunghezza dell'array_, serve fare un return di `list` dopo aver inserito l'`item`.
 
 </p>
@@ -2505,7 +2488,7 @@ console.log(addFunction(5 * 2));
 La funzione `add` è una funzione _memoizzata_. Con la memorizzazione, possiamo memorizzare nella cache i risultati di una funzione per velocizzarne l'esecuzione. 
 In questo caso, creiamo un oggetto `cache` che memorizza i valori precedentemente restituiti.
 
-Se chiamiamo di nuovo la funzione `addFunction` con lo stesso argomento, prima controlla se ha già ottenuto quel valore nella sua cache, in tal caso, verrà restituito il valore delle cache, il che consente di risparmiare tempo di esecuzione. Altrimenti, se non è memorizzato nella cache, calcolerà il valore e lo memorizzerà in seguito.
+Se chiamiamo di nuovo la funzione `addFunction` con lo stesso argomento, prima controlla se ha già ottenuto quel valore nella sua cache, in tal caso, verrà restituito il valore della cache, consentendo di risparmiare tempo di esecuzione. Altrimenti, se non è memorizzato nella cache, calcolerà il valore e lo memorizzerà in seguito.
 
 Chiamiamo la funzione `addFunction` tre volte con lo stesso valore: alla prima chiamata, il valore della funzione quando `num` è uguale a `10` non è ancora memorizzato nella cache. 
 La condizione dell'istruzione if `num in cache` restituisce `false`, e il blocco else viene eseguito: `Calculated! 20` viene loggato e il valore del risultato viene aggiunto all'oggetto cache. 
@@ -2544,7 +2527,7 @@ for (let item of myLifeSummedUp) {
 
 #### Risposta: A
 
-Con un ciclo _for-in_, possiamo scorrere su proprietà **enumerabile**. In un array, le proprietà enumerabili sono le "chiavi" degli elementi dell'array, che sono in realtà i loro indici. Potresti immaginare un array come:
+Con un ciclo _for-in_, possiamo scorrere su proprietà **enumerabili**. In un array, le proprietà enumerabili sono le "chiavi" degli elementi dell'array, che sono in realtà i loro indici. Potresti immaginare un array come:
 
 `{0: "☕", 1: "💻", 2: "🍷", 3: "🍫"}`
 
@@ -2683,7 +2666,7 @@ Impostiamo la variabile `city` uguale al valore della proprietà chiamata `city`
 
 Nota che _non_ stiamo facendo riferimento all'oggetto `person`! Impostiamo semplicemente la variabile `city` uguale al valore corrente della proprietà `city` sull'oggetto `person`.
 
-Quindi, impostiamo `city` uguale alla stringa `"Amsterdam"`. Questo non cambia l'oggetto person: non c'è alcun riferimento a quell'oggetto.
+Quindi, impostiamo `city` uguale alla stringa `"Amsterdam"`. Questo non cambia l'oggetto `person`: non c'è alcun riferimento a quell'oggetto.
 
 Quando si logga l'oggetto `person`, viene restituito l'oggetto non modificato.
 
@@ -2725,7 +2708,7 @@ Le variabili con la chiave `const` e `let` sono _block-scoped_. Un blocco è qua
 
 ---
 
-###### 85. Che tipo di informazioni verrebbero registrate?
+###### 85. Che tipo di informazioni verrebbero loggate?
 
 ```javascript
 fetch('https://www.website.com/api/user/1')
@@ -2827,7 +2810,7 @@ sum(10);
 
 #### Risposta: B
 
-È possibile impostare il valore di un parametro predefinito uguale a un altro parametro della funzione, purché siano stati definiti _prima_ del parametro predefinito. Passiamo il valore `10` alla funzione `sum`. Se la funzione `sum` riceve solo 1 argomento, significa che il valore di `num2` non è passato e il valore di `num1` è uguale al valore passato `10` in questo caso. Il valore predefinito di `num2` è il valore di `num1`, che è `10`. `num1 + num2` restituisce `20`.
+È possibile impostare il valore di un parametro predefinito uguale a un altro parametro della funzione, purché sia stato definito _prima_ del parametro predefinito. Passiamo il valore `10` alla funzione `sum`. Se la funzione `sum` riceve solo 1 argomento, significa che il valore di `num2` non è passato e il valore di `num1` è uguale al valore passato `10` in questo caso. Il valore predefinito di `num2` è il valore di `num1`, che è `10`. `num1 + num2` restituisce `20`.
 
 Se stai cercando di impostare il valore di un parametro predefinito uguale a un parametro che è definito _dopo_ (a destra), il valore del parametro non è stato ancora inizializzato, il che genererà un errore.
 </p>
@@ -3060,10 +3043,10 @@ console.log(nums(1, 2));
 
 #### Risposta: B
 
-In JavaScript, non _è necessario_ scrivere il punto e virgola (`;`) in modo esplicito poichè il motore JavaScript li aggiunge comunque dopo le istruzioni. 
+In JavaScript, non _è necessario_ scrivere il punto e virgola (`;`) in modo esplicito poiché il motore JavaScript li aggiunge comunque dopo le istruzioni. 
 Questo procedimento è chiamato **Automatic Semicolon Insertion**. Un'istruzione può ad esempio essere una variabile o parole chiave come `throw`, `return`, `break`, ecc.
 
-Qui, abbiamo scritto un'istruzione di `return` e un altro valore `a + b` su una _nuova riga_. Tuttavia, trattandosi di una nuova linea, il motore non sa che in realtà è il valore che volevamo restituire. Invece, ha aggiunto automaticamente un punto e virgola dopo "return". 
+Qui, abbiamo scritto un'istruzione di `return` e un altro valore `a + b` su una _nuova riga_. Tuttavia, trattandosi di una nuova linea, il motore non sa che in realtà è il valore che volevamo restituire. Invece, ha aggiunto automaticamente un punto e virgola dopo `return`. 
 
 Potresti considerare ad esempio:
 
@@ -3176,7 +3159,7 @@ La funzione `getList` riceve un array come argomento. Tra le parentesi della fun
 Con il parametro rest `...y`, mettiamo tutti gli argomenti "rimanenti" in un array. Gli argomenti rimanenti sono `2`, `3` e `4` in questo caso. 
 Il valore di `y` è un array, contenente tutti i parametri rimanenti. Il valore di `x` è uguale a `1` in questo caso, quindi quando facciamo un console.log di `[x, y]`, viene loggato `[1, [2, 3, 4]]`.
 
-La funzione `getUser` riceve un oggetto. Con le arrow functions, non _è necessario_ scrivere parentesi graffe se restituiamo solo un valore. Tuttavia, se vuoi restituire istantaneamente un _oggetto_ da una arrow function, devi scriverlo tra parentesi, altrimenti tutto ciò che si trova tra le due parentesi verrà interpretato come un'istruzione di blocco. In questo caso il codice tra parentesi non è un codice JavaScript valido, quindi viene generato un `SyntaxError`.
+La funzione `getUser` riceve un oggetto. Con le arrow functions, non _è necessario_ scrivere parentesi graffe se restituiamo solo un valore. Tuttavia, se vuoi restituire istantaneamente un _oggetto_ da una arrow function, devi scriverlo tra parentesi tonde, altrimenti tutto ciò che si trova tra le due parentesi graffe verrà interpretato come un'istruzione di blocco. In questo caso il codice tra parentesi non è un codice JavaScript valido, quindi viene generato un `SyntaxError`.
 
 La seguente funzione avrebbe restituito un oggetto:
 
@@ -3309,7 +3292,7 @@ secondFunction();
 
 Con una promise, in pratica diciamo _Voglio eseguire questa funzione, ma per ora la metto da parte mentre è in esecuzione poiché ciò potrebbe richiedere del tempo. Solo quando un determinato valore viene risolto (o rifiutato) e quando lo stack di chiamate è vuoto, voglio utilizzare questo valore._
 
-Possiamo ottenere questo valore sia con `.then` che con la chiave `await` in una funzione `async`. Sebbene possiamo ottenere il valore di una promessa sia con `.then` che con `await`, funzionano in modo leggermente diverso.
+Possiamo ottenere questo valore sia con `.then` che con la chiave `await` in una funzione `async`. Sebbene possiamo ottenere il valore di una promise sia con `.then` che con `await`, funzionano in modo leggermente diverso.
 
 Nella `first Function`, abbiamo (più o meno) messo da parte la funzione myPromise mentre era in esecuzione, ma abbiamo continuato a eseguire l'altro codice, che in questo caso è `console.log('second')`. Quindi, la funzione è stata risolta con la stringa `I have resolved`, che è stata quindi loggata dopo aver visto che lo stack di chiamate era vuoto.
 
@@ -3535,7 +3518,7 @@ console.log(food);
 
 Impostiamo il valore della proprietà `favoriteFood` sull'oggetto `info` uguale alla stringa con l'emoji della pizza, `'🍕'`. Una stringa è un tipo di dati primitivo. In JavaScript, i tipi di dati primitivi non interagiscono per riferimento.
 
-In JavaScript, i tipi di dati primitivi (tutto ciò che non è un oggetto) interagiscono per _value_. In questo caso, impostiamo il valore della proprietà `favoriteFood` sull'oggetto `info` uguale al valore del primo elemento nell'array `food`, in questo caso la stringa con l'emoji della pizza (`'🍕'`). Una stringa è un tipo di dati primitivo e interagisce per valore (vedi il mio [blogpost](https://www.theavocoder.com/complete-javascript/2018/12/21/by-value-vs-by-reference) se sei interessato a saperne di più)
+In JavaScript, i tipi di dati primitivi (tutto ciò che non è un oggetto) interagiscono per _value_. In questo caso, impostiamo il valore della proprietà `favoriteFood` sull'oggetto `info` uguale al valore del primo elemento nell'array `food`, in questo caso la stringa con l'emoji della pizza (`'🍕'`). Una stringa è un tipo di dati primitivo e interagisce per valore (vedi il mio [blogpost](https://www.theavocoder.com/complete-javascript/2018/12/21/by-value-vs-by-reference) se sei interessato a saperne di più).
 
 Quindi, cambiamo il valore della proprietà `favoriteFood` sull'oggetto `info`. L'array `food` non è cambiato, poiché il valore di `favoriteFood` era semplicemente una _copia_ del valore del primo elemento nell'array e non ha un riferimento allo stesso punto in memoria dell'elemento su ` food[0]`. Quando logghiamo food, è ancora l'array originale, `['🍕', '🍫', '🥑', '🍔']`.
 </p>
@@ -3603,11 +3586,11 @@ getName();
 
 #### Risposta: D
 
-Ogni funzione ha il proprio _contesto di esecuzione_ (o _ambito_). La funzione `getName` cerca prima all'interno del proprio contesto (scope) per vedere se contiene la variabile `name` a cui stiamo cercando di accedere. In questo caso, la funzione `getName` contiene la propria variabile `name` perchè dichiariamo la variabile `name` con la chiave `let`, e con il valore di `'Sarah'`.
+Ogni funzione ha il proprio _contesto di esecuzione_ (o _ambito_). La funzione `getName` cerca prima all'interno del proprio contesto (scope) per vedere se contiene la variabile `name` a cui stiamo cercando di accedere. In questo caso, la funzione `getName` contiene la propria variabile `name` perché dichiariamo la variabile `name` con la chiave `let`, e con il valore di `'Sarah'`.
 
 Le variabili con la chiave `let` (e `const`) vengono sollevate, ma a differenza di `var`, non vengono <i>inizializzate</i>. Non sono quindi accessibili prima della riga in cui le dichiariamo (inizializziamo). Questa è chiamata "temporal dead zone". Quando proviamo ad accedere alle variabili prima che vengano dichiarate, JavaScript genera un `ReferenceError`.
 
-Se non avessimo dichiarato la variabile `name` all'interno della funzione `getName`, javascript avrebbe esaminato la _scope chain_. Lo scope esterno ha una variabile chiamata `name` con il valore di `Lydia`. In tal caso, avrebbe loggato "Lydia".
+Se non avessimo dichiarato la variabile `name` all'interno della funzione `getName`, JavaScript avrebbe esaminato la _scope chain_. Lo scope esterno ha una variabile chiamata `name` con il valore di `Lydia`. In tal caso, avrebbe loggato "Lydia".
 
 ```javascript
 let name = 'Lydia';
@@ -3720,7 +3703,7 @@ config = null;
 
 #### Risposta: C
 
-Normalmente quando impostiamo oggetti uguali a `null`, quegli oggetti ottengono _garbage collected_ poiché non c'è più alcun riferimento a quell'oggetto. Tuttavia, poiché la funzione di callback all'interno di `setInterval` è una funzione freccia (quindi legata all'oggetto `config`), la funzione di callback mantiene ancora un riferimento all'oggetto `config`.
+Normalmente quando impostiamo oggetti uguali a `null`, quegli oggetti vengono _garbage collected_ poiché non c'è più alcun riferimento a quell'oggetto. Tuttavia, poiché la funzione di callback all'interno di `setInterval` è una funzione freccia (quindi legata all'oggetto `config`), la funzione di callback mantiene ancora un riferimento all'oggetto `config`.
 Finché c'è un riferimento, l'oggetto non verrà raccolto.
 Poiché si tratta di un intervallo, impostare `config` su `null` o `delete`-ing `config.alert` non raccoglierà l'intervallo, quindi l'intervallo verrà comunque chiamato.
 Dovrebbe essere cancellato con `clearInterval(config.alert)` per rimuoverlo dalla memoria.
@@ -4133,8 +4116,6 @@ console.log(spookyItems);
 
 #### Risposta: B
 
-By destructuring objects, we can unpack values from the right-hand object, and assign the unpacked value to the value of the same property name on the left-hand object. In this case, we're assigning the value "💀" to `spookyItems[3]`. This means that we're modifying the `spookyItems` array, we're adding the "💀" to it. When logging `spookyItems`, `["👻", "🎃", "🕸", "💀"]` gets logged.
-
 Destrutturando gli oggetti, possiamo decomprimere i valori dall'oggetto di destra e assegnare il valore decompresso al valore dello stesso nome di proprietà sull'oggetto di sinistra. In questo caso, stiamo assegnando il valore "💀" a `spookyItems[3]`. Ciò significa che stiamo modificando l'array `spookyItems`, stiamo aggiungendo il "💀" ad esso. Quando facciamo console.log di `spookyItems`, `["👻", "🎃", "🕸", "💀"]` viene loggato.
 
 </p>
@@ -4339,7 +4320,7 @@ funcTwo();
 
 #### Risposta: C
 
-Innanzitutto, invochiamo `funcOne`. Sulla prima riga di `funcOne`, chiamiamo la funzione _asincrona_ `setTimeout`, da cui la callback viene inviato all'API Web. (vedi l'articolo sul ciclo degli eventi <a href="https://dev.to/lydiahallie/javascript-visualized-event-loop-3dif">qui</a>.)
+Innanzitutto, invochiamo `funcOne`. Sulla prima riga di `funcOne`, chiamiamo la funzione _asincrona_ `setTimeout`, da cui la callback viene inviato all'API Web. (vedi l'articolo sul ciclo degli eventi [qui](https://dev.to/lydiahallie/javascript-visualized-event-loop-3dif))
 
 Quindi chiamiamo la promise `myPromise`, che è un'operazione _asincrona_.
 
@@ -4347,9 +4328,9 @@ Sia la promise che il timeout sono operazioni asincrone, la funzione continua a 
 
 Poiché la callstack non è ancora vuota, la funzione `setTimeout` e la promise in `funcOne` non possono ancora essere aggiunte al callstack.
 
-In `funcTwo`, la variabile `res` ottiene `Promise` perché `Promise.resolve(Promise.resolve('Promise'))` è equivalente a `Promise.resolve('Promise')` poiché risolvere una promise risolve semplicemente che è valore. L'"attesa" in questa riga interrompe l'esecuzione della funzione fino a quando non riceve la risoluzione della promise e quindi continua a funzionare in modo sincrono fino al completamento, quindi `Promise 2!` e poi `Last line 2!` vengono registrati e "setTimeout ` viene inviato all'API Web.
+In `funcTwo`, la variabile `res` ottiene `Promise` perché `Promise.resolve(Promise.resolve('Promise'))` è equivalente a `Promise.resolve('Promise')` poiché risolvere una promise risolve il suo valore. L'"attesa" in questa riga interrompe l'esecuzione della funzione fino a quando non riceve la risoluzione della promise e quindi continua a funzionare in modo sincrono fino al completamento, quindi `Promise 2!` e poi `Last line 2!` vengono registrati e `setTimeout` viene inviato all'API Web.
 
-Quindi lo stack di chiamate è vuoto. Le promise sono _microattività_ quindi vengono risolte per prime quando lo stack di chiamate è vuoto, quindi `Promise 1!` viene registrato.
+Quindi lo stack di chiamate è vuoto. Le promise sono _microattività_, quindi vengono risolte per prime quando lo stack di chiamate è vuoto, quindi `Promise 1!` viene registrato.
 
 Ora, da quando `funcTwo` è uscito dallo stack delle chiamate, lo stack delle chiamate è vuoto. Le callback in attesa nella coda (`() => console.log("Timeout 1!")` da `funcOne`, e `() => console.log("Timeout 2!")` da `funcTwo`) vengono aggiunti allo stack di chiamate uno per uno. Il primo callback registra `Timeout 1!` e viene eliminato dallo stack. Quindi, il secondo callback registra `Timeout 2!` e viene eliminato dallo stack.
 </p>
@@ -4900,7 +4881,7 @@ console.log(updatedUser === user)
 
 #### Risposta: B
 
-La funzione `updateUser` aggiorna i valori delle proprietà `email` e `password` sull'utente se i loro valori vengono passati alla funzione, dopodiché la funzione restituisce l'oggetto `user`. Il valore restituito dalla funzione `updateUser` è l'oggetto `user`, il che significa che il valore di updateUser è un riferimento allo stesso oggetto `user` a cui punta `user`. `updatedUser === user` è uguale a `true`.
+La funzione `updateUser` aggiorna i valori delle proprietà `email` e `password` sull'utente se i loro valori vengono passati alla funzione, dopodiché la funzione restituisce l'oggetto `user`. Il valore restituito dalla funzione `updateUser` è l'oggetto `user`, il che significa che il valore di `updateUser` è un riferimento allo stesso oggetto `user` a cui punta `user`. `updatedUser === user` è uguale a `true`.
 
 </p>
 </details>
@@ -5035,7 +5016,7 @@ runPromises()
 
 #### Risposta: D
 
-Il metodo `Promise.all` esegue le promise passate in parallelo. Se una promise fallisce, il metodo `Promise.all` effettua un _rejects_ con il valore della prmise rifiutata. In questo caso, `promise3` ha rifiutato con il valore `"Third"`. Stiamo rilevando il valore rifiutato nel metodo `catch` concatenato sulla chiamata `runPromises` per rilevare eventuali errori all'interno della funzione `runPromises`. Solo `"Third"` viene registrato, poiché `promise3` viene rifiutato con questo valore.
+Il metodo `Promise.all` esegue le promise passate in parallelo. Se una promise fallisce, il metodo `Promise.all` effettua un _rejects_ con il valore della promise rifiutata. In questo caso, `promise3` ha rifiutato con il valore `"Third"`. Stiamo rilevando il valore rifiutato nel metodo `catch` concatenato sulla chiamata `runPromises` per rilevare eventuali errori all'interno della funzione `runPromises`. Solo `"Third"` viene registrato, poiché `promise3` viene rifiutato con questo valore.
 
 </p>
 </details>
@@ -5100,7 +5081,7 @@ console.log(member)
 
 #### Risposta: C
 
-Il valore predefinito di `address` è un oggetto vuoto `{}`. Quando abbiamo impostato la variabile `member` uguale all'oggetto restituito dalla funzione `createMember`, non abbiamo passato un valore per address, il che significa che il valore di address è l'oggetto vuoto predefinito `{}`. Un oggetto vuoto è un valore veritiero, il che significa che la condizione `address ? address : null` restituisce `true`. Il valore di address è l'oggetto vuoto `{}`.
+Il valore predefinito di `address` è un oggetto vuoto `{}`. Quando abbiamo impostato la variabile `member` uguale all'oggetto restituito dalla funzione `createMember`, non abbiamo passato un valore per `address`, il che significa che il valore di `address` è l'oggetto vuoto predefinito `{}`. Un oggetto vuoto è un valore veritiero, il che significa che la condizione `address ? address : null` restituisce `true`. Il valore di `address` è l'oggetto vuoto `{}`.
 
 </p>
 </details>
