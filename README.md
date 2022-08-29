@@ -847,7 +847,7 @@ String.prototype.giveLydiaPizza = () => {
 
 const name = 'Lydia';
 
-name.giveLydiaPizza();
+console.log(name.giveLydiaPizza())
 ```
 
 - A: `"Just give Lydia pizza already!"`
@@ -1142,9 +1142,9 @@ numbers[10] = 11;
 console.log(numbers);
 ```
 
-- A: `[1, 2, 3, 7 x null, 11]`
+- A: `[1, 2, 3, null x 7, 11]`
 - B: `[1, 2, 3, 11]`
-- C: `[1, 2, 3, 7 x empty, 11]`
+- C: `[1, 2, 3, empty x 7, 11]`
 - D: `SyntaxError`
 
 <details><summary><b>Answer</b></summary>
@@ -1154,7 +1154,7 @@ console.log(numbers);
 
 When you set a value to an element in an array that exceeds the length of the array, JavaScript creates something called "empty slots". These actually have the value of `undefined`, but you will see something like:
 
-`[1, 2, 3, 7 x empty, 11]`
+`[1, 2, 3, empty x 7, 11]`
 
 depending on where you run it (it's different for every browser, node, etc.)
 
@@ -4162,7 +4162,7 @@ getInfo();
 
 #### Answer: D
 
-Variables declared with the `const` keyword are not referencable before their initialization: this is called the _temporal dead zone_. In the `getInfo` function, the variable `randomValue` is scoped in the functional scope of `getInfo`. On the line where we want to log the value of `typeof randomValue`, the variable `randomValue` isn't initialized yet: a `ReferenceError` gets thrown! The engine didn't go down the scope chain since we declared the variable `randomValue` in the `getInfo` function.
+Variables declared with the `const` keyword are not referenceable before their initialization: this is called the _temporal dead zone_. In the `getInfo` function, the variable `randomValue` is scoped in the functional scope of `getInfo`. On the line where we want to log the value of `typeof randomValue`, the variable `randomValue` isn't initialized yet: a `ReferenceError` gets thrown! The engine didn't go down the scope chain since we declared the variable `randomValue` in the `getInfo` function.
 
 </p>
 </details>
@@ -4439,7 +4439,7 @@ Object.seal(person);
 
 #### Answer: A
 
-With `Object.seal` we can prevent new properies from being _added_, or existing properties to be _removed_.
+With `Object.seal` we can prevent new properties from being _added_, or existing properties to be _removed_.
 
 However, you can still modify the value of existing properties.
 

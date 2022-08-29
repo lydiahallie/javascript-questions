@@ -16,7 +16,7 @@
 - [🇪🇸 Español](../es-ES/README-ES.md)
 - [🇫🇷 Français](../fr-FR/README_fr-FR.md)
 - [🇮🇩 Indonesia](../id-ID/README.md)
-- [🇮🇹 Italiano](./it-IT/README.md)
+- [🇮🇹 Italiano](../it-IT/README.md)
 - [🇰🇷 한국어](../ko-KR/README-ko_KR.md)
 - [🇳🇱 Nederlands](../nl-NL/README.md)
 - [🇧🇷 Português Brasil](../pt-BR/README_pt_BR.md)
@@ -855,7 +855,7 @@ String.prototype.giveLydiaPizza = () => {
 
 const name = "Lydia";
 
-name.giveLydiaPizza();
+console.log(name.giveLydiaPizza())
 ```
 
 - A: `"Just give Lydia pizza already!"`
