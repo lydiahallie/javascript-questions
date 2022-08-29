@@ -6,25 +6,25 @@ Do básico ao avançado: Teste quão bem você conhece o JavaScript, refresque u
 
 As respostas estão em seções recolhidas abaixo das questões, basta clicar nelas para expandir. Boa sorte :heart:
 
-- [🇸🇦 العربية](./ar-AR/README_AR.md)
-- [🇪🇬 اللغة العامية](./ar-EG/README_ar-EG.md)
-- [🇧🇦 Bosanski](./bs-BS/README-bs_BS.md)
-- [🇩🇪 Deutsch](./de-DE/README.md)
+- [🇸🇦 العربية](../ar-AR/README_AR.md)
+- [🇪🇬 اللغة العامية](../ar-EG/README_ar-EG.md)
+- [🇧🇦 Bosanski](../bs-BS/README-bs_BS.md)
+- [🇩🇪 Deutsch](../de-DE/README.md)
 - [🇬🇧 English](../README.md)
-- [🇪🇸 Español](./es-ES/README-ES.md)
-- [🇫🇷 Français](./fr-FR/README_fr-FR.md)
-- [🇮🇩 Indonesia](./id-ID/README.md)
-- [🇮🇹 Italiano](./it-IT/README.md)
-- [🇯🇵 日本語](./ja-JA/README-ja_JA.md)
-- [🇰🇷 한국어](./ko-KR/README-ko_KR.md)
-- [🇳🇱 Nederlands](./nl-NL/README.md)
-- [🇷🇺 Русский](./ru-RU/README.md)
-- [🇹🇭 ไทย](./th-TH/README-th_TH.md)
-- [🇹🇷 Türkçe](./tr-TR/README-tr_TR.md)
-- [🇺🇦 Українська мова](./uk-UA/README.md)
-- [🇻🇳 Tiếng Việt](./vi-VI/README-vi.md)
-- [🇨🇳 简体中文](./zh-CN/README-zh_CN.md)
-- [🇹🇼 繁體中文](./zh-TW/README_zh-TW.md)
+- [🇪🇸 Español](../es-ES/README-ES.md)
+- [🇫🇷 Français](../fr-FR/README_fr-FR.md)
+- [🇮🇩 Indonesia](../id-ID/README.md)
+- [🇮🇹 Italiano](../it-IT/README.md)
+- [🇯🇵 日本語](../ja-JA/README-ja_JA.md)
+- [🇰🇷 한국어](../ko-KR/README-ko_KR.md)
+- [🇳🇱 Nederlands](../nl-NL/README.md)
+- [🇷🇺 Русский](../ru-RU/README.md)
+- [🇹🇭 ไทย](../th-TH/README-th_TH.md)
+- [🇹🇷 Türkçe](../tr-TR/README-tr_TR.md)
+- [🇺🇦 Українська мова](../uk-UA/README.md)
+- [🇻🇳 Tiếng Việt](../vi-VI/README-vi.md)
+- [🇨🇳 简体中文](../zh-CN/README-zh_CN.md)
+- [🇹🇼 繁體中文](../zh-TW/README_zh-TW.md)
 
 
 ---
@@ -1203,7 +1203,7 @@ JavaScript tem somente tipos primitivos e objetos.
 
 Tipos primitivos são `boolean`, `null`, `undefined`, `bigint`, `number`, `string`, e `symbol`.
 
-O que diferencia um primitivo de um objeto é que primitivos não métodos ou propriedades. Contudo, se você está atento vai lembrar que `'foo'.toUpperCase()` retorna `'FOO'` e não resulta em um `TypeError`. Isso acontece pois quando você tenta acessar uma propriedade ou método em um primitivo como, por exemplo, uma string, JavaScript vai transformar esse primitivo em objeto usando um _wrapper_, nesse caso o `String`, e discarta o wrapper imediatamente após executar o método ou propriedade. Todos os primitivos, com exceção de `null` e `undefined` exibem esse comportamento.
+O que diferencia um primitivo de um objeto é que primitivos não possuem métodos ou propriedades. Contudo, se você está atento vai lembrar que `'foo'.toUpperCase()` retorna `'FOO'` e não resulta em um `TypeError`. Isso acontece pois quando você tenta acessar uma propriedade ou método em um primitivo como, por exemplo, uma string, JavaScript vai transformar esse primitivo em objeto usando um _wrapper_, nesse caso o `String`, e discarta o wrapper imediatamente após executar o método ou propriedade. Todos os primitivos, com exceção de `null` e `undefined` exibem esse comportamento.
 
 </p>
 </details>
