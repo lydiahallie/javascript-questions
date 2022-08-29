@@ -845,7 +845,7 @@ String.prototype.giveLydiaPizza = () => {
 
 const name = "Lydia";
 
-name.giveLydiaPizza();
+console.log(name.giveLydiaPizza())
 ```
 
 - A: `"Just give Lydia pizza already!"`
