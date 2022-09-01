@@ -5108,7 +5108,7 @@ The condition within the `if` statement checks whether the value of `!typeof ran
 
 ---
 
-###### 156. What's the output of "**arguments[0]**" ?
+###### 156. What's the output of "`arguments[0]`" ?
 
 ```javascript
 function collection1([...nums]) {
