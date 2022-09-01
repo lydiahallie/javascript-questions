@@ -5113,35 +5113,31 @@ The condition within the `if` statement checks whether the value of `!typeof ran
 ```javascript
 function collection1([...nums]) {
     console.log(arguments[0]);
-    console.log(nums);
+    // console.log(nums);
 }
 function collection2(...nums) {
     console.log(arguments[0]);
-    console.log(nums);
+    // console.log(nums);
 }
 
 collection1([1, 2, 3, 4, 5, 6]); // [1]
-collection2(1, 2, 3, 4, 5, 6); // [2]
-collection1(1, 2, 3, 4, 5, 6); // [3]
+collection1(1, 2, 3, 4, 5, 6); // [2]
+collection2(1, 2, 3, 4, 5, 6); // [3]
 ```
 
 | choices\results | 1             | 2             | 3             |
 | --------------- | ------------- | ------------- | ------------- |
-| A               | **Arguments** | **Array**     | **1**         |
-| B               | **1**         | **Array**     | **TypeError** |
-| C               | **Array**     | **1**         | **TypeError** |
-| D               | **Array**     | **Arguemnts** | **Array**     |
+| A               | **Arguments** | **1**         | **Array**     |
+| B               | **1**         | **TypeError** | **Array**     |
+| C               | **Array**     | **TypeError** | **1**         |
+| D               | **Array**     | **Array**     | **Arguemnts** |
 
-<!--- A: `1- Arguments | 2- Array | 3- (1)`
-- B: `1- (1) | 2- Array | 3- TypeError`
-- C: `1- Array | 2- 1 | 3- TypeError`
-- D: `1- Array | 2- Arguemnts | 3- Array`
--->
 <details><summary><b>Answer</b></summary>
 <p>
 
 #### Answer: C
 
+[1]
 **first function** accept from programmer an `array`, then the programmer have to pass an array as argument in this function `collection1(:Iterable<any>)`
 and `arguments` as `array-like` store everything you pass it in the function. in our case **your passed array**, then answer is `arguments[0] = Array` that you passed.
 
@@ -5153,11 +5149,9 @@ so `arguments[0] = nums` as values no as reference
 </details>
 <br>
 
-**second function** accept from programmer an separated elements as arguments, then the parameter do `rest array`, where any elements you passed in function, will be stored in `nums`
-but `arguments` will store every separated elements entered wihtin its `array-like`
-
+[2]
 **but if we didn't pass an array(iterable) in first function `collection1(iterable<any>)`?**
-like we did in line [3]
+like we did in line [2]
 Engine will throw an error `TypeError: (destructured parameter) is not iterable`
 _Why_? simply because that's not make sense to do like this
 
@@ -5167,6 +5161,10 @@ console.log(arr);
 ```
 
 **destrcturing** for Iterables like array, not for individual value.
+
+[3]
+**second function** accept from programmer an separated elements as arguments, then the parameter do `rest array`, where any elements you passed in function, will be stored in `nums`
+but `arguments` will store every separated elements entered wihtin its `array-like`
 
 </p>
 </details>
