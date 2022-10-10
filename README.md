@@ -2390,9 +2390,9 @@ Since `shape` is frozen, and since the value of `x` is not an object, we cannot 
 ###### 76. What's the output?
 
 ```javascript
-const { name: myName } = { name: 'Lydia' };
+const { x: myName } = { x: 'Lydia' };
 
-console.log(name);
+console.log(x);
 ```
 
 - A: `"Lydia"`
@@ -2403,13 +2403,13 @@ console.log(name);
 <details><summary><b>Answer</b></summary>
 <p>
 
-#### Answer: C
+#### Answer: D
 
-When we unpack the property `name` from the object on the right-hand side, we assign its value `"Lydia"` to a variable with the name `myName`.
+When we unpack the property `x` from the object on the right-hand side, we assign its value `"Lydia"` to a variable with the name `myName`.
 
-With `{ name: myName }`, we tell JavaScript that we want to create a new variable called `myName` with the value of the `name` property on the right-hand side.
+With `{ x: myName }`, we tell JavaScript that we want to create a new variable called `myName` with the value of the `x` property on the right-hand side.
 
-Since we try to log `name`, a variable that is not defined, `undefined` is returned on the left side assignment. Later, the value of `Lydia` is stored through the destructuring  assignment. 
+Since we try to log `x`, a variable that doesn't exist, a `ReferenceError` is thrown. Later, the value of `Lydia` is stored through the destructuring  assignment. 
 
 </p>
 </details>
