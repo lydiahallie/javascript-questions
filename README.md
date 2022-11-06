@@ -2223,7 +2223,7 @@ With the `+` operator, you can concatenate strings. In this case, we are concate
 function* startGame() {
   const answer = yield 'Do you love JavaScript?';
   if (answer !== 'Yes') {
-    return "Oh wow... Guess we're gone here";
+    return "Oh wow... Guess we're done here";
   }
   return 'JavaScript loves you back ❤️';
 }
