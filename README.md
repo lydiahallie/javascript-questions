@@ -2861,7 +2861,7 @@ console.log(typeof member);
 Classes are syntactical sugar for function constructors. The equivalent of the `Person` class as a function constructor would be:
 
 ```javascript
-function Person() {
+function Person(name) {
   this.name = name;
 }
 ```
