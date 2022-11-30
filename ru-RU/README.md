@@ -2546,9 +2546,9 @@ function sayHi(name) {
 console.log(sayHi())
 ```
 
-- A: `Hello there, `
-- B: `Hello there, undefined`
-- C: `Hello there, null`
+- A: `Hi there, `
+- B: `Hi there, undefined`
+- C: `Hi there, null`
 - D:  `ReferenceError`
 
 <details><summary><b>Ответ</b></summary>
