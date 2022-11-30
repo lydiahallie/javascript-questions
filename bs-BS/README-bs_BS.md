@@ -937,7 +937,7 @@ vraća "true".
 
 * * * * *
 
-######  Što je izlaz?
+###### 28. Što je izlaz?
 
 ```javascript
 String.prototype.giveLydiaPizza = () => {
