@@ -5125,12 +5125,12 @@ collection1(1, 2, 3, 4, 5, 6); // [2]
 collection2(1, 2, 3, 4, 5, 6); // [3]
 ```
 
-| choices\results | 1             | 2             | 3             |
-| --------------- | ------------- | ------------- | ------------- |
-| A               | **Arguments** | **1**         | **Array**     |
-| B               | **1**         | **TypeError** | **Array**     |
-| C               | **Array**     | **TypeError** | **1**         |
-| D               | **Array**     | **Array**     | **Arguemnts** |
+
+
+- A: [1] **Arguments**, [2] **1**, [3] **Array**
+- B: [1] **1**, [2] **TypeError**, [3] **Array**
+- C: [1] **Array**, [2] **TypeError**, [3] **1**
+- D: [1] **Array**, [2] **Array**, [3] **Arguments**
 
 <details><summary><b>Answer</b></summary>
 <p>
