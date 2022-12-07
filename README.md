@@ -2434,10 +2434,12 @@ Therefore, `firstName` does not exist as a variable, thus attempting to access i
 const { name: myName } = { name: 'Lydia' };
 
 console.log(myName); // "lydia"
-console.log(name); // ""
+console.log(name); // "" ----- Browser e.g. Chrome
+console.log(name); // ReferenceError: name is not defined  ----- NodeJS
+
 ```
 
-`name` is a global scope property, so when javascript is unable to find the name as a local variable, it looks at the _outer scopes_, which in this case is **window/global**, so it can be accessed via `window.name`.
+`name` is a global scope property in the `browser`, so when javascript is unable to find the name as a local variable, it looks at the _outer scopes_, which in this case is **window**, so it can be accessed via `window.name`. But, in `NodeJS`, there is no such property on the `global` object, thus attempting to access a non-existent variable will raise a `ReferenceError`.
 
 </p>
 </details>
