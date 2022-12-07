@@ -2390,9 +2390,9 @@ Since `shape` is frozen, and since the value of `x` is not an object, we cannot 
 ###### 76. What's the output?
 
 ```javascript
-const { name: myName } = { name: 'Lydia' };
+const { firstName: myName } = { firstName: 'Lydia' };
 
-console.log(name);
+console.log(firstName);
 ```
 
 - A: `"Lydia"`
@@ -2403,13 +2403,41 @@ console.log(name);
 <details><summary><b>Answer</b></summary>
 <p>
 
-#### Answer: C
+#### Answer: D
 
-When we unpack the property `name` from the object on the right-hand side, we assign its value `"Lydia"` to a variable with the name `myName`.
+By using [destructuring assignment](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment) syntax we can unpack values from arrays, or properties from objects, into distinct variables:
 
-With `{ name: myName }`, we tell JavaScript that we want to create a new variable called `myName` with the value of the `name` property on the right-hand side.
+```javascript
+const { firstName } = { firstName: 'Lydia' };
+// ES5 version:
+// var firstName = { firstName: 'Lydia' }.firstName;
 
-Since we try to log `name`, a variable that is not defined, `undefined` is returned on the left side assignment. Later, the value of `Lydia` is stored through the destructuring  assignment. 
+console.log(firstName); // "Lydia"
+```
+
+Also, a property can be unpacked from an object and assigned to a variable with a different name than the object property:
+
+```javascript
+const { firstName: myName } = { firstName: 'Lydia' };
+// ES5 version:
+// var myName = { firstName: 'Lydia' }.firstName;
+
+console.log(myName); // "Lydia"
+console.log(firstName); // Uncaught ReferenceError: firstName is not defined
+```
+
+Therefore, `firstName` does not exist as a variable, thus attempting to access its value will raise a `ReferenceError`.
+
+**Note:** Be aware of the `global scope` properties:
+
+```javascript
+const { name: myName } = { name: 'Lydia' };
+
+console.log(myName); // "lydia"
+console.log(name); // ""
+```
+
+`name` is a global scope property, so when javascript is unable to find the name as a local variable, it looks at the _outer scopes_, which in this case is **window/global**, so it can be accessed via `window.name`.
 
 </p>
 </details>
