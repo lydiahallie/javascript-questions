@@ -2439,7 +2439,11 @@ console.log(name); // ReferenceError: name is not defined  ----- NodeJS
 
 ```
 
-`name` is a global scope property in the `browser`, so when javascript is unable to find the name as a local variable, it looks at the _outer scopes_, which in this case is **window**, so it can be accessed via `window.name`. But, in `NodeJS`, there is no such property on the `global` object, thus attempting to access a non-existent variable will raise a `ReferenceError`.
+Whenever Javascript is unable to find a variable within the _current scope_, it climbs up the [Scope chain](https://github.com/getify/You-Dont-Know-JS/blob/2nd-ed/scope-closures/ch3.md) and searches for it and if it reaches the top-level scope, aka **Global scope**, and still doesn't find it, it will throw a `ReferenceError`.
+
+- In **Browsers** such as _Chrome_, `name` is a _deprecated global scope property_. In this example, the code is running inside _global scope_ and there is no user defined local variable for `name`, therefore it searches the predefined _variables/properties_ in the global scope which is in case of browsers, it searches through `window` object and it will extract the [window.name](https://developer.mozilla.org/en-US/docs/Web/API/Window/name) value which is equal to an **empty string**.
+
+- In **NodeJS**, there is no such property on the `global` object, thus attempting to access a non-existent variable will raise a [ReferenceError](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Errors/Not_defined).
 
 </p>
 </details>
