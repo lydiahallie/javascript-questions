@@ -5102,3 +5102,37 @@ The condition within the `if` statement checks whether the value of `!typeof ran
 
 </p>
 </details>
+
+---
+
+###### 156. What should the value of `method` be to log `{ name: "Lydia", age: 22 }`? 
+
+```javascript
+var a = 10;
+{
+    let a = 100;
+    console.log(a);
+    {
+        var a = 200;
+        console.log(a);
+    }
+}
+console.log(a);
+```
+
+- A: `Syntax Error at line 3`
+- B: `Syntax Error at line 6`
+- C: `100 200 10`
+- D: `100 200 200`
+
+<details><summary><b>Answer</b></summary>
+<p>
+
+#### Answer: B
+
+When a variable is shadowing another variable, it should not cross the boundary of its scope. `let` is block-scoped so it can shadow the variable at line 1 but `var` is not block-scoped, so it cannot shadow the variable at line 3. That's why it throws the syntax error.
+
+</p>
+</details>
+
+---
