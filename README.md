@@ -2390,9 +2390,9 @@ Since `shape` is frozen, and since the value of `x` is not an object, we cannot 
 ###### 76. What's the output?
 
 ```javascript
-const { name: myName } = { name: 'Lydia' };
+const { firstName: myName } = { firstName: 'Lydia' };
 
-console.log(name);
+console.log(firstName);
 ```
 
 - A: `"Lydia"`
@@ -2403,13 +2403,47 @@ console.log(name);
 <details><summary><b>Answer</b></summary>
 <p>
 
-#### Answer: C
+#### Answer: D
 
-When we unpack the property `name` from the object on the right-hand side, we assign its value `"Lydia"` to a variable with the name `myName`.
+By using [destructuring assignment](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment) syntax we can unpack values from arrays, or properties from objects, into distinct variables:
 
-With `{ name: myName }`, we tell JavaScript that we want to create a new variable called `myName` with the value of the `name` property on the right-hand side.
+```javascript
+const { firstName } = { firstName: 'Lydia' };
+// ES5 version:
+// var firstName = { firstName: 'Lydia' }.firstName;
 
-Since we try to log `name`, a variable that is not defined, `undefined` is returned on the left side assignment. Later, the value of `Lydia` is stored through the destructuring  assignment. 
+console.log(firstName); // "Lydia"
+```
+
+Also, a property can be unpacked from an object and assigned to a variable with a different name than the object property:
+
+```javascript
+const { firstName: myName } = { firstName: 'Lydia' };
+// ES5 version:
+// var myName = { firstName: 'Lydia' }.firstName;
+
+console.log(myName); // "Lydia"
+console.log(firstName); // Uncaught ReferenceError: firstName is not defined
+```
+
+Therefore, `firstName` does not exist as a variable, thus attempting to access its value will raise a `ReferenceError`.
+
+**Note:** Be aware of the `global scope` properties:
+
+```javascript
+const { name: myName } = { name: 'Lydia' };
+
+console.log(myName); // "lydia"
+console.log(name); // "" ----- Browser e.g. Chrome
+console.log(name); // ReferenceError: name is not defined  ----- NodeJS
+
+```
+
+Whenever Javascript is unable to find a variable within the _current scope_, it climbs up the [Scope chain](https://github.com/getify/You-Dont-Know-JS/blob/2nd-ed/scope-closures/ch3.md) and searches for it and if it reaches the top-level scope, aka **Global scope**, and still doesn't find it, it will throw a `ReferenceError`.
+
+- In **Browsers** such as _Chrome_, `name` is a _deprecated global scope property_. In this example, the code is running inside _global scope_ and there is no user defined local variable for `name`, therefore it searches the predefined _variables/properties_ in the global scope which is in case of browsers, it searches through `window` object and it will extract the [window.name](https://developer.mozilla.org/en-US/docs/Web/API/Window/name) value which is equal to an **empty string**.
+
+- In **NodeJS**, there is no such property on the `global` object, thus attempting to access a non-existent variable will raise a [ReferenceError](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Errors/Not_defined).
 
 </p>
 </details>
