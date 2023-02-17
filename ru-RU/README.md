@@ -324,7 +324,12 @@ console.log(greetign);
 
 #### Ответ: A
 
-В консоли выведется объект, потому что мы только что создали пустой объект в глобальном объекте! Когда мы вместо `greeting` написали `greetign`, интерпретатор JS на самом деле выполнил `global.greetign = {}` (или `window.greetign = {}` в браузере).
+В консоли выведется объект, потому что мы только что создали пустой объект в глобальном объекте! Когда мы вместо `greeting` написали `greetign`, интерпретатор JS на самом деле увидел:
+
+1. `global.greetign = {}` в Node.js
+2. `window.greetign = {}`, `frames.geetign = {}` и `self.greetign` в браузерах.
+3. `self.greetign` в веб-воркерах.
+4. `globalThis.greetign` во всех окружениях.
 
 Нужно использовать `"use strict"`, чтобы избежать такого поведения. Эта запись поможет быть уверенным в том, что переменная была определена перед тем как ей присвоили значение.
 
@@ -2390,9 +2395,9 @@ console.log(shape);
 ###### 76. Какой будет вывод?
 
 ```javascript
-const { name: myName } = { name: 'Lydia' };
+const { firstName: myName } = { firstName: 'Lydia' };
 
-console.log(name);
+console.log(firstName);
 ```
 
 - A: `"Lydia"`
@@ -2405,11 +2410,45 @@ console.log(name);
 
 #### Ответ: D
 
-Когда мы распаковываем свойство `name` из правого объекта, мы присваиваем его значение `"Lydia"` переменной с именем `myName`.
+Используя [деструктурирующее присваивание](https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment), мы можем распаковывать значения из массивов или свойства из объектов в отдельные переменные:
 
-С помощью `{name: myName}` мы сообщаем JavaScript, что хотим создать новую переменную с именем `myName` со значением свойства `name` в правой части.
+```javascript
+const { firstName } = { firstName: 'Lydia' };
+// Версия ES5:
+// var firstName = { firstName: 'Lydia' }.firstName;
 
-Поскольку мы пытаемся зарегистрировать `name`, переменную, которая не определена, выдается ReferenceError.
+console.log(firstName); // "Lydia"
+```
+
+Также свойство можно распаковать из объекта и присвоить переменной с именем, отличным от имени свойства объекта:
+
+```javascript
+const { firstName: myName } = { firstName: 'Lydia' };
+// Версия ES5:
+// var myName = { firstName: 'Lydia' }.firstName;
+
+console.log(myName); // "Lydia"
+console.log(firstName); // Тут будет ошибка Uncaught ReferenceError: firstName is not defined
+```
+
+В этом случае `firstName` не существует как переменная, поэтому попытка доступа к ее значению вызовет `ReferenceError`.
+
+**Примечание.** Помните о свойствах глобальной области видимости:
+
+```javascript
+const { name: myName } = { name: 'Lydia' };
+
+console.log(myName); // "lydia"
+console.log(name); // "" ----- Браузер, например, Chrome
+console.log(name); // ReferenceError: name is not defined  ----- NodeJS
+
+```
+
+Всякий раз, когда Javascript не может найти переменную в _текущей области видимости_, то поднимается вверх по [цепочке областей видимости](https://developer.mozilla.org/ru/docs/Web/JavaScript/Closures#лексическая_область_видимости) и ищет ее на каждом уровне, и если достигает области верхнего уровня, также известной как **Глобальная область**, и все еще не находит нужной ссылки, то выдает `ReferenceError`.
+
+- В **браузерах**, таких как _Chrome_, `name` является _устаревшим свойством глобальной области_. В этом примере код выполняется внутри _глобальной области_ и нет определяемой пользователем локальной переменной `name`, поэтому интерпретатор ищет предопределенные _переменные/свойства_ в глобальной области видимости, что в случае браузеров происходит через объект `window` и возвращается значение [window.name](https://developer.mozilla.org/en-US/docs/Web/API/Window/name), которое равно **пустой строке**.
+
+- В **NodeJS** такого свойства в "глобальном" объекте нет, поэтому попытка доступа к несуществующей переменной вызовет [ReferenceError](https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Errors/Not_defined).
 
 </p>
 </details>
