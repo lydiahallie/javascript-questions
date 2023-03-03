@@ -822,9 +822,9 @@ name.giveLydiaPizza()
 <details><summary><b>答案</b></summary>
 <p>
 
-#### 答案: A
+#### 答案: B
 
-`String` 是内置的构造函数，我们可以向它添加属性。我只是在它的原型中添加了一个方法。基本类型字符串被自动转换为字符串对象，由字符串原型函数生成。因此，所有 string(string 对象) 都可以访问该方法！
+这是因为你在 String.prototype 上定义了一个名 giveLydiaPizza的新方法，但是你尝试在一个字符串字面量name上调用这个方法。字符串字面量不会被自动转换为字符串对象，因此它们不会继承 String.prototype中的任何方法。如果要在字符串上调用自定义方法，你需要将其转换为字符串对象
 
 </p>
 </details>
