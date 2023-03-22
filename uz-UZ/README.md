@@ -60,19 +60,19 @@ function sayHi() {
 sayHi();
 ```
 
-- A: `Lydia` and `undefined`
-- B: `Lydia` and `ReferenceError`
-- C: `ReferenceError` and `21`
-- D: `undefined` and `ReferenceError`
+- A: `Lydia` va `undefined`
+- B: `Lydia` va `ReferenceError`
+- C: `ReferenceError` va `21`
+- D: `undefined` va `ReferenceError`
 
 <details><summary><b>Javob</b></summary>
 <p>
 
 #### Javob: D
 
-Within the function, we first declare the `name` variable with the `var` keyword. This means that the variable gets hoisted (memory space is set up during the creation phase) with the default value of `undefined`, until we actually get to the line where we define the variable. We haven't defined the variable yet on the line where we try to log the `name` variable, so it still holds the value of `undefined`.
+Funksiya ichida `name` o&apos;zgaruvchisini `var` kalit so&apos;zi bilan e&apos;lon qildik. Bu shuni anglatadiki biz yaratgan o&apos;zgaruvchida `undefined` boshlang&apos;ich qiymati bilan `hoisting` (yaratish bosqichida xotirada joy yaratiladi) jarayoni sodir bo'ladi va bu biz o&apos;zgaruvchiga qiymat bermagunimcha mavjud bo&apos;ladi. Biz hali `name` o&apos;zgaruvchisiga qiymat bermadik, shuning uchun ham bu o&apos;zgaruvchi `undefined` qiymatini saqlab turadi.
 
-Variables with the `let` keyword (and `const`) are hoisted, but unlike `var`, don't get <i>initialized</i>. They are not accessible before the line we declare (initialize) them. This is called the "temporal dead zone". When we try to access the variables before they are declared, JavaScript throws a `ReferenceError`.
+`let` va `const` kalit so&apos;zlari orqali yaratilgan o&apos;zgaruvchilarda ham are `hoisting` jarayoni mavjud lekin `var` dan biroz farq qiladi. Farqi shundaki, `var` da dastlabki qiymat `undefined` ga teng bo&apos;ladi. Lekin `let` va `const` da esa dastlabki qiymat berilmaydi. Bu ikkisi bilan berilgan o&apos;zgaruvchilarni qiymat bermagunimizcha biror yerda ishlata olmaymiz. Va ikkisiga qiymat berilgunga qadar bo&apos;lgan joy `temporal dead zone` (vaqtinchalik "o&apos;lik hudud") deb ataladi. E&apos;lon qilishdan oldin bu kabi o&apos;zgaruvchilarga murojaat qilish, JavaScript dasturlash tilida `ReferenceError`ga sabab bo&apos;ladi.
 
 </p>
 </details>
@@ -91,18 +91,19 @@ for (let i = 0; i < 3; i++) {
 }
 ```
 
-- A: `0 1 2` and `0 1 2`
-- B: `0 1 2` and `3 3 3`
-- C: `3 3 3` and `0 1 2`
+- A: `0 1 2` va `0 1 2`
+- B: `0 1 2` va `3 3 3`
+- C: `3 3 3` va `0 1 2`
+- D: `3 3 3` va `3 3 3`
 
 <details><summary><b>Javob</b></summary>
 <p>
 
 #### Javob: C
 
-Because of the event queue in JavaScript, the `setTimeout` callback function is called _after_ the loop has been executed. Since the variable `i` in the first loop was declared using the `var` keyword, this value was global. During the loop, we incremented the value of `i` by `1` each time, using the unary operator `++`. By the time the `setTimeout` callback function was invoked, `i` was equal to `3` in the first example.
+Birinchi misolda `event queue` sababli JavaScriptda `setTimeout` ichidagi _callback_ funksiyasi for `loop`idan _keyin_ chaqiriladi. Birinchi `loop` dagi `i` `var` kalit so&apos;zi bilan e&apos;lon qilinganligi sababli, bu _global_ qiymat sifatida xotirada saqlanadi. `loop` davomida `i`ning qiymatini `++` _post increment_ `unary` operatori yordamida `1` ga oshirib bordik. `setTimeout` ichidagi _callback_ funksiya ishga tushgunga qadar, `i` qiymati `3` ga tenglab bo&apos;lingan edi. Shu sabab `3` marta `3` (`3 3 3`) javobi `console` ga chiqdi.
 
-In the second loop, the variable `i` was declared using the `let` keyword: variables declared with the `let` (and `const`) keyword are block-scoped (a block is anything between `{ }`). During each iteration, `i` will have a new value, and each value is scoped inside the loop.
+Ikkinchi misolda esa `i` o&apos;zgaruvchisini `let` kalit so&apos;zi yordamida e&apos;lon qildik. `let` va `const` orqali e&apos;lon qilingan barcha o&apos;zgaruvchilar _block-scoped_ (`{ }` ichidagi maydon blok-scope deyiladi). Har bir iteratsiyada `i`ga yangi qiymat berib boriladi. Birinchi iteratsiyada `let i = 0` bilan berilgani sabab `i` 0 ga teng bo&apos;ladi va shu holicha keyingi iteratsiyaga o&apos;tiladi. Va bunda ham dastlabki qiymat `0` ga teng bo&apos;ladi, lekin bunda ana shu `0` shart bajarilgunga qadar o&apos;sib boradi va `1` ga teng bo&apos;ladi. Shunday qilib `let` bilan e&apos;lon qilinganligi sababli `i` har bir iteratsiya davomida qiymatini `0` dan boshlab hisoblaydi.
 
 </p>
 </details>
@@ -124,21 +125,21 @@ console.log(shape.diameter());
 console.log(shape.perimeter());
 ```
 
-- A: `20` and `62.83185307179586`
-- B: `20` and `NaN`
-- C: `20` and `63`
-- D: `NaN` and `63`
+- A: `20` va `62.83185307179586`
+- B: `20` va `NaN`
+- C: `20` va `63`
+- D: `NaN` va `63`
 
 <details><summary><b>Javob</b></summary>
 <p>
 
 #### Javob: B
 
-Note that the value of `diameter` is a regular function, whereas the value of `perimeter` is an arrow function.
+`diameter` bilan aniqlangan funksiya `regular` (muntazam) funksiya hisoblanadi. `perimeter` esa `arrow` (nayza) funksiyasi hisoblanadi.
 
-With arrow functions, the `this` keyword refers to its current surrounding scope, unlike regular functions! This means that when we call `perimeter`, it doesn't refer to the shape object, but to its surrounding scope (window for example).
+`arrow` (nayza) funksiyalarida `this` kalit so&apos;zi shu funksiya turgan obyektning tashqi doirasiga yo&apos;nalish ko&apos;rsatadi. Masalan `let obj = {arrFunc: ()=> console.log(this)}` bu yerdagi `arrFunc`dagi _this_ _global_ `window` obyektiga teng bo&apos;ladi.
 
-There is no value `radius` on that object, which returns `NaN`.
+Bu yerda `window` obyektida radius qiymati yo&apos;qligi sababli ham `NaN` qiymatini qaytaradi.
 
 </p>
 </details>
@@ -152,18 +153,19 @@ There is no value `radius` on that object, which returns `NaN`.
 !"Lydia";
 ```
 
-- A: `1` and `false`
-- B: `false` and `NaN`
-- C: `false` and `false`
+- A: `1` va `false`
+- B: `false` va `NaN`
+- C: `false` va `false`
+- D: `undefined` va `0`
 
 <details><summary><b>Javob</b></summary>
 <p>
 
 #### Javob: A
 
-The unary plus tries to convert an operand to a number. `true` is `1`, and `false` is `0`.
+`+` operatori o&apos;zgaruvchi yoki biror qiymat oldida kelsa, o&apos;sha qiymatni `number` tipiga o&apos;tkazishga harakat qiladi. Masalan `true` _boolean_ qiymatidan oldin kelib, `1` qaytaradu, va `false` oldidan kelib `0` qaytaradi.
 
-The string `'Lydia'` is a truthy value. What we're actually asking, is "is this truthy value falsy?". This returns `false`.
+`'Lydia'` bu yerda `truthy` (rost) qiymat. `!` (emas) operatori esa o&apos;zidan keyin kelgan `truthy` (rost) qiymatlarni `falsy` (yolg&apos;on)larni esa rostga o&apos;zgartirib beradi. Bu yerda `"Lydia"` rost qiymat bo&apos;lganligi sababli ham `false` natija qaytaradi.
 
 </p>
 </details>
@@ -183,9 +185,9 @@ const mouse = {
 };
 ```
 
-- A: `mouse.bird.size` is not valid
-- B: `mouse[bird.size]` is not valid
-- C: `mouse[bird["size"]]` is not valid
+- A: `mouse.bird.size` xato
+- B: `mouse[bird.size]` xato
+- C: `mouse[bird["size"]]` xato
 - D: All of them are valid
 
 <details><summary><b>Javob</b></summary>
@@ -193,13 +195,22 @@ const mouse = {
 
 #### Javob: A
 
-In JavaScript, all object keys are strings (unless it's a Symbol). Even though we might not _type_ them as strings, they are always converted into strings under the hood.
+JavaScriptda barcha `object` _key_ (kalit)lari agar ular `Symbol` bo&apos;lmasagina, `string` hisoblanadi. Qanday bo&apos;lishidan qat&apos;iy nazar biz ularni `string` sifatida yoza olmaymiz lekin, aslida `string` tipiga o&apos;zgartirilib saqlanadi.
 
-JavaScript interprets (or unboxes) statements. When we use bracket notation, it sees the first opening bracket `[` and keeps going until it finds the closing bracket `]`. Only then, it will evaluate the statement.
+JavaScript kod qismlarini kompyuer tiliga tarjima qiladi. Biz `bracket => []` (qavs)dan foydalangainimizda, JavaScript birinchi `[` (qavs)ni ko&apos;radi va uning jusfti `]`ni qidiradi. Juftini topgandan keyingina kod qismlarini hisoblaydi.
 
-`mouse[bird.size]`: First it evaluates `bird.size`, which is `"small"`. `mouse["small"]` returns `true`
+`mouse[bird.size]` qiymatida dastlab `[]` ichidagi `bird.size` qiymatini qidirib topib oladi, va shu topilgan qiymat `mouse["small"]`ga teng bo&apos;ladi. `mouse` obyektida _small_ qiymati mavjudligi uchun ham `B` javob to&apos;g&apos;ri murojaat hisoblanadi va `small`ning qiymati `true` ni qaytaradi.
 
-However, with dot notation, this doesn't happen. `mouse` does not have a key called `bird`, which means that `mouse.bird` is `undefined`. Then, we ask for the `size` using dot notation: `mouse.bird.size`. Since `mouse.bird` is `undefined`, we're actually asking `undefined.size`. This isn't valid, and will throw an error similar to `Cannot read property "size" of undefined`.
+Shu bilan birga `C` javob ham to&apos;g&apos;ri hisoblanadi. Bunda `bracket notation` orqali `string` qiymatlar o&apos;z o&apos;rniga kelib tushgani uchun ham obyektning qiymatlariga to&apos;g&apos;ri murojaat qilish mumkin.
+
+Biroq `dot notation => . ` (. obyekt qiymatiga nuqta bilan murojaat qilish) bilan bu natijaga erishib bo&apos;lmaydi. Chunki `mouse.bird.size` da `mouse` ichidan `bird` ni qidiradi va uni topa olmaydi. Shunda natija `undefined` qaytaradi va `undefined.size` holida qidirishni boshlaydi. Va bu to&apos;g&apos;ri yo&apos;li emas. Shu sabab ham `Cannot read property "size" of undefined` nomli xatolik yuzaga keladi. Ya&apos;ni `undefinedning size qiymatini o'qishning imkoni yo'q` degan tarjima chiqadi.
+
+Javoblardan `true` qiymatiga egasini toping deyilgani uchun ham javob `A` bo&apos;ladi. Chunki qolgan barcha javoblar xato deyilgan bo&apos;lsada lekin to&apos;g&apos;ri. Buni sodda qilib quyidagicha topish mumkin:
+
+- A: `!false`
+- B: `!true`
+- C: `!"Lynda"`
+- D: `A === true && B === true & C === true`
 
 </p>
 </details>
