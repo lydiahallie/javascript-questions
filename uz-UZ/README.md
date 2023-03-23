@@ -172,7 +172,7 @@ Bu yerda `window` obyektida radius qiymati yo&apos;qligi sababli ham `NaN` qiyma
 
 ---
 
-###### 5. Which one is true?
+###### 5. Qaysi biri to&apos;g&apos;ri?
 
 ```javascript
 const bird = {
@@ -239,13 +239,11 @@ console.log(d.greeting);
 
 #### Javob: A
 
-In JavaScript, all objects interact by _reference_ when setting them equal to each other.
+JavaScriptda barcha obyektlar bir-biriga tenglashtirilganda dastlabki obyekt bog&apos;langan nuqta orqali o'zaro ta'sirlashadi.
 
-First, variable `c` holds a value to an object. Later, we assign `d` with the same reference that `c` has to the object.
+Dastlabki `c` o&apos;zgaruvchisi obyekt tipidagi ma&apos;lumotni saqlaydi. Undan keyin biz `d`ni `c`ga tengladik, va `d` ham `c` bog&apos;langan nuqtada yaratildi. Hozir ikkalasi ham bir joydan ma&apos;lumot olayotganligi sababli birining o&apos;zgarishi boshqasiga ham ta&apos;sir qiladi.
 
 <img src="https://i.imgur.com/ko5k0fs.png" width="200">
-
-When you change one object, you change all of them.
 
 </p>
 </details>
@@ -274,11 +272,11 @@ console.log(b === c);
 
 #### Javob: C
 
-`new Number()` is a built-in function constructor. Although it looks like a number, it's not really a number: it has a bunch of extra features and is an object.
+`new Number()` maxsus funksiya konstruktori hisoblanib, raqamga o&apos;xshashiga qaramasdan, bu `number` tipiga kirmaydi. Chunki funksiya konstruktori obyekt yaratadi va `new Number()` orqali yaratilgan qiymat ham obyekt hisoblanadi.
 
-When we use the `==` operator (Equality operator), it only checks whether it has the same _value_. They both have the value of `3`, so it returns `true`.
+`==` (Tenglik operatori) operatoridan foydalanganimizda, bu operator faqat qiymatlarni tekshiradi. Ikkisida ham bir xil `3` qiymati borligi sabab, `true` qaytadi.
 
-However, when we use the `===` operator (Strict equality operator), both value _and_ type should be the same. It's not: `new Number()` is not a number, it's an **object**. Both return `false.`
+Biroq, `===` operatori (Qat&apos;iy tenglik operatori), berilgan qiymatlarni ham qiymati bo&apos;yicha ham tipi bo&apos;yicha tekshiradi, ikki taraflama teng bo&apos;lsagina `true` qaytaradi, aks holda `false`. `new Number()` orqali yaratilgan qiymat **obyekt**. shu sabab ham `false` qaytadi.
 
 </p>
 </details>
@@ -288,24 +286,24 @@ However, when we use the `===` operator (Strict equality operator), both value _
 ###### 8. Natija qanday bo'ladi?
 
 ```javascript
-class Chameleon {
-  static colorChange(newColor) {
+class Xameleon {
+  static rangniOzgartir(newColor) {
     this.newColor = newColor;
     return this.newColor;
   }
 
-  constructor({ newColor = "green" } = {}) {
+  constructor({ newColor = "yashil" } = {}) {
     this.newColor = newColor;
   }
 }
 
-const freddie = new Chameleon({ newColor: "purple" });
-console.log(freddie.colorChange("orange"));
+const freddie = new Xameleon({ newColor: "pushti" });
+console.log(freddie.rangniOzgartir("sarg'ish"));
 ```
 
-- A: `orange`
-- B: `purple`
-- C: `green`
+- A: `sarg'ish`
+- B: `pushti`
+- C: `yashil`
 - D: `TypeError`
 
 <details><summary><b>Javob</b></summary>
@@ -313,7 +311,7 @@ console.log(freddie.colorChange("orange"));
 
 #### Javob: D
 
-The `colorChange` function is static. Static methods are designed to live only on the constructor in which they are created, and cannot be passed down to any children or called upon class instances. Since `freddie` is an instance of class Chameleon, the function cannot be called upon it. A `TypeError` is thrown.
+`rangniOzgartir` funksiydasi **static**. **Static** metodlar faqatgina o&apos;zi yaratilgan joydagi `constructor` ichida mavjuddir, va biror bir boshqa obyekt orqali bu metodni chaqirib bo&apos;lmaydi, hatto meros olingan bo&apos;lsa ham. `freddie` esa **Xameleon** klasining merosxo&apos;ri, Shu sabab ham `rangniOzgartir` statik metodini merosxo&apos;r obyekt ichida ishlatib bo&apos;lmaydi. Bunga harakat qilish `TypeError`ga sabab bo&apos;ladi.
 
 </p>
 </details>
@@ -337,21 +335,21 @@ console.log(greetign);
 
 #### Javob: A
 
-It logs the object, because we just created an empty object on the global object! When we mistyped `greeting` as `greetign`, the JS interpreter actually saw this as:
+Bu yerda **obyekt** `console`da ko&apos;rinadi! Qachonki biz `greeting`ni `greetign` shaklida xato kiritsak, JavaScript `interpretatori` uni turli xil muhitlarda quyidagicha o&apos;qiydi:
 
-1. `global.greetign = {}` in Node.js
-2. `window.greetign = {}`, `frames.geetign = {}` and `self.greetign` in browsers.
-3. `self.greetign` in web workers.
-4. `globalThis.greetign` in all environments.
+1. **Node.js**da `global.greetign = {}`
+2. `window.greetign = {}`, `frames.geetign = {}` va `self.greetign` shakllarida brauzerda.
+3. `self.greetign` sifatida esa `web workers`da.
+4. Va barcha muhitlarda `globalThis.greetign` sifatida ko&apos;rinadi.
 
-In order to avoid this, we can use `"use strict"`. This makes sure that you have declared a variable before setting it equal to anything.
+Bu kabi xatolikni tuzatish uchun `"use strict"`dan foydalanishimiz mumkin. Bu bizga `var`, `let`, `const` ishlatmasdan (e&apos;lon qilmasdan) qiymat berilgan barcha qiymatlarni oldini olish imkonini beradi.
 
 </p>
 </details>
 
 ---
 
-###### 10. What happens when we do this?
+###### 10. Quyidagi kod bajarilganda nima sodir bo'ladi?
 
 ```javascript
 function bark() {
@@ -361,9 +359,9 @@ function bark() {
 bark.animal = "dog";
 ```
 
-- A: Nothing, this is totally fine!
-- B: `SyntaxError`. You cannot add properties to a function this way.
-- C: `"Woof"` gets logged.
+- A: Hech narsa, bunda muammo yo&apos;q!
+- B: `SyntaxError`. Funksiyaga bu kabi xususiyatlar qo&apos;shish mumkin emas.
+- C: `"Woof"` `console`da ko&apos;rinadi.
 - D: `ReferenceError`
 
 <details><summary><b>Javob</b></summary>
@@ -371,9 +369,9 @@ bark.animal = "dog";
 
 #### Javob: A
 
-This is possible in JavaScript, because functions are objects! (Everything besides primitive types are objects)
+`JavaScrip`tda bu usulda funsiyaga xususiyat qo&apos;shish mumkin, chunki funksiyalar ham **obyekt** hisoblanadi! (`primitive`lardan boshqa barcha tip **obyekt** hisoblanadi!)
 
-A function is a special type of object. The code you write yourself isn't the actual function. The function is an object with properties. This property is invocable.
+Funksiya obyektning maxsus turi hisoblanadi. Yuqorida yozilgan kod aslida funksiya emas, balki funksiya ham object ekanini hisobga olsak, bu yerda o&apos;z xususiyatlariga ega obyekt yaratiladi. Ammo bu xususiyatdan foydalanish mumkin emas.
 
 </p>
 </details>
