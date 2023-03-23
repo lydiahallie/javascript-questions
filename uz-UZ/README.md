@@ -404,9 +404,9 @@ console.log(member.getFullName());
 
 #### Javob: A
 
-In JavaScript, functions are objects, and therefore, the method `getFullName` gets added to the constructor function object itself. For that reason, we can call `Person.getFullName()`, but `member.getFullName` throws a `TypeError`.
+JavaScriptda funksiyalar - obyektlardir. Shuning uchun, `getFullName` metodi faqat funksiya konstruktoriga qo&apos;shiladi. `getFullName` metodini faqat konstruktor funksiyadan chaqira olamiz, ammo `member.getFullName` funksiyasiga murojaat qilinsa `TypeError` nomli xatolik qaytaradi.
 
-If you want a method to be available to all object instances, you have to add it to the prototype property:
+Agar siz qo&apos;shilayotgan xususiyat va metodlar obyektning merosxo&apos;rlarida ham bo&apos;lishini istasangiz uning **prototype**iga qo&shishingiz kerak. Quyida bir misolni ko&apos;rib chiqamiz:
 
 ```js
 Person.prototype.getFullName = function () {
@@ -444,9 +444,9 @@ console.log(sarah);
 
 #### Javob: A
 
-For `sarah`, we didn't use the `new` keyword. When using `new`, `this` refers to the new empty object we create. However, if you don't add `new`, `this` refers to the **global object**!
+`sarah` uchun, biz `new` kalit so&apos;zidan foydalanmadik. `new` kalit so&apos;zidan foydalanilsa, `this` yangi bo&apos;sh obyektga murojaat qiladi. Lekin, `new` kalit so&apos;zi ishlatilmasa, `this` **global object**ga murojaat qiladi!
 
-We said that `this.firstName` equals `"Sarah"` and `this.lastName` equals `"Smith"`. What we actually did, is defining `global.firstName = 'Sarah'` and `global.lastName = 'Smith'`. `sarah` itself is left `undefined`, since we don't return a value from the `Person` function.
+Bu yerda `this.firstName` `"Sarah"`ga teng, va `this.lastName` esa `"Smith"`ga. Aslida esa, `new` ishlatilmaganligi sabab `global.firstName = 'Sarah'` va `global.lastName = 'Smith'` shaklida murojaat bo&apos;ladi. Lekin `global` obyektda `sarah` mavjud bo&apos;lmaganligi sabab, `undefined` qaytaradi, `Person` funksiyasidan hech narsa qaytarmagunimizcha.
 
 </p>
 </details>
@@ -465,7 +465,7 @@ We said that `this.firstName` equals `"Sarah"` and `this.lastName` equals `"Smit
 
 #### Javob: D
 
-During the **capturing** phase, the event goes through the ancestor elements down to the target element. It then reaches the **target** element, and **bubbling** begins.
+**capturing** bosqichida, hodisa yuqori turgan elementdan ichki elementlarga kelib tushadi va **target**da to&apos;xtaydi. **target**ga yetib kelgach esa **bubbling** boshlanadi.
 
 <img src="https://i.imgur.com/N18oRgd.png" width="200">
 
@@ -484,7 +484,7 @@ During the **capturing** phase, the event goes through the ancestor elements dow
 
 #### Javob: B
 
-All objects have prototypes, except for the **base object**. The base object is the object created by the user, or an object that is created using the `new` keyword. The base object has access to some methods and properties, such as `.toString`. This is the reason why you can use built-in JavaScript methods! All of such methods are available on the prototype. Although JavaScript can't find it directly on your object, it goes down the prototype chain and finds it there, which makes it accessible for you.
+**base object**dan boshqa har qanday obyektda `prototype` mavjud. **base object** foydalanuvchi yoki `new` kalit so&apos;zi orqali yaratiladi. **base object** bir qancha metod va xususiyatlarga murojaat qilishi mumkin, masalan `.toString` metodiga. Bu JavaScriptdagi maxsus metodlardan foydalanish natijasida kelib chiqadi! Bunday usullarning barchasi **prototype**da mavjud. JavaScript uni to'g'ridan-to'g'ri obyektda topa olmasa ham, u prototip zanjiri bo'ylab pastga tushadi va uni o'sha erda topadi, natijada uni siz uchun ochiq qiladi.
 
 </p>
 </details>
@@ -511,9 +511,9 @@ sum(1, "2");
 
 #### Javob: C
 
-JavaScript is a **dynamically typed language**: we don't specify what types certain variables are. Values can automatically be converted into another type without you knowing, which is called _implicit type coercion_. **Coercion** is converting from one type into another.
+JavaScript dinamik dassturlash tillardan biri hisoblanganligi sababli ham qiymat yaratilayotganda uning qaysi **type**da ekanini aniqlab ketish shart emas. Qiymatlar avtomatik tarzda bir **type**dan boshqasiga o&apos;tishi mumkin. Va bu `implicit type coercion` (tipning majburiy o&apos;zgartirilishi) deb ataladi.
 
-In this example, JavaScript converts the number `1` into a string, in order for the function to make sense and return a value. During the addition of a numeric type (`1`) and a string type (`'2'`), the number is treated as a string. We can concatenate strings like `"Hello" + "World"`, so what's happening here is `"1" + "2"` which returns `"12"`.
+Bu misolda esa, JavaScript `number` tipidagi `1`ni `string`ga o&apos;tkazib yuborildi. Ikk turdagi son (`1`) va satr (`'2'`)ni qo&apos;shish davomida, raqam satrga aylantirilgach natija `"1" + "2"` shakliga keladi. Va `+` operatorining vazifalaridan biri ikki son yoki stringni bir-biriga qo&apos;shish ekanini hisobga olsak, javob `"12"` ga teng.
 
 </p>
 </details>
