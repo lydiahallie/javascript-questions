@@ -542,7 +542,7 @@ console.log(number);
 **postfix** operatori quyidagicha `++`:
 
 1. Dastlab qiymatni qaytaradi, qiymat esa `0`)
-2. Keyin qiymatni `1`ga pshiradi 
+2. Keyin qiymatni `1`ga pshiradi
 
 **prefix** operatori quyidagicha `++`:
 
@@ -716,7 +716,7 @@ sessionStorage.setItem("cool_secret", 123);
 
 #### Javob: B
 
-`sessionStorage`da saqlanayotgan ma&apos;lumot _tab_ni yopgandan keyin o&apos;chib ketadi.
+`sessionStorage`da saqlanayotgan ma&apos;lumot \_tab_ni yopgandan keyin o&apos;chib ketadi.
 
 Agar `localStorage`dan foydalanilganda, ma&apos;lumot butun umr saqlanib qolgan bo&apos;lardi, qachonki `localStorage.clear()` chaqirilmaguncha.
 
@@ -808,7 +808,7 @@ console.log(obj);
 
 ---
 
-###### 26. JavaScriptning `global execution context`i  2 narsa yaratadi: 1. Global Object, 2. "this" kalit so'zi.
+###### 26. JavaScriptning `global execution context`i 2 narsa yaratadi: 1. Global Object, 2. "this" kalit so'zi.
 
 - A: true
 - B: false
@@ -941,7 +941,7 @@ baz();
 
 Chunki brauzerda `runtime engine`ning o&apos;zigina mavjud emas, shuningdek `WebAPI` deb ataluvchi qism ham mavjud bo&apos;lib, `WebAPI` bizga boshlash uchun `setTimeout` funksiyasini beradi, yoki DOMni.
 
-`WebAPI` _callback_ni qabul qilib olgach, `setTimeout` funksiyasining o&apos;zi (ichidagi _callback_ emas) `stack`ni tark etadi.
+`WebAPI` _callback_ni qabul qilib olgach, `setTimeout` funksiyasining o&apos;zi (ichidagi \_callback_ emas) `stack`ni tark etadi.
 
 <img src="https://i.imgur.com/X5wsHOg.png" width="200">
 
@@ -957,7 +957,7 @@ Shunda bizda `foo` chaqiriladi, va `"First"` `console`da ko&apos;rinadi.
 
 <img src="https://i.imgur.com/NSnDZmU.png" width="200">
 
-Aynan shu joydan `event loop` ishlashni boshlaydi. **event loop** `stack` va `task queue` (buyruqlar navbati)ni tekshiradi. Agar `stack` bo&apos;sh bo&apos;lsa, _queue_dagi birinchi ifodani oladi va uni `stack`ga o&apos;tkazadi.
+Aynan shu joydan `event loop` ishlashni boshlaydi. **event loop** `stack` va `task queue` (buyruqlar navbati)ni tekshiradi. Agar `stack` bo&apos;sh bo&apos;lsa, \_queue_dagi birinchi ifodani oladi va uni `stack`ga o&apos;tkazadi.
 
 <img src="https://i.imgur.com/uyiScAI.png" width="200">
 
@@ -988,14 +988,14 @@ Aynan shu joydan `event loop` ishlashni boshlaydi. **event loop** `stack` va `ta
 
 #### Javob: C
 
-`event` sodir bo&apos;lishiga sabab bo&apos;lgan eng quyidagi element `event`ning `target`i hisoblanadi. _bubbling_ni `event.stopPropagation` yordamida to&apos;xtatish mumkin.
+`event` sodir bo&apos;lishiga sabab bo&apos;lgan eng quyidagi element `event`ning `target`i hisoblanadi. \_bubbling_ni `event.stopPropagation` yordamida to&apos;xtatish mumkin.
 
 </p>
 </details>
 
 ---
 
-###### 32. Paragraf bosilganda, _console_da nima chiqadi?
+###### 32. Paragraf bosilganda, \_console_da nima chiqadi?
 
 ```html
 <div onclick="console.log('div')">
@@ -1204,14 +1204,14 @@ Har xil muhitda bu turlicha ko&apos;rinishi mumkin (masalan har ir brauzerda far
 
 Keyinchalik biz bu qiymatni `1`ga tengladik, va `y` qiymatini esa `2`ga tenglashtirdik. Va endi, `block-scoped` qiymati bo&apos;lgan `x`ni `console`ga chiqardik, qaysiki qiymati `1`ga teng bo&apos;lgan o&apos;zgaruvchini. Bu o&apos;zgaruvchi `catch` blogida amal qiladi faqat.
 
-`catch`dan tashqarida esa, `x` hali ham `undefined`ga teng, va `y` esa `2`ga. Qachonki biz `catch` blogidan tashqarida `console.log(x)` ga murojaat qilsak, `undefined`qiymatini  olamiz va `y` esa `2`ni qaytaradi.
+`catch`dan tashqarida esa, `x` hali ham `undefined`ga teng, va `y` esa `2`ga. Qachonki biz `catch` blogidan tashqarida `console.log(x)` ga murojaat qilsak, `undefined`qiymatini olamiz va `y` esa `2`ni qaytaradi.
 
 </p>
 </details>
 
 ---
 
-###### 39. Everything in JavaScript is either a...
+###### 39. JavaScriptda barcha narsa ... hisoblanadi.
 
 - A: primitive or object
 - B: function or object
@@ -1223,11 +1223,11 @@ Keyinchalik biz bu qiymatni `1`ga tengladik, va `y` qiymatini esa `2`ga tenglash
 
 #### Javob: A
 
-JavaScript only has primitive types and objects.
+JavaScriptda `primitive` tiplar va `object`lar mavjud.
 
-Primitive types are `boolean`, `null`, `undefined`, `bigint`, `number`, `string`, and `symbol`.
+`primitive`lar: `boolean`, `null`, `undefined`, `bigint`, `number`, `string`, va `symbol`.
 
-What differentiates a primitive from an object is that primitives do not have any properties or methods; however, you'll note that `'foo'.toUpperCase()` evaluates to `'FOO'` and does not result in a `TypeError`. This is because when you try to access a property or method on a primitive like a string, JavaScript will implicitly wrap the primitive type using one of the wrapper classes, i.e. `String`, and then immediately discard the wrapper after the expression evaluates. All primitives except for `null` and `undefined` exhibit this behaviour.
+`primitive`ning `obyekt`dan farqi shundaki, u o&apos;zida bir nechta qiymat yoki metodlarni saqlamaydi faqat bitta qiymat saqlaydi; biroq, shuni yoddan chiqarmangki `'foo'.toUpperCase()`ga murojaat qilinganda `'FOO'`ni qaytaradi, lekin `TypeError` bermaydi. `string`ga o&apos;xshash biror qiymat yaratilganda, JavaScript majburan o&apos;sha o&apos;zgaruvchini `wrapper class`(o&apos;rab oluvchi klass) bilan o&apos;rab oladi, masalan `String` bilan, va amal tugatilgach darhol o&apos;rab olgan `class`idan chiqarib tashlaydi.`null` va `undefined`dan tashqari barcha `primitive`larda buni qo&apos;llash mumkin.
 
 </p>
 </details>
@@ -1258,9 +1258,9 @@ What differentiates a primitive from an object is that primitives do not have an
 
 #### Javob: C
 
-`[1, 2]` is our initial value. This is the value we start with, and the value of the very first `acc`. During the first round, `acc` is `[1,2]`, and `cur` is `[0, 1]`. We concatenate them, which results in `[1, 2, 0, 1]`.
+`[1, 2]` bu yerda boshlang&apos;ich qiymat hisoblanadi. Ya&apos;ni `acc`ning birinchi qiymati. Birinchi aylanishda, `acc` `[1,2]`ga teng, va `cur` esa `[0, 1]`ga. Biz esa ularni birlashtiramiz, natijada `[1, 2, 0, 1]` hosil bo&apos;ladi.
 
-Then, `[1, 2, 0, 1]` is `acc` and `[2, 3]` is `cur`. We concatenate them, and get `[1, 2, 0, 1, 2, 3]`
+Endi `acc` `[1, 2, 0, 1]`ga teng, `cur` esa `[2, 3]` ga teng. Barchasini birlashtirib `[1, 2, 0, 1, 2, 3]` natijani oldik.
 
 </p>
 </details>
