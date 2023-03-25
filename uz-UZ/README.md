@@ -511,7 +511,7 @@ sum(1, "2");
 
 #### Javob: C
 
-JavaScript dinamik dassturlash tillardan biri hisoblanganligi sababli ham qiymat yaratilayotganda uning qaysi **type**da ekanini aniqlab ketish shart emas. Qiymatlar avtomatik tarzda bir **type**dan boshqasiga o&apos;tishi mumkin. Va bu `implicit type coercion` (tipning majburiy o&apos;zgartirilishi) deb ataladi.
+JavaScript dinamik dasturlash tillardan biri hisoblanganligi sababli ham qiymat yaratilayotganda uning qaysi **type**da ekanini aniqlab ketish shart emas. Qiymatlar avtomatik tarzda bir **type**dan boshqasiga o&apos;tishi mumkin. Va bu `implicit type coercion` (tipning majburiy o&apos;zgartirilishi) deb ataladi.
 
 Bu misolda esa, JavaScript `number` tipidagi `1`ni `string`ga o&apos;tkazib yuborildi. Ikk turdagi son (`1`) va satr (`'2'`)ni qo&apos;shish davomida, raqam satrga aylantirilgach natija `"1" + "2"` shakliga keladi. Va `+` operatorining vazifalaridan biri ikki son yoki stringni bir-biriga qo&apos;shish ekanini hisobga olsak, javob `"12"` ga teng.
 
@@ -539,17 +539,17 @@ console.log(number);
 
 #### Javob: C
 
-The **postfix** unary operator `++`:
+**postfix** operatori quyidagicha `++`:
 
-1. Returns the value (this returns `0`)
-2. Increments the value (number is now `1`)
+1. Dastlab qiymatni qaytaradi, qiymat esa `0`)
+2. Keyin qiymatni `1`ga pshiradi 
 
-The **prefix** unary operator `++`:
+**prefix** operatori quyidagicha `++`:
 
-1. Increments the value (number is now `2`)
-2. Returns the value (this returns `2`)
+1. Dastlab qiymatni `1`ga oshiradi, qiymat esa `2`
+2. Keyin qiymatni qaytaradi `2`
 
-This returns `0 2 2`.
+Yuqoridagi misolning javobi esa `0 2 2`.
 
 </p>
 </details>
@@ -580,7 +580,7 @@ getPersonInfo`${person} is ${age} years old`;
 
 #### Javob: B
 
-If you use tagged template literals, the value of the first argument is always an array of the string values. The remaining arguments get the values of the passed expressions!
+`tagged template literals` (belgilangan shablon harflar)idan foydalansangiz, birinchi argumentning qiymati har doim qator qiymatlari massivi bo'ladi. Qolgan argumentlar o'tgan ifodalarning qiymatlarini oladi!
 
 </p>
 </details>
@@ -612,11 +612,9 @@ checkAge({ age: 18 });
 
 #### Javob: C
 
-When testing equality, primitives are compared by their _value_, while objects are compared by their _reference_. JavaScript checks if the objects have a reference to the same location in memory.
+Tenglik tekshirilganda `primitive` tipdagi o&apos;zgaruvchilarning faqat qiymati taqqoslanadi, `obyekt`lar esa _reference_ (xotiradagi manzil) bo&apos;yicha tekshiriladi. JavaScript obyektlarning xotirada joylashgan o&apos;rnini tekshiradi.
 
-The two objects that we are comparing don't have that: the object we passed as a parameter refers to a different location in memory than the object we used in order to check equality.
-
-This is why both `{ age: 18 } === { age: 18 }` and `{ age: 18 } == { age: 18 }` return `false`.
+Shu sababdan ham `{ age: 18 } === { age: 18 }` va `{ age: 18 } == { age: 18 }` kabi taqqoslov natijasi `false`ga teng bo&apos;ladi.
 
 </p>
 </details>
@@ -643,7 +641,7 @@ getAge(21);
 
 #### Javob: C
 
-The rest parameter (`...args`) lets us "collect" all remaining arguments into an array. An array is an object, so `typeof args` returns `"object"`
+_Rest_ parametri (`...args`) funksiyaning barcha argumentlarini `array` (massiv)ga jamlab beradi. Bilamizki `array` _object_ tipiga tegishli, shu sabab ham `typeof args` `"object"` qaytaradi.
 
 </p>
 </details>
@@ -672,14 +670,14 @@ getAge();
 
 #### Javob: C
 
-With `"use strict"`, you can make sure that you don't accidentally declare global variables. We never declared the variable `age`, and since we use `"use strict"`, it will throw a reference error. If we didn't use `"use strict"`, it would have worked, since the property `age` would have gotten added to the global object.
+`"use strict"`dan tasodifan `global` qiymat yaratib qo&apos;yishning oldini olish uchun foydalaniladi.`"use strict"` ishlatilganda, biz hech qachon `age` o&apos;zgaruvchisini e&apos;lon qilmasdan biror qiymatga tenglay olmaymiz. Bunga harakat qilib ko&apos;rish `reference error`ga sabab bo&apos;ladi. Agar `"use strict"`dan foydalanmaganimzda bu kod `global` obyektga qo&apos;shilib ishlagan bo&apos;lardi.
 
 </p>
 </details>
 
 ---
 
-###### 21. What's the value of `sum`?
+###### 21. `sum`ning qiymati nimaga teng bo'ladi?
 
 ```javascript
 const sum = eval("10*10+5");
@@ -695,32 +693,32 @@ const sum = eval("10*10+5");
 
 #### Javob: A
 
-`eval` evaluates codes that's passed as a string. If it's an expression, like in this case, it evaluates the expression. The expression is `10 * 10 + 5`. This returns the number `105`.
+`eval` funksiyasi `string` tipidagi amallarni hisoblash uchun ishlatiladi. Yuqoridagi holatda dastlab ikki son ko&apos;paytirildi. Natijadan keyin ikkisi ham `string` tipiga ega bo&apos;lganligi bois, `+` operatori `string`larni birlashtirib yubordi. Va natijada `eval` funksiyasi `number` tipiga oid `105` sonini qaytardi.
 
 </p>
 </details>
 
 ---
 
-###### 22. How long is cool_secret accessible?
+###### 22. cool_secret qachongacha mavjud bo'ladi?
 
 ```javascript
 sessionStorage.setItem("cool_secret", 123);
 ```
 
-- A: Forever, the data doesn't get lost.
-- B: When the user closes the tab.
-- C: When the user closes the entire browser, not only the tab.
-- D: When the user shuts off their computer.
+- A: Butun umr, ma'lumot yo'qolmaydi.
+- B: Foydalanuvchi brauzer tabini yopguncha.
+- C: Foydalanuvchi brauzerni to'liq yopguncha.
+- D: Foydalanuvchi kompyuterni o'chirguncha.
 
 <details><summary><b>Javob</b></summary>
 <p>
 
 #### Javob: B
 
-The data stored in `sessionStorage` is removed after closing the _tab_.
+`sessionStorage`da saqlanayotgan ma&apos;lumot _tab_ni yopgandan keyin o&apos;chib ketadi.
 
-If you used `localStorage`, the data would've been there forever, unless for example `localStorage.clear()` is invoked.
+Agar `localStorage`dan foydalanilganda, ma&apos;lumot butun umr saqlanib qolgan bo&apos;lardi, qachonki `localStorage.clear()` chaqirilmaguncha.
 
 </p>
 </details>
@@ -746,9 +744,9 @@ console.log(num);
 
 #### Javob: B
 
-With the `var` keyword, you can declare multiple variables with the same name. The variable will then hold the latest value.
+`var` kalit so&apos;zi bilan e&apos;lon qilingan o&apos;zgaruvchilarni qayta e&apos;lon qilish mumkin, hatto bir necha marta. Va o&apos;zgaruvchi eng oxirgi berilgan qiymatni saqlab qoladi.
 
-You cannot do this with `let` or `const` since they're block-scoped.
+Lekin `let` yoki `const` bilan e&apos;lon qilingan o&apos;zgaruvchilarni bir necha marta qayta e&apos;lon qilib bo&apos;lmaydi. Chunki ular `block-scoped` qiymatlar.
 
 </p>
 </details>
@@ -777,9 +775,9 @@ set.has(1);
 
 #### Javob: C
 
-All object keys (excluding Symbols) are strings under the hood, even if you don't type it yourself as a string. This is why `obj.hasOwnProperty('1')` also returns true.
+Barcha `object` kalitlari => `keys` (`Symbols`dan tashqari) `string` tipida bo&apos;ladi, hatto uni siz `"string"` sifatida yozmasangiz ham. Shu sababli `obj.hasOwnProperty('1')` `true` (rost) qiymatni qaytaradi.
 
-It doesn't work that way for a set. There is no `'1'` in our set: `set.has('1')` returns `false`. It has the numeric type `1`, `set.has(1)` returns `true`.
+`Set`da esa bu ko&apos;rinishda ishlamaydi. `Set`da `'1'` kaliti mavjud emas, shuning uchun ham `set.has('1')` `false` qiymat qaytaradi. Bunda `number` tipidagi `1` mavjud, va `set.has(1)` ifodasi `true` qaytaradi.
 
 </p>
 </details>
@@ -803,14 +801,14 @@ console.log(obj);
 
 #### Javob: C
 
-If you have two keys with the same name, the key will be replaced. It will still be in its first position, but with the last specified value.
+`object`larda ikkita bir xil nomli `key` (kalit)lar mavjud bo&apos;lsa, eng oxirgi yaratilgani olinadi. `value` (qiymat) o&apos;zgarsada, o&apos;zining o&apos;rnini yo&apos;qotmaydi.
 
 </p>
 </details>
 
 ---
 
-###### 26. The JavaScript global execution context creates two things for you: the global object, and the "this" keyword.
+###### 26. JavaScriptning `global execution context`i  2 narsa yaratadi: 1. Global Object, 2. "this" kalit so'zi.
 
 - A: true
 - B: false
@@ -821,7 +819,7 @@ If you have two keys with the same name, the key will be replaced. It will still
 
 #### Javob: A
 
-The base execution context is the global execution context: it's what's accessible everywhere in your code.
+`base execution context` bu `the global execution context` hisoblanadi. Bundan kodning barcha qismida foydalanish mumkin.
 
 </p>
 </details>
