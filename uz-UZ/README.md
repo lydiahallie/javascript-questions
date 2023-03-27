@@ -1285,26 +1285,26 @@ Endi `acc` `[1, 2, 0, 1]`ga teng, `cur` esa `[2, 3]` ga teng. Barchasini birlash
 
 #### Javob: B
 
-`null` is falsy. `!null` returns `true`. `!true` returns `false`.
+`null` falsy qiymat hisoblanadi. `!null` esa `true` qaytaradi. `!true` esa teskarisi bo&apos;lgan `false`ni qaytaradi.
 
-`""` is falsy. `!""` returns `true`. `!true` returns `false`.
+`""` bo&apos;sh `"string"` `falsy`. `!""` esa `true`. `!true` dan keyin yana `false`.
 
-`1` is truthy. `!1` returns `false`. `!false` returns `true`.
+`1` bu `truthy`. `!1` esa `false`. `!false` esa `true`.
 
 </p>
 </details>
 
 ---
 
-###### 42. What does the `setInterval` method return in the browser?
+###### 42. `setInterval` metodi brauzerda nima qaytaradi?
 
 ```javascript
 setInterval(() => console.log("Hi"), 1000);
 ```
 
-- A: a unique id
-- B: the amount of milliseconds specified
-- C: the passed function
+- A: takrorlanmas `id`
+- B: berilgan millisekundlarni
+- C: unga berilgan `callback` funksiyani
 - D: `undefined`
 
 <details><summary><b>Javob</b></summary>
@@ -1312,7 +1312,7 @@ setInterval(() => console.log("Hi"), 1000);
 
 #### Javob: A
 
-It returns a unique id. This id can be used to clear that interval with the `clearInterval()` function.
+Brauzerga takrorlanmas `id`ni qaytaradi. Bu `id` orqali intervalni `clearInterval()` funksiyasi yordamida tozalashimiz mumkin.
 
 </p>
 </details>
@@ -1335,7 +1335,7 @@ It returns a unique id. This id can be used to clear that interval with the `cle
 
 #### Javob: A
 
-A string is an iterable. The spread operator maps every character of an iterable to one element.
+`"string"`larni iteratsiya qilish mumkinligidan kelib chiqsak, `spread` operatorini stringlarda qo&apos;llasa bo&apos;ladi va bu ham `array` kabi ichidagi har bir qiymatni sochib beradi
 
 </p>
 </details>
@@ -1366,18 +1366,18 @@ console.log(gen.next().value);
 
 #### Javob: C
 
-Regular functions cannot be stopped mid-way after invocation. However, a generator function can be "stopped" midway, and later continue from where it stopped. Every time a generator function encounters a `yield` keyword, the function yields the value specified after it. Note that the generator function in that case doesn’t _return_ the value, it _yields_ the value.
+`regular function` (muntazam funksiya)larni dastur davomida to&apos;xtatib bo&apos;lmaydi. Biroq, `generator function` bundan mustasno. Bu funksiya to&apos;xtatilgach qayerda to&apos;xtagan bo&apos;lsa shu yerdan yana boshlaadi.Har safar generator funksiyasi “yield” kalit so‘ziga duch kelganda, funksiya undan keyin ko‘rsatilgan qiymatni beradi. Esda tutingki, bu holda generator funktsiyasi qiymatni _qaytarmaydi_, balki qiymatni _beradi_..
 
-First, we initialize the generator function with `i` equal to `10`. We invoke the generator function using the `next()` method. The first time we invoke the generator function, `i` is equal to `10`. It encounters the first `yield` keyword: it yields the value of `i`. The generator is now "paused", and `10` gets logged.
+Dastlab, biz generator funksiyasini `i`ni `10`ga tenglash orqali boshladik. Biz generatorni `next()` metodi yordamida ishga tushirdik. generatorga birinchi chaqiruv bo&apos;lganda, `i` `10`ga teng bo&apos;ladi. U birinchi `yield` kalit so‘ziga duch keladi: `i` qiymatini beradi. Endi generator to'xtatildi va "10" qayd qilinadi.
 
-Then, we invoke the function again with the `next()` method. It starts to continue where it stopped previously, still with `i` equal to `10`. Now, it encounters the next `yield` keyword, and yields `i * 2`. `i` is equal to `10`, so it returns `10 * 2`, which is `20`. This results in `10, 20`.
+Keyin biz yana `next()` metodi bilan funksiyaga murojaat qildik. Oldin qayerda to&apos;xtagan bo&apos;lsa shu yeridan boshlanadi, `i` hali ham `10`ga teng. Hozir, yana `yield` kalit so&apos;zi kiritildi, va `i * 2` hisoblandi. `i` `10`ga teng,shuning uchun `10 * 2`, va natijada `20` bo&apos;ladi. Bu `10, 20` javobini chiqaradi.
 
 </p>
 </details>
 
 ---
 
-###### 45. What does this return?
+###### 45. Quyidagi kod nima qaytaradi?
 
 ```javascript
 const firstPromise = new Promise((res, rej) => {
@@ -1401,7 +1401,7 @@ Promise.race([firstPromise, secondPromise]).then((res) => console.log(res));
 
 #### Javob: B
 
-When we pass multiple promises to the `Promise.race` method, it resolves/rejects the _first_ promise that resolves/rejects. To the `setTimeout` method, we pass a timer: 500ms for the first promise (`firstPromise`), and 100ms for the second promise (`secondPromise`). This means that the `secondPromise` resolves first with the value of `'two'`. `res` now holds the value of `'two'`, which gets logged.
+Qachonki `Promise.race` metodiga bir qancha `promise`lar berilsa, bu birinchi `promise`ning `resolve` yoki `reject` qilingan qiymatini qaytaradi. `setTimeout` funksiyasiga, `timer` o&apos;rnatildi: birinchi `promise`ga 500ms, va ikkinchisifa 100ms. Bu shuni anglatadiki ikkinchi `promise`da `timer` qisqa ekanligi uchun ham ikkinchi `promise` oldinroq bajarilyapti. `secondPromise` esa `'two'` qiymatini `resolve` qildi, ya&apos;ni bajardi. `res` esa hozir `'two'` qiymatini oladi va `console`ga chiqaradi.
 
 </p>
 </details>
@@ -1428,19 +1428,19 @@ console.log(members);
 
 #### Javob: D
 
-First, we declare a variable `person` with the value of an object that has a `name` property.
+Dastlab, biz `person` o&apos;zgaruvchisini `name` xususiyatiga ega `object`ga tengladik.
 
 <img src="https://i.imgur.com/TML1MbS.png" width="200">
 
-Then, we declare a variable called `members`. We set the first element of that array equal to the value of the `person` variable. Objects interact by _reference_ when setting them equal to each other. When you assign a reference from one variable to another, you make a _copy_ of that reference. (note that they don't have the _same_ reference!)
+Keyin biz `members` nomli boshqa o&apos;zgaruvchi yaratdik. Keyin bu arrayga `person` o&apos;zgaruvchisini berdik. Obyektlar bir-biriga tenglashtirilganda _reference_ orqali o&apos;zaro ta&apos;sir qiladi. Bir o&apos;zgaruvchidan boshqasiga havolani tayinlaganingizda, siz ushbu havolaning _nusxasini_ qilasiz. (esda tutingki, ularda bir xil _reference_ yo&apos;q!)
 
 <img src="https://i.imgur.com/FSG5K3F.png" width="300">
 
-Then, we set the variable `person` equal to `null`.
+Keyin biz `person`ni `null`ga tengladik.
 
 <img src="https://i.imgur.com/sYjcsMT.png" width="300">
 
-We are only modifying the value of the `person` variable, and not the first element in the array, since that element has a different (copied) reference to the object. The first element in `members` still holds its reference to the original object. When we log the `members` array, the first element still holds the value of the object, which gets logged.
+Biz shunchaki `person`ning qiymatini yangiladik, lekin `array`ning birinchi elementini emas. Chunki `array`da mutlaqo boshqa (nusxalangan) _reference_ga ega obyekt mavjud. `members`dagi birinchi element hali ham o&apos;zining original obyektdagi _reference_ini saqlab turibdi.`members`ni `console`ga chiqarganimizda, birinchi element hali ham dastlab tenglanga obyekt qiymatini o&apos;zida saqlayotgan bo&apos;ladi.
 
 </p>
 </details>
@@ -1470,7 +1470,7 @@ for (const item in person) {
 
 #### Javob: B
 
-With a `for-in` loop, we can iterate through object keys, in this case `name` and `age`. Under the hood, object keys are strings (if they're not a Symbol). On every loop, we set the value of `item` equal to the current key it’s iterating over. First, `item` is equal to `name`, and gets logged. Then, `item` is equal to `age`, which gets logged.
+`for-in` _loop_i bilan obyekt kalitlari iteratsiya qilinad, bunda `name` va `age` kalitlari nazarda tutilyapti. Bizga ma&apos;alumki obyekt kalitlari `"string"` tipida (agar `Symbol` tipida berilmagan bo&apos;lsa). Har bir iteratsiyada, `item`ning qiymatini ayni shu iteratsiyadagi kalitga tengladik. Dastlab, `item` `name`ga teng edi, va uning qiymatini oldi. Keyin, `item` `age`ga teng bo&apos;ldi va `console`da ko&apos;rindi.
 
 </p>
 </details>
@@ -1493,18 +1493,18 @@ console.log(3 + 4 + "5");
 
 #### Javob: B
 
-Operator associativity is the order in which the compiler evaluates the expressions, either left-to-right or right-to-left. This only happens if all operators have the _same_ precedence. We only have one type of operator: `+`. For addition, the associativity is left-to-right.
+Operator bajarilish tartibi - kompilyator chapdan o&apos;ngga yoki o&apos;ngdan chapga iboralarni hisoblash tartibidir. Bu faqat barcha operatorlar _bir xil_ ustunlikka ega bo&apos;lsa sodir bo&apos;ladi. Bizda faqat bitta turdagi operator mavjud: `+`. Bundan kelib chiqadiki, tartib chapdan o&apos;ngga barajariladi.
 
-`3 + 4` gets evaluated first. This results in the number `7`.
+`3 + 4` birinchi hisoblanadi. Natija `7`.
 
-`7 + '5'` results in `"75"` because of coercion. JavaScript converts the number `7` into a string, see question 15. We can concatenate two strings using the `+`operator. `"7" + "5"` results in `"75"`.
+`7 + '5'` esa `"75"` `coersion` sababidan. JavaScript `7`ni `"string"` tipiga avtomatik o&apos;tkazadi, bu haqida 15 savolda ma&apos;lumot olishingiz mumkin. Biz ikki `string`ni `+` operatori yordamida ulashimiz mumkin. `"7" + "5"` esa `"75"`.
 
 </p>
 </details>
 
 ---
 
-###### 49. What's the value of `num`?
+###### 49. `num`ning qiymati nimaga teng?
 
 ```javascript
 const num = parseInt("7*6", 10);
@@ -1520,7 +1520,7 @@ const num = parseInt("7*6", 10);
 
 #### Javob: C
 
-Only the first numbers in the string is returned. Based on the _radix_ (the second argument in order to specify what type of number we want to parse it to: base 10, hexadecimal, octal, binary, etc.), the `parseInt` checks whether the characters in the string are valid. Once it encounters a character that isn't a valid number in the radix, it stops parsing and ignores the following characters.
+Faqat `"string"`dagi birinchi raqamlar qaytariladi, _radix_ning qiymatiga qarab (ikkinchi qiymat biz qaysi turdagi songa o&apos;tkazishimizni belgilab beradi: `base 10`, `hexadecimal`, `octal`, `binary`, va hk.), `parseInt` `"string"`dagi barcha elementlar to&apos;g&apos;riligini tekshiradi. Once it encounters a character that isn't a valid number in the radix, it stops parsing and ignores the following characters.
 
 `*` is not a valid number. It only parses `"7"` into the decimal `7`. `num` now holds the value of `7`.
 
