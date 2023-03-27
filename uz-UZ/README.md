@@ -1730,7 +1730,7 @@ pet.bark();
 
 #### Javob: A
 
-`delete` kalit so&apos;zi orqali biz nafaqat obyekt xususiyatlarini balki obyektning _prototype_i ichidagi xususiyatlarini ham o&apos;chirib yuborishimiz mumkin. _Prototype_dagi xususiyatni o&apos;zgartirish orqali, uni _prototype_ zanjiridan butun umrga o&apos;chirib yuboramiz. Shu sabab, `bark` metodi bundan buyin _protptype_da mavjud emas, chunki `delete Dog.prototype.bark` orqali allaqachon bu metodni o&apos;chirib yubordik.
+`delete` kalit so&apos;zi orqali biz nafaqat obyekt xususiyatlarini balki obyektning _prototype_i ichidagi xususiyatlarini ham o&apos;chirib yuborishimiz mumkin. \_Prototype_dagi xususiyatni o&apos;zgartirish orqali, uni \_prototype_ zanjiridan butun umrga o&apos;chirib yuboramiz. Shu sabab, `bark` metodi bundan buyin \_protptype_da mavjud emas, chunki `delete Dog.prototype.bark` orqali allaqachon bu metodni o&apos;chirib yubordik.
 
 Qachonki biz mavjud bo&apos;lmagan funksiyaga murojaat qilsak, `TypeError` xatoligi qaytadi. `TypeError: pet.bark is not a function` degan xatolik `pet.bark` `undefined` bo&apos;lganligi sababidan.
 
@@ -1822,9 +1822,9 @@ console.log(delete age);
 
 #### Javob: A
 
-`delete` operatori `boolean` tipidagi qiymat qaytaradi va bu uning vazifasini bajargaligi va yoki bajarmaganligi bilan bog&apos;liq. Agar `true` qaytarsa demak qiymat muvaffaqiyatli o&apos;chirilgan bo&apos;ladi. Lekin `false` qaytarsa amal bajarilmagan bo&apos;ladi. Shuni esdan chiqarmaslik kerakki, `var`, `const` yoki `let` kalit so&apos;zlari bilan yaratilgan  o&apos;zgaruvchilarni `delete` operatori o&apos;chira olmaydi.
+`delete` operatori `boolean` tipidagi qiymat qaytaradi va bu uning vazifasini bajargaligi va yoki bajarmaganligi bilan bog&apos;liq. Agar `true` qaytarsa demak qiymat muvaffaqiyatli o&apos;chirilgan bo&apos;ladi. Lekin `false` qaytarsa amal bajarilmagan bo&apos;ladi. Shuni esdan chiqarmaslik kerakki, `var`, `const` yoki `let` kalit so&apos;zlari bilan yaratilgan o&apos;zgaruvchilarni `delete` operatori o&apos;chira olmaydi.
 
-`name` o&apos;zgaruvchisi `const` bilan e&apos;lon qilingan, shuning uchun uni o&apos;chirishning imkoni bo&aos;lmadi va `false` qaytarildi. Qachonki biz `age`ni `21`ga tenglaganimzda, biz `global` obyektga `age` nomli xususiyat qo&apos;shdik. `delete` operatori orqali obyekt xususiyatlarini o&apos;chirish mumkinligini hisobga olsak, `window` ham obyekt va `delete age` `true` qaytaradi. 
+`name` o&apos;zgaruvchisi `const` bilan e&apos;lon qilingan, shuning uchun uni o&apos;chirishning imkoni bo&aos;lmadi va `false` qaytarildi. Qachonki biz `age`ni `21`ga tenglaganimzda, biz `global` obyektga `age` nomli xususiyat qo&apos;shdik. `delete` operatori orqali obyekt xususiyatlarini o&apos;chirish mumkinligini hisobga olsak, `window` ham obyekt va `delete age` `true` qaytaradi.
 
 </p>
 </details>
@@ -1850,7 +1850,7 @@ console.log(y);
 
 #### Javob: C
 
-We can unpack values from arrays or properties from objects through destructuring. For example:
+Biz massivlardan qiymatlarni yoki obyektlardan xususiyatlarni `destructuring` (tuzilmani buzish) orqali ochishimiz mumkin. Masalan:
 
 ```javascript
 [a, b] = [1, 2];
@@ -1858,7 +1858,7 @@ We can unpack values from arrays or properties from objects through destructurin
 
 <img src="https://i.imgur.com/ADFpVop.png" width="200">
 
-The value of `a` is now `1`, and the value of `b` is now `2`. What we actually did in the question, is:
+`a` hozir `1`ga teng, va `b` esa `2`ga. Savolda aynan nima so&apos;ralgan?
 
 ```javascript
 [y] = [1, 2, 3, 4, 5];
@@ -1866,7 +1866,7 @@ The value of `a` is now `1`, and the value of `b` is now `2`. What we actually d
 
 <img src="https://i.imgur.com/NzGkMNk.png" width="200">
 
-This means that the value of `y` is equal to the first value in the array, which is the number `1`. When we log `y`, `1` is returned.
+Bu shuni anglatadiki `y` `array`ning birinchi elementiga teng, va birinchi element bu `1`. Qachonki biz `y`ni chaqirganimizda `1` qaytariladi.
 
 </p>
 </details>
@@ -1892,7 +1892,7 @@ console.log(admin);
 
 #### Javob: B
 
-It's possible to combine objects using the spread operator `...`. It lets you create copies of the key/value pairs of one object, and add them to another object. In this case, we create copies of the `user` object, and add them to the `admin` object. The `admin` object now contains the copied key/value pairs, which results in `{ admin: true, name: "Lydia", age: 21 }`.
+Obyektlarni `spread` (yoyish) operatori orqali birlashtirish mumkin `...`. Bu sizga obyektning `key/value` (kalit/qiymat) juftliklaridan nusxa olishda qo&apos;l keladi, va ularni boshqa obyektga qo&apos;shishga ham. Yuqoridagi kodda, biz `user` obyektining nusxasini yaratdik, va uni `admin` admin obyektiga qo&apos;shdik. Hozir `admin` obyekti nusxalangan `key/value` (kalit/qiymat) juftligi va o&apos;zining qiymatlarini saqlab turibdi.
 
 </p>
 </details>
