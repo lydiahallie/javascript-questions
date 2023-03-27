@@ -1440,7 +1440,7 @@ Keyin biz `person`ni `null`ga tengladik.
 
 <img src="https://i.imgur.com/sYjcsMT.png" width="300">
 
-Biz shunchaki `person`ning qiymatini yangiladik, lekin `array`ning birinchi elementini emas. Chunki `array`da mutlaqo boshqa (nusxalangan) _reference_ga ega obyekt mavjud. `members`dagi birinchi element hali ham o&apos;zining original obyektdagi _reference_ini saqlab turibdi.`members`ni `console`ga chiqarganimizda, birinchi element hali ham dastlab tenglanga obyekt qiymatini o&apos;zida saqlayotgan bo&apos;ladi.
+Biz shunchaki `person`ning qiymatini yangiladik, lekin `array`ning birinchi elementini emas. Chunki `array`da mutlaqo boshqa (nusxalangan) \_reference_ga ega obyekt mavjud. `members`dagi birinchi element hali ham o&apos;zining original obyektdagi \_reference_ini saqlab turibdi.`members`ni `console`ga chiqarganimizda, birinchi element hali ham dastlab tenglanga obyekt qiymatini o&apos;zida saqlayotgan bo&apos;ladi.
 
 </p>
 </details>
@@ -1470,7 +1470,7 @@ for (const item in person) {
 
 #### Javob: B
 
-`for-in` _loop_i bilan obyekt kalitlari iteratsiya qilinad, bunda `name` va `age` kalitlari nazarda tutilyapti. Bizga ma&apos;alumki obyekt kalitlari `"string"` tipida (agar `Symbol` tipida berilmagan bo&apos;lsa). Har bir iteratsiyada, `item`ning qiymatini ayni shu iteratsiyadagi kalitga tengladik. Dastlab, `item` `name`ga teng edi, va uning qiymatini oldi. Keyin, `item` `age`ga teng bo&apos;ldi va `console`da ko&apos;rindi.
+`for-in` \_loop_i bilan obyekt kalitlari iteratsiya qilinad, bunda `name` va `age` kalitlari nazarda tutilyapti. Bizga ma&apos;alumki obyekt kalitlari `"string"` tipida (agar `Symbol` tipida berilmagan bo&apos;lsa). Har bir iteratsiyada, `item`ning qiymatini ayni shu iteratsiyadagi kalitga tengladik. Dastlab, `item` `name`ga teng edi, va uning qiymatini oldi. Keyin, `item` `age`ga teng bo&apos;ldi va `console`da ko&apos;rindi.
 
 </p>
 </details>
@@ -1520,9 +1520,9 @@ const num = parseInt("7*6", 10);
 
 #### Javob: C
 
-Faqat `"string"`dagi birinchi raqamlar qaytariladi, _radix_ning qiymatiga qarab (ikkinchi qiymat biz qaysi turdagi songa o&apos;tkazishimizni belgilab beradi: `base 10`, `hexadecimal`, `octal`, `binary`, va hk.), `parseInt` `"string"`dagi barcha elementlar to&apos;g&apos;riligini tekshiradi. Once it encounters a character that isn't a valid number in the radix, it stops parsing and ignores the following characters.
+Faqat `"string"`dagi birinchi raqamlar qaytariladi, \_radix_ning qiymatiga qarab (ikkinchi qiymat biz qaysi turdagi songa o&apos;tkazishimizni belgilab beradi: `base 10`, `hexadecimal`, `octal`, `binary`, va hk.), `parseInt` `"string"`dagi barcha elementlar to&apos;g&apos;riligini tekshiradi. Agar string ichida raqam bo&apos;lmagan biror belgini topsa, shu yerda bu funksiya ishni to&apos;xtatadi.
 
-`*` is not a valid number. It only parses `"7"` into the decimal `7`. `num` now holds the value of `7`.
+`*` raqam emas. Shu sabab ham faqat `"7"` raqamini qabul qiladi va `"string"` tipidan `"number"` tipiga o&apos;tkazadi.
 
 </p>
 </details>
@@ -1548,9 +1548,7 @@ Faqat `"string"`dagi birinchi raqamlar qaytariladi, _radix_ning qiymatiga qarab 
 
 #### Javob: C
 
-When mapping over the array, the value of `num` is equal to the element it’s currently looping over. In this case, the elements are numbers, so the condition of the if statement `typeof num === "number"` returns `true`. The map function creates a new array and inserts the values returned from the function.
-
-However, we don’t return a value. When we don’t return a value from the function, the function returns `undefined`. For every element in the array, the function block gets called, so for each element we return `undefined`.
+`array`ni _map_ (iteratsiya) qilganda, `num`ning qiymati aynan iteratsiya bo&apos;layotgan `array` elementiga teng bo&apos;. Bundan keyin, barcha elementlar raqam yoki raqam emasligi `if` shartli ifodasidagi `typeof num === "number"` taqqoslov bilan tekshiriladi va barchasi raqam ekanligi sababli tekshiruv `true` qaytaradi, lekin `if` blogidan `return`ning o&apos;zini qaytarganimiz sabab, barcha qiymat `undefined`ga teng bo&apos;ladi.
 
 </p>
 </details>
@@ -1583,11 +1581,11 @@ console.log(person, birthYear);
 
 #### Javob: A
 
-Arguments are passed by _value_, unless their value is an object, then they're passed by _reference_. `birthYear` is passed by value, since it's a string, not an object. When we pass arguments by value, a _copy_ of that value is created (see question 46).
+Argumentlar _qiymat_ tomonidan uzatiladi, agar ularning qiymati ob'ekt bo'lmasa, ular _reference_ orqali uzatiladi. `birthYear` _qiymat_ orqali berilganva bu `"string"` tipida, obyekt emas. Biz qiymat orqali biror narsa yaratganimizda uning _nusxasi_ olinadi! (46-savolni ko&apos;zdan kechiring).
 
-The variable `birthYear` has a reference to the value `"1997"`. The argument `year` also has a reference to the value `"1997"`, but it's not the same value as `birthYear` has a reference to. When we update the value of `year` by setting `year` equal to `"1998"`, we are only updating the value of `year`. `birthYear` is still equal to `"1997"`.
+`birthYear` o&apos;zgaruvchisining `"1997"` qiymatiga \_reference_i mavjud.`year` argumentining ham `"1997"`ga \_reference_i mavjud, lekin bu `birthYear` bilan bir xil emas. Biz `year` qiymatini yangilaganimizda, `year` `"1998"`ga teng bo&apos;ladi. Biz shunchaki `year`ning qiymatini o&apos;zgartirdik. `birthYear` esa hali ham `"1997"`ga teng.
 
-The value of `person` is an object. The argument `member` has a (copied) reference to the _same_ object. When we modify a property of the object `member` has a reference to, the value of `person` will also be modified, since they both have a reference to the same object. `person`'s `name` property is now equal to the value `"Lydia"`
+`person`ning qiymati esa obyekt. `member` argumentining (nusxalanagan) _reference_ mavjud. Va qachonki biz `member`ning xususiyatlarini o&apos;zgartirganimizda, `person` ham yangilanadi, chunki ikkisining ham `reference`lari bitta obyektga yo&apos;naltirilgan. `person`ning `name` xususiyati hozir `"Lydia"`ga teng!
 
 </p>
 </details>
@@ -1598,34 +1596,34 @@ The value of `person` is an object. The argument `member` has a (copied) referen
 
 ```javascript
 function greeting() {
-  throw "Hello world!";
+  throw "Salom dunyo!";
 }
 
 function sayHi() {
   try {
     const data = greeting();
-    console.log("It worked!", data);
+    console.log("Kod ishladi!", data);
   } catch (e) {
-    console.log("Oh no an error:", e);
+    console.log("Xatolik:", e);
   }
 }
 
 sayHi();
 ```
 
-- A: `It worked! Hello world!`
-- B: `Oh no an error: undefined`
+- A: `Kod ishladi! Salom dunyo!`
+- B: `Xatolik: undefined`
 - C: `SyntaxError: can only throw Error objects`
-- D: `Oh no an error: Hello world!`
+- D: `Xatolik: Salom dunyo!`
 
 <details><summary><b>Javob</b></summary>
 <p>
 
 #### Javob: D
 
-With the `throw` statement, we can create custom errors. With this statement, you can throw exceptions. An exception can be a <b>string</b>, a <b>number</b>, a <b>boolean</b> or an <b>object</b>. In this case, our exception is the string `'Hello world!'`.
+`throw` ifodasi orqali, `custrom` (maxsus) xatoliklarni yarata olamiz. Bu ifoda orqali siz istisno holatlarni ham yaratishingiz mumkin. Istisno <b>string</b>, <b>number</b>, <b>boolean</b> yoki <b>object</b> bo&apos;lishi mumkin. Bundan kelib chiqadiki, bizning istisno qiymatimiz `'Salom dunyo!'`.
 
-With the `catch` statement, we can specify what to do if an exception is thrown in the `try` block. An exception is thrown: the string `'Hello world!'`. `e` is now equal to that string, which we log. This results in `'Oh an error: Hello world!'`.
+`catch` orqali esa, `try` blogidagi xatolikni aniqlashimiz mumkin. Yuqoridagi kodda `"string"` tipiga ega `'Salom dunyo!'` xatoligi qaytarildi. `e` endi shu qiymatga tenglanadi. Bu esa `'Xatolik: Salom dunyo!'` qiymatini chiqaradi.
 
 </p>
 </details>
@@ -1654,7 +1652,7 @@ console.log(myCar.make);
 
 #### Javob: B
 
-When you return a property, the value of the property is equal to the _returned_ value, not the value set in the constructor function. We return the string `"Maserati"`, so `myCar.make` is equal to `"Maserati"`.
+Biror xususiyatga murojaat qilinganda o&apos;sha xususiyatning qiymati _returned_ (qaytarilgan) qiymatga teng bo&apos;ladi, `constructor`da aniqlangan qiymatga emas. Yuqoridagi kodda `"Maserati"` qaytarildi, shuning uchun `myCar.make` `"Maserati"`ga teng.
 
 </p>
 </details>
@@ -1682,18 +1680,18 @@ console.log(typeof y);
 
 #### Javob: A
 
-`let x = (y = 10);` is actually shorthand for:
+`let x = (y = 10);` aslida quyidagi kodning qisqa talqini:
 
 ```javascript
 y = 10;
 let x = y;
 ```
 
-When we set `y` equal to `10`, we actually add a property `y` to the global object (`window` in browser, `global` in Node). In a browser, `window.y` is now equal to `10`.
+Biz `y`ni `10`ga tengladik, va `y`ni to&apos;g&apos;ridan to&apos;g&apos;ri global obyektga xususiyat sifatida berdik ( bu brauzerda `window`, \_Node_da esa `global`ga teng). Brauzerda, `window.y` `10`ga teng.
 
-Then, we declare a variable `x` with the value of `y`, which is `10`. Variables declared with the `let` keyword are _block scoped_, they are only defined within the block they're declared in; the immediately invoked function expression (IIFE) in this case. When we use the `typeof` operator, the operand `x` is not defined: we are trying to access `x` outside of the block it's declared in. This means that `x` is not defined. Values who haven't been assigned a value or declared are of type `"undefined"`. `console.log(typeof x)` returns `"undefined"`.
+Keyin, biz `x` nomli a o&apos;zgaruvchini `y`ning qiymatiga tenglab yaratdik, endi uning qiymati ham `10`ga teng. Lekin `x` o&apos;zgaruvchis `let` orqali yaratilgani sabab u faqat o&apos;zi yaratilgan blokdagina ishlaydi, ya&apos;ni faqat `IIFE`ning ichida. Blokdan tashqarida `typeof` operatori orqali `x` va `y`ning tipini aniqlashga harakat qilganimizda `x` \_undefined_ga teng, chunki u faqat `IIFE` blogida ishlaydi.
 
-However, we created a global variable `y` when setting `y` equal to `10`. This value is accessible anywhere in our code. `y` is defined, and holds a value of type `"number"`. `console.log(typeof y)` returns `"number"`.
+Biroq, biz global o&apos;zgaruvchi `y`ni ham yaratganmiz shu sabab `typeof` bu o&apos;zgaruvchining tipini `window` global obyektidan qiyinchiliksiz oladi. Shu sabab ham javob `A`.
 
 </p>
 </details>
@@ -1732,9 +1730,9 @@ pet.bark();
 
 #### Javob: A
 
-We can delete properties from objects using the `delete` keyword, also on the prototype. By deleting a property on the prototype, it is not available anymore in the prototype chain. In this case, the `bark` function is not available anymore on the prototype after `delete Dog.prototype.bark`, yet we still try to access it.
+`delete` kalit so&apos;zi orqali biz nafaqat obyekt xususiyatlarini balki obyektning _prototype_i ichidagi xususiyatlarini ham o&apos;chirib yuborishimiz mumkin. _Prototype_dagi xususiyatni o&apos;zgartirish orqali, uni _prototype_ zanjiridan butun umrga o&apos;chirib yuboramiz. Shu sabab, `bark` metodi bundan buyin _protptype_da mavjud emas, chunki `delete Dog.prototype.bark` orqali allaqachon bu metodni o&apos;chirib yubordik.
 
-When we try to invoke something that is not a function, a `TypeError` is thrown. In this case `TypeError: pet.bark is not a function`, since `pet.bark` is `undefined`.
+Qachonki biz mavjud bo&apos;lmagan funksiyaga murojaat qilsak, `TypeError` xatoligi qaytadi. `TypeError: pet.bark is not a function` degan xatolik `pet.bark` `undefined` bo&apos;lganligi sababidan.
 
 </p>
 </details>
@@ -1759,9 +1757,9 @@ console.log(set);
 
 #### Javob: D
 
-The `Set` object is a collection of _unique_ values: a value can only occur once in a set.
+`Set` obyekti o&apos;zida takrorlanmas qiymatlarni saqlab turadi. Oddiy obyektdan farqi undagi qiymatlarning takrorlanmasligida ekan.
 
-We passed the iterable `[1, 1, 2, 3, 4]` with a duplicate value `1`. Since we cannot have two of the same values in a set, one of them is removed. This results in `{1, 2, 3, 4}`.
+Biz `Set`ga quyidagi qiymatlarni berdik `[1, 1, 2, 3, 4]` va bunda ikkita `1` qiymati mavjud. Yuqoridagi shartga binoan bitta `Set`da faqat bitta qiymat bo&apos;lishini hisobga olsak. `1`lardan biri o&apos;chirib yuboriladi. Va natija `{1, 2, 3, 4}`ga teng bo&apos;ladi.
 
 </p>
 </details>
@@ -1795,9 +1793,9 @@ console.log(myCounter);
 
 #### Javob: C
 
-An imported module is _read-only_: you cannot modify the imported module. Only the module that exports them can change its value.
+`Import` qilingan module _read-only_ (faqat o&apos;qish uchun) mavjud. Biz import qilingan modulni o&apos;zgartira olmaymiz.Faqat ularni eksport qiladigan modul uning qiymatini o'zgartirishi mumkin.
 
-When we try to increment the value of `myCounter`, it throws an error: `myCounter` is read-only and cannot be modified.
+Qachonki biz `myCounter`ning qiymatini yangilashga urinsak, `error` qaytaradi: `myCounter` is read-only and cannot be modified (`myCounter` faqat o&apos;qish uchun uni o&apos;zgartirib bo&apos;lmaydi).
 
 </p>
 </details>
@@ -1824,9 +1822,9 @@ console.log(delete age);
 
 #### Javob: A
 
-The `delete` operator returns a boolean value: `true` on a successful deletion, else it'll return `false`. However, variables declared with the `var`, `const` or `let` keyword cannot be deleted using the `delete` operator.
+`delete` operatori `boolean` tipidagi qiymat qaytaradi va bu uning vazifasini bajargaligi va yoki bajarmaganligi bilan bog&apos;liq. Agar `true` qaytarsa demak qiymat muvaffaqiyatli o&apos;chirilgan bo&apos;ladi. Lekin `false` qaytarsa amal bajarilmagan bo&apos;ladi. Shuni esdan chiqarmaslik kerakki, `var`, `const` yoki `let` kalit so&apos;zlari bilan yaratilgan  o&apos;zgaruvchilarni `delete` operatori o&apos;chira olmaydi.
 
-The `name` variable was declared with a `const` keyword, so its deletion is not successful: `false` is returned. When we set `age` equal to `21`, we actually added a property called `age` to the global object. You can successfully delete properties from objects this way, also the global object, so `delete age` returns `true`.
+`name` o&apos;zgaruvchisi `const` bilan e&apos;lon qilingan, shuning uchun uni o&apos;chirishning imkoni bo&aos;lmadi va `false` qaytarildi. Qachonki biz `age`ni `21`ga tenglaganimzda, biz `global` obyektga `age` nomli xususiyat qo&apos;shdik. `delete` operatori orqali obyekt xususiyatlarini o&apos;chirish mumkinligini hisobga olsak, `window` ham obyekt va `delete age` `true` qaytaradi. 
 
 </p>
 </details>
@@ -2259,9 +2257,9 @@ console.log(/* 2 */); // JavaScript loves you back ❤️
 
 A generator function "pauses" its execution when it sees the `yield` keyword. First, we have to let the function yield the string "Do you love JavaScript?", which can be done by calling `game.next().value`.
 
-Every line is executed, until it finds the first `yield` keyword. There is a `yield` keyword on the first line within the function: the execution stops with the first yield! _This means that the variable `answer` is not defined yet!_
+Every line is executed, until it finds the first `yield` keyword. There is a `yield` keyword on the first line within the function: the execution stops with the first yield! _This means that the o&apos;zgaruvchi `answer` is not defined yet!_
 
-When we call `game.next("Yes").value`, the previous `yield` is replaced with the value of the parameters passed to the `next()` function, `"Yes"` in this case. The value of the variable `answer` is now equal to `"Yes"`. The condition of the if-statement returns `false`, and `JavaScript loves you back ❤️` gets logged.
+When we call `game.next("Yes").value`, the previous `yield` is replaced with the value of the parameters passed to the `next()` function, `"Yes"` in this case. The value of the o&apos;zgaruvchi `answer` is now equal to `"Yes"`. The condition of the if-statement returns `false`, and `JavaScript loves you back ❤️` gets logged.
 
 </p>
 </details>
@@ -2392,7 +2390,7 @@ console.log(shape);
 
 `Object.freeze` makes it impossible to add, remove, or modify properties of an object (unless the property's value is another object).
 
-When we create the variable `shape` and set it equal to the frozen object `box`, `shape` also refers to a frozen object. You can check whether an object is frozen by using `Object.isFrozen`. In this case, `Object.isFrozen(shape)` would return true, since the variable `shape` has a reference to a frozen object.
+When we create the o&apos;zgaruvchi `shape` and set it equal to the frozen object `box`, `shape` also refers to a frozen object. You can check whether an object is frozen by using `Object.isFrozen`. In this case, `Object.isFrozen(shape)` would return true, since the o&apos;zgaruvchi `shape` has a reference to a frozen object.
 
 Since `shape` is frozen, and since the value of `x` is not an object, we cannot modify the property `x`. `x` is still equal to `10`, and `{ x: 10, y: 20 }` gets logged.
 
@@ -2419,7 +2417,7 @@ console.log(firstName);
 
 #### Javob: D
 
-By using [destructuring assignment](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment) syntax we can unpack values from arrays, or properties from objects, into distinct variables:
+By using [destructuring assignment](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment) syntax we can unpack values from arrays, or properties from objects, into distinct o&apos;zgaruvchis:
 
 ```javascript
 const { firstName } = { firstName: "Lydia" };
@@ -2429,7 +2427,7 @@ const { firstName } = { firstName: "Lydia" };
 console.log(firstName); // "Lydia"
 ```
 
-Also, a property can be unpacked from an object and assigned to a variable with a different name than the object property:
+Also, a property can be unpacked from an object and assigned to a o&apos;zgaruvchi with a different name than the object property:
 
 ```javascript
 const { firstName: myName } = { firstName: "Lydia" };
@@ -2440,7 +2438,7 @@ console.log(myName); // "Lydia"
 console.log(firstName); // Uncaught ReferenceError: firstName is not defined
 ```
 
-Therefore, `firstName` does not exist as a variable, thus attempting to access its value will raise a `ReferenceError`.
+Therefore, `firstName` does not exist as a o&apos;zgaruvchi, thus attempting to access its value will raise a `ReferenceError`.
 
 **Note:** Be aware of the `global scope` properties:
 
@@ -2452,11 +2450,11 @@ console.log(name); // "" ----- Browser e.g. Chrome
 console.log(name); // ReferenceError: name is not defined  ----- NodeJS
 ```
 
-Whenever Javascript is unable to find a variable within the _current scope_, it climbs up the [Scope chain](https://github.com/getify/You-Dont-Know-JS/blob/2nd-ed/scope-closures/ch3.md) and searches for it and if it reaches the top-level scope, aka **Global scope**, and still doesn't find it, it will throw a `ReferenceError`.
+Whenever Javascript is unable to find a o&apos;zgaruvchi within the _current scope_, it climbs up the [Scope chain](https://github.com/getify/You-Dont-Know-JS/blob/2nd-ed/scope-closures/ch3.md) and searches for it and if it reaches the top-level scope, aka **Global scope**, and still doesn't find it, it will throw a `ReferenceError`.
 
-- In **Browsers** such as _Chrome_, `name` is a _deprecated global scope property_. In this example, the code is running inside _global scope_ and there is no user defined local variable for `name`, therefore it searches the predefined _variables/properties_ in the global scope which is in case of browsers, it searches through `window` object and it will extract the [window.name](https://developer.mozilla.org/en-US/docs/Web/API/Window/name) value which is equal to an **empty string**.
+- In **Browsers** such as _Chrome_, `name` is a _deprecated global scope property_. In this example, the code is running inside _global scope_ and there is no user defined local o&apos;zgaruvchi for `name`, therefore it searches the predefined _o&apos;zgaruvchis/properties_ in the global scope which is in case of browsers, it searches through `window` object and it will extract the [window.name](https://developer.mozilla.org/en-US/docs/Web/API/Window/name) value which is equal to an **empty string**.
 
-- In **NodeJS**, there is no such property on the `global` object, thus attempting to access a non-existent variable will raise a [ReferenceError](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Errors/Not_defined).
+- In **NodeJS**, there is no such property on the `global` object, thus attempting to access a non-existent o&apos;zgaruvchi will raise a [ReferenceError](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Errors/Not_defined).
 
 </p>
 </details>
@@ -2565,7 +2563,7 @@ With a _for-in_ loop, we can iterate over **enumerable** properties. In an array
 
 Where the keys are the enumerable properties. `0` `1` `2` `3` get logged.
 
-With a _for-of_ loop, we can iterate over **iterables**. An array is an iterable. When we iterate over the array, the variable "item" is equal to the element it's currently iterating over, `"☕"` `"💻"` `"🍷"` `"🍫"` get logged.
+With a _for-of_ loop, we can iterate over **iterables**. An array is an iterable. When we iterate over the array, the o&apos;zgaruvchi "item" is equal to the element it's currently iterating over, `"☕"` `"💻"` `"🍷"` `"🍫"` get logged.
 
 </p>
 </details>
@@ -2663,7 +2661,7 @@ setTimeout(() => {
 
 The value of the `this` keyword is dependent on where you use it. In a **method**, like the `getStatus` method, the `this` keyword refers to _the object that the method belongs to_. The method belongs to the `data` object, so `this` refers to the `data` object. When we log `this.status`, the `status` property on the `data` object gets logged, which is `"🥑"`.
 
-With the `call` method, we can change the object to which the `this` keyword refers. In **functions**, the `this` keyword refers to the _the object that the function belongs to_. We declared the `setTimeout` function on the _global object_, so within the `setTimeout` function, the `this` keyword refers to the _global object_. On the global object, there is a variable called _status_ with the value of `"😎"`. When logging `this.status`, `"😎"` gets logged.
+With the `call` method, we can change the object to which the `this` keyword refers. In **functions**, the `this` keyword refers to the _the object that the function belongs to_. We declared the `setTimeout` function on the _global object_, so within the `setTimeout` function, the `this` keyword refers to the _global object_. On the global object, there is a o&apos;zgaruvchi called _status_ with the value of `"😎"`. When logging `this.status`, `"😎"` gets logged.
 
 </p>
 </details>
@@ -2694,9 +2692,9 @@ console.log(person);
 
 #### Javob: A
 
-We set the variable `city` equal to the value of the property called `city` on the `person` object. There is no property on this object called `city`, so the variable `city` has the value of `undefined`.
+We set the o&apos;zgaruvchi `city` equal to the value of the property called `city` on the `person` object. There is no property on this object called `city`, so the o&apos;zgaruvchi `city` has the value of `undefined`.
 
-Note that we are _not_ referencing the `person` object itself! We simply set the variable `city` equal to the current value of the `city` property on the `person` object.
+Note that we are _not_ referencing the `person` object itself! We simply set the o&apos;zgaruvchi `city` equal to the current value of the `city` property on the `person` object.
 
 Then, we set `city` equal to the string `"Amsterdam"`. This doesn't change the person object: there is no reference to that object.
 
@@ -2733,7 +2731,7 @@ console.log(checkAge(21));
 
 #### Javob: C
 
-Variables with the `const` and `let` keyword are _block-scoped_. A block is anything between curly brackets (`{ }`). In this case, the curly brackets of the if/else statements. You cannot reference a variable outside of the block it's declared in, a ReferenceError gets thrown.
+o&apos;zgaruvchis with the `const` and `let` keyword are _block-scoped_. A block is anything between curly brackets (`{ }`). In this case, the curly brackets of the if/else statements. You cannot reference a o&apos;zgaruvchi outside of the block it's declared in, a ReferenceError gets thrown.
 
 </p>
 </details>
@@ -2873,7 +2871,7 @@ console.log(data);
 
 #### Javob: A
 
-With the `import * as name` syntax, we import _all exports_ from the `module.js` file into the `index.js` file as a new object called `data` is created. In the `module.js` file, there are two exports: the default export, and a named export. The default export is a function which returns the string `"Hello World"`, and the named export is a variable called `name` which has the value of the string `"Lydia"`.
+With the `import * as name` syntax, we import _all exports_ from the `module.js` file into the `index.js` file as a new object called `data` is created. In the `module.js` file, there are two exports: the default export, and a named export. The default export is a function which returns the string `"Hello World"`, and the named export is a o&apos;zgaruvchi called `name` which has the value of the string `"Lydia"`.
 
 The `data` object has a `default` property for the default export, other properties have the names of the named exports and their corresponding values.
 
@@ -3076,7 +3074,7 @@ console.log(nums(1, 2));
 
 #### Javob: B
 
-In JavaScript, we don't _have_ to write the semicolon (`;`) explicitly, however the JavaScript engine still adds them after statements. This is called **Automatic Semicolon Insertion**. A statement can for example be variables, or keywords like `throw`, `return`, `break`, etc.
+In JavaScript, we don't _have_ to write the semicolon (`;`) explicitly, however the JavaScript engine still adds them after statements. This is called **Automatic Semicolon Insertion**. A statement can for example be o&apos;zgaruvchis, or keywords like `throw`, `return`, `break`, etc.
 
 Here, we wrote a `return` statement, and another value `a + b` on a _new line_. However, since it's a new line, the engine doesn't know that it's actually the value that we wanted to return. Instead, it automatically added a semicolon after `return`. You could see this as:
 
@@ -3216,7 +3214,7 @@ console.log(name());
 
 #### Javob: C
 
-The variable `name` holds the value of a string, which is not a function, thus cannot invoke.
+The o&apos;zgaruvchi `name` holds the value of a string, which is not a function, thus cannot invoke.
 
 TypeErrors get thrown when a value is not of the expected type. JavaScript expected `name` to be a function since we're trying to invoke it. It was a string however, so a TypeError gets thrown: name is not a function!
 
@@ -3616,11 +3614,11 @@ getName();
 
 #### Javob: D
 
-Each function has its own _execution context_ (or _scope_). The `getName` function first looks within its own context (scope) to see if it contains the variable `name` we're trying to access. In this case, the `getName` function contains its own `name` variable: we declare the variable `name` with the `let` keyword, and with the value of `'Sarah'`.
+Each function has its own _execution context_ (or _scope_). The `getName` function first looks within its own context (scope) to see if it contains the o&apos;zgaruvchi `name` we're trying to access. In this case, the `getName` function contains its own `name` o&apos;zgaruvchi: we declare the o&apos;zgaruvchi `name` with the `let` keyword, and with the value of `'Sarah'`.
 
-Variables with the `let` keyword (and `const`) are hoisted, but unlike `var`, don't get <i>initialized</i>. They are not accessible before the line we declare (initialize) them. This is called the "temporal dead zone". When we try to access the variables before they are declared, JavaScript throws a `ReferenceError`.
+o&apos;zgaruvchis with the `let` keyword (and `const`) are hoisted, but unlike `var`, don't get <i>initialized</i>. They are not accessible before the line we declare (initialize) them. This is called the "temporal dead zone". When we try to access the o&apos;zgaruvchis before they are declared, JavaScript throws a `ReferenceError`.
 
-If we wouldn't have declared the `name` variable within the `getName` function, the javascript engine would've looked down the _scope chain_. The outer scope has a variable called `name` with the value of `Lydia`. In that case, it would've logged `Lydia`.
+If we wouldn't have declared the `name` o&apos;zgaruvchi within the `getName` function, the javascript engine would've looked down the _scope chain_. The outer scope has a o&apos;zgaruvchi called `name` with the value of `Lydia`. In that case, it would've logged `Lydia`.
 
 ```javascript
 let name = "Lydia";
@@ -3908,7 +3906,7 @@ With the optional chaining operator `?.`, we no longer have to explicitly check 
 `person.pet?.name`: `person` has a property named `pet`: `person.pet` is not nullish. It has a property called `name`, and returns `Mara`.
 `person.pet?.family?.name`: `person` has a property named `pet`: `person.pet` is not nullish. `pet` does _not_ have a property called `family`, `person.pet.family` is nullish. The expression returns `undefined`.
 `person.getFullName?.()`: `person` has a property named `getFullName`: `person.getFullName()` is not nullish and can get invoked, which returns `Lydia Hallie`.
-`member.getLastName?.()`: variable `member` is non existent therefore a `ReferenceError` gets thrown!
+`member.getLastName?.()`: o&apos;zgaruvchi `member` is non existent therefore a `ReferenceError` gets thrown!
 
 </p>
 </details>
@@ -4057,7 +4055,7 @@ async function* range(start, end) {
 
 #### Javob: C
 
-The generator function `range` returns an async object with promises for each item in the range we pass: `Promise{1}`, `Promise{2}`, `Promise{3}`. We set the variable `gen` equal to the async object, after which we loop over it using a `for await ... of` loop. We set the variable `item` equal to the returned Promise values: first `Promise{1}`, then `Promise{2}`, then `Promise{3}`. Since we're _awaiting_ the value of `item`, the resolved promise, the resolved _values_ of the promises get returned: `1`, `2`, then `3`.
+The generator function `range` returns an async object with promises for each item in the range we pass: `Promise{1}`, `Promise{2}`, `Promise{3}`. We set the o&apos;zgaruvchi `gen` equal to the async object, after which we loop over it using a `for await ... of` loop. We set the o&apos;zgaruvchi `item` equal to the returned Promise values: first `Promise{1}`, then `Promise{2}`, then `Promise{3}`. Since we're _awaiting_ the value of `item`, the resolved promise, the resolved _values_ of the promises get returned: `1`, `2`, then `3`.
 
 </p>
 </details>
@@ -4209,7 +4207,7 @@ getInfo();
 
 #### Javob: D
 
-Variables declared with the `const` keyword are not referenceable before their initialization: this is called the _temporal dead zone_. In the `getInfo` function, the variable `randomValue` is scoped in the functional scope of `getInfo`. On the line where we want to log the value of `typeof randomValue`, the variable `randomValue` isn't initialized yet: a `ReferenceError` gets thrown! The engine didn't go down the scope chain since we declared the variable `randomValue` in the `getInfo` function.
+o&apos;zgaruvchis declared with the `const` keyword are not referenceable before their initialization: this is called the _temporal dead zone_. In the `getInfo` function, the o&apos;zgaruvchi `randomValue` is scoped in the functional scope of `getInfo`. On the line where we want to log the value of `typeof randomValue`, the o&apos;zgaruvchi `randomValue` isn't initialized yet: a `ReferenceError` gets thrown! The engine didn't go down the scope chain since we declared the o&apos;zgaruvchi `randomValue` in the `getInfo` function.
 
 </p>
 </details>
@@ -4242,7 +4240,7 @@ const myPromise = Promise.resolve("Woah some cool data");
 
 #### Javob: C
 
-In the `try` block, we're logging the awaited value of the `myPromise` variable: `"Woah some cool data"`. Since no errors were thrown in the `try` block, the code in the `catch` block doesn't run. The code in the `finally` block _always_ runs, `"Oh finally!"` gets logged.
+In the `try` block, we're logging the awaited value of the `myPromise` o&apos;zgaruvchi: `"Woah some cool data"`. Since no errors were thrown in the `try` block, the code in the `catch` block doesn't run. The code in the `finally` block _always_ runs, `"Oh finally!"` gets logged.
 
 </p>
 </details>
@@ -4311,7 +4309,7 @@ console.log(counterOne.count);
 
 <img src="https://i.imgur.com/KxLlTm9.png" width="400">
 
-Then, we create a new variable `counterTwo`, and set it equal to `counterOne`. Since objects interact by reference, we're just creating a new reference to the same spot in memory that `counterOne` points to. Since it has the same spot in memory, any changes made to the object that `counterTwo` has a reference to, also apply to `counterOne`. Currently, `counterTwo.count` is `2`.
+Then, we create a new o&apos;zgaruvchi `counterTwo`, and set it equal to `counterOne`. Since objects interact by reference, we're just creating a new reference to the same spot in memory that `counterOne` points to. Since it has the same spot in memory, any changes made to the object that `counterTwo` has a reference to, also apply to `counterOne`. Currently, `counterTwo.count` is `2`.
 
 We invoke `counterTwo.increment()`, which sets `count` to `3`. Then, we log the count on `counterOne`, which logs `3`.
 
@@ -4362,7 +4360,7 @@ Both the promise and the timeout are asynchronous operations, the function keeps
 
 Since the callstack is not empty yet, the `setTimeout` function and promise in `funcOne` cannot get added to the callstack yet.
 
-In `funcTwo`, the variable `res` gets `Promise` because `Promise.resolve(Promise.resolve('Promise'))` is equivalent to `Promise.resolve('Promise')` since resolving a promise just resolves it's value. The `await` in this line stops the execution of the function until it receives the resolution of the promise and then keeps on running synchronously until completion, so `Promise 2!` and then `Last line 2!` are logged and the `setTimeout` is sent to the Web API.
+In `funcTwo`, the o&apos;zgaruvchi `res` gets `Promise` because `Promise.resolve(Promise.resolve('Promise'))` is equivalent to `Promise.resolve('Promise')` since resolving a promise just resolves it's value. The `await` in this line stops the execution of the function until it receives the resolution of the promise and then keeps on running synchronously until completion, so `Promise 2!` and then `Last line 2!` are logged and the `setTimeout` is sent to the Web API.
 
 Then the call stack is empty. Promises are _microtasks_ so they are resolved first when the call stack is empty so `Promise 1!` gets to be logged.
 
@@ -4590,7 +4588,7 @@ console.log(counter.#number);
 
 #### Javob: D
 
-In ES2020, we can add private variables in classes by using the `#`. We cannot access these variables outside of the class. When we try to log `counter.#number`, a SyntaxError gets thrown: we cannot acccess it outside the `Counter` class!
+In ES2020, we can add private o&apos;zgaruvchis in classes by using the `#`. We cannot access these o&apos;zgaruvchis outside of the class. When we try to log `counter.#number`, a SyntaxError gets thrown: we cannot acccess it outside the `Counter` class!
 
 </p>
 </details>
@@ -4715,7 +4713,7 @@ const pet = new Flamingo();
 
 #### Javob: B
 
-We create the variable `pet` which is an instance of the `Flamingo` class. When we instantiate this instance, the `constructor` on `Flamingo` gets called. First, `"I'm pink. 🌸"` gets logged, after which we call `super()`. `super()` calls the constructor of the parent class, `Bird`. The constructor in `Bird` gets called, and logs `"I'm a bird. 🦢"`.
+We create the o&apos;zgaruvchi `pet` which is an instance of the `Flamingo` class. When we instantiate this instance, the `constructor` on `Flamingo` gets called. First, `"I'm pink. 🌸"` gets logged, after which we call `super()`. `super()` calls the constructor of the parent class, `Bird`. The constructor in `Bird` gets called, and logs `"I'm a bird. 🦢"`.
 
 </p>
 </details>
@@ -4743,7 +4741,7 @@ const emojis = ["🎄", "🎅🏼", "🎁", "⭐"];
 
 #### Javob: D
 
-The `const` keyword simply means we cannot _redeclare_ the value of that variable, it's _read-only_. However, the value itself isn't immutable. The properties on the `emojis` array can be modified, for example by pushing new values, splicing them, or setting the length of the array to 0.
+The `const` keyword simply means we cannot _redeclare_ the value of that o&apos;zgaruvchi, it's _read-only_. However, the value itself isn't immutable. The properties on the `emojis` array can be modified, for example by pushing new values, splicing them, or setting the length of the array to 0.
 
 </p>
 </details>
@@ -4872,7 +4870,7 @@ console.log(calc.count);
 
 #### Javob: A
 
-We set the variable `calc` equal to a new instance of the `Calc` class. Then, we instantiate a new instance of `Calc`, and invoke the `increase` method on this instance. Since the count property is within the constructor of the `Calc` class, the count property is not shared on the prototype of `Calc`. This means that the value of count has not been updated for the instance calc points to, count is still `0`.
+We set the o&apos;zgaruvchi `calc` equal to a new instance of the `Calc` class. Then, we instantiate a new instance of `Calc`, and invoke the `increase` method on this instance. Since the count property is within the constructor of the `Calc` class, the count property is not shared on the prototype of `Calc`. This means that the value of count has not been updated for the instance calc points to, count is still `0`.
 
 </p>
 </details>
@@ -5116,7 +5114,7 @@ console.log(member);
 
 #### Javob: C
 
-The default value of `address` is an empty object `{}`. When we set the variable `member` equal to the object returned by the `createMember` function, we didn't pass a value for address, which means that the value of address is the default empty object `{}`. An empty object is a truthy value, which means that the condition of the `address ? address : null` conditional returns `true`. The value of address is the empty object `{}`.
+The default value of `address` is an empty object `{}`. When we set the o&apos;zgaruvchi `member` equal to the object returned by the `createMember` function, we didn't pass a value for address, which means that the value of address is the default empty object `{}`. An empty object is a truthy value, which means that the condition of the `address ? address : null` conditional returns `true`. The value of address is the empty object `{}`.
 
 </p>
 </details>
