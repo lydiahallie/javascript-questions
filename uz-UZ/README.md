@@ -2068,7 +2068,7 @@ On the fourth call, we again don't return from the callback function. The accumu
   
 ---
 
-###### 66. With which constructor can we successfully extend the `Dog` class?
+###### 66. Qaysi konstruktor bilan `Dog` klasini kengaytirish (undan meros olish) mumkin.?
 
 ```javascript
 class Dog {
@@ -2111,11 +2111,13 @@ class Labrador extends Dog {
 
 #### Javob: B
 
-In a derived class, you cannot access the `this` keyword before calling `super`. If you try to do that, it will throw a ReferenceError: 1 and 4 would throw a reference error.
+Meros olingan klasda, siz `this`ga `super`ni chaqirmasdan turib murojaat qila olmaysiz. Agar buni qilishga urinsangiz, `ReferenceError` yuzaga keladi. `1` va `4`da `ReferenceError` qaytadi.
 
-With the `super` keyword, we call that parent class's constructor with the given arguments. The parent's constructor receives the `name` argument, so we need to pass `name` to `super`.
+`super` kalit so&apos;zi bilan, `parent` (ota) klasning \_constructor_idagi qiymatlarga murojaat qila olamiz. `parent`ning konstruktori `name` nomli argumentni qabul qiladi, shuning uchun biz `name`ni `super` metodiga yozishimiz kerak.
 
-The `Labrador` class receives two arguments, `name` since it extends `Dog`, and `size` as an extra property on the `Labrador` class. They both need to be passed to the constructor function on `Labrador`, which is done correctly using constructor 2.
+`Labrador` klasi ikkita argument qabul qiladi, ular `name` argumenti `Dog` klasidan keladi, va `size` esa `Labrador` klasidagi qo&apos;shimcha xususiyat.Ularning ikkisi ham `Labrador` klasidagi konstruktorga qo&apos;shilishi kerak.
+
+Yuqoridagi tushintirishlardan kelib chiqib, eng to&apos;g&apos;ri yasalgan konstruktor bu 2-konstruktor hisoblanadi.
 
 </p>
 </details>
@@ -2145,9 +2147,9 @@ export const sum = (a, b) => a + b;
 
 #### Javob: B
 
-With the `import` keyword, all imported modules are _pre-parsed_. This means that the imported modules get run _first_, the code in the file which imports the module gets executed _after_.
+`import` kalit so&apos;zi bilan, barcha import qilingan modullar _pre-parsed_ (oldindan ishga tushadi). Bu import qilingan modul _birinchi_ bo&apos;lib ishga tushadui. Boshqa modulni import qilgan fayldagi kodlar _keyin_ ishga tushadi.
 
-This is a difference between `require()` in CommonJS and `import`! With `require()`, you can load dependencies on demand while the code is being run. If we would have used `require` instead of `import`, `running index.js`, `running sum.js`, `3` would have been logged to the console.
+Bu yerda \_CommonJS_dagi `require()` bilan `import` o&apos;rtasida bir farq bor! `require()`, kod ishga tushayotganda ham boshqa kodni yuklaydi. Agar biz `import` o&apos;rniga `require`dan foydalanganimizda, `running index.js`, `running sum.js`, `3` kabi javob chiqqan bo&apos;lardi.
 
 </p>
 </details>
@@ -2172,7 +2174,7 @@ console.log(Symbol("foo") === Symbol("foo"));
 
 #### Javob: A
 
-Every Symbol is entirely unique. The purpose of the argument passed to the Symbol is to give the Symbol a description. The value of the Symbol is not dependent on the passed argument. As we test equality, we are creating two entirely new symbols: the first `Symbol('foo')`, and the second `Symbol('foo')`. These two values are unique and not equal to each other, `Symbol('foo') === Symbol('foo')` returns `false`.
+Barcha `Symbol`lar takrorlanmasdir. `Symbol`ga argument sifatida beriladigan qiymatdan unga izoh yozish uchungina foydalaniladi. `Symbol`ning qiymati unga beriladigan argumentga bog&apos;liq emas. Biz tenglikni tekshirganimizda, biz ikkita yangi `Symbol` yaratdik, birinchisi `Symbol('foo')`, va ikkinchisi `Symbol('foo')`. Bu ikkalasi ham takrorlanmasdir va biri-biriga teng emas, `Symbol('foo') === Symbol('foo')` taqqoslanganda `false` qaytaradi.
 
 </p>
 </details>
@@ -2197,7 +2199,7 @@ console.log(name.padStart(2));
 
 #### Javob: C
 
-With the `padStart` method, we can add padding to the beginning of a string. The value passed to this method is the _total_ length of the string together with the padding. The string `"Lydia Hallie"` has a length of `12`. `name.padStart(13)` inserts 1 space at the start of the string, because 12 + 1 is 13.
+`padStart` metodi bilan, biz `"string"`ning boshlanish tarafidan `padding` berishimiz mumkin. Metodga beriladigan qiymat `padding` va `"string"` uzunligining \_yig'indisi_ga teng. `"Lydia Hallie"`ning uzunligi `12`ga teng. `name.padStart(13)` esa `"string"` boshidan `1` uzunlikdagi `padding` qo&apos;shadi, chunki `12 + 1` `13`ga teng.
 
 If the argument passed to the `padStart` method is smaller than the length of the array, no padding will be added.
 
@@ -2222,7 +2224,7 @@ console.log("🥑" + "💻");
 
 #### Javob: A
 
-With the `+` operator, you can concatenate strings. In this case, we are concatenating the string `"🥑"` with the string `"💻"`, resulting in `"🥑💻"`.
+`+` operatori orqali `"string"`lar bir biriga qo&apos;shiladi. Yuqoridagi kodda, biz `"🥑"` qiymatli `"string"`ni `"💻"` qiymatlisi bilan birlashtirdik, va natija esa `"🥑💻"` ga teng bo&apos;ldi.
 
 </p>
 </details>
