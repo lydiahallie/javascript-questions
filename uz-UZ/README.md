@@ -2022,9 +2022,9 @@ multiply(value);
 
 #### Javob: C
 
-In ES6, we can initialize parameters with a default value. The value of the parameter will be the default value, if no other value has been passed to the function, or if the value of the parameter is `"undefined"`. In this case, we spread the properties of the `value` object into a new object, so `x` has the default value of `{ number: 10 }`.
+ES6(**EcmaScript 6**)da, biz parametrlarni boshlang'ich qiymat bilan yaratishimiz mumkin. Agar funksiya parametriga biror qiymat berilmasa o'sha parametrning qiymati boshlang'ich qiymat sifatida tenlangan qiymatga teng bo'ladi yoki `"undefined"`ga teng bo'ladi. Bu holatda, biz `spread` operatoridan foydalanib `value` obyektining qiymatlarini obyekt ichiga yoyib yubordik, shu sabab `x`ning boshlang'ich qiymati `{ number: 10 }`ga teng.
 
-The default argument is evaluated at _call time_! Every time we call the function, a _new_ object is created. We invoke the `multiply` function the first two times without passing a value: `x` has the default value of `{ number: 10 }`. We then log the multiplied value of that number, which is `20`.
+Boshlang'ich argument \_call time_da hisoblanadi! Har safat bir funksiyani chaqirganimzda, **yangi** obyekt yaratiladi. Biz `multiply` ni dastlab ikki marta qiymat bermasdan cahqirdik: `x` esa boshlang'ich `{ number: 10 }` qiymatiga ega. Keyin uning ko'paytmasini `console`ga chiqaridk ya'ni `20`ni.
 
 The third time we invoke multiply, we do pass an argument: the object called `value`. The `*=` operator is actually shorthand for `x.number = x.number * 2`: we modify the value of `x.number`, and log the multiplied value `20`.
 
@@ -2041,27 +2041,27 @@ The fourth time, we pass the `value` object again. `x.number` was previously mod
 [1, 2, 3, 4].reduce((x, y) => console.log(x, y));
 ```
 
-- A: `1` `2` and `3` `3` and `6` `4`
-- B: `1` `2` and `2` `3` and `3` `4`
-- C: `1` `undefined` and `2` `undefined` and `3` `undefined` and `4` `undefined`
-- D: `1` `2` and `undefined` `3` and `undefined` `4`
+- A: `1` `2` va `3` `3` va `6` `4`
+- B: `1` `2` va `2` `3` va `3` `4`
+- C: `1` `undefined` va `2` `undefined` va `3` `undefined` va `4` `undefined`
+- D: `1` `2` va `undefined` `3` va `undefined` `4`
 
 <details><summary><b>Javob</b></summary>
 <p>
 
 #### Javob: D
 
-The first argument that the `reduce` method receives is the _accumulator_, `x` in this case. The second argument is the _current value_, `y`. With the reduce method, we execute a callback function on every element in the array, which could ultimately result in one single value.
+`reduce` metodi qabul qiladigan birinchi qiymat `callback`, ikkinchisi esa `initial value` (boshlang&apos;ich qiymat). `callback` ham o&apos;z o&apos;rnida ikkita qiymat qabul qiladi ular `accumulator` va `current`. Biz _accumulator_ sifatida `x` va _current_ sifatida esa `y`ni berdik. `callback` _reduce_ bog&apos;langan `array`dagi barcha elementlar uchun bir martadan ishga tushadi va oxirida yagona qiymat qaytaradi.
 
-In this example, we are not returning any values, we are simply logging the values of the accumulator and the current value.
+Bu kodda, birorta qiymat qaytarmadik, biz shunchaki `console`ga chiqardik.
 
-The value of the accumulator is equal to the previously returned value of the callback function. If you don't pass the optional `initialValue` argument to the `reduce` method, the accumulator is equal to the first element on the first call.
+_accumulator_ning qiymati `callback` bir iteratsiya oldin hisoblagan qiymatga teng. Agar siz ixtiyoriy `initialValue` argumentini bermasangiz, \_accumulator_ arraydagi birinchi iteratsiyadagi birinchi qiymatga teng bo&apos;ladi.
 
-On the first call, the accumulator (`x`) is `1`, and the current value (`y`) is `2`. We don't return from the callback function, we log the accumulator and current value: `1` and `2` get logged.
+Birinchi chaqiruvda, _accumulator_ (`x`) `1`ga teng, va \_current_ning qiymati (`y`) esa `2`ga. Biz buni `callback`dan qaytarmadik, biz shunchaki `accumulator` va `current`ning qiymatini `console`ga chiqardik.
 
-If you don't return a value from a function, it returns `undefined`. On the next call, the accumulator is `undefined`, and the current value is `3`. `undefined` and `3` get logged.
+Agar funksiyadan qiymat qaytmasa, u `undefined` qaytaradu. Keyingi chaqiruvda esa, _accumulator_ `undefined`ga teng bo&apos;ladi, \_current_ning qiymati `3`ga teng bo&apos;ladi. `undefined` va `3` \_console_ga chiqadi.
 
-On the fourth call, we again don't return from the callback function. The accumulator is again `undefined`, and the current value is `4`. `undefined` and `4` get logged.
+To&apos;rtinchi chaqiruvda esa, biz yana `callback`dan hech narsa qaytarmadik. _accumulator_ yana `undefined`ga tenf, _current_ esa `4`ga. `undefined` va `4` `console`ga chiqadi.
 
 </p>
 </details>
@@ -2231,37 +2231,37 @@ console.log("🥑" + "💻");
 
 ---
 
-###### 71. `console.log`dan keyingi commentga olingan satrlarni qanday qilib consolega chiqarishimiz mumkin? ?
+###### 71. How can we log the values that are commented out after the console.log statement?
 
 ```javascript
 function* startGame() {
-  const answer = yield "Sizga JavaScript yoqadimi?";
-  if (answer !== "Ha") {
-    return "Oh yo'q... Shu yerda to'xtaymmiz!";
+  const answer = yield "Do you love JavaScript?";
+  if (answer !== "Yes") {
+    return "Oh wow... Guess we're done here";
   }
-  return "JavaScript ham sizni yaxshi ko'radi ❤️";
+  return "JavaScript loves you back ❤️";
 }
 
 const game = startGame();
-console.log(/* 1 */); // Sizga JavaScript yoqadimi?
-console.log(/* 2 */); // JavaScript ham sizni yaxshi ko'radi ❤️
+console.log(/* 1 */); // Do you love JavaScript?
+console.log(/* 2 */); // JavaScript loves you back ❤️
 ```
 
-- A: `game.next("Ha").value` va `game.next().value`
-- B: `game.next.value("Ha")` va `game.next.value()`
-- C: `game.next().value` va `game.next("Ha").value`
-- D: `game.next.value()` va `game.next.value("Ha")`
+- A: `game.next("Yes").value` and `game.next().value`
+- B: `game.next.value("Yes")` and `game.next.value()`
+- C: `game.next().value` and `game.next("Yes").value`
+- D: `game.next.value()` and `game.next.value("Yes")`
 
 <details><summary><b>Javob</b></summary>
 <p>
 
 #### Javob: C
 
-Generator funksiya o&apos;zini "to'xtatadi" qachonki blok ichida `yield` kalit so&apos;zi ko&apos;rinsa. Dastlab, biz funksiyaga "Sizga JavaScript yoqadimi?" iborasini berishimiz kerak, va bu `game.next().value` orqali chaqiriladi.
+A generator function "pauses" its execution when it sees the `yield` keyword. First, we have to let the function yield the string "Do you love JavaScript?", which can be done by calling `game.next().value`.
 
-Birinchi `yield` kalit so&apos;zini topmaguncha, har bir qator ishga tushadi. Bu yerda funksiyaning birinchi qatorida `yield` kalit so&apos;zi mavjud. Funksiya shu yerda o&apos;z ishini to&apos;xtatib turadi! _Bu esa `answer` o'zgaruvchisining hali undefined ekanini bildiradi!_
+Every line is executed, until it finds the first `yield` keyword. There is a `yield` keyword on the first line within the function: the execution stops with the first yield! _This means that the o&apos;zgaruvchi `answer` is not defined yet!_
 
-Biz endi `game.next("Ha").value`ni chaqirdik, oldingi `yield` `next()` funksiyasiga berilgan parametrlar bilan almashtirildi, ya&apos;ni `"Ha"` bilan. `answer` o&apos;zgaruvchisining qiymati endi `"Ha"`ga teng. `if-else` ifodasi `false` qaytaradi, va `JavaScript ham sizni yaxshi ko'radi ❤️` satri `console`da ko'rinadi.
+When we call `game.next("Yes").value`, the previous `yield` is replaced with the value of the parameters passed to the `next()` function, `"Yes"` in this case. The value of the o&apos;zgaruvchi `answer` is now equal to `"Yes"`. The condition of the if-statement returns `false`, and `JavaScript loves you back ❤️` gets logged.
 
 </p>
 </details>
@@ -2271,32 +2271,32 @@ Biz endi `game.next("Ha").value`ni chaqirdik, oldingi `yield` `next()` funksiyas
 ###### 72. Natija qanday bo'ladi?
 
 ```javascript
-console.log(String.raw`Salom\ndunyo`);
+console.log(String.raw`Hello\nworld`);
 ```
 
-- A: `Salom dunyo!`
-- B: `Salom` <br />&nbsp; &nbsp; &nbsp;`dunyo`
-- C: `Salom\ndunyo`
-- D: `Salom\n` <br /> &nbsp; &nbsp; &nbsp;`dunyo`
+- A: `Hello world!`
+- B: `Hello` <br />&nbsp; &nbsp; &nbsp;`world`
+- C: `Hello\nworld`
+- D: `Hello\n` <br /> &nbsp; &nbsp; &nbsp;`world`
 
 <details><summary><b>Javob</b></summary>
 <p>
 
 #### Javob: C
 
-`String.raw` funksiyasi chaqirilganda (`\n`, `\v`, `\t` va hk.) rad etiladi! `\` (backslash)lar hisobga olinadigan bolsa quyidagicha holatda muammo keltirib chiqargan bo'lardi:
+`String.raw` returns a string where the escapes (`\n`, `\v`, `\t` etc.) are ignored! Backslashes can be an issue since you could end up with something like:
 
 `` const path = `C:\Documents\Projects\table.html` ``
 
-Va bu mana bu holatga kelardi:
+Which would result in:
 
 `"C:DocumentsProjects able.html"`
 
-`String.raw` bilan yuqoridagi belgilar bekor qilinadi va natija qanday bo'lsa shhhhhu natijaning o'zi qaytariladi:
+With `String.raw`, it would simply ignore the escape and print:
 
 `C:\Documents\Projects\table.html`
 
-Bu holatda esa, `Hello\nworld` satri `console`ga chiqadi.
+In this case, the string is `Hello\nworld`, which gets logged.
 
 </p>
 </details>
@@ -2307,15 +2307,15 @@ Bu holatda esa, `Hello\nworld` satri `console`ga chiqadi.
 
 ```javascript
 async function getData() {
-  return await Promise.resolve("Men buni uddaladim!");
+  return await Promise.resolve("I made it!");
 }
 
 const data = getData();
 console.log(data);
 ```
 
-- A: `"Men buni uddaladim!"`
-- B: `Promise {<resolved>: "Men buni uddaladim!"}`
+- A: `"I made it!"`
+- B: `Promise {<resolved>: "I made it!"}`
 - C: `Promise {<pending>}`
 - D: `undefined`
 
@@ -2324,13 +2324,13 @@ console.log(data);
 
 #### Javob: C
 
-`Asinxron` funksiyalar har doim `promise` qaytaradu. `await` `resolve` bo'lishi uchun hali ham funksiyani kutadi: yuqoridagi misolda `getData()` funksiyasi bajarilayotgan `promise` qaytaradi, shu sabab ham `data` `Promise {<pending>}`ga teng!
+An async function always returns a promise. The `await` still has to wait for the promise to resolve: a pending promise gets returned when we call `getData()` in order to set `data` equal to it.
 
-Agar biz `resolve`(bajarib bo'lingan) qiymatidagi `"Men buni uddaladim!"` satrini chiqarmoqchi bo'lsak, `data`ga `.then()`ni ulab ishlatishimiz mumkin edi:
+If we wanted to get access to the resolved value `"I made it"`, we could have used the `.then()` method on `data`:
 
 `data.then(res => console.log(res))`
 
-Va bu kutilgan `"Men buni uddaladim!"`ni qaytarar edi!
+This would've logged `"I made it!"`
 
 </p>
 </details>
@@ -2358,9 +2358,9 @@ console.log(result);
 
 #### Javob: B
 
-`.push()` metodi massivning uzunligini qaytaradi! Dastlab, massiv bitta elementdan iborat edi (`"banana"`) va `1`ta uzunlikka ega edi. Massivga `"apple"`ni qo'shgandan keyin esa, massiv 2 ta elementga ega bo'ldi, uzunligi ham 1 ga ortdi. Bu esa `addToList` funksiyasidan qaytarildi.
+The `.push()` method returns the _length_ of the new array! Previously, the array contained one element (the string `"banana"`) and had a length of `1`. After adding the string `"apple"` to the array, the array contains two elements, and has a length of `2`. This gets returned from the `addToList` function.
 
-`push` metodi `original` massivni yangilaydi. Agar siz \_massiv_ning o'zini qaytarmoqchi bo'lsangiz, yangi element qo'shilgach `list`ni qaytarish kifoya.
+The `push` method modifies the original array. If you wanted to return the _array_ from the function rather than the _length of the array_, you should have returned `list` after pushing `item` to it.
 
 </p>
 </details>
@@ -2390,11 +2390,11 @@ console.log(shape);
 
 #### Javob: B
 
-`Object.freeze` obyektga yangi qiymat qo'shishni, o'chirishni va yangilashni to'xtadi (xususiyatning qiymati boshqa obyekt bo'lmaguncha).
+`Object.freeze` makes it impossible to add, remove, or modify properties of an object (unless the property's value is another object).
 
-Biz `shape` o'zgaruvchisini muzlatilgan `box` obyektiga tenglashtirganimizda bu ikkisi xotirada bir manzilga murojaat qiluvchi obyektlarga aylandi. Obyektning muzlatilmaganligini `Object.isFrozen` metodi orqali tekshirishingiz mumkin. Bu holatda, `Object.isFrozen(shape)` `true` qiymat qaytaradi, chunki `shape` ham muzlatilgan `box` obyekti bilan bir xil aslida.
+When we create the o&apos;zgaruvchi `shape` and set it equal to the frozen object `box`, `shape` also refers to a frozen object. You can check whether an object is frozen by using `Object.isFrozen`. In this case, `Object.isFrozen(shape)` would return true, since the o&apos;zgaruvchi `shape` has a reference to a frozen object.
 
-`shape` ham muzlatilganligni hisobga olsak, uning `x` o'zgaruvchisi o'zgarmasdir. `x` hali ham `10` ga teng.
+Since `shape` is frozen, and since the value of `x` is not an object, we cannot modify the property `x`. `x` is still equal to `10`, and `{ x: 10, y: 20 }` gets logged.
 
 </p>
 </details>
@@ -2419,7 +2419,7 @@ console.log(firstName);
 
 #### Javob: D
 
-[destructuring assignment](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment)dan foydalanish orqali array qiymatlari va obuekt xususiyatlarini ulardan alohida qilib ajratib olamiz!
+By using [destructuring assignment](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment) syntax we can unpack values from arrays, or properties from objects, into distinct o&apos;zgaruvchis:
 
 ```javascript
 const { firstName } = { firstName: "Lydia" };
@@ -2429,7 +2429,7 @@ const { firstName } = { firstName: "Lydia" };
 console.log(firstName); // "Lydia"
 ```
 
-Shuningdek, obyektdan ajratib olingan xususiyat keyinchalik boshqa nom bilan ham o'zgartirilishi mumkin:
+Also, a property can be unpacked from an object and assigned to a o&apos;zgaruvchi with a different name than the object property:
 
 ```javascript
 const { firstName: myName } = { firstName: "Lydia" };
@@ -2440,9 +2440,9 @@ console.log(myName); // "Lydia"
 console.log(firstName); // Uncaught ReferenceError: firstName is not defined
 ```
 
-Shuning uchun, `firstName` o&apos;zgaruvchi sifatida mavjud emas, va bunga murojaat qilish `ReferenceError` keltirib chiqaradi.
+Therefore, `firstName` does not exist as a o&apos;zgaruvchi, thus attempting to access its value will raise a `ReferenceError`.
 
-**Note:** `global scope` xususiyatlarida ehtiyot bo'ling:
+**Note:** Be aware of the `global scope` properties:
 
 ```javascript
 const { name: myName } = { name: "Lydia" };
@@ -2452,11 +2452,11 @@ console.log(name); // "" ----- Browser e.g. Chrome
 console.log(name); // ReferenceError: name is not defined  ----- NodeJS
 ```
 
-JavaScript berilgan o'zgaruvchini mavjud `scope`dan topa olmagach, u yuqori qismga o'tishni boshlaydi [Scope chain](https://github.com/getify/You-Dont-Know-JS/blob/2nd-ed/scope-closures/ch3.md) va qiymat topilguncha `scope`lar orqali ko'tarilib boraveradi va bu **Global scope**gacha davom etadi. Shunda ham topa olmasa `ReferenceError` qaytaradi.
+Whenever Javascript is unable to find a o&apos;zgaruvchi within the _current scope_, it climbs up the [Scope chain](https://github.com/getify/You-Dont-Know-JS/blob/2nd-ed/scope-closures/ch3.md) and searches for it and if it reaches the top-level scope, aka **Global scope**, and still doesn't find it, it will throw a `ReferenceError`.
 
-- **Brauzerlarda** masalan \_Chrome_da, `name` eskirgan `scope` qiymati hisoblanadi. Bu misolda, \_global scope_da kod bajarilmoqda va u yerda `name` o'zgaruvchisi bilan birorta qiymat mavjud emas, shuning uchun ham u \_variable/properties_ni `global scope`dan qidiradi, bu qidiruv `window` obyekti orqali bo'ladi natijada [window.name](https://developer.mozilla.org/en-US/docs/Web/API/Window/name) holatiga borib **empty string**ga teng bo'ladi.
+- In **Browsers** such as _Chrome_, `name` is a _deprecated global scope property_. In this example, the code is running inside _global scope_ and there is no user defined local o&apos;zgaruvchi for `name`, therefore it searches the predefined _o&apos;zgaruvchis/properties_ in the global scope which is in case of browsers, it searches through `window` object and it will extract the [window.name](https://developer.mozilla.org/en-US/docs/Web/API/Window/name) value which is equal to an **empty string**.
 
-- **NodeJS**da `global scope`da bunday qiymat mavjud emas, shu sabab mavjud boo'lmagan qiymatga murojaat sabab [ReferenceError](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Errors/Not_defined) yuzaga keladi.
+- In **NodeJS**, there is no such property on the `global` object, thus attempting to access a non-existent o&apos;zgaruvchi will raise a [ReferenceError](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Errors/Not_defined).
 
 </p>
 </details>
