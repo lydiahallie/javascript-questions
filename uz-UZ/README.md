@@ -2026,9 +2026,9 @@ ES6(**EcmaScript 6**)da, biz parametrlarni boshlang'ich qiymat bilan yaratishimi
 
 Boshlang'ich argument \_call time_da hisoblanadi! Har safat bir funksiyani chaqirganimzda, **yangi** obyekt yaratiladi. Biz `multiply` ni dastlab ikki marta qiymat bermasdan cahqirdik: `x` esa boshlang'ich `{ number: 10 }` qiymatiga ega. Keyin uning ko'paytmasini `console`ga chiqaridk ya'ni `20`ni.
 
-The third time we invoke multiply, we do pass an argument: the object called `value`. The `*=` operator is actually shorthand for `x.number = x.number * 2`: we modify the value of `x.number`, and log the multiplied value `20`.
+Uchinchi marta `multiply` funksiyasini chaqirganimizda, biz unga argument bilan murojaat qildik: ya'ni `value` nomli obyekt bilan. `*=` operatori aslida `x.number = x.number * 2` uchun qisqa yozish shakli hisoblanadi.Bundan kelib chiqadiki biz `x.number` qiymatini o'zgartirdik, va ko'paytmani `console`ga chiqardik. Natija `20`.
 
-The fourth time, we pass the `value` object again. `x.number` was previously modified to `20`, so `x.number *= 2` logs `40`.
+Tortinchi marta esa, biz `value` obyektini yana argument sifatida berdik. `x.number` qiymati oxirgi ko'paytmadan keyin `20`ga teng edi, endi esa `x.number *= 2`ning natijasi `40`ga teng.
 
 </p>
 </details>
@@ -2231,7 +2231,7 @@ console.log("🥑" + "💻");
 
 ---
 
-###### 71. How can we log the values that are commented out after the console.log statement?
+###### 71. `console.log`dan keyin commentda berilgan qiymatlarni qanday qilib olishimiz mumkin?
 
 ```javascript
 function* startGame() {
@@ -2257,11 +2257,11 @@ console.log(/* 2 */); // JavaScript loves you back ❤️
 
 #### Javob: C
 
-A generator function "pauses" its execution when it sees the `yield` keyword. First, we have to let the function yield the string "Do you love JavaScript?", which can be done by calling `game.next().value`.
+Generator funksiyasi `yield`ni ko'rgach o'z ishini to'xtatib turadi. Dastlab, biz `yield`ga "Do you love JavaScript?" satrini `game.next().value`ni chaqirish orqali beramiz.
 
-Every line is executed, until it finds the first `yield` keyword. There is a `yield` keyword on the first line within the function: the execution stops with the first yield! _This means that the o&apos;zgaruvchi `answer` is not defined yet!_
+Har bir qatordagi kod bajariladi, qachonki birinchi `yield` topilmaguncha. Va bu yerda bitta `yield` kalit so'zi birinchi qatorda topildi va funksiya shu yerda ishini to'xtatadi! Bu shuni anglatadiki `answer` o'zgaruvchisi hali aniqlangani yo'q.
 
-When we call `game.next("Yes").value`, the previous `yield` is replaced with the value of the parameters passed to the `next()` function, `"Yes"` in this case. The value of the o&apos;zgaruvchi `answer` is now equal to `"Yes"`. The condition of the if-statement returns `false`, and `JavaScript loves you back ❤️` gets logged.
+Biz endi `game.next("Yes").value`ni chaqirdik, oldingi `yield` `next()` funksiyasiga berilgan parametrlar bilan almashtirildi, ya&apos;ni `"Ha"` bilan. `answer` o&apos;zgaruvchisining qiymati endi `"Ha"`ga teng. `if-else` ifodasi `false` qaytaradi, va `JavaScript loves you back ❤️` satri `console`da ko'rinadi.
 
 </p>
 </details>
@@ -2284,19 +2284,19 @@ console.log(String.raw`Hello\nworld`);
 
 #### Javob: C
 
-`String.raw` returns a string where the escapes (`\n`, `\v`, `\t` etc.) are ignored! Backslashes can be an issue since you could end up with something like:
+`String.raw` funksiyasi chaqirilganda (`\n`, `\v`, `\t` va hk.) rad etiladi! `\` (backslash)lar hisobga olinadigan bolsa quyidagicha holatda muammo keltirib chiqargan bo'lardi:
 
 `` const path = `C:\Documents\Projects\table.html` ``
 
-Which would result in:
+Va bu mana bu holatga kelardi:
 
 `"C:DocumentsProjects able.html"`
 
-With `String.raw`, it would simply ignore the escape and print:
+`String.raw` bilan yuqoridagi belgilar bekor qilinadi va natija qanday bo'lsa shhhhhu natijaning o'zi qaytariladi:
 
 `C:\Documents\Projects\table.html`
 
-In this case, the string is `Hello\nworld`, which gets logged.
+Bu holatda esa, `Hello\nworld` satri `console`ga chiqadi.
 
 </p>
 </details>
@@ -2314,8 +2314,8 @@ const data = getData();
 console.log(data);
 ```
 
-- A: `"I made it!"`
-- B: `Promise {<resolved>: "I made it!"}`
+- A: `"Men buni uddaladim!"`
+- B: `Promise {<resolved>: "Men buni uddaladim!"}`
 - C: `Promise {<pending>}`
 - D: `undefined`
 
@@ -2324,13 +2324,13 @@ console.log(data);
 
 #### Javob: C
 
-An async function always returns a promise. The `await` still has to wait for the promise to resolve: a pending promise gets returned when we call `getData()` in order to set `data` equal to it.
+`Asinxron` funksiyalar har doim `promise` qaytaradu. `await` `resolve` bo'lishi uchun hali ham funksiyani kutadi: yuqoridagi misolda `getData()` funksiyasi bajarilayotgan `promise` qaytaradi, shu sabab ham `data` `Promise {<pending>}`ga teng!
 
-If we wanted to get access to the resolved value `"I made it"`, we could have used the `.then()` method on `data`:
+Agar biz `resolve`(bajarib bo'lingan) qiymatidagi `"Men buni uddaladim!"` satrini chiqarmoqchi bo'lsak, `data`ga `.then()`ni ulab ishlatishimiz mumkin edi:
 
 `data.then(res => console.log(res))`
 
-This would've logged `"I made it!"`
+Va bu kutilgan `"Men buni uddaladim!"`ni qaytarar edi!
 
 </p>
 </details>
@@ -2358,9 +2358,10 @@ console.log(result);
 
 #### Javob: B
 
-The `.push()` method returns the _length_ of the new array! Previously, the array contained one element (the string `"banana"`) and had a length of `1`. After adding the string `"apple"` to the array, the array contains two elements, and has a length of `2`. This gets returned from the `addToList` function.
+`.push()` metodi massivning uzunligini qaytaradi! Dastlab, massiv bitta elementdan iborat edi (`"banana"`) va `1`ta uzunlikka ega edi. Massivga `"apple"`ni qo'shgandan keyin esa, massiv 2 ta elementga ega bo'ldi, uzunligi ham 1 ga ortdi. Bu esa `addToList` funksiyasidan qaytarildi.
 
-The `push` method modifies the original array. If you wanted to return the _array_ from the function rather than the _length of the array_, you should have returned `list` after pushing `item` to it.
+
+`push` metodi `original` massivni yangilaydi. Agar siz _massiv_ning o'zini qaytarmoqchi bo'lsangiz, yangi element qo'shilgach `list`ni qaytarish kifoya.
 
 </p>
 </details>
@@ -2390,11 +2391,11 @@ console.log(shape);
 
 #### Javob: B
 
-`Object.freeze` makes it impossible to add, remove, or modify properties of an object (unless the property's value is another object).
+`Object.freeze` obyektga yangi qiymat qo'shishni, o'chirishni va yangilashni to'xtadi (xususiyatning qiymati boshqa obyekt bo'lmaguncha).
 
-When we create the o&apos;zgaruvchi `shape` and set it equal to the frozen object `box`, `shape` also refers to a frozen object. You can check whether an object is frozen by using `Object.isFrozen`. In this case, `Object.isFrozen(shape)` would return true, since the o&apos;zgaruvchi `shape` has a reference to a frozen object.
+Biz `shape` o'zgaruvchisini muzlatilgan `box` obyektiga tenglashtirganimizda bu ikkisi xotirada bir manzilga murojaat qiluvchi obyektlarga aylandi. Obyektning muzlatilmaganligini `Object.isFrozen` metodi orqali tekshirishingiz mumkin. Bu holatda, `Object.isFrozen(shape)` `true` qiymat qaytaradi, chunki `shape` ham muzlatilgan `box` obyekti bilan bir xil aslida.
 
-Since `shape` is frozen, and since the value of `x` is not an object, we cannot modify the property `x`. `x` is still equal to `10`, and `{ x: 10, y: 20 }` gets logged.
+`shape` ham muzlatilganligni hisobga olsak, uning `x` o'zgaruvchisi o'zgarmasdir. `x` hali ham `10` ga teng.
 
 </p>
 </details>
@@ -2419,7 +2420,7 @@ console.log(firstName);
 
 #### Javob: D
 
-By using [destructuring assignment](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment) syntax we can unpack values from arrays, or properties from objects, into distinct o&apos;zgaruvchis:
+[destructuring assignment](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment)dan foydalanish orqali array qiymatlari va obuekt xususiyatlarini ulardan alohida qilib ajratib olamiz!
 
 ```javascript
 const { firstName } = { firstName: "Lydia" };
@@ -2428,8 +2429,7 @@ const { firstName } = { firstName: "Lydia" };
 
 console.log(firstName); // "Lydia"
 ```
-
-Also, a property can be unpacked from an object and assigned to a o&apos;zgaruvchi with a different name than the object property:
+Shuningdek, obyektdan ajratib olingan xususiyat keyinchalik boshqa nom bilan ham o'zgartirilishi mumkin:
 
 ```javascript
 const { firstName: myName } = { firstName: "Lydia" };
@@ -2440,9 +2440,9 @@ console.log(myName); // "Lydia"
 console.log(firstName); // Uncaught ReferenceError: firstName is not defined
 ```
 
-Therefore, `firstName` does not exist as a o&apos;zgaruvchi, thus attempting to access its value will raise a `ReferenceError`.
+Shuning uchun, `firstName` o&apos;zgaruvchi sifatida mavjud emas, va bunga murojaat qilish `ReferenceError` keltirib chiqaradi.
 
-**Note:** Be aware of the `global scope` properties:
+**Diqqat:** `global scope` xususiyatlarida ehtiyot bo'ling:
 
 ```javascript
 const { name: myName } = { name: "Lydia" };
@@ -2452,18 +2452,18 @@ console.log(name); // "" ----- Browser e.g. Chrome
 console.log(name); // ReferenceError: name is not defined  ----- NodeJS
 ```
 
-Whenever Javascript is unable to find a o&apos;zgaruvchi within the _current scope_, it climbs up the [Scope chain](https://github.com/getify/You-Dont-Know-JS/blob/2nd-ed/scope-closures/ch3.md) and searches for it and if it reaches the top-level scope, aka **Global scope**, and still doesn't find it, it will throw a `ReferenceError`.
+JavaScript berilgan o'zgaruvchini mavjud `scope`dan topa olmagach, u yuqori qismga o'tishni boshlaydi [Scope chain](https://github.com/getify/You-Dont-Know-JS/blob/2nd-ed/scope-closures/ch3.md) va qiymat topilguncha `scope`lar orqali ko'tarilib boraveradi va bu **Global scope**gacha davom etadi. Shunda ham topa olmasa `ReferenceError` qaytaradi.
 
-- In **Browsers** such as _Chrome_, `name` is a _deprecated global scope property_. In this example, the code is running inside _global scope_ and there is no user defined local o&apos;zgaruvchi for `name`, therefore it searches the predefined _o&apos;zgaruvchis/properties_ in the global scope which is in case of browsers, it searches through `window` object and it will extract the [window.name](https://developer.mozilla.org/en-US/docs/Web/API/Window/name) value which is equal to an **empty string**.
+- **Brauzerlarda** masalan \_Chrome_da, `name` eskirgan `scope` qiymati hisoblanadi. Bu misolda, \_global scope_da kod bajarilmoqda va u yerda `name` o'zgaruvchisi bilan birorta qiymat mavjud emas, shuning uchun ham u \_variable/properties_ni `global scope`dan qidiradi, bu qidiruv `window` obyekti orqali bo'ladi natijada [window.name](https://developer.mozilla.org/en-US/docs/Web/API/Window/name) holatiga borib **empty string**ga teng bo'ladi.
 
-- In **NodeJS**, there is no such property on the `global` object, thus attempting to access a non-existent o&apos;zgaruvchi will raise a [ReferenceError](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Errors/Not_defined).
+- **NodeJS**da `global scope`da bunday qiymat mavjud emas, shu sabab mavjud boo'lmagan qiymatga murojaat sabab [ReferenceError](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Errors/Not_defined) yuzaga keladi.
 
 </p>
 </details>
 
 ---
 
-###### 77. Is this a pure function?
+###### 77. Bu `pure` sof funksiyami?
 
 ```javascript
 function sum(a, b) {
