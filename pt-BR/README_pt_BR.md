@@ -2360,13 +2360,13 @@ console.log(name);
 <details><summary><b>Answer</b></summary>
 <p>
 
-#### Answer: C
+#### Answer: D
 
 Quando descompactamos a propriedade `name` do objeto do lado direito, atribuímos seu valor `"Lydia"` a uma variável com o nome `myName`.
 
 Com `{ name: myName }`, informamos ao JavaScript que queremos criar uma nova variável chamada `myName` com o valor da propriedade `name` no lado direito.
 
-Como tentamos registrar `name`, uma variável que não está definida, `undefined` é retornado na atribuição do lado esquerdo. Mais tarde, o valor de `Lydia` é armazenado através da atribuição de desestruturação.
+Quando tentamos mostrar o conteúdo de `name`, uma variável que não está definida, recebemos o erro `ReferenceError`.
 
 </p>
 </details>
