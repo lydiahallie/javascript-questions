@@ -1097,7 +1097,7 @@ Funções construtoras, como `new Number` e `new Boolean` são truthy.
 
 ---
 
-###### 36. Qual é a sáida?
+###### 36. Qual é a saída?
 
 ```javascript
 console.log(typeof typeof 1);
@@ -2202,11 +2202,11 @@ console.log(/* 2 */); // O JavaScript também ama você ❤️
 
 #### Resposta: C
 
-Uma função geradora "pausa" a sua execução quando encontra a palavra-chave `yield`. Primeiro, temos que deixar a função produzir a string "Você ama JavaScript?", o que pode ser feito chamando `game.next().value`.
+Uma função geradora "pausa" a sua execução quando encontra a palavra-chave `yield`. Primeiro, temos que deixar a função produzir a string "Você ama JavaScript?", o que pode ser feito chamando `jogo.next().value`.
 
 Cada linha é executada, até encontrar a primeira palavra-chave `yield`. Há uma palavra-chave `yield` na primeira linha da função: a execução para com o primeiro retorno! _Isso significa que a variável `resposta` ainda não foi definida!_
 
-Quando chamamos `game.next("Sim").value`, o `yield` anterior é substituído pelo valor dos parâmetros passados para a função `next()`, `"Sim"` neste caso. O valor da variável `"resposta"` agora é igual a `"Sim"`. A condição da instrução if retorna `false` e `JavaScript também ama você ❤️` é registrada.
+Quando chamamos `jogo.next("Sim").value`, o `yield` anterior é substituído pelo valor dos parâmetros passados para a função `next()`, `"Sim"` neste caso. O valor da variável `"resposta"` agora é igual a `"Sim"`. A condição da instrução if retorna `false` e `JavaScript também ama você ❤️` é registrada.
 
 </p>
 </details>
