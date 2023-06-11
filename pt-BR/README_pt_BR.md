@@ -2381,8 +2381,8 @@ function sum(a, b) {
 }
 ```
 
-- A: Yes
-- B: No
+- A: Sim
+- B: Não
 
 <details><summary><b>Answer</b></summary>
 <p>
