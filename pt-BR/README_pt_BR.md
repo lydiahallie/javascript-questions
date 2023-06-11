@@ -2430,7 +2430,7 @@ console.log(addFunction(5 * 2));
 
 #### Answer: C
 
-A função `add` é uma função _memoized_. Com a memorização, podemos armazenar em cache os resultados de uma função para acelerar sua execução. Nesse caso, criamos um objeto `cache` que armazena os valores retornados anteriormente.
+A função `add` é uma função _memoized_ (memorizada). Com a memorização, podemos armazenar em cache os resultados de uma função para acelerar sua execução. Nesse caso, criamos um objeto `cache` que armazena os valores retornados anteriormente.
 
 Se chamarmos a função `addFunction` novamente com o mesmo argumento, ela primeiro verifica se já obteve esse valor em seu cache. Se for o caso, o valor dos caches será retornado, o que economiza tempo de execução. Caso contrário, se não estiver armazenado em cache, ele calculará o valor e o armazenará posteriormente.
 
