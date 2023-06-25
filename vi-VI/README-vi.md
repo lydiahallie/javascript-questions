@@ -339,7 +339,7 @@ bark.animal = "dog";
 
 #### Đáp án: A
 
-Điều này là có thể với Javascript, bởi vì `function` cũng chỉ là `object` mà thôi! (Mọi primitive types đều là object)
+Điều này là có thể với Javascript, bởi vì `function` cũng chỉ là `object` mà thôi! (Các kiểu dữ liệu khác ngoài các kiểu nguyên thủy được gọi là kiểu dữ liệu tham chiếu)
 
 Function là một object đặc biệt. Phần code mà bạn viết không phải là function thực tế đâu. Function ở đây chính là một object với các thuộc tính. Và các thuộc tính này có thể gọi được.
 
