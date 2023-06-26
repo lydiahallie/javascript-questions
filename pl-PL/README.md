@@ -4,7 +4,7 @@
 
 ---
 
-<span>Publikuję pytania wielokrotnego wyboru dotyczące JavaScriptu na swoich [Instagram](https://www.instagram.com/theavocoder) **stories**, które również zamieszczę tutaj! Ostatnia aktualizacja:<a href=#20200612><b>12 Czerwca</b></a>
+<span>Publikuję pytania wielokrotnego wyboru dotyczące JavaScriptu na swoich [Instagram](https://www.instagram.com/theavocoder) **stories**, które również zamieszczę tutaj! Ostatnia aktualizacja: <a href=#20200612><b>26 Czerwca</b></a>
 
 Od podstawowych do zaawansowanych: sprawdź, jak dobrze znasz JavaScript, odśwież swoją wiedzę lub przygotuj się do rozmowy kwalifikacyjnej! :muscle: :rocket: Regularnie aktualizuję to repozytorium nowymi pytaniami. Odpowiedzi znajdują się w ukrytych zakładkach poniżej pytań - po prostu kliknij, aby je rozwinięć. To dla zabawy, powodzenia! :heart:</span>
 
@@ -361,6 +361,307 @@ bark.animal = 'dog';
 Jest to możliwe w JavaScript, ponieważ funkcje są obiektami! (Wszystko oprócz typów prymitywnych jest obiektem)
 
 Funkcja jest specjalnym rodzajem obiektu. Kod, który sam piszesz, nie jest właściwą funkcją. Funkcja jest obiektem posiadającym właściwość, która jest wywoływalna.
+
+</p>
+</details>
+
+---
+
+###### 11. Jaki jest wynik?
+
+```javascript
+function Person(firstName, lastName) {
+  this.firstName = firstName;
+  this.lastName = lastName;
+}
+
+const member = new Person('Lydia', 'Hallie');
+Person.getFullName = function() {
+  return `${this.firstName} ${this.lastName}`;
+};
+
+console.log(member.getFullName());
+```
+
+- A: `TypeError`
+- B: `SyntaxError`
+- C: `Lydia Hallie`
+- D: `undefined` `undefined`
+
+<details><summary><b>Odpowiedź</b></summary>
+<p>
+
+#### Odpowiedź: A
+
+W JavaScript funkcje są obiektami, więc metoda `getFullName` jest dodawana do samego obiektu funkcji konstruktora. Dlatego możemy wywołać `Person.getFullName()`, ale `member.getFullName` zwraca błąd `TypeError`.
+
+Jeśli chcesz, aby metoda była dostępna dla wszystkich instancji obiektów, musisz dodać ją do właściwości prototype:
+
+```js
+Person.prototype.getFullName = function() {
+  return `${this.firstName} ${this.lastName}`;
+};
+```
+
+</p>
+</details>
+
+---
+
+###### 12. Jaki jest wynik?
+
+```javascript
+function Person(firstName, lastName) {
+  this.firstName = firstName;
+  this.lastName = lastName;
+}
+
+const lydia = new Person('Lydia', 'Hallie');
+const sarah = Person('Sarah', 'Smith');
+
+console.log(lydia);
+console.log(sarah);
+```
+
+- A: `Person {firstName: "Lydia", lastName: "Hallie"}` and `undefined`
+- B: `Person {firstName: "Lydia", lastName: "Hallie"}` and `Person {firstName: "Sarah", lastName: "Smith"}`
+- C: `Person {firstName: "Lydia", lastName: "Hallie"}` and `{}`
+- D: `Person {firstName: "Lydia", lastName: "Hallie"}` and `ReferenceError`
+
+<details><summary><b>Odpowiedź</b></summary>
+<p>
+
+#### Odpowiedź: A
+
+Dla `sarah`, nie użyliśmy słowa kluczowego `new`. Kiedy używamy `new`, `this` odwołuje się do nowego pustego obiektu, który tworzymy. Jednak jeśli nie dodajemy `new`, `this` odwołuje się do **globalnego obiektu**!
+
+Mówiliśmy, że `this.firstName` równa się `"Sarah"`, a `this.lastName` równa się `"Smith"`. Czyli faktycznie zdefiniowaliśmy `global.firstName = 'Sarah'` i `global.lastName = 'Smith'`. `sarah` pozostaje `undefined`, ponieważ nie zwracaliśmy żadnej wartości z funkcji `Person`.
+
+</p>
+</details>
+
+---
+
+###### 13. Jakie są trzy fazy propagacji zdarzeń?
+
+- A: Target > Capturing > Bubbling
+- B: Bubbling > Target > Capturing
+- C: Target > Bubbling > Capturing
+- D: Capturing > Target > Bubbling
+
+<details><summary><b>Odpowiedź</b></summary>
+<p>
+
+#### Odpowiedź: D
+
+W fazie **capturing (przechwytywanie)**, zdarzenie przechodzi przez elementy nadrzędne w doł do elementu docelowego. Następnie dociera do elementu **target (cel)** i rozpoczyna się **bubbling (bąbelkowanie)**.
+
+<img src="https://i.imgur.com/N18oRgd.png" width="200">
+
+</p>
+</details>
+
+---
+
+###### 14. Wszystkie obiekty mają prototypy.
+
+- A: true
+- B: false
+
+<details><summary><b>Odpowiedź</b></summary>
+<p>
+
+#### Odpowiedź: B
+
+Wszystkie obiekty mają prototypy, z wyjątkiem **obiektu bazowego**. Obiekt bazowy jest obiektem utworzonym przez użytkownika lub obiektem utworzonym przy użyciu słowa kluczowego `new`. Obiekt bazowy ma dostęp do niektórych metod i właściwości, takich jak `.toString`. Jest to powód, dla którego można używać wbudowanych metod JavaScript! Wszystkie takie metody są dostępne w prototypie. Chociaż JavaScript nie może znaleźć ich bezpośrednio w twoim obiekcie, przechodzi w dół łańcucha prototypów i je tam znajduje, co czyni je dostępnymi dla ciebie.
+
+</p>
+</details>
+
+---
+
+###### 15. Jaki jest wynik?
+
+```javascript
+function sum(a, b) {
+  return a + b;
+}
+
+sum(1, '2');
+```
+
+- A: `NaN`
+- B: `TypeError`
+- C: `"12"`
+- D: `3`
+
+<details><summary><b>Odpowiedź</b></summary>
+<p>
+
+#### Odpowiedź: C
+
+JavaScript jest językiem **dynamicznie typowanym**: nie określamy typów niektórych zmiennych. Wartości mogą być automatycznie konwertowane na inny typ bez wiedzy użytkownika, co nazywa się _implicit type coercion_. **Koercja (Wymuszenie)** to konwersja z jednego typu na inny.
+
+W tym przykładzie JavaScript konwertuje liczbę `1` na string, aby funkcja miała sens i zwróciła wartość. Podczas dodawania typu liczbowego (`1`) i typu łańcuchowego (`'2'`), liczba traktowana jest jako string. Możemy łączyć stringi takie jak `"Hello" + "World"`, więc to co się tutaj dzieje to `"1" + "2"`, które zwraca `"12"`.
+
+</p>
+</details>
+
+---
+
+###### 16. Jaki jest wynik?
+
+```javascript
+let number = 0;
+console.log(number++);
+console.log(++number);
+console.log(number);
+```
+
+- A: `1` `1` `2`
+- B: `1` `2` `2`
+- C: `0` `2` `2`
+- D: `0` `1` `2`
+
+<details><summary><b>Odpowiedź</b></summary>
+<p>
+
+#### Odpowiedź: C
+
+Operator jednoargumentowy **Postfix** `++`:
+
+1. Zwraca wartość (ten zwraca `0`)
+2. Zwiększa wartość (liczba wynosi teraz `1`)
+
+Operator jednoargumentowy **Prefix**  `++`:
+
+1. Zwiększa wartość (liczba wynosi teraz `2`)
+2. Zwraca wartość (to zwraca `2`)
+
+number zwraca `0 2 2`.
+
+</p>
+</details>
+
+---
+
+###### 17. Jaki jest wynik?
+
+```javascript
+function getPersonInfo(one, two, three) {
+  console.log(one);
+  console.log(two);
+  console.log(three);
+}
+
+const person = 'Lydia';
+const age = 21;
+
+getPersonInfo`${person} is ${age} years old`;
+```
+
+- A: `"Lydia"` `21` `["", " is ", " years old"]`
+- B: `["", " is ", " years old"]` `"Lydia"` `21`
+- C: `"Lydia"` `["", " is ", " years old"]` `21`
+
+<details><summary><b>Odpowiedź</b></summary>
+<p>
+
+#### Odpowiedź: B
+
+W przypadku użycia `template strings`, wartością pierwszego argumentu jest zawsze tablica wartości łańcuchowych (string). Pozostałe argumenty otrzymują wartości przekazanych wyrażeń!
+
+</p>
+</details>
+
+---
+
+###### 18. Jaki jest wynik?
+
+```javascript
+function checkAge(data) {
+  if (data === { age: 18 }) {
+    console.log('You are an adult!');
+  } else if (data == { age: 18 }) {
+    console.log('You are still an adult.');
+  } else {
+    console.log(`Hmm.. You don't have an age I guess`);
+  }
+}
+
+checkAge({ age: 18 });
+```
+
+- A: `You are an adult!`
+- B: `You are still an adult.`
+- C: `Hmm.. You don't have an age I guess`
+
+<details><summary><b>Odpowiedź</b></summary>
+<p>
+
+#### Odpowiedź: C
+
+Podczas testowania równości, liczby i ciągi znaków są porównywane przez ich _wartości_, a obiekty są porównywane przez ich _referencję_. JavaScript sprawdza, czy obiekty mają odwołanie do tej samej lokalizacji w pamięci.
+
+Dwa obiekty, które porównujemy, nie mają tej samej lokalizacji w pamięci: obiekt, który przekazujemy jako parametr, odwołuje się do innej lokalizacji w pamięci niż obiekt, którego użyliśmy do sprawdzenia równości.
+
+Dlatego też zarówno `{ age: 18 } == { age: 18 }` i `{ age: 18 } == { age: 18 }` zwracają `false`.
+
+</p>
+</details>
+
+---
+
+###### 19. Jaki jest wynik?
+
+```javascript
+function getAge(...args) {
+  console.log(typeof args);
+}
+
+getAge(21);
+```
+
+- A: `"number"`
+- B: `"array"`
+- C: `"object"`
+- D: `"NaN"`
+
+<details><summary><b>Odpowiedź</b></summary>
+<p>
+
+#### Odpowiedź: C
+
+Parametr reszty (`...args`) pozwala nam "zbierać" wszystkie pozostałe argumenty do tablicy. Tablica to obiekt, więc `typeof args` zwraca `"object"`.
+
+</p>
+</details>
+
+---
+
+###### 20. Jaki jest wynik?
+
+```javascript
+function getAge() {
+  'use strict';
+  age = 21;
+  console.log(age);
+}
+
+getAge();
+```
+
+- A: `21`
+- B: `undefined`
+- C: `ReferenceError`
+- D: `TypeError`
+
+<details><summary><b>Odpowiedź</b></summary>
+<p>
+
+#### Odpowiedź: C
+
+Dzięki `"use strict"` możesz upewnić się, że przypadkowo nie zadeklarujesz zmiennych globalnych. Nigdy nie zadeklarowaliśmy zmiennej `age`, a ponieważ używamy `"use strict"`, zostanie zgłoszony błąd referencji. Gdybyśmy nie użyli `"use strict"`, to by zadziałało, ponieważ właściwość `age` zostałaby dodana do obiektu globalnego.
 
 </p>
 </details>
