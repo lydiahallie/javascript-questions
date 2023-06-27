@@ -2519,7 +2519,7 @@ console.log(list)
 
 #### 答案: C
 
-数组元素可以包含任何值。 数字，字符串，布尔值，对象，数组，`null`，`undeifned`，以及其他表达式，如日期，函数和计算。
+数组元素可以包含任何值。 数字，字符串，布尔值，对象，数组，`null`，`undefined`，以及其他表达式，如日期，函数和计算。
 
 元素将等于返回的值。 `1 + 2`返回`3`，`1 * 2`返回'2`，'1 / 2`返回`0.5`。
 
@@ -3404,7 +3404,7 @@ console.log(colorConfig.colors[1])
 
 在 JavaScript 中，我们有两种访问对象属性的方法：括号表示法或点表示法。 在此示例中，我们使用点表示法（`colorConfig.colors`）代替括号表示法（`colorConfig [“ colors”]`）。
 
-使用点表示法，JavaScript 会尝试使用该确切名称在对象上查找属性。 在此示例中，JavaScript 尝试在 colorconfig 对象上找到名为 colors 的属性。 没有名为 “colors” 的属性，因此返回 “undefined”。
+使用点表示法，JavaScript 会尝试使用该确切名称在对象上查找属性。 在此示例中，JavaScript 尝试在 colorConfig 对象上找到名为 colors 的属性。 没有名为 “colors” 的属性，因此返回 “undefined”。
 然后，我们尝试使用`[1]`访问第一个元素的值。 我们无法对未定义的值执行此操作，因此会抛出`Cannot read property '1' of undefined`。
 
 JavaScript 解释（或取消装箱）语句。 当我们使用方括号表示法时，它会看到第一个左方括号`[`并一直进行下去，直到找到右方括号`]`。 只有这样，它才会评估该语句。 如果我们使用了 colorConfig [colors [1]]，它将返回 colorConfig 对象上 red 属性的值。
@@ -3996,7 +3996,7 @@ async function* range(start, end) {
 
 #### 答案: C
 
-我们给 函数 range 传递： `Promise{1}`, `Promise{2}`, `Promise{3}`，Generator 函数 `range` 返回一个全是 async object promise 数组。我们将 async object 赋值给变量 `gen`，之后我们使用`for await ... of` 进行循环遍历。我们将返回的 Promise 实例赋值给 `item`： 第一个返回 `Promise{1}`， 第二个返回 `Promise{2}`，之后是 `Promise{3}`。因为我们正 _awaiting_ `item` 的值，resolved 状态的 promsie，promise 数组的 resolved _值_ 以此为： `1`，`2`，`3`.
+我们给 函数 range 传递： `Promise{1}`, `Promise{2}`, `Promise{3}`，Generator 函数 `range` 返回一个全是 async object promise 数组。我们将 async object 赋值给变量 `gen`，之后我们使用`for await ... of` 进行循环遍历。我们将返回的 Promise 实例赋值给 `item`： 第一个返回 `Promise{1}`， 第二个返回 `Promise{2}`，之后是 `Promise{3}`。因为我们正 _awaiting_ `item` 的值，resolved 状态的 promise，promise 数组的 resolved _值_ 以此为： `1`，`2`，`3`.
 
 </p>
 </details>
@@ -4060,7 +4060,7 @@ console.log(getFine(130, 300))
 
 #### 答案: B
 
-通过方法 `Intl.NumberFormat`，我们可以格式化任意区域的数字值。我们对数字值 `130` 进行 `mile-per-hour` 作为 `unit` 的 `en-US` 区域 格式化，结果为 `130 mph`。对数字值 `300` 进行 `USD` 作为 `currentcy` 的 `en-US` 区域格式化，结果为 `$300.00`.
+通过方法 `Intl.NumberFormat`，我们可以格式化任意区域的数字值。我们对数字值 `130` 进行 `mile-per-hour` 作为 `unit` 的 `en-US` 区域 格式化，结果为 `130 mph`。对数字值 `300` 进行 `USD` 作为 `currency` 的 `en-US` 区域格式化，结果为 `$300.00`.
 
 </p>
 </details>
@@ -4612,7 +4612,7 @@ console.log(person.hobbies);
 
 然后，我们调用函数 `addHobby`，并给 `hobby` 传递 `"dancing"`。我们不向 `hobbies` 传递值，因此它获取其默认值 —— 对象 `person` 的 属性 `hobbies`。我们向数组 `person.hobbies` push `dancing`。
 
-最后，我们调用函数 `addHobby`，并向 `hobby` 传递 值 `"bdaking"`，并且向 `hobbies` 传递 `person.hobbies`。我们向数组 `person.hobbies` push `dancing`。
+最后，我们调用函数 `addHobby`，并向 `hobby` 传递 值 `"baking"`，并且向 `hobbies` 传递 `person.hobbies`。我们向数组 `person.hobbies` push `dancing`。
 
 pushing `dancing` 和 `baking` 之后，`person.hobbies` 的值为 `["coding", "dancing", "baking"]`
 
@@ -4678,7 +4678,7 @@ const emojis = ["🎄", "🎅🏼", "🎁", "⭐"];
 
 #### 答案: D
 
-`const` 关键字意味着我们不能 _重定义_ 变量中的值，它 _仅可读_。而然，值本身不可修改。数组 `emojis` 中的值可被修改，如 push 新的值，拼接，又或者将数组的长度设置为 0。
+`const` 关键字意味着我们不能 _重定义_ 变量中的值，它 _仅可读_。然而，值本身不可修改。数组 `emojis` 中的值可被修改，如 push 新的值，拼接，又或者将数组的长度设置为 0。
 
 </p>
 </details>
