@@ -4,7 +4,7 @@
 
 ---
 
-<span>Publikuję pytania wielokrotnego wyboru dotyczące JavaScriptu na swoich [Instagram](https://www.instagram.com/theavocoder) **stories**, które również zamieszczę tutaj! Ostatnia aktualizacja: <a href=#20200612><b>26 Czerwca</b></a>
+<span>Publikuję pytania wielokrotnego wyboru dotyczące JavaScriptu na swoich [Instagram](https://www.instagram.com/theavocoder) **stories**, które również zamieszczę tutaj! Ostatnia aktualizacja: <a href=#20200612><b>27 Czerwca</b></a>
 
 Od podstawowych do zaawansowanych: sprawdź, jak dobrze znasz JavaScript, odśwież swoją wiedzę lub przygotuj się do rozmowy kwalifikacyjnej! :muscle: :rocket: Regularnie aktualizuję to repozytorium nowymi pytaniami. Odpowiedzi znajdują się w ukrytych zakładkach poniżej pytań - po prostu kliknij, aby je rozwinięć. To dla zabawy, powodzenia! :heart:</span>
 
@@ -662,6 +662,297 @@ getAge();
 #### Odpowiedź: C
 
 Dzięki `"use strict"` możesz upewnić się, że przypadkowo nie zadeklarujesz zmiennych globalnych. Nigdy nie zadeklarowaliśmy zmiennej `age`, a ponieważ używamy `"use strict"`, zostanie zgłoszony błąd referencji. Gdybyśmy nie użyli `"use strict"`, to by zadziałało, ponieważ właściwość `age` zostałaby dodana do obiektu globalnego.
+
+</p>
+</details>
+
+---
+
+###### 21. Jaka jest wartość `sum`?
+
+```javascript
+const sum = eval('10*10+5');
+```
+
+- A: `105`
+- B: `"105"`
+- C: `TypeError`
+- D: `"10*10+5"`
+
+<details><summary><b>Odpowiedź</b></summary>
+<p>
+
+#### Odpowiedź: A
+
+`eval` oblicza kod, który przekazywany jest jako ciąg znaków. Jeśli jest to wyrażenie, tak jak w tym przypadku, oblicza ono wyrażenie. Wyrażenie to `10 * 10 + 5`. Zwraca liczbę `105`.
+
+</p>
+</details>
+
+---
+
+###### 22. Jak długo cool_secret jest dostępny?
+
+```javascript
+sessionStorage.setItem('cool_secret', 123);
+```
+
+- A: Dane nigdy nie zostaną utracone.
+- B: Gdy użytkownik zamyka kartę.
+- C: Gdy użytkownik zamyka cały przeglądarkę, a nie tylko kartę.
+- D: Gdy użytkownik wyłącza swój komputer.
+
+<details><summary><b>Odpowiedź</b></summary>
+<p>
+
+#### Odpowiedź: B
+
+Dane przechowywane w `sessionStorage` są usuwane po zamknięciu _zakładki_.
+
+Gdybyś użył `localStorage`, dane pozostałyby tam na zawsze, chyba że na przykład wywołano by `localStorage.clear()`.
+
+</p>
+</details>
+
+---
+
+###### 23. Jaki jest wynik?
+
+```javascript
+var num = 8;
+var num = 10;
+
+console.log(num);
+```
+
+- A: `8`
+- B: `10`
+- C: `SyntaxError`
+- D: `ReferenceError`
+
+<details><summary><b>Odpowiedź</b></summary>
+<p>
+
+#### Odpowiedź: B
+
+Za pomocą słowa kluczowego `var` można zadeklarować wiele zmiennych o tej samej nazwie. Zmienna będzie wtedy przechowywać najnowszą wartość.
+
+Nie można tego zrobić za pomocą `let` lub `const`, ponieważ są one blokowe.
+
+</p>
+</details>
+
+---
+
+###### 24. Jaki jest wynik?
+
+```javascript
+const obj = { 1: 'a', 2: 'b', 3: 'c' };
+const set = new Set([1, 2, 3, 4, 5]);
+
+obj.hasOwnProperty('1');
+obj.hasOwnProperty(1);
+set.has('1');
+set.has(1);
+```
+
+- A: `false` `true` `false` `true`
+- B: `false` `true` `true` `true`
+- C: `true` `true` `false` `true`
+- D: `true` `true` `true` `true`
+
+<details><summary><b>Odpowiedź</b></summary>
+<p>
+
+#### Odpowiedź: C
+
+Wszystkie klucze obiektów (z wyjątkiem symboli) są łańcuchami znaków pod względem samego obiektu, nawet jeśli nie napiszesz ich samodzielnie jako łańcucha znaków. Dlatego `obj.hasOwnProperty('1')` również zwraca true.
+
+Nie działa to w ten sam sposób dla zbioru. W zbiorze nie ma klucza `'1'`:`set.has('1')`, dlatego zwraca wartość false. Zawiera on liczbę całkowitą `1`, `set.has(1)` zwraca wartość true.
+
+</p>
+</details>
+
+---
+
+###### 25. Jaki jest wynik?
+
+```javascript
+const obj = { a: 'one', b: 'two', a: 'three' };
+console.log(obj);
+```
+
+- A: `{ a: "one", b: "two" }`
+- B: `{ b: "two", a: "three" }`
+- C: `{ a: "three", b: "two" }`
+- D: `SyntaxError`
+
+<details><summary><b>Odpowiedź</b></summary>
+<p>
+
+#### Odpowiedź: C
+
+Jeśli masz dwa klucze o takiej samej nazwie, zostanie on zastąpiony. Nadal będzie umieszczony na pierwszej pozycji, ale z ostatnią zdefiniowaną wartością.
+
+</p>
+</details>
+
+---
+
+###### 26. Globalny kontekst wykonania JavaScript tworzy dwie rzeczy: obiekt globalny i słowo kluczowe "this".
+
+- A: true
+- B: false
+- C: it depends
+
+<details><summary><b>Odpowiedź</b></summary>
+<p>
+
+#### Odpowiedź: A
+
+Globalny kontekst wykonania jest dostępny wszędzie w kodzie.
+
+</p>
+</details>
+
+---
+
+###### 27. Jaki jest wynik?
+
+```javascript
+for (let i = 1; i < 5; i++) {
+  if (i === 3) continue;
+  console.log(i);
+}
+```
+
+- A: `1` `2`
+- B: `1` `2` `3`
+- C: `1` `2` `4`
+- D: `1` `3` `4`
+
+<details><summary><b>Odpowiedź</b></summary>
+<p>
+
+#### Odpowiedź: C
+
+Instrukcja `continue` pomija iterację, jeśli określony warunek zwróci `true`.
+
+</p>
+</details>
+
+---
+
+###### 28. Jaki jest wynik?
+
+```javascript
+String.prototype.giveLydiaPizza = () => {
+  return 'Just give Lydia pizza already!';
+};
+
+const name = 'Lydia';
+
+console.log(name.giveLydiaPizza())
+```
+
+- A: `"Just give Lydia pizza already!"`
+- B: `TypeError: not a function`
+- C: `SyntaxError`
+- D: `undefined`
+
+<details><summary><b>Odpowiedź</b></summary>
+<p>
+
+#### Odpowiedź: A
+
+`String` jest wbudowanym konstruktorem, do którego możemy dodawać właściwości. Dodana została metoda do jego prototypu. Prymitywne ciągi znaków są automatycznie konwertowane na obiekt typu string, generowany przez funkcję prototypu ciągu znaków. Tak więc wszystkie ciągi (obiekty typu string) mają dostęp do tej metody!
+
+</p>
+</details>
+
+---
+
+###### 29. Jaki jest wynik?
+
+```javascript
+const a = {};
+const b = { key: 'b' };
+const c = { key: 'c' };
+
+a[b] = 123;
+a[c] = 456;
+
+console.log(a[b]);
+```
+
+- A: `123`
+- B: `456`
+- C: `undefined`
+- D: `ReferenceError`
+
+<details><summary><b>Odpowiedź</b></summary>
+<p>
+
+#### Odpowiedź: B
+
+Klucze obiektów są automatycznie konwertowane na ciągi znaków. Próbujemy ustawić obiekt jako klucz do obiektu `a`, z wartością `123`.
+
+Jednakże, kiedy stringujemy obiekt, staje się on `"[obiekt Object]"`. Mówimy więc, że `a["[obiekt Object]"] = 123`. Następnie próbujemy zrobić to samo. `c` jest kolejnym obiektem, który niejawnie stringujemy. Zatem `a["[obiekt Object]"] = 456`.
+
+Następnie wyświetlamy w konsoli `a[b]`, co w rzeczywistości jest `a["[obiekt Object]"]`, ustawiony wcześniej na `456`, więc zwraca `456`.
+
+</p>
+</details>
+
+---
+
+###### 30. Jaki jest wynik?
+
+```javascript
+const foo = () => console.log('First');
+const bar = () => setTimeout(() => console.log('Second'));
+const baz = () => console.log('Third');
+
+bar();
+foo();
+baz();
+```
+
+- A: `First` `Second` `Third`
+- B: `First` `Third` `Second`
+- C: `Second` `First` `Third`
+- D: `Second` `Third` `First`
+
+<details><summary><b>Odpowiedź</b></summary>
+<p>
+
+#### Odpowiedź: B
+
+Mamy funkcję `setTimeout` i wywołaliśmy ją jako pierwszą. Została jednak wyświetlona jako ostatnia.
+
+Dzieje się tak, ponieważ w przeglądarkach mamy nie tylko silnik wykonawczy, ale także coś, co nazywa się `WebAPI`. Interfejs `WebAPI` daje nam na początek funkcję `setTimeout`.
+
+Po przesłaniu _callback_ do WebAPI, sama funkcja `setTimeout` (ale nie callback!) jest usuwana ze stosu.
+
+<img src="https://i.imgur.com/X5wsHOg.png" width="200">
+
+Teraz, `foo` jest wywoływane, a `"First"` jest wyświetlane.
+
+<img src="https://i.imgur.com/Pvc0dGq.png" width="200">
+
+`foo` jest zdejmowane ze stosu, a `baz` jest wywoływane. "Third" zostaje wyświetlony.
+
+<img src="https://i.imgur.com/WhA2bCP.png" width="200">
+
+WebAPI nie może dodawać rzeczy do stosu, gdy jest gotowy. Zamiast tego przesuwa funkcję zwrotną do czegoś zwanego _kolejką_.
+
+<img src="https://i.imgur.com/NSnDZmU.png" width="200">
+
+W tym miejscu zaczyna działać pętla zdarzeń. **Pętla zdarzeń** patrzy na stos i kolejkę zadań. Jeśli stos jest pusty, pobiera pierwszą rzecz z kolejki i przesuwa ją na stos.
+
+<img src="https://i.imgur.com/uyiScAI.png" width="200">
+
+`bar` zostaje wywołany, `"Second"` zostaje wyświetlony i zdjęty ze stosu.
 
 </p>
 </details>
