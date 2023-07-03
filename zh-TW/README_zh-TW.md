@@ -1628,7 +1628,7 @@ console.log(myCar.make);
 
 #### 答案: B
 
-當您回傳屬性(property) 時，該屬性的值等於 _returned_ 的值，而不是在函式建構式(constructor function)中設置的值。 我們回傳字串 `Maserati`，因此 `mycar.make` 等於 `Maserati`。
+當您回傳屬性(property) 時，該屬性的值等於 _returned_ 的值，而不是在函式建構式(constructor function)中設置的值。 我們回傳字串 `Maserati`，因此 `myCar.make` 等於 `Maserati`。
 
 </p>
 </details>
@@ -1803,7 +1803,7 @@ console.log(delete age);
 
 `delete` 運算子會回傳一個布林值: 成功刪除物件的情況下會回傳 `true`，反之則為 `false`。 但是經由 `var`，`const` 或是 `let` 關鍵字所宣告的變數是無法使用 `delete` 運算子刪除的。
 
-此處， `name` 無法成功刪除且會回傳 `fasle`，因為它是經由 `const` 所宣告。當我們宣告 `age` 的值為 `21` 時，實際上我們做的是將一個名為 `age` 的屬性為添加到了全球物件中，您可以透過 `delete` 來刪除物件中的屬性，因此您也能刪除全球物件中的屬性，故將回傳 `true`。
+此處， `name` 無法成功刪除且會回傳 `false`，因為它是經由 `const` 所宣告。當我們宣告 `age` 的值為 `21` 時，實際上我們做的是將一個名為 `age` 的屬性為添加到了全球物件中，您可以透過 `delete` 來刪除物件中的屬性，因此您也能刪除全球物件中的屬性，故將回傳 `true`。
 
 </p>
 </details>
@@ -2546,7 +2546,7 @@ console.log(list)
 
 #### 答案: C
 
-陣列元素可以包含任何值。數字，字符，布林，物件，陣列，`null`，`undeifned`, 以及其他表達式，如日期，函數和計算式。
+陣列元素可以包含任何值。數字，字符，布林，物件，陣列，`null`，`undefined`, 以及其他表達式，如日期，函數和計算式。
 
 元素將等於回傳的值。 `1 + 2`回傳`3`，`1 * 2`回傳'2`，'1 / 2`回傳`0.5`。
 
@@ -3407,7 +3407,7 @@ console.log(colorConfig.colors[1])
 
 在JavaScript中，我們有兩種存取物件屬性的方法：括號表示法或點表示法。在此範例中，我們使用點表示法（`colorConfig.colors`）代替括號表示法（`colorConfig [“ colors”]`）。
 
-使用點表示法，JavaScript會嘗試使用該確切名稱在物件上查找屬性。在此範例中，JavaScript嘗試在colorconfig物件上找到名為colors的屬性。沒有名為“colors”的屬性，因此得到“undefined”。
+使用點表示法，JavaScript會嘗試使用該確切名稱在物件上查找屬性。在此範例中，JavaScript嘗試在colorConfig物件上找到名為colors的屬性。沒有名為“colors”的屬性，因此得到“undefined”。
 然後，我們嘗試使用`[1]`存取第一個元素的值。我們無法對未定義的值執行此操作，因此會拋出`Cannot read property '1' of undefined`。
 
 JavaScript解釋（或取消裝箱）語句。當我們使用中括號表示法時，它會看到第一個左方括號`[`並一直進行下去，直到找到右方括號`]`。只有這樣，它才會評估該語句。如果我們使用了colorConfig [colors [1]]，它將得到colorConfig物件上red屬性的值。
@@ -3982,7 +3982,7 @@ async function* range(start, end) {
 
 #### 答案: C
 
-我們給 函數range 傳遞： `Promise{1}`, `Promise{2}`, `Promise{3}`，Generator 函數 `range` 回傳一個全是 async object promise 陣列。我們將 async object 賦值給變數 `gen`，之後我們使用`for await ... of` 進行循環遍歷。我們將回傳的 Promise 實例賦值給 `item`： 第一個回傳 `Promise{1}`， 第二個回傳 `Promise{2}`，之後是 `Promise{3}`。因為我們正 _awaiting_ `item` 的值，resolved 狀態的 promsie，promise陣列的resolved _值_ 以此為： `1`，`2`，`3`.
+我們給 函數range 傳遞： `Promise{1}`, `Promise{2}`, `Promise{3}`，Generator 函數 `range` 回傳一個全是 async object promise 陣列。我們將 async object 賦值給變數 `gen`，之後我們使用`for await ... of` 進行循環遍歷。我們將回傳的 Promise 實例賦值給 `item`： 第一個回傳 `Promise{1}`， 第二個回傳 `Promise{2}`，之後是 `Promise{3}`。因為我們正 _awaiting_ `item` 的值，resolved 狀態的 promise，promise陣列的resolved _值_ 以此為： `1`，`2`，`3`.
 
 </p>
 </details>
@@ -4044,7 +4044,7 @@ console.log(getFine(130, 300))
 
 #### 答案: B
 
-通過函數 `Intl.NumberFormat`，我們可以格式化任意區域的數字值。我們對數字值 `130` 進行 `mile-per-hour` 作為 `unit` 的 `en-US` 區域 格式化，結果為 `130 mph`。對數字值 `300` 進行 `USD` 作為 `currentcy` 的 `en-US` 區域格式化，結果為 `$300.00`.
+通過函數 `Intl.NumberFormat`，我們可以格式化任意區域的數字值。我們對數字值 `130` 進行 `mile-per-hour` 作為 `unit` 的 `en-US` 區域 格式化，結果為 `130 mph`。對數字值 `300` 進行 `USD` 作為 `currency` 的 `en-US` 區域格式化，結果為 `$300.00`.
 
 </p>
 </details>
@@ -4596,7 +4596,7 @@ console.log(person.hobbies);
 
 然後，我們呼叫函數 `addHobby`，並給 `hobby` 傳遞 `"dancing"`。我們不向 `hobbies` 傳遞值，因此它獲取其預設值 —— 物件 `person` 的 屬性 `hobbies`。我們向陣列 `person.hobbies` push `dancing`。
 
-最後，我們呼叫函數 `addHobby`，並向 `hobby` 傳遞 值 `"bdaking"`，並且向 `hobbies` 傳遞 `person.hobbies`。我們向陣列 `person.hobbies` push `dancing`。
+最後，我們呼叫函數 `addHobby`，並向 `hobby` 傳遞 值 `"baking"`，並且向 `hobbies` 傳遞 `person.hobbies`。我們向陣列 `person.hobbies` push `dancing`。
 
 pushing `dancing` 和 `baking` 之後，`person.hobbies` 的值為 `["coding", "dancing", "baking"]`
 
@@ -4662,7 +4662,7 @@ const emojis = ["🎄", "🎅🏼", "🎁", "⭐"];
 
 #### 答案: D
 
-`const` 關鍵字意味著我們不能 _重定義_ 變數中的值，它 _僅可讀_。而然，值本身不可修改。陣列 `emojis` 中的值可被修改，如 push 新的值, 拼接，又或者將陣列的長度設置為0。
+`const` 關鍵字意味著我們不能 _重定義_ 變數中的值，它 _僅可讀_。然而，值本身不可修改。陣列 `emojis` 中的值可被修改，如 push 新的值, 拼接，又或者將陣列的長度設置為0。
 
 </p>
 </details>
