@@ -5142,3 +5142,44 @@ The condition within the `if` statement checks whether the value of `!typeof ran
 
 </p>
 </details>
+
+
+###### 156. What's the output ? 
+```javascript
+let a = [1, 2, 3, 4, 5, 6];
+var left = 0, right = 5;
+var found = false;
+var target = 5;
+while(left <= right) {
+   var mid = Math.floor((left + right) / 2);
+   if(a[mid] == target) {
+       found = true;
+       break;
+   }
+   else if(a[mid] < target) {
+       left = mid + 1;
+   }
+   else {
+       right = mid - 1;
+   }
+}
+if(found) {
+   print("YES");
+}
+else {
+   print("NO");
+}
+```
+
+- A: `YES`
+- B: `NO`
+- C: `None Of the above`
+- D: `Syntax Error`
+
+<details><summary><a>Answer<a></summary>
+<p>
+
+#### Answer: A
+
+The above code performs binary search to search for the target element of 5 in the given array. If it is found, it prints YES else NO.
+<p>
