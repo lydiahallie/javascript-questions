@@ -31,6 +31,7 @@ Feel free to reach out to me! 😊 <br />
 - [🇯🇵 日本語](./ja-JA/README-ja_JA.md)
 - [🇰🇷 한국어](./ko-KR/README-ko_KR.md)
 - [🇳🇱 Nederlands](./nl-NL/README.md)
+- [🇵🇱 Polski](./pl-PL/README.md)
 - [🇧🇷 Português Brasil](./pt-BR/README_pt_BR.md)
 - [🇷🇺 Русский](./ru-RU/README.md)
 - [🇹🇭 ไทย](./th-TH/README-th_TH.md)
@@ -327,7 +328,7 @@ console.log(greetign);
 It logs the object, because we just created an empty object on the global object! When we mistyped `greeting` as `greetign`, the JS interpreter actually saw this as:
 
 1. `global.greetign = {}` in Node.js
-2. `window.greetign = {}`, `frames.geetign = {}` and `self.greetign` in browsers.
+2. `window.greetign = {}`, `frames.greetign = {}` and `self.greetign` in browsers.
 3. `self.greetign` in web workers.
 4. `globalThis.greetign` in all environments.
 

@@ -24,6 +24,7 @@ Mevcut dillerin listesi:
 - [🇯🇵 日本語](../ja-JA/README-ja_JA.md)
 - [🇰🇷 한국어](../ko-KR/README-ko_KR.md)
 - [🇳🇱 Nederlands](../nl-NL/README.md)
+- [🇵🇱 Polski](../pl-PL/README.md)
 - [🇧🇷 Português Brasil](../pt-BR/README_pt_BR.md)
 - [🇷🇺 Русский](../ru-RU/README.md)
 - [🇹🇭 ไทย](../th-TH/README-th_TH.md)

@@ -18,6 +18,7 @@ As respostas estão em seções recolhidas abaixo das questões, basta clicar ne
 - [🇯🇵 日本語](../ja-JA/README-ja_JA.md)
 - [🇰🇷 한국어](../ko-KR/README-ko_KR.md)
 - [🇳🇱 Nederlands](../nl-NL/README.md)
+- [🇵🇱 Polski](../pl-PL/README.md)
 - [🇷🇺 Русский](../ru-RU/README.md)
 - [🇹🇭 ไทย](../th-TH/README-th_TH.md)
 - [🇹🇷 Türkçe](../tr-TR/README-tr_TR.md)
@@ -1097,7 +1098,7 @@ Funções construtoras, como `new Number` e `new Boolean` são truthy.
 
 ---
 
-###### 36. Qual é a sáida?
+###### 36. Qual é a saída?
 
 ```javascript
 console.log(typeof typeof 1);
@@ -2202,11 +2203,11 @@ console.log(/* 2 */); // O JavaScript também ama você ❤️
 
 #### Resposta: C
 
-Uma função geradora "pausa" a sua execução quando encontra a palavra-chave `yield`. Primeiro, temos que deixar a função produzir a string "Você ama JavaScript?", o que pode ser feito chamando `game.next().value`.
+Uma função geradora "pausa" a sua execução quando encontra a palavra-chave `yield`. Primeiro, temos que deixar a função produzir a string "Você ama JavaScript?", o que pode ser feito chamando `jogo.next().value`.
 
 Cada linha é executada, até encontrar a primeira palavra-chave `yield`. Há uma palavra-chave `yield` na primeira linha da função: a execução para com o primeiro retorno! _Isso significa que a variável `resposta` ainda não foi definida!_
 
-Quando chamamos `game.next("Sim").value`, o `yield` anterior é substituído pelo valor dos parâmetros passados para a função `next()`, `"Sim"` neste caso. O valor da variável `"resposta"` agora é igual a `"Sim"`. A condição da instrução if retorna `false` e `JavaScript também ama você ❤️` é registrada.
+Quando chamamos `jogo.next("Sim").value`, o `yield` anterior é substituído pelo valor dos parâmetros passados para a função `next()`, `"Sim"` neste caso. O valor da variável `"resposta"` agora é igual a `"Sim"`. A condição da instrução if retorna `false` e `JavaScript também ama você ❤️` é registrada.
 
 </p>
 </details>
@@ -2360,13 +2361,13 @@ console.log(name);
 <details><summary><b>Answer</b></summary>
 <p>
 
-#### Answer: C
+#### Answer: D
 
 Quando descompactamos a propriedade `name` do objeto do lado direito, atribuímos seu valor `"Lydia"` a uma variável com o nome `myName`.
 
 Com `{ name: myName }`, informamos ao JavaScript que queremos criar uma nova variável chamada `myName` com o valor da propriedade `name` no lado direito.
 
-Como tentamos registrar `name`, uma variável que não está definida, `undefined` é retornado na atribuição do lado esquerdo. Mais tarde, o valor de `Lydia` é armazenado através da atribuição de desestruturação.
+Quando tentamos mostrar o conteúdo de `name`, uma variável que não está definida, recebemos o erro `ReferenceError`.
 
 </p>
 </details>
@@ -2381,8 +2382,8 @@ function sum(a, b) {
 }
 ```
 
-- A: Yes
-- B: No
+- A: Sim
+- B: Não
 
 <details><summary><b>Answer</b></summary>
 <p>
@@ -2430,7 +2431,7 @@ console.log(addFunction(5 * 2));
 
 #### Answer: C
 
-A função `add` é uma função _memoized_. Com a memorização, podemos armazenar em cache os resultados de uma função para acelerar sua execução. Nesse caso, criamos um objeto `cache` que armazena os valores retornados anteriormente.
+A função `add` é uma função _memoized_ (memorizada). Com a memorização, podemos armazenar em cache os resultados de uma função para acelerar sua execução. Nesse caso, criamos um objeto `cache` que armazena os valores retornados anteriormente.
 
 Se chamarmos a função `addFunction` novamente com o mesmo argumento, ela primeiro verifica se já obteve esse valor em seu cache. Se for o caso, o valor dos caches será retornado, o que economiza tempo de execução. Caso contrário, se não estiver armazenado em cache, ele calculará o valor e o armazenará posteriormente.
 
