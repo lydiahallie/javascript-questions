@@ -17,7 +17,7 @@ Nie krępuj się ze mną kontaktować! 😊 <br />
 
 ---
 
-<details><summary><b> Zobacz 19 dostępnych tłumaczeń 🇸🇦🇪🇬🇧🇦🇩🇪🇪🇸🇫🇷🇮🇩🇯🇵🇰🇷🇳🇱🇧🇷🇷🇺🇹🇭🇹🇷🇺🇦🇻🇳🇨🇳🇹🇼</b></summary>
+<details><summary><b> Zobacz 20 dostępnych tłumaczeń 🇸🇦🇪🇬🇧🇦🇩🇪🇪🇸🇫🇷🇮🇩🇯🇵🇰🇷🇳🇱🇧🇷🇷🇺🇹🇭🇹🇷🇺🇦🇻🇳🇨🇳🇹🇼🇽🇰</b></summary>
 <p>
 
 - [🇸🇦 العربية](./ar-AR/README_AR.md)
@@ -33,6 +33,7 @@ Nie krępuj się ze mną kontaktować! 😊 <br />
 - [🇳🇱 Nederlands](./nl-NL/README.md)
 - [🇧🇷 Português Brasil](./pt-BR/README_pt_BR.md)
 - [🇷🇺 Русский](./ru-RU/README.md)
+- [🇽🇰 Shqip](../sq-KS/README_sq_KS.md)
 - [🇹🇭 ไทย](./th-TH/README-th_TH.md)
 - [🇹🇷 Türkçe](./tr-TR/README-tr_TR.md)
 - [🇺🇦 Українська мова](./uk-UA/README.md)

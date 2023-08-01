@@ -17,7 +17,7 @@ Feel free to reach out to me! 😊 <br />
 
 ---
 
-<details><summary><b> See 19 Available Translations 🇸🇦🇪🇬🇧🇦🇩🇪🇪🇸🇫🇷🇮🇩🇯🇵🇰🇷🇳🇱🇧🇷🇷🇺🇹🇭🇹🇷🇺🇦🇻🇳🇨🇳🇹🇼</b></summary>
+<details><summary><b> See 20 Available Translations 🇸🇦🇪🇬🇧🇦🇩🇪🇪🇸🇫🇷🇮🇩🇯🇵🇰🇷🇳🇱🇧🇷🇷🇺🇹🇭🇹🇷🇺🇦🇻🇳🇨🇳🇹🇼🇽🇰</b></summary>
 <p>
 
 - [🇸🇦 العربية](./ar-AR/README_AR.md)
@@ -34,6 +34,7 @@ Feel free to reach out to me! 😊 <br />
 - [🇵🇱 Polski](./pl-PL/README.md)
 - [🇧🇷 Português Brasil](./pt-BR/README_pt_BR.md)
 - [🇷🇺 Русский](./ru-RU/README.md)
+- [🇽🇰 Shqip](./sq-KS/README_sq_KS.md)
 - [🇹🇭 ไทย](./th-TH/README-th_TH.md)
 - [🇹🇷 Türkçe](./tr-TR/README-tr_TR.md)
 - [🇺🇦 Українська мова](./uk-UA/README.md)

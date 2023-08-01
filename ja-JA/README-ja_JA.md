@@ -22,12 +22,14 @@
 - [🇵🇱 Polski](../pl-PL/README.md)
 - [🇧🇷 Português Brasil](../pt-BR/README_pt_BR.md)
 - [🇷🇺 Русский](../ru-RU/README.md)
+- [🇽🇰 Shqip](../sq-KS/README_sq_KS.md)
 - [🇹🇭 ไทย](../th-TH/README-th_TH.md)
 - [🇹🇷 Türkçe](../tr-TR/README-tr_TR.md)
 - [🇺🇦 Українська мова](../uk-UA/README.md)
 - [🇻🇳 Tiếng Việt](../vi-VI/README-vi.md)
 - [🇨🇳 简体中文](../zh-CN/README-zh_CN.md)
 - [🇹🇼 繁體中文](../zh-TW/README_zh-TW.md)
+
 ---
 
 ###### 1. 何が出力されるでしょうか？
