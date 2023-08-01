@@ -37,6 +37,7 @@
 - [🇻🇳 Tiếng Việt](../vi-VI/README-vi.md)
 - [🇨🇳 简体中文](../zh-CN/README-zh_CN.md)
 - [🇹🇼 繁體中文](../zh-TW/README_zh-TW.md)
+- [🇽🇰 Shqip](../sq-KS/README_sq_KS.md)
 
 </p>
 </details>

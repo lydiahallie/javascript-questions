@@ -9,8 +9,7 @@ Pyetjet të cilat mund të kenë më shumë se një përgjigje të saktë postoh
 Nga konceptet bazike tek ato të avancuara: testo se sa mirë e njeh JavaScript-in, freskoni sado pak njohuritë e juaja ose edhe përgatitu për intervisten tuaj të ardhshme! 💪 🚀! Përgjigjet gjenden në **seksionet e mbyllura** përfundi pyetjeve, thjesht kliko mbi to për të hapur seksionin e përgjigjeve. Është vetëm për argëtim, paç fat! ❤️
 
 Mos hezitoni të më kontaktoni! 😊
-Instagram || Twitter || LinkedIn || Blog
-
+<a href="https://www.instagram.com/theavocoder">Instagram</a> || <a href="https://www.twitter.com/lydiahallie">Twitter</a> || <a href="https://www.linkedin.com/in/lydia-hallie">LinkedIn</a> || <a href="https://www.lydiahallie.dev">Blog</a>
 </div>
 
 | Ndjehuni të lirë të i përdorni në projektet e juaja |😃  Do të e vlerësoja shumë referencimin tuaj në ketë repositori, unë i krijoj pyetjet dhe poashtu edhe përgjigjet (lol) dhe komuniteti me ndihmon shumë të e përmirësoj dhe të mirëmbajë! 💪🏼 Faleminderit!
@@ -20,26 +19,26 @@ Instagram || Twitter || LinkedIn || Blog
 <details><summary><b> See 20 Available Translations 🇸🇦🇪🇬🇧🇦🇩🇪🇪🇸🇫🇷🇮🇩🇯🇵🇰🇷🇳🇱🇧🇷🇷🇺🇹🇭🇹🇷🇺🇦🇻🇳🇨🇳🇹🇼🇽🇰</b></summary>
 <p>
 
-- [🇸🇦 العربية](./ar-AR/README_AR.md)
-- [🇪🇬 اللغة العامية](./ar-EG/README_ar-EG.md)
-- [🇧🇦 Bosanski](./bs-BS/README-bs_BS.md)
-- [🇩🇪 Deutsch](./de-DE/README.md)
-- [🇪🇸 Español](./es-ES/README-ES.md)
-- [🇫🇷 Français](./fr-FR/README_fr-FR.md)
-- [🇮🇩 Indonesia](./id-ID/README.md)
-- [🇮🇹 Italiano](./it-IT/README.md)
-- [🇯🇵 日本語](./ja-JA/README-ja_JA.md)
-- [🇰🇷 한국어](./ko-KR/README-ko_KR.md)
-- [🇳🇱 Nederlands](./nl-NL/README.md)
-- [🇵🇱 Polski](./pl-PL/README.md)
-- [🇧🇷 Português Brasil](./pt-BR/README_pt_BR.md)
-- [🇷🇺 Русский](./ru-RU/README.md)
-- [🇹🇭 ไทย](./th-TH/README-th_TH.md)
-- [🇹🇷 Türkçe](./tr-TR/README-tr_TR.md)
-- [🇺🇦 Українська мова](./uk-UA/README.md)
-- [🇻🇳 Tiếng Việt](./vi-VI/README-vi.md)
-- [🇨🇳 简体中文](./zh-CN/README-zh_CN.md)
-- [🇹🇼 繁體中文](./zh-TW/README_zh-TW.md)
+- [🇸🇦 العربية](../ar-AR/README_AR.md)
+- [🇪🇬 اللغة العامية](../ar-EG/README_ar-EG.md)
+- [🇧🇦 Bosanski](../bs-BS/README-bs_BS.md)
+- [🇩🇪 Deutsch](../de-DE/README.md)
+- [🇪🇸 Español](../es-ES/README-ES.md)
+- [🇫🇷 Français](../fr-FR/README_fr-FR.md)
+- [🇮🇩 Indonesia](../id-ID/README.md)
+- [🇮🇹 Italiano](../it-IT/README.md)
+- [🇯🇵 日本語](../ja-JA/README-ja_JA.md)
+- [🇰🇷 한국어](../ko-KR/README-ko_KR.md)
+- [🇳🇱 Nederlands](../nl-NL/README.md)
+- [🇵🇱 Polski](../pl-PL/README.md)
+- [🇧🇷 Português Brasil](../pt-BR/README_pt_BR.md)
+- [🇷🇺 Русский](../ru-RU/README.md)
+- [🇹🇭 ไทย](../th-TH/README-th_TH.md)
+- [🇹🇷 Türkçe](../tr-TR/README-tr_TR.md)
+- [🇺🇦 Українська мова](../uk-UA/README.md)
+- [🇻🇳 Tiếng Việt](../vi-VI/README-vi.md)
+- [🇨🇳 简体中文](../zh-CN/README-zh_CN.md)
+- [🇹🇼 繁體中文](../zh-TW/README_zh-TW.md)
 - [🇽🇰 Shqip](./sq-KS/README_sq_KS.md)
 
 </p>

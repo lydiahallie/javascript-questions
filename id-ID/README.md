@@ -13,7 +13,7 @@ Jangan sungkan untuk terhubung dengan saya! 😊 <br />
 
 ---
 
-<details><summary><b> Lihat 17 Terjemahan yang tersedia 🇪🇸🇮🇹🇩🇪 🇫🇷🇷🇺🇨🇳🇵🇹</b></summary>
+<details><summary><b> Lihat 20 Terjemahan yang tersedia 🇪🇸🇮🇹🇩🇪 🇫🇷🇷🇺🇨🇳🇵🇹🇽🇰</b></summary>
 <p>
 
 - [🇸🇦 العربية](../ar-AR/README_AR.md)
@@ -36,6 +36,7 @@ Jangan sungkan untuk terhubung dengan saya! 😊 <br />
 - [🇻🇳 Tiếng Việt](../vi-VI/README-vi.md)
 - [🇨🇳 简体中文](../zh-CN/README-zh_CN.md)
 - [🇹🇼 繁體中文](../zh-TW/README_zh-TW.md)
+- [🇽🇰 Shqip](../sq-KS/README_sq_KS.md)
 
 </p>
 </details>

@@ -21,7 +21,7 @@ Traduzione a cura di: <a href="https://github.com/luciacenetiempo">Lucia Cenetie
 
 ---
 
-<details><summary><b> Vedi le 18 traduzioni disponibili 🇸🇦🇪🇬🇧🇦🇩🇪🇪🇸🇫🇷🇮🇩🇯🇵🇰🇷🇳🇱🇧🇷🇷🇺🇹🇭🇹🇷🇺🇦🇻🇳🇨🇳🇹🇼</b></summary>
+<details><summary><b> Vedi le 20 traduzioni disponibili 🇸🇦🇪🇬🇧🇦🇩🇪🇪🇸🇫🇷🇮🇩🇯🇵🇰🇷🇳🇱🇧🇷🇷🇺🇹🇭🇹🇷🇺🇦🇻🇳🇨🇳🇹🇼🇽🇰</b></summary>
 <p>
 
 - [🇸🇦 العربية](../ar-AR/README_AR.md)
@@ -44,6 +44,7 @@ Traduzione a cura di: <a href="https://github.com/luciacenetiempo">Lucia Cenetie
 - [🇻🇳 Tiếng Việt](../vi-VI/README-vi.md)
 - [🇨🇳 简体中文](../zh-CN/README-zh_CN.md)
 - [🇹🇼 繁體中文](../zh-TW/README_zh-TW.md)
+- [🇽🇰 Shqip](../sq-KS/README_sq_KS.md)
 
 </p>
 </details>

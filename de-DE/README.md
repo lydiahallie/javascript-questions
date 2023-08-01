@@ -19,7 +19,7 @@ Kontaktiert mich, wenn ihr möchtet! 😊 <br />
 
 ---
 
-<details><summary><b> Alle 18 Übersetzungen anzeigen 🇸🇦🇪🇬🇧🇦🇩🇪🇪🇸🇫🇷🇮🇩🇯🇵🇰🇷🇳🇱🇧🇷🇷🇺🇹🇭🇹🇷🇺🇦🇻🇳🇨🇳🇹🇼</b></summary>
+<details><summary><b> Alle 20 Übersetzungen anzeigen 🇸🇦🇪🇬🇧🇦🇩🇪🇪🇸🇫🇷🇮🇩🇯🇵🇰🇷🇳🇱🇧🇷🇷🇺🇹🇭🇹🇷🇺🇦🇻🇳🇨🇳🇹🇼🇽🇰</b></summary>
 <p>
 
 - [🇸🇦 العربية](../ar-AR/README_AR.md)
@@ -42,6 +42,7 @@ Kontaktiert mich, wenn ihr möchtet! 😊 <br />
 - [🇻🇳 Tiếng Việt](../vi-VI/README-vi.md)
 - [🇨🇳 简体中文](../zh-CN/README-zh_CN.md)
 - [🇹🇼 繁體中文](../zh-TW/README_zh-TW.md)
+- [🇽🇰 Shqip](../sq-KS/README_sq_KS.md)
 
 </p>
 </details>
