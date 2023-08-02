@@ -17,7 +17,7 @@ Feel free to reach out to me! 😊 <br />
 
 ---
 
-<details><summary><b> See 18 Available Translations 🇸🇦🇪🇬🇧🇦🇩🇪🇪🇸🇫🇷🇮🇩🇯🇵🇰🇷🇳🇱🇧🇷🇷🇺🇹🇭🇹🇷🇺🇦🇻🇳🇨🇳🇹🇼</b></summary>
+<details><summary><b> See 20 Available Translations 🇸🇦🇪🇬🇧🇦🇩🇪🇪🇸🇫🇷🇮🇩🇯🇵🇰🇷🇳🇱🇧🇷🇷🇺🇹🇭🇹🇷🇺🇦🇻🇳🇨🇳🇹🇼🇽🇰</b></summary>
 <p>
 
 - [🇸🇦 العربية](./ar-AR/README_AR.md)
@@ -27,11 +27,14 @@ Feel free to reach out to me! 😊 <br />
 - [🇪🇸 Español](./es-ES/README-ES.md)
 - [🇫🇷 Français](./fr-FR/README_fr-FR.md)
 - [🇮🇩 Indonesia](./id-ID/README.md)
+- [🇮🇹 Italiano](./it-IT/README.md)
 - [🇯🇵 日本語](./ja-JA/README-ja_JA.md)
 - [🇰🇷 한국어](./ko-KR/README-ko_KR.md)
 - [🇳🇱 Nederlands](./nl-NL/README.md)
+- [🇵🇱 Polski](./pl-PL/README.md)
 - [🇧🇷 Português Brasil](./pt-BR/README_pt_BR.md)
 - [🇷🇺 Русский](./ru-RU/README.md)
+- [🇽🇰 Shqip](./sq-KS/README_sq_KS.md)
 - [🇹🇭 ไทย](./th-TH/README-th_TH.md)
 - [🇹🇷 Türkçe](./tr-TR/README-tr_TR.md)
 - [🇺🇦 Українська мова](./uk-UA/README.md)
@@ -262,9 +265,9 @@ console.log(b === c);
 
 `new Number()` is a built-in function constructor. Although it looks like a number, it's not really a number: it has a bunch of extra features and is an object.
 
-When we use the `==` operator, it only checks whether it has the same _value_. They both have the value of `3`, so it returns `true`.
+When we use the `==` operator (Equality operator), it only checks whether it has the same _value_. They both have the value of `3`, so it returns `true`.
 
-However, when we use the `===` operator, both value _and_ type should be the same. It's not: `new Number()` is not a number, it's an **object**. Both return `false.`
+However, when we use the `===` operator (Strict equality operator), both value _and_ type should be the same. It's not: `new Number()` is not a number, it's an **object**. Both return `false.`
 
 </p>
 </details>
@@ -323,7 +326,12 @@ console.log(greetign);
 
 #### Answer: A
 
-It logs the object, because we just created an empty object on the global object! When we mistyped `greeting` as `greetign`, the JS interpreter actually saw this as `global.greetign = {}` (or `window.greetign = {}` in a browser).
+It logs the object, because we just created an empty object on the global object! When we mistyped `greeting` as `greetign`, the JS interpreter actually saw this as:
+
+1. `global.greetign = {}` in Node.js
+2. `window.greetign = {}`, `frames.greetign = {}` and `self.greetign` in browsers.
+3. `self.greetign` in web workers.
+4. `globalThis.greetign` in all environments.
 
 In order to avoid this, we can use `"use strict"`. This makes sure that you have declared a variable before setting it equal to anything.
 
@@ -846,7 +854,7 @@ String.prototype.giveLydiaPizza = () => {
 
 const name = 'Lydia';
 
-name.giveLydiaPizza();
+console.log(name.giveLydiaPizza())
 ```
 
 - A: `"Just give Lydia pizza already!"`
@@ -1062,8 +1070,8 @@ console.log(typeof sayHi());
 #### Answer: B
 
 The `sayHi` function returns the returned value of the immediately invoked function expression (IIFE). This function returned `0`, which is type `"number"`.
-
-FYI: there are only 7 built-in types: `null`, `undefined`, `boolean`, `number`, `string`, `object`, and `symbol`. `"function"` is not a type, since functions are objects, it's of type `"object"`.
+	
+FYI: `typeof` can return the following list of values: `undefined`, `boolean`, `number`, `bigint`, `string`, `symbol`, `function` and `object`. Note that `typeof null` returns `"object"`.
 
 </p>
 </details>
@@ -1141,9 +1149,9 @@ numbers[10] = 11;
 console.log(numbers);
 ```
 
-- A: `[1, 2, 3, 7 x null, 11]`
+- A: `[1, 2, 3, null x 7, 11]`
 - B: `[1, 2, 3, 11]`
-- C: `[1, 2, 3, 7 x empty, 11]`
+- C: `[1, 2, 3, empty x 7, 11]`
 - D: `SyntaxError`
 
 <details><summary><b>Answer</b></summary>
@@ -1153,7 +1161,7 @@ console.log(numbers);
 
 When you set a value to an element in an array that exceeds the length of the array, JavaScript creates something called "empty slots". These actually have the value of `undefined`, but you will see something like:
 
-`[1, 2, 3, 7 x empty, 11]`
+`[1, 2, 3, empty x 7, 11]`
 
 depending on where you run it (it's different for every browser, node, etc.)
 
@@ -1639,7 +1647,9 @@ console.log(myCar.make);
 
 #### Answer: B
 
-When you return a property, the value of the property is equal to the _returned_ value, not the value set in the constructor function. We return the string `"Maserati"`, so `myCar.make` is equal to `"Maserati"`.
+When a constructor function is called with the `new` keyword, it creates an object and sets the `this` keyword to refer to that object. By default, if the constructor function doesn't explicitly return anything, it will return the newly created object.
+
+In this case, the constructor function `Car` explicitly returns a new object with `make` set to `"Maserati"`, which overrides the default behavior. Therefore, when `new Car()` is called, the _returned_ object is assigned to `myCar`, resulting in the output being `"Maserati"` when `myCar.make` is accessed.
 
 </p>
 </details>
@@ -2222,7 +2232,7 @@ With the `+` operator, you can concatenate strings. In this case, we are concate
 function* startGame() {
   const answer = yield 'Do you love JavaScript?';
   if (answer !== 'Yes') {
-    return "Oh wow... Guess we're gone here";
+    return "Oh wow... Guess we're done here";
   }
   return 'JavaScript loves you back ❤️';
 }
@@ -2377,7 +2387,7 @@ console.log(shape);
 
 `Object.freeze` makes it impossible to add, remove, or modify properties of an object (unless the property's value is another object).
 
-When we create the variable `shape` and set it equal to the frozen object `box`, `shape` also refers to a frozen object. You can check whether an object is frozen by using `Object.isFrozen`. In this case, `Object.isFrozen(shape)` returns true, since the variable `shape` has a reference to a frozen object.
+When we create the variable `shape` and set it equal to the frozen object `box`, `shape` also refers to a frozen object. You can check whether an object is frozen by using `Object.isFrozen`. In this case, `Object.isFrozen(shape)` would return true, since the variable `shape` has a reference to a frozen object.
 
 Since `shape` is frozen, and since the value of `x` is not an object, we cannot modify the property `x`. `x` is still equal to `10`, and `{ x: 10, y: 20 }` gets logged.
 
@@ -2389,9 +2399,9 @@ Since `shape` is frozen, and since the value of `x` is not an object, we cannot 
 ###### 76. What's the output?
 
 ```javascript
-const { name: myName } = { name: 'Lydia' };
+const { firstName: myName } = { firstName: 'Lydia' };
 
-console.log(name);
+console.log(firstName);
 ```
 
 - A: `"Lydia"`
@@ -2402,13 +2412,47 @@ console.log(name);
 <details><summary><b>Answer</b></summary>
 <p>
 
-#### Answer: C
+#### Answer: D
 
-When we unpack the property `name` from the object on the right-hand side, we assign its value `"Lydia"` to a variable with the name `myName`.
+By using [destructuring assignment](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment) syntax we can unpack values from arrays, or properties from objects, into distinct variables:
 
-With `{ name: myName }`, we tell JavaScript that we want to create a new variable called `myName` with the value of the `name` property on the right-hand side.
+```javascript
+const { firstName } = { firstName: 'Lydia' };
+// ES5 version:
+// var firstName = { firstName: 'Lydia' }.firstName;
 
-Since we try to log `name`, a variable that is not defined, `undefined` is returned on the left side assignment. Later, the value of `Lydia` is stored through the destructuring  assignment. 
+console.log(firstName); // "Lydia"
+```
+
+Also, a property can be unpacked from an object and assigned to a variable with a different name than the object property:
+
+```javascript
+const { firstName: myName } = { firstName: 'Lydia' };
+// ES5 version:
+// var myName = { firstName: 'Lydia' }.firstName;
+
+console.log(myName); // "Lydia"
+console.log(firstName); // Uncaught ReferenceError: firstName is not defined
+```
+
+Therefore, `firstName` does not exist as a variable, thus attempting to access its value will raise a `ReferenceError`.
+
+**Note:** Be aware of the `global scope` properties:
+
+```javascript
+const { name: myName } = { name: 'Lydia' };
+
+console.log(myName); // "lydia"
+console.log(name); // "" ----- Browser e.g. Chrome
+console.log(name); // ReferenceError: name is not defined  ----- NodeJS
+
+```
+
+Whenever Javascript is unable to find a variable within the _current scope_, it climbs up the [Scope chain](https://github.com/getify/You-Dont-Know-JS/blob/2nd-ed/scope-closures/ch3.md) and searches for it and if it reaches the top-level scope, aka **Global scope**, and still doesn't find it, it will throw a `ReferenceError`.
+
+- In **Browsers** such as _Chrome_, `name` is a _deprecated global scope property_. In this example, the code is running inside _global scope_ and there is no user defined local variable for `name`, therefore it searches the predefined _variables/properties_ in the global scope which is in case of browsers, it searches through `window` object and it will extract the [window.name](https://developer.mozilla.org/en-US/docs/Web/API/Window/name) value which is equal to an **empty string**.
+
+- In **NodeJS**, there is no such property on the `global` object, thus attempting to access a non-existent variable will raise a [ReferenceError](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Errors/Not_defined).
 
 </p>
 </details>
@@ -2860,7 +2904,7 @@ console.log(typeof member);
 Classes are syntactical sugar for function constructors. The equivalent of the `Person` class as a function constructor would be:
 
 ```javascript
-function Person() {
+function Person(name) {
   this.name = name;
 }
 ```
@@ -4161,7 +4205,7 @@ getInfo();
 
 #### Answer: D
 
-Variables declared with the `const` keyword are not referencable before their initialization: this is called the _temporal dead zone_. In the `getInfo` function, the variable `randomValue` is scoped in the functional scope of `getInfo`. On the line where we want to log the value of `typeof randomValue`, the variable `randomValue` isn't initialized yet: a `ReferenceError` gets thrown! The engine didn't go down the scope chain since we declared the variable `randomValue` in the `getInfo` function.
+Variables declared with the `const` keyword are not referenceable before their initialization: this is called the _temporal dead zone_. In the `getInfo` function, the variable `randomValue` is scoped in the functional scope of `getInfo`. On the line where we want to log the value of `typeof randomValue`, the variable `randomValue` isn't initialized yet: a `ReferenceError` gets thrown! The engine didn't go down the scope chain since we declared the variable `randomValue` in the `getInfo` function.
 
 </p>
 </details>
@@ -4438,7 +4482,7 @@ Object.seal(person);
 
 #### Answer: A
 
-With `Object.seal` we can prevent new properies from being _added_, or existing properties to be _removed_.
+With `Object.seal` we can prevent new properties from being _added_, or existing properties to be _removed_.
 
 However, you can still modify the value of existing properties.
 

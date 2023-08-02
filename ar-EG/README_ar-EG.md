@@ -891,7 +891,7 @@ String.prototype.giveLydiaPizza = () => {
 
 const name = "Lydia";
 
-name.giveLydiaPizza();
+console.log(name.giveLydiaPizza())
 ```
 </div>
 
