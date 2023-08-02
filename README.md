@@ -5145,3 +5145,83 @@ The condition within the `if` statement checks whether the value of `!typeof ran
 
 </p>
 </details>
+
+###### 156. If the following code is executed, what will be the output?
+
+```javascript
+function Foo() {
+  getName = function () {
+    alert(5);
+  };
+  return this;
+}
+Foo.getName = function () {
+  alert(4);
+};
+Foo.prototype.getName = function () {
+  alert(3);
+};
+var getName = function () {
+  alert(2);
+};
+function getName() {
+  alert(1);
+}
+
+Foo.getName();
+getName();
+Foo().getName();
+getName();
+new Foo.getName();
+new Foo().getName();
+new Foo.getName();
+```
+
+- A: `4, 1, 1, 1, 4, 5, 4`
+- B: `4, 2, 1, 5, 4, 3, 4`
+- C: `4, 2, 5, 5, 4, 3 ,4`
+- D: `4, 1, 1, 1, 4, 5, 4`
+
+<details><summary><b>Answer</b></summary>
+<p>
+
+#### Answer: C
+
+Let's go through the JavaScript code step by step and see the output for each call:
+
+1. Foo.getName();  
+   Output: alert(4);  
+   Here, we directly call the getName method of the Foo object, so it will execute alert(4) and display a popup with the number 4.
+
+2. getName();  
+   Output: alert(2);  
+   This call uses the previously defined function var getName = function () { alert(2); };, so it will execute alert(2) and display a popup with the number 2.
+
+3. Foo().getName();  
+   Output: alert(5);  
+   In this case, Foo() function is called first, and inside the Foo() function, the line getName = function () { alert(5); }; redefines the getName as a new function. It will execute alert(5) and display a popup with the number 5. Then, because Foo() function does not explicitly return anything (returns this implicitly), .getName() will look for the getName function in the global scope and call it. Therefore, alert(5) will be executed again and display a popup with the number 5.
+
+4. getName();  
+   Output: alert(5);  
+   Since getName function has been previously redefined as function () { alert(5); }, it will execute alert(5) and display a popup with the number 5.
+
+5. new Foo.getName();  
+   Output: alert(4);  
+   In this case, an attempt is made to use the new keyword to call Foo.getName, but Foo.getName is just a regular function, not a constructor. So, the new keyword has no effect on it. It is equivalent to directly calling Foo.getName(), and it will execute alert(4) and display a popup with the number 4.
+
+6. new Foo().getName();  
+   Output: alert(3);  
+   Here, first, a new Foo object is created using new Foo(), then its getName method is called. Since Foo's prototype has a getName method defined, it will execute alert(3) and display a popup with the number 3.
+
+7. new Foo.getName();  
+   Output: alert(4);  
+   Similarly, this tries to use the new keyword with Foo.getName, but Foo.getName is still just a regular function. The new keyword has no effect, and it's equivalent to calling Foo.getName() directly, so it will execute alert(4) and display a popup with the number 4.
+
+Summary:
+
+Foo.getName(); and new Foo.getName(); both call the static method of Foo, and thus, they will output alert(4);.
+getName(); and new Foo().getName(); call the globally redefined getName function, so they will output alert(5);.
+Foo().getName(); first calls Foo() function, which redefines the global getName function, and then calls the global getName function, resulting in two alert(5); popups.
+
+</p>
+</details>

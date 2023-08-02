@@ -5082,3 +5082,84 @@ if (!typeof randomValue === "string") {
 
 </p>
 </details>
+
+###### 156.以下代码如果执行，分别会输出什么？
+
+```javascript
+function Foo() {
+  getName = function () {
+    alert(5);
+  };
+  return this;
+}
+Foo.getName = function () {
+  alert(4);
+};
+Foo.prototype.getName = function () {
+  alert(3);
+};
+var getName = function () {
+  alert(2);
+};
+function getName() {
+  alert(1);
+}
+
+Foo.getName();
+getName();
+Foo().getName();
+getName();
+new Foo.getName();
+new Foo().getName();
+new Foo.getName();
+```
+
+- A: `4, 1, 1, 1, 4, 5, 4`
+- B: `4, 2, 1, 5, 4, 3, 4`
+- C: `4, 2, 5, 5, 4, 3 ,4`
+- D: `4, 1, 1, 1, 4, 5, 4`
+
+<details><summary><b>答案</b></summary>
+<p>
+
+#### 答案: C
+
+让我们逐步解析这段 JavaScript 代码，并分别看看每个调用会输出什么结果：
+
+1. `Foo.getName();`
+   输出：`alert(4);`
+   这里直接调用了`Foo`对象的`getName`方法，所以会执行`alert(4)`，显示弹窗并打印数字 4。
+
+2. `getName();`
+   输出：`alert(2);`
+   这里调用的是之前定义的`var getName = function () { alert(2); };`，所以会执行`alert(2)`，显示弹窗并打印数字 2。
+
+3. `Foo().getName();`
+   输出：`alert(5);`
+   这里先执行`Foo()`函数，因为在`Foo()`函数内部，有一行`getName = function () { alert(5); };`，所以执行`Foo()`会将`getName`重定义为一个新的函数，在这个新函数内部调用`alert(5)`，显示弹窗并打印数字 5。然后，因为`Foo()`函数没有明确返回任何值（返回的是`this`），所以`.getName()`会在全局作用域中查找`getName`函数并调用它。因此，`alert(5)` 会再次执行，显示弹窗并打印数字 5。
+
+4. `getName();`
+   输出：`alert(5);`
+   这里之前已经将`getName`函数重定义为`function () { alert(5); }`，所以会执行`alert(5)`，显示弹窗并打印数字 5。
+
+5. `new Foo.getName();`
+   输出：`alert(4);`
+   这里尝试使用`new`关键字调用`Foo.getName`，但是`Foo.getName`是一个普通的函数，不是构造函数，因此`new`关键字对它没有任何影响。相当于直接调用`Foo.getName()`，所以会执行`alert(4)`，显示弹窗并打印数字 4。
+
+6. `new Foo().getName();`
+   输出：`alert(3);`
+   这里首先使用`new Foo()`创建了一个新的`Foo`对象，然后调用该对象的`getName`方法。由于`Foo`的原型（`prototype`）中定义了`getName`方法，所以会执行`alert(3)`，显示弹窗并打印数字 3。
+
+7. `new Foo.getName();`
+   输出：`alert(4);`
+   同样，这里尝试使用`new`关键字调用`Foo.getName`，但是`Foo.getName`仍然是一个普通的函数，不是构造函数。因此，`new`关键字对它没有影响，相当于直接调用`Foo.getName()`，所以会执行`alert(4)`，显示弹窗并打印数字 4。
+
+总结：
+
+- `Foo.getName();` 和 `new Foo.getName();` 都调用了 `Foo` 的静态方法，因此会输出 `alert(4);`。
+- `getName();` 和 `new Foo().getName();` 调用的是全局作用域内的重定义后的 `getName` 函数，因此会输出 `alert(5);`。
+- `Foo().getName();` 先调用了 `Foo()` 方法，并重定义了全局的 `getName` 函数，再调用全局的 `getName` 函数，所以会输出两次 `alert(5);`。
+
+</p>
+</details>
+```
