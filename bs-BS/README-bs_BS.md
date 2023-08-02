@@ -67,10 +67,10 @@ još nismo definirali varijablu na liniji gdje pokušavamo prijaviti
 varijabla `name`, tako da još uvijek sadrži vrijednost` undefined`.
 
 Varijable s ključnom riječi `let` (i` const`) su podignute, ali za razliku od njih
-`var`, ne bivaju <i> inicijalizirane </i>. Nisu dostupni prije
-linije na kojo ih proglašavamo (inicijaliziramo). To se naziva "temporal dead zone".
+`var`, ne bivaju <i> inicijalizirane </i>. Nisu dostupne prije
+linije na kojoj ih proglašavamo (inicijaliziramo). To se naziva "temporal dead zone".
 Kada pokušamo pristupiti varijablama prije nego što budu deklarirane,
-JavaScript iz bacuje `ReferenceError`.
+JavaScript izbacuje `ReferenceError`.
 
 </p>
 </details>
