@@ -67,10 +67,10 @@ još nismo definirali varijablu na liniji gdje pokušavamo prijaviti
 varijabla `name`, tako da još uvijek sadrži vrijednost` undefined`.
 
 Varijable s ključnom riječi `let` (i` const`) su podignute, ali za razliku od njih
-`var`, ne bivaju <i> inicijalizirane </i>. Nisu dostupni prije
-linije na kojo ih proglašavamo (inicijaliziramo). To se naziva "temporal dead zone".
+`var`, ne bivaju <i> inicijalizirane </i>. Nisu dostupne prije
+linije na kojoj ih proglašavamo (inicijaliziramo). To se naziva "temporal dead zone".
 Kada pokušamo pristupiti varijablama prije nego što budu deklarirane,
-JavaScript iz bacuje `ReferenceError`.
+JavaScript izbacuje `ReferenceError`.
 
 </p>
 </details>
@@ -253,7 +253,7 @@ console.log(d.greeting);
 
 #### Odgovor: A
 
-U JavaScriptu, svi objekti međusobno djeluju * referencom * kada ih postavljaju
+U JavaScriptu, svi objekti međusobno djeluju *referencom* kada ih postavljaju
 jednaki.
 
 Prvo, varijabla `c` sadrži vrijednost objekta. Kasnije dodijelimo `d`
@@ -290,15 +290,15 @@ console.log(b === c);
 
 #### Odgovor: C
 
-`new Number ()` je ugrađeni konstruktor function. Iako izgleda
+`new Number ()` je ugrađena konstruktor funkcija. Iako izgleda
 kao broj, to zapravo nije broj: ima gomilu ekstra dodataka
 pa je zbog toga objekt.
 
-Kada koristimo `==` operatora, on samo provjerava ima li isti
+Kada koristimo `==` operator, on samo provjerava ima li isti
 *vrijednost*. Obje imaju vrijednost `3`, pa se vraća 'true'.
 
 Međutim, kada koristimo `===` operator, obje vrijednosti * i * trebaju biti
-isto. To nije: `new Number ()` nije broj, to je ** objekt **.
+iste. To nije: `new Number ()` nije broj, to je ** objekt **.
 Oba vraćaju "false"
 
 </p>
@@ -376,7 +376,7 @@ da ste deklarirali varijablu prije nego je postavite na bilo što.
 
 * * * * *
 
-###### 10. Što se događa kada to učinimo?
+###### 10. Što se događa kada učinimo ovo?
 
 ```javascript
 function bark() {
@@ -396,11 +396,11 @@ bark.animal = "dog";
 
 #### Odgovor: A
 
-To je moguće u JavaScriptu, jer su funkcije objekti!
+Ovo je moguće u JavaScriptu, jer su funkcije objekti!
 (Sve osim primitivnih tipova su objekti)
 
 function je posebna vrsta objekta. Kod koji sami napišete
-nije stvarna function. function je objekt sa svojstvima.
+nije stvarna funkcija. function je objekt sa svojstvima.
 Ova nekretnina je nepovratna.
 
 </p>
@@ -435,7 +435,7 @@ console.log(member.getFullName());
 #### Odgovor: A
 
 Ne možete dodati svojstva konstruktoru kao što možete s uobičajenim
-objekti. Ako želite dodati značajku svim objektima odjednom, imate
+objektima. Ako želite dodati značajku svim objektima odjednom, imate
 umjesto toga koristiti prototip. Dakle, u ovom slučaju,
 
 ```{.js}
@@ -444,12 +444,12 @@ Person.prototype.getFullName = function () {
 };
 ```
 
-bi učinio `member.getFullName ()`. Zašto je to korisno? Reći će mo
+bi učinio `member.getFullName ()`. Zašto je to korisno? Reći ćemo
 da smo tu metodu dodali samom konstruktoru. Možda ne svaki
 Primjer "Person" trebao je ovu metodu. To bi trošilo puno memorije
 scopa (prostora), jer bi oni još uvijek imali tu svojinu, koja uzima memoriju
 scopa za svaku instancu. Umjesto toga, ako ga samo dodamo prototipu, mi
-će mo je imati na jednom mjestu u memoriji, ali svi imaju pristup!
+ćemo je imati na jednom mjestu u memoriji, ali svi imaju pristup!
 
 </p>
 </details>
