@@ -10,10 +10,11 @@
 
 Не стесняйтесь обращаться ко мне (Lydia Hallie)! 😊<br />
 <a href="https://www.instagram.com/theavocoder">Instagram</a> || <a href="https://www.twitter.com/lydiahallie">Twitter</a> || <a href="https://www.linkedin.com/in/lydia-hallie">LinkedIn</a> || <a href="https://www.lydiahallie.dev">Blog</a>
+
 </div>
 
 | Не стесняйтесь использовать эти примеры в проектах! 😃 Я (Lydia Hallie) была бы _действительно_ признателена за ссылку на этот репозиторий. Я добавляю вопросы и объяснения, и сообщество очень помогает мне поддерживать и улучшать все это! 💪🏼 Спасибо и приятного просмотра! |
-|---|
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 
 ---
 
@@ -33,6 +34,7 @@
 - [🇳🇱 Nederlands](../nl-NL/README.md)
 - [🇵🇱 Polski](../pl-PL/README.md)
 - [🇧🇷 Português Brasil](../pt-BR/README_pt_BR.md)
+- [🇷o Română](../ro-RO/README.ro.md)
 - [🇬🇧 English](../README.md)
 - [🇽🇰 Shqip](../sq-KS/README_sq_KS.md)
 - [🇹🇭 ไทย](../th-TH/README-th_TH.md)
@@ -117,7 +119,7 @@ const shape = {
   diameter() {
     return this.radius * 2;
   },
-  perimeter: () => 2 * Math.PI * this.radius
+  perimeter: () => 2 * Math.PI * this.radius,
 };
 
 console.log(shape.diameter());
@@ -149,7 +151,7 @@ console.log(shape.perimeter());
 
 ```javascript
 +true;
-!'Lydia';
+!"Lydia";
 ```
 
 - A: `1` и `false`
@@ -174,12 +176,12 @@ console.log(shape.perimeter());
 
 ```javascript
 const bird = {
-  size: 'small'
+  size: "small",
 };
 
 const mouse = {
-  name: 'Mickey',
-  small: true
+  name: "Mickey",
+  small: true,
 };
 ```
 
@@ -209,11 +211,11 @@ JavaScript интерпретирует (или распаковывает) оп
 ###### 6. Что будет в консоли?
 
 ```javascript
-let c = { greeting: 'Hey!' };
+let c = { greeting: "Hey!" };
 let d;
 
 d = c;
-c.greeting = 'Hello';
+c.greeting = "Hello";
 console.log(d.greeting);
 ```
 
@@ -283,13 +285,13 @@ class Chameleon {
     return this.newColor;
   }
 
-  constructor({ newColor = 'green' } = {}) {
+  constructor({ newColor = "green" } = {}) {
     this.newColor = newColor;
   }
 }
 
-const freddie = new Chameleon({ newColor: 'purple' });
-freddie.colorChange('orange');
+const freddie = new Chameleon({ newColor: "purple" });
+freddie.colorChange("orange");
 ```
 
 - A: `orange`
@@ -344,10 +346,10 @@ console.log(greetign);
 
 ```javascript
 function bark() {
-  console.log('Woof!');
+  console.log("Woof!");
 }
 
-bark.animal = 'dog';
+bark.animal = "dog";
 ```
 
 - A: Ничего, всё в порядке!
@@ -377,10 +379,10 @@ function Person(firstName, lastName) {
   this.lastName = lastName;
 }
 
-const member = new Person('Lydia', 'Hallie');
+const member = new Person("Lydia", "Hallie");
 Person.getFullName = function () {
   return `${this.firstName} ${this.lastName}`;
-}
+};
 
 console.log(member.getFullName());
 ```
@@ -402,7 +404,7 @@ console.log(member.getFullName());
 ```js
 Person.prototype.getFullName = function () {
   return `${this.firstName} ${this.lastName}`;
-}
+};
 ```
 
 </p>
@@ -418,8 +420,8 @@ function Person(firstName, lastName) {
   this.lastName = lastName;
 }
 
-const lydia = new Person('Lydia', 'Hallie');
-const sarah = Person('Sarah', 'Smith');
+const lydia = new Person("Lydia", "Hallie");
+const sarah = Person("Sarah", "Smith");
 
 console.log(lydia);
 console.log(sarah);
@@ -489,7 +491,7 @@ function sum(a, b) {
   return a + b;
 }
 
-sum(1, '2');
+sum(1, "2");
 ```
 
 - A: `NaN`
@@ -556,7 +558,7 @@ function getPersonInfo(one, two, three) {
   console.log(three);
 }
 
-const person = 'Lydia';
+const person = "Lydia";
 const age = 21;
 
 getPersonInfo`${person} is ${age} years old`;
@@ -583,9 +585,9 @@ getPersonInfo`${person} is ${age} years old`;
 ```javascript
 function checkAge(data) {
   if (data === { age: 18 }) {
-    console.log('Ты взрослый!');
+    console.log("Ты взрослый!");
   } else if (data == { age: 18 }) {
-    console.log('Ты все еще взрослый.');
+    console.log("Ты все еще взрослый.");
   } else {
     console.log(`Хмм.. Кажется, у тебя нет возраста.`);
   }
@@ -645,7 +647,7 @@ getAge(21);
 
 ```javascript
 function getAge() {
-  'use strict';
+  "use strict";
   age = 21;
   console.log(age);
 }
@@ -673,7 +675,7 @@ getAge();
 ###### 21. Чему будет равно `sum`?
 
 ```javascript
-const sum = eval('10*10+5');
+const sum = eval("10*10+5");
 ```
 
 - A: `105`
@@ -696,7 +698,7 @@ const sum = eval('10*10+5');
 ###### 22. Как долго будет доступен cool_secret?
 
 ```javascript
-sessionStorage.setItem('cool_secret', 123);
+sessionStorage.setItem("cool_secret", 123);
 ```
 
 - A: Всегда, данные не потеряются.
@@ -749,12 +751,12 @@ console.log(num);
 ###### 24. Каким будет результат?
 
 ```javascript
-const obj = { 1: 'a', 2: 'b', 3: 'c' };
+const obj = { 1: "a", 2: "b", 3: "c" };
 const set = new Set([1, 2, 3, 4, 5]);
 
-obj.hasOwnProperty('1');
+obj.hasOwnProperty("1");
 obj.hasOwnProperty(1);
-set.has('1');
+set.has("1");
 set.has(1);
 ```
 
@@ -780,7 +782,7 @@ set.has(1);
 ###### 25. Что будет в консоли?
 
 ```javascript
-const obj = { a: 'one', b: 'two', a: 'three' };
+const obj = { a: "one", b: "two", a: "three" };
 console.log(obj);
 ```
 
@@ -849,12 +851,12 @@ for (let i = 1; i < 5; i++) {
 
 ```javascript
 String.prototype.giveLydiaPizza = () => {
-  return 'Just give Lydia pizza already!';
+  return "Just give Lydia pizza already!";
 };
 
-const name = 'Lydia';
+const name = "Lydia";
 
-console.log(name.giveLydiaPizza())
+console.log(name.giveLydiaPizza());
 ```
 
 - A: `"Just give Lydia pizza already!"`
@@ -878,8 +880,8 @@ console.log(name.giveLydiaPizza())
 
 ```javascript
 const a = {};
-const b = { key: 'b' };
-const c = { key: 'c' };
+const b = { key: "b" };
+const c = { key: "c" };
 
 a[b] = 123;
 a[c] = 456;
@@ -911,9 +913,9 @@ console.log(a[b]);
 ###### 30. Каким будет результат?
 
 ```javascript
-const foo = () => console.log('First');
-const bar = () => setTimeout(() => console.log('Second'));
-const baz = () => console.log('Third');
+const foo = () => console.log("First");
+const bar = () => setTimeout(() => console.log("Second"));
+const baz = () => console.log("Third");
 
 bar();
 foo();
@@ -966,9 +968,7 @@ WebAPI не может добавлять содержимое в стек ко�
 ```html
 <div onclick="console.log('first div')">
   <div onclick="console.log('second div')">
-    <button onclick="console.log('button')">
-      Кликни!
-    </button>
+    <button onclick="console.log('button')">Кликни!</button>
   </div>
 </div>
 ```
@@ -994,9 +994,7 @@ WebAPI не может добавлять содержимое в стек ко�
 
 ```html
 <div onclick="console.log('div')">
-  <p onclick="console.log('p')">
-    Кликни меня!
-  </p>
+  <p onclick="console.log('p')">Кликни меня!</p>
 </div>
 ```
 
@@ -1020,7 +1018,7 @@ WebAPI не может добавлять содержимое в стек ко�
 ###### 33. Что будет в консоли?
 
 ```javascript
-const person = { name: 'Lydia' };
+const person = { name: "Lydia" };
 
 function sayHi(age) {
   console.log(`${this.name} is ${age}`);
@@ -1233,7 +1231,10 @@ console.log(numbers);
 ###### 40. Каким будет результат?
 
 ```javascript
-[[0, 1], [2, 3]].reduce(
+[
+  [0, 1],
+  [2, 3],
+].reduce(
   (acc, cur) => {
     return acc.concat(cur);
   },
@@ -1264,7 +1265,7 @@ console.log(numbers);
 
 ```javascript
 !!null;
-!!'';
+!!"";
 !!1;
 ```
 
@@ -1292,7 +1293,7 @@ console.log(numbers);
 ###### 42. Что возвращает метод `setInterval` в браузере?
 
 ```javascript
-setInterval(() => console.log('Hi'), 1000);
+setInterval(() => console.log("Hi"), 1000);
 ```
 
 - A: уникальный id
@@ -1315,7 +1316,7 @@ setInterval(() => console.log('Hi'), 1000);
 ###### 43. Каким будет результат?
 
 ```javascript
-[...'Lydia'];
+[..."Lydia"];
 ```
 
 - A: `["L", "y", "d", "i", "a"]`
@@ -1374,14 +1375,14 @@ console.log(gen.next().value);
 
 ```javascript
 const firstPromise = new Promise((res, rej) => {
-  setTimeout(res, 500, 'один');
+  setTimeout(res, 500, "один");
 });
 
 const secondPromise = new Promise((res, rej) => {
-  setTimeout(res, 100, 'два');
+  setTimeout(res, 100, "два");
 });
 
-Promise.race([firstPromise, secondPromise]).then(res => console.log(res));
+Promise.race([firstPromise, secondPromise]).then((res) => console.log(res));
 ```
 
 - A: `"один"`
@@ -1404,7 +1405,7 @@ Promise.race([firstPromise, secondPromise]).then(res => console.log(res));
 ###### 46. Каким будет результат?
 
 ```javascript
-let person = { name: 'Lydia' };
+let person = { name: "Lydia" };
 const members = [person];
 person = null;
 
@@ -1444,8 +1445,8 @@ console.log(members);
 
 ```javascript
 const person = {
-  name: 'Lydia',
-  age: 21
+  name: "Lydia",
+  age: 21,
 };
 
 for (const item in person) {
@@ -1473,7 +1474,7 @@ for (const item in person) {
 ###### 48. Каким будет результат?
 
 ```javascript
-console.log(3 + 4 + '5');
+console.log(3 + 4 + "5");
 ```
 
 - A: `"345"`
@@ -1525,8 +1526,8 @@ const num = parseInt("7*6", 10);
 ###### 50. Каким будет результат?
 
 ```javascript
-[1, 2, 3].map(num => {
-  if (typeof num === 'number') return;
+[1, 2, 3].map((num) => {
+  if (typeof num === "number") return;
   return num * 2;
 });
 ```
@@ -1554,12 +1555,12 @@ const num = parseInt("7*6", 10);
 
 ```javascript
 function getInfo(member, year) {
-  member.name = 'Lydia';
+  member.name = "Lydia";
   year = 1998;
 }
 
-const person = { name: 'Sarah' };
-const birthYear = '1997';
+const person = { name: "Sarah" };
+const birthYear = "1997";
 
 getInfo(person, birthYear);
 
@@ -1578,7 +1579,7 @@ console.log(person, birthYear);
 
 Аргументы передаются _значением_, если их значение не является объектом, то они передаются _ссылкой_. `birthYear` передается по значению, поскольку это строка, а не объект. Когда мы передаем аргументы по значению, создается _копия_ этого значения (см. вопрос 46).
 
-Переменная `birthYear` имеет ссылку на значение `"1997"`. Аргумент `year` также имеет ссылку на значение` "1997" `, но это не то же самое значение, на которое имеется ссылка для `birthYear`. Когда мы обновляем значение `year`, устанавливая `year` равным `"1998"`, мы обновляем только значение `year`. `birthYear` по-прежнему равно `"1997"`.
+Переменная `birthYear` имеет ссылку на значение `"1997"`. Аргумент `year` также имеет ссылку на значение`"1997"`, но это не то же самое значение, на которое имеется ссылка для `birthYear`. Когда мы обновляем значение `year`, устанавливая `year` равным `"1998"`, мы обновляем только значение `year`. `birthYear` по-прежнему равно `"1997"`.
 
 Значение `person` является объектом. Аргумент `member` имеет (скопированную) ссылку на _тот же_ объект. Когда мы изменяем свойство объекта, на который `member` ссылается, значение `person` также будет изменено, поскольку они оба имеют ссылку на один и тот же объект. Свойство `name` объекта `person` теперь равно значению `"Lydia"`.
 
@@ -1591,15 +1592,15 @@ console.log(person, birthYear);
 
 ```javascript
 function greeting() {
-  throw 'Hello world!';
+  throw "Hello world!";
 }
 
 function sayHi() {
   try {
     const data = greeting();
-    console.log('It worked!', data);
+    console.log("It worked!", data);
   } catch (e) {
-    console.log('Oh no an error:', e);
+    console.log("Oh no an error:", e);
   }
 }
 
@@ -1629,8 +1630,8 @@ sayHi();
 
 ```javascript
 function Car() {
-  this.make = 'Lamborghini';
-  return { make: 'Maserati' };
+  this.make = "Lamborghini";
+  return { make: "Maserati" };
 }
 
 const myCar = new Car();
@@ -1702,11 +1703,11 @@ class Dog {
   }
 }
 
-Dog.prototype.bark = function() {
+Dog.prototype.bark = function () {
   console.log(`Woof I am ${this.name}`);
 };
 
-const pet = new Dog('Mara');
+const pet = new Dog("Mara");
 
 pet.bark();
 
@@ -1771,7 +1772,7 @@ export default counter;
 
 ```javascript
 // index.js
-import myCounter from './counter';
+import myCounter from "./counter";
 
 myCounter += 1;
 
@@ -1800,7 +1801,7 @@ console.log(myCounter);
 ###### 58. Какой будет вывод?
 
 ```javascript
-const name = 'Lydia';
+const name = "Lydia";
 age = 21;
 
 console.log(delete name);
@@ -1871,7 +1872,7 @@ console.log(y);
 ###### 60. Какой будет вывод?
 
 ```javascript
-const user = { name: 'Lydia', age: 21 };
+const user = { name: "Lydia", age: 21 };
 const admin = { admin: true, ...user };
 
 console.log(admin);
@@ -1897,9 +1898,9 @@ console.log(admin);
 ###### 61. Какой будет вывод?
 
 ```javascript
-const person = { name: 'Lydia' };
+const person = { name: "Lydia" };
 
-Object.defineProperty(person, 'age', { value: 21 });
+Object.defineProperty(person, "age", { value: 21 });
 
 console.log(person);
 console.log(Object.keys(person));
@@ -1928,12 +1929,12 @@ console.log(Object.keys(person));
 
 ```javascript
 const settings = {
-  username: 'lydiahallie',
+  username: "lydiahallie",
   level: 19,
-  health: 90
+  health: 90,
 };
 
-const data = JSON.stringify(settings, ['level', 'health']);
+const data = JSON.stringify(settings, ["level", "health"]);
 console.log(data);
 ```
 
@@ -1964,7 +1965,7 @@ console.log(data);
 let num = 10;
 
 const increaseNumber = () => num++;
-const increasePassedNumber = number => number++;
+const increasePassedNumber = (number) => number++;
 
 const num1 = increaseNumber();
 const num2 = increasePassedNumber(num1);
@@ -2121,12 +2122,12 @@ class Labrador extends Dog {
 
 ```javascript
 // index.js
-console.log('running index.js');
-import { sum } from './sum.js';
+console.log("running index.js");
+import { sum } from "./sum.js";
 console.log(sum(1, 2));
 
 // sum.js
-console.log('running sum.js');
+console.log("running sum.js");
 export const sum = (a, b) => a + b;
 ```
 
@@ -2152,9 +2153,9 @@ export const sum = (a, b) => a + b;
 ###### 68. Какой будет вывод?
 
 ```javascript
-console.log(Number(2) === Number(2))
-console.log(Boolean(false) === Boolean(false))
-console.log(Symbol('foo') === Symbol('foo'))
+console.log(Number(2) === Number(2));
+console.log(Boolean(false) === Boolean(false));
+console.log(Symbol("foo") === Symbol("foo"));
 ```
 
 - A: `true`, `true`, `false`
@@ -2177,9 +2178,9 @@ console.log(Symbol('foo') === Symbol('foo'))
 ###### 69. Какой будет вывод?
 
 ```javascript
-const name = 'Lydia Hallie'
-console.log(name.padStart(13))
-console.log(name.padStart(2))
+const name = "Lydia Hallie";
+console.log(name.padStart(13));
+console.log(name.padStart(2));
 ```
 
 - A: `"Lydia Hallie"`, `"Lydia Hallie"`
@@ -2300,7 +2301,7 @@ console.log(String.raw`Hello\nworld`);
 
 ```javascript
 async function getData() {
-  return await Promise.resolve('I made it!');
+  return await Promise.resolve("I made it!");
 }
 
 const data = getData();
@@ -2337,7 +2338,7 @@ function addToList(item, list) {
   return list.push(item);
 }
 
-const result = addToList('apple', ['banana']);
+const result = addToList("apple", ["banana"]);
 console.log(result);
 ```
 
@@ -2397,7 +2398,7 @@ console.log(shape);
 ###### 76. Какой будет вывод?
 
 ```javascript
-const { firstName: myName } = { firstName: 'Lydia' };
+const { firstName: myName } = { firstName: "Lydia" };
 
 console.log(firstName);
 ```
@@ -2415,7 +2416,7 @@ console.log(firstName);
 Используя [деструктурирующее присваивание](https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment), мы можем распаковывать значения из массивов или свойства из объектов в отдельные переменные:
 
 ```javascript
-const { firstName } = { firstName: 'Lydia' };
+const { firstName } = { firstName: "Lydia" };
 // Версия ES5:
 // var firstName = { firstName: 'Lydia' }.firstName;
 
@@ -2425,7 +2426,7 @@ console.log(firstName); // "Lydia"
 Также свойство можно распаковать из объекта и присвоить переменной с именем, отличным от имени свойства объекта:
 
 ```javascript
-const { firstName: myName } = { firstName: 'Lydia' };
+const { firstName: myName } = { firstName: "Lydia" };
 // Версия ES5:
 // var myName = { firstName: 'Lydia' }.firstName;
 
@@ -2438,12 +2439,11 @@ console.log(firstName); // Тут будет ошибка Uncaught ReferenceErro
 **Примечание.** Помните о свойствах глобальной области видимости:
 
 ```javascript
-const { name: myName } = { name: 'Lydia' };
+const { name: myName } = { name: "Lydia" };
 
 console.log(myName); // "lydia"
 console.log(name); // "" ----- Браузер, например, Chrome
 console.log(name); // ReferenceError: name is not defined  ----- NodeJS
-
 ```
 
 Всякий раз, когда Javascript не может найти переменную в _текущей области видимости_, то поднимается вверх по [цепочке областей видимости](https://developer.mozilla.org/ru/docs/Web/JavaScript/Closures#лексическая_область_видимости) и ищет ее на каждом уровне, и если достигает области верхнего уровня, также известной как **Глобальная область**, и все еще не находит нужной ссылки, то выдает `ReferenceError`.
@@ -2487,7 +2487,7 @@ function sum(a, b) {
 ```javascript
 const add = () => {
   const cache = {};
-  return num => {
+  return (num) => {
     if (num in cache) {
       return `From cache! ${cache[num]}`;
     } else {
@@ -2532,21 +2532,21 @@ console.log(addFunction(5 * 2));
 ###### 79. Какой будет вывод?
 
 ```javascript
-const myLifeSummedUp = ['☕', '💻', '🍷', '🍫']
+const myLifeSummedUp = ["☕", "💻", "🍷", "🍫"];
 
 for (let item in myLifeSummedUp) {
-  console.log(item)
+  console.log(item);
 }
 
 for (let item of myLifeSummedUp) {
-  console.log(item)
+  console.log(item);
 }
 ```
 
 - A: `0` `1` `2` `3` и `"☕"` ` "💻"` `"🍷"` `"🍫"`
 - B: `"☕"` ` "💻"` `"🍷"` `"🍫"` и `"☕"` ` "💻"` `"🍷"` `"🍫"`
 - C: `"☕"` ` "💻"` `"🍷"` `"🍫"` и `0` `1` `2` `3`
-- D:  `0` `1` `2` `3` и `{0: "☕", 1: "💻", 2: "🍷", 3: "🍫"}`
+- D: `0` `1` `2` `3` и `{0: "☕", 1: "💻", 2: "🍷", 3: "🍫"}`
 
 <details><summary><b>Ответ</b></summary>
 <p>
@@ -2569,14 +2569,14 @@ for (let item of myLifeSummedUp) {
 ###### 80. Какой будет вывод?
 
 ```javascript
-const list = [1 + 2, 1 * 2, 1 / 2]
-console.log(list)
+const list = [1 + 2, 1 * 2, 1 / 2];
+console.log(list);
 ```
 
 - A: `["1 + 2", "1 * 2", "1 / 2"]`
 - B: `["12", 2, 0.5]`
 - C: `[3, 2, 0.5]`
-- D:  `[1, 1, 1]`
+- D: `[1, 1, 1]`
 
 <details><summary><b>Ответ</b></summary>
 <p>
@@ -2596,16 +2596,16 @@ console.log(list)
 
 ```javascript
 function sayHi(name) {
-  return `Hi there, ${name}`
+  return `Hi there, ${name}`;
 }
 
-console.log(sayHi())
+console.log(sayHi());
 ```
 
 - A: `Hi there, `
 - B: `Hi there, undefined`
 - C: `Hi there, null`
-- D:  `ReferenceError`
+- D: `ReferenceError`
 
 <details><summary><b>Ответ</b></summary>
 <p>
@@ -2628,21 +2628,21 @@ console.log(sayHi())
 ###### 82. Какой будет вывод?
 
 ```javascript
-var status = '😎'
+var status = "😎";
 
 setTimeout(() => {
-  const status = '😍'
+  const status = "😍";
 
   const data = {
-    status: '🥑',
+    status: "🥑",
     getStatus() {
-      return this.status
-    }
-  }
+      return this.status;
+    },
+  };
 
-  console.log(data.getStatus())
-  console.log(data.getStatus.call(this))
-}, 0)
+  console.log(data.getStatus());
+  console.log(data.getStatus.call(this));
+}, 0);
 ```
 
 - A: `"🥑"` и `"😍"`
@@ -2668,14 +2668,14 @@ setTimeout(() => {
 
 ```javascript
 const person = {
-  name: 'Lydia',
-  age: 21
-}
+  name: "Lydia",
+  age: 21,
+};
 
-let city = person.city
-city = 'Amsterdam'
+let city = person.city;
+city = "Amsterdam";
 
-console.log(person)
+console.log(person);
 ```
 
 - A: `{ name: "Lydia", age: 21 }`
@@ -2706,15 +2706,15 @@ console.log(person)
 ```javascript
 function checkAge(age) {
   if (age < 18) {
-    const message = "Sorry, you're too young."
+    const message = "Sorry, you're too young.";
   } else {
-    const message = "Yay! You're old enough!"
+    const message = "Yay! You're old enough!";
   }
 
-  return message
+  return message;
 }
 
-console.log(checkAge(21))
+console.log(checkAge(21));
 ```
 
 - A: `"Sorry, you're too young."`
@@ -2737,9 +2737,9 @@ console.log(checkAge(21))
 ###### 85. Какая информация будетвыведена в лог?
 
 ```javascript
-fetch('https://www.website.com/api/user/1')
-  .then(res => res.json())
-  .then(res => console.log(res))
+fetch("https://www.website.com/api/user/1")
+  .then((res) => res.json())
+  .then((res) => console.log(res));
 ```
 
 - A: Результат метода `fetch`.
@@ -2793,7 +2793,7 @@ function getName(name) {
 ###### 87. Какой будет вывод?
 
 ```javascript
-console.log('I want pizza'[0])
+console.log("I want pizza"[0]);
 ```
 
 - A: `"""`
@@ -2819,10 +2819,10 @@ console.log('I want pizza'[0])
 
 ```javascript
 function sum(num1, num2 = num1) {
-  console.log(num1 + num2)
+  console.log(num1 + num2);
 }
 
-sum(10)
+sum(10);
 ```
 
 - A: `NaN`
@@ -2848,13 +2848,13 @@ sum(10)
 
 ```javascript
 // module.js
-export default () => 'Hello world'
-export const name = 'Lydia'
+export default () => "Hello world";
+export const name = "Lydia";
 
 // index.js
-import * as data from './module'
+import * as data from "./module";
 
-console.log(data)
+console.log(data);
 ```
 
 - A: `{ default: function default(), name: "Lydia" }`
@@ -2881,12 +2881,12 @@ console.log(data)
 ```javascript
 class Person {
   constructor(name) {
-    this.name = name
+    this.name = name;
   }
 }
 
-const member = new Person('John')
-console.log(typeof member)
+const member = new Person("John");
+console.log(typeof member);
 ```
 
 - A: `"class"`
@@ -2903,7 +2903,7 @@ console.log(typeof member)
 
 ```javascript
 function Person() {
-  this.name = name
+  this.name = name;
 }
 ```
 
@@ -2917,9 +2917,9 @@ function Person() {
 ###### 91. Какой будет вывод?
 
 ```javascript
-let newList = [1, 2, 3].push(4)
+let newList = [1, 2, 3].push(4);
 
-console.log(newList.push(5))
+console.log(newList.push(5));
 ```
 
 - A: `[1, 2, 3, 4, 5]`
@@ -2945,14 +2945,14 @@ console.log(newList.push(5))
 
 ```javascript
 function giveLydiaPizza() {
-  return 'Here is pizza!'
+  return "Here is pizza!";
 }
 
 const giveLydiaChocolate = () =>
-  "Here's chocolate... now go hit the gym already."
+  "Here's chocolate... now go hit the gym already.";
 
-console.log(giveLydiaPizza.prototype)
-console.log(giveLydiaChocolate.prototype)
+console.log(giveLydiaPizza.prototype);
+console.log(giveLydiaChocolate.prototype);
 ```
 
 - A: `{ constructor: ...}` `{ constructor: ...}`
@@ -2976,12 +2976,12 @@ console.log(giveLydiaChocolate.prototype)
 
 ```javascript
 const person = {
-  name: 'Lydia',
-  age: 21
-}
+  name: "Lydia",
+  age: 21,
+};
 
 for (const [x, y] of Object.entries(person)) {
-  console.log(x, y)
+  console.log(x, y);
 }
 ```
 
@@ -3033,10 +3033,10 @@ getItems(["banana", "apple"], "pear", "orange")
 
 ```javascript
 function getItems(fruitList, favoriteFruit, ...args) {
-  return [...fruitList, ...args, favoriteFruit]
+  return [...fruitList, ...args, favoriteFruit];
 }
 
-getItems(["banana", "apple"], "pear", "orange")
+getItems(["banana", "apple"], "pear", "orange");
 ```
 
 Приведенный выше пример работает. Это возвращает массив `[ 'banana', 'apple', 'orange', 'pear' ]`
@@ -3050,14 +3050,14 @@ getItems(["banana", "apple"], "pear", "orange")
 
 ```javascript
 function nums(a, b) {
-  if (a > b) console.log('a is bigger')
-  else console.log('b is bigger')
-  return
-    a + b;
+  if (a > b) console.log("a is bigger");
+  else console.log("b is bigger");
+  return;
+  a + b;
 }
 
-console.log(nums(4, 2))
-console.log(nums(1, 2))
+console.log(nums(4, 2));
+console.log(nums(1, 2));
 ```
 
 - A: `a is bigger`, `6` and `b is bigger`, `3`
@@ -3075,8 +3075,8 @@ console.log(nums(1, 2))
 Здесь мы написали инструкцию `return` и другое значение `a + b` в новой строке. Однако, поскольку это новая линия, движок не знает, что это на самом деле значение, которое мы хотели бы вернуть. Вместо этого он автоматически добавляет точку с запятой после `return`. Вы можете увидеть это как:
 
 ```javascript
-  return;
-  a + b
+return;
+a + b;
 ```
 
 Это означает, что `a + b` никогда не достигается, так как функция перестает выполняться после ключевого слова `return`. Если значение не возвращается, как здесь, функция возвращает значение `undefined`. Обратите внимание, что после операторов `if / else` автоматической вставки нет!
@@ -3091,18 +3091,18 @@ console.log(nums(1, 2))
 ```javascript
 class Person {
   constructor() {
-    this.name = 'Lydia'
+    this.name = "Lydia";
   }
 }
 
 Person = class AnotherPerson {
   constructor() {
-    this.name = 'Sarah'
+    this.name = "Sarah";
   }
-}
+};
 
-const member = new Person()
-console.log(member.name)
+const member = new Person();
+console.log(member.name);
 ```
 
 - A: `"Lydia"`
@@ -3126,11 +3126,11 @@ console.log(member.name)
 
 ```javascript
 const info = {
-  [Symbol('a')]: 'b'
-}
+  [Symbol("a")]: "b",
+};
 
-console.log(info)
-console.log(Object.keys(info))
+console.log(info);
+console.log(Object.keys(info));
 ```
 
 - A: `{Symbol('a'): 'b'}` and `["{Symbol('a')"]`
@@ -3185,7 +3185,7 @@ console.log(getUser(user))
 
 Следующая функция вернула бы объект:
 
-```const getUser = user => ({ name: user.name, age: user.age })```
+`const getUser = user => ({ name: user.name, age: user.age })`
 
 </p>
 </details>
@@ -3195,9 +3195,9 @@ console.log(getUser(user))
 ###### 99. Какой будет вывод?
 
 ```javascript
-const name = 'Lydia'
+const name = "Lydia";
 
-console.log(name())
+console.log(name());
 ```
 
 - A: `SyntaxError`
@@ -3227,8 +3227,8 @@ ReferenceErrors генерируется, когда JavaScript не может 
 ```javascript
 // 🎉✨ This is my 100th question! ✨🎉
 
-const output = `${[] && 'Im'}possible!
-You should${'' && `n't`} see a therapist after so much JavaScript lol`
+const output = `${[] && "Im"}possible!
+You should${"" && `n't`} see a therapist after so much JavaScript lol`;
 ```
 
 - A: `possible! You should see a therapist after so much JavaScript lol`
@@ -3253,11 +3253,11 @@ You should${'' && `n't`} see a therapist after so much JavaScript lol`
 ###### 101. Какое значение будет на выходе?
 
 ```javascript
-const one = (false || {} || null)
-const two = (null || false || '')
-const three = ([] || 0 || true)
+const one = false || {} || null;
+const two = null || false || "";
+const three = [] || 0 || true;
 
-console.log(one, two, three)
+console.log(one, two, three);
 ```
 
 - A: `false` `null` `[]`
@@ -3286,20 +3286,20 @@ console.log(one, two, three)
 ###### 102. Какое значение будет на выходе?
 
 ```javascript
-const myPromise = () => Promise.resolve('I have resolved!')
+const myPromise = () => Promise.resolve("I have resolved!");
 
 function firstFunction() {
-  myPromise().then(res => console.log(res))
-  console.log('second')
+  myPromise().then((res) => console.log(res));
+  console.log("second");
 }
 
 async function secondFunction() {
-  console.log(await myPromise())
-  console.log('second')
+  console.log(await myPromise());
+  console.log("second");
 }
 
-firstFunction()
-secondFunction()
+firstFunction();
+secondFunction();
 ```
 
 - A: `I have resolved!`, `second` and `I have resolved!`, `second`
@@ -3330,14 +3330,14 @@ secondFunction()
 ###### 103. Какое значение будет на выходе?
 
 ```javascript
-const set = new Set()
+const set = new Set();
 
-set.add(1)
-set.add('Lydia')
-set.add({ name: 'Lydia' })
+set.add(1);
+set.add("Lydia");
+set.add({ name: "Lydia" });
 
 for (let item of set) {
-  console.log(item + 2)
+  console.log(item + 2);
 }
 ```
 
@@ -3367,7 +3367,7 @@ for (let item of set) {
 ###### 104. Чему равно значение?
 
 ```javascript
-Promise.resolve(5)
+Promise.resolve(5);
 ```
 
 - A: `5`
@@ -3394,15 +3394,15 @@ Promise.resolve(5)
 ```javascript
 function compareMembers(person1, person2 = person) {
   if (person1 !== person2) {
-    console.log('Not the same!')
+    console.log("Not the same!");
   } else {
-    console.log('They are the same!')
+    console.log("They are the same!");
   }
 }
 
-const person = { name: 'Lydia' }
+const person = { name: "Lydia" };
 
-compareMembers(person)
+compareMembers(person);
 ```
 
 - A: `Not the same!`
@@ -3437,11 +3437,11 @@ const colorConfig = {
   green: true,
   black: true,
   yellow: false,
-}
+};
 
-const colors = ['pink', 'red', 'blue']
+const colors = ["pink", "red", "blue"];
 
-console.log(colorConfig.colors[1])
+console.log(colorConfig.colors[1]);
 ```
 
 - A: `true`
@@ -3468,7 +3468,7 @@ JavaScript интерпретирует (или распаковывает) оп
 ###### 107. Чему равно значение?
 
 ```javascript
-console.log('❤️' === '❤️')
+console.log("❤️" === "❤️");
 ```
 
 - A: `true`
@@ -3489,19 +3489,19 @@ console.log('❤️' === '❤️')
 ###### 108. Какой из этих методов модифицирует исходный массив?
 
 ```javascript
-const emojis = ['✨', '🥑', '😍']
+const emojis = ["✨", "🥑", "😍"];
 
-emojis.map(x => x + '✨')
-emojis.filter(x => x !== '🥑')
-emojis.find(x => x !== '🥑')
-emojis.reduce((acc, cur) => acc + '✨')
-emojis.slice(1, 2, '✨') 
-emojis.splice(1, 2, '✨')
+emojis.map((x) => x + "✨");
+emojis.filter((x) => x !== "🥑");
+emojis.find((x) => x !== "🥑");
+emojis.reduce((acc, cur) => acc + "✨");
+emojis.slice(1, 2, "✨");
+emojis.splice(1, 2, "✨");
 ```
 
 - A: `All of them`
 - B: `map` `reduce` `slice` `splice`
-- C: `map` `slice` `splice` 
+- C: `map` `slice` `splice`
 - D: `splice`
 
 <details><summary><b>Ответ</b></summary>
@@ -3521,17 +3521,17 @@ emojis.splice(1, 2, '✨')
 ###### 109. Какое значение будет на выходе?
 
 ```javascript
-const food = ['🍕', '🍫', '🥑', '🍔']
-const info = { favoriteFood: food[0] }
+const food = ["🍕", "🍫", "🥑", "🍔"];
+const info = { favoriteFood: food[0] };
 
-info.favoriteFood = '🍝'
+info.favoriteFood = "🍝";
 
-console.log(food)
+console.log(food);
 ```
 
 - A: `['🍕', '🍫', '🥑', '🍔']`
 - B: `['🍝', '🍫', '🥑', '🍔']`
-- C: `['🍝', '🍕', '🍫', '🥑', '🍔']` 
+- C: `['🍝', '🍕', '🍫', '🥑', '🍔']`
 - D: `ReferenceError`
 
 <details><summary><b>Ответ</b></summary>
@@ -3553,7 +3553,7 @@ console.log(food)
 ###### 110. Что делает этот метод?
 
 ```javascript
-JSON.parse()
+JSON.parse();
 ```
 
 - A: Разбирает JSON в значение JavaScript
@@ -3570,16 +3570,16 @@ JSON.parse()
 
 ```javascript
 // Преобразование числа в допустимый JSON, затем преобразование строки JSON в значение JavaScript:
-const jsonNumber = JSON.stringify(4) // '4'
-JSON.parse(jsonNumber) // 4
+const jsonNumber = JSON.stringify(4); // '4'
+JSON.parse(jsonNumber); // 4
 
 // Преобразование значения массива в допустимый JSON, затем разбор строки JSON в значение JavaScript:
-const jsonArray = JSON.stringify([1, 2, 3]) // '[1, 2, 3]'
-JSON.parse(jsonArray) // [1, 2, 3]
+const jsonArray = JSON.stringify([1, 2, 3]); // '[1, 2, 3]'
+JSON.parse(jsonArray); // [1, 2, 3]
 
 // Преобразование объекта в допустимый JSON, затем преобразование строки JSON в значение JavaScript:
-const jsonArray = JSON.stringify({ name: 'Lydia' }) // '{"name":"Lydia"}'
-JSON.parse(jsonArray) // { name: 'Lydia' }
+const jsonArray = JSON.stringify({ name: "Lydia" }); // '{"name":"Lydia"}'
+JSON.parse(jsonArray); // { name: 'Lydia' }
 ```
 
 </p>
@@ -3587,17 +3587,17 @@ JSON.parse(jsonArray) // { name: 'Lydia' }
 
 ---
 
-###### 111. Какое значение будет на выходе? 
+###### 111. Какое значение будет на выходе?
 
 ```javascript
-let name = 'Lydia'
+let name = "Lydia";
 
 function getName() {
-  console.log(name)
-  let name = 'Sarah'
+  console.log(name);
+  let name = "Sarah";
 }
 
-getName()
+getName();
 ```
 
 - A: Lydia
@@ -3617,13 +3617,13 @@ getName()
 Если бы мы не объявили переменную `name` в функции `getName`, движок javascript посмотрел бы вниз по _цепочки области действия_. Внешняя область имеет переменную с именем `name` со значением `Lydia`. В этом случае он бы записал `Lydia`.
 
 ```javascript
-let name = 'Lydia'
+let name = "Lydia";
 
 function getName() {
-  console.log(name)
+  console.log(name);
 }
 
-getName() // Lydia
+getName(); // Lydia
 ```
 
 </p>
@@ -3635,18 +3635,18 @@ getName() // Lydia
 
 ```javascript
 function* generatorOne() {
-  yield ['a', 'b', 'c'];
+  yield ["a", "b", "c"];
 }
 
 function* generatorTwo() {
-  yield* ['a', 'b', 'c'];
+  yield* ["a", "b", "c"];
 }
 
-const one = generatorOne()
-const two = generatorTwo()
+const one = generatorOne();
+const two = generatorTwo();
 
-console.log(one.next().value)
-console.log(two.next().value)
+console.log(one.next().value);
+console.log(two.next().value);
 ```
 
 - A: `a` and `a`
@@ -3664,17 +3664,17 @@ console.log(two.next().value)
 В `generatorOne` мы получаем весь массив `['a', 'b', 'c']`, используя ключевое слово `yield`. Значение свойства `value` для объекта, возвращаемого методом `next` для `one` (`one.next().value`), равно всему массиву `['a', 'b', 'c']`.
 
 ```javascript
-console.log(one.next().value) // ['a', 'b', 'c']
-console.log(one.next().value) // undefined
+console.log(one.next().value); // ['a', 'b', 'c']
+console.log(one.next().value); // undefined
 ```
 
 В файле `generatorTwo` мы используем ключевое слово `yield*`. Это означает, что первое полученное значение `two` равно первому полученному значению в итераторе. Итератор - это массив `['a', 'b', 'c']`. Первым полученным значением является `a`, поэтому в первый раз, когда мы вызываем `two.next().value`, возвращается `a`.
 
 ```javascript
-console.log(two.next().value) // 'a'
-console.log(two.next().value) // 'b'
-console.log(two.next().value) // 'c'
-console.log(two.next().value) // undefined
+console.log(two.next().value); // 'a'
+console.log(two.next().value); // 'b'
+console.log(two.next().value); // 'c'
+console.log(two.next().value); // undefined
 ```
 
 </p>
@@ -3685,7 +3685,7 @@ console.log(two.next().value) // undefined
 ###### 113. Какое значение будет на выходе?
 
 ```javascript
-console.log(`${(x => x)('I love')} to program`)
+console.log(`${((x) => x)("I love")} to program`);
 ```
 
 - A: `I love to program`
@@ -3710,11 +3710,11 @@ console.log(`${(x => x)('I love')} to program`)
 ```javascript
 let config = {
   alert: setInterval(() => {
-    console.log('Alert!')
-  }, 1000)
-}
+    console.log("Alert!");
+  }, 1000),
+};
 
-config = null
+config = null;
 ```
 
 - A: обратный вызов `setInterval` не будет вызван
@@ -3741,17 +3741,17 @@ config = null
 ###### 115. Какие методы вернут значение `'Hello world!'`?
 
 ```javascript
-const myMap = new Map()
-const myFunc = () => 'greeting'
+const myMap = new Map();
+const myFunc = () => "greeting";
 
-myMap.set(myFunc, 'Hello world!')
+myMap.set(myFunc, "Hello world!");
 
 //1
-myMap.get('greeting')
+myMap.get("greeting");
 //2
-myMap.get(myFunc)
+myMap.get(myFunc);
 //3
-myMap.get(() => 'greeting')
+myMap.get(() => "greeting");
 ```
 
 - A: 1
@@ -3778,20 +3778,20 @@ myMap.get(() => 'greeting')
 
 ```javascript
 const person = {
-  name: 'Lydia',
-  age: 21
-}
+  name: "Lydia",
+  age: 21,
+};
 
-const changeAge = (x = { ...person }) => x.age += 1
+const changeAge = (x = { ...person }) => (x.age += 1);
 const changeAgeAndName = (x = { ...person }) => {
-  x.age += 1
-  x.name = 'Sarah'
-}
+  x.age += 1;
+  x.name = "Sarah";
+};
 
-changeAge(person)
-changeAgeAndName()
+changeAge(person);
+changeAgeAndName();
 
-console.log(person)
+console.log(person);
 ```
 
 - A: `{name: "Sarah", age: 22}`
@@ -3819,7 +3819,7 @@ console.log(person)
 
 ```javascript
 function sumValues(x, y, z) {
-	return x + y + z;
+  return x + y + z;
 }
 ```
 
@@ -3870,15 +3870,15 @@ console.log(list[(num += 1)]);
 
 ```javascript
 const person = {
-	firstName: 'Lydia',
-	lastName: 'Hallie',
-	pet: {
-		name: 'Mara',
-		breed: 'Dutch Tulip Hound'
-	},
-	getFullName() {
-		return `${this.firstName} ${this.lastName}`;
-	}
+  firstName: "Lydia",
+  lastName: "Hallie",
+  pet: {
+    name: "Mara",
+    breed: "Dutch Tulip Hound",
+  },
+  getFullName() {
+    return `${this.firstName} ${this.lastName}`;
+  },
 };
 
 console.log(person.pet?.name);
@@ -3912,12 +3912,12 @@ console.log(member.getLastName?.());
 ###### 120. Что будет на выходе?
 
 ```javascript
-const groceries = ['banana', 'apple', 'peanuts'];
+const groceries = ["banana", "apple", "peanuts"];
 
-if (groceries.indexOf('banana')) {
-	console.log('We have to buy bananas!');
+if (groceries.indexOf("banana")) {
+  console.log("We have to buy bananas!");
 } else {
-	console.log(`We don't have to buy bananas!`);
+  console.log(`We don't have to buy bananas!`);
 }
 ```
 
@@ -3931,7 +3931,7 @@ if (groceries.indexOf('banana')) {
 
 #### Ответ: B
 
-Мы передали условие `groceries.indexOf("banana")` в оператор `if`. `groceries.indexOf("banana")` возвращает `0`, что является ложным значением. Поскольку условие в операторе `if` ложно, выполняется код в блоке `else`, и в лог выводится ``We don't have to buy bananas!``.
+Мы передали условие `groceries.indexOf("banana")` в оператор `if`. `groceries.indexOf("banana")` возвращает `0`, что является ложным значением. Поскольку условие в операторе `if` ложно, выполняется код в блоке `else`, и в лог выводится `We don't have to buy bananas!`.
 
 </p>
 </details>
@@ -3942,10 +3942,10 @@ if (groceries.indexOf('banana')) {
 
 ```javascript
 const config = {
-	languages: [],
-	set language(lang) {
-		return this.languages.push(lang);
-	}
+  languages: [],
+  set language(lang) {
+    return this.languages.push(lang);
+  },
 };
 
 console.log(config.language);
@@ -3971,10 +3971,10 @@ console.log(config.language);
 ###### 122. Что будет на выходе?
 
 ```javascript
-const name = 'Lydia Hallie';
+const name = "Lydia Hallie";
 
-console.log(!typeof name === 'object');
-console.log(!typeof name === 'string');
+console.log(!typeof name === "object");
+console.log(!typeof name === "string");
 ```
 
 - A: `false` `true`
@@ -3999,9 +3999,9 @@ console.log(!typeof name === 'string');
 ###### 123. Что будет на выходе?
 
 ```javascript
-const add = x => y => z => {
-	console.log(x, y, z);
-	return x + y + z;
+const add = (x) => (y) => (z) => {
+  console.log(x, y, z);
+  return x + y + z;
 };
 
 add(4)(5)(6);
@@ -4028,16 +4028,16 @@ add(4)(5)(6);
 
 ```javascript
 async function* range(start, end) {
-	for (let i = start; i <= end; i++) {
-		yield Promise.resolve(i);
-	}
+  for (let i = start; i <= end; i++) {
+    yield Promise.resolve(i);
+  }
 }
 
 (async () => {
-	const gen = range(1, 3);
-	for await (const item of gen) {
-		console.log(item);
-	}
+  const gen = range(1, 3);
+  for await (const item of gen) {
+    console.log(item);
+  }
 })();
 ```
 
@@ -4062,7 +4062,7 @@ async function* range(start, end) {
 
 ```javascript
 const myFunc = ({ x, y, z }) => {
-	console.log(x, y, z);
+  console.log(x, y, z);
 };
 
 myFunc(1, 2, 3);
@@ -4186,8 +4186,8 @@ console.log(isNaN(age));
 const randomValue = 21;
 
 function getInfo() {
-	console.log(typeof randomValue);
-	const randomValue = 'Lydia Hallie';
+  console.log(typeof randomValue);
+  const randomValue = "Lydia Hallie";
 }
 
 getInfo();
@@ -4213,16 +4213,16 @@ getInfo();
 ###### 130. Что будет на выходе?
 
 ```javascript
-const myPromise = Promise.resolve('Woah some cool data');
+const myPromise = Promise.resolve("Woah some cool data");
 
 (async () => {
-	try {
-		console.log(await myPromise);
-	} catch {
-		throw new Error(`Oops didn't work`);
-	} finally {
-		console.log('Oh finally!');
-	}
+  try {
+    console.log(await myPromise);
+  } catch {
+    throw new Error(`Oops didn't work`);
+  } finally {
+    console.log("Oh finally!");
+  }
 })();
 ```
 
@@ -4246,7 +4246,7 @@ const myPromise = Promise.resolve('Woah some cool data');
 ###### 131. Что будет на выходе?
 
 ```javascript
-const emojis = ['🥑', ['✨', '✨', ['🍕', '🍕']]];
+const emojis = ["🥑", ["✨", "✨", ["🍕", "🍕"]]];
 
 console.log(emojis.flat(1));
 ```
@@ -4319,19 +4319,19 @@ console.log(counterOne.count);
 ###### 133. Что будет на выходе?
 
 ```javascript
-const myPromise = Promise.resolve(Promise.resolve('Promise!'));
+const myPromise = Promise.resolve(Promise.resolve("Promise!"));
 
 function funcOne() {
-  myPromise.then(res => res).then(res => console.log(res));
-  setTimeout(() => console.log('Timeout!', 0));
-  console.log('Last line!');
+  myPromise.then((res) => res).then((res) => console.log(res));
+  setTimeout(() => console.log("Timeout!", 0));
+  console.log("Last line!");
 }
 
 async function funcTwo() {
   const res = await myPromise;
   console.log(await res);
-  setTimeout(() => console.log('Timeout!', 0));
-  console.log('Last line!');
+  setTimeout(() => console.log("Timeout!", 0));
+  console.log("Last line!");
 }
 
 funcOne();
@@ -4376,7 +4376,7 @@ export default function sum(x) {
 }
 
 // index.js
-import * as sum from './sum';
+import * as sum from "./sum";
 ```
 
 - A: `sum(4)`
@@ -4393,12 +4393,12 @@ import * as sum from './sum';
 
 ```javascript
 // info.js
-export const name = 'Lydia';
+export const name = "Lydia";
 export const age = 21;
-export default 'I love JavaScript';
+export default "I love JavaScript";
 
 // index.js
-import * as info from './info';
+import * as info from "./info";
 console.log(info);
 ```
 
@@ -4429,13 +4429,13 @@ console.log(info);
 
 ```javascript
 const handler = {
-  set: () => console.log('Added a new property!'),
-  get: () => console.log('Accessed a property!'),
+  set: () => console.log("Added a new property!"),
+  get: () => console.log("Accessed a property!"),
 };
 
 const person = new Proxy({}, handler);
 
-person.name = 'Lydia';
+person.name = "Lydia";
 person.name;
 ```
 
@@ -4465,7 +4465,7 @@ C помощью Proxy мы можем добавить собственное �
 ###### 136. Какое из перечисленных действий может модифицировать объект `person`?
 
 ```javascript
-const person = { name: 'Lydia Hallie' };
+const person = { name: "Lydia Hallie" };
 
 Object.seal(person);
 ```
@@ -4493,9 +4493,9 @@ Object.seal(person);
 
 ```javascript
 const person = {
-  name: 'Lydia Hallie',
+  name: "Lydia Hallie",
   address: {
-    street: '100 Main St',
+    street: "100 Main St",
   },
 };
 
@@ -4524,7 +4524,7 @@ Object.freeze(person);
 ###### 138. Что будет на выходе?
 
 ```javascript
-const add = x => x + x;
+const add = (x) => x + x;
 
 function myFunc(num = 2, value = add(num)) {
   console.log(num, value);
@@ -4557,21 +4557,21 @@ myFunc(3);
 
 ```javascript
 class Counter {
-  #number = 10
+  #number = 10;
 
   increment() {
-    this.#number++
+    this.#number++;
   }
 
   getNum() {
-    return this.#number
+    return this.#number;
   }
 }
 
-const counter = new Counter()
-counter.increment()
+const counter = new Counter();
+counter.increment();
 
-console.log(counter.#number)
+console.log(counter.#number);
 ```
 
 - A: `10`
@@ -4595,8 +4595,8 @@ console.log(counter.#number)
 
 ```javascript
 const teams = [
-  { name: 'Team 1', members: ['Paul', 'Lisa'] },
-  { name: 'Team 2', members: ['Laura', 'Tim'] },
+  { name: "Team 1", members: ["Paul", "Lisa"] },
+  { name: "Team 2", members: ["Laura", "Tim"] },
 ];
 
 function* getMembers(members) {
@@ -4639,8 +4639,8 @@ obj.next(); // { value: "Lisa", done: false }
 
 ```javascript
 const person = {
-  name: 'Lydia Hallie',
-  hobbies: ['coding'],
+  name: "Lydia Hallie",
+  hobbies: ["coding"],
 };
 
 function addHobby(hobby, hobbies = person.hobbies) {
@@ -4648,9 +4648,9 @@ function addHobby(hobby, hobbies = person.hobbies) {
   return hobbies;
 }
 
-addHobby('running', []);
-addHobby('dancing');
-addHobby('baking', person.hobbies);
+addHobby("running", []);
+addHobby("dancing");
+addHobby("baking", person.hobbies);
 
 console.log(person.hobbies);
 ```
@@ -4719,11 +4719,11 @@ const pet = new Flamingo();
 ###### 143. Какой/какие из вариантов приведет к ошибке?
 
 ```javascript
-const emojis = ['🎄', '🎅🏼', '🎁', '⭐'];
+const emojis = ["🎄", "🎅🏼", "🎁", "⭐"];
 
-/* 1 */ emojis.push('🦌');
+/* 1 */ emojis.push("🦌");
 /* 2 */ emojis.splice(0, 2);
-/* 3 */ emojis = [...emojis, '🥂'];
+/* 3 */ emojis = [...emojis, "🥂"];
 /* 4 */ emojis.length = 0;
 ```
 
@@ -4778,11 +4778,11 @@ const person = {
 let count = 0;
 const nums = [0, 1, 2, 3];
 
-nums.forEach(num => {
-	if (num) count += 1
-})
+nums.forEach((num) => {
+  if (num) count += 1;
+});
 
-console.log(count)
+console.log(count);
 ```
 
 - A: 1
@@ -4806,12 +4806,12 @@ console.log(count)
 
 ```javascript
 function getFruit(fruits) {
-	console.log(fruits?.[1]?.[1])
+  console.log(fruits?.[1]?.[1]);
 }
 
-getFruit([['🍊', '🍌'], ['🍍']])
-getFruit()
-getFruit([['🍍'], ['🍊', '🍌']])
+getFruit([["🍊", "🍌"], ["🍍"]]);
+getFruit();
+getFruit([["🍍"], ["🍊", "🍌"]]);
 ```
 
 - A: `null`, `undefined`, 🍌
@@ -4841,19 +4841,19 @@ getFruit([['🍍'], ['🍊', '🍌']])
 
 ```javascript
 class Calc {
-	constructor() {
-		this.count = 0 
-	}
+  constructor() {
+    this.count = 0;
+  }
 
-	increase() {
-		this.count ++
-	}
+  increase() {
+    this.count++;
+  }
 }
 
-const calc = new Calc()
-new Calc().increase()
+const calc = new Calc();
+new Calc().increase();
 
-console.log(calc.count)
+console.log(calc.count);
 ```
 
 - A: `0`
@@ -4877,25 +4877,25 @@ console.log(calc.count)
 
 ```javascript
 const user = {
-	email: "e@mail.com",
-	password: "12345"
-}
+  email: "e@mail.com",
+  password: "12345",
+};
 
 const updateUser = ({ email, password }) => {
-	if (email) {
-		Object.assign(user, { email })
-	}
+  if (email) {
+    Object.assign(user, { email });
+  }
 
-	if (password) {
-		user.password = password
-	}
+  if (password) {
+    user.password = password;
+  }
 
-	return user
-}
+  return user;
+};
 
-const updatedUser = updateUser({ email: "new@email.com" })
+const updatedUser = updateUser({ email: "new@email.com" });
 
-console.log(updatedUser === user)
+console.log(updatedUser === user);
 ```
 
 - A: `false`
@@ -4918,13 +4918,13 @@ console.log(updatedUser === user)
 ###### 149. Что будет на выходе?
 
 ```javascript
-const fruit = ['🍌', '🍊', '🍎']
+const fruit = ["🍌", "🍊", "🍎"];
 
-fruit.slice(0, 1)
-fruit.splice(0, 1)
-fruit.unshift('🍇')
+fruit.slice(0, 1);
+fruit.splice(0, 1);
+fruit.unshift("🍇");
 
-console.log(fruit)
+console.log(fruit);
 ```
 
 - A: `['🍌', '🍊', '🍎']`
@@ -4950,13 +4950,13 @@ console.log(fruit)
 
 ```javascript
 const animals = {};
-let dog = { emoji: '🐶' }
-let cat = { emoji: '🐈' }
+let dog = { emoji: "🐶" };
+let cat = { emoji: "🐈" };
 
-animals[dog] = { ...dog, name: "Mara" }
-animals[cat] = { ...cat, name: "Sara" }
+animals[dog] = { ...dog, name: "Mara" };
+animals[cat] = { ...cat, name: "Sara" };
 
-console.log(animals[dog])
+console.log(animals[dog]);
 ```
 
 - A: `{ emoji: "🐶", name: "Mara" }`
@@ -4986,14 +4986,14 @@ console.log(animals[dog])
 
 ```javascript
 const user = {
-	email: "my@email.com",
-	updateEmail: email => {
-		this.email = email
-	}
-}
+  email: "my@email.com",
+  updateEmail: (email) => {
+    this.email = email;
+  },
+};
 
-user.updateEmail("new@email.com")
-console.log(user.email)
+user.updateEmail("new@email.com");
+console.log(user.email);
 ```
 
 - A: `my@email.com`
@@ -5016,20 +5016,20 @@ console.log(user.email)
 ###### 152. Что будет на выходе?
 
 ```javascript
-const promise1 = Promise.resolve('First')
-const promise2 = Promise.resolve('Second')
-const promise3 = Promise.reject('Third')
-const promise4 = Promise.resolve('Fourth')
+const promise1 = Promise.resolve("First");
+const promise2 = Promise.resolve("Second");
+const promise3 = Promise.reject("Third");
+const promise4 = Promise.resolve("Fourth");
 
 const runPromises = async () => {
-	const res1 = await Promise.all([promise1, promise2])
-	const res2  = await Promise.all([promise3, promise4])
-	return [res1, res2]
-}
+  const res1 = await Promise.all([promise1, promise2]);
+  const res2 = await Promise.all([promise3, promise4]);
+  return [res1, res2];
+};
 
 runPromises()
-	.then(res => console.log(res))
-	.catch(err => console.log(err))
+  .then((res) => console.log(res))
+  .catch((err) => console.log(err));
 ```
 
 - A: `[['First', 'Second'], ['Fourth']]`
@@ -5052,13 +5052,16 @@ runPromises()
 ###### 153. Каким должно быть значение `method` для регистрации `{ name: "Lydia", age: 22 }`?
 
 ```javascript
-const keys = ["name", "age"]
-const values = ["Lydia", 22]
+const keys = ["name", "age"];
+const values = ["Lydia", 22];
 
-const method = /* ?? */
-Object[method](keys.map((_, i) => {
-	return [keys[i], values[i]]
-})) // { name: "Lydia", age: 22 }
+const method =
+  /* ?? */
+  Object[method](
+    keys.map((_, i) => {
+      return [keys[i], values[i]];
+    })
+  ); // { name: "Lydia", age: 22 }
 ```
 
 - A: `entries`
@@ -5083,18 +5086,18 @@ Object[method](keys.map((_, i) => {
 ###### 154. Что будет на выходе?
 
 ```javascript
-const createMember = ({ email, address = {}}) => {
-	const validEmail = /.+\@.+\..+/.test(email)
-	if (!validEmail) throw new Error("Valid email pls")
+const createMember = ({ email, address = {} }) => {
+  const validEmail = /.+\@.+\..+/.test(email);
+  if (!validEmail) throw new Error("Valid email pls");
 
-	return {
-		email,
-		address: address ? address : null
-	}
-}
+  return {
+    email,
+    address: address ? address : null,
+  };
+};
 
-const member = createMember({ email: "my@email.com" })
-console.log(member)
+const member = createMember({ email: "my@email.com" });
+console.log(member);
 ```
 
 - A: `{ email: "my@email.com", address: null }`
@@ -5117,13 +5120,13 @@ console.log(member)
 ###### 155. Что будет на выходе?
 
 ```javascript
-let randomValue = { name: "Lydia" }
-randomValue = 23
+let randomValue = { name: "Lydia" };
+randomValue = 23;
 
 if (!typeof randomValue === "string") {
-	console.log("It's not a string!")
+  console.log("It's not a string!");
 } else {
-	console.log("Yay it's a string!")
+  console.log("Yay it's a string!");
 }
 ```
 

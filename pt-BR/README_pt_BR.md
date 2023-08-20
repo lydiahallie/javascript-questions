@@ -19,6 +19,7 @@ As respostas estão em seções recolhidas abaixo das questões, basta clicar ne
 - [🇰🇷 한국어](../ko-KR/README-ko_KR.md)
 - [🇳🇱 Nederlands](../nl-NL/README.md)
 - [🇵🇱 Polski](../pl-PL/README.md)
+- [🇷o Română](../ro-RO/README.ro.md)
 - [🇷🇺 Русский](../ru-RU/README.md)
 - [🇽🇰 Shqip](../sq-KS/README_sq_KS.md)
 - [🇹🇭 ไทย](../th-TH/README-th_TH.md)
@@ -27,7 +28,6 @@ As respostas estão em seções recolhidas abaixo das questões, basta clicar ne
 - [🇻🇳 Tiếng Việt](../vi-VI/README-vi.md)
 - [🇨🇳 简体中文](../zh-CN/README-zh_CN.md)
 - [🇹🇼 繁體中文](../zh-TW/README_zh-TW.md)
-
 
 ---
 
@@ -101,7 +101,7 @@ const shape = {
   diameter() {
     return this.radius * 2;
   },
-  perimeter: () => 2 * Math.PI * this.radius
+  perimeter: () => 2 * Math.PI * this.radius,
 };
 
 shape.diameter();
@@ -147,8 +147,9 @@ Não há `radius` fora de <i>shape</i>, então retorna `undefined`.
 
 O operador unário `+` tenta converter um operando para um número. `true` é `1`, e `false` é `0`.
 
-A string `'Lydia'` tem valor truthy*. O que estamos realmente perguntando é "Esse valor truthy é falsy?". Isso retorna `false`.  
-###### *Nota do tradutor: <i>truthy</i> é um termo único ao JavaScript que denota valores que podem ser convertidos em um booleano `True`. Sua contraparte é <i>falsy</i>, que são valores que podem ser convertidos em um booleano `false`. Para fins de consistência, mantenho os termos originais. 
+A string `'Lydia'` tem valor truthy\*. O que estamos realmente perguntando é "Esse valor truthy é falsy?". Isso retorna `false`.
+
+###### \*Nota do tradutor: <i>truthy</i> é um termo único ao JavaScript que denota valores que podem ser convertidos em um booleano `True`. Sua contraparte é <i>falsy</i>, que são valores que podem ser convertidos em um booleano `false`. Para fins de consistência, mantenho os termos originais.
 
 </p>
 </details>
@@ -159,12 +160,12 @@ A string `'Lydia'` tem valor truthy*. O que estamos realmente perguntando é "Es
 
 ```javascript
 const bird = {
-  size: "small"
+  size: "small",
 };
 
 const mouse = {
   name: "Mickey",
-  small: true
+  small: true,
 };
 ```
 
@@ -250,7 +251,7 @@ console.log(b === c);
 
 `new Number()` é uma funcção construtura padrão do JavaScript. Ainda que parece com um número, não é realmente um número: Tem um monte de funções extras e é um objeto.
 
-Quando usamos o operador `==`, só conferimos se ambas tem o mesmo <i>valor</i>. Ambas tem o valor de `3`, então retorna `true`. 
+Quando usamos o operador `==`, só conferimos se ambas tem o mesmo <i>valor</i>. Ambas tem o valor de `3`, então retorna `true`.
 
 Contudo, quando usamos o operador `===`, ambos valor <i>e</i> tipo tem de ser o mesmo. E não são: `new Number()` não é um número, é um **objeto**. Ambos retornam `false`.
 
@@ -314,7 +315,7 @@ console.log(greetign);
 
 Cria o log do objeto, pois criamos um objeto vazio no objeto global! Quando erramos a digitação de `greeting` como `greetign`, o interpretador do JavaScript viu isso como `global.greetign = {}` (ou `window.greetign = {}` em um navegador).
 
-Para evitar esse comportamento, podemos usar `"use strict"`. Isso garante que você  tenha declarado uma variável antes de poder inicializá-la com algum valor.
+Para evitar esse comportamento, podemos usar `"use strict"`. Isso garante que você tenha declarado uma variável antes de poder inicializá-la com algum valor.
 
 </p>
 </details>
@@ -359,7 +360,7 @@ function Person(firstName, lastName) {
 }
 
 const member = new Person("Lydia", "Hallie");
-Person.getFullName = function() {
+Person.getFullName = function () {
   return `${this.firstName} ${this.lastName}`;
 };
 
@@ -381,7 +382,7 @@ Você não pode adicionar propriedades para um construtor igual aos objetos norm
 Então nesse caso
 
 ```js
-Person.prototype.getFullName = function() {
+Person.prototype.getFullName = function () {
   return `${this.firstName} ${this.lastName}`;
 };
 ```
@@ -440,7 +441,8 @@ Afirmamos que `this.firstName` vale `"Sarah"` e `this.lastName` vale `"Smith"`. 
 #### Resposta: D
 
 Durate a fase do **capturing**, o evento percorre os elementos pais até chegar no elemento algo. Isso alcança o elemento **target**, e o **bubbling** começa.
- ##### *Nota do tradutor: _bubbling_ descreve uma forma específica de propagação de eventos. Em tradução livre é "borbulhar", que indica como os eventos "sobem" a cadeia onde estão aninhados, mas prefiro por manter o original, visto que é o nome dessa forma de propagação.
+
+##### \*Nota do tradutor: _bubbling_ descreve uma forma específica de propagação de eventos. Em tradução livre é "borbulhar", que indica como os eventos "sobem" a cadeia onde estão aninhados, mas prefiro por manter o original, visto que é o nome dessa forma de propagação.
 
 <img src="https://i.imgur.com/N18oRgd.png" width="200">
 
@@ -459,7 +461,7 @@ Durate a fase do **capturing**, o evento percorre os elementos pais até chegar 
 
 #### Resposta: B
 
-Todos objetos tem protótipos, exceto pelo **base object**. O base object tem acesso à alguns métodos e propriedades, como `.toString`. É o motivo de podermos usar métodos já embutidos no JavaScript! Todos métodos desse tipo já estão embutidos no protótipo. Apesar do JavaScript não encontrar algum método diretamente no seu objeto, ele percorre a cadeia de protótipos até encontrar no base, o que torna acessível para todo objeto. 
+Todos objetos tem protótipos, exceto pelo **base object**. O base object tem acesso à alguns métodos e propriedades, como `.toString`. É o motivo de podermos usar métodos já embutidos no JavaScript! Todos métodos desse tipo já estão embutidos no protótipo. Apesar do JavaScript não encontrar algum método diretamente no seu objeto, ele percorre a cadeia de protótipos até encontrar no base, o que torna acessível para todo objeto.
 
 </p>
 </details>
@@ -514,7 +516,7 @@ console.log(number);
 
 #### Resposta: C
 
-O operador unário no **sufixo**  `++`:
+O operador unário no **sufixo** `++`:
 
 1. Retorna o valor (retorna o valor `0`)
 2. Incrementa o valor (numero agora é `1`)
@@ -587,7 +589,7 @@ checkAge({ age: 18 });
 
 #### Resposta: C
 
-Quando testamos igualdade, primitivos são comparados por seus _valores_, enquanto objetos são comparados por suas  _referências_. O JavaScript confere se os objetos tem a referência para o mesmo local na memória.
+Quando testamos igualdade, primitivos são comparados por seus _valores_, enquanto objetos são comparados por suas _referências_. O JavaScript confere se os objetos tem a referência para o mesmo local na memória.
 
 Os dois objetos que estamos comparando não são assim: O objeto que passamos como parâmetro faz referência a uma posição na memória diferente daquela que o objeto que usamos para conferir a igualdade.
 
@@ -788,7 +790,7 @@ Se temos duas chaves com o mesmo nome, a última irá substituir a primeira. Ain
 ###### 26. O contexto global de execução do JavaScript cria duas coisas para você: O objeto global, e a palavra-chave `this`.
 
 - A: Verdadeiro
-- B: Falso 
+- B: Falso
 - C: Depende
 
 <details><summary><b>Resposta</b></summary>
@@ -838,7 +840,7 @@ String.prototype.giveLydiaPizza = () => {
 
 const name = "Lydia";
 
-console.log(name.giveLydiaPizza())
+console.log(name.giveLydiaPizza());
 ```
 
 - A: `"Just give Lydia pizza already!"`
@@ -950,9 +952,7 @@ A `WebAPI` não pode simplesmente adicionar coisas ao stack sempre que ficam pro
 ```html
 <div onclick="console.log('first div')">
   <div onclick="console.log('second div')">
-    <button onclick="console.log('button')">
-      Click!
-    </button>
+    <button onclick="console.log('button')">Click!</button>
   </div>
 </div>
 ```
@@ -967,7 +967,7 @@ A `WebAPI` não pode simplesmente adicionar coisas ao stack sempre que ficam pro
 
 #### Resposta: C
 
-O elemento mais interno no aninhamento que causou o evento é o alvo do evento. Você pode parar o _bubbling_ com `event.stopPropagation`. 
+O elemento mais interno no aninhamento que causou o evento é o alvo do evento. Você pode parar o _bubbling_ com `event.stopPropagation`.
 
 </p>
 </details>
@@ -978,9 +978,7 @@ O elemento mais interno no aninhamento que causou o evento é o alvo do evento. 
 
 ```html
 <div onclick="console.log('div')">
-  <p onclick="console.log('p')">
-    Click here!
-  </p>
+  <p onclick="console.log('p')">Click here!</p>
 </div>
 ```
 
@@ -1055,7 +1053,7 @@ typeof sayHi();
 
 A função `sayHi` retorna o valor retornado pela arrow function pois ela é uma IIFE (Immediately Invoked Function Expression ou Expressão de Função Invocada Imediatamente). Essa IIFE retornou `0`, que é do tipo `"number"`.
 
-Para saber mais: Só existem 7 tipos já definidos: `null`, `undefined`, `boolean`, `number`, `string`, `object`, `symbol`, e `bigint`. `"function"` não é um tipo, uma vez que  funções são objetos, elas são do tipo `"object"`.
+Para saber mais: Só existem 7 tipos já definidos: `null`, `undefined`, `boolean`, `number`, `string`, `object`, `symbol`, e `bigint`. `"function"` não é um tipo, uma vez que funções são objetos, elas são do tipo `"object"`.
 
 </p>
 </details>
@@ -1215,7 +1213,10 @@ O que diferencia um primitivo de um objeto é que primitivos não possuem métod
 ###### 40. Qual o resultado?
 
 ```javascript
-[[0, 1], [2, 3]].reduce(
+[
+  [0, 1],
+  [2, 3],
+].reduce(
   (acc, cur) => {
     return acc.concat(cur);
   },
@@ -1278,7 +1279,7 @@ setInterval(() => console.log("Hi"), 1000);
 ```
 
 - A: um id único
-- B: a quantidade de  millisegundos especificada
+- B: a quantidade de millisegundos especificada
 - C: a função passada
 - D: `undefined`
 
@@ -1362,7 +1363,7 @@ const secondPromise = new Promise((res, rej) => {
   setTimeout(res, 100, "two");
 });
 
-Promise.race([firstPromise, secondPromise]).then(res => console.log(res));
+Promise.race([firstPromise, secondPromise]).then((res) => console.log(res));
 ```
 
 - A: `"one"`
@@ -1426,7 +1427,7 @@ Estamos apenas modificando o valor da variável `person`, e não o primeiro elem
 ```javascript
 const person = {
   name: "Lydia",
-  age: 21
+  age: 21,
 };
 
 for (const item in person) {
@@ -1506,7 +1507,7 @@ Apenas os primeiros números da string é retornado. Baseado no _radix_ (o segun
 ###### 50. Qual o resultado?
 
 ```javascript
-[1, 2, 3].map(num => {
+[1, 2, 3].map((num) => {
   if (typeof num === "number") return;
   return num * 2;
 });
@@ -1675,7 +1676,7 @@ class Dog {
     this.name = name;
   }
 }
-Dog.prototype.bark = function() {
+Dog.prototype.bark = function () {
   console.log(`Woof I am ${this.name}`);
 };
 const pet = new Dog("Mara");
@@ -1850,7 +1851,6 @@ console.log(admin);
 
 #### Resposta: B
 
-
 É possível combinar objetos usando o operador o spread operator `...`. Ele permite criar cópias dos pares de um objeto e adicioná-las a outro objeto. Nesse caso, criamos cópias do objeto `user` e as adicionamos ao objeto `admin`. O objeto `admin` agora contém os pares de chave/valor copiados, o que resulta em `{ admin: true, name: "Lydia", age: 21 }`.
 
 </p>
@@ -1878,10 +1878,12 @@ console.log(Object.keys(person));
 <p>
 
 #### Resposta: B
-Com o método `defineProperty`, podemos adicionar novas propriedades a um objeto ou modificar propriedades já existentes. Quando adicionamos uma propriedade a um objeto usando o método `defineProperty`, ela é, por padrão, _não enumerável_. O método`Object.keys` retorna todos os nomes de uma propriedade _enumerável_  de um objeto. Nesse caso, apenas `"name"`.
 
-Propriedades adicionadas usando o método `defineProperty` são imutáveis por padrão. Você pode sobrepor esse comportamento usando as propriedade `writable`, `configurable` e `enumerable`. 
+Com o método `defineProperty`, podemos adicionar novas propriedades a um objeto ou modificar propriedades já existentes. Quando adicionamos uma propriedade a um objeto usando o método `defineProperty`, ela é, por padrão, _não enumerável_. O método`Object.keys` retorna todos os nomes de uma propriedade _enumerável_ de um objeto. Nesse caso, apenas `"name"`.
+
+Propriedades adicionadas usando o método `defineProperty` são imutáveis por padrão. Você pode sobrepor esse comportamento usando as propriedade `writable`, `configurable` e `enumerable`.
 Assim, o método `defineProperty` dá a você muito mais controle sobre as propriedades que você está adicionando a um objeto.
+
 </p>
 </details>
 
@@ -1893,7 +1895,7 @@ Assim, o método `defineProperty` dá a você muito mais controle sobre as propr
 const settings = {
   username: "lydiahallie",
   level: 19,
-  health: 90
+  health: 90,
 };
 
 const data = JSON.stringify(settings, ["level", "health"]);
@@ -1915,17 +1917,19 @@ O segundo argumento de `JSON.stringify` é o _substituo_. O substituto pode ser 
 Se o substituto (replacer) for um _array_, apenas os nomes de propriedades incluídos no array serão adicionados à string JSON. Nesse caso, apenas as propriedades com os nomes `"level"` ed `"health"` são incluída, `"username"` é excluída. `data` agora é igual a `"{"level":19, "health":90}"`.
 
 Se o substituto (replacer) for uma _função_, essa função é chamada em c ada propriedade no objeto que está sendo "Stringfied". O valor retornado dessa função será o valor da propriedade quanto adicionado à string JSON. Se o valor for `undefined`, essa propriedade é excluída da string JSON.
+
 </p>
 </details>
 
 ---
+
 ###### 63. Qual o resultado?
 
 ```javascript
 let num = 10;
 
 const increaseNumber = () => num++;
-const increasePassedNumber = number => number++;
+const increasePassedNumber = (number) => number++;
 
 const num1 = increaseNumber();
 const num2 = increasePassedNumber(num1);
@@ -1952,6 +1956,7 @@ O operador unário `++` primeiro _retorna_ o valor do operando, depois _incremen
 </details>
 
 ---
+
 ###### 64. Qual o resultado?
 
 ```javascript
@@ -1989,6 +1994,7 @@ Na quarta vez, passamos o objeto `value` novamente. `x.number` foi modificado an
 </details>
 
 ---
+
 ###### 65. Qual o resultado?
 
 ```javascript
@@ -2074,16 +2080,17 @@ A classe `Labrador` recebe dois argumentos, `name`, pois estende `Dog`, e `size`
 </details>
 
 ---
+
 ###### 67. Qual o resultado?
 
 ```javascript
 // index.js
-console.log('running index.js');
-import { sum } from './sum.js';
+console.log("running index.js");
+import { sum } from "./sum.js";
 console.log(sum(1, 2));
 
 // sum.js
-console.log('running sum.js');
+console.log("running sum.js");
 export const sum = (a, b) => a + b;
 ```
 
@@ -2105,12 +2112,13 @@ Esta é uma diferença entre `require()` no CommonJS e `import`! Com `require()`
 </details>
 
 ---
+
 ###### 68. Qual o resultado?
 
 ```javascript
 console.log(Number(2) === Number(2));
 console.log(Boolean(false) === Boolean(false));
-console.log(Symbol('foo') === Symbol('foo'));
+console.log(Symbol("foo") === Symbol("foo"));
 ```
 
 - A: `true`, `true`, `false`
@@ -2129,10 +2137,11 @@ Todo símbolo (Symbol) é totalmente único. O objetivo do argumento passado ao 
 </details>
 
 ---
+
 ###### 69. Qual o resultado?
 
 ```javascript
-const name = 'Lydia Hallie';
+const name = "Lydia Hallie";
 console.log(name.padStart(13));
 console.log(name.padStart(2));
 ```
@@ -2155,10 +2164,11 @@ Se o argumento passado para o método `padStart` for menor que o comprimento da 
 </details>
 
 ---
+
 ###### 70. Qual o resultado?
 
 ```javascript
-console.log('🥑' + '💻');
+console.log("🥑" + "💻");
 ```
 
 - A: `"🥑💻"`
@@ -2182,11 +2192,11 @@ Com o operador `+`, você pode concatenar seqüências de caracteres (strings). 
 
 ```javascript
 function* iniciarJogo() {
-  const resposta = yield 'Você ama JavaScript?';
-  if (resposta !== 'Sim') {
+  const resposta = yield "Você ama JavaScript?";
+  if (resposta !== "Sim") {
     return "Uau... Acho que entramos aqui";
   }
-  return 'O JavaScript também ama você ❤️';
+  return "O JavaScript também ama você ❤️";
 }
 
 const jogo = iniciarJogo();
@@ -2249,11 +2259,12 @@ Neste caso, a string é `Hello\nworld`, que é registrada.
 </details>
 
 ---
+
 ###### 73. Qual o resultado?
 
 ```javascript
 async function getData() {
-  return await Promise.resolve('I made it!');
+  return await Promise.resolve("I made it!");
 }
 
 const data = getData();
@@ -2282,6 +2293,7 @@ Isso teria registrado `"Consegui!"`
 </details>
 
 ---
+
 ###### 74. Qual o resultado?
 
 ```javascript
@@ -2289,7 +2301,7 @@ function addToList(item, list) {
   return list.push(item);
 }
 
-const result = addToList('apple', ['banana']);
+const result = addToList("apple", ["banana"]);
 console.log(result);
 ```
 
@@ -2349,7 +2361,7 @@ Como `shape` está congelado, e como o valor de `x` não é um objeto, não pode
 ###### 76.Qual o resultado?
 
 ```javascript
-const { name: myName } = { name: 'Lydia' };
+const { name: myName } = { name: "Lydia" };
 
 console.log(name);
 ```
@@ -2405,7 +2417,7 @@ A função `sum` sempre retorna o mesmo resultado. Se passarmos `1` e` 2`, ele _
 ```javascript
 const add = () => {
   const cache = {};
-  return num => {
+  return (num) => {
     if (num in cache) {
       return `From cache! ${cache[num]}`;
     } else {
@@ -2436,7 +2448,7 @@ A função `add` é uma função _memoized_ (memorizada). Com a memorização, p
 
 Se chamarmos a função `addFunction` novamente com o mesmo argumento, ela primeiro verifica se já obteve esse valor em seu cache. Se for o caso, o valor dos caches será retornado, o que economiza tempo de execução. Caso contrário, se não estiver armazenado em cache, ele calculará o valor e o armazenará posteriormente.
 
-Chamamos a função `addFunction` três vezes com o mesmo valor: na primeira chamada, o valor da função quando `num` é igual a `10` ainda não é armazenado em cache. A condição da instrução if `num in cache` retorna `false`, e o bloco else é executado: `Calculated! 20` é registrado e o valor do resultado é adicionado ao objeto de cache. `cache` agora se parece com` {10:20} `.
+Chamamos a função `addFunction` três vezes com o mesmo valor: na primeira chamada, o valor da função quando `num` é igual a `10` ainda não é armazenado em cache. A condição da instrução if `num in cache` retorna `false`, e o bloco else é executado: `Calculated! 20` é registrado e o valor do resultado é adicionado ao objeto de cache. `cache` agora se parece com`{10:20}`.
 
 Na segunda vez, o objeto `cache` contém o valor que é retornado para `10`. A condição da instrução if `num in cache` retorna `true`, e `'From cache! 20'` é registrado.
 
@@ -2450,7 +2462,7 @@ Na terceira vez, passamos `5 * 2` para a função que é avaliada como `10`. O o
 ###### 79. Qual o resultado?
 
 ```javascript
-const myLifeSummedUp = ['☕', '💻', '🍷', '🍫'];
+const myLifeSummedUp = ["☕", "💻", "🍷", "🍫"];
 
 for (let item in myLifeSummedUp) {
   console.log(item);
@@ -2475,7 +2487,7 @@ Com um loop _for-in_, podemos iterar sobre propriedades **enumeráveis​​**. 
 
 `{0:" ☕ ", 1:" 💻 ", 2:" 🍷 ", 3:" 🍫 "}`
 
-Onde as chaves são as propriedades enumeráveis. `0`` 1` `2`` 3` são registrados.
+Onde as chaves são as propriedades enumeráveis. ` 0`` 1 ` ` 2`` 3 ` são registrados.
 
 Com um loop _for-of_, podemos iterar sobre **iteráveis**. Um array é um iterável. Quando iteramos sobre o array, a variável "item" é igual ao elemento sobre o qual está iterando no momento, `" ☕ "` `" 💻 "` `" 🍷 "` `" 🍫 "` são registrados.
 

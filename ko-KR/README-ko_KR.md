@@ -34,6 +34,7 @@
 - [🇳🇱 Nederlands](../nl-NL/README.md)
 - [🇵🇱 Polski](../pl-PL/README.md)
 - [🇧🇷 Português Brasil](../pt-BR/README_pt_BR.md)
+- [🇷o Română](../ro-RO/README.ro.md)
 - [🇷🇺 Русский](../ru-RU/README.md)
 - [🇽🇰 Shqip](../sq-KS/README_sq_KS.md)
 - [🇹🇭 ไทย](../th-TH/README-th_TH.md)
@@ -54,7 +55,7 @@
 function sayHi() {
   console.log(name);
   console.log(age);
-  var name = 'Lydia';
+  var name = "Lydia";
   let age = 21;
 }
 
@@ -150,7 +151,7 @@ console.log(shape.perimeter());
 
 ```javascript
 +true;
-!'Lydia';
+!"Lydia";
 ```
 
 - A: `1` 그리고 `false`
@@ -175,11 +176,11 @@ console.log(shape.perimeter());
 
 ```javascript
 const bird = {
-  size: 'small',
+  size: "small",
 };
 
 const mouse = {
-  name: 'Mickey',
+  name: "Mickey",
   small: true,
 };
 ```
@@ -210,11 +211,11 @@ JavaScript는 문장을 해석(또는 분)해요. 대괄호 표기를 사용하�
 ###### 6. 무엇이 출력 될까요?
 
 ```javascript
-let c = { greeting: 'Hey!' };
+let c = { greeting: "Hey!" };
 let d;
 
 d = c;
-c.greeting = 'Hello';
+c.greeting = "Hello";
 console.log(d.greeting);
 ```
 
@@ -229,7 +230,7 @@ console.log(d.greeting);
 
 #### 답: A
 
-JavaScript에서 모든 객체는 서로를 동일하게 설정하면 _참조_로 상호작용해요.
+JavaScript에서 모든 객체는 서로를 동일하게 설정하면 *참조*로 상호작용해요.
 
 우선, 변수 `c`는 객체에 대한 값을 갖고 있어요. 그 후 `c`가 객체에 가지고 있는 것과 동일한 참조를 `d`에 할당해요.
 
@@ -284,13 +285,13 @@ class Chameleon {
     return this.newColor;
   }
 
-  constructor({ newColor = 'green' } = {}) {
+  constructor({ newColor = "green" } = {}) {
     this.newColor = newColor;
   }
 }
 
-const freddie = new Chameleon({ newColor: 'purple' });
-console.log(freddie.colorChange('orange'));
+const freddie = new Chameleon({ newColor: "purple" });
+console.log(freddie.colorChange("orange"));
 ```
 
 - A: `orange`
@@ -340,10 +341,10 @@ console.log(greetign);
 
 ```javascript
 function bark() {
-  console.log('Woof!');
+  console.log("Woof!");
 }
 
-bark.animal = 'dog';
+bark.animal = "dog";
 ```
 
 - A: 별일 없어요, 이건 완전히 괜찮아요!
@@ -373,7 +374,7 @@ function Person(firstName, lastName) {
   this.lastName = lastName;
 }
 
-const member = new Person('Lydia', 'Hallie');
+const member = new Person("Lydia", "Hallie");
 Person.getFullName = function () {
   return `${this.firstName} ${this.lastName}`;
 };
@@ -414,8 +415,8 @@ function Person(firstName, lastName) {
   this.lastName = lastName;
 }
 
-const lydia = new Person('Lydia', 'Hallie');
-const sarah = Person('Sarah', 'Smith');
+const lydia = new Person("Lydia", "Hallie");
+const sarah = Person("Sarah", "Smith");
 
 console.log(lydia);
 console.log(sarah);
@@ -485,7 +486,7 @@ function sum(a, b) {
   return a + b;
 }
 
-sum(1, '2');
+sum(1, "2");
 ```
 
 - A: `NaN`
@@ -552,7 +553,7 @@ function getPersonInfo(one, two, three) {
   console.log(three);
 }
 
-const person = 'Lydia';
+const person = "Lydia";
 const age = 21;
 
 getPersonInfo`${person} is ${age} years old`;
@@ -579,9 +580,9 @@ getPersonInfo`${person} is ${age} years old`;
 ```javascript
 function checkAge(data) {
   if (data === { age: 18 }) {
-    console.log('You are an adult!');
+    console.log("You are an adult!");
   } else if (data == { age: 18 }) {
-    console.log('You are still an adult.');
+    console.log("You are still an adult.");
   } else {
     console.log(`Hmm.. You don't have an age I guess`);
   }
@@ -641,7 +642,7 @@ rest 파라미터 (`...args`)는 남아있는 모든 인수을 하나의 배열�
 
 ```javascript
 function getAge() {
-  'use strict';
+  "use strict";
   age = 21;
   console.log(age);
 }
@@ -669,7 +670,7 @@ getAge();
 ###### 21. `sum`의 값은 무엇일까요?
 
 ```javascript
-const sum = eval('10*10+5');
+const sum = eval("10*10+5");
 ```
 
 - A: `105`
@@ -692,7 +693,7 @@ const sum = eval('10*10+5');
 ###### 22. cool_secret에 몇 시간이나 접근이 가능할까요?
 
 ```javascript
-sessionStorage.setItem('cool_secret', 123);
+sessionStorage.setItem("cool_secret", 123);
 ```
 
 - A: 영원히, 데이터는 사라지지 않아요.
@@ -745,12 +746,12 @@ console.log(num);
 ###### 24. 무엇이 출력 될까요?
 
 ```javascript
-const obj = { 1: 'a', 2: 'b', 3: 'c' };
+const obj = { 1: "a", 2: "b", 3: "c" };
 const set = new Set([1, 2, 3, 4, 5]);
 
-obj.hasOwnProperty('1');
+obj.hasOwnProperty("1");
 obj.hasOwnProperty(1);
-set.has('1');
+set.has("1");
 set.has(1);
 ```
 
@@ -776,7 +777,7 @@ set에서는 동작하지 않아요. set에는 `'1'`이 없어요: `set.has('1')
 ###### 25. 무엇이 출력 될까요?
 
 ```javascript
-const obj = { a: 'one', b: 'two', a: 'three' };
+const obj = { a: "one", b: "two", a: "three" };
 console.log(obj);
 ```
 
@@ -845,12 +846,12 @@ for (let i = 1; i < 5; i++) {
 
 ```javascript
 String.prototype.giveLydiaPizza = () => {
-  return 'Just give Lydia pizza already!';
+  return "Just give Lydia pizza already!";
 };
 
-const name = 'Lydia';
+const name = "Lydia";
 
-console.log(name.giveLydiaPizza())
+console.log(name.giveLydiaPizza());
 ```
 
 - A: `"Just give Lydia pizza already!"`
@@ -874,8 +875,8 @@ console.log(name.giveLydiaPizza())
 
 ```javascript
 const a = {};
-const b = { key: 'b' };
-const c = { key: 'c' };
+const b = { key: "b" };
+const c = { key: "c" };
 
 a[b] = 123;
 a[c] = 456;
@@ -907,9 +908,9 @@ console.log(a[b]);
 ###### 30. 무엇이 출력 될까요?
 
 ```javascript
-const foo = () => console.log('First');
-const bar = () => setTimeout(() => console.log('Second'));
-const baz = () => console.log('Third');
+const foo = () => console.log("First");
+const bar = () => setTimeout(() => console.log("Second"));
+const baz = () => console.log("Third");
 
 bar();
 foo();
@@ -1012,7 +1013,7 @@ WebAPI는 준비가 될 때마다 stack에 항목을 추가할 수 없어요. �
 ###### 33. 무엇이 출력 될까요?
 
 ```javascript
-const person = { name: 'Lydia' };
+const person = { name: "Lydia" };
 
 function sayHi(age) {
   console.log(`${this.name} is ${age}`);
@@ -1075,8 +1076,8 @@ console.log(typeof sayHi());
 ```javascript
 0;
 new Number(0);
-('');
-(' ');
+("");
+(" ");
 new Boolean(false);
 undefined;
 ```
@@ -1259,7 +1260,7 @@ JavaScript는 원시형과 객체만 가지고 있어요.
 
 ```javascript
 !!null;
-!!'';
+!!"";
 !!1;
 ```
 
@@ -1287,7 +1288,7 @@ JavaScript는 원시형과 객체만 가지고 있어요.
 ###### 42. `setInterval` 메소드는 브라우저에게 무엇을 반환 할까요?
 
 ```javascript
-setInterval(() => console.log('Hi'), 1000);
+setInterval(() => console.log("Hi"), 1000);
 ```
 
 - A: 유니크한 id
@@ -1310,7 +1311,7 @@ setInterval(() => console.log('Hi'), 1000);
 ###### 43. 이것은 무엇을 반환할까요?
 
 ```javascript
-[...'Lydia'];
+[..."Lydia"];
 ```
 
 - A: `["L", "y", "d", "i", "a"]`
@@ -1369,11 +1370,11 @@ console.log(gen.next().value);
 
 ```javascript
 const firstPromise = new Promise((res, rej) => {
-  setTimeout(res, 500, 'one');
+  setTimeout(res, 500, "one");
 });
 
 const secondPromise = new Promise((res, rej) => {
-  setTimeout(res, 100, 'two');
+  setTimeout(res, 100, "two");
 });
 
 Promise.race([firstPromise, secondPromise]).then((res) => console.log(res));
@@ -1399,7 +1400,7 @@ Promise.race([firstPromise, secondPromise]).then((res) => console.log(res));
 ###### 46. 무엇이 출력 될까요?
 
 ```javascript
-let person = { name: 'Lydia' };
+let person = { name: "Lydia" };
 const members = [person];
 person = null;
 
@@ -1420,7 +1421,7 @@ console.log(members);
 
 <img src="https://i.imgur.com/TML1MbS.png" width="200">
 
-그 후, `members`라는 변수를 선언해요. 배열의 첫 번째 요소에 `person` 변수의 값을 대입해요. 서로를 같게 설정하면 _참조_로 상호작용해요. 어떤 변수에서 다른 변수로 참조를 할당하면, 그 참조의 _복사본_ 을 만들어요. (그들은 _같은_ 참조를 가지고 있지 않다는 것을 유의하세요!)
+그 후, `members`라는 변수를 선언해요. 배열의 첫 번째 요소에 `person` 변수의 값을 대입해요. 서로를 같게 설정하면 *참조*로 상호작용해요. 어떤 변수에서 다른 변수로 참조를 할당하면, 그 참조의 _복사본_ 을 만들어요. (그들은 _같은_ 참조를 가지고 있지 않다는 것을 유의하세요!)
 
 <img src="https://i.imgur.com/FSG5K3F.png" width="300">
 
@@ -1439,7 +1440,7 @@ console.log(members);
 
 ```javascript
 const person = {
-  name: 'Lydia',
+  name: "Lydia",
   age: 21,
 };
 
@@ -1468,7 +1469,7 @@ for (const item in person) {
 ###### 48. 무엇이 출력 될까요?
 
 ```javascript
-console.log(3 + 4 + '5');
+console.log(3 + 4 + "5");
 ```
 
 - A: `"345"`
@@ -1495,7 +1496,7 @@ console.log(3 + 4 + '5');
 ###### 49. `num`의 값은 무엇일까요?
 
 ```javascript
-const num = parseInt('7*6', 10);
+const num = parseInt("7*6", 10);
 ```
 
 - A: `42`
@@ -1521,7 +1522,7 @@ const num = parseInt('7*6', 10);
 
 ```javascript
 [1, 2, 3].map((num) => {
-  if (typeof num === 'number') return;
+  if (typeof num === "number") return;
   return num * 2;
 });
 ```
@@ -1549,12 +1550,12 @@ const num = parseInt('7*6', 10);
 
 ```javascript
 function getInfo(member, year) {
-  member.name = 'Lydia';
-  year = '1998';
+  member.name = "Lydia";
+  year = "1998";
 }
 
-const person = { name: 'Sarah' };
-const birthYear = '1997';
+const person = { name: "Sarah" };
+const birthYear = "1997";
 
 getInfo(person, birthYear);
 
@@ -1586,15 +1587,15 @@ console.log(person, birthYear);
 
 ```javascript
 function greeting() {
-  throw 'Hello world!';
+  throw "Hello world!";
 }
 
 function sayHi() {
   try {
     const data = greeting();
-    console.log('It worked!', data);
+    console.log("It worked!", data);
   } catch (e) {
-    console.log('Oh no an error:', e);
+    console.log("Oh no an error:", e);
   }
 }
 
@@ -1624,8 +1625,8 @@ sayHi();
 
 ```javascript
 function Car() {
-  this.make = 'Lamborghini';
-  return { make: 'Maserati' };
+  this.make = "Lamborghini";
+  return { make: "Maserati" };
 }
 
 const myCar = new Car();
@@ -1701,7 +1702,7 @@ Dog.prototype.bark = function () {
   console.log(`Woof I am ${this.name}`);
 };
 
-const pet = new Dog('Mara');
+const pet = new Dog("Mara");
 
 pet.bark();
 
@@ -1766,7 +1767,7 @@ export default counter;
 
 ```javascript
 // index.js
-import myCounter from './counter';
+import myCounter from "./counter";
 
 myCounter += 1;
 
@@ -1866,7 +1867,7 @@ console.log(y);
 ###### 60. 무엇이 출력 될까요?
 
 ```javascript
-const user = { name: 'Lydia', age: 21 };
+const user = { name: "Lydia", age: 21 };
 const admin = { admin: true, ...user };
 
 console.log(admin);
@@ -1892,9 +1893,9 @@ spread 연산자 `...` 를 사용해 객체를 결합할 수 있어요. 이것�
 ###### 61. 무엇이 출력 될까요?
 
 ```javascript
-const person = { name: 'Lydia' };
+const person = { name: "Lydia" };
 
-Object.defineProperty(person, 'age', { value: 21 });
+Object.defineProperty(person, "age", { value: 21 });
 
 console.log(person);
 console.log(Object.keys(person));
@@ -1923,12 +1924,12 @@ console.log(Object.keys(person));
 
 ```javascript
 const settings = {
-  username: 'lydiahallie',
+  username: "lydiahallie",
   level: 19,
   health: 90,
 };
 
-const data = JSON.stringify(settings, ['level', 'health']);
+const data = JSON.stringify(settings, ["level", "health"]);
 console.log(data);
 ```
 
@@ -1959,7 +1960,7 @@ replacer가 _함수_ 라면, 문자열로 변환 할 객체의 모든 속성에 
 let num = 10;
 
 const increaseNumber = () => num++;
-const increasePassedNumber = number => number++;
+const increasePassedNumber = (number) => number++;
 
 const num1 = increaseNumber();
 const num2 = increasePassedNumber(num1);
@@ -2116,12 +2117,12 @@ class Labrador extends Dog {
 
 ```javascript
 // index.js
-console.log('running index.js');
-import { sum } from './sum.js';
+console.log("running index.js");
+import { sum } from "./sum.js";
 console.log(sum(1, 2));
 
 // sum.js
-console.log('running sum.js');
+console.log("running sum.js");
 export const sum = (a, b) => a + b;
 ```
 
@@ -2149,7 +2150,7 @@ export const sum = (a, b) => a + b;
 ```javascript
 console.log(Number(2) === Number(2));
 console.log(Boolean(false) === Boolean(false));
-console.log(Symbol('foo') === Symbol('foo'));
+console.log(Symbol("foo") === Symbol("foo"));
 ```
 
 - A: `true`, `true`, `false`
@@ -2172,7 +2173,7 @@ console.log(Symbol('foo') === Symbol('foo'));
 ###### 69. 무엇이 출력 될까요?
 
 ```javascript
-const name = 'Lydia Hallie';
+const name = "Lydia Hallie";
 console.log(name.padStart(13));
 console.log(name.padStart(2));
 ```
@@ -2199,7 +2200,7 @@ console.log(name.padStart(2));
 ###### 70. 무엇이 출력 될까요?
 
 ```javascript
-console.log('🥑' + '💻');
+console.log("🥑" + "💻");
 ```
 
 - A: `"🥑💻"`
@@ -2223,11 +2224,11 @@ console.log('🥑' + '💻');
 
 ```javascript
 function* startGame() {
-  const answer = yield 'Do you love JavaScript?';
-  if (answer !== 'Yes') {
+  const answer = yield "Do you love JavaScript?";
+  if (answer !== "Yes") {
     return "Oh wow... Guess we're gone here";
   }
-  return 'JavaScript loves you back ❤️';
+  return "JavaScript loves you back ❤️";
 }
 
 const game = startGame();
@@ -2295,7 +2296,7 @@ console.log(String.raw`Hello\nworld`);
 
 ```javascript
 async function getData() {
-  return await Promise.resolve('I made it!');
+  return await Promise.resolve("I made it!");
 }
 
 const data = getData();
@@ -2332,7 +2333,7 @@ function addToList(item, list) {
   return list.push(item);
 }
 
-const result = addToList('apple', ['banana']);
+const result = addToList("apple", ["banana"]);
 console.log(result);
 ```
 
@@ -2392,7 +2393,7 @@ console.log(shape);
 ###### 76. 무엇이 출력 될까요?
 
 ```javascript
-const { name: myName } = { name: 'Lydia' };
+const { name: myName } = { name: "Lydia" };
 
 console.log(name);
 ```
@@ -2493,7 +2494,7 @@ console.log(addFunction(5 * 2));
 ###### 79. 무엇이 출력 될까요?
 
 ```javascript
-const myLifeSummedUp = ['☕', '💻', '🍷', '🍫'];
+const myLifeSummedUp = ["☕", "💻", "🍷", "🍫"];
 
 for (let item in myLifeSummedUp) {
   console.log(item);
@@ -2589,13 +2590,13 @@ ES6에서, 기본값 `undefined` 값을 기본값 매개변수로 덮어쓸 수 
 ###### 82. 무엇이 출력 될까요?
 
 ```javascript
-var status = '😎';
+var status = "😎";
 
 setTimeout(() => {
-  const status = '😍';
+  const status = "😍";
 
   const data = {
-    status: '🥑',
+    status: "🥑",
     getStatus() {
       return this.status;
     },
@@ -2629,12 +2630,12 @@ setTimeout(() => {
 
 ```javascript
 const person = {
-  name: 'Lydia',
+  name: "Lydia",
   age: 21,
 };
 
 let city = person.city;
-city = 'Amsterdam';
+city = "Amsterdam";
 
 console.log(person);
 ```
@@ -2698,7 +2699,7 @@ console.log(checkAge(21));
 ###### 85. 어떤 종류의 정보가 출력될까요?
 
 ```javascript
-fetch('https://www.website.com/api/user/1')
+fetch("https://www.website.com/api/user/1")
   .then((res) => res.json())
   .then((res) => console.log(res));
 ```
@@ -2754,7 +2755,7 @@ function getName(name) {
 ###### 87. 무엇이 출력 될까요?
 
 ```javascript
-console.log('I want pizza'[0]);
+console.log("I want pizza"[0]);
 ```
 
 - A: `"""`
@@ -2809,11 +2810,11 @@ sum(10);
 
 ```javascript
 // module.js
-export default () => 'Hello world';
-export const name = 'Lydia';
+export default () => "Hello world";
+export const name = "Lydia";
 
 // index.js
-import * as data from './module';
+import * as data from "./module";
 
 console.log(data);
 ```
@@ -2846,7 +2847,7 @@ class Person {
   }
 }
 
-const member = new Person('John');
+const member = new Person("John");
 console.log(typeof member);
 ```
 
@@ -2906,7 +2907,7 @@ console.log(newList.push(5));
 
 ```javascript
 function giveLydiaPizza() {
-  return 'Here is pizza!';
+  return "Here is pizza!";
 }
 
 const giveLydiaChocolate = () =>
@@ -2937,7 +2938,7 @@ console.log(giveLydiaChocolate.prototype);
 
 ```javascript
 const person = {
-  name: 'Lydia',
+  name: "Lydia",
   age: 21,
 };
 
@@ -2997,7 +2998,7 @@ function getItems(fruitList, favoriteFruit, ...args) {
   return [...fruitList, ...args, favoriteFruit];
 }
 
-getItems(['banana', 'apple'], 'pear', 'orange');
+getItems(["banana", "apple"], "pear", "orange");
 ```
 
 위의 예시는 동작해요. 배열 `[ 'banana', 'apple', 'orange', 'pear' ]`을 반환해요.
@@ -3011,8 +3012,8 @@ getItems(['banana', 'apple'], 'pear', 'orange');
 
 ```javascript
 function nums(a, b) {
-  if (a > b) console.log('a is bigger');
-  else console.log('b is bigger');
+  if (a > b) console.log("a is bigger");
+  else console.log("b is bigger");
   return;
   a + b;
 }
@@ -3052,13 +3053,13 @@ a + b;
 ```javascript
 class Person {
   constructor() {
-    this.name = 'Lydia';
+    this.name = "Lydia";
   }
 }
 
 Person = class AnotherPerson {
   constructor() {
-    this.name = 'Sarah';
+    this.name = "Sarah";
   }
 };
 
@@ -3087,7 +3088,7 @@ console.log(member.name);
 
 ```javascript
 const info = {
-  [Symbol('a')]: 'b',
+  [Symbol("a")]: "b",
 };
 
 console.log(info);
@@ -3156,7 +3157,7 @@ rest 파라미터를 사용해 `...y`에 모든 "남은" 인수을 배열에 넣
 ###### 99. 무엇이 출력 될까요?
 
 ```javascript
-const name = 'Lydia';
+const name = "Lydia";
 
 console.log(name());
 ```
@@ -3188,8 +3189,8 @@ ReferenceErrors는 JavaScript가 접근하려고 하는 값의 참조를 찾을 
 ```javascript
 // 🎉✨ 이번이 내 100번째 질문이에요! ✨🎉
 
-const output = `${[] && 'Im'}possible!
-You should${'' && `n't`} see a therapist after so much JavaScript lol`;
+const output = `${[] && "Im"}possible!
+You should${"" && `n't`} see a therapist after so much JavaScript lol`;
 ```
 
 - A: `possible! You should see a therapist after so much JavaScript lol`
@@ -3215,7 +3216,7 @@ You should${'' && `n't`} see a therapist after so much JavaScript lol`;
 
 ```javascript
 const one = false || {} || null;
-const two = null || false || '';
+const two = null || false || "";
 const three = [] || 0 || true;
 
 console.log(one, two, three);
@@ -3247,16 +3248,16 @@ console.log(one, two, three);
 ###### 102. 무엇이 출력 될까요?
 
 ```javascript
-const myPromise = () => Promise.resolve('I have resolved!');
+const myPromise = () => Promise.resolve("I have resolved!");
 
 function firstFunction() {
   myPromise().then((res) => console.log(res));
-  console.log('second');
+  console.log("second");
 }
 
 async function secondFunction() {
   console.log(await myPromise());
-  console.log('second');
+  console.log("second");
 }
 
 firstFunction();
@@ -3294,8 +3295,8 @@ promise를 사용하면, 기본적으로 _이 함수를 실행하고 싶지만, 
 const set = new Set();
 
 set.add(1);
-set.add('Lydia');
-set.add({ name: 'Lydia' });
+set.add("Lydia");
+set.add({ name: "Lydia" });
 
 for (let item of set) {
   console.log(item + 2);
@@ -3355,13 +3356,13 @@ promise 또는 non-promise가 아니더라도, 어떤 유형의 값이라도 `Pr
 ```javascript
 function compareMembers(person1, person2 = person) {
   if (person1 !== person2) {
-    console.log('Not the same!');
+    console.log("Not the same!");
   } else {
-    console.log('They are the same!');
+    console.log("They are the same!");
   }
 }
 
-const person = { name: 'Lydia' };
+const person = { name: "Lydia" };
 
 compareMembers(person);
 ```
@@ -3400,7 +3401,7 @@ const colorConfig = {
   yellow: false,
 };
 
-const colors = ['pink', 'red', 'blue'];
+const colors = ["pink", "red", "blue"];
 
 console.log(colorConfig.colors[1]);
 ```
@@ -3429,7 +3430,7 @@ JavaScript 문장을 해석(또는 참조형 변수를 원시 데이터 타입�
 ###### 107. 값은 무엇일까요?
 
 ```javascript
-console.log('❤️' === '❤️');
+console.log("❤️" === "❤️");
 ```
 
 - A: `true`
@@ -3450,14 +3451,14 @@ console.log('❤️' === '❤️');
 ###### 108. 다음 중 원본 배열을 수정하는 method는 무엇일까요?
 
 ```javascript
-const emojis = ['✨', '🥑', '😍'];
+const emojis = ["✨", "🥑", "😍"];
 
-emojis.map((x) => x + '✨');
-emojis.filter((x) => x !== '🥑');
-emojis.find((x) => x !== '🥑');
-emojis.reduce((acc, cur) => acc + '✨');
-emojis.slice(1, 2, '✨');
-emojis.splice(1, 2, '✨');
+emojis.map((x) => x + "✨");
+emojis.filter((x) => x !== "🥑");
+emojis.find((x) => x !== "🥑");
+emojis.reduce((acc, cur) => acc + "✨");
+emojis.slice(1, 2, "✨");
+emojis.splice(1, 2, "✨");
 ```
 
 - A: `All of them`
@@ -3482,10 +3483,10 @@ emojis.splice(1, 2, '✨');
 ###### 109. 무엇이 출력 될까요?
 
 ```javascript
-const food = ['🍕', '🍫', '🥑', '🍔'];
+const food = ["🍕", "🍫", "🥑", "🍔"];
 const info = { favoriteFood: food[0] };
 
-info.favoriteFood = '🍝';
+info.favoriteFood = "🍝";
 
 console.log(food);
 ```
@@ -3539,7 +3540,7 @@ const jsonArray = JSON.stringify([1, 2, 3]); // '[1, 2, 3]'
 JSON.parse(jsonArray); // [1, 2, 3]
 
 // 객체를 유효한 JSON 문자열로 변환해요, 그리고 나서 JSON 문자열의 구문을 분석해 JavaScript 값으로 생성해요.
-const jsonArray = JSON.stringify({ name: 'Lydia' }); // '{"name":"Lydia"}'
+const jsonArray = JSON.stringify({ name: "Lydia" }); // '{"name":"Lydia"}'
 JSON.parse(jsonArray); // { name: 'Lydia' }
 ```
 
@@ -3551,11 +3552,11 @@ JSON.parse(jsonArray); // { name: 'Lydia' }
 ###### 111. 무엇이 출력 될까요?
 
 ```javascript
-let name = 'Lydia';
+let name = "Lydia";
 
 function getName() {
   console.log(name);
-  let name = 'Sarah';
+  let name = "Sarah";
 }
 
 getName();
@@ -3578,7 +3579,7 @@ getName();
 `getName` 함수 안에 `name` 변수를 선언하지 않았다면, javaScript 엔진은 _스코프 체인_ 을 살펴봤을 거예요. 외부 범위에는 값이 `Lydia`인 `name`이라는 변수가 있어요. 이 경우 `Lydia`를 출력할 거예요.
 
 ```javascript
-let name = 'Lydia';
+let name = "Lydia";
 
 function getName() {
   console.log(name);
@@ -3596,11 +3597,11 @@ getName(); // Lydia
 
 ```javascript
 function* generatorOne() {
-  yield ['a', 'b', 'c'];
+  yield ["a", "b", "c"];
 }
 
 function* generatorTwo() {
-  yield* ['a', 'b', 'c'];
+  yield* ["a", "b", "c"];
 }
 
 const one = generatorOne();
@@ -3646,7 +3647,7 @@ console.log(two.next().value); // undefined
 ###### 113. 무엇이 출력 될까요?
 
 ```javascript
-console.log(`${((x) => x)('I love')} to program`);
+console.log(`${((x) => x)("I love")} to program`);
 ```
 
 - A: `I love to program`
@@ -3671,7 +3672,7 @@ console.log(`${((x) => x)('I love')} to program`);
 ```javascript
 let config = {
   alert: setInterval(() => {
-    console.log('Alert!');
+    console.log("Alert!");
   }, 1000),
 };
 
@@ -3703,16 +3704,16 @@ config = null;
 
 ```javascript
 const myMap = new Map();
-const myFunc = () => 'greeting';
+const myFunc = () => "greeting";
 
-myMap.set(myFunc, 'Hello world!');
+myMap.set(myFunc, "Hello world!");
 
 //1
-myMap.get('greeting');
+myMap.get("greeting");
 //2
 myMap.get(myFunc);
 //3
-myMap.get(() => 'greeting');
+myMap.get(() => "greeting");
 ```
 
 - A: 1
@@ -3739,14 +3740,14 @@ myMap.get(() => 'greeting');
 
 ```javascript
 const person = {
-  name: 'Lydia',
+  name: "Lydia",
   age: 21,
 };
 
 const changeAge = (x = { ...person }) => (x.age += 1);
 const changeAgeAndName = (x = { ...person }) => {
   x.age += 1;
-  x.name = 'Sarah';
+  x.name = "Sarah";
 };
 
 changeAge(person);
@@ -3805,7 +3806,7 @@ function sumValues(x, y, z) {
 
 ```javascript
 let num = 1;
-const list = ['🥳', '🤠', '🥰', '🤪'];
+const list = ["🥳", "🤠", "🥰", "🤪"];
 
 console.log(list[(num += 1)]);
 ```
@@ -3831,11 +3832,11 @@ console.log(list[(num += 1)]);
 
 ```javascript
 const person = {
-  firstName: 'Lydia',
-  lastName: 'Hallie',
+  firstName: "Lydia",
+  lastName: "Hallie",
   pet: {
-    name: 'Mara',
-    breed: 'Dutch Tulip Hound',
+    name: "Mara",
+    breed: "Dutch Tulip Hound",
   },
   getFullName() {
     return `${this.firstName} ${this.lastName}`;
@@ -3873,10 +3874,10 @@ optional chaining 연산자 `?.`를 사용하면, 더 깊이 중첩된 값이 �
 ###### 120. 무엇이 출력 될까요?
 
 ```javascript
-const groceries = ['banana', 'apple', 'peanuts'];
+const groceries = ["banana", "apple", "peanuts"];
 
-if (groceries.indexOf('banana')) {
-  console.log('We have to buy bananas!');
+if (groceries.indexOf("banana")) {
+  console.log("We have to buy bananas!");
 } else {
   console.log(`We don't have to buy bananas!`);
 }
@@ -3932,10 +3933,10 @@ console.log(config.language);
 ###### 122. 무엇이 출력 될까요?
 
 ```javascript
-const name = 'Lydia Hallie';
+const name = "Lydia Hallie";
 
-console.log(!typeof name === 'object');
-console.log(!typeof name === 'string');
+console.log(!typeof name === "object");
+console.log(!typeof name === "string");
 ```
 
 - A: `false` `true`
@@ -4050,14 +4051,14 @@ myFunc(1, 2, 3);
 
 ```javascript
 function getFine(speed, amount) {
-  const formattedSpeed = new Intl.NumberFormat('en-US', {
-    style: 'unit',
-    unit: 'mile-per-hour',
+  const formattedSpeed = new Intl.NumberFormat("en-US", {
+    style: "unit",
+    unit: "mile-per-hour",
   }).format(speed);
 
-  const formattedAmount = new Intl.NumberFormat('en-US', {
-    style: 'currency',
-    currency: 'USD',
+  const formattedAmount = new Intl.NumberFormat("en-US", {
+    style: "currency",
+    currency: "USD",
   }).format(amount);
 
   return `The driver drove ${formattedSpeed} and has to pay ${formattedAmount}`;
@@ -4086,8 +4087,8 @@ console.log(getFine(130, 300));
 ###### 127. 무엇이 출력 될까요?
 
 ```javascript
-const spookyItems = ['👻', '🎃', '🕸'];
-({ item: spookyItems[3] } = { item: '💀' });
+const spookyItems = ["👻", "🎃", "🕸"];
+({ item: spookyItems[3] } = { item: "💀" });
 
 console.log(spookyItems);
 ```
@@ -4112,7 +4113,7 @@ console.log(spookyItems);
 ###### 128. 무엇이 출력 될까요?
 
 ```javascript
-const name = 'Lydia Hallie';
+const name = "Lydia Hallie";
 const age = 21;
 
 console.log(Number.isNaN(name));
@@ -4148,7 +4149,7 @@ const randomValue = 21;
 
 function getInfo() {
   console.log(typeof randomValue);
-  const randomValue = 'Lydia Hallie';
+  const randomValue = "Lydia Hallie";
 }
 
 getInfo();
@@ -4174,7 +4175,7 @@ getInfo();
 ###### 130. 무엇이 출력 될까요?
 
 ```javascript
-const myPromise = Promise.resolve('Woah some cool data');
+const myPromise = Promise.resolve("Woah some cool data");
 
 (async () => {
   try {
@@ -4182,7 +4183,7 @@ const myPromise = Promise.resolve('Woah some cool data');
   } catch {
     throw new Error(`Oops didn't work`);
   } finally {
-    console.log('Oh finally!');
+    console.log("Oh finally!");
   }
 })();
 ```
@@ -4207,7 +4208,7 @@ const myPromise = Promise.resolve('Woah some cool data');
 ###### 131. 무엇이 출력 될까요?
 
 ```javascript
-const emojis = ['🥑', ['✨', '✨', ['🍕', '🍕']]];
+const emojis = ["🥑", ["✨", "✨", ["🍕", "🍕"]]];
 
 console.log(emojis.flat(1));
 ```
@@ -4280,19 +4281,19 @@ console.log(counterOne.count);
 ###### 133. 무엇이 출력 될까요?
 
 ```javascript
-const myPromise = Promise.resolve(Promise.resolve('Promise!'));
+const myPromise = Promise.resolve(Promise.resolve("Promise!"));
 
 function funcOne() {
   myPromise.then((res) => res).then((res) => console.log(res));
-  setTimeout(() => console.log('Timeout!'), 0);
-  console.log('Last line!');
+  setTimeout(() => console.log("Timeout!"), 0);
+  console.log("Last line!");
 }
 
 async function funcTwo() {
   const res = await myPromise;
   console.log(await res);
-  setTimeout(() => console.log('Timeout!'), 0);
-  console.log('Last line!');
+  setTimeout(() => console.log("Timeout!"), 0);
+  console.log("Last line!");
 }
 
 funcOne();
@@ -4333,7 +4334,7 @@ export default function sum(x) {
 }
 
 // index.js
-import * as sum from './sum';
+import * as sum from "./sum";
 ```
 
 - A: `sum(4)`
@@ -4350,12 +4351,12 @@ import * as sum from './sum';
 
 ```javascript
 // info.js
-export const name = 'Lydia';
+export const name = "Lydia";
 export const age = 21;
-export default 'I love JavaScript';
+export default "I love JavaScript";
 
 // index.js
-import * as info from './info';
+import * as info from "./info";
 console.log(info);
 ```
 
@@ -4386,13 +4387,13 @@ console.log(info);
 
 ```javascript
 const handler = {
-  set: () => console.log('Added a new property!'),
-  get: () => console.log('Accessed a property!'),
+  set: () => console.log("Added a new property!"),
+  get: () => console.log("Accessed a property!"),
 };
 
 const person = new Proxy({}, handler);
 
-person.name = 'Lydia';
+person.name = "Lydia";
 person.name;
 ```
 
@@ -4422,7 +4423,7 @@ Proxy 객체를 사용하면, 두번째 인수로 전달 한 객체에 사용자
 ###### 136. 다음 중 어느 것이 `person` 객체를 수정 할 수 있을까요?
 
 ```javascript
-const person = { name: 'Lydia Hallie' };
+const person = { name: "Lydia Hallie" };
 
 Object.seal(person);
 ```
@@ -4450,9 +4451,9 @@ Object.seal(person);
 
 ```javascript
 const person = {
-  name: 'Lydia Hallie',
+  name: "Lydia Hallie",
   address: {
-    street: '100 Main St',
+    street: "100 Main St",
   },
 };
 
@@ -4552,8 +4553,8 @@ ES2020에서, `#`을 사용한 private 변수를 추가 할 수 있어요. 클�
 
 ```javascript
 const teams = [
-  { name: 'Team 1', members: ['Paul', 'Lisa'] },
-  { name: 'Team 2', members: ['Laura', 'Tim'] },
+  { name: "Team 1", members: ["Paul", "Lisa"] },
+  { name: "Team 2", members: ["Laura", "Tim"] },
 ];
 
 function* getMembers(members) {
@@ -4596,8 +4597,8 @@ obj.next(); // { value: "Lisa", done: false }
 
 ```javascript
 const person = {
-  name: 'Lydia Hallie',
-  hobbies: ['coding'],
+  name: "Lydia Hallie",
+  hobbies: ["coding"],
 };
 
 function addHobby(hobby, hobbies = person.hobbies) {
@@ -4605,9 +4606,9 @@ function addHobby(hobby, hobbies = person.hobbies) {
   return hobbies;
 }
 
-addHobby('running', []);
-addHobby('dancing');
-addHobby('baking', person.hobbies);
+addHobby("running", []);
+addHobby("dancing");
+addHobby("baking", person.hobbies);
 
 console.log(person.hobbies);
 ```
@@ -4676,11 +4677,11 @@ const pet = new Flamingo();
 ###### 143. 다음 중 어느 것의 결과가 오류일까요?
 
 ```javascript
-const emojis = ['🎄', '🎅🏼', '🎁', '⭐'];
+const emojis = ["🎄", "🎅🏼", "🎁", "⭐"];
 
-/* 1 */ emojis.push('🦌');
+/* 1 */ emojis.push("🦌");
 /* 2 */ emojis.splice(0, 2);
-/* 3 */ emojis = [...emojis, '🥂'];
+/* 3 */ emojis = [...emojis, "🥂"];
 /* 4 */ emojis.length = 0;
 ```
 
@@ -4766,9 +4767,9 @@ function getFruit(fruits) {
   console.log(fruits?.[1]?.[1]);
 }
 
-getFruit([['🍊', '🍌'], ['🍍']]);
+getFruit([["🍊", "🍌"], ["🍍"]]);
 getFruit();
-getFruit([['🍍'], ['🍊', '🍌']]);
+getFruit([["🍍"], ["🍊", "🍌"]]);
 ```
 
 - A: `null`, `undefined`, 🍌
@@ -4798,19 +4799,19 @@ getFruit([['🍍'], ['🍊', '🍌']]);
 
 ```javascript
 class Calc {
-	constructor() {
-		this.count = 0 
-	}
+  constructor() {
+    this.count = 0;
+  }
 
-	increase() {
-		this.count ++
-	}
+  increase() {
+    this.count++;
+  }
 }
 
-const calc = new Calc()
-new Calc().increase()
+const calc = new Calc();
+new Calc().increase();
 
-console.log(calc.count)
+console.log(calc.count);
 ```
 
 - A: `0`
@@ -4834,25 +4835,25 @@ console.log(calc.count)
 
 ```javascript
 const user = {
-	email: "e@mail.com",
-	password: "12345"
-}
+  email: "e@mail.com",
+  password: "12345",
+};
 
 const updateUser = ({ email, password }) => {
-	if (email) {
-		Object.assign(user, { email })
-	}
+  if (email) {
+    Object.assign(user, { email });
+  }
 
-	if (password) {
-		user.password = password
-	}
+  if (password) {
+    user.password = password;
+  }
 
-	return user
-}
+  return user;
+};
 
-const updatedUser = updateUser({ email: "new@email.com" })
+const updatedUser = updateUser({ email: "new@email.com" });
 
-console.log(updatedUser === user)
+console.log(updatedUser === user);
 ```
 
 - A: `false`
@@ -4875,13 +4876,13 @@ console.log(updatedUser === user)
 ###### 149. 무엇이 출력 될까요?
 
 ```javascript
-const fruit = ['🍌', '🍊', '🍎']
+const fruit = ["🍌", "🍊", "🍎"];
 
-fruit.slice(0, 1)
-fruit.splice(0, 1)
-fruit.unshift('🍇')
+fruit.slice(0, 1);
+fruit.splice(0, 1);
+fruit.unshift("🍇");
 
-console.log(fruit)
+console.log(fruit);
 ```
 
 - A: `['🍌', '🍊', '🍎']`
@@ -4907,13 +4908,13 @@ console.log(fruit)
 
 ```javascript
 const animals = {};
-let dog = { emoji: '🐶' }
-let cat = { emoji: '🐈' }
+let dog = { emoji: "🐶" };
+let cat = { emoji: "🐈" };
 
-animals[dog] = { ...dog, name: "Mara" }
-animals[cat] = { ...cat, name: "Sara" }
+animals[dog] = { ...dog, name: "Mara" };
+animals[cat] = { ...cat, name: "Sara" };
 
-console.log(animals[dog])
+console.log(animals[dog]);
 ```
 
 - A: `{ emoji: "🐶", name: "Mara" }`
@@ -4930,7 +4931,7 @@ console.log(animals[dog])
 
 `dog`의 값은 객체 이므로, 사실 `animals[dog]`는 새로운 객체에 `"object Object"`라고 불리는 새로운 속성을 만든 걸 의미해요. 이제 `animals["object Object"]`는 `{ emoji: "🐶", name: "Mara"}`예요.
 
-`cat`도 물론 객체고, 사실 `animals[cat]`은 `animals[``"``object Object``"``]`을 새로운 속성 cat으로 덮어쓰고 있다는 것을 의미해요.
+`cat`도 물론 객체고, 사실 `animals[cat]`은 ` animals[``"``object Object``"``] `을 새로운 속성 cat으로 덮어쓰고 있다는 것을 의미해요.
 
 `animals[dog]` 또는 `animals["object Object"]`(`dog` 객체를 문자열로 변환한 결과는 `"object Object"`)를 출력하면, `{ emoji: "🐈", name: "Sara" }`를 반환해요.
 
@@ -4943,14 +4944,14 @@ console.log(animals[dog])
 
 ```javascript
 const user = {
-	email: "my@email.com",
-	updateEmail: email => {
-		this.email = email
-	}
-}
+  email: "my@email.com",
+  updateEmail: (email) => {
+    this.email = email;
+  },
+};
 
-user.updateEmail("new@email.com")
-console.log(user.email)
+user.updateEmail("new@email.com");
+console.log(user.email);
 ```
 
 - A: `my@email.com`
@@ -4973,20 +4974,20 @@ console.log(user.email)
 ###### 152. 무엇이 출력 될까요?
 
 ```javascript
-const promise1 = Promise.resolve('First')
-const promise2 = Promise.resolve('Second')
-const promise3 = Promise.reject('Third')
-const promise4 = Promise.resolve('Fourth')
+const promise1 = Promise.resolve("First");
+const promise2 = Promise.resolve("Second");
+const promise3 = Promise.reject("Third");
+const promise4 = Promise.resolve("Fourth");
 
 const runPromises = async () => {
-	const res1 = await Promise.all([promise1, promise2])
-	const res2  = await Promise.all([promise3, promise4])
-	return [res1, res2]
-}
+  const res1 = await Promise.all([promise1, promise2]);
+  const res2 = await Promise.all([promise3, promise4]);
+  return [res1, res2];
+};
 
 runPromises()
-	.then(res => console.log(res))
-	.catch(err => console.log(err))
+  .then((res) => console.log(res))
+  .catch((err) => console.log(err));
 ```
 
 - A: `[['First', 'Second'], ['Fourth']]`
@@ -5009,13 +5010,16 @@ runPromises()
 ###### 153. 무엇이 `method`의 값이어야 `{ name: "Lydia", age: 22 }`를 출력할까요?
 
 ```javascript
-const keys = ["name", "age"]
-const values = ["Lydia", 22]
+const keys = ["name", "age"];
+const values = ["Lydia", 22];
 
-const method = /* ?? */
-Object[method](keys.map((_, i) => {
-	return [keys[i], values[i]]
-})) // { name: "Lydia", age: 22 }
+const method =
+  /* ?? */
+  Object[method](
+    keys.map((_, i) => {
+      return [keys[i], values[i]];
+    })
+  ); // { name: "Lydia", age: 22 }
 ```
 
 - A: `entries`
@@ -5040,18 +5044,18 @@ Object[method](keys.map((_, i) => {
 ###### 154. 무엇이 출력 될까요?
 
 ```javascript
-const createMember = ({ email, address = {}}) => {
-	const validEmail = /.+\@.+\..+/.test(email)
-	if (!validEmail) throw new Error("Valid email pls")
+const createMember = ({ email, address = {} }) => {
+  const validEmail = /.+\@.+\..+/.test(email);
+  if (!validEmail) throw new Error("Valid email pls");
 
-	return {
-		email,
-		address: address ? address : null
-	}
-}
+  return {
+    email,
+    address: address ? address : null,
+  };
+};
 
-const member = createMember({ email: "my@email.com" })
-console.log(member)
+const member = createMember({ email: "my@email.com" });
+console.log(member);
 ```
 
 - A: `{ email: "my@email.com", address: null }`
@@ -5074,13 +5078,13 @@ console.log(member)
 ###### 155. 무엇이 출력 될까요?
 
 ```javascript
-let randomValue = { name: "Lydia" }
-randomValue = 23
+let randomValue = { name: "Lydia" };
+randomValue = 23;
 
 if (!typeof randomValue === "string") {
-	console.log("It's not a string!")
+  console.log("It's not a string!");
 } else {
-	console.log("Yay it's a string!")
+  console.log("Yay it's a string!");
 }
 ```
 

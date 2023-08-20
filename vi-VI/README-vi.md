@@ -7,6 +7,7 @@ Các câu hỏi sẽ từ cơ bản đến nâng cao: kiểm tra trình độ Ja
 Các đáp án được đặt dưới mỗi câu hỏi, hãy click để tham khảo chúng. Chúc may mắn :heart:
 
 Danh sách các ngôn ngữ khác:
+
 - [🇸🇦 العربية](../ar-AR/README_AR.md)
 - [🇪🇬 اللغة العامية](../ar-EG/README_ar-EG.md)
 - [🇧🇦 Bosanski](../bs-BS/README-bs_BS.md)
@@ -21,6 +22,7 @@ Danh sách các ngôn ngữ khác:
 - [🇳🇱 Nederlands](../nl-NL/README.md)
 - [🇵🇱 Polski](../pl-PL/README.md)
 - [🇧🇷 Português Brasil](../pt-BR/README_pt_BR.md)
+- [🇷o Română](../ro-RO/README.ro.md)
 - [🇷🇺 Русский](../ru-RU/README.md)
 - [🇽🇰 Shqip](../sq-KS/README_sq_KS.md)
 - [🇹🇭 ไทย](../th-TH/README-th_TH.md)
@@ -101,7 +103,7 @@ const shape = {
   diameter() {
     return this.radius * 2;
   },
-  perimeter: () => 2 * Math.PI * this.radius
+  perimeter: () => 2 * Math.PI * this.radius,
 };
 
 shape.diameter();
@@ -147,7 +149,7 @@ Khi không có giá trị `radius` tại object đó, nó sẽ trả về `undef
 
 Phép toán cộng `+` sẽ convert một toán hạng sang dạng number. `true` là `1`, và `false` is `0`.
 
-Chuỗi `'Lydia'` là một _truthy value_. Điều chúng ta thật sự đang hỏi chính là  "có phải một giá trị truthy là falsy?". Rõ ràng câu trả lời là `false` rồi.
+Chuỗi `'Lydia'` là một _truthy value_. Điều chúng ta thật sự đang hỏi chính là "có phải một giá trị truthy là falsy?". Rõ ràng câu trả lời là `false` rồi.
 
 </p>
 </details>
@@ -158,12 +160,12 @@ Chuỗi `'Lydia'` là một _truthy value_. Điều chúng ta thật sự đang 
 
 ```javascript
 const bird = {
-  size: "small"
+  size: "small",
 };
 
 const mouse = {
   name: "Mickey",
-  small: true
+  small: true,
 };
 ```
 
@@ -183,13 +185,12 @@ JavaScript thông dịch (hay unboxes) từng câu lệnh. Khi chúng ta sử d�
 
 `mouse[bird.size]`: Giá trị đầu tiên `bird.size` là `"small"`. `mouse["small"]` sẽ trả về `true`
 
-Tuy nhiên, khi chúng ta sử dụng dấu chấm `.`, điều trên không còn đúng nữa. `mouse` không hề có key nào tên là `bird`, có nghĩa `mouse.bird` sẽ là `undefined`. Sau đó chúng ta gọi `size` sử dụng chấm `.`: `mouse.bird.size`. Vì  `mouse.bird` là `undefined`, lời gọi sẽ trở thành `undefined.size`. Đây là một lời gọi không hợp lệ, nó sẽ throw ra một lỗi kiểu như `Cannot read property "size" of undefined`.
+Tuy nhiên, khi chúng ta sử dụng dấu chấm `.`, điều trên không còn đúng nữa. `mouse` không hề có key nào tên là `bird`, có nghĩa `mouse.bird` sẽ là `undefined`. Sau đó chúng ta gọi `size` sử dụng chấm `.`: `mouse.bird.size`. Vì `mouse.bird` là `undefined`, lời gọi sẽ trở thành `undefined.size`. Đây là một lời gọi không hợp lệ, nó sẽ throw ra một lỗi kiểu như `Cannot read property "size" of undefined`.
 
 </p>
 </details>
 
 ---
-
 
 ###### 6. Output là gì?
 
@@ -213,7 +214,7 @@ console.log(d.greeting);
 
 #### Đáp án: A
 
-Trong JavaScript, tất cả các object sẽ được _tham chiếu_ khi chúng được gán _bằng_wwwww  một giá trị khác.
+Trong JavaScript, tất cả các object sẽ được _tham chiếu_ khi chúng được gán \_bằng_wwwww một giá trị khác.
 
 Đầu tiên, giá trị `c` có giá trị là một object. Sau đó, chúng ta gán `d` tham chiếu tới object mà `c` trỏ tới.
 
@@ -358,7 +359,7 @@ function Person(firstName, lastName) {
 }
 
 const member = new Person("Lydia", "Hallie");
-Person.getFullName = function() {
+Person.getFullName = function () {
   return `${this.firstName} ${this.lastName}`;
 };
 
@@ -378,7 +379,7 @@ console.log(member.getFullName());
 Chúng ta không thể add thêm một thuộc tính cho một constructor giống như một object thông thường. Nếu bạn muốn add thêm thuộc tính nào đó cho tất cả các object một lần, bạn phải dùng `prototype`. Trong trường hợp này cũng vậy.
 
 ```js
-Person.prototype.getFullName = function() {
+Person.prototype.getFullName = function () {
   return `${this.firstName} ${this.lastName}`;
 };
 ```
@@ -835,7 +836,7 @@ String.prototype.giveLydiaPizza = () => {
 
 const name = "Lydia";
 
-console.log(name.giveLydiaPizza())
+console.log(name.giveLydiaPizza());
 ```
 
 - A: `"Just give Lydia pizza already!"`
@@ -947,9 +948,7 @@ WebAPI không thể thêm thứ gì đó vào stack cho tới khi nó được s
 ```html
 <div onclick="console.log('first div')">
   <div onclick="console.log('second div')">
-    <button onclick="console.log('button')">
-      Click!
-    </button>
+    <button onclick="console.log('button')">Click!</button>
   </div>
 </div>
 ```
@@ -975,9 +974,7 @@ Phần tử sâu nhất trong các phần tử lồng nhau sẽ là target của
 
 ```html
 <div onclick="console.log('div')">
-  <p onclick="console.log('p')">
-    Click here!
-  </p>
+  <p onclick="console.log('p')">Click here!</p>
 </div>
 ```
 
@@ -1212,7 +1209,10 @@ Primitive types là `boolean`, `null`, `undefined`, `bigint`, `number`, `string`
 ###### 40. Output là gì?
 
 ```javascript
-[[0, 1], [2, 3]].reduce(
+[
+  [0, 1],
+  [2, 3],
+].reduce(
   (acc, cur) => {
     return acc.concat(cur);
   },
@@ -1360,7 +1360,7 @@ const secondPromise = new Promise((res, rej) => {
   setTimeout(res, 100, "two");
 });
 
-Promise.race([firstPromise, secondPromise]).then(res => console.log(res));
+Promise.race([firstPromise, secondPromise]).then((res) => console.log(res));
 ```
 
 - A: `"one"`
@@ -1424,7 +1424,7 @@ Chúng ta chỉ đơn thuần là thay đổi giá trị của biến `person` m
 ```javascript
 const person = {
   name: "Lydia",
-  age: 21
+  age: 21,
 };
 
 for (const item in person) {
@@ -1504,7 +1504,7 @@ Chỉ có số đầu tiên trong chuỗi kí tự được trả về. Hệ cơ
 ###### 50. Output là gì?
 
 ```javascript
-[1, 2, 3].map(num => {
+[1, 2, 3].map((num) => {
   if (typeof num === "number") return;
   return num * 2;
 });
@@ -1681,7 +1681,7 @@ class Dog {
   }
 }
 
-Dog.prototype.bark = function() {
+Dog.prototype.bark = function () {
   console.log(`Woof I am ${this.name}`);
 };
 
@@ -1767,7 +1767,7 @@ console.log(myCounter);
 
 #### Đáp án: C
 
-Một module khi được import sẽ là __read-only__: chúng ta sẽ không thể chỉnh sửa module đó, chỉ có bản thân module đó có thể chỉnh sửa giá trị của nó mà thôi.
+Một module khi được import sẽ là **read-only**: chúng ta sẽ không thể chỉnh sửa module đó, chỉ có bản thân module đó có thể chỉnh sửa giá trị của nó mà thôi.
 
 Khi ta thay đổi giá trị cuả `myCounter`, nó sẽ throw ra một lỗi: `myCounter` là _read-only_ và không thể thay đổi.
 
@@ -1909,7 +1909,7 @@ Thêm nữa, các thuộc tính được thêm bởi `defineProperty` là mặc 
 const settings = {
   username: "lydiahallie",
   level: 19,
-  health: 90
+  health: 90,
 };
 
 const data = JSON.stringify(settings, ["level", "health"]);
@@ -1943,7 +1943,7 @@ Nếu replacer là _function_, hàm này sẽ được gọi trên từng thuộ
 let num = 10;
 
 const increaseNumber = () => num++;
-const increasePassedNumber = number => number++;
+const increasePassedNumber = (number) => number++;
 
 const num1 = increaseNumber();
 const num2 = increasePassedNumber(num1);
@@ -2000,9 +2000,9 @@ Trong ES6 thì chúng ta có thể khởi tạo tham số với giá trị mặc
 
 Chú ý một điều là đối số sẽ được xét giá trị tại _call time_! Có nghĩa là mỗi khi chúng ta gọi hàm, một _object mới_ sẽ được tạo ra. Chúng ta gọi hàm `multiply` hai lần mà không truyền vào đối số nào cả: `x` sẽ nhận giá trị mặc định `{ number: 10 }`. Sau đó chúng ta sẽ ghi ra giá trị là `20`.
 
-Lần gọi thứ ba chúng ta truyền vào một đối số: chính là `value`. Toán tử `*=` chính là cách viết gọn của `x.number = x.number * 2`: chúng ta thay đổi giá trị của `x.number`, và ghi ra giá trị `20`. 
+Lần gọi thứ ba chúng ta truyền vào một đối số: chính là `value`. Toán tử `*=` chính là cách viết gọn của `x.number = x.number * 2`: chúng ta thay đổi giá trị của `x.number`, và ghi ra giá trị `20`.
 
-Tại lần gọi thứ tư, chúng ta truyền vào `value` một lần nữa. `x.number` trước đó đã bị thay đổi thành `20`, nên `x.number *= 2` sẽ ghi ra `40`. 
+Tại lần gọi thứ tư, chúng ta truyền vào `value` một lần nữa. `x.number` trước đó đã bị thay đổi thành `20`, nên `x.number *= 2` sẽ ghi ra `40`.
 
 </p>
 </details>
@@ -2025,17 +2025,18 @@ Tại lần gọi thứ tư, chúng ta truyền vào `value` một lần nữa. 
 
 #### Đáp án: D
 
-Đối số đầu tiên của hàm `reduce` chính là _accumulator_ (tổng tích lũy), trong trường hợp này là `x`. Đối số thứ 2 chính là _giá trị hiện tại_, tức `y`. Với hàm reduce, ta sẽ gọi callback trên mỗi phần tử của mảng, cứ vậy cho tới khi ra đến một giá trị cuối cùng. 
+Đối số đầu tiên của hàm `reduce` chính là _accumulator_ (tổng tích lũy), trong trường hợp này là `x`. Đối số thứ 2 chính là _giá trị hiện tại_, tức `y`. Với hàm reduce, ta sẽ gọi callback trên mỗi phần tử của mảng, cứ vậy cho tới khi ra đến một giá trị cuối cùng.
 
 Trong trường hợp này, chúng ta không trả về bất cứ giá trị nào cả, mà đơn thuần chỉ là ghi ra giá trị của _tổng tích lũy_ và _giá trị hiện tại_ mà thôi.
 
 Giá trị của tổng tích lũy chính là giá trị được hàm callback trả về tại vòng lặp trước đó. Nếu ta không đặt giá trị khởi tạo cho đối số trong hàm `reduce`, thì tổng tích lũy sẽ chính bằng giá trị đầu tiên tại lời gọi đầu tiên.
 
-Trong lời gọi đầu tiên, tổng tích lũy (`x`) là `1`, và giá trị hiện tại (`y`) là `2`. Chúng ta không trả về giá trị cho hàm callback, mà đơn thuần chỉ ghi chúng ta, vậy nên `1` và `2` được ghi ra.  
+Trong lời gọi đầu tiên, tổng tích lũy (`x`) là `1`, và giá trị hiện tại (`y`) là `2`. Chúng ta không trả về giá trị cho hàm callback, mà đơn thuần chỉ ghi chúng ta, vậy nên `1` và `2` được ghi ra.
 
-Nếu ta không trả về giá trị trong một function, thì nó sẽ mặc định trả về là `undefined`. Do đó trong lời gọi tiếp theo tổng tích lũy sẽ là `undefined`, và giá trị hiện tại là `3`. `undefined` và `3` sẽ được ghi ra. 
+Nếu ta không trả về giá trị trong một function, thì nó sẽ mặc định trả về là `undefined`. Do đó trong lời gọi tiếp theo tổng tích lũy sẽ là `undefined`, và giá trị hiện tại là `3`. `undefined` và `3` sẽ được ghi ra.
 
 Tiếp tục như vậy, trong lời gọi thứ tư thì tổng tích lũy sẽ vẫn là `undefined`, giá trị hiện tại là `4`. `undefined` và `4` sẽ được ghi ra.
+
 </p>
 </details>
   
@@ -2051,7 +2052,7 @@ class Dog {
 };
 
 class Labrador extends Dog {
-  // 1 
+  // 1
   constructor(name, size) {
     this.size = size;
   }
@@ -2065,7 +2066,7 @@ class Labrador extends Dog {
     super(name);
     this.size = size;
   }
-  // 4 
+  // 4
   constructor(name, size) {
     this.name = name;
     this.size = size;
@@ -2086,9 +2087,10 @@ class Labrador extends Dog {
 
 Trong class dẫn xuất, ta không thể truy cập từ khóa `this` trước khi gọi `super`. Nếu bạn chạy thử, nó sẽ throw ra một `ReferenceError`, do đó 1 và 4 sẽ throw ra reference error.
 
-Với việc gọi `super`, chúng ta đã gọi hàm constructor của class cha với tham số truyền vào. Trong trường hợp này, class cha nhận `name` làm đối số trong constructor, do đó chúng cần đưa `name` vào hàm `super`. 
+Với việc gọi `super`, chúng ta đã gọi hàm constructor của class cha với tham số truyền vào. Trong trường hợp này, class cha nhận `name` làm đối số trong constructor, do đó chúng cần đưa `name` vào hàm `super`.
 
 `Labrador` class nhận vào hai đối số, `name` vì nó kế thừa `Dog`, và `size` - một thuộc tính của `Labrador` class. Cả hai đều cần thiết để đưa vào trong constructor của class `Labrador`, do đó cách khởi tạo đúng là 2.
+
 </p>
 </details>
 
@@ -2098,12 +2100,12 @@ Với việc gọi `super`, chúng ta đã gọi hàm constructor của class ch
 
 ```javascript
 // index.js
-console.log('running index.js');
-import { sum } from './sum.js';
+console.log("running index.js");
+import { sum } from "./sum.js";
 console.log(sum(1, 2));
 
 // sum.js
-console.log('running sum.js');
+console.log("running sum.js");
 export const sum = (a, b) => a + b;
 ```
 
@@ -2119,7 +2121,7 @@ export const sum = (a, b) => a + b;
 
 Với `import`, tất cả các module import vào đều sẽ được _pre-parsed_ (đánh giá trước). Có nghĩa là những module được import vào sẽ được _chạy trước_, còn code trong file sẽ _chạy sau_.
 
-Đó chính là điều khác biệt giữa `require()` trong CommonJS và `import`! Với `require()`, ta có thể load các dependencies tại bất cứ khi nào ta cần. Nếu ta sử dụng `require` thay thế cho `import` thì `running index.js`, `running sum.js`, `3` sẽ được ghi ra. 
+Đó chính là điều khác biệt giữa `require()` trong CommonJS và `import`! Với `require()`, ta có thể load các dependencies tại bất cứ khi nào ta cần. Nếu ta sử dụng `require` thay thế cho `import` thì `running index.js`, `running sum.js`, `3` sẽ được ghi ra.
 
 </p>
 </details>
@@ -2144,7 +2146,7 @@ console.log(Symbol('foo') === Symbol('foo'))****
 
 #### Đáp án: A
 
-Mỗi Symbol là một thứ hoàn toàn khác biệt. Giá trị truyền vào làm đối số trong Symbol chỉ đơn thuần là phần giải thích cho Symbol đó mà thôi, và nó không liên quan gì tới giá trị của Symbol đó cả. Chúng ta kiểm tra tính bằng nhau của hai Symbol hoàn toàn khác biệt: `Symbol('foo')` thứ nhất, và `Symbol('foo')` thứ hai. Mỗi giá trị đều là riêng biệt và duy nhất, nên `Symbol('foo') === Symbol('foo')` sẽ trả về `false`. 
+Mỗi Symbol là một thứ hoàn toàn khác biệt. Giá trị truyền vào làm đối số trong Symbol chỉ đơn thuần là phần giải thích cho Symbol đó mà thôi, và nó không liên quan gì tới giá trị của Symbol đó cả. Chúng ta kiểm tra tính bằng nhau của hai Symbol hoàn toàn khác biệt: `Symbol('foo')` thứ nhất, và `Symbol('foo')` thứ hai. Mỗi giá trị đều là riêng biệt và duy nhất, nên `Symbol('foo') === Symbol('foo')` sẽ trả về `false`.
 
 </p>
 </details>
@@ -2154,15 +2156,15 @@ Mỗi Symbol là một thứ hoàn toàn khác biệt. Giá trị truyền vào 
 ###### 69. Output là gì?
 
 ```javascript
-const name = "Lydia Hallie"
-console.log(name.padStart(13))
-console.log(name.padStart(2))
+const name = "Lydia Hallie";
+console.log(name.padStart(13));
+console.log(name.padStart(2));
 ```
 
 - A: `"Lydia Hallie"`, `"Lydia Hallie"`
 - B: `"           Lydia Hallie"`, `"  Lydia Hallie"` (`"[13x whitespace]Lydia Hallie"`, `"[2x whitespace]Lydia Hallie"`)
 - C: `" Lydia Hallie"`, `"Lydia Hallie"` (`"[1x whitespace]Lydia Hallie"`, `"Lydia Hallie"`)
-- D: `"Lydia Hallie"`, `"Lyd"`, 
+- D: `"Lydia Hallie"`, `"Lyd"`,
 
 <details><summary><b>Đáp án</b></summary>
 <p>
@@ -2237,7 +2239,9 @@ Khi ta gọi `game.next("Yes").value`, `yield` trước đó sẽ được thay 
 </details>
 
 ---
-****
+
+---
+
 ###### 72. Output là gì?
 
 ```javascript
@@ -2430,7 +2434,7 @@ Hàm `sum` luôn trả về giá trị giống nhau. Nếu ta đưa vào `1` và
 ```javascript
 const add = () => {
   const cache = {};
-  return num => {
+  return (num) => {
     if (num in cache) {
       return `From cache! ${cache[num]}`;
     } else {
@@ -2475,21 +2479,21 @@ Tại lần gọi thứ ba, ta đưa vào `5 * 2`, tức `10` vào hàm. Tiếp 
 ###### 79. Output là gì?
 
 ```javascript
-const myLifeSummedUp = ["☕", "💻", "🍷", "🍫"]
+const myLifeSummedUp = ["☕", "💻", "🍷", "🍫"];
 
 for (let item in myLifeSummedUp) {
-  console.log(item)
+  console.log(item);
 }
 
 for (let item of myLifeSummedUp) {
-  console.log(item)
+  console.log(item);
 }
 ```
 
 - A: `0` `1` `2` `3` and `"☕"` ` "💻"` `"🍷"` `"🍫"`
 - B: `"☕"` ` "💻"` `"🍷"` `"🍫"` and `"☕"` ` "💻"` `"🍷"` `"🍫"`
 - C: `"☕"` ` "💻"` `"🍷"` `"🍫"` and `0` `1` `2` `3`
-- D:  `0` `1` `2` `3` and `{0: "☕", 1: "💻", 2: "🍷", 3: "🍫"}`
+- D: `0` `1` `2` `3` and `{0: "☕", 1: "💻", 2: "🍷", 3: "🍫"}`
 
 <details><summary><b>Đáp án</b></summary>
 <p>
@@ -2512,14 +2516,14 @@ Với vòng lặp _for-of_, chúng ta sẽ duyệt qua các phần tử của m�
 ###### 80. Output là gì?
 
 ```javascript
-const list = [1 + 2, 1 * 2, 1 / 2]
-console.log(list)
+const list = [1 + 2, 1 * 2, 1 / 2];
+console.log(list);
 ```
 
 - A: `["1 + 2", "1 * 2", "1 / 2"]`
 - B: `["12", 2, 0.5]`
 - C: `[3, 2, 0.5]`
-- D:  `[1, 1, 1]`
+- D: `[1, 1, 1]`
 
 <details><summary><b>Đáp án</b></summary>
 <p>
@@ -2528,7 +2532,7 @@ console.log(list)
 
 Mảng có thể nhận bất cứ giá trị nào. Số, chuỗi, objects, mảng khác, null, boolean, undefined, và nhiều dạng biểu thức nữa như ngày tháng, hàm, và các tính toán.
 
-Giá trị của phần tử chính là giá trị trả về.  `1 + 2` trả về `3`, `1 * 2` trả về `2`, và `1 / 2` trả về `0.5`.
+Giá trị của phần tử chính là giá trị trả về. `1 + 2` trả về `3`, `1 * 2` trả về `2`, và `1 / 2` trả về `0.5`.
 
 </p>
 </details>
@@ -2539,16 +2543,16 @@ Giá trị của phần tử chính là giá trị trả về.  `1 + 2` trả v�
 
 ```javascript
 function sayHi(name) {
-  return `Hi there, ${name}`
+  return `Hi there, ${name}`;
 }
 
-console.log(sayHi())
+console.log(sayHi());
 ```
 
 - A: `Hi there, `
 - B: `Hi there, undefined`
 - C: `Hi there, null`
-- D:  `ReferenceError`
+- D: `ReferenceError`
 
 <details><summary><b>Đáp án</b></summary>
 <p>
@@ -2571,21 +2575,21 @@ Trong trường hợp này, nếu ta không đưa giá trị nào vào hoặc đ
 ###### 82. Output là gì?
 
 ```javascript
-var status = "😎"
+var status = "😎";
 
 setTimeout(() => {
-  const status = "😍"
+  const status = "😍";
 
   const data = {
     status: "🥑",
     getStatus() {
-      return this.status
-    }
-  }
+      return this.status;
+    },
+  };
 
-  console.log(data.getStatus())
-  console.log(data.getStatus.call(this))
-}, 0)
+  console.log(data.getStatus());
+  console.log(data.getStatus.call(this));
+}, 0);
 ```
 
 - A: `"🥑"` and `"😍"`
@@ -2612,13 +2616,13 @@ Với phương thức `call`, chúng ta thay đổi tham chiếu mà `this` tr�
 ```javascript
 const person = {
   name: "Lydia",
-  age: 21
-}
+  age: 21,
+};
 
-let city = person.city
-city = "Amsterdam"
+let city = person.city;
+city = "Amsterdam";
 
-console.log(person)
+console.log(person);
 ```
 
 - A: `{ name: "Lydia", age: 21 }`
@@ -2631,13 +2635,13 @@ console.log(person)
 
 #### Đáp án: A
 
-Chúng ta set biến `city` bằng với giá trị của thuộc tính `city` của object `person`. Nhưng object này không có thuộc tính nào là `city` cả, nên giá trị của biến `city` sẽ là `undefined`. 
+Chúng ta set biến `city` bằng với giá trị của thuộc tính `city` của object `person`. Nhưng object này không có thuộc tính nào là `city` cả, nên giá trị của biến `city` sẽ là `undefined`.
 
 Chú ý là chúng ta _không tham chiếu_ tới bản thân object `person`! Chúng ta chỉ đơn giản là set giá trị của biến `city` bằng với giá trị của thuộc tính `city` trong object `person` mà thôi.
 
 Sau đó chúng ta set biến `city` bằng với chuỗi `"Amsterdam"`. Điều này không hề ảnh hưởng gì tới object person vì không có tham chiếu nào ở đây cả.
 
-Do đó khi ghi object `person` ra, Tất cả các thuộc tính vẫn như cũ không hề thay đổi gì cả. 
+Do đó khi ghi object `person` ra, Tất cả các thuộc tính vẫn như cũ không hề thay đổi gì cả.
 
 </p>
 </details>
@@ -2649,15 +2653,15 @@ Do đó khi ghi object `person` ra, Tất cả các thuộc tính vẫn như cũ
 ```javascript
 function checkAge(age) {
   if (age < 18) {
-    const message = "Sorry, you're too young."
+    const message = "Sorry, you're too young.";
   } else {
-    const message = "Yay! You're old enough!"
+    const message = "Yay! You're old enough!";
   }
 
-  return message
+  return message;
 }
 
-console.log(checkAge(21))
+console.log(checkAge(21));
 ```
 
 - A: `"Sorry, you're too young."`
@@ -2680,15 +2684,15 @@ Biến số được khai báo với các từ khóa như `const` hay `let` đ�
 ###### 85. Những thông tin nào sẽ được ghi ra?
 
 ```javascript
-fetch('https://www.website.com/api/user/1')
-  .then(res => res.json())
-  .then(res => console.log(res))
+fetch("https://www.website.com/api/user/1")
+  .then((res) => res.json())
+  .then((res) => console.log(res));
 ```
 
 - A: The result of the `fetch` method.
 - B: The result of the second invocation of the `fetch` method.
 - C: The result of the callback in the previous `.then()`.
-- D: It would always be undefined. 
+- D: It would always be undefined.
 
 <details><summary><b>Đáp án</b></summary>
 <p>
@@ -2736,7 +2740,7 @@ Bằng cách set `hasName` bằng với `name`, chúng ta set `hasName` bằng v
 ###### <a name=20190805></a>87. Output là gì?
 
 ```javascript
-console.log("I want pizza"[0])
+console.log("I want pizza"[0]);
 ```
 
 - A: `"""`
@@ -2762,10 +2766,10 @@ Chú ý là phương thức này không hoạt động với IE7 trở xuống. 
 
 ```javascript
 function sum(num1, num2 = num1) {
-  console.log(num1 + num2)
+  console.log(num1 + num2);
 }
 
-sum(10)
+sum(10);
 ```
 
 - A: `NaN`
@@ -2780,7 +2784,7 @@ sum(10)
 
 Ta có thể set giá trị mặc định của một tham số là tham số khác trong hàm, miễn là tham số đó được khai báo _trước_ tham số mặc định. Chúng ta đưa `10` vào hàm `sum`. Nếu hàm `sum` chỉ nhận 1 đối số, nó có nghĩa là giá trị của `num2` không được đưa vào, nên nó sẽ lấy giá trị mặc định là giá trị của `num1` đã được đưa vào, hay chính là `10` trong trường hợp này. Khi này `num1 + num2` trả về `20`.
 
-Nếu chúng ta thử set một giá trị mặc định của tham số bằng với giá trị của tham số khai báo _sau_ (về bên phải), giá trị của tham số đó sẽ không được khởi tạo và dẫn đến throw ra lỗi. 
+Nếu chúng ta thử set một giá trị mặc định của tham số bằng với giá trị của tham số khai báo _sau_ (về bên phải), giá trị của tham số đó sẽ không được khởi tạo và dẫn đến throw ra lỗi.
 
 </p>
 </details>
@@ -2790,14 +2794,14 @@ Nếu chúng ta thử set một giá trị mặc định của tham số bằng 
 ###### 89. Output là gì?
 
 ```javascript
-// module.js 
-export default () => "Hello world"
-export const name = "Lydia"
+// module.js
+export default () => "Hello world";
+export const name = "Lydia";
 
-// index.js 
-import * as data from "./module"
+// index.js
+import * as data from "./module";
 
-console.log(data)
+console.log(data);
 ```
 
 - A: `{ default: function default(), name: "Lydia" }`
@@ -2810,9 +2814,9 @@ console.log(data)
 
 #### Đáp án: A
 
-Cú pháp `import * as data` sẽ import _tất cả những gì được export_ từ `module.js` vào trong `index.js` và lưu trữ dưới một object có tên là `data`. Trong file `module.js`, có hai thứ được export ra: default export và một named export. Default export là một hàm trả về chuỗi `"Hello World"`, và named export là một biến `name` nhận giá trị là chuỗi `"Lydia"`. 
+Cú pháp `import * as data` sẽ import _tất cả những gì được export_ từ `module.js` vào trong `index.js` và lưu trữ dưới một object có tên là `data`. Trong file `module.js`, có hai thứ được export ra: default export và một named export. Default export là một hàm trả về chuỗi `"Hello World"`, và named export là một biến `name` nhận giá trị là chuỗi `"Lydia"`.
 
-Do đó `data` object có thuộc tính `default` cho default export, các thuộc tính khác sẽ có tên chính là tên của named exports và giá trị đi kèm. 
+Do đó `data` object có thuộc tính `default` cho default export, các thuộc tính khác sẽ có tên chính là tên của named exports và giá trị đi kèm.
 
 </p>
 </details>
@@ -2824,12 +2828,12 @@ Do đó `data` object có thuộc tính `default` cho default export, các thu�
 ```javascript
 class Person {
   constructor(name) {
-    this.name = name
+    this.name = name;
   }
 }
 
-const member = new Person("John")
-console.log(typeof member)
+const member = new Person("John");
+console.log(typeof member);
 ```
 
 - A: `"class"`
@@ -2846,11 +2850,11 @@ Classes chỉ đơn thuần là `syntactical sugar` (cú pháp đặc biệt) c�
 
 ```javascript
 function Person() {
-  this.name = name
+  this.name = name;
 }
 ```
 
-Gọi một constructor với từ khóa `new` sẽ tạo ra một instance của class `Person`, `typeof` sẽ trả về là `"object"` cho các instance. Do đó `typeof member` trả về `"object"`. 
+Gọi một constructor với từ khóa `new` sẽ tạo ra một instance của class `Person`, `typeof` sẽ trả về là `"object"` cho các instance. Do đó `typeof member` trả về `"object"`.
 
 </p>
 </details>
@@ -2860,9 +2864,9 @@ Gọi một constructor với từ khóa `new` sẽ tạo ra một instance củ
 ###### 91. Output là gì?
 
 ```javascript
-let newList = [1, 2, 3].push(4)
+let newList = [1, 2, 3].push(4);
 
-console.log(newList.push(5))
+console.log(newList.push(5));
 ```
 
 - A: `[1, 2, 3, 4, 5]`
@@ -2875,7 +2879,7 @@ console.log(newList.push(5))
 
 #### Đáp án: D
 
-Hàm `.push` trả về _độ dài mới_ của mảng, chứ không phải bản thân mảng đó! Bằng cách set `newList` bằng với `[1, 2, 3].push(4)`, ta đã set cho `newList` giá trị là `4` - tức độ dài của mảng lúc này. 
+Hàm `.push` trả về _độ dài mới_ của mảng, chứ không phải bản thân mảng đó! Bằng cách set `newList` bằng với `[1, 2, 3].push(4)`, ta đã set cho `newList` giá trị là `4` - tức độ dài của mảng lúc này.
 
 Sau đó chúng ta tiến hành `.push` trên `newList`. Vì `newList` là một số thông thường, ta không thể dùng `.push` được, nên sẽ throw ra một TypeError.
 
@@ -2888,17 +2892,18 @@ Sau đó chúng ta tiến hành `.push` trên `newList`. Vì `newList` là một
 
 ```javascript
 function giveLydiaPizza() {
-  return "Here is pizza!"
+  return "Here is pizza!";
 }
 
-const giveLydiaChocolate = () => "Here's chocolate... now go hit the gym already."
+const giveLydiaChocolate = () =>
+  "Here's chocolate... now go hit the gym already.";
 
-console.log(giveLydiaPizza.prototype)
-console.log(giveLydiaChocolate.prototype)
+console.log(giveLydiaPizza.prototype);
+console.log(giveLydiaChocolate.prototype);
 ```
 
-- A: `{ constructor: ...}` `{ constructor: ...}` 
-- B: `{}` `{ constructor: ...}` 
+- A: `{ constructor: ...}` `{ constructor: ...}`
+- B: `{}` `{ constructor: ...}`
 - C: `{ constructor: ...}` `{}`
 - D: `{ constructor: ...}` `undefined`
 
@@ -2907,7 +2912,7 @@ console.log(giveLydiaChocolate.prototype)
 
 #### Đáp án: D
 
-Hàm thông thường giống như `giveLydiaPizza`, sẽ có thuộc tính `prototype` là một object (prototype object) với một thuộc tính là `constructor`. Còn `arrow functions` giống như `giveLydiaChocolate`thì không có thuộc tính `prototype` này. `undefined` trả về khi ta truy cập thuộc tính `prototype` bằng cách gọi `giveLydiaChocolate.prototype`. 
+Hàm thông thường giống như `giveLydiaPizza`, sẽ có thuộc tính `prototype` là một object (prototype object) với một thuộc tính là `constructor`. Còn `arrow functions` giống như `giveLydiaChocolate`thì không có thuộc tính `prototype` này. `undefined` trả về khi ta truy cập thuộc tính `prototype` bằng cách gọi `giveLydiaChocolate.prototype`.
 
 </p>
 </details>
@@ -2919,16 +2924,16 @@ Hàm thông thường giống như `giveLydiaPizza`, sẽ có thuộc tính `pro
 ```javascript
 const person = {
   name: "Lydia",
-  age: 21
-}
+  age: 21,
+};
 
 for (const [x, y] of Object.entries(person)) {
-  console.log(x, y)
+  console.log(x, y);
 }
 ```
 
 - A: `name` `Lydia` và `age` `21`
-- B: `["name", "Lydia"]` và `["age", 21]` 
+- B: `["name", "Lydia"]` và `["age", 21]`
 - C: `["name", "age"]` và `undefined`
 - D: `Error`
 
@@ -2939,9 +2944,9 @@ for (const [x, y] of Object.entries(person)) {
 
 `Object.entries(person)` sẽ trả về một mảng của mảng, bao gồm các key và các object:
 
-`[ [ 'name', 'Lydia' ], [ 'age', 21 ] ]` 
+`[ [ 'name', 'Lydia' ], [ 'age', 21 ] ]`
 
-Khí sử dụng `for-of`, chúng ta sẽ duyệt qua từng thành phần của mảng, trong trường hợp này chính là những mảng con. Đồng thời tiến hành gán giá trị luôn trong vongf lặp for-of, bằng cách sử dụng `const [x, y]`. Khi này `x` sẽ là phần tử đầu tiên trong mảng con, `y` chính là phần tử thứ hai trong mảng con. 
+Khí sử dụng `for-of`, chúng ta sẽ duyệt qua từng thành phần của mảng, trong trường hợp này chính là những mảng con. Đồng thời tiến hành gán giá trị luôn trong vongf lặp for-of, bằng cách sử dụng `const [x, y]`. Khi này `x` sẽ là phần tử đầu tiên trong mảng con, `y` chính là phần tử thứ hai trong mảng con.
 
 Mảng con đầu tiên là `[ "name", "Lydia" ]`, nên `x` sẽ là `"name"`, và `y` sẽ là `"Lydia"`, và được ghi ra.
 Mảng con thứ hai là `[ "age", 21 ]`, nên `x` sẽ là `"age"`, và `y` sẽ là `21`, và được ghi ra.
@@ -2962,7 +2967,7 @@ getItems(["banana", "apple"], "pear", "orange")
 ```
 
 - A: `["banana", "apple", "pear", "orange"]`
-- B: `[["banana", "apple"], "pear", "orange"]` 
+- B: `[["banana", "apple"], "pear", "orange"]`
 - C: `["banana", "apple", ["pear"], "orange"]`
 - D: `SyntaxError`
 
@@ -2971,17 +2976,18 @@ getItems(["banana", "apple"], "pear", "orange")
 
 #### Đáp án: D
 
-`...args` là cú pháp tham số cuối cùng. Giá trị của tham số cuối cùng chính là toàn bộ các đối số còn lại, **và nó là tham số cuối cùng duy nhất**! Trong trường hợp này, tham số cuối cùng lại là tham số thứ hai. Điều đó là không thể được, và sẽ throw ra một lỗi cú pháp. 
+`...args` là cú pháp tham số cuối cùng. Giá trị của tham số cuối cùng chính là toàn bộ các đối số còn lại, **và nó là tham số cuối cùng duy nhất**! Trong trường hợp này, tham số cuối cùng lại là tham số thứ hai. Điều đó là không thể được, và sẽ throw ra một lỗi cú pháp.
 
 ```javascript
 function getItems(fruitList, favoriteFruit, ...args) {
-  return [...fruitList, ...args, favoriteFruit]
+  return [...fruitList, ...args, favoriteFruit];
 }
 
-getItems(["banana", "apple"], "pear", "orange")
+getItems(["banana", "apple"], "pear", "orange");
 ```
 
 Nếu ta code như thế này thì lại đúng. Giá trị trả về sẽ là `[ 'banana', 'apple', 'orange', 'pear' ]`
+
 </p>
 </details>
 
@@ -2991,17 +2997,14 @@ Nếu ta code như thế này thì lại đúng. Giá trị trả về sẽ là 
 
 ```javascript
 function nums(a, b) {
-  if
-  (a > b)
-  console.log('a is bigger')
-  else 
-  console.log('b is bigger')
-  return 
-  a + b
+  if (a > b) console.log("a is bigger");
+  else console.log("b is bigger");
+  return;
+  a + b;
 }
 
-console.log(nums(4, 2))
-console.log(nums(1, 2))
+console.log(nums(4, 2));
+console.log(nums(1, 2));
 ```
 
 - A: `a is bigger`, `6` và `b is bigger`, `3`
@@ -3014,13 +3017,13 @@ console.log(nums(1, 2))
 
 #### Đáp án: B
 
-Với JavaScript, ta _không bắt buộc_ phải viết dấu chấm phẩy (`;`), JavaScript engine sẽ tự động thêm vào sau mỗi câu lệnh. Nó gọi là **Automatic Semicolon Insertion**. Một câu lệnh có thể là khai báo biến, hoặc từ khóa như `throw`, `return`, `break`, vv. 
+Với JavaScript, ta _không bắt buộc_ phải viết dấu chấm phẩy (`;`), JavaScript engine sẽ tự động thêm vào sau mỗi câu lệnh. Nó gọi là **Automatic Semicolon Insertion**. Một câu lệnh có thể là khai báo biến, hoặc từ khóa như `throw`, `return`, `break`, vv.
 
 Ở đây ta sử dụng câu lệnh `return` ở một dòng và giá trị `a + b` ở một _dòng khác_. Tuy nhiên do khác dòng nên JS engine không thể biết đâu là giá trị ta thực sự muốn trả về. Thay vì thế, nó sẽ tự động thêm vào dấu chấm phẩy ngay sau `return` giống như này:
 
 ```javascript
-  return;
-  a + b
+return;
+a + b;
 ```
 
 Có nghĩa là `a + b` sẽ không bao giờ được thực hiện, vì hàm đã được `return` rồi. Do không giá trị nào được trả về, nên giá trị trả về của hàm sẽ là `undefined`. Lưu ý là sẽ không tự động thêm dấu chấm phẩy ngay sau `if/else` đâu nhé!
@@ -3035,18 +3038,18 @@ Có nghĩa là `a + b` sẽ không bao giờ được thực hiện, vì hàm đ
 ```javascript
 class Person {
   constructor() {
-    this.name = "Lydia"
+    this.name = "Lydia";
   }
 }
 
 Person = class AnotherPerson {
   constructor() {
-    this.name = "Sarah"
+    this.name = "Sarah";
   }
-}
+};
 
-const member = new Person()
-console.log(member.name)
+const member = new Person();
+console.log(member.name);
 ```
 
 - A: `"Lydia"`
@@ -3070,11 +3073,11 @@ Chúng ta có thể set một class với giá trị là một classes/function 
 
 ```javascript
 const info = {
-  [Symbol('a')]: 'b'
-}
+  [Symbol("a")]: "b",
+};
 
-console.log(info)
-console.log(Object.keys(info))
+console.log(info);
+console.log(Object.keys(info));
 ```
 
 - A: `{Symbol('a'): 'b'}` và `["{Symbol('a')"]`
@@ -3121,13 +3124,13 @@ console.log(getUser(user))
 
 Hàm `getList` nhận vào một mảng các đối số, và tiến hành xử lý mảng đó luôn khi đưa vào hàm:
 
- `[x, ...y] = [1, 2, 3, 4]`
+`[x, ...y] = [1, 2, 3, 4]`
 
- Với việc sử dụng cú pháp tham số cuối cùng `...y`, chúng ta đưa toàn bộ "những đối số còn lại" vào một mảng y. Trong trường hợp này đó là mảng gồm các phần tử `2`, `3` và `4`. Do đó giá trị của `y` lúc này chính là mảng `[2, 3, 4]`. Giá trị của `x` là `1`, nên khi ghi `[x, y]` ra, kết quả sẽ là `[1, [2, 3, 4]]`.
+Với việc sử dụng cú pháp tham số cuối cùng `...y`, chúng ta đưa toàn bộ "những đối số còn lại" vào một mảng y. Trong trường hợp này đó là mảng gồm các phần tử `2`, `3` và `4`. Do đó giá trị của `y` lúc này chính là mảng `[2, 3, 4]`. Giá trị của `x` là `1`, nên khi ghi `[x, y]` ra, kết quả sẽ là `[1, [2, 3, 4]]`.
 
 Hàm `getUser` nhận vào một object. Với cú pháp arrow function, chúng ta sẽ không phải viết trong ngoặc nhọn `{}` nữa nếu ta chỉ muốn đơn thuần trả về giá trị. Tuy nhiên, nếu ta muốn trả về một _object_ t arrow function, ta sẽ phải viết chúng trong dấu ngoặc tròn `()`, nếu không thì sẽ không có giá trị nào được trả về! Ví dụ như sau:
 
-```const getUser = user => ({ name: user.name, age: user.age })```
+`const getUser = user => ({ name: user.name, age: user.age })`
 
 Do không giá trị nào được trả về, kết quả sẽ là `undefined`.
 
@@ -3139,9 +3142,9 @@ Do không giá trị nào được trả về, kết quả sẽ là `undefined`.
 ###### 99. Output là gì?
 
 ```javascript
-const name = "Lydia"
+const name = "Lydia";
 
-console.log(name())
+console.log(name());
 ```
 
 - A: `SyntaxError`
@@ -3154,11 +3157,11 @@ console.log(name())
 
 #### Đáp án: C
 
-Biến `name` có giá trị là một chuỗi, không phải hàm, vì thế không thể gọi được. 
+Biến `name` có giá trị là một chuỗi, không phải hàm, vì thế không thể gọi được.
 
 TypeErrors sẽ được throw ra nếu một giá trị không được sử dụng đúng kiểu. JavaScript muốn `name` là một hàm khi ta tiến hành gọi nó. Nhưng nó là chuỗi, nên sẽ throw ra một TypeError.
 
-SyntaxErrors sẽ được throw khi ta viết code không đúng cú pháp của JavaScript, ví dụ thay vì `return` ta viết `retrun`. 
+SyntaxErrors sẽ được throw khi ta viết code không đúng cú pháp của JavaScript, ví dụ thay vì `return` ta viết `retrun`.
 
 ReferenceErrors sẽ được throw ra khi Javascript không thể tìm được tham chiếu nào đến giá trị mà ta đang cố truy cập.
 
@@ -3172,8 +3175,8 @@ ReferenceErrors sẽ được throw ra khi Javascript không thể tìm được
 ```javascript
 // 🎉✨ Đây là câu hỏi thứ 100 của tôi! ✨🎉
 
-const output = `${[] && 'Im'}possible!
-You should${'' && `n't`} see a therapist after so much JavaScript lol`
+const output = `${[] && "Im"}possible!
+You should${"" && `n't`} see a therapist after so much JavaScript lol`;
 ```
 
 - A: `possible! You should see a therapist after so much JavaScript lol`
@@ -3198,11 +3201,11 @@ You should${'' && `n't`} see a therapist after so much JavaScript lol`
 ###### 101. Output là gì?
 
 ```javascript
-const one = (false || {} || null)
-const two = (null || false || "")
-const three = ([] || 0 || true)
+const one = false || {} || null;
+const two = null || false || "";
+const three = [] || 0 || true;
 
-console.log(one, two, three)
+console.log(one, two, three);
 ```
 
 - A: `false` `null` `[]`
@@ -3231,20 +3234,20 @@ Với phép toán `||`, ta sẽ trả về giá trị truethy đầu tiên. Nế
 ###### 102. Output là gì?
 
 ```javascript
-const myPromise = () => Promise.resolve('I have resolved!')
+const myPromise = () => Promise.resolve("I have resolved!");
 
 function firstFunction() {
-  myPromise().then(res => console.log(res))
-  console.log('second')
+  myPromise().then((res) => console.log(res));
+  console.log("second");
 }
 
 async function secondFunction() {
-  console.log(await myPromise())
-  console.log('second')
+  console.log(await myPromise());
+  console.log("second");
 }
 
-firstFunction()
-secondFunction()
+firstFunction();
+secondFunction();
 ```
 
 - A: `I have resolved!`, `second` và `I have resolved!`, `second`
@@ -3261,11 +3264,11 @@ Có thể tưởng tượng đơn giản cách promise thực thi như sau: _bâ
 
 Dù chúng ta có thể sử dụng giá trị thu được bằng cú pháp `.then`, hoặc sử dụng cặp cú pháp `await/async`, nhưng, cách chúng hoạt động là khác nhau.
 
-Trong `firstFunction`, chúng ta đưa promise qua một bên chờ cho nó tính toán xong, và vẫn tiếp tục chạy những code tiếp sau đó, theo đó `console.log('second')` sẽ được chạy. Sau đó promise được hoàn thành trả về giá trị `I have resolved`, giá trị này sẽ được log ra khi call stack trở nên rỗng. 
+Trong `firstFunction`, chúng ta đưa promise qua một bên chờ cho nó tính toán xong, và vẫn tiếp tục chạy những code tiếp sau đó, theo đó `console.log('second')` sẽ được chạy. Sau đó promise được hoàn thành trả về giá trị `I have resolved`, giá trị này sẽ được log ra khi call stack trở nên rỗng.
 
 Với từ khóa `await` trong `secondFunction`, ta đã tạm dừng một hàm bất đồng bộ cho tới khi chúng trả về giá trị, sau đó ta mới đi tiếp đến các câu lệnh tiếp theo.
 
-Do đó nó sẽ chờ cho tới khi `myPromise` được hoàn thành và trả về giá trị `I have resolved`, sau đó chúng ta sẽ chạy tiếp câu lệnh tiếp theo in ra `second`. 
+Do đó nó sẽ chờ cho tới khi `myPromise` được hoàn thành và trả về giá trị `I have resolved`, sau đó chúng ta sẽ chạy tiếp câu lệnh tiếp theo in ra `second`.
 
 </p>
 </details>
@@ -3275,14 +3278,14 @@ Do đó nó sẽ chờ cho tới khi `myPromise` được hoàn thành và trả
 ###### 103. Output là gì?
 
 ```javascript
-const set = new Set()
+const set = new Set();
 
-set.add(1)
-set.add("Lydia")
-set.add({ name: "Lydia" })
+set.add(1);
+set.add("Lydia");
+set.add({ name: "Lydia" });
 
 for (let item of set) {
-  console.log(item + 2)
+  console.log(item + 2);
 }
 ```
 
@@ -3296,11 +3299,11 @@ for (let item of set) {
 
 #### Đáp án: C
 
-Phép toán `+` không chỉ dùng để cộng các số, mà nó còn dùng để nối chuỗi nữa. Mỗi khi Javascript engine gặp một giá trị trong phép toán không phải dạng số, nó sẽ chuyển các số trong phép toán đó sang dạng chuỗi. 
+Phép toán `+` không chỉ dùng để cộng các số, mà nó còn dùng để nối chuỗi nữa. Mỗi khi Javascript engine gặp một giá trị trong phép toán không phải dạng số, nó sẽ chuyển các số trong phép toán đó sang dạng chuỗi.
 
 Phép toán đầu tiên item là một số `1`, nên `1 + 2` trả về 3.
 
-Ở phép toán thứ hai, item là một chuỗi `"Lydia"`. trong khi đó `2` là một số, nên `2` sẽ bị chuyển sang dạng chuỗi, sau khi nối vào ta có chuỗi `"Lydia2"`. 
+Ở phép toán thứ hai, item là một chuỗi `"Lydia"`. trong khi đó `2` là một số, nên `2` sẽ bị chuyển sang dạng chuỗi, sau khi nối vào ta có chuỗi `"Lydia2"`.
 
 Ở phép toán thứ ba, `{ name: "Lydia" }` là một object. Tuy nhiên dù có là object hay gì đi nữa thì nó cũng sẽ bị chuyển sang dạng chuỗi. Đối với object thì khi chuyển sang dạng chuỗi nó sẽ trở thành `"[object Object]"`. `"[object Object]"` nối với `"2"` trở thành `"[object Object]2"`.
 
@@ -3312,7 +3315,7 @@ Phép toán đầu tiên item là một số `1`, nên `1 + 2` trả về 3.
 ###### 104. Output là gì?
 
 ```javascript
-Promise.resolve(5)
+Promise.resolve(5);
 ```
 
 - A: `5`
@@ -3327,7 +3330,7 @@ Promise.resolve(5)
 
 Ta có thể truyền vào giá trị bất kì cho `Promise.resolve`, dù có là promise hay không promise. Bản thân nó sẽ là một hàm trả về một promise với giá trị đã được resolved.
 
-Trong trường hợp này ta đưa vào giá trị `5`. Nó sẽ trả về một resolved promise với giá trị `5`. 
+Trong trường hợp này ta đưa vào giá trị `5`. Nó sẽ trả về một resolved promise với giá trị `5`.
 
 </p>
 </details>
@@ -3339,15 +3342,15 @@ Trong trường hợp này ta đưa vào giá trị `5`. Nó sẽ trả về m�
 ```javascript
 function compareMembers(person1, person2 = person) {
   if (person1 !== person2) {
-    console.log("Not the same!")
+    console.log("Not the same!");
   } else {
-    console.log("They are the same!")
+    console.log("They are the same!");
   }
 }
 
-const person = { name: "Lydia" }
+const person = { name: "Lydia" };
 
-compareMembers(person)
+compareMembers(person);
 ```
 
 - A: `Not the same!`
@@ -3360,7 +3363,7 @@ compareMembers(person)
 
 #### Đáp án: B
 
-Object sẽ được truyền vào hàm theo reference. Khi chúng ta nói so sánh strict equal (`===`), nghĩa là ta đang so sánh các reference của chúng. 
+Object sẽ được truyền vào hàm theo reference. Khi chúng ta nói so sánh strict equal (`===`), nghĩa là ta đang so sánh các reference của chúng.
 
 Ta set giá trị mặc định của `person2` là object `person`, và đưa object `person` vào làm giá trị cho đối số `person1`.
 
@@ -3380,11 +3383,11 @@ const colorConfig = {
   green: true,
   black: true,
   yellow: false,
-}
+};
 
-const colors = ["pink", "red", "blue"]
+const colors = ["pink", "red", "blue"];
 
-console.log(colorConfig.colors[1])
+console.log(colorConfig.colors[1]);
 ```
 
 - A: `true`
@@ -3397,11 +3400,11 @@ console.log(colorConfig.colors[1])
 
 #### Đáp án: D
 
-Trong Javascript ta có hai cách để truy cập thuộc tính của một object: sử dụng ngoặc vuông `[]`, hoặc sử dụng chấm `.`. Trong trương hợp này chúng ta sử dụng chấm (`colorConfig.colors`) thay cho ngoặc vuông (`colorConfig["colors"]`). 
+Trong Javascript ta có hai cách để truy cập thuộc tính của một object: sử dụng ngoặc vuông `[]`, hoặc sử dụng chấm `.`. Trong trương hợp này chúng ta sử dụng chấm (`colorConfig.colors`) thay cho ngoặc vuông (`colorConfig["colors"]`).
 
-Với cách sử dụng chấm, Javascript sẽ tìm kiếm một thuộc tính có tên chính xác như tên ta đưa vào. Trong trường hợp này nó là thuộc tính `colors` trong object `colorConfig` Tuy nhiên trong object này không có thuộc tính nào tên là  `colors`, nên nó sẽ trả về `undefined`. Sau đó chúng ta cố truy cậ vào thuộc tính 1 của nó bằng cách gọi `[1]`. Chúng ta không thể làm như vậy trên giá trị `undefined`, nên nó sẽ trả về `TypeError`: `Cannot read property '1' of undefined`.
+Với cách sử dụng chấm, Javascript sẽ tìm kiếm một thuộc tính có tên chính xác như tên ta đưa vào. Trong trường hợp này nó là thuộc tính `colors` trong object `colorConfig` Tuy nhiên trong object này không có thuộc tính nào tên là `colors`, nên nó sẽ trả về `undefined`. Sau đó chúng ta cố truy cậ vào thuộc tính 1 của nó bằng cách gọi `[1]`. Chúng ta không thể làm như vậy trên giá trị `undefined`, nên nó sẽ trả về `TypeError`: `Cannot read property '1' of undefined`.
 
-Javascript thông dịch theo câu lệnh. Khi ta sử dụng ngoặc vuông, Nnó sẽ tìm mở ngoặc đầu tiên `[` và tiếp tục cho tới khi gặp đóng ngoặc tương ứng `]`. Chỉ khi đó nó mới đánh giá câu lệnh. Nếu chúng ta sử dụng cú pháp `colorConfig[colors[1]]`, nó sẽ trả về giá trị của thuộc tính `red` trong object `colorConfig`. 
+Javascript thông dịch theo câu lệnh. Khi ta sử dụng ngoặc vuông, Nnó sẽ tìm mở ngoặc đầu tiên `[` và tiếp tục cho tới khi gặp đóng ngoặc tương ứng `]`. Chỉ khi đó nó mới đánh giá câu lệnh. Nếu chúng ta sử dụng cú pháp `colorConfig[colors[1]]`, nó sẽ trả về giá trị của thuộc tính `red` trong object `colorConfig`.
 
 </p>
 </details>
@@ -3411,7 +3414,7 @@ Javascript thông dịch theo câu lệnh. Khi ta sử dụng ngoặc vuông, Nn
 ###### 107. Ouput là gì?
 
 ```javascript
-console.log('❤️' === '❤️')
+console.log("❤️" === "❤️");
 ```
 
 - A: `true`
@@ -3422,7 +3425,7 @@ console.log('❤️' === '❤️')
 
 #### Đáp án: A
 
-Về cơ bản, emoji vẫn là các ký tự unicode mà thôi. Mã unicode cho hình trái tim là `"U+2764 U+FE0F"`. Chúng luôn luôn là một, nên phép toán đơn giản trả về `true`. 
+Về cơ bản, emoji vẫn là các ký tự unicode mà thôi. Mã unicode cho hình trái tim là `"U+2764 U+FE0F"`. Chúng luôn luôn là một, nên phép toán đơn giản trả về `true`.
 
 </p>
 </details>
@@ -3432,19 +3435,19 @@ Về cơ bản, emoji vẫn là các ký tự unicode mà thôi. Mã unicode cho
 ###### 108. Phép toán nào sau đây làm thay đổi mảng gốc?
 
 ```javascript
-const emojis = ['✨', '🥑', '😍']
+const emojis = ["✨", "🥑", "😍"];
 
-emojis.map(x => x + '✨')
-emojis.filter(x => x !== '🥑')
-emojis.find(x => x !== '🥑')
-emojis.reduce((acc, cur) => acc + '✨')
-emojis.slice(1, 2, '✨') 
-emojis.splice(1, 2, '✨')
+emojis.map((x) => x + "✨");
+emojis.filter((x) => x !== "🥑");
+emojis.find((x) => x !== "🥑");
+emojis.reduce((acc, cur) => acc + "✨");
+emojis.slice(1, 2, "✨");
+emojis.splice(1, 2, "✨");
 ```
 
 - A: `All of them`
 - B: `map` `reduce` `slice` `splice`
-- C: `map` `slice` `splice` 
+- C: `map` `slice` `splice`
 - D: `splice`
 
 <details><summary><b>Đáp án</b></summary>
@@ -3452,7 +3455,7 @@ emojis.splice(1, 2, '✨')
 
 #### Đáp án: D
 
-Với `splice`, ta thay đổi mảng gốc bằng cách thêm sửa xóa các phần tử. Trong trường hợp này ta xóa 2 phần tử kể từ index 1 (ta xóa `'🥑'` và `'😍'`) và thêm vào ✨ emoji. 
+Với `splice`, ta thay đổi mảng gốc bằng cách thêm sửa xóa các phần tử. Trong trường hợp này ta xóa 2 phần tử kể từ index 1 (ta xóa `'🥑'` và `'😍'`) và thêm vào ✨ emoji.
 
 `map`, `filter` và `slice` trả về một mảng mới, `find` trả về một phần tử, và `reduce` trả về giá trị tích lũy.
 
@@ -3464,17 +3467,17 @@ Với `splice`, ta thay đổi mảng gốc bằng cách thêm sửa xóa các p
 ###### 109. Output là gì?
 
 ```javascript
-const food = ['🍕', '🍫', '🥑', '🍔']
-const info = { favoriteFood: food[0] }
+const food = ["🍕", "🍫", "🥑", "🍔"];
+const info = { favoriteFood: food[0] };
 
-info.favoriteFood = '🍝'
+info.favoriteFood = "🍝";
 
-console.log(food)
+console.log(food);
 ```
 
 - A: `['🍕', '🍫', '🥑', '🍔']`
 - B: `['🍝', '🍫', '🥑', '🍔']`
-- C: `['🍝', '🍕', '🍫', '🥑', '🍔']` 
+- C: `['🍝', '🍕', '🍫', '🥑', '🍔']`
 - D: `ReferenceError`
 
 <details><summary><b>Đáp án</b></summary>
@@ -3494,7 +3497,7 @@ Bản thân mảng `food` không hề thay đổi, do giá trị của `favorite
 ###### 110. Phép toán này dùng để làm gì?
 
 ```javascript
-JSON.parse()
+JSON.parse();
 ```
 
 - A: Parse JSON thành một giá trị JavaScript
@@ -3507,22 +3510,22 @@ JSON.parse()
 
 #### Đáp án: A
 
-Với phương thức `JSON.parse()`, ta sẽ parse một chuỗi JSON thành một giá trị JavaScript. 
+Với phương thức `JSON.parse()`, ta sẽ parse một chuỗi JSON thành một giá trị JavaScript.
 
 Ví dụ:
 
 ```javascript
 // Chuyển một số thành một chuỗi JSON, sau đó parse chuỗi JSON đó để trả về một giá trị JavaScript:
-const jsonNumber = JSON.stringify(4) // '4'
-JSON.parse(jsonNumber) // 4
+const jsonNumber = JSON.stringify(4); // '4'
+JSON.parse(jsonNumber); // 4
 
 // Chuyển một mảng thành một chuỗi JSON, sau đó parse chuỗi JSON để trả về một giá trị JavaScript:
-const jsonArray = JSON.stringify([1, 2, 3]) // '[1, 2, 3]'
-JSON.parse(jsonArray) // [1, 2, 3]
+const jsonArray = JSON.stringify([1, 2, 3]); // '[1, 2, 3]'
+JSON.parse(jsonArray); // [1, 2, 3]
 
 // Chuyển một object thành một chuỗi JSON, sau đó parse chuỗi JSON để trả về một giá trị JavaScript:
-const jsonArray = JSON.stringify({ name: "Lydia" }) // '{"name":"Lydia"}'
-JSON.parse(jsonArray) // { name: 'Lydia' }
+const jsonArray = JSON.stringify({ name: "Lydia" }); // '{"name":"Lydia"}'
+JSON.parse(jsonArray); // { name: 'Lydia' }
 ```
 
 </p>
@@ -3530,17 +3533,17 @@ JSON.parse(jsonArray) // { name: 'Lydia' }
 
 ---
 
-###### 111. Ouput là gì? 
+###### 111. Ouput là gì?
 
 ```javascript
-let name = 'Lydia'
+let name = "Lydia";
 
 function getName() {
-  console.log(name)
-  let name = 'Sarah'
+  console.log(name);
+  let name = "Sarah";
 }
 
-getName()
+getName();
 ```
 
 - A: Lydia
@@ -3553,20 +3556,20 @@ getName()
 
 #### Đáp án: D
 
-Mỗi hàm sẽ có một _context thực thi_ (hay _scope_) của riêng nó. Hàm `getName` đầu tiên sẽ tìm trong context của nó (scope) để tìm xem có biến nào tên là `name` hay không. Trong trường hợp này, hàm `getName` có biến `name` được khai báo với từ khóa `let`, giá trị là `'Sarah'`. 
+Mỗi hàm sẽ có một _context thực thi_ (hay _scope_) của riêng nó. Hàm `getName` đầu tiên sẽ tìm trong context của nó (scope) để tìm xem có biến nào tên là `name` hay không. Trong trường hợp này, hàm `getName` có biến `name` được khai báo với từ khóa `let`, giá trị là `'Sarah'`.
 
-Một biến được khai báo với từ khóa `let` (hoặc `const`) sẽ được `hoisted`, nhưng không giống như `var`, nó sẽ không được _khởi tạo_. Nó sẽ không thể truy cập được trước dòng ta khai báo (initialize). Nó được gọi là "temporal dead zone". Khi ta cố truy cập một biến trước khi nó được khai báo, JavaScript sẽ throw ra `ReferenceError`. 
+Một biến được khai báo với từ khóa `let` (hoặc `const`) sẽ được `hoisted`, nhưng không giống như `var`, nó sẽ không được _khởi tạo_. Nó sẽ không thể truy cập được trước dòng ta khai báo (initialize). Nó được gọi là "temporal dead zone". Khi ta cố truy cập một biến trước khi nó được khai báo, JavaScript sẽ throw ra `ReferenceError`.
 
-Nếu ta không khai báo biến `name` bên trong hàm `getName`, thì Javascript engine sẽ tiếp tục tìm kiếm trong _scope chain_. Nó sẽ tìm thấy ở scope phía ngoài một biến `name` với giá trị là `Lydia`. Trong trường hợp này nó sẽ log ra `Lydia`. 
+Nếu ta không khai báo biến `name` bên trong hàm `getName`, thì Javascript engine sẽ tiếp tục tìm kiếm trong _scope chain_. Nó sẽ tìm thấy ở scope phía ngoài một biến `name` với giá trị là `Lydia`. Trong trường hợp này nó sẽ log ra `Lydia`.
 
 ```javascript
-let name = 'Lydia'
+let name = "Lydia";
 
 function getName() {
-  console.log(name)
+  console.log(name);
 }
 
-getName() // Lydia
+getName(); // Lydia
 ```
 
 </p>
@@ -3578,18 +3581,18 @@ getName() // Lydia
 
 ```javascript
 function* generatorOne() {
-  yield ['a', 'b', 'c'];
+  yield ["a", "b", "c"];
 }
 
 function* generatorTwo() {
-  yield* ['a', 'b', 'c'];
+  yield* ["a", "b", "c"];
 }
 
-const one = generatorOne()
-const two = generatorTwo()
+const one = generatorOne();
+const two = generatorTwo();
 
-console.log(one.next().value)
-console.log(two.next().value)
+console.log(one.next().value);
+console.log(two.next().value);
 ```
 
 - A: `a` and `a`
@@ -3607,17 +3610,17 @@ Với từ khóa `yield`, ta sẽ trả về các giá trị trong một `genera
 Trong `generatorOne`, ta trả về toàn bộ mảng `['a', 'b', 'c']` sử dụng từ khóa `yield`. Giá trị của thuộc tính `value` trong object thu được bởi phương thức `next` trong `one` (`one.next().value`) là toàn bộ mảng `['a', 'b', 'c']`.
 
 ```javascript
-console.log(one.next().value) // ['a', 'b', 'c']
-console.log(one.next().value) // undefined
+console.log(one.next().value); // ['a', 'b', 'c']
+console.log(one.next().value); // undefined
 ```
 
-Trong `generatorTwo`, ta sử dụng từ khóa `yield*`. Có nghĩa là giá trị đầu tiên mà `two` trả về là giá trị đầu tiên trong `iterator`. Trong trường hợp này `iterator` của chúng ta là mảng `['a', 'b', 'c']`. Giá trị đầu tiên của mảng là `a`, nên lần đầu tiên khi ta gọi `two.next().value`, `a` sẽ được trả về. 
+Trong `generatorTwo`, ta sử dụng từ khóa `yield*`. Có nghĩa là giá trị đầu tiên mà `two` trả về là giá trị đầu tiên trong `iterator`. Trong trường hợp này `iterator` của chúng ta là mảng `['a', 'b', 'c']`. Giá trị đầu tiên của mảng là `a`, nên lần đầu tiên khi ta gọi `two.next().value`, `a` sẽ được trả về.
 
 ```javascript
-console.log(two.next().value) // 'a'
-console.log(two.next().value) // 'b'
-console.log(two.next().value) // 'c'
-console.log(two.next().value) // undefined
+console.log(two.next().value); // 'a'
+console.log(two.next().value); // 'b'
+console.log(two.next().value); // 'c'
+console.log(two.next().value); // undefined
 ```
 
 </p>
@@ -3628,7 +3631,7 @@ console.log(two.next().value) // undefined
 ###### 113. Output là gì?
 
 ```javascript
-console.log(`${(x => x)('I love')} to program`)
+console.log(`${((x) => x)("I love")} to program`);
 ```
 
 - A: `I love to program`
@@ -3641,7 +3644,7 @@ console.log(`${(x => x)('I love')} to program`)
 
 #### Đáp án: A
 
-Biểu thức bên trong chuỗi template (tức chuỗi nằm trong hai dấu ``, gọi là `template literals`) sẽ được đánh giá trước. Sau đó kết quả của biểu thức sẽ được đưa vào chuỗi, trong trường hợp này biểu thức là `(x => x)('I love')`. Chúng ta truyền giá trị đối số `'I love'` cho một arrow function `x => x`. `x` lúc này là `'I love'`, và trả về chính nó. Cuối cùng kết quả của chuỗi là `I love to program`. 
+Biểu thức bên trong chuỗi template (tức chuỗi nằm trong hai dấu ``, gọi là `template literals`) sẽ được đánh giá trước. Sau đó kết quả của biểu thức sẽ được đưa vào chuỗi, trong trường hợp này biểu thức là `(x => x)('I love')`. Chúng ta truyền giá trị đối số `'I love'`cho một arrow function`x => x`. `x`lúc này là`'I love'`, và trả về chính nó. Cuối cùng kết quả của chuỗi là `I love to program`.
 
 </p>
 </details>
@@ -3653,11 +3656,11 @@ Biểu thức bên trong chuỗi template (tức chuỗi nằm trong hai dấu `
 ```javascript
 let config = {
   alert: setInterval(() => {
-    console.log('Alert!')
-  }, 1000)
-}
+    console.log("Alert!");
+  }, 1000),
+};
 
-config = null
+config = null;
 ```
 
 - A: Callback `setInterval` sẽ không được gọi
@@ -3680,17 +3683,17 @@ Thông thường khi ta set một object bằng `null`, thì object này sẽ đ
 ###### 115. Những hàm nào sẽ trả về `'Hello world!'`?
 
 ```javascript
-const myMap = new Map()
-const myFunc = () => 'greeting'
+const myMap = new Map();
+const myFunc = () => "greeting";
 
-myMap.set(myFunc, 'Hello world!')
+myMap.set(myFunc, "Hello world!");
 
 //1
-myMap.get('greeting')
+myMap.get("greeting");
 //2
-myMap.get(myFunc)
+myMap.get(myFunc);
 //3
-myMap.get(() => 'greeting')
+myMap.get(() => "greeting");
 ```
 
 - A: 1
@@ -3703,7 +3706,7 @@ myMap.get(() => 'greeting')
 
 #### Đáp án: B
 
-Khi ta thêm vào một cặp key/value với từ khóa `set`, key sẽ là đối số đầu tiên đưa vào trong hàm `set` function, và value sẽ là đối số thứ hai.Trong trường hơp này key chính là _hàm_ `() => 'greeting'`, value là `'Hello world'`. `myMap` trở thành `{ () => 'greeting' => 'Hello world!' }`. 
+Khi ta thêm vào một cặp key/value với từ khóa `set`, key sẽ là đối số đầu tiên đưa vào trong hàm `set` function, và value sẽ là đối số thứ hai.Trong trường hơp này key chính là _hàm_ `() => 'greeting'`, value là `'Hello world'`. `myMap` trở thành `{ () => 'greeting' => 'Hello world!' }`.
 
 1 sai, vì key là `() => 'greeting'` chứ không phải là `'greeting'`.
 3 sai, vì khi chúng ta đưa một hàm vào làm đối số trong phương thức `get`, nó sẽ được đưa vào dưới dạng _reference_. Function vốn là object, do đó 2 hàm sẽ không bao giờ là `strictly equal`, mặc dù chúng có trông giống nhau đi chăng nữa thì chúng vẫn trỏ đến các vùng nhớ khác nhau.
@@ -3718,19 +3721,19 @@ Khi ta thêm vào một cặp key/value với từ khóa `set`, key sẽ là đ�
 ```javascript
 const person = {
   name: "Lydia",
-  age: 21
-}
+  age: 21,
+};
 
-const changeAge = (x = { ...person }) => x.age += 1
+const changeAge = (x = { ...person }) => (x.age += 1);
 const changeAgeAndName = (x = { ...person }) => {
-  x.age += 1
-  x.name = "Sarah"
-}
+  x.age += 1;
+  x.name = "Sarah";
+};
 
-changeAge(person)
-changeAgeAndName()
+changeAge(person);
+changeAgeAndName();
 
-console.log(person)
+console.log(person);
 ```
 
 - A: `{name: "Sarah", age: 22}`
@@ -3743,7 +3746,7 @@ console.log(person)
 
 #### Đáp án: C
 
-Cả hai hàm `changeAge` và `changeAgeAndName` đều có tham số mặc định - nó là một _bản copy_ mới của object `{ ...person }`. Object này sẽ copy tất cả những cặp key/values bên trong object `person`. 
+Cả hai hàm `changeAge` và `changeAgeAndName` đều có tham số mặc định - nó là một _bản copy_ mới của object `{ ...person }`. Object này sẽ copy tất cả những cặp key/values bên trong object `person`.
 
 Đầu tiên, chúng ta gọi hàm `changeAge` và đưa chính object `person` vào làm đối số. Hàm này sẽ tăng giá trị của thuộc tính `age` lên 1. `person` lúc này là `{ name: "Lydia", age: 22 }`.
 
@@ -3758,7 +3761,7 @@ Sau đó, chúng ta gọi hàm `changeAgeAndName` tuy nhiên không đưa vào �
 
 ```javascript
 function sumValues(x, y, z) {
-	return x + y + z;
+  return x + y + z;
 }
 ```
 
@@ -3809,15 +3812,15 @@ Với phép toán `+=`, Ta tăng giá trị của `num` lên `1`. `num` có giá
 
 ```javascript
 const person = {
-	firstName: "Lydia",
-	lastName: "Hallie",
-	pet: {
-		name: "Mara",
-		breed: "Dutch Tulip Hound"
-	},
-	getFullName() {
-		return `${this.firstName} ${this.lastName}`;
-	}
+  firstName: "Lydia",
+  lastName: "Hallie",
+  pet: {
+    name: "Mara",
+    breed: "Dutch Tulip Hound",
+  },
+  getFullName() {
+    return `${this.firstName} ${this.lastName}`;
+  },
 };
 
 console.log(person.pet?.name);
@@ -3857,9 +3860,9 @@ Với phép toán optional chaining `?.`, chúng ta sẽ không cần phải che
 const groceries = ["banana", "apple", "peanuts"];
 
 if (groceries.indexOf("banana")) {
-	console.log("We have to buy bananas!");
+  console.log("We have to buy bananas!");
 } else {
-	console.log(`We don't have to buy bananas!`);
+  console.log(`We don't have to buy bananas!`);
 }
 ```
 
@@ -3884,10 +3887,10 @@ Ta đưa một điều kiện `groceries.indexOf("banana")` vào câu lệnh `if
 
 ```javascript
 const config = {
-	languages: [],
-	set language(lang) {
-		return this.languages.push(lang);
-	}
+  languages: [],
+  set language(lang) {
+    return this.languages.push(lang);
+  },
 };
 
 console.log(config.language);
@@ -3941,9 +3944,9 @@ console.log(!typeof name === "string");
 ###### 123. Output là gì?
 
 ```javascript
-const add = x => y => z => {
-	console.log(x, y, z);
-	return x + y + z;
+const add = (x) => (y) => (z) => {
+  console.log(x, y, z);
+  return x + y + z;
 };
 
 add(4)(5)(6);
@@ -3970,16 +3973,16 @@ Hàm `add` trả về một arrow function, arrow function này lại trả về
 
 ```javascript
 async function* range(start, end) {
-	for (let i = start; i <= end; i++) {
-		yield Promise.resolve(i);
-	}
+  for (let i = start; i <= end; i++) {
+    yield Promise.resolve(i);
+  }
 }
 
 (async () => {
-	const gen = range(1, 3);
-	for await (const item of gen) {
-		console.log(item);
-	}
+  const gen = range(1, 3);
+  for await (const item of gen) {
+    console.log(item);
+  }
 })();
 ```
 
@@ -4004,7 +4007,7 @@ Generator `range` trả về một async object với các promise tương ứng
 
 ```javascript
 const myFunc = ({ x, y, z }) => {
-	console.log(x, y, z);
+  console.log(x, y, z);
 };
 
 myFunc(1, 2, 3);
@@ -4127,8 +4130,8 @@ Với phương thức `isNaN`, ta đơn thuần chỉ check xem giá trị đưa
 const randomValue = 21;
 
 function getInfo() {
-	console.log(typeof randomValue);
-	const randomValue = "Lydia Hallie";
+  console.log(typeof randomValue);
+  const randomValue = "Lydia Hallie";
 }
 
 getInfo();
@@ -4157,13 +4160,13 @@ Một biến được khai báo với từ khóa `const` sẽ không thể truy 
 const myPromise = Promise.resolve("Woah some cool data");
 
 (async () => {
-	try {
-		console.log(await myPromise);
-	} catch {
-		throw new Error(`Oops didn't work`);
-	} finally {
-		console.log("Oh finally!");
-	}
+  try {
+    console.log(await myPromise);
+  } catch {
+    throw new Error(`Oops didn't work`);
+  } finally {
+    console.log("Oh finally!");
+  }
 })();
 ```
 
@@ -4213,13 +4216,13 @@ Với phương thức `flat`, ta có thể tạo một mảng mới với các p
 
 ```javascript
 class Counter {
-	constructor() {
-		this.count = 0;
-	}
+  constructor() {
+    this.count = 0;
+  }
 
-	increment() {
-		this.count++;
-	}
+  increment() {
+    this.count++;
+  }
 }
 
 const counterOne = new Counter();
@@ -4263,16 +4266,16 @@ Ta gọi hàm `counterTwo.increment()` để tăng `count` lên `3`. Sau đó ch
 const myPromise = Promise.resolve(Promise.resolve("Promise!"));
 
 function funcOne() {
-	myPromise.then(res => res).then(res => console.log(res));
-	setTimeout(() => console.log("Timeout!", 0));
-	console.log("Last line!");
+  myPromise.then((res) => res).then((res) => console.log(res));
+  setTimeout(() => console.log("Timeout!", 0));
+  console.log("Last line!");
 }
 
 async function funcTwo() {
-	const res = await myPromise;
-	console.log(await res);
-	setTimeout(() => console.log("Timeout!", 0));
-	console.log("Last line!");
+  const res = await myPromise;
+  console.log(await res);
+  setTimeout(() => console.log("Timeout!", 0));
+  console.log("Last line!");
 }
 
 funcOne();
@@ -4309,7 +4312,7 @@ Ta tiếp tục thực thi dòng cuối cùng của `funcTwo`, trả về `Last 
 ```javascript
 // sum.js
 export default function sum(x) {
-	return x + x;
+  return x + x;
 }
 
 // index.js
@@ -4366,8 +4369,8 @@ Ta có thể gọi hàm này bằng cách sử dụng `sum.default`
 
 ```javascript
 const handler = {
-	set: () => console.log("Added a new property!"),
-	get: () => console.log("Accessed a property!")
+  set: () => console.log("Added a new property!"),
+  get: () => console.log("Accessed a property!"),
 };
 
 const person = new Proxy({}, handler);
@@ -4430,10 +4433,10 @@ Tuy nhiên ta vẫn có thể _thay đổi_ các thuộc tính cũ.
 
 ```javascript
 const person = {
-	name: "Lydia Hallie",
-	address: {
-		street: "100 Main St"
-	}
+  name: "Lydia Hallie",
+  address: {
+    street: "100 Main St",
+  },
 };
 
 Object.freeze(person);
@@ -4461,10 +4464,10 @@ Tuy nhiên trên thực tế đây chỉ là đóng băng _nông_ (_shallowly_) 
 ###### 138. Output là gì?
 
 ```javascript
-const add = x => x + x;
+const add = (x) => x + x;
 
 function myFunc(num = 2, value = add(num)) {
-	console.log(num, value);
+  console.log(num, value);
 }
 
 myFunc();
@@ -4494,21 +4497,21 @@ Sau đó ta gọi hàm `myFunc(3)`, khi này `3` sẽ là giá trị của `num`
 
 ```javascript
 class Counter {
-  #number = 10
+  #number = 10;
 
   increment() {
-    this.#number++
+    this.#number++;
   }
 
   getNum() {
-    return this.#number
+    return this.#number;
   }
 }
 
-const counter = new Counter()
-counter.increment()
+const counter = new Counter();
+counter.increment();
 
-console.log(counter.#number)
+console.log(counter.#number);
 ```
 
 - A: `10`
@@ -4532,20 +4535,20 @@ Với cú pháp ES2020, ta có thể thêm các thuộc tính private vào class
 
 ```javascript
 const teams = [
-	{ name: "Team 1", members: ["Paul", "Lisa"] },
-	{ name: "Team 2", members: ["Laura", "Tim"] }
+  { name: "Team 1", members: ["Paul", "Lisa"] },
+  { name: "Team 2", members: ["Laura", "Tim"] },
 ];
 
 function* getMembers(members) {
-	for (let i = 0; i < members.length; i++) {
-		yield members[i];
-	}
+  for (let i = 0; i < members.length; i++) {
+    yield members[i];
+  }
 }
 
 function* getTeams(teams) {
-	for (let i = 0; i < teams.length; i++) {
-		// ✨ SOMETHING IS MISSING HERE ✨
-	}
+  for (let i = 0; i < teams.length; i++) {
+    // ✨ SOMETHING IS MISSING HERE ✨
+  }
 }
 
 const obj = getTeams(teams);
@@ -4570,20 +4573,19 @@ Nếu ta dùng `yield`, `return yield`, hay `return`, toàn bộ generator sẽ 
 </p>
 </details>
 
-
 ---
 
 ###### 141. Output là gì?
 
 ```javascript
 const person = {
-	name: "Lydia Hallie",
-	hobbies: ["coding"]
+  name: "Lydia Hallie",
+  hobbies: ["coding"],
 };
 
 function addHobby(hobby, hobbies = person.hobbies) {
-	hobbies.push(hobby);
-	return hobbies;
+  hobbies.push(hobby);
+  return hobbies;
 }
 
 addHobby("running", []);
@@ -4622,16 +4624,16 @@ Sau khi thêm `dancing` và `baking`, giá trị của `person.hobbies` là `["c
 
 ```javascript
 class Bird {
-	constructor() {
-		console.log("I'm a bird. 🦢");
-	}
+  constructor() {
+    console.log("I'm a bird. 🦢");
+  }
 }
 
 class Flamingo extends Bird {
-	constructor() {
-		console.log("I'm pink. 🌸");
-		super();
-	}
+  constructor() {
+    console.log("I'm pink. 🌸");
+    super();
+  }
 }
 
 const pet = new Flamingo();
@@ -4716,11 +4718,11 @@ Mặc định ta không thể duyệt qua được object. Trừ phi nó đượ
 let count = 0;
 const nums = [0, 1, 2, 3];
 
-nums.forEach(num => {
-	if (num) count += 1
-})
+nums.forEach((num) => {
+  if (num) count += 1;
+});
 
-console.log(count)
+console.log(count);
 ```
 
 - A: 1
@@ -4744,12 +4746,12 @@ Câu lệnh `if` trong vòng lập `forEach` kiểm tra giá trị của `num` l
 
 ```javascript
 function getFruit(fruits) {
-	console.log(fruits?.[1]?.[1])
+  console.log(fruits?.[1]?.[1]);
 }
 
-getFruit([['🍊', '🍌'], ['🍍']])
-getFruit()
-getFruit([['🍍'], ['🍊', '🍌']])
+getFruit([["🍊", "🍌"], ["🍍"]]);
+getFruit();
+getFruit([["🍍"], ["🍊", "🍌"]]);
 ```
 
 - A: `null`, `undefined`, 🍌
@@ -4766,7 +4768,7 @@ Phép toán `?` cho phép ta truy cập giá trị bên trong của object. Chú
 
 Trước tiên, chúng ta thử in ra phần tử thứ hai trong mảng con `['🍍']` của `[['🍊', '🍌'], ['🍍']]`. Mảng con này chỉ chứa một phần tử, nghĩa là không có phần tử nào với thứ tự là `1`, và trả về `undefined`.
 
-Sau đó, ta gọi hàm `getFruits` khi không truyền vào một đối số nào, nghĩa là `fruits` có giá trị mặc định là `undefined`. Vì ta truyền phần tử mang thứ tự `1` của `fruits`, nó trả về `undefined` do phần tử này không tồn tại. 
+Sau đó, ta gọi hàm `getFruits` khi không truyền vào một đối số nào, nghĩa là `fruits` có giá trị mặc định là `undefined`. Vì ta truyền phần tử mang thứ tự `1` của `fruits`, nó trả về `undefined` do phần tử này không tồn tại.
 
 Cuối cùng, ta thử in ra phần tử thứ hai trong mảng con `['🍊', '🍌']` của mảng `['🍍'], ['🍊', '🍌']`. Phần tử mang thứ tự `1` bên trong mảng con này là `🍌` sẽ được in ra.
 
@@ -4779,19 +4781,19 @@ Cuối cùng, ta thử in ra phần tử thứ hai trong mảng con `['🍊', '�
 
 ```javascript
 class Calc {
-	constructor() {
-		this.count = 0 
-	}
+  constructor() {
+    this.count = 0;
+  }
 
-	increase() {
-		this.count ++
-	}
+  increase() {
+    this.count++;
+  }
 }
 
-const calc = new Calc()
-new Calc().increase()
+const calc = new Calc();
+new Calc().increase();
 
-console.log(calc.count)
+console.log(calc.count);
 ```
 
 - A: `0`
@@ -4815,25 +4817,25 @@ Ta set biến `calc` bằng một instance mới của `Calc` class. Sau đó ta
 
 ```javascript
 const user = {
-	email: "e@mail.com",
-	password: "12345"
-}
+  email: "e@mail.com",
+  password: "12345",
+};
 
 const updateUser = ({ email, password }) => {
-	if (email) {
-		Object.assign(user, { email })
-	}
+  if (email) {
+    Object.assign(user, { email });
+  }
 
-	if (password) {
-		user.password = password
-	}
+  if (password) {
+    user.password = password;
+  }
 
-	return user
-}
+  return user;
+};
 
-const updatedUser = updateUser({ email: "new@email.com" })
+const updatedUser = updateUser({ email: "new@email.com" });
 
-console.log(updatedUser === user)
+console.log(updatedUser === user);
 ```
 
 - A: `false`
@@ -4856,13 +4858,13 @@ Hàm `updateUser` thay đổi các giá trị của thuộc tính `email` và `p
 ###### 149. Output là gi?
 
 ```javascript
-const fruit = ['🍌', '🍊', '🍎']
+const fruit = ["🍌", "🍊", "🍎"];
 
-fruit.slice(0, 1)
-fruit.splice(0, 1)
-fruit.unshift('🍇')
+fruit.slice(0, 1);
+fruit.splice(0, 1);
+fruit.unshift("🍇");
 
-console.log(fruit)
+console.log(fruit);
 ```
 
 - A: `['🍌', '🍊', '🍎']`
@@ -4886,13 +4888,13 @@ Trước tiên, ta gọi hàm `slice` trên mảng fruit. Hàm slice không thay
 
 ```javascript
 const animals = {};
-let dog = { emoji: '🐶' }
-let cat = { emoji: '🐈' }
+let dog = { emoji: "🐶" };
+let cat = { emoji: "🐈" };
 
-animals[dog] = { ...dog, name: "Mara" }
-animals[cat] = { ...cat, name: "Sara" }
+animals[dog] = { ...dog, name: "Mara" };
+animals[cat] = { ...cat, name: "Sara" };
 
-console.log(animals[dog])
+console.log(animals[dog]);
 ```
 
 - A: `{ emoji: "🐶", name: "Mara" }`
@@ -4909,7 +4911,7 @@ Các keys của object được chuyển thành các chuỗi.
 
 Do giá trị của `dog` là một object, `animals[dog]` thực sự nghĩa là ta tạo ra một thuộc tính mới gọi là `"object Object"` bằng với object mới. `animals["object Object"]` lúc này bằng với `{ emoji: "🐶", name: "Mara"}`.
 
-`cat` cũng là một object, nên `animals[cat]` thực sự nghĩa là ta thay đổi giá trị của `animals[``"``object Object``"``]` bằng thuộc tính cat mới.
+`cat` cũng là một object, nên `animals[cat]` thực sự nghĩa là ta thay đổi giá trị của ` animals[``"``object Object``"``] ` bằng thuộc tính cat mới.
 
 Khi in ra `animals[dog]`, hoặc thực chất là `animals["object Object"]` vì thay `dog` object bằng một chuỗi thì nó trả về `"object Object"`, ta nhận được `{ emoji: "🐈", name: "Sara" }`.
 
@@ -4922,14 +4924,14 @@ Khi in ra `animals[dog]`, hoặc thực chất là `animals["object Object"]` v�
 
 ```javascript
 const user = {
-	email: "my@email.com",
-	updateEmail: email => {
-		this.email = email
-	}
-}
+  email: "my@email.com",
+  updateEmail: (email) => {
+    this.email = email;
+  },
+};
 
-user.updateEmail("new@email.com")
-console.log(user.email)
+user.updateEmail("new@email.com");
+console.log(user.email);
 ```
 
 - A: `my@email.com`
@@ -4952,20 +4954,20 @@ Hàm `updateEmail` là một cú pháp arrow function và nó không gắn với
 ###### 152. Output là gì?
 
 ```javascript
-const promise1 = Promise.resolve('First')
-const promise2 = Promise.resolve('Second')
-const promise3 = Promise.reject('Third')
-const promise4 = Promise.resolve('Fourth')
+const promise1 = Promise.resolve("First");
+const promise2 = Promise.resolve("Second");
+const promise3 = Promise.reject("Third");
+const promise4 = Promise.resolve("Fourth");
 
 const runPromises = async () => {
-	const res1 = await Promise.all([promise1, promise2])
-	const res2  = await Promise.all([promise3, promise4])
-	return [res1, res2]
-}
+  const res1 = await Promise.all([promise1, promise2]);
+  const res2 = await Promise.all([promise3, promise4]);
+  return [res1, res2];
+};
 
 runPromises()
-	.then(res => console.log(res))
-	.catch(err => console.log(err))
+  .then((res) => console.log(res))
+  .catch((err) => console.log(err));
 ```
 
 - A: `[['First', 'Second'], ['Fourth']]`
@@ -4985,16 +4987,19 @@ Hàm `Promise.all` trả về những promise truyền vào song song nhau. Nế
 
 ---
 
-###### 153. Giá trị nào của `method` sẽ được trả về với log `{ name: "Lydia", age: 22 }`? 
+###### 153. Giá trị nào của `method` sẽ được trả về với log `{ name: "Lydia", age: 22 }`?
 
 ```javascript
-const keys = ["name", "age"]
-const values = ["Lydia", 22]
+const keys = ["name", "age"];
+const values = ["Lydia", 22];
 
-const method = /* ?? */
-Object[method](keys.map((_, i) => {
-	return [keys[i], values[i]]
-})) // { name: "Lydia", age: 22 }
+const method =
+  /* ?? */
+  Object[method](
+    keys.map((_, i) => {
+      return [keys[i], values[i]];
+    })
+  ); // { name: "Lydia", age: 22 }
 ```
 
 - A: `entries`
@@ -5019,18 +5024,18 @@ Theo như trên thì ta tạo ra một mảng gồm những mảng con chứa đ
 ###### 154. Output là gì?
 
 ```javascript
-const createMember = ({ email, address = {}}) => {
-	const validEmail = /.+\@.+\..+/.test(email)
-	if (!validEmail) throw new Error("Valid email pls")
+const createMember = ({ email, address = {} }) => {
+  const validEmail = /.+\@.+\..+/.test(email);
+  if (!validEmail) throw new Error("Valid email pls");
 
-	return {
-		email,
-		address: address ? address : null
-	}
-}
+  return {
+    email,
+    address: address ? address : null,
+  };
+};
 
-const member = createMember({ email: "my@email.com" })
-console.log(member)
+const member = createMember({ email: "my@email.com" });
+console.log(member);
 ```
 
 - A: `{ email: "my@email.com", address: null }`
@@ -5053,13 +5058,13 @@ Giá trị mặc định của `address` là một object rỗng `{}`. Khi ta ch
 ###### 155. Output là gì?
 
 ```javascript
-let randomValue = { name: "Lydia" }
-randomValue = 23
+let randomValue = { name: "Lydia" };
+randomValue = 23;
 
 if (!typeof randomValue === "string") {
-	console.log("It's not a string!")
+  console.log("It's not a string!");
 } else {
-	console.log("Yay it's a string!")
+  console.log("Yay it's a string!");
 }
 ```
 
