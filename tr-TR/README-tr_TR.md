@@ -9,6 +9,7 @@ Cevaplar, soruların altında gizlenmiştir. Görmek için sadece tıklayın. İ
 Daha fazla soru eklendikçe eposta almak ister misiniz?<br />
 <a target="_blank" href="https://www.theavocoder.com/subscribe"><b>✨✉Eposta bildirimlerine abone olun✉✨</b></a>
 
+
 Mevcut dillerin listesi:
 
 - [🇸🇦 العربية](../ar-AR/README_AR.md)
@@ -25,7 +26,6 @@ Mevcut dillerin listesi:
 - [🇳🇱 Nederlands](../nl-NL/README.md)
 - [🇵🇱 Polski](../pl-PL/README.md)
 - [🇧🇷 Português Brasil](../pt-BR/README_pt_BR.md)
-- [🇷o Română](../ro-RO/README.ro.md)
 - [🇷🇺 Русский](../ru-RU/README.md)
 - [🇽🇰 Shqip](../sq-KS/README_sq_KS.md)
 - [🇹🇭 ไทย](../th-TH/README-th_TH.md)
@@ -60,9 +60,8 @@ sayHi();
 #### Cevap: D
 
 Fonksiyonun içinde, önce `var` anahtar kelimesi ile `name` değişkenini tanımladık. Bu demektir ki, değişken varsayılan değeri olan `undefined` ile "hoisting" (hafızada alan oluşturma aşaması) olur, ta ki gerçekten değişkene değer ataması yaptığımız satıra varana dek. `name` değişkenini loglayama çalıştığımız satırda henüz değişkeni tanımlamadık, bu yüzden hala `undefined` değerini saklıyor.
-
+ 
 `let` (ve `const`) anahtar kelimelerine sahip değişkenler de "hoisted" olur, ama `var`'ın aksine <i>ilk değer ataması</i> yapılmaz. Değişkenleri tanımladığımız (ilk değer ataması yaptığımız) satırdan önce erişilebilir değillerdir. Bu, "geçici ölü alan / geçici değişmez çıktı alanı", "temporal dead zone", olarak adlandırılır. Değişkenlere, tanımlanmadan önce erişmeye çalıştığımız zaman, Javascript `ReferenceError` hatası fırlatır.
-
 </p>
 </details>
 
@@ -92,7 +91,6 @@ for (let i = 0; i < 3; i++) {
 Javascript'deki olay kuyruğundan dolayı, `setTimeout` callback fonksiyonu, döngü uygulandıktan _sonra_ çağrılır. `i` değişkeni, ilk döngü sırasında `var` anahtar kelimesi ile tanımlandığından, bu değişken globaldir. Döngü boyunca, `++` unary operatörünü kullanarak, `i`'nin değerini her seferinde `1` arttırdık. İlk örnekte, `setTimeout` callback fonksiyonu çağrıldığı zaman, `i`'nin değeri `3`'e eşitti.
 
 İkinci döngüde, `i` değişkeni `let` anahtar kelimesi kullanılarak tanımlandı: `let` (ve `const`) ile tanımlanan değişkenler "block-scope"dur (block `{}` arasındaki herhangi bir şeydir). Her bir tekrarda, `i` yeni değere sahip olacak ve her değer döngü içinde "scoped" olacak.
-
 </p>
 </details>
 
@@ -106,7 +104,7 @@ const shape = {
   diameter() {
     return this.radius * 2;
   },
-  perimeter: () => 2 * Math.PI * this.radius,
+  perimeter: () => 2 * Math.PI * this.radius
 };
 
 console.log(shape.diameter());
@@ -127,7 +125,7 @@ console.log(shape.perimeter());
 
 Arrow fonksiyonlarda, `this` anahtar kelimesi, sıradan fonksiyonların aksine, kendi sardığı mevcut scope'u referans alır. Bu demektir ki, `perimeter`'i çağırdığımız zaman, `shape` objesini değil, kendi sardığı scope'u referans alıyor (örneğin window).
 
-Bu objede, `radius` değeri olmadığından `undefined` döndürüyor.
+Bu objede, `radius` değeri olmadığından `undefined` döndürüyor. 
 
 </p>
 </details>
@@ -152,8 +150,7 @@ Bu objede, `radius` değeri olmadığından `undefined` döndürüyor.
 
 Artı (unary plus), işlemeye çalıştığı değişkeni sayıya çevirmeye çalışır. `true` `1` ve `false` `0` demektir.
 
-`'Lydia'` harf dizisi doğrusal ("truthy") bir değerdir. Aslında sorduğumuz şey, "bu doğrusal değer yanlış-ımsı ("falsy") mı?". Bu da `false` döndürür.
-
+`'Lydia'` harf dizisi doğrusal ("truthy") bir değerdir. Aslında sorduğumuz şey, "bu doğrusal değer yanlış-ımsı ("falsy") mı?". Bu da `false` döndürür. 
 </p>
 </details>
 
@@ -163,12 +160,12 @@ Artı (unary plus), işlemeye çalıştığı değişkeni sayıya çevirmeye ça
 
 ```javascript
 const bird = {
-  size: "small",
+  size: "small"
 };
 
 const mouse = {
   name: "Mickey",
-  small: true,
+  small: true
 };
 ```
 
@@ -189,11 +186,11 @@ Javascript, ifadeleri yorumlar (ya da açar ("unboxes")). Köşeli parentez nota
 `mouse[bird.size]`: Önce `bird.size` çalıştırılır, o da `"small"` demektir. `mouse["small"]`, `true` döndürür.
 
 Ancak, nokta notasyonunda bu gerçekleşmez. `mouse`, `bird` diye bir keye sahip değildir ki bu da `mouse.bird`, `undefined` demektir. Sonra, nokta notasyonunu kullanarak `size`'a ulaşmak istiyoruz: `mouse.bird.size`. `mouse.bird`, `undefined` olduğundan, aslında ulaşmaya çalıştığımız `undefined.size`. Bu geçerli değil ve `Cannot read property "size" of undefined`'a benzer bir hata fırlatacaktır.
-
 </p>
 </details>
 
 ---
+
 
 ###### 6. Çıktısı Nedir?
 
@@ -256,7 +253,6 @@ console.log(b === c);
 `==` operatörünü kullandığımız zaman, sadece aynı _değer_'e sahip olup olmadığını kontrol eder. İkisi de `3` değerine sahip, yani `true` döndürür.
 
 Ancak, `===` kullandığımız zaman değer _ve_ tip aynı olmalıdır. Öyle değil: `new Number()`, sayı ("number") değildir, **nesne**dir. İkisi de `false` döndürür.
-
 </p>
 </details>
 
@@ -291,7 +287,6 @@ console.log(freddie.colorChange("orange"));
 #### Cevap: D
 
 `colorChange` fonksiyonu statiktir. Statik methodlar, sadece oluşturuldukları kurucuda var olmak için tasarlanmıştır ve herhangi bir "children"a aktarılamaz. `freddie`, "child" olduğundan, fonksiyon aktarılmadı ve `freddie` üzerinden erişilebilir değil: `TypeError` hatası fırlatılır.
-
 </p>
 </details>
 
@@ -317,7 +312,6 @@ console.log(greetign);
 Nesneyi loglar çünkü global nesne üzerinde boş bir nesne oluşturduk. `greeting`'i `greetign` olarak yanlış yazdığımız zaman, JS yorumlayıcısı bunu `global.greetign = {}` olarak gördü (ya da tarayıcı içinde `window.greetign = {}`).
 
 Bundan kaçınmak için, `"use strict"` kullanabiliriz. Bu, bir değişkene herhangi bir atama yapmadan önce tanımladığınızdan emin olmanızı sağlar.
-
 </p>
 </details>
 
@@ -361,7 +355,7 @@ function Person(firstName, lastName) {
 }
 
 const member = new Person("Lydia", "Hallie");
-Person.getFullName = function () {
+Person.getFullName = function() {
   return `${this.firstName} ${this.lastName}`;
 };
 
@@ -379,9 +373,8 @@ console.log(member.getFullName());
 #### Cevap: A
 
 Sıradan fonksiyonlarla yaptığınız gibi bir yapıcıya ("constructor") özellik ekleyemezsiniz. Eğer, tek seferde tüm nesnelere özellik eklemek isterseniz, bunun yerine prototype kullanmalısınız. Yani bu durumda,
-
 ```js
-Person.prototype.getFullName = function () {
+Person.prototype.getFullName = function() {
   return `${this.firstName} ${this.lastName}`;
 };
 ```
@@ -421,7 +414,6 @@ console.log(sarah);
 `sarah` için `new` anahtar kelimesi kullanmadık. `new` kullandığınız zaman, oluşturduğumuz yeni boş nesneyi referans gösterir. Lakin, `new`'i eklemezseniz, **global nesne**'yi referans gösterir!
 
 `this.firstName`, `"Sarah"`'a eşittir ve `this.lastName`, `"Smith"`'e eşittir dedik. Aslında yaptığımız, `global.firstName = 'Sarah'` ve `global.lastName = 'Smith'` diye tanımlamaydı. `sarah`'ın kendisi `undefined` olarak kalır.
-
 </p>
 </details>
 
@@ -439,7 +431,7 @@ console.log(sarah);
 
 #### Cevap: D
 
-**capturing** aşaması süresince, olay ata ("ancestor) elemanlardan hedef elemana doğru gider. Daha sonra **target** elemana ulaşır ve **bubbling** başlar.
+**capturing** aşaması süresince, olay ata ("ancestor) elemanlardan hedef elemana doğru gider. Daha sonra **target** elemana ulaşır ve **bubbling** başlar. 
 
 <img src="https://i.imgur.com/N18oRgd.png" width="200">
 
@@ -459,7 +451,6 @@ console.log(sarah);
 #### Cevap: B
 
 Bütün nesneler prototiplere ("prototypes") sahiptir, **temel nesne**, **base object**, hariç. Temel nesne, kullanıcı tarafından oluşturulmuş nesnedir, ya da `new` anahtar kelimesi kullanarak oluşturulmuş bir nesnedir. Temel nesne bazı method ve özelliklere erişebilir, `.toString` gibi. Yerleşik gelen Javascript methodlarını kullanabilme sebebi budur! Buna benzer tüm methodlar prototip üzerinden erişebilir. Her ne kadar Javascript, methodu direkt olarak nesneniz üzerinden bulamasa da, prototip zinciri üzerinden aşağıya doğru gider ve orada bulur, böylece sizin için erişebilir yapar.
-
 </p>
 </details>
 
@@ -514,6 +505,7 @@ console.log(number);
 #### Cevap: C
 
 **son ek**, **postfix**, `++` unary operatörü:
+
 
 1. Değer döndürür (`0` döndürür)
 2. Değeri arttırır (sayı şimdi `1`)
@@ -694,7 +686,7 @@ sessionStorage.setItem("cool_secret", 123);
 
 `sessionStorage` içinde saklanan veri _sekme_ kapatıldıktan sonra kaldırılır.
 
-Eğer `localStorage` kullandıysanız, veri sonsuza kadar orada olacaktır, örnek olarak `localStorage.clear()` çalıştırılmadığı sürece.
+Eğer `localStorage` kullandıysanız, veri sonsuza kadar orada olacaktır, örnek olarak `localStorage.clear()` çalıştırılmadığı sürece. 
 
 </p>
 </details>
@@ -837,7 +829,7 @@ String.prototype.giveLydiaPizza = () => {
 
 const name = "Lydia";
 
-console.log(name.giveLydiaPizza());
+console.log(name.giveLydiaPizza())
 ```
 
 - A: `"Just give Lydia pizza already!"`
@@ -949,7 +941,9 @@ Burası olay döngüsünün çalışmaya başlayacapı yerdir. **olay döngüsü
 ```html
 <div onclick="console.log('first div')">
   <div onclick="console.log('second div')">
-    <button onclick="console.log('button')">Click!</button>
+    <button onclick="console.log('button')">
+      Click!
+    </button>
   </div>
 </div>
 ```
@@ -975,7 +969,9 @@ Olaya sebep olan en derindeki iç eleman, olayın hedefidir ("event.target"). `e
 
 ```html
 <div onclick="console.log('div')">
-  <p onclick="console.log('p')">Click here!</p>
+  <p onclick="console.log('p')">
+    Click here!
+  </p>
 </div>
 ```
 
@@ -1189,7 +1185,7 @@ Sonra, bu block-scoped değişkeni `1`'e eşit olarak ayarladık ve `y` değişk
 - A: primitifdir ya da nesnedir
 - B: fonksiyondur or nesnedir
 - C: tuzak soru! sadece nesnedir
-- D: sayıdır (number) ya da nesnedir
+- D: sayıdır (number) ya da nesnedir 
 
 <details><summary><b>Cevap</b></summary>
 <p>
@@ -1210,10 +1206,7 @@ Primitif ve nesneyi birbirinden ayıran, primitif tiplerin herhangi bir özelli�
 ###### 40. Çıktısı Nedir?
 
 ```javascript
-[
-  [0, 1],
-  [2, 3],
-].reduce(
+[[0, 1], [2, 3]].reduce(
   (acc, cur) => {
     return acc.concat(cur);
   },
@@ -1339,7 +1332,7 @@ console.log(gen.next().value);
 
 #### Cevap: C
 
-Sıradan fonksiyonlar yürütmenin başlamasının ardından yarı yolda durdurulamaz. Ancak, bir generator fonksiyon yarı yolda "durdurabilir" ve sonra nerede kaldıysa devam edebilir. Bir generator fonksiyon ne zaman `yield` anahtar kelimesiyle karşılaşsa, yield'de belirtilen değeri verir. Dikkat edin, generator fonksiyon değeri _döndürmez_ (_return_), değeri _verir_ (_yield_).
+Sıradan fonksiyonlar yürütmenin başlamasının ardından yarı yolda durdurulamaz. Ancak, bir generator fonksiyon yarı yolda "durdurabilir" ve sonra nerede kaldıysa devam edebilir. Bir generator fonksiyon ne zaman `yield` anahtar kelimesiyle karşılaşsa, yield'de belirtilen değeri verir. Dikkat edin, generator fonksiyon değeri _döndürmez_ (_return_), değeri _verir_ (_yield_). 
 
 Önce, generator fonksiyonu `i`'yi `10`'a eşitleyerek başlatıyoruz. `next()` metodunu kullanarak generator fonksiyonu çalıştırıyoruz. İlk kez generator fonksiyonu çalıştırdığımızda, `i` `10`'a eşit. Fonksiyon ilk `yield` anahtar kelimesi ile karşılaşıyor: `i`'nin değerini veriyor. Generatır şimdi "durdu", ve `10` loglandı.
 
@@ -1361,7 +1354,7 @@ const secondPromise = new Promise((res, rej) => {
   setTimeout(res, 100, "two");
 });
 
-Promise.race([firstPromise, secondPromise]).then((res) => console.log(res));
+Promise.race([firstPromise, secondPromise]).then(res => console.log(res));
 ```
 
 - A: `"one"`
@@ -1413,7 +1406,7 @@ Sonra, `person` değişkenini `null`'a eşit olarak ayarlarız.
 
 <img src="https://i.imgur.com/sYjcsMT.png" width="300">
 
-Sadece `person` değişkeninin değerini değiştiriyoruz, dizideki ilk elemanı değil, ilk eleman nesneyi gösteren farklı (kopyalanmış) bir referansa sahip. `members` içindeki ilk eleman hala orijinal nesneyi gösteren referansını saklıyor. `members` dizisini logladığımız zaman, ilk elemanın hala sakladığı nesnenin değeri loglanır.
+Sadece `person` değişkeninin değerini değiştiriyoruz, dizideki ilk elemanı değil, ilk eleman nesneyi gösteren farklı (kopyalanmış) bir referansa sahip. `members` içindeki ilk eleman hala orijinal nesneyi gösteren referansını saklıyor. `members` dizisini logladığımız zaman, ilk elemanın hala sakladığı nesnenin değeri loglanır.  
 
 </p>
 </details>
@@ -1425,7 +1418,7 @@ Sadece `person` değişkeninin değerini değiştiriyoruz, dizideki ilk elemanı
 ```javascript
 const person = {
   name: "Lydia",
-  age: 21,
+  age: 21
 };
 
 for (const item in person) {
@@ -1505,7 +1498,7 @@ Sadece string içindeki ilk sayılar döndürülür. _Sayı tabanına_ (hangi ti
 ###### 50. Çıktısı Nedir`?
 
 ```javascript
-[1, 2, 3].map((num) => {
+[1, 2, 3].map(num => {
   if (typeof num === "number") return;
   return num * 2;
 });
@@ -1521,7 +1514,7 @@ Sadece string içindeki ilk sayılar döndürülür. _Sayı tabanına_ (hangi ti
 
 #### Cevap: C
 
-Dizi üzerinde eşleme yaparken, `num`'ın değeri, o anda döngüye giren elemanın değerine eşittir. Bu durumda, elemanlar sayı, yani `typeof num === "number"` koşul ifadesi `true` durdurur. map fonksiyonu yeni bir dizi oluşturur ve fonksiyondan dönen değerleri yerleştirir.
+Dizi üzerinde eşleme yaparken, `num`'ın değeri, o anda döngüye giren elemanın değerine eşittir. Bu durumda, elemanlar sayı, yani `typeof num === "number"` koşul ifadesi `true` durdurur. map fonksiyonu yeni bir dizi oluşturur ve fonksiyondan dönen değerleri yerleştirir. 
 
 Ancak, biz değer döndürmüyoruz. Bir fonksiyondan değer döndürmediğimiz zaman, fonksiyon `undefined` döndürür. Dizideki her eleman için, fonksiyon bloğu çağrılır, yani her bir eleman için `undefined` döndürürüz.
 
@@ -1682,7 +1675,7 @@ class Dog {
   }
 }
 
-Dog.prototype.bark = function () {
+Dog.prototype.bark = function() {
   console.log(`Woof I am ${this.name}`);
 };
 
@@ -1910,7 +1903,7 @@ console.log(Object.keys(person));
 const settings = {
   username: "lydiahallie",
   level: 19,
-  health: 90,
+  health: 90
 };
 
 const data = JSON.stringify(settings, ["level", "health"]);
@@ -1929,7 +1922,7 @@ console.log(data);
 
 `JSON.stringify`'ın ikinci argumanı _değiştiricidir_, _"replacer"_. Değiştirici bir fonksiyon ya da bir dizi olabilir, ve değerlerin hangilerinin ve nasıl string'e dönüşeceğini kontrol etmenize izin verir.
 
-Eğer değiştirici _dizi_ ise, sadece dizi içinde ismi geçem özellikler JSON string'e dahil edilmiş olur. Bu durumda, sadece `"level"` ve `"health"` isimli özellikler dahil edildi, `"username"` dışarıda bırakıldı. `data`, `"{"level":19, "health":90}"` eşittir.
+Eğer değiştirici _dizi_ ise, sadece dizi içinde ismi geçem özellikler JSON string'e dahil edilmiş olur. Bu durumda, sadece  `"level"` ve `"health"` isimli özellikler dahil edildi, `"username"` dışarıda bırakıldı. `data`, `"{"level":19, "health":90}"` eşittir.
 
 Eğer değiştirici _fonksiyon_ ise, stringe dönüştürülen her özellik için bu fonksiyon çağrılır. Bu fonksiyondan dönen değer, JSON stringe eklenmiş olacak özelliğin değeri olacaktır. Eğer değer `undefined`'sa, bu özellik JSON stringe dahil edilmez.
 
@@ -1944,7 +1937,7 @@ Eğer değiştirici _fonksiyon_ ise, stringe dönüştürülen her özellik içi
 let num = 10;
 
 const increaseNumber = () => num++;
-const increasePassedNumber = (number) => number++;
+const increasePassedNumber = number => number++;
 
 const num1 = increaseNumber();
 const num2 = increasePassedNumber(num1);
@@ -2032,7 +2025,7 @@ Bu örnekte, geriye bir değer döndürmüyoruz, sadece biriktiricinin değerini
 
 Biriktiricinin değeri, bir önceki callback fonksiyonunun dönen değerine eşittir. Eğer, opsiyonel olan `initialValue` agümanını `reduce` methoduna geçmezseniz, biriktiricinin değeri, ilk çağrılışta gelen elemana eşit olur.
 
-İlk çağrılışta, biriktirici (`x`) `1`'dir, ve `y`'nin o anki değeri `2`'dir. callback fonksiyonundan bir şey döndürmüyoruz, biriktiriciyi ve o anki değeri logluyoruz: `1` ve `2` loglanır.
+İlk çağrılışta, biriktirici (`x`) `1`'dir, ve `y`'nin o anki değeri `2`'dir. callback fonksiyonundan bir şey döndürmüyoruz, biriktiriciyi ve o anki değeri logluyoruz: `1`  ve `2` loglanır.
 
 Eğer bir fonksiyondan değer döndürmezseniz, fonksiyon `undefined` döndürür. Sonraki çağrılışta, biriktirici `undefined`, ve o anki geçerli değer `3`'tür. `undefined` ve `3` loglanır.
 
@@ -2053,7 +2046,7 @@ class Dog {
 };
 
 class Labrador extends Dog {
-  // 1
+  // 1 
   constructor(name, size) {
     this.size = size;
   }
@@ -2067,7 +2060,7 @@ class Labrador extends Dog {
     super(name);
     this.size = size;
   }
-  // 4
+  // 4 
   constructor(name, size) {
     this.name = name;
     this.size = size;
@@ -2090,7 +2083,7 @@ Türetilmiş bir sınıfta, `super`'i çağırmadan önce `this` anahtar kelimes
 
 `super` anahtar kelimesiyle, parent sınıfın yapıcı methodunu verilen argümanlarla beraber çağırırız. Parent sınıfın yapıcısı `name` argümanını alıyor, bu yüzden `super`'e `name`'i vermemiz gerek.
 
-`Dog` sınıfı iki argüman alıyor, `name` `Animal` sınıfından türediğinden, ve `size` `Dog` sınıfı üzerinde ekstra özellik olarak. İkisinin de `Dog` yapıcı methoduna geçilmesi gerek, bu da 2. yapıcı methodda doğru şekilde kullanılarak yapılmıştır.
+`Dog` sınıfı iki argüman alıyor, `name` `Animal` sınıfından türediğinden, ve `size` `Dog` sınıfı üzerinde ekstra özellik olarak. İkisinin de `Dog` yapıcı methoduna  geçilmesi gerek, bu da 2. yapıcı methodda doğru şekilde kullanılarak yapılmıştır.
 
 </p>
 </details>
@@ -2101,12 +2094,12 @@ Türetilmiş bir sınıfta, `super`'i çağırmadan önce `this` anahtar kelimes
 
 ```javascript
 // index.js
-console.log("running index.js");
-import { sum } from "./sum.js";
+console.log('running index.js');
+import { sum } from './sum.js';
 console.log(sum(1, 2));
 
 // sum.js
-console.log("running sum.js");
+console.log('running sum.js');
 export const sum = (a, b) => a + b;
 ```
 
@@ -2132,9 +2125,9 @@ CommonJS'deki `require()` ve `import` arasındaki fark budur! `require()` ile, b
 ###### 68. Çıktısı Nedir?
 
 ```javascript
-console.log(Number(2) === Number(2));
-console.log(Boolean(false) === Boolean(false));
-console.log(Symbol("foo") === Symbol("foo"));
+console.log(Number(2) === Number(2))
+console.log(Boolean(false) === Boolean(false))
+console.log(Symbol('foo') === Symbol('foo'))
 ```
 
 - A: `true`, `true`, `false`
@@ -2157,15 +2150,15 @@ Her Symbol tamamen benzersizdir. Symbol'e geçilen argümanın amacı, Symbol'e 
 ###### 69. Çıktısı Nedir?
 
 ```javascript
-const name = "Lydia Hallie";
-console.log(name.padStart(13));
-console.log(name.padStart(2));
+const name = "Lydia Hallie"
+console.log(name.padStart(13))
+console.log(name.padStart(2))
 ```
 
 - A: `"Lydia Hallie"`, `"Lydia Hallie"`
 - B: `"           Lydia Hallie"`, `"  Lydia Hallie"` (`"[13x whitespace]Lydia Hallie"`, `"[2x whitespace]Lydia Hallie"`)
 - C: `" Lydia Hallie"`, `"Lydia Hallie"` (`"[1x whitespace]Lydia Hallie"`, `"Lydia Hallie"`)
-- D: `"Lydia Hallie"`, `"Lyd"`,
+- D: `"Lydia Hallie"`, `"Lyd"`, 
 
 <details><summary><b>Cevap</b></summary>
 <p>
@@ -2198,7 +2191,6 @@ console.log("🥑" + "💻");
 #### Cevap: A
 
 `+` operatörü ile stringleri birleştirebilirsiniz. Bu örnekte, `"🥑"` ile `"💻"` birleştiriyoruz, `"🥑💻"` olarak sonuçlanıyor.
-
 </p>
 </details>
 
@@ -2394,7 +2386,7 @@ Eşitliğin sağ tarafındaki nesneden `name` özelliğini çıkarttığımız z
 
 `{ name: myName }` ile, JavaScript'e diyoruz ki; eşitliğin sağ tarafındaki `name` özelliğinin değeriyle birlikte `myName` diye bir değişken tanımlamak istiyoruz.
 
-`name`'i loglamayı denediğimizden dolayı, ki bu değişken tanımlanmamış, ReferenceError fırlatılır.
+`name`'i loglamayı denediğimizden dolayı, ki bu değişken tanımlanmamış, ReferenceError fırlatılır. 
 
 </p>
 </details>
@@ -2431,7 +2423,7 @@ Saf fonksiyon, aynı argümanlar geçildiği zaman, _her zaman_ aynı sonucu dö
 ```javascript
 const add = () => {
   const cache = {};
-  return (num) => {
+  return num => {
     if (num in cache) {
       return `From cache! ${cache[num]}`;
     } else {
@@ -2463,9 +2455,9 @@ console.log(addFunction(5 * 2));
 Eğer `addFunction` fonksiyonunu aynı argüman ile tekrar çağırırsak, önce cache içinde o değerin hali hazırda olup olmadığını kontrol eder. Eğer varsa, cache değeri döndürülecektir ki böylece çalışma zamanından tasarruf sağlanır. Eğer yoksa, cache'lenmemişse, değeri hesaplayıp ardından saklayacaktır.
 
 `addFunction` fonksiyonunu üç kez aynı değer ile çağırıyoruz: ilk çağırmada, `num` `10`'a eşit olduğu zaman fonksiyonun değeri henüz cache'lenmemiş. `num in cache` if ifadesi `false` döndürür
-ve else bloğu çalıştırılır: `Calculated! 20` loglanır, ve sonuç cache nesnesine eklenir. `cache` şimdi şuna benziyor; `{ 10: 20 }`
+ ve else bloğu çalıştırılır: `Calculated! 20` loglanır, ve sonuç cache nesnesine eklenir. `cache` şimdi şuna benziyor; `{ 10: 20 }`
 
-İkincide, `cache` nesnesi `10` için döndürülen değeri içeriyor. `num in cache` if ifadesi `true` döndürür, ve `'From cache! 20'` loglanır.
+İkincide, `cache` nesnesi `10` için döndürülen değeri içeriyor. `num in cache` if ifadesi `true` döndürür, ve `'From cache! 20'` loglanır. 
 
 Üçüncü sefer de, fonksiyona `5 * 2` geçiyoruz ki bu da `10` olarak değerlendirilir. `cache` nesnesi `10` için döndürülen değeri içeriyor. `num in cache` if ifadesi `true` döndürür, ve `'From cache! 20'` loglanır.
 
@@ -2477,21 +2469,21 @@ ve else bloğu çalıştırılır: `Calculated! 20` loglanır, ve sonuç cache n
 ###### <a name=20190726></a>79. Çıktısı Nedir?
 
 ```javascript
-const myLifeSummedUp = ["☕", "💻", "🍷", "🍫"];
+const myLifeSummedUp = ["☕", "💻", "🍷", "🍫"]
 
 for (let item in myLifeSummedUp) {
-  console.log(item);
+  console.log(item)
 }
 
 for (let item of myLifeSummedUp) {
-  console.log(item);
+  console.log(item)
 }
 ```
 
 - A: `0` `1` `2` `3` ve `"☕"` ` "💻"` `"🍷"` `"🍫"`
 - B: `"☕"` ` "💻"` `"🍷"` `"🍫"` ve `"☕"` ` "💻"` `"🍷"` `"🍫"`
 - C: `"☕"` ` "💻"` `"🍷"` `"🍫"` ve `0` `1` `2` `3`
-- D: `0` `1` `2` `3` ve `{0: "☕", 1: "💻", 2: "🍷", 3: "🍫"}`
+- D:  `0` `1` `2` `3` ve `{0: "☕", 1: "💻", 2: "🍷", 3: "🍫"}`
 
 <details><summary><b>Cevap</b></summary>
 <p>
@@ -2514,14 +2506,14 @@ _for-of_ döngüsü ile, **yinelenebilirler** (**iterables**) üzerinde iterasyo
 ###### 80. Çıktısı Nedir?
 
 ```javascript
-const list = [1 + 2, 1 * 2, 1 / 2];
-console.log(list);
+const list = [1 + 2, 1 * 2, 1 / 2]
+console.log(list)
 ```
 
 - A: `["1 + 2", "1 * 2", "1 / 2"]`
 - B: `["12", 2, 0.5]`
 - C: `[3, 2, 0.5]`
-- D: `[1, 1, 1]`
+- D:  `[1, 1, 1]`
 
 <details><summary><b>Cevap</b></summary>
 <p>
@@ -2541,16 +2533,16 @@ Eleman dönen değere eşit olacaktır. `1 + 2` `3` döndürür, `1 * 2` `2` dö
 
 ```javascript
 function sayHi(name) {
-  return `Hi there, ${name}`;
+  return `Hi there, ${name}`
 }
 
-console.log(sayHi());
+console.log(sayHi())
 ```
 
 - A: `Hi there, `
 - B: `Hi there, undefined`
 - C: `Hi there, null`
-- D: `ReferenceError`
+- D:  `ReferenceError`
 
 <details><summary><b>Cevap</b></summary>
 <p>
@@ -2573,21 +2565,21 @@ Bu örnekte, eğer bir değer geçmeseydik ya da `undefined` geçseydik, `name` 
 ###### 82. Çıktısı Nedir?
 
 ```javascript
-var status = "😎";
+var status = "😎"
 
 setTimeout(() => {
-  const status = "😍";
+  const status = "😍"
 
   const data = {
     status: "🥑",
     getStatus() {
-      return this.status;
-    },
-  };
+      return this.status
+    }
+  }
 
-  console.log(data.getStatus());
-  console.log(data.getStatus.call(this));
-}, 0);
+  console.log(data.getStatus())
+  console.log(data.getStatus.call(this))
+}, 0)
 ```
 
 - A: `"🥑"` ve `"😍"`
@@ -2614,13 +2606,13 @@ setTimeout(() => {
 ```javascript
 const person = {
   name: "Lydia",
-  age: 21,
-};
+  age: 21
+}
 
-let city = person.city;
-city = "Amsterdam";
+let city = person.city
+city = "Amsterdam"
 
-console.log(person);
+console.log(person)
 ```
 
 - A: `{ name: "Lydia", age: 21 }`
@@ -2632,13 +2624,13 @@ console.log(person);
 <p>
 
 #### Cevap: A
-
+ 
 `city` değişkenini, `person` nesnesindeki `city` özelliğinin değerine eşitledik. `person` nesnesinde `city` diye isimlendirilmiş bir özellik yok, bu yüzden `city` değişkeni `undefined` değerine sahip olur.
 
 `person` nesnesinin kendisini referans _göstermediğimize_ dikkat edin! Sadece `city` değişkenini, `person` nesnesindeki `city` özelliğinin o andaki değerine eşitledik.
 
 Sonra, `city`'i `"Amsterdam"` string'ine eşitledik. Bu `person` nesnesini değiştirmez: bu nesneye referans yok.
-
+  
 `person` nesnesini logladığımız zaman, değişikliğe uğramamış nesne döndürülür.
 
 </p>
@@ -2651,15 +2643,15 @@ Sonra, `city`'i `"Amsterdam"` string'ine eşitledik. Bu `person` nesnesini deği
 ```javascript
 function checkAge(age) {
   if (age < 18) {
-    const message = "Sorry, you're too young.";
+    const message = "Sorry, you're too young."
   } else {
-    const message = "Yay! You're old enough!";
+    const message = "Yay! You're old enough!"
   }
 
-  return message;
+  return message
 }
 
-console.log(checkAge(21));
+console.log(checkAge(21))
 ```
 
 - A: `"Sorry, you're too young."`
@@ -2682,15 +2674,15 @@ console.log(checkAge(21));
 ###### 85. Loglanacak değer ne tür olur?
 
 ```javascript
-fetch("https://www.website.com/api/user/1")
-  .then((res) => res.json())
-  .then((res) => console.log(res));
+fetch('https://www.website.com/api/user/1')
+  .then(res => res.json())
+  .then(res => console.log(res))
 ```
 
 - A: `fetch` methodunun sonucu.
 - B: `fetch` methodunun ikinci kez çağrılmasından dönen sonuç.
 - C: Bir önceki `.then()`'in sonucu.
-- D: Her zaman `undefined` olacaktır.
+- D: Her zaman `undefined` olacaktır. 
 
 <details><summary><b>Cevap</b></summary>
 <p>
@@ -2738,7 +2730,7 @@ function getName(name) {
 ###### <a name=20190805></a>87. Çıktısı Nedir?
 
 ```javascript
-console.log("I want pizza"[0]);
+console.log("I want pizza"[0])
 ```
 
 - A: `"""`
@@ -2764,10 +2756,10 @@ Bu yöntemin IE7 ve altında desteklenmediğine dikkat edin. Bu durumda, `.charA
 
 ```javascript
 function sum(num1, num2 = num1) {
-  console.log(num1 + num2);
+  console.log(num1 + num2)
 }
 
-sum(10);
+sum(10)
 ```
 
 - A: `NaN`
@@ -2781,7 +2773,7 @@ sum(10);
 #### Cevap: B
 
 Varsayılan parametrenin değerini fonksiyonun başka parametresine eşitleyebilirsiniz, varsayılan parametreden _önce_ tanımladıkları müddetçe. `sum` fonksiyonuna `10` değerini geçtik. Eğer `sum` fonksiyonu sadece 1 argüman alırsa, `num2` değeri geçilmedi demektir, ve `num1`'ın değeri geçtiğimiz `10` değerine eşittir bu durumda. `num2`'nun varsayılan değeri `num1`'dır ki o da `10`'dur. `num1 + num2` `20` döndürür.
-
+ 
 Eğer varsayılan parametrenin değerini, _sonrasında_ (sağında) tanımlanmış bir parametreye eşitlemeye çalışıyorsanız, parametrenin değeri henüz oluşturulmamıştır, hata fırlatacaktır.
 
 </p>
@@ -2792,14 +2784,14 @@ Eğer varsayılan parametrenin değerini, _sonrasında_ (sağında) tanımlanmı
 ###### 89. Çıktısı Nedir?
 
 ```javascript
-// module.js
-export default () => "Hello world";
-export const name = "Lydia";
+// module.js 
+export default () => "Hello world"
+export const name = "Lydia"
 
-// index.js
-import * as data from "./module";
+// index.js 
+import * as data from "./module"
 
-console.log(data);
+console.log(data)
 ```
 
 - A: `{ default: function default(), name: "Lydia" }`
@@ -2826,12 +2818,12 @@ console.log(data);
 ```javascript
 class Person {
   constructor(name) {
-    this.name = name;
+    this.name = name
   }
 }
 
-const member = new Person("John");
-console.log(typeof member);
+const member = new Person("John")
+console.log(typeof member)
 ```
 
 - A: `"class"`
@@ -2848,7 +2840,7 @@ Sınıflar fonksiyon yapıcıları için "syntactical sugar"dır. `Person` sın�
 
 ```javascript
 function Person() {
-  this.name = name;
+  this.name = name
 }
 ```
 
@@ -2862,9 +2854,9 @@ Bir fonksiyon yapıcısını `new` ile çağırmak `Person` "instance" oluşturu
 ###### 91. Çıktısı Nedir?
 
 ```javascript
-let newList = [1, 2, 3].push(4);
+let newList = [1, 2, 3].push(4)
 
-console.log(newList.push(5));
+console.log(newList.push(5))
 ```
 
 - A: `[1, 2, 3, 4, 5]`
@@ -2877,7 +2869,7 @@ console.log(newList.push(5));
 
 #### Cevap: D
 
-`.push` methodu dizinin _yeni uzunluğunu_ döndürür, dizinin kendisini değil! `newList`'i `[1, 2, 3].push(4)`'a eşitleyerek, `newList`'i dizinin yeni uzunluğuna eşitledik: `4`.
+`.push` methodu dizinin _yeni uzunluğunu_ döndürür, dizinin kendisini değil! `newList`'i  `[1, 2, 3].push(4)`'a eşitleyerek, `newList`'i dizinin yeni uzunluğuna eşitledik: `4`.
 
 Sonra, `.push` methodunu `newList` üzerinde kullanmayı denedik. `newList` sayısal değer `4` olduğundan, `.push` methodunu kullanamayız: TypeError fırlatılır.
 
@@ -2890,18 +2882,17 @@ Sonra, `.push` methodunu `newList` üzerinde kullanmayı denedik. `newList` say�
 
 ```javascript
 function giveLydiaPizza() {
-  return "Here is pizza!";
+  return "Here is pizza!"
 }
 
-const giveLydiaChocolate = () =>
-  "Here's chocolate... now go hit the gym already.";
+const giveLydiaChocolate = () => "Here's chocolate... now go hit the gym already."
 
-console.log(giveLydiaPizza.prototype);
-console.log(giveLydiaChocolate.prototype);
+console.log(giveLydiaPizza.prototype)
+console.log(giveLydiaChocolate.prototype)
 ```
 
-- A: `{ constructor: ...}` `{ constructor: ...}`
-- B: `{}` `{ constructor: ...}`
+- A: `{ constructor: ...}` `{ constructor: ...}` 
+- B: `{}` `{ constructor: ...}` 
 - C: `{ constructor: ...}` `{}`
 - D: `{ constructor: ...}` `undefined`
 
@@ -2910,7 +2901,7 @@ console.log(giveLydiaChocolate.prototype);
 
 #### Cevap: D
 
-Sıradan fonksiyonlar, `giveLydiaPizza` gibi, `constructor` özelliği olan `prototype` nesnesi özelliğine sahiptir. Ancak ok fonksiyonlar (arrow functions), `giveLydiaChocolate` gibi, bu `prototype` özelliğine sahip değildir. `giveLydiaChocolate.prototype` ile `prototype` özelliğine erişmeye çalışıldığında `undefined` döndürülür.
+Sıradan fonksiyonlar, `giveLydiaPizza` gibi, `constructor` özelliği olan `prototype` nesnesi özelliğine sahiptir. Ancak ok fonksiyonlar (arrow functions), `giveLydiaChocolate` gibi, bu `prototype` özelliğine sahip değildir. `giveLydiaChocolate.prototype` ile `prototype` özelliğine erişmeye çalışıldığında `undefined` döndürülür. 
 
 </p>
 </details>
@@ -2922,16 +2913,16 @@ Sıradan fonksiyonlar, `giveLydiaPizza` gibi, `constructor` özelliği olan `pro
 ```javascript
 const person = {
   name: "Lydia",
-  age: 21,
-};
+  age: 21
+}
 
 for (const [x, y] of Object.entries(person)) {
-  console.log(x, y);
+  console.log(x, y)
 }
 ```
 
 - A: `name` `Lydia` ve `age` `21`
-- B: `["name", "Lydia"]` ve `["age", 21]`
+- B: `["name", "Lydia"]` ve `["age", 21]` 
 - C: `["name", "age"]` ve `undefined`
 - D: `Error`
 
@@ -2942,7 +2933,7 @@ for (const [x, y] of Object.entries(person)) {
 
 `Object.entries(person)` key ve nesneleri içeren dizilerden oluşan dizi döndürür:
 
-`[ [ 'name', 'Lydia' ], [ 'age', 21 ] ]`
+`[ [ 'name', 'Lydia' ], [ 'age', 21 ] ]` 
 
 `for-of` döngüsünü kullanarak, dizi içindeki her bir elemanı gezebiliriz, alt dizileri bu örnekte. for-of döngüsü içinde alt dizileri `const [x, y]` kullanarak parçalayabiliriz. `x` alt dizideki ilk elemana, `y` alt dizideki ikinci elemana eşittir.
 
@@ -2965,7 +2956,7 @@ getItems(["banana", "apple"], "pear", "orange")
 ```
 
 - A: `["banana", "apple", "pear", "orange"]`
-- B: `[["banana", "apple"], "pear", "orange"]`
+- B: `[["banana", "apple"], "pear", "orange"]` 
 - C: `["banana", "apple", ["pear"], "orange"]`
 - D: `SyntaxError`
 
@@ -2978,10 +2969,10 @@ getItems(["banana", "apple"], "pear", "orange")
 
 ```javascript
 function getItems(fruitList, favoriteFruit, ...args) {
-  return [...fruitList, ...args, favoriteFruit];
+  return [...fruitList, ...args, favoriteFruit]
 }
 
-getItems(["banana", "apple"], "pear", "orange");
+getItems(["banana", "apple"], "pear", "orange")
 ```
 
 Yukarıdaki örnek çalışır. `[ 'banana', 'apple', 'orange', 'pear' ]` dizisini döndürür.
@@ -2995,14 +2986,17 @@ Yukarıdaki örnek çalışır. `[ 'banana', 'apple', 'orange', 'pear' ]` dizisi
 
 ```javascript
 function nums(a, b) {
-  if (a > b) console.log("a is bigger");
-  else console.log("b is bigger");
-  return;
-  a + b;
+  if
+  (a > b)
+  console.log('a is bigger')
+  else 
+  console.log('b is bigger')
+  return 
+  a + b
 }
 
-console.log(nums(4, 2));
-console.log(nums(1, 2));
+console.log(nums(4, 2))
+console.log(nums(1, 2))
 ```
 
 - A: `a is bigger`, `6` ve `b is bigger`, `3`
@@ -3015,13 +3009,13 @@ console.log(nums(1, 2));
 
 #### Cevap: B
 
-JavaScript'te, noktalı virgülü (`;`) özellikle yazmak _zorunda değiliz_, ancak JavaScript motoru ifadelerden sonra noktalı virgül eklemektedir. bu **Automatic Semicolon Insertion**, **Otomatik Noktalı Virgül Ekleme**, olarak adlandırılır. İfade, örneğin, değişkenler ya da `throw`, `return`, `break`, vb. gibi anahtar kelimeler olabilir.
+JavaScript'te, noktalı virgülü (`;`) özellikle yazmak _zorunda değiliz_, ancak JavaScript motoru ifadelerden sonra noktalı virgül eklemektedir. bu **Automatic Semicolon Insertion**, **Otomatik Noktalı Virgül Ekleme**, olarak adlandırılır. İfade, örneğin, değişkenler ya da `throw`, `return`, `break`, vb. gibi anahtar kelimeler olabilir. 
 
-Burada, bir `return` ifadesi yazdık, ve _yeni bir satırda_ başka bir değer olarak `a + b`. Ancak, `a + b` yeni satırda olduğundan, JavaScript motoru onun aslında bizim döndürmek istediğimiz değer olduğunu bilmiyor. Onun yerine, `return`'den sonra otomatik olarak noktalı virgül ekliyor. Şöyle düşünebilirsiniz:
-
+Burada, bir `return` ifadesi yazdık, ve _yeni bir satırda_ başka bir değer olarak `a + b`. Ancak, `a + b` yeni satırda olduğundan, JavaScript motoru onun aslında bizim döndürmek istediğimiz değer olduğunu bilmiyor. Onun yerine, `return`'den sonra otomatik olarak noktalı virgül ekliyor. Şöyle düşünebilirsiniz: 
+  
 ```javascript
-return;
-a + b;
+  return;
+  a + b
 ```
 
 Fonksiyon `return` anahtar kelimesinden sonra çalışmayı durduracağından, `a + b` asla ulaşılamaz demektir. Eğer hiçbir değer döndürülmezse, fonksiyon `undefined` döndürür. Dikkat etmeniz gereken, `if/else` ifadelerinden sonra otomatik ekleme yapılmadığıdır!
@@ -3036,18 +3030,18 @@ Fonksiyon `return` anahtar kelimesinden sonra çalışmayı durduracağından, `
 ```javascript
 class Person {
   constructor() {
-    this.name = "Lydia";
+    this.name = "Lydia"
   }
 }
 
 Person = class AnotherPerson {
   constructor() {
-    this.name = "Sarah";
+    this.name = "Sarah"
   }
-};
+}
 
-const member = new Person();
-console.log(member.name);
+const member = new Person()
+console.log(member.name)
 ```
 
 - A: `"Lydia"`
@@ -3071,11 +3065,11 @@ Sınıfları diğer sınıf/fonksiyon yapıcılara eşitleyebiliriz. Bu örnekte
 
 ```javascript
 const info = {
-  [Symbol("a")]: "b",
-};
+  [Symbol('a')]: 'b'
+}
 
-console.log(info);
-console.log(Object.keys(info));
+console.log(info)
+console.log(Object.keys(info))
 ```
 
 - A: `{Symbol('a'): 'b'}` ve `["{Symbol('a')"]`
@@ -3090,7 +3084,7 @@ console.log(Object.keys(info));
 
 Symbol _sayılabilir_, "_enumerable_" değildir. Object.keys methodu nesne üzerindeki tüm _sayılabilir_ özellikleri döndürür. Symbol gizli kalır ve boş bir dizi döndürülür. Tüm nesne loglandığı zaman, bütün özellikler görülebilir, sayılabilir olmayanlar bile.
 
-Bu symbol'ün birçok özelliğinden birisidir: tamamen benzersiz bir değer temsil etmenin yanında (ki nesneler üzerindeki kazara isim çakışmasını önler, örneğin aynı nesneye özellikler eklemek isteyen 2 kütüphaneyle çalışırken), ayrıca bu yolla nesne üzerindeki özellikleri "saklayabilirsiniz" (gerçi tamamen değil. `Object.getOwnPropertySymbols()` methodunu kullanarak symbol'lere hala erişebilirsiniz).
+Bu symbol'ün birçok  özelliğinden birisidir: tamamen benzersiz bir değer temsil etmenin yanında (ki nesneler üzerindeki kazara isim çakışmasını önler, örneğin aynı nesneye özellikler eklemek isteyen 2 kütüphaneyle çalışırken), ayrıca bu yolla nesne üzerindeki özellikleri "saklayabilirsiniz" (gerçi tamamen değil. `Object.getOwnPropertySymbols()` methodunu kullanarak symbol'lere hala erişebilirsiniz).
 
 </p>
 </details>
@@ -3122,13 +3116,13 @@ console.log(getUser(user))
 
 `getList` fonksiyonu argüman olarak bir dizi alır. `getList` fonksiyonunun parentezleri arasında, bu diziyi anında parçalıyoruz. Şu şekilde görebilirsiniz:
 
-`[x, ...y] = [1, 2, 3, 4]`
+ `[x, ...y] = [1, 2, 3, 4]`
 
-`...y` rest parametresi ile, dizi içinde "geriye kalan" tüm argümanları topluyoruz. Geriye kalan argümanlar `2`, `3`, ve `4` bu durumda. `y`'nin değeri tüm rest parametleri içeren bir dizi. `x`'in değeri `1`'a eşit, yani `[x, y]` logladığımız zaman, `[1, [2, 3, 4]]` loglanır.
+ `...y` rest parametresi ile, dizi içinde "geriye kalan" tüm argümanları topluyoruz. Geriye kalan argümanlar `2`, `3`, ve `4` bu durumda. `y`'nin değeri tüm rest parametleri içeren bir dizi. `x`'in değeri `1`'a eşit, yani `[x, y]` logladığımız zaman, `[1, [2, 3, 4]]` loglanır.
 
-`getUser` fonksiyonu bir nesne alıyor. Ok fonksiyonlar ile, eğer sadece bir değer döndürmek istiyorsak süslü parentezleri yazmak _zorunda değiliz._ Ancak, bir ok fonksiyondan bir _nesne_ döndürmek istiyorsanız, parentezler arasında yazmak zorundasınız, aksi halde değer döndürülmez! Aşağıdaki fonksiyon bir nesne döndürecektir:
+ `getUser` fonksiyonu bir nesne alıyor. Ok fonksiyonlar ile, eğer sadece bir değer döndürmek istiyorsak süslü parentezleri yazmak _zorunda değiliz._ Ancak, bir ok fonksiyondan bir _nesne_ döndürmek istiyorsanız, parentezler arasında yazmak zorundasınız, aksi halde değer döndürülmez! Aşağıdaki fonksiyon bir nesne döndürecektir:
 
-`const getUser = user => ({ name: user.name, age: user.age })`
+```const getUser = user => ({ name: user.name, age: user.age })```
 
 Bu örnekte değer döndürülmediği için, fonksiyon `undefined` döndürür.
 
@@ -3140,9 +3134,9 @@ Bu örnekte değer döndürülmediği için, fonksiyon `undefined` döndürür.
 ###### 99. Çıktısı Nedir?
 
 ```javascript
-const name = "Lydia";
+const name = "Lydia"
 
-console.log(name());
+console.log(name())
 ```
 
 - A: `SyntaxError`
@@ -3155,11 +3149,11 @@ console.log(name());
 
 #### Cevap: C
 
-`name` değişkeni string bir değer saklıyor, ki bu bir fonksiyon değil, bu yüzden çağrılamaz.
+ `name` değişkeni string bir değer saklıyor, ki bu bir fonksiyon değil, bu yüzden çağrılamaz.
 
-TypeError'lar bir değer beklenilen tipte olmadığı zaman fırlatılır. `name`'i çağırmaya çalıştığımızdan, JavaScript `name`'in bir fonksiyon olmasını bekliyor. Ancak o bir string, bu yüzden TypeError fırlatılır: name is not a function!
+TypeError'lar bir değer beklenilen tipte olmadığı zaman fırlatılır. `name`'i çağırmaya çalıştığımızdan, JavaScript `name`'in bir fonksiyon olmasını bekliyor. Ancak o bir string, bu yüzden TypeError fırlatılır: name is not a function! 
 
-SyntaxError'lar JavaScript'in geçerli olmadığı bir şeyler yazdığız zaman fırlatılır, örneğin `return`'ü `retrun` olarak yazdığınız zaman.
+SyntaxError'lar JavaScript'in geçerli olmadığı bir şeyler yazdığız zaman fırlatılır, örneğin `return`'ü `retrun` olarak yazdığınız zaman.  
 
 ReferenceError'lar erişmeye çalıştığınız değer için JavaScript referans bulamadığı zaman fırlatılır.
 
@@ -3173,8 +3167,8 @@ ReferenceError'lar erişmeye çalıştığınız değer için JavaScript referan
 ```javascript
 // 🎉✨ 100. soru! ✨🎉
 
-const output = `${[] && "Im"}possible!
-You should${"" && `n't`} see a therapist after so much JavaScript lol`;
+const output = `${[] && 'Im'}possible!
+You should${'' && `n't`} see a therapist after so much JavaScript lol`
 ```
 
 - A: `possible! You should see a therapist after so much JavaScript lol`
@@ -3189,7 +3183,7 @@ You should${"" && `n't`} see a therapist after so much JavaScript lol`;
 
 `[]` doğrusal bir değerdir. `&&` operatörü ile, eğer soldaki değer doğrusal bir değerse sağdaki değer döndürülür. Bu örnekte, soldaki değer `[]` doğrusal bir değerdir, böylece `"Im"` döndürülür.
 
-`""` yanlış-ımsı bir değerdir. Eğer soldaki değer yanlış-ımsı ise, bir şey döndürülmez. `n't` döndürülmedi.
+`""` yanlış-ımsı bir değerdir. Eğer soldaki değer yanlış-ımsı ise, bir şey döndürülmez. `n't` döndürülmedi. 
 
 </p>
 </details>
@@ -3199,11 +3193,11 @@ You should${"" && `n't`} see a therapist after so much JavaScript lol`;
 ###### 101. Çıktısı Nedir?
 
 ```javascript
-const one = false || {} || null;
-const two = null || false || "";
-const three = [] || 0 || true;
+const one = (false || {} || null)
+const two = (null || false || "")
+const three = ([] || 0 || true)
 
-console.log(one, two, three);
+console.log(one, two, three)
 ```
 
 - A: `false` `null` `[]`

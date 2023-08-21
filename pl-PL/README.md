@@ -10,11 +10,10 @@ Od podstawowych do zaawansowanych: sprawdź, jak dobrze znasz JavaScript, odświ
 
 Nie krępuj się ze mną kontaktować! 😊 <br />
 <a href="https://www.instagram.com/theavocoder">Instagram</a> || <a href="https://www.twitter.com/lydiahallie">Twitter</a> || <a href="https://www.linkedin.com/in/lydia-hallie">LinkedIn</a> || <a href="https://www.lydiahallie.dev">Blog</a>
-
 </div>
 
-| Śmiało używaj ich w projekcie! 😃 Byłabym _bardzo_ wdzięczna za referencje do tego repozytorium, tworzę pytania i wyjaśnienia (tak, jestem smutna lol) i społeczność bardzo mi pomaga w utrzymaniu i ulepszaniu go! 💪🏼 Dziękuję i baw się dobrze! |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Śmiało używaj ich w projekcie! 😃  Byłabym _bardzo_ wdzięczna za referencje do tego repozytorium, tworzę pytania i wyjaśnienia (tak, jestem smutna lol) i społeczność bardzo mi pomaga w utrzymaniu i ulepszaniu go! 💪🏼 Dziękuję i baw się dobrze!   |
+|---|
 
 ---
 
@@ -33,7 +32,6 @@ Nie krępuj się ze mną kontaktować! 😊 <br />
 - [🇰🇷 한국어](./ko-KR/README-ko_KR.md)
 - [🇳🇱 Nederlands](./nl-NL/README.md)
 - [🇧🇷 Português Brasil](./pt-BR/README_pt_BR.md)
-- [🇷o Română](../ro-RO/README.ro.md)
 - [🇷🇺 Русский](./ru-RU/README.md)
 - [🇽🇰 Shqip](../sq-KS/README_sq_KS.md)
 - [🇹🇭 ไทย](./th-TH/README-th_TH.md)
@@ -54,7 +52,7 @@ Nie krępuj się ze mną kontaktować! 😊 <br />
 function sayHi() {
   console.log(name);
   console.log(age);
-  var name = "Lydia";
+  var name = 'Lydia';
   let age = 21;
 }
 
@@ -150,7 +148,7 @@ Na tym obiekcie nie ma wartości `radius`, co powoduje zwrócenie `NaN` (Not a N
 
 ```javascript
 +true;
-!"Lydia";
+!'Lydia';
 ```
 
 - A: `1` and `false`
@@ -175,11 +173,11 @@ Operator jednoargumentowy plus próbuje przekonwertować operand na liczbę. `tr
 
 ```javascript
 const bird = {
-  size: "small",
+  size: 'small',
 };
 
 const mouse = {
-  name: "Mickey",
+  name: 'Mickey',
   small: true,
 };
 ```
@@ -210,11 +208,11 @@ Jednakże, w przypadku notacji kropkowej, to się nie dzieje. `mouse` nie ma klu
 ###### 6. Jaki jest wynik?
 
 ```javascript
-let c = { greeting: "Hey!" };
+let c = { greeting: 'Hey!' };
 let d;
 
 d = c;
-c.greeting = "Hello";
+c.greeting = 'Hello';
 console.log(d.greeting);
 ```
 
@@ -284,13 +282,13 @@ class Chameleon {
     return this.newColor;
   }
 
-  constructor({ newColor = "green" } = {}) {
+  constructor({ newColor = 'green' } = {}) {
     this.newColor = newColor;
   }
 }
 
-const freddie = new Chameleon({ newColor: "purple" });
-console.log(freddie.colorChange("orange"));
+const freddie = new Chameleon({ newColor: 'purple' });
+console.log(freddie.colorChange('orange'));
 ```
 
 - A: `orange`
@@ -345,10 +343,10 @@ Aby temu zapobiec, możemy użyć `"use strict"`. Powoduje to, że musisz zadekl
 
 ```javascript
 function bark() {
-  console.log("Woof!");
+  console.log('Woof!');
 }
 
-bark.animal = "dog";
+bark.animal = 'dog';
 ```
 
 - A: Nothing, this is totally fine!
@@ -378,8 +376,8 @@ function Person(firstName, lastName) {
   this.lastName = lastName;
 }
 
-const member = new Person("Lydia", "Hallie");
-Person.getFullName = function () {
+const member = new Person('Lydia', 'Hallie');
+Person.getFullName = function() {
   return `${this.firstName} ${this.lastName}`;
 };
 
@@ -401,7 +399,7 @@ W JavaScript funkcje są obiektami, więc metoda `getFullName` jest dodawana do 
 Jeśli chcesz, aby metoda była dostępna dla wszystkich instancji obiektów, musisz dodać ją do właściwości prototype:
 
 ```js
-Person.prototype.getFullName = function () {
+Person.prototype.getFullName = function() {
   return `${this.firstName} ${this.lastName}`;
 };
 ```
@@ -419,8 +417,8 @@ function Person(firstName, lastName) {
   this.lastName = lastName;
 }
 
-const lydia = new Person("Lydia", "Hallie");
-const sarah = Person("Sarah", "Smith");
+const lydia = new Person('Lydia', 'Hallie');
+const sarah = Person('Sarah', 'Smith');
 
 console.log(lydia);
 console.log(sarah);
@@ -490,7 +488,7 @@ function sum(a, b) {
   return a + b;
 }
 
-sum(1, "2");
+sum(1, '2');
 ```
 
 - A: `NaN`
@@ -536,7 +534,7 @@ Operator jednoargumentowy **Postfix** `++`:
 1. Zwraca wartość (ten zwraca `0`)
 2. Zwiększa wartość (liczba wynosi teraz `1`)
 
-Operator jednoargumentowy **Prefix** `++`:
+Operator jednoargumentowy **Prefix**  `++`:
 
 1. Zwiększa wartość (liczba wynosi teraz `2`)
 2. Zwraca wartość (to zwraca `2`)
@@ -557,7 +555,7 @@ function getPersonInfo(one, two, three) {
   console.log(three);
 }
 
-const person = "Lydia";
+const person = 'Lydia';
 const age = 21;
 
 getPersonInfo`${person} is ${age} years old`;
@@ -584,9 +582,9 @@ W przypadku użycia `template strings`, wartością pierwszego argumentu jest za
 ```javascript
 function checkAge(data) {
   if (data === { age: 18 }) {
-    console.log("You are an adult!");
+    console.log('You are an adult!');
   } else if (data == { age: 18 }) {
-    console.log("You are still an adult.");
+    console.log('You are still an adult.');
   } else {
     console.log(`Hmm.. You don't have an age I guess`);
   }
@@ -646,7 +644,7 @@ Parametr reszty (`...args`) pozwala nam "zbierać" wszystkie pozostałe argument
 
 ```javascript
 function getAge() {
-  "use strict";
+  'use strict';
   age = 21;
   console.log(age);
 }
@@ -674,7 +672,7 @@ Dzięki `"use strict"` możesz upewnić się, że przypadkowo nie zadeklarujesz 
 ###### 21. Jaka jest wartość `sum`?
 
 ```javascript
-const sum = eval("10*10+5");
+const sum = eval('10*10+5');
 ```
 
 - A: `105`
@@ -697,7 +695,7 @@ const sum = eval("10*10+5");
 ###### 22. Jak długo cool_secret jest dostępny?
 
 ```javascript
-sessionStorage.setItem("cool_secret", 123);
+sessionStorage.setItem('cool_secret', 123);
 ```
 
 - A: Dane nigdy nie zostaną utracone.
@@ -750,12 +748,12 @@ Nie można tego zrobić za pomocą `let` lub `const`, ponieważ są one blokowe.
 ###### 24. Jaki jest wynik?
 
 ```javascript
-const obj = { 1: "a", 2: "b", 3: "c" };
+const obj = { 1: 'a', 2: 'b', 3: 'c' };
 const set = new Set([1, 2, 3, 4, 5]);
 
-obj.hasOwnProperty("1");
+obj.hasOwnProperty('1');
 obj.hasOwnProperty(1);
-set.has("1");
+set.has('1');
 set.has(1);
 ```
 
@@ -781,7 +779,7 @@ Nie działa to w ten sam sposób dla zbioru. W zbiorze nie ma klucza `'1'`:`set.
 ###### 25. Jaki jest wynik?
 
 ```javascript
-const obj = { a: "one", b: "two", a: "three" };
+const obj = { a: 'one', b: 'two', a: 'three' };
 console.log(obj);
 ```
 
@@ -850,12 +848,12 @@ Instrukcja `continue` pomija iterację, jeśli określony warunek zwróci `true`
 
 ```javascript
 String.prototype.giveLydiaPizza = () => {
-  return "Just give Lydia pizza already!";
+  return 'Just give Lydia pizza already!';
 };
 
-const name = "Lydia";
+const name = 'Lydia';
 
-console.log(name.giveLydiaPizza());
+console.log(name.giveLydiaPizza())
 ```
 
 - A: `"Just give Lydia pizza already!"`
@@ -879,8 +877,8 @@ console.log(name.giveLydiaPizza());
 
 ```javascript
 const a = {};
-const b = { key: "b" };
-const c = { key: "c" };
+const b = { key: 'b' };
+const c = { key: 'c' };
 
 a[b] = 123;
 a[c] = 456;
@@ -912,9 +910,9 @@ Następnie wyświetlamy w konsoli `a[b]`, co w rzeczywistości jest `a["[obiekt 
 ###### 30. Jaki jest wynik?
 
 ```javascript
-const foo = () => console.log("First");
-const bar = () => setTimeout(() => console.log("Second"));
-const baz = () => console.log("Third");
+const foo = () => console.log('First');
+const bar = () => setTimeout(() => console.log('Second'));
+const baz = () => console.log('Third');
 
 bar();
 foo();
@@ -967,7 +965,9 @@ W tym miejscu zaczyna działać pętla zdarzeń. **Pętla zdarzeń** patrzy na s
 ```html
 <div onclick="console.log('first div')">
   <div onclick="console.log('second div')">
-    <button onclick="console.log('button')">Click!</button>
+    <button onclick="console.log('button')">
+      Click!
+    </button>
   </div>
 </div>
 ```
@@ -993,7 +993,9 @@ Najgłębiej zagnieżdżony element, który spowodował zdarzenie jest celem zda
 
 ```html
 <div onclick="console.log('div')">
-  <p onclick="console.log('p')">Click here!</p>
+  <p onclick="console.log('p')">
+    Click here!
+  </p>
 </div>
 ```
 
@@ -1017,7 +1019,7 @@ Jeśli klikniemy `p`, zobaczymy dwa logi: `p` i `div`. Podczas propagacji zdarze
 ###### 33. Jaki jest wynik?
 
 ```javascript
-const person = { name: "Lydia" };
+const person = { name: 'Lydia' };
 
 function sayHi(age) {
   return `${this.name} is ${age}`;
@@ -1067,6 +1069,7 @@ console.log(typeof sayHi());
 #### Odpowiedź: B
 
 Funkcja `sayHi` zwraca zwróconą wartość natychmiast wywołanego wyrażenia funkcyjnego (IIFE). Ta funkcja zwróciła wartość `0`, która jest typu `"number"`.
+	
 FYI: `typeof` może zwrócić następującą listę wartości: `undefined`, `boolean`, `number`, `bigint`, `string`, `symbol`, `function` i `object`. Zauważ, że `typeof null` zwraca `"object"`.
 
 </p>
@@ -1079,8 +1082,8 @@ FYI: `typeof` może zwrócić następującą listę wartości: `undefined`, `boo
 ```javascript
 0;
 new Number(0);
-("");
-(" ");
+('');
+(' ');
 new Boolean(false);
 undefined;
 ```
@@ -1229,14 +1232,11 @@ To, co odróżnia prymityw od obiektu, to fakt, że prymitywy nie mają żadnych
 ###### 40. Jaki jest wynik?
 
 ```javascript
-[
-  [0, 1],
-  [2, 3],
-].reduce(
+[[0, 1], [2, 3]].reduce(
   (acc, cur) => {
     return acc.concat(cur);
   },
-  [1, 2]
+  [1, 2],
 );
 ```
 
@@ -1263,7 +1263,7 @@ Następnie `[1, 2, 0, 1]` to `acc`, a `[2, 3]` to `cur`. Łączymy je i otrzymuj
 
 ```javascript
 !!null;
-!!"";
+!!'';
 !!1;
 ```
 
@@ -1291,7 +1291,7 @@ Następnie `[1, 2, 0, 1]` to `acc`, a `[2, 3]` to `cur`. Łączymy je i otrzymuj
 ###### 42. Co zwraca metoda `setInterval` w przeglądarce?
 
 ```javascript
-setInterval(() => console.log("Hi"), 1000);
+setInterval(() => console.log('Hi'), 1000);
 ```
 
 - A: unikalny identyfikator
@@ -1314,7 +1314,7 @@ Zwraca unikalny identyfikator. Ten identyfikator może być użyty do wyczyszcze
 ###### 43. Co to zwróci?
 
 ```javascript
-[..."Lydia"];
+[...'Lydia'];
 ```
 
 - A: `["L", "y", "d", "i", "a"]`
@@ -1373,14 +1373,14 @@ Następnie ponownie wywołujemy funkcję za pomocą metody `next()`. Kontynuuje 
 
 ```javascript
 const firstPromise = new Promise((res, rej) => {
-  setTimeout(res, 500, "one");
+  setTimeout(res, 500, 'one');
 });
 
 const secondPromise = new Promise((res, rej) => {
-  setTimeout(res, 100, "two");
+  setTimeout(res, 100, 'two');
 });
 
-Promise.race([firstPromise, secondPromise]).then((res) => console.log(res));
+Promise.race([firstPromise, secondPromise]).then(res => console.log(res));
 ```
 
 - A: `"one"`
@@ -1403,7 +1403,7 @@ Kiedy przekazujemy wiele 'promise' do metody `Promise.race`, rozwiązuje ona/odr
 ###### 46. Jaki jest wynik?
 
 ```javascript
-let person = { name: "Lydia" };
+let person = { name: 'Lydia' };
 const members = [person];
 person = null;
 
@@ -1443,7 +1443,7 @@ Modyfikujemy tylko wartość zmiennej `person`, a nie pierwszy element w tablicy
 
 ```javascript
 const person = {
-  name: "Lydia",
+  name: 'Lydia',
   age: 21,
 };
 
@@ -1472,7 +1472,7 @@ Za pomocą pętli `for-in` możemy iterować po kluczach obiektów, w tym przypa
 ###### 48. Jaki jest wynik?
 
 ```javascript
-console.log(3 + 4 + "5");
+console.log(3 + 4 + '5');
 ```
 
 - A: `"345"`
@@ -1499,7 +1499,7 @@ Asocjatywność operatorów to kolejność, w jakiej kompilator ocenia wyrażeni
 ###### 49. Jaka jest wartość `num`?
 
 ```javascript
-const num = parseInt("7*6", 10);
+const num = parseInt('7*6', 10);
 ```
 
 - A: `42`
@@ -1524,8 +1524,8 @@ Zwracana jest tylko pierwsza liczba w łańcuchu. W oparciu o _radix_ (drugi arg
 ###### 50. Jaki jest wynik?
 
 ```javascript
-[1, 2, 3].map((num) => {
-  if (typeof num === "number") return;
+[1, 2, 3].map(num => {
+  if (typeof num === 'number') return;
   return num * 2;
 });
 ```

@@ -1,9 +1,8 @@
 # Popis (naprednih) JavaScript pitanja
-
 =======================================
 
 Svakodnevno postavljam JavaScript pitanja s višestrukim izborom na moj
-[Instagram](https://www.instagram.com/theavocoder), koja također objavljujem
+[Instagram](https://www.instagram.com/theavocoder), koja  također objavljujem
 ovdje!
 
 Od osnovnog do naprednog: testirajte koliko dobro znate JavaScript, osvježite svoj
@@ -26,7 +25,6 @@ kliknite na njih da biste ih proširili. Sretno :heart:
 - [🇳🇱 Nederlands](../nl-NL/README.md)
 - [🇵🇱 Polski](../pl-PL/README.md)
 - [🇧🇷 Português Brasil](../pt-BR/README_pt_BR.md)
-- [🇷o Română](../ro-RO/README.ro.md)
 - [🇷🇺 Русский](../ru-RU/README.md)
 - [🇽🇰 Shqip](../sq-KS/README_sq_KS.md)
 - [🇹🇭 ไทย](../th-TH/README-th_TH.md)
@@ -36,7 +34,7 @@ kliknite na njih da biste ih proširili. Sretno :heart:
 - [🇨🇳 简体中文](../zh-CN/README-zh_CN.md)
 - [🇹🇼 繁體中文](../zh-TW/README_zh-TW.md)
 
----
+* * * * *
 
 ###### 1. Što je izlaz?
 
@@ -77,7 +75,7 @@ JavaScript izbacuje `ReferenceError`.
 </p>
 </details>
 
----
+* * * * *
 
 ###### 2. Što je izlaz?
 
@@ -101,7 +99,7 @@ for (let i = 0; i < 3; i++) {
 #### Odgovor: C
 
 Zbog reda događaja u JavaScriptu, povratni poziv `setTimeout`
-function se zove \* nakon što je izvršena petlja. Od
+function se zove * nakon što je izvršena petlja. Od
 varijabla `i` u prvoj petlji je deklarirana pomoću ključne riječi` var`,
 ta je vrijednost bila globalna. Tijekom petlje povećavamo vrijednost `i`
 svaki put '1', koristeći unarni operator `++`. Do vremena
@@ -116,7 +114,7 @@ block-scoped (blok je sve između `{}`). Tijekom svake iteracije,
 </p>
 </details>
 
----
+* * * * *
 
 ###### 3. Što je izlaz?
 
@@ -126,7 +124,7 @@ const shape = {
   diameter() {
     return this.radius * 2;
   },
-  perimeter: () => 2 * Math.PI * this.radius,
+  perimeter: () => 2 * Math.PI * this.radius
 };
 
 shape.diameter();
@@ -156,7 +154,7 @@ Na tom objektu nema vrijednosti `radius` koja vraća` undefined`.
 </p>
 </details>
 
----
+* * * * *
 
 ###### 4. Što je izlaz?
 
@@ -183,18 +181,18 @@ Niz '' Lydia '' je istinita vrijednost. Ono što zapravo tražimo jest
 </p>
 </details>
 
----
+* * * * *
 
 ###### 5. Koja je istina?
 
 ```javascript
 const bird = {
-  size: "small",
+  size: "small"
 };
 
 const mouse = {
   name: "Mickey",
-  small: true,
+  small: true
 };
 ```
 
@@ -209,7 +207,7 @@ const mouse = {
 #### Odgovor: A
 
 U JavaScriptu su svi key-evi objekta stringovi (osim ako to nije simbol). Čak
-iako ih možda ne _ upisujemo kao _ nizove, oni se uvijek pretvaraju
+iako ih možda ne * upisujemo kao * nizove, oni se uvijek pretvaraju
 u String ispod "haube".
 
 JavaScript tumači (ili odlaže) izjave. Kada koristimo zagradu
@@ -230,7 +228,8 @@ To nije valjano, a bit će u pitanju pogreška slična onoj
 </p>
 </details>
 
----
+* * * * *
+
 
 ###### 6. Što je izlaz?
 
@@ -254,7 +253,7 @@ console.log(d.greeting);
 
 #### Odgovor: A
 
-U JavaScriptu, svi objekti međusobno djeluju _referencom_ kada ih postavljaju
+U JavaScriptu, svi objekti međusobno djeluju *referencom* kada ih postavljaju
 jednaki.
 
 Prvo, varijabla `c` sadrži vrijednost objekta. Kasnije dodijelimo `d`
@@ -267,7 +266,7 @@ Kada promijenite jedan objekt, mijenjate ih sve.
 </p>
 </details>
 
----
+* * * * *
 
 ###### 7. Što je izlaz?
 
@@ -281,10 +280,10 @@ console.log(a === b);
 console.log(b === c);
 ```
 
-- A: ` true`` false ` `true`
-- B: ` false`` false ` `true`
-- C: ` true`` false ` `false`
-- D: ` false`` true ` `true`
+- A: `true`` false` `true`
+- B: `false`` false` `true`
+- C: `true`` false` `false`
+- D: `false`` true` `true`
 
 <details> <summary> <b> Odgovor </b> </summary>
 </p>
@@ -296,16 +295,16 @@ kao broj, to zapravo nije broj: ima gomilu ekstra dodataka
 pa je zbog toga objekt.
 
 Kada koristimo `==` operator, on samo provjerava ima li isti
-_vrijednost_. Obje imaju vrijednost `3`, pa se vraća 'true'.
+*vrijednost*. Obje imaju vrijednost `3`, pa se vraća 'true'.
 
-Međutim, kada koristimo `===` operator, obje vrijednosti _ i _ trebaju biti
+Međutim, kada koristimo `===` operator, obje vrijednosti * i * trebaju biti
 iste. To nije: `new Number ()` nije broj, to je ** objekt **.
 Oba vraćaju "false"
 
 </p>
 </details>
 
----
+* * * * *
 
 ###### 8. Što je izlaz?
 
@@ -336,7 +335,7 @@ freddie.colorChange("orange");
 #### Odgovor: D
 
 function `colorChange` je statična. Namijenjene su statičkim metodama
-žive samo na konstruktoru u kojem su stvoreni i ne mogu biti proslijeđeni
+žive samo na konstruktoru u kojem su stvoreni i ne mogu biti proslijeđeni 
 bilo kojem childu. Budući da je `freddie` child, function je
 nije proslijeđena, i nije dostupan na `freddie` instanci: a
 Izbačen je `TypeError`.
@@ -344,7 +343,7 @@ Izbačen je `TypeError`.
 </p>
 </details>
 
----
+* * * * *
 
 ###### 9. Što je izlaz?
 
@@ -352,6 +351,7 @@ Izbačen je `TypeError`.
 let greeting;
 greetign = {}; // Typo!
 console.log(greetign);
+
 ```
 
 - A: `{}`
@@ -374,7 +374,7 @@ da ste deklarirali varijablu prije nego je postavite na bilo što.
 </p>
 </details>
 
----
+* * * * *
 
 ###### 10. Što se događa kada učinimo ovo?
 
@@ -406,7 +406,7 @@ Ova nekretnina je nepovratna.
 </p>
 </details>
 
----
+* * * * *
 
 ###### 11. Kakav je rezultat?
 
@@ -417,7 +417,7 @@ function Person(firstName, lastName) {
 }
 
 const member = new Person("Lydia", "Hallie");
-Person.getFullName = function () {
+Person.getFullName = function() {
   return `${this.firstName} ${this.lastName}`;
 };
 
@@ -427,7 +427,7 @@ console.log(member.getFullName());
 - A: `TypeError`
 - B: `SyntaxError`
 - C: "Lydia Hallie"
-- D: ` undefined`` undefined `
+- D: `undefined`` undefined`
 
 <details> <summary> <b> Odgovor </b> </summary>
 </p>
@@ -454,7 +454,7 @@ scopa za svaku instancu. Umjesto toga, ako ga samo dodamo prototipu, mi
 </p>
 </details>
 
----
+* * * * *
 
 ###### 12. Što je izlaz?
 
@@ -473,10 +473,10 @@ console.log(sarah);
 
 - A: `Person {ime:" Lydia ", prezime:" Hallie "} i` undefined`
 - B: `Person {ime:" Lydia ", prezime:" Hallie "} i
-  `Person {ime:" Sarah ", prezime:" Smith "}`
+    `Person {ime:" Sarah ", prezime:" Smith "}`
 - C: `Person {ime:" Lydia ", prezime:" Hallie "}` i `{}`
 - D: `Person {ime:" Lydia ", prezime:" Hallie "} i
-  `ReferenceError`
+    `ReferenceError`
 
 <details> <summary> <b> Odgovor </b> </summary>
 </p>
@@ -495,7 +495,7 @@ sam je ostavljen 'undefined'.
 </p>
 </details>
 
----
+* * * * *
 
 ###### 13. Koje su tri faze propagiranja događaja?
 
@@ -503,6 +503,7 @@ sam je ostavljen 'undefined'.
 - B: Bubbling > Target > Capturing
 - C: Target > Bubbling > Capturing
 - D: Capturing > Target > Bubbling
+
 
 <details> <summary> <b> Odgovor </b> </summary>
 </p>
@@ -518,11 +519,11 @@ i ** bubbling **.
 </p>
 </details>
 
----
+* * * * *
 
 ###### 14. Svi objekti imaju prototipove.
 
-- Istinito
+-   Istinito
 - B: lažno
 
 <details> <summary> <b> Odgovor </b> </summary>
@@ -540,7 +541,7 @@ nalazi ga tamo, što ga čini dostupnim.
 </p>
 </details>
 
----
+* * * * *
 
 ###### 15. Što je izlaz?
 
@@ -564,20 +565,20 @@ sum(1, "2");
 
 JavaScript je ** dinamički upisani jezik **: ne navodimo što
 vrste su određene varijable. Vrijednosti se mogu automatski pretvoriti u
-drugi tip bez vašeg znanja, koji se zove _ implicitni tip
-prisila _. ** Prisila ** pretvara iz jednog tipa u drugi.
+drugi tip bez vašeg znanja, koji se zove * implicitni tip
+prisila *. ** Prisila ** pretvara iz jednog tipa u drugi.
 
 U ovom primjeru JavaScript pretvara broj `1` u niz, u
 kako bi function imala smisla i vratila vrijednost. Tijekom
 dodavanje numeričkog tipa (`1`) i tipa niza (` '2'`), broja
 se tretira kao niz. Možemo slično spojiti
-"" Zdravo "+" Svijet "` , tako da se ovdje događa ``````````````````
-vraća  `" 12 "`.
+"" Zdravo "+" Svijet "`, tako da se ovdje događa ``````````````````
+vraća `" 12 "`.
 
 </p>
 </details>
 
----
+* * * * *
 
 ###### 16. Što je izlaz?
 
@@ -588,10 +589,10 @@ console.log(++number);
 console.log(number);
 ```
 
-- A: ` 1`` 1 ` `2`
-- B: ` 1`` 2 ` `2`
-- C: ` 0`` 2 ` `2`
-- D: ` 0`` 1 ` `2`
+- A: `1`` 1` `2`
+- B: `1`` 2` `2`
+- C: `0`` 2` `2`
+- D: `0`` 1` `2`
 
 <details> <summary> <b> Odgovor </b> </summary>
 </p>
@@ -613,7 +614,7 @@ Ovo vraća `0 2 2`.
 </p>
 </details>
 
----
+* * * * *
 
 ###### 17. Što je izlaz?
 
@@ -646,7 +647,7 @@ vrijednosti prošlih izraza!
 </p>
 </details>
 
----
+* * * * *
 
 ###### 18. Što je izlaz?
 
@@ -673,8 +674,8 @@ checkAge({ age: 18 });
 
 #### Odgovor: C
 
-Prilikom ispitivanja jednakosti, primitivi se uspoređuju prema njihovoj _ vrijednosti _, dok
-objekti se uspoređuju prema njihovoj _ referenci _. JavaScript provjerava ako
+Prilikom ispitivanja jednakosti, primitivi se uspoređuju prema njihovoj * vrijednosti *, dok
+objekti se uspoređuju prema njihovoj * referenci *. JavaScript provjerava ako
 objekti imaju referencu na isto mjesto u memoriji.
 
 Dva predmeta koje uspoređujemo nemaju: objekt mi
@@ -687,11 +688,12 @@ Zato i `{age: 18} === {age: 18}` i
 </p>
 </details>
 
----
+* * * * *
 
 ###### 19. Što je izlaz?
 
 ```javascript
+
 function getAge(...args) {
   console.log(typeof args);
 }
@@ -715,7 +717,7 @@ array je objekt, pa `typeof args` vraća` `objekt '`
 </p>
 </details>
 
----
+* * * * *
 
 ###### 20. Što je izlaz?
 
@@ -739,16 +741,16 @@ getAge();
 
 #### Odgovor: C
 
-Sa `use strict '', možete se uvjeriti da nije slučajno
+Sa `` use strict '', možete se uvjeriti da nije slučajno
 deklarisana globalna varijabla. Nikada nismo objavili varijablu "age" i
-budući da koristimo` use strict '', ona će načiniti referentnu pogrešku. Ako mi
+budući da koristimo `` use strict '', ona će načiniti referentnu pogrešku. Ako mi
 nije koristio "" strict ", to bi išlo od vlasništva
 `age` bi se dodao u globalni objekt.
 
 </p>
 </details>
 
----
+* * * * *
 
 ###### 21. Što je vrijednost `suma '?
 
@@ -773,16 +775,15 @@ kao u ovom slučaju, on ocjenjuje izraz. Izraz je
 </p>
 </details>
 
----
+* * * * *
 
-###### 22. Koliko dugo je cool \ \_secret dostupan?
+###### 22. Koliko dugo je cool \ _secret dostupan?
 
 ```javascript
 sessionStorage.setItem("cool_secret", 123);
 ```
 
 O: Podaci se zauvijek ne gube.
-
 - B: Kada korisnik zatvori karticu.
 - C: Kada korisnik zatvori cijeli preglednik, ne samo karticu.
 - D: Kada korisnik isključi svoje računalo.
@@ -792,7 +793,7 @@ O: Podaci se zauvijek ne gube.
 
 #### Odgovor: B
 
-Podaci spremljeni u `sessionStorage` se uklanjaju nakon zatvaranja _ tab _.
+Podaci spremljeni u `sessionStorage` se uklanjaju nakon zatvaranja * tab *.
 
 Ako ste koristili `localStorage`, podaci bi bili tamo zauvijek, osim ako
 na primjer, `localStorage.clear ()` je pozvan.
@@ -800,7 +801,7 @@ na primjer, `localStorage.clear ()` je pozvan.
 </p>
 </details>
 
----
+* * * * *
 
 ###### 23. Što je izlaz?
 
@@ -829,7 +830,7 @@ To ne možete učiniti s `let` ili` const` jer su blokirani.
 </p>
 </details>
 
----
+* * * * *
 
 ###### 24. Što je izlaz?
 
@@ -843,10 +844,10 @@ set.has("1");
 set.has(1);
 ```
 
-- A: ` false`` true ` ` false`` true `
-- B: ` false`` true ` ` true`` true `
-- C: ` true`` true ` ` false`` true `
-- D: ` true`` true ` ` true`` true `
+- A: `false`` true` `false`` true`
+- B: `false`` true` `true`` true`
+- C: `true`` true` `false`` true`
+- D: `true`` true` `true`` true`
 
 <details> <summary> <b> Odgovor </b> </summary>
 </p>
@@ -864,7 +865,7 @@ To ne radi tako za skup. U našem setu ne postoji "1":
 </p>
 </details>
 
----
+* * * * *
 
 ###### 25. Što je izlaz?
 
@@ -889,11 +890,11 @@ i dalje će biti na prvom mjestu, ali s posljednjom navedenom vrijednošću.
 </p>
 </details>
 
----
+* * * * *
 
 ###### 26. Globalni kontekst izvođenja JavaScripta za vas stvara dvije stvari: globalni objekt i "ovu" ključnu riječ.
 
-- Istina
+-   Istina
 - B: lažno
 - C: to ovisi
 
@@ -908,7 +909,7 @@ dostupno svugdje u vašem kodu.
 </p>
 </details>
 
----
+* * * * *
 
 ###### 27. Što je izlaz?
 
@@ -917,12 +918,13 @@ for (let i = 1; i < 5; i++) {
   if (i === 3) continue;
   console.log(i);
 }
+
 ```
 
-- A: ` 1`` 2 `
-- B: ` 1`` 2 ` `3`
-- C: ` 1`` 2 ` `4`
-- D: ` 1`` 3 ` `4`
+- A: `1`` 2`
+- B: `1`` 2` `3`
+- C: `1`` 2` `4`
+- D: `1`` 3` `4`
 
 <details> <summary> <b> Odgovor </b> </summary>
 </p>
@@ -935,7 +937,7 @@ vraća "true".
 </p>
 </details>
 
----
+* * * * *
 
 ###### 28. Što je izlaz?
 
@@ -946,10 +948,10 @@ String.prototype.giveLydiaPizza = () => {
 
 const name = "Lydia";
 
-console.log(name.giveLydiaPizza());
+console.log(name.giveLydiaPizza())
 ```
 
-- A: `Već daj Lizijinu pizzu!`
+- A: `` Već daj Lizijinu pizzu! ``
 - B: `TypeError: nije function`
 - C: `SyntaxError`
 - D: `undefined`
@@ -968,7 +970,7 @@ način!
 </p>
 </details>
 
----
+* * * * *
 
 ###### 29. Što je izlaz?
 
@@ -1007,7 +1009,7 @@ da na `456`, tako da se vraća` 456`.
 </p>
 </details>
 
----
+* * * * *
 
 ###### 30. Što je izlaz?
 
@@ -1021,10 +1023,10 @@ foo();
 baz();
 ```
 
-- A: ` Prvi`` Drugi ` `Treći`
-- B: ` Prvi`` Treći ` `Drugi`
-- C: ` Drugi`` Prvi ` `Treći`
-- D: ` Drugi`` Treći ` `Prvi`
+- A: `Prvi`` Drugi` `Treći`
+- B: `Prvi`` Treći` `Drugi`
+- C: `Drugi`` Prvi` `Treći`
+- D: `Drugi`` Treći` `Prvi`
 
 <details> <summary> <b> Odgovor </b> </summary>
 </p>
@@ -1038,7 +1040,7 @@ To je zato što u preglednicima nemamo samo runtime engine, mi
 također imaju nešto što se zove "WebAPI". "WebAPI" nam daje
 `setTimeout` function za početak, i na primjer DOM.
 
-Nakon što je _ callback _ preusmjeren na WebAPI, function `setTimeout`
+Nakon što je * callback * preusmjeren na WebAPI, function `setTimeout`
 sam (ali ne i povratni poziv!) iskače iz stog.
 
 <img src = "https://i.imgur.com/X5wsHOg.png" width = "200">
@@ -1054,11 +1056,11 @@ prijavljeni.
 
 WebAPI ne može jednostavno dodati stvari u stog kad god je spreman.
 Umjesto toga, on povlači funkciju povratnog poziva u nešto što se zove
-_red_.
+*red*.
 
 <img src = "https://i.imgur.com/NSnDZmU.png" width = "200">
 
-Ovo je mjesto gdje petlja događaja počinje raditi. \*\* ** krug događaja ** gleda
+Ovo je mjesto gdje petlja događaja počinje raditi. ** ** krug događaja ** gleda
 red i red za zadatke. Ako je stog prazan, uzima prvi
 stvar u redu i gura je u stog.
 
@@ -1070,7 +1072,7 @@ stog.
 </p>
 </details>
 
----
+* * * * *
 
 ###### 31. Što je event.target kada kliknete na gumb?
 
@@ -1102,7 +1104,7 @@ događaj. Možete zaustaviti mjehuriće 'event.stopPropagation'
 </p>
 </details>
 
----
+* * * * *
 
 ###### 32. Kada kliknete na paragraf, što je zapisani izlaz?
 
@@ -1114,8 +1116,8 @@ događaj. Možete zaustaviti mjehuriće 'event.stopPropagation'
 </div>
 ```
 
-- A: ` p`` div `
-- B: ` div`` p `
+- A: `p`` div`
+- B: `div`` p`
 - C: p
 - D: "div"
 
@@ -1133,7 +1135,7 @@ van.
 </p>
 </details>
 
----
+* * * * *
 
 ###### 33. Što je izlaz?
 
@@ -1148,10 +1150,10 @@ sayHi.call(person, 21);
 sayHi.bind(person, 21);
 ```
 
-- A: ` undefined is 21`` Lydia je 21 `
+- A: `undefined is 21`` Lydia je 21`
 - B: function funkcije
-- C: ` Lydia je 21`` Lydia je 21 `
-- D: ` Lydia je 21`` function `
+- C: `Lydia je 21`` Lydia je 21`
+- D: `Lydia je 21`` function`
 
 <details> <summary> <b> Odgovor </b> </summary>
 </p>
@@ -1159,15 +1161,15 @@ sayHi.bind(person, 21);
 #### Odgovor: D
 
 S oba, možemo proslijediti objekt kojem želimo ključnu riječ "this"
-odnosi se na. Međutim, `.call` se također _ izvršava odmah _!
+odnosi se na. Međutim, `.call` se također * izvršava odmah *!
 
-`.bind.` vraća _ copy _ funkcije, ali s vezanim kontekstom! To
+`.bind.` vraća * copy * funkcije, ali s vezanim kontekstom! To
 se ne izvršava odmah.
 
 </p>
 </details>
 
----
+* * * * *
 
 ###### 34. Što je izlaz?
 
@@ -1194,13 +1196,13 @@ pozvana function (IIFE). Ova function vratila je `0`, što je tip
 ` "Broj"`.
 
 FYI: postoji samo 7 ugrađenih tipova: `null`,` undefined`, `boolean`,
-"broj", "niz", "objekt" i "simbol". `function '' nije tip,
-budući da su funkcije objekti, to je tipa` objekta '`.
+"broj", "niz", "objekt" i "simbol". `` function '' nije tip,
+budući da su funkcije objekti, to je tipa `` objekta '`.
 
 </p>
 </details>
 
----
+* * * * *
 
 ###### 35. Koja od ovih vrijednosti su neistinite?
 
@@ -1214,8 +1216,8 @@ undefined;
 ```
 
 - A: `0`,` ```,` undefined`
-- B: `0`,`new Number (0)`,`''`,`new Boolean (false)`,` undefined '
-- C: `0`,`''`,`new Boolean (false)`,` undefined`
+- B: `0`,` new Number (0) `,` '' `,` new Boolean (false) `,` undefined '
+- C: `0`,` '' `,` new Boolean (false) `,` undefined`
 - D: Svi su oni lažni
 
 <details> <summary> <b> Odgovor </b> </summary>
@@ -1237,12 +1239,13 @@ Konstruktori function, kao što su 'new Number' i 'new Boolean' su istiniti.
 </p>
 </details>
 
----
+* * * * *
 
 ###### 36. Što je izlaz?
 
 ```javascript
 console.log(typeof typeof 1);
+
 ```
 
 - A: `" broj "
@@ -1260,7 +1263,7 @@ console.log(typeof typeof 1);
 </p>
 </details>
 
----
+* * * * *
 
 ###### 37. Što je izlaz?
 
@@ -1292,7 +1295,7 @@ itd)
 </p>
 </details>
 
----
+* * * * *
 
 ###### 38. Što je izlaz?
 
@@ -1310,10 +1313,10 @@ itd)
 })();
 ```
 
-- A: ` 1`` undefined `` 2 `
-- B: ` undefined`` undefined ` `undefined`
-- C: ` 1`` 1 ` `2`
-- D: ` 1`` undefined ` `undefined`
+- A: `1`` undefined `` 2`
+- B: `undefined`` undefined` `undefined`
+- C: `1`` 1` `2`
+- D: `1`` undefined` `undefined`
 
 <details> <summary> <b> Odgovor </b> </summary>
 </p>
@@ -1328,13 +1331,13 @@ varijable `y '. Sada, zapisujemo blok-scoped varijablu `x`, koja je
 jednako "1".
 
 Izvan 'catch' bloka, `x 'je i dalje` undefined`, a `y` je` 2`.
-Kada želimo `console.log (x)`izvan`catch`bloka, to
-vraća`undefined` i` y`vraća`2`.
+Kada želimo `console.log (x)` izvan `catch` bloka, to
+vraća `undefined` i` y` vraća `2`.
 
 </p>
 </details>
 
----
+* * * * *
 
 ###### 39. Sve u JavaScriptu je ili ...
 
@@ -1355,7 +1358,8 @@ Primitivni tipovi su "boolean", "null", "undefined", "bigint", "number",
 
 Ono što razlikuje primitiv od objekta je to što primitivci to ne čine
 imaju bilo kakva svojstva ili metode; međutim, to ćete primijetiti
-`'foo'.toUpperCase ()` vrednuje za' 'FOO'`i ne rezultira a`TypeError`. To je zato što kada pokušate pristupiti svojstvu ili metodi
+`'foo'.toUpperCase ()` vrednuje za' 'FOO'` i ne rezultira a
+`TypeError`. To je zato što kada pokušate pristupiti svojstvu ili metodi
 na primitivnom poput stringa, JavaScript će implicitet omotati objekt
 koristeći jednu od klasa omotača, tj. `String ', a zatim odmah
 odbacite omotač nakon što se izraz procijeni. Svi primitivci
@@ -1364,15 +1368,12 @@ osim "null" i "undefined" pokazuju ovo ponašanje.
 </p>
 </details>
 
----
+* * * * *
 
 ###### 40. Što je izlaz?
 
 ```javascript
-[
-  [0, 1],
-  [2, 3],
-].reduce(
+[[0, 1], [2, 3]].reduce(
   (acc, cur) => {
     return acc.concat(cur);
   },
@@ -1392,7 +1393,7 @@ osim "null" i "undefined" pokazuju ovo ponašanje.
 
 "[1, 2]" je naša početna vrijednost. To je vrijednost s kojom počinjemo i
 vrijednost prvog `acc`. Tijekom prvog kruga, "acc" je "[1,2]",
-i `cur` je`[0, 1]`. Spojimo ih, što rezultira
+i `cur` je` [0, 1] `. Spojimo ih, što rezultira
 `[1, 2, 0, 1]`.
 
 Tada je `[1, 2, 0, 1]` `acc` i` [2, 3] `````. Ulančavamo se
@@ -1401,7 +1402,7 @@ i dobiti `[1, 2, 0, 1, 2, 3]`
 </p>
 </details>
 
----
+* * * * *
 
 ###### 41. Što je izlaz?
 
@@ -1411,10 +1412,10 @@ i dobiti `[1, 2, 0, 1, 2, 3]`
 !!1;
 ```
 
-- A: ` false`` true ` `false`
-- B: ` false`` false ` `true`
-- C: ` false`` true ` `true`
-- D: ` true`` true ` `false`
+- A: `false`` true` `false`
+- B: `false`` false` `true`
+- C: `false`` true` `true`
+- D: `true`` true` `false`
 
 <details> <summary> <b> Odgovor </b> </summary>
 </p>
@@ -1430,7 +1431,7 @@ i dobiti `[1, 2, 0, 1, 2, 3]`
 </p>
 </details>
 
----
+* * * * *
 
 ###### 42. Što se vraća metoda `setInterval`?
 
@@ -1454,7 +1455,7 @@ Vraća jedinstveni ID. Taj se ID može koristiti za brisanje tog intervala
 </p>
 </details>
 
----
+* * * * *
 
 ###### 43. Što se to vraća?
 

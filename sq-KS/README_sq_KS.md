@@ -10,10 +10,9 @@ Nga konceptet bazike tek ato të avancuara: testo se sa mirë e njeh JavaScript-
 
 Mos hezitoni të më kontaktoni! 😊
 <a href="https://www.instagram.com/theavocoder">Instagram</a> || <a href="https://www.twitter.com/lydiahallie">Twitter</a> || <a href="https://www.linkedin.com/in/lydia-hallie">LinkedIn</a> || <a href="https://www.lydiahallie.dev">Blog</a>
-
 </div>
 
-| Ndjehuni të lirë të i përdorni në projektet e juaja |😃 Do të e vlerësoja shumë referencimin tuaj në ketë repositori, unë i krijoj pyetjet dhe poashtu edhe përgjigjet (lol) dhe komuniteti me ndihmon shumë të e përmirësoj dhe të mirëmbajë! 💪🏼 Faleminderit!
+| Ndjehuni të lirë të i përdorni në projektet e juaja |😃  Do të e vlerësoja shumë referencimin tuaj në ketë repositori, unë i krijoj pyetjet dhe poashtu edhe përgjigjet (lol) dhe komuniteti me ndihmon shumë të e përmirësoj dhe të mirëmbajë! 💪🏼 Faleminderit!
 
 ---
 
@@ -33,7 +32,6 @@ Mos hezitoni të më kontaktoni! 😊
 - [🇳🇱 Nederlands](../nl-NL/README.md)
 - [🇵🇱 Polski](../pl-PL/README.md)
 - [🇧🇷 Português Brasil](../pt-BR/README_pt_BR.md)
-- [🇷o Română](../ro-RO/README.ro.md)
 - [🇷🇺 Русский](../ru-RU/README.md)
 - [🇽🇰 Shqip](./sq-KS/README_sq_KS.md)
 - [🇹🇭 ไทย](../th-TH/README-th_TH.md)
@@ -48,13 +46,13 @@ Mos hezitoni të më kontaktoni! 😊
 
 ---
 
-###### 1. Cila është vlera e saj?
+###### 1.  Cila është vlera e saj?
 
 ```javascript
 function sayHi() {
   console.log(name);
   console.log(age);
-  var name = "Lydia";
+  var name = 'Lydia';
   let age = 21;
 }
 
@@ -80,7 +78,7 @@ Variablat me fjalën kyçe `let` (dhe `const`) hoistohen, por ndryshe nga `var`,
 
 ---
 
-###### 2. Cila është vlera e saj?
+###### 2.  Cila është vlera e saj?
 
 ```javascript
 for (var i = 0; i < 3; i++) {
@@ -101,7 +99,7 @@ for (let i = 0; i < 3; i++) {
 
 #### Përgjigja: C
 
-Për shkak të **_event queque_** në JavaScript, funksioni callback `setTimeout` thirret pas ekzekutimit të unazës. Pasi që variabla `i` në iterimin e parë u deklarua duke përdorur fjalën kyçe `var`, kjo vlerë ishte globale. Gjatë unazës, ne rritëm vlerën e `i` me `1` çdo herë, duke përdorur operatorin unar `++`. Deri në kohën që funksioni callback `setTimeout` u thirr, `i` ishte e barabartë me `3` në unazën e parë.
+Për shkak të ***event queque*** në JavaScript, funksioni callback `setTimeout` thirret pas ekzekutimit të unazës. Pasi që variabla `i` në iterimin e parë u deklarua duke përdorur fjalën kyçe `var`, kjo vlerë ishte globale. Gjatë unazës, ne rritëm vlerën e `i` me `1` çdo herë, duke përdorur operatorin unar `++`. Deri në kohën që funksioni callback `setTimeout` u thirr, `i` ishte e barabartë me `3` në unazën e parë.
 
 Në unazën e dytë, variabla `i` u deklarua duke përdorur fjalën kyçe `let`: variablat e deklaruara me fjalën kyçe `let` (dhe `const`) janë të qasshme në bllok (një bllok është çdo gjë mes `{ }`). Gjatë çdo iteracioni, `i` do të ketë një vlerë të re, dhe çdo vlerë është e qasshme brenda unazës.
 
@@ -150,7 +148,7 @@ Në funksionet shigjeta, fjala kyçe `this` referohet në qasjen në rrethinën 
 
 ```javascript
 +true;
-!"Lydia";
+!'Lydia';
 ```
 
 - A: `1` and `false`
@@ -175,11 +173,11 @@ Vargu i karaktereve (stringu) `'Lydia'` konsiderohet si vlerë `true`. Çfarë n
 
 ```javascript
 const bird = {
-  size: "small",
+  size: 'small',
 };
 
 const mouse = {
-  name: "Mickey",
+  name: 'Mickey',
   small: true,
 };
 ```
@@ -210,11 +208,11 @@ Megjithatë, me notacionin pikë, kjo nuk ndodh. `mouse` nuk ka një çelës të
 ###### 6. Cila është vlera e saj?
 
 ```javascript
-let c = { greeting: "Hey!" };
+let c = { greeting: 'Hey!' };
 let d;
 
 d = c;
-c.greeting = "Hello";
+c.greeting = 'Hello';
 console.log(d.greeting);
 ```
 
@@ -268,7 +266,7 @@ console.log(b === c);
 
 Kur përdorim operatorin `==` (operatorin i barazimit), ai kontrollon vetëm nëse ka të njëjtën _vlerë_. Të dy kanë vlerën `3`, kështu që kthen `true`.
 
-Megjithatë, kur përdorim operatorin `===` (operatori i barazisë strikte), të dy vlerat dhe tipi i tyre duhet të jenë të njëjta. Nuk është: `new Number()` nuk është një numër, është një **objekt**. Të dy kthejnë `false`.
+Megjithatë, kur përdorim operatorin `===` (operatori i barazisë strikte), të dy vlerat dhe tipi i tyre duhet të jenë të njëjta. Nuk është: `new Number()` nuk është një numër, është një __objekt__. Të dy kthejnë `false`.
 
 </p>
 </details>
@@ -284,13 +282,13 @@ class Chameleon {
     return this.newColor;
   }
 
-  constructor({ newColor = "green" } = {}) {
+  constructor({ newColor = 'green' } = {}) {
     this.newColor = newColor;
   }
 }
 
-const freddie = new Chameleon({ newColor: "purple" });
-console.log(freddie.colorChange("orange"));
+const freddie = new Chameleon({ newColor: 'purple' });
+console.log(freddie.colorChange('orange'));
 ```
 
 - A: `orange`
@@ -345,10 +343,10 @@ Për të shmangur këtë, ne mund të përdorim `"use strict"`. Kjo siguron që 
 
 ```javascript
 function bark() {
-  console.log("Woof!");
+  console.log('Woof!');
 }
 
-bark.animal = "dog";
+bark.animal = 'dog';
 ```
 
 - A: Asgjë, gjithçka është në rregull!
@@ -378,8 +376,8 @@ function Person(firstName, lastName) {
   this.lastName = lastName;
 }
 
-const member = new Person("Lydia", "Hallie");
-Person.getFullName = function () {
+const member = new Person('Lydia', 'Hallie');
+Person.getFullName = function() {
   return `${this.firstName} ${this.lastName}`;
 };
 
@@ -401,7 +399,7 @@ Në JavaScript, funksionet janë objekte dhe për këtë arsye metoda `getFullNa
 Nëse dëshironi që një metodë të jetë e qasshme për të gjitha instancat e objektit, duhet ta shtoni atë në vetinë e quajtur "prototype":
 
 ```js
-Person.prototype.getFullName = function () {
+Person.prototype.getFullName = function() {
   return `${this.firstName} ${this.lastName}`;
 };
 ```
@@ -419,8 +417,8 @@ function Person(firstName, lastName) {
   this.lastName = lastName;
 }
 
-const lydia = new Person("Lydia", "Hallie");
-const sarah = Person("Sarah", "Smith");
+const lydia = new Person('Lydia', 'Hallie');
+const sarah = Person('Sarah', 'Smith');
 
 console.log(lydia);
 console.log(sarah);
@@ -490,7 +488,7 @@ function sum(a, b) {
   return a + b;
 }
 
-sum(1, "2");
+sum(1, '2');
 ```
 
 - A: `NaN`
@@ -503,7 +501,7 @@ sum(1, "2");
 
 #### Përgjigja: C
 
-JavaScript është gjuhë e shkruar në mënyrë dinamike **dynamically typed language**: ne nuk specifikojmë se çfarë tipe janë variablat e caktuara. Vlerat mund të konvertohen automatikisht në një tip tjetër pa e ditur ju dhe ky proces quhet _implicit type coercion_ (shndërrimi i tipit në mënyrë të nënkuptuar). **Coercion** është shndërrimi nga një tip në një tjetër.
+JavaScript është gjuhë e shkruar në mënyrë dinamike __dynamically typed language__: ne nuk specifikojmë se çfarë tipe janë variablat e caktuara. Vlerat mund të konvertohen automatikisht në një tip tjetër pa e ditur ju dhe ky proces quhet _implicit type coercion_ (shndërrimi i tipit në mënyrë të nënkuptuar). __Coercion__ është shndërrimi nga një tip në një tjetër.
 
 Në këtë shembull, JavaScript konverton numrin `1` në string, në mënyrë që për funksionin të ketë kuptim dhe të kthejë një vlerë. Përgjatë mbledhjes të një tipi number (`1`) dhe një tipi string (`'2'`), numri trajtohet si string. Ne mund ti bashkojmë stringjet si `"Hello" + "World"`, kështu që ajo që po ndodh këtu është `"1" + "2"` e cila kthen "12"`.
 
@@ -557,7 +555,7 @@ function getPersonInfo(one, two, three) {
   console.log(three);
 }
 
-const person = "Lydia";
+const person = 'Lydia';
 const age = 21;
 
 getPersonInfo`${person} is ${age} years old`;
@@ -584,9 +582,9 @@ Nëse përdorni literale të shabllonit (template literals) të etiketuar, vlera
 ```javascript
 function checkAge(data) {
   if (data === { age: 18 }) {
-    console.log("You are an adult!");
+    console.log('You are an adult!');
   } else if (data == { age: 18 }) {
-    console.log("You are still an adult.");
+    console.log('You are still an adult.');
   } else {
     console.log(`Hmm.. You don't have an age I guess`);
   }
@@ -646,7 +644,7 @@ Parametri "rest" (`...args`) na lejon të "mbledhim" të gjitha argumentet e mbe
 
 ```javascript
 function getAge() {
-  "use strict";
+  'use strict';
   age = 21;
   console.log(age);
 }
@@ -674,7 +672,7 @@ Me `"use strict"`, mund të siguroheni se nuk do të deklaroni variabla globale 
 ###### 21. Sa do të jetë vlera e `sum`?
 
 ```javascript
-const sum = eval("10*10+5");
+const sum = eval('10*10+5');
 ```
 
 - A: `105`
@@ -697,7 +695,7 @@ const sum = eval("10*10+5");
 ###### 22. Sa kohë është e qasshme cool_secret?
 
 ```javascript
-sessionStorage.setItem("cool_secret", 123);
+sessionStorage.setItem('cool_secret', 123);
 ```
 
 - A: Përgjithmonë, e dhëna nuk humb.
@@ -750,12 +748,12 @@ Ju nuk mund ta bëni këtë me 'let' ose 'const' pasi ato kanë qasje në bllok 
 ###### 24. Cila është vlera e saj?
 
 ```javascript
-const obj = { 1: "a", 2: "b", 3: "c" };
+const obj = { 1: 'a', 2: 'b', 3: 'c' };
 const set = new Set([1, 2, 3, 4, 5]);
 
-obj.hasOwnProperty("1");
+obj.hasOwnProperty('1');
 obj.hasOwnProperty(1);
-set.has("1");
+set.has('1');
 set.has(1);
 ```
 
@@ -781,7 +779,7 @@ Nuk funksionon në këtë mënyrë për një "set". Nuk ka asnjë `'1'` në set-
 ###### 25. Cila është vlera e saj?
 
 ```javascript
-const obj = { a: "one", b: "two", a: "three" };
+const obj = { a: 'one', b: 'two', a: 'three' };
 console.log(obj);
 ```
 
@@ -850,12 +848,12 @@ Deklarata `continue` kalon një iterim nëse një kusht i caktuar kthen `true`.
 
 ```javascript
 String.prototype.giveLydiaPizza = () => {
-  return "Just give Lydia pizza already!";
+  return 'Just give Lydia pizza already!';
 };
 
-const name = "Lydia";
+const name = 'Lydia';
 
-console.log(name.giveLydiaPizza());
+console.log(name.giveLydiaPizza())
 ```
 
 - A: `"Just give Lydia pizza already!"`
@@ -879,8 +877,8 @@ console.log(name.giveLydiaPizza());
 
 ```javascript
 const a = {};
-const b = { key: "b" };
-const c = { key: "c" };
+const b = { key: 'b' };
+const c = { key: 'c' };
 
 a[b] = 123;
 a[c] = 456;
@@ -912,9 +910,9 @@ Pastaj ne e printojmë `a[b]` e cila është `a["[object Object]"]`. We sapo e v
 ###### 30. Cila është vlera e saj?
 
 ```javascript
-const foo = () => console.log("First");
-const bar = () => setTimeout(() => console.log("Second"));
-const baz = () => console.log("Third");
+const foo = () => console.log('First');
+const bar = () => setTimeout(() => console.log('Second'));
+const baz = () => console.log('Third');
 
 bar();
 foo();
@@ -967,7 +965,9 @@ Këtu fillon të funksionojë event loop. Një **event loop** shikon "stack" dhe
 ```html
 <div onclick="console.log('first div')">
   <div onclick="console.log('second div')">
-    <button onclick="console.log('button')">Click!</button>
+    <button onclick="console.log('button')">
+      Click!
+    </button>
   </div>
 </div>
 ```
@@ -993,7 +993,9 @@ Elementi më thellë i mbivendosur që shkaktoi ngjarjen është objektivi i ngj
 
 ```html
 <div onclick="console.log('div')">
-  <p onclick="console.log('p')">Click here!</p>
+  <p onclick="console.log('p')">
+    Click here!
+  </p>
 </div>
 ```
 
@@ -1017,7 +1019,7 @@ Nëse klikojmë `p`, shohim dy dalje: `p` dhe `div`. Gjatë "event propagation",
 ###### 33. Cila është vlera e saj?
 
 ```javascript
-const person = { name: "Lydia" };
+const person = { name: 'Lydia' };
 
 function sayHi(age) {
   return `${this.name} is ${age}`;
@@ -1080,8 +1082,8 @@ FYI: `typeof` mund të kthejë listën e mëposhtme të vlerave: `undefined`, `b
 ```javascript
 0;
 new Number(0);
-("");
-(" ");
+('');
+(' ');
 new Boolean(false);
 undefined;
 ```
@@ -1230,14 +1232,11 @@ Ajo që e dallon një tip primitiv nga një objekt është se primitivët nuk ka
 ###### 40. Cila është vlera e saj?
 
 ```javascript
-[
-  [0, 1],
-  [2, 3],
-].reduce(
+[[0, 1], [2, 3]].reduce(
   (acc, cur) => {
     return acc.concat(cur);
   },
-  [1, 2]
+  [1, 2],
 );
 ```
 
@@ -1264,7 +1263,7 @@ Pastaj, `[1, 2, 0, 1]` është `acc` dhe `[2, 3]` është `cur`. I bashkojmë at
 
 ```javascript
 !!null;
-!!"";
+!!'';
 !!1;
 ```
 
@@ -1292,7 +1291,7 @@ Pastaj, `[1, 2, 0, 1]` është `acc` dhe `[2, 3]` është `cur`. I bashkojmë at
 ###### 42. Çfarë do të kthejë në browser funksioni `setInterval`?
 
 ```javascript
-setInterval(() => console.log("Hi"), 1000);
+setInterval(() => console.log('Hi'), 1000);
 ```
 
 - A: një id unike
@@ -1315,7 +1314,7 @@ Kthen një id unike. Kjo id mund të përdoret për të pastruar intervalin me f
 ###### 43. Çfarë do të kthehet si rezultat?
 
 ```javascript
-[..."Lydia"];
+[...'Lydia'];
 ```
 
 - A: `["L", "y", "d", "i", "a"]`
@@ -1335,7 +1334,7 @@ Stringu është i iterueshëm. Operatori i përhapjes (spread operator) iteron �
 
 ---
 
-###### 44. Cila është vlera e saj?
+###### 44.  Cila është vlera e saj?
 
 ```javascript
 function* generator(i) {
@@ -1374,14 +1373,14 @@ Pastaj, ne e thirrim funksionin përsëri me metodën `next()`. Fillon dhe vazhd
 
 ```javascript
 const firstPromise = new Promise((res, rej) => {
-  setTimeout(res, 500, "one");
+  setTimeout(res, 500, 'one');
 });
 
 const secondPromise = new Promise((res, rej) => {
-  setTimeout(res, 100, "two");
+  setTimeout(res, 100, 'two');
 });
 
-Promise.race([firstPromise, secondPromise]).then((res) => console.log(res));
+Promise.race([firstPromise, secondPromise]).then(res => console.log(res));
 ```
 
 - A: `"one"`
@@ -1404,7 +1403,7 @@ Kur i kalojmë premtime (promises) të shumta metodës `Promise.race`, ajo zgjid
 ###### 46. Cila është vlera e saj?
 
 ```javascript
-let person = { name: "Lydia" };
+let person = { name: 'Lydia' };
 const members = [person];
 person = null;
 
@@ -1444,7 +1443,7 @@ Ne po e modifikojmë vetëm vlerën e variblës `person`, dhe jo të elementit t
 
 ```javascript
 const person = {
-  name: "Lydia",
+  name: 'Lydia',
   age: 21,
 };
 
@@ -1473,7 +1472,7 @@ Me unazën `for-in`, ne mund të iterojmë përgjatë çelësave të objektit, n
 ###### 48. Cila është vlera e saj?
 
 ```javascript
-console.log(3 + 4 + "5");
+console.log(3 + 4 + '5');
 ```
 
 - A: `"345"`
@@ -1500,7 +1499,7 @@ Radha e veprimeve matematikore të operatorit është rendi në të cilin përpi
 ###### 49. What's the value of `num`?
 
 ```javascript
-const num = parseInt("7*6", 10);
+const num = parseInt('7*6', 10);
 ```
 
 - A: `42`
@@ -1525,8 +1524,8 @@ Kthehen vetëm numrat e parë në string. Bazuar në _radix (bazë)_ (argumenti 
 ###### 50. Cila është vlera e saj?
 
 ```javascript
-[1, 2, 3].map((num) => {
-  if (typeof num === "number") return;
+[1, 2, 3].map(num => {
+  if (typeof num === 'number') return;
   return num * 2;
 });
 ```
@@ -1554,12 +1553,12 @@ Megjithatë, ne nuk kthejmë një vlerë. Kur nuk kthejmë një vlerë nga funks
 
 ```javascript
 function getInfo(member, year) {
-  member.name = "Lydia";
-  year = "1998";
+  member.name = 'Lydia';
+  year = '1998';
 }
 
-const person = { name: "Sarah" };
-const birthYear = "1997";
+const person = { name: 'Sarah' };
+const birthYear = '1997';
 
 getInfo(person, birthYear);
 
@@ -1591,15 +1590,15 @@ Vlera e `person` është objekt. Argumenti `member` ka referencë (të kopjuar) 
 
 ```javascript
 function greeting() {
-  throw "Hello world!";
+  throw 'Hello world!';
 }
 
 function sayHi() {
   try {
     const data = greeting();
-    console.log("It worked!", data);
+    console.log('It worked!', data);
   } catch (e) {
-    console.log("Oh no an error:", e);
+    console.log('Oh no an error:', e);
   }
 }
 
@@ -1629,8 +1628,8 @@ Me deklaratën `catch`, ne mund të specifikojmë se çfarë të bëjmë nëse n
 
 ```javascript
 function Car() {
-  this.make = "Lamborghini";
-  return { make: "Maserati" };
+  this.make = 'Lamborghini';
+  return { make: 'Maserati' };
 }
 
 const myCar = new Car();
@@ -1704,11 +1703,11 @@ class Dog {
   }
 }
 
-Dog.prototype.bark = function () {
+Dog.prototype.bark = function() {
   console.log(`Woof I am ${this.name}`);
 };
 
-const pet = new Dog("Mara");
+const pet = new Dog('Mara');
 
 pet.bark();
 
@@ -1773,7 +1772,7 @@ export default counter;
 
 ```javascript
 // index.js
-import myCounter from "./counter";
+import myCounter from './counter';
 
 myCounter += 1;
 
@@ -1802,7 +1801,7 @@ Kur tentojmë të rrisim vlerën e `myCounter`, do të marrim një error: `myCou
 ###### 58. Cila është vlera e saj?
 
 ```javascript
-const name = "Lydia";
+const name = 'Lydia';
 age = 21;
 
 console.log(delete name);
@@ -1819,7 +1818,7 @@ console.log(delete age);
 
 #### Përgjigja: A
 
-Operatori "delete" kthen një vlerë booleane: `true` në fshirje të suksesshme, përndryshe do të kthejë `false`. Megjithatë, variablat e deklaruara me fjalën kyçe `var`, `const` ose `let` nuk mund të fshihen duke përdorur operatorin `delete`.
+Operatori "delete" kthen një vlerë booleane: `true` në fshirje të suksesshme, përndryshe do të kthejë `false`. Megjithatë, variablat e deklaruara me fjalën kyçe `var`, `const` ose `let` nuk mund të fshihen duke përdorur operatorin  `delete`.
 
 Variabla `name` u deklarua me fjalën kyçe `const`, kështu që fshirja e saj nuk ishte e suksesshme: u kthye `false`. Kur vendosëm `age` të barabartë me `21`, ne në fakt shtuam një veti të quajtur `age` në objektin global. Ju mund të fshini me sukses vetitë nga objektet në këtë mënyrë, gjithashtu edhe objektin global, kështu që `delete age` kthen `true`.
 
@@ -1873,7 +1872,7 @@ Kjo do të thotë se vlera e `y` është e barabartë me vlerën e parë në arr
 ###### 60. Cila është vlera e saj?
 
 ```javascript
-const user = { name: "Lydia", age: 21 };
+const user = { name: 'Lydia', age: 21 };
 const admin = { admin: true, ...user };
 
 console.log(admin);
@@ -1899,9 +1898,9 @@ console.log(admin);
 ###### 61. Cila është vlera e saj?
 
 ```javascript
-const person = { name: "Lydia" };
+const person = { name: 'Lydia' };
 
-Object.defineProperty(person, "age", { value: 21 });
+Object.defineProperty(person, 'age', { value: 21 });
 
 console.log(person);
 console.log(Object.keys(person));
@@ -1930,12 +1929,12 @@ Vetitë e shtuara duke përdorur metodën `defineProperty` janë të pandryshues
 
 ```javascript
 const settings = {
-  username: "lydiahallie",
+  username: 'lydiahallie',
   level: 19,
   health: 90,
 };
 
-const data = JSON.stringify(settings, ["level", "health"]);
+const data = JSON.stringify(settings, ['level', 'health']);
 console.log(data);
 ```
 
@@ -1966,7 +1965,7 @@ Nëse zëvendësuesi është një _funksion_, ky funksion thirret në çdo veti 
 let num = 10;
 
 const increaseNumber = () => num++;
-const increasePassedNumber = (number) => number++;
+const increasePassedNumber = number => number++;
 
 const num1 = increaseNumber();
 const num2 = increasePassedNumber(num1);
@@ -1987,7 +1986,7 @@ console.log(num2);
 
 Operatori unar `++` fillimisht kthen vlerën e operandit, pastaj e rrit vlerën e tij. Vlera e `num1` është `10`, meqenëse funksioni `increaseNumber` fillimisht kthen vlerën e `num`, e cila është `10`, dhe vetëm pastaj e rrit vlerën e `num`.
 
-`num2` është `10`, pasi ne e kaluam `num1` si argument tek `increasePassedNumber`. `number` është i barabartë me `10`(vlera e `num1`). Përsëri, operatori unar `++` _së pari kthen_ vlerën e operandit, dhe pastaj rrit vlerën e tij. Vlera e `number` është `10`, kështu që `num2` është e barabartë me `10`.
+`num2` është `10`, pasi ne e kaluam `num1` si argument tek `increasePassedNumber`. `number` është i barabartë me `10`(vlera e  `num1`). Përsëri, operatori unar `++` _së pari kthen_ vlerën e operandit, dhe pastaj rrit vlerën e tij. Vlera e `number` është `10`, kështu që `num2` është e barabartë me `10`.
 
 </p>
 </details>
@@ -2123,12 +2122,12 @@ Klasa `Labrador` merr dy argumente, `name` meqenëse trashëgon klasën 'Dog', d
 
 ```javascript
 // index.js
-console.log("running index.js");
-import { sum } from "./sum.js";
+console.log('running index.js');
+import { sum } from './sum.js';
 console.log(sum(1, 2));
 
 // sum.js
-console.log("running sum.js");
+console.log('running sum.js');
 export const sum = (a, b) => a + b;
 ```
 
@@ -2156,7 +2155,7 @@ Ky është një dallimi në mes `require()` në CommonJS dhe `import`! Me `requi
 ```javascript
 console.log(Number(2) === Number(2));
 console.log(Boolean(false) === Boolean(false));
-console.log(Symbol("foo") === Symbol("foo"));
+console.log(Symbol('foo') === Symbol('foo'));
 ```
 
 - A: `true`, `true`, `false`
@@ -2179,7 +2178,7 @@ console.log(Symbol("foo") === Symbol("foo"));
 ###### 69. Cila është vlera e saj?
 
 ```javascript
-const name = "Lydia Hallie";
+const name = 'Lydia Hallie';
 console.log(name.padStart(13));
 console.log(name.padStart(2));
 ```
@@ -2206,7 +2205,7 @@ Nëse argumenti i kaluar në metodën `padStart` është më i vogël se gjatës
 ###### 70. Cila është vlera e saj?
 
 ```javascript
-console.log("🥑" + "💻");
+console.log('🥑' + '💻');
 ```
 
 - A: `"🥑💻"`
@@ -2230,11 +2229,11 @@ Me operatorin `+`, ju mund të bashkoni vargjet. Në këtë rast, ne po bashkojm
 
 ```javascript
 function* startGame() {
-  const Përgjigja = yield "Do you love JavaScript?";
-  if (Përgjigja !== "Yes") {
+  const Përgjigja = yield 'Do you love JavaScript?';
+  if (Përgjigja !== 'Yes') {
     return "Oh wow... Guess we're done here";
   }
-  return "JavaScript loves you back ❤️";
+  return 'JavaScript loves you back ❤️';
 }
 
 const game = startGame();
@@ -2272,7 +2271,7 @@ console.log(String.raw`Hello\nworld`);
 - A: `Hello world!`
 - B: `Hello` &nbsp; &nbsp; &nbsp;`world`
 - C: `Hello\nworld`
-- D: `Hello\n` &nbsp; &nbsp; &nbsp;`world`
+- D: `Hello\n`  &nbsp; &nbsp; &nbsp;`world`
 
 <details><summary><b>Përgjigja</b></summary>
 <p>
@@ -2302,7 +2301,7 @@ Në këtë rast, `Hello\nworld` do të printohet.
 
 ```javascript
 async function getData() {
-  return await Promise.resolve("I made it!");
+  return await Promise.resolve('I made it!');
 }
 
 const data = getData();
@@ -2339,7 +2338,7 @@ function addToList(item, list) {
   return list.push(item);
 }
 
-const result = addToList("apple", ["banana"]);
+const result = addToList('apple', ['banana']);
 console.log(result);
 ```
 
@@ -2399,7 +2398,7 @@ Meqenëse `shape` është e ngrirë dhe meqenëse vlera e `x` nuk është një o
 ###### 76. Cila është vlera e saj?
 
 ```javascript
-const { firstName: myName } = { firstName: "Lydia" };
+const { firstName: myName } = { firstName: 'Lydia' };
 
 console.log(firstName);
 ```
@@ -2417,7 +2416,7 @@ console.log(firstName);
 Duke përdorur [sintaksen e funksioneve destruktuese](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment) ne mund të targetojmë vlerat nga vargjet, ose vetitë nga objektet, në variabla të veçanta:
 
 ```javascript
-const { firstName } = { firstName: "Lydia" };
+const { firstName } = { firstName: 'Lydia' };
 // versioni i ES5:
 // var firstName = { firstName: 'Lydia' }.firstName;
 
@@ -2427,7 +2426,7 @@ console.log(firstName); // "Lydia"
 Gjithashtu, një veti mund të targetohet nga një objekt dhe t'i caktohet një variableje me një emër të ndryshëm nga vetia e objektit:
 
 ```javascript
-const { firstName: myName } = { firstName: "Lydia" };
+const { firstName: myName } = { firstName: 'Lydia' };
 // versioni i ES5:
 // var myName = { firstName: 'Lydia' }.firstName;
 
@@ -2437,20 +2436,21 @@ console.log(firstName); // Uncaught ReferenceError: firstName is not defined
 
 Prandaj, `firstName` nuk ekziston si variabël, kështu që tentimi për të qasur vlerën e saj do të ngrejë një `ReferenceError`.
 
-**Shënim:** Kujdes nga vetitë e `global scope`:
+**Shënim:** Kujdes nga vetitë e  `global scope`:
 
 ```javascript
-const { name: myName } = { name: "Lydia" };
+const { name: myName } = { name: 'Lydia' };
 
 console.log(myName); // "lydia"
 console.log(name); // "" ----- Browser psh. Chrome
 console.log(name); // ReferenceError: name is not defined  ----- NodeJS
+
 ```
 
-Kurdo që JavaScript nuk mundet të gjejë një varibël në _current scope_, ngrihet në [Scope chain](https://github.com/getify/You-Dont-Know-JS/blob/2nd-ed/scope-closures/ch3.md) dhe kërkon për të dhe në qoftëse e arrin nivelin më të lartë të shtrirjes (the top-level scope), të quajtur **Global scope**, dhe ende nuk e gjen do të ngrejë `ReferenceError`.
+Kurdo që JavaScript nuk mundet të gjejë një varibël në _current scope_, ngrihet në [Scope chain](https://github.com/getify/You-Dont-Know-JS/blob/2nd-ed/scope-closures/ch3.md) dhe kërkon për të dhe në qoftëse e arrin nivelin më të lartë të shtrirjes (the top-level scope), të quajtur  __Global scope__, dhe ende nuk e gjen do të ngrejë `ReferenceError`.
 
-- Në **Browsers** si _Chrome_, `name` është _vetia e shtrirjes globale e vjetëruar_. Në këtë shembull, kodi funksionon brenda _global scope_ dhe nuk ka asnjë variabël lokale të përcaktuar nga përdoruesi për `name`, prandaj ai kërkon _variables/properties_ të paracaktuara në shtrirjen globale, në këtë rast shfletuesve, ai kërkon përmes objektit `window`, dhe do të nxjerrë vlerën [window.name](https://developer.mozilla.org/en-US/docs/Web/API/Window/name) e cila është e barabartë me një varg **bosh**.
-- Në **NodeJS**, nuk ka një veçori të tillë në objektin `global`, kështu që përpjekja për të iu qasur një variable joekzistente do të ngrejë një [ReferenceError](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Errors/Not_defined).
+- Në __Browsers__ si _Chrome_, `name` është _vetia e shtrirjes globale e vjetëruar_. Në këtë shembull, kodi funksionon brenda _global scope_ dhe nuk ka asnjë variabël lokale të përcaktuar nga përdoruesi për `name`, prandaj ai kërkon _variables/properties_ të paracaktuara në shtrirjen globale, në këtë rast shfletuesve, ai kërkon përmes objektit `window`, dhe do të nxjerrë vlerën [window.name](https://developer.mozilla.org/en-US/docs/Web/API/Window/name) e cila është e barabartë me një varg __bosh__.
+- Në __NodeJS__, nuk ka një veçori të tillë në objektin `global`, kështu që përpjekja për të iu qasur një variable joekzistente do të ngrejë një [ReferenceError](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Errors/Not_defined).
 
 </p>
 </details>
@@ -2482,12 +2482,12 @@ Funksioni `sum` _gjithmonë_ kthen të njëjtin rezultat. Nëse i kalojmë `1` d
 
 ---
 
-###### 78. Cila është vlera e saj?
+###### 78.  Cila është vlera e saj?
 
 ```javascript
 const add = () => {
   const cache = {};
-  return (num) => {
+  return num => {
     if (num in cache) {
       return `From cache! ${cache[num]}`;
     } else {
@@ -2529,10 +2529,10 @@ Herën e tretë, ne kalojmë `5 * 2` te funksioni i cili llogaritet si `10`. Obj
 
 ---
 
-###### 79. Cila është vlera e saj?
+###### 79.  Cila është vlera e saj?
 
 ```javascript
-const myLifeSummedUp = ["☕", "💻", "🍷", "🍫"];
+const myLifeSummedUp = ['☕', '💻', '🍷', '🍫'];
 
 for (let item in myLifeSummedUp) {
   console.log(item);
@@ -2559,14 +2559,14 @@ Me unazën _for-in_, ne mund të iterojmë në vetitë _e numërueshme_. Në nj�
 
 Ku çelësat janë vetitë e numërueshme. `0` `1` `2` `3` printohet.
 
-Me unazën _for-of_, ne mund të iterojmë mbi **iterables**. Një array është një "iterable". Kur iterojmë mbi array, variabla "item" është e barabartë me elementin mbi të cilin po iterojmë aktualisht, "☕"` `"💻"` `"🍷"` `"🍫"` printohet.
+Me unazën _for-of_, ne mund të iterojmë mbi __iterables__. Një array është një "iterable". Kur iterojmë mbi array, variabla "item" është e barabartë me elementin mbi të cilin po iterojmë aktualisht, "☕"` `"💻"` `"🍷"` `"🍫"` printohet.
 
 </p>
 </details>
 
 ---
 
-###### 80. Cila është vlera e saj?
+###### 80.  Cila është vlera e saj?
 
 ```javascript
 const list = [1 + 2, 1 * 2, 1 / 2];
@@ -2592,7 +2592,7 @@ Elementi do të jetë i barabartë me vlerën e kthyer. `1 + 2` kthen `3`, `1 * 
 
 ---
 
-###### 81. Cila është vlera e saj?
+###### 81.  Cila është vlera e saj?
 
 ```javascript
 function sayHi(name) {
@@ -2625,16 +2625,16 @@ Në këtë rast, nëse ne nuk kalojmë ndonjë vlerë ose e kalojmë `undefined`
 
 ---
 
-###### 82. Cila është vlera e saj?
+###### 82.  Cila është vlera e saj?
 
 ```javascript
-var status = "😎";
+var status = '😎';
 
 setTimeout(() => {
-  const status = "😍";
+  const status = '😍';
 
   const data = {
-    status: "🥑",
+    status: '🥑',
     getStatus() {
       return this.status;
     },
@@ -2655,25 +2655,25 @@ setTimeout(() => {
 
 #### Përgjigja: B
 
-Vlera e fjalës kyçe `this` varet nga vendi ku e përdorni. Në një **metodë**, si metoda `getStatus`, fjala kyçe `this` i referohet _objektit që i përket metoda_. Metoda i përket objektit `data`, kështu që `this` i referohet objektit `data`. Kur printojmë `this.status`, vetia `status` në objektin `data` printohet, që është `"🥑"`.
+Vlera e fjalës kyçe `this` varet nga vendi ku e përdorni. Në një __metodë__, si metoda `getStatus`, fjala kyçe `this` i referohet _objektit që i përket metoda_. Metoda i përket objektit `data`, kështu që `this` i referohet objektit `data`. Kur printojmë `this.status`, vetia `status` në objektin `data` printohet, që është `"🥑"`.
 
-Me metodën `call`, ne mund të ndryshojmë objektin të cilit i referohet fjala kyçe `this`. Në **funksione**, fjala kyçe `this` i referohet _objektit të cilit i përket funksioni_. Ne deklaruam funksionin `setTimeout` në objektin _global_, kështu që brenda funksionit `setTimeout`, fjala kyçe `this` i referohet objektit _global_. Në objektin global, ekziston një variabël e quajtur _status_ me vlerën `"😎"`. Kur printoni `this.status`, `"😎"` printohet.
+Me metodën `call`, ne mund të ndryshojmë objektin të cilit i referohet fjala kyçe `this`. Në __funksione__, fjala kyçe `this` i referohet _objektit të cilit i përket funksioni_. Ne deklaruam funksionin `setTimeout` në objektin _global_, kështu që brenda funksionit `setTimeout`, fjala kyçe `this` i referohet objektit _global_. Në objektin global, ekziston një variabël e quajtur _status_ me vlerën `"😎"`. Kur printoni `this.status`, `"😎"` printohet.
 
 </p>
 </details>
 
 ---
 
-###### 83. Cila është vlera e saj?
+###### 83.  Cila është vlera e saj?
 
 ```javascript
 const person = {
-  name: "Lydia",
+  name: 'Lydia',
   age: 21,
 };
 
 let city = person.city;
-city = "Amsterdam";
+city = 'Amsterdam';
 
 console.log(person);
 ```
@@ -2701,7 +2701,7 @@ Kur printojmë objektin `person`. objekti i pamodifikuar kthehet.
 
 ---
 
-###### 84. Cila është vlera e saj?
+###### 84.  Cila është vlera e saj?
 
 ```javascript
 function checkAge(age) {
@@ -2737,9 +2737,9 @@ Variablat e deklaruara me fjalët kyçe `const` dhe `let` janë të qasshme vet�
 ###### 85. Çfarë lloj informacioni do të printohet?
 
 ```javascript
-fetch("https://www.website.com/api/user/1")
-  .then((res) => res.json())
-  .then((res) => console.log(res));
+fetch('https://www.website.com/api/user/1')
+  .then(res => res.json())
+  .then(res => console.log(res));
 ```
 
 - A: Rezultati i metodës `fetch`.
@@ -2793,7 +2793,7 @@ Kur vendosim `hasName` të barabartë me `name`, ju vendosni `hasName` të barab
 ###### 87. Cila është vlera e saj?
 
 ```javascript
-console.log("I want pizza"[0]);
+console.log('I want pizza'[0]);
 ```
 
 - A: `"""`
@@ -2848,11 +2848,11 @@ Në qoftëse provoni të vendosni një vlerë të paradefinuar të barabartë me
 
 ```javascript
 // module.js
-export default () => "Hello world";
-export const name = "Lydia";
+export default () => 'Hello world';
+export const name = 'Lydia';
 
 // index.js
-import * as data from "./module";
+import * as data from './module';
 
 console.log(data);
 ```
@@ -2885,7 +2885,7 @@ class Person {
   }
 }
 
-const member = new Person("John");
+const member = new Person('John');
 console.log(typeof member);
 ```
 
@@ -2934,7 +2934,7 @@ console.log(newList.push(5));
 
 Metoda `.push` kthen _gjatësinë e re_ të array, jo vetë array! Duke vendosur `newList` të barabartë me `[1, 2, 3].push(4)`, e vendosim `newList` të barabartë me gjatësinë e re të array: `4`.
 
-Pastaj, ne provojmë të përdorim metodën `.push` në `newList`. Meqenëse `newList` është vlera numerike e `4` ne nuk mund të përdorim metodën `.push`: do të ngrihet TypeError.
+Pastaj, ne provojmë të përdorim metodën `.push`  në `newList`. Meqenëse `newList` është vlera numerike e `4` ne nuk mund të përdorim metodën `.push`: do të ngrihet TypeError.
 
 </p>
 </details>
@@ -2945,7 +2945,7 @@ Pastaj, ne provojmë të përdorim metodën `.push` në `newList`. Meqenëse `ne
 
 ```javascript
 function giveLydiaPizza() {
-  return "Here is pizza!";
+  return 'Here is pizza!';
 }
 
 const giveLydiaChocolate = () =>
@@ -2976,7 +2976,7 @@ Funskionet e rregullta, të tillë si funksioni `giveLydiaPizza`, kanë vetinë 
 
 ```javascript
 const person = {
-  name: "Lydia",
+  name: 'Lydia',
   age: 21,
 };
 
@@ -3035,7 +3035,7 @@ function getItems(fruitList, favoriteFruit, ...args) {
   return [...fruitList, ...args, favoriteFruit];
 }
 
-getItems(["banana", "apple"], "pear", "orange");
+getItems(['banana', 'apple'], 'pear', 'orange');
 ```
 
 Shembulli i mësipërm funskionon. Do të kthejë array `[ 'banana', 'apple', 'orange', 'pear' ]`
@@ -3049,9 +3049,9 @@ Shembulli i mësipërm funskionon. Do të kthejë array `[ 'banana', 'apple', 'o
 
 ```javascript
 function nums(a, b) {
-  if (a > b) console.log("a is bigger");
-  else console.log("b is bigger");
-  return;
+  if (a > b) console.log('a is bigger');
+  else console.log('b is bigger');
+  return
   a + b;
 }
 
@@ -3069,7 +3069,7 @@ console.log(nums(1, 2));
 
 #### Përgjigja: B
 
-Në JavaScript, nuk e duhet të e shkruajmë pikëpresjen `;` në mënyrë eksplicite, sidoqoftë makina e JavaScript prapë i vendos ato pas deklarimeve. Kjo quhet **Automatic Semicolon Insertion** (vendosja e pikëpresjes automatikisht). Një deklaratë për shembull mund të jetë variabla, ose fjalët kyçe si `throw`, `return`, `break` etj.
+Në JavaScript, nuk e duhet të e shkruajmë pikëpresjen `;` në mënyrë eksplicite, sidoqoftë makina e JavaScript prapë i vendos ato pas deklarimeve. Kjo quhet __Automatic Semicolon Insertion__ (vendosja e pikëpresjes automatikisht). Një deklaratë për shembull mund të jetë variabla, ose fjalët kyçe si `throw`, `return`, `break` etj.
 
 Në këtë rast, ne shkruajtëm deklaratën `return`, dhe vlerën tjetër `a + b` në rresht të ri. Sidoqoftë, meqenëse është rresht i ri, makina nuk e di se në të vërtetë ajo është vlera që ne po dëshirojmë të kthejmë. Në vend se të e llogarisë në atë mënyrë, në mënyrë automatike vendoset `return`. Kjo mund të shikohet edhe si kjo sintaksë:
 
@@ -3090,13 +3090,13 @@ Kjo do të thotë se `a + b` nuk arrihet asnjëherë, meqenëse funksioni ndalon
 ```javascript
 class Person {
   constructor() {
-    this.name = "Lydia";
+    this.name = 'Lydia';
   }
 }
 
 Person = class AnotherPerson {
   constructor() {
-    this.name = "Sarah";
+    this.name = 'Sarah';
   }
 };
 
@@ -3125,7 +3125,7 @@ Ne mund të iu shoqërojmë klasave konstruktorët e tjerë të klasave/funksion
 
 ```javascript
 const info = {
-  [Symbol("a")]: "b",
+  [Symbol('a')]: 'b',
 };
 
 console.log(info);
@@ -3142,9 +3142,9 @@ console.log(Object.keys(info));
 
 #### Përgjigja: D
 
-Një Symbol nuk është i _numërueshëm_. Metoda Object.keys kthen të gjithë çelësat e \_numërueshëm në një objekt. Symbol nuk do të jetë i dukshëm, dhe një array i zbrazët do të kthehet. Kur e printojmë objektin në tërësi, të gjitha vetitë janë të dukshme, edhe ato të cilat nuk janë te numërueshme.
+Një Symbol nuk është i _numërueshëm_. Metoda Object.keys kthen të gjithë çelësat e _numërueshëm në një objekt. Symbol nuk do të jetë i dukshëm, dhe një array i zbrazët do të kthehet. Kur e printojmë objektin në tërësi, të gjitha vetitë janë të dukshme, edhe ato të cilat nuk janë te numërueshme.
 
-Kjo është vetëm një nga shumë vetitë e symbol, përveç përfaqësimit të një vlere krejtësisht unike (e cila parandalon konflikt në emërtim të objekteve, për shembull kur punoni me 2 librari që duan të shtojnë vetitë në të njëjtin objekt), ju gjithashtu mund të "fshehni" vetitë e objekteve në këtë mënyrë (edhe pse jo plotësisht. Ju mund t'i qaseni simboleve duke përdorur metodën `Object.getOwnPropertySymbols()`).
+Kjo është vetëm një nga shumë vetitë e symbol, përveç përfaqësimit të një vlere krejtësisht unike (e cila parandalon konflikt  në emërtim të objekteve, për shembull kur punoni me 2 librari që duan të shtojnë vetitë në të njëjtin objekt), ju gjithashtu mund të "fshehni" vetitë e objekteve në këtë mënyrë (edhe pse jo plotësisht. Ju mund t'i qaseni simboleve duke përdorur metodën `Object.getOwnPropertySymbols()`).
 
 </p>
 </details>
@@ -3194,7 +3194,7 @@ Funskioni i meposhtëm do të kthente një objekt:
 ###### 99. Cila është vlera e saj?
 
 ```javascript
-const name = "Lydia";
+const name = 'Lydia';
 
 console.log(name());
 ```
@@ -3226,8 +3226,8 @@ ReferenceErrors ngrihen kur Javascript-i nuk është në gjendje të gjejë refe
 ```javascript
 // 🎉✨ Kjo është pytja jonë e 100! ✨🎉
 
-const output = `${[] && "Im"}possible!
-You should${"" && `n't`} see a therapist after so much JavaScript lol`;
+const output = `${[] && 'Im'}possible!
+You should${'' && `n't`} see a therapist after so much JavaScript lol`;
 ```
 
 - A: `possible! You should see a therapist after so much JavaScript lol`
@@ -3253,7 +3253,7 @@ You should${"" && `n't`} see a therapist after so much JavaScript lol`;
 
 ```javascript
 const one = false || {} || null;
-const two = null || false || "";
+const two = null || false || '';
 const three = [] || 0 || true;
 
 console.log(one, two, three);
@@ -3285,16 +3285,16 @@ Me operatorin `||`, ne mund të kthejmë vlerën e parë "truthy" të operandit.
 ###### 102. Cila është vlera në dalje?
 
 ```javascript
-const myPromise = () => Promise.resolve("I have resolved!");
+const myPromise = () => Promise.resolve('I have resolved!');
 
 function firstFunction() {
-  myPromise().then((res) => console.log(res));
-  console.log("second");
+  myPromise().then(res => console.log(res));
+  console.log('second');
 }
 
 async function secondFunction() {
   console.log(await myPromise());
-  console.log("second");
+  console.log('second');
 }
 
 firstFunction();
@@ -3332,8 +3332,8 @@ Kjo do të thotë se pret për `myPromise` të zgjidhet me vlerën `I have resol
 const set = new Set();
 
 set.add(1);
-set.add("Lydia");
-set.add({ name: "Lydia" });
+set.add('Lydia');
+set.add({ name: 'Lydia' });
 
 for (let item of set) {
   console.log(item + 2);
@@ -3393,13 +3393,13 @@ Në këtë rast, ne vetëm i kaluam si argument vlerën numerike `5`. Kthen prom
 ```javascript
 function compareMembers(person1, person2 = person) {
   if (person1 !== person2) {
-    console.log("Not the same!");
+    console.log('Not the same!');
   } else {
-    console.log("They are the same!");
+    console.log('They are the same!');
   }
 }
 
-const person = { name: "Lydia" };
+const person = { name: 'Lydia' };
 
 compareMembers(person);
 ```
@@ -3416,7 +3416,7 @@ compareMembers(person);
 
 Objektet vendosen si argumente në bazë të referencës së tyre. Kur i kontrollojmë objektet me operatorin për barazim strikt (`===`), ne po kontorllojmë referencën e tyre.
 
-Ne e paracaktuam vlerën e `person2` të barabartë me objektin `person`, dhe e kaluam objektin `person` si vlerë të `person1`.
+Ne e paracaktuam vlerën e  `person2` të barabartë me objektin `person`, dhe e kaluam objektin `person` si vlerë të `person1`.
 
 Kjo do të thotë që të dy vlerat kanë referencë të e njejta hapësirë memorike, dhe kështu ato janë të barabarta.
 
@@ -3438,7 +3438,7 @@ const colorConfig = {
   yellow: false,
 };
 
-const colors = ["pink", "red", "blue"];
+const colors = ['pink', 'red', 'blue'];
 
 console.log(colorConfig.colors[1]);
 ```
@@ -3467,7 +3467,7 @@ JavaScript i interpreton deklarimet. Kur përdorim notacionin me kllapa të mëd
 ###### 107. Cila është vlera e saj?
 
 ```javascript
-console.log("❤️" === "❤️");
+console.log('❤️' === '❤️');
 ```
 
 - A: `true`
@@ -3488,14 +3488,14 @@ Në prapavijë, emoji-t janë kode të veçanta. Unikodet për emoji-t e zemrës
 ###### 108. Cila nga këto metoda e modifikon array origjinal?
 
 ```javascript
-const emojis = ["✨", "🥑", "😍"];
+const emojis = ['✨', '🥑', '😍'];
 
-emojis.map((x) => x + "✨");
-emojis.filter((x) => x !== "🥑");
-emojis.find((x) => x !== "🥑");
-emojis.reduce((acc, cur) => acc + "✨");
-emojis.slice(1, 2, "✨");
-emojis.splice(1, 2, "✨");
+emojis.map(x => x + '✨');
+emojis.filter(x => x !== '🥑');
+emojis.find(x => x !== '🥑');
+emojis.reduce((acc, cur) => acc + '✨');
+emojis.slice(1, 2, '✨');
+emojis.splice(1, 2, '✨');
 ```
 
 - A: `All of them`
@@ -3520,10 +3520,10 @@ Me motodën `splice`, ne modifikojmë array origjinal duke fshirë, zëvendësua
 ###### 109. Cila është vlera e saj?
 
 ```javascript
-const food = ["🍕", "🍫", "🥑", "🍔"];
+const food = ['🍕', '🍫', '🥑', '🍔'];
 const info = { favoriteFood: food[0] };
 
-info.favoriteFood = "🍝";
+info.favoriteFood = '🍝';
 
 console.log(food);
 ```
@@ -3577,7 +3577,7 @@ const jsonArray = JSON.stringify([1, 2, 3]); // '[1, 2, 3]'
 JSON.parse(jsonArray); // [1, 2, 3]
 
 // Stringifimi i një objekti në JSON valid, pastaj parsimi i JSON stringut në një vlerë të JavaScript:
-const jsonArray = JSON.stringify({ name: "Lydia" }); // '{"name":"Lydia"}'
+const jsonArray = JSON.stringify({ name: 'Lydia' }); // '{"name":"Lydia"}'
 JSON.parse(jsonArray); // { name: 'Lydia' }
 ```
 
@@ -3589,11 +3589,11 @@ JSON.parse(jsonArray); // { name: 'Lydia' }
 ###### 111. Cila është vlera e saj?
 
 ```javascript
-let name = "Lydia";
+let name = 'Lydia';
 
 function getName() {
   console.log(name);
-  let name = "Sarah";
+  let name = 'Sarah';
 }
 
 getName();
@@ -3616,7 +3616,7 @@ Variablat me fjalën kyçe `let` (dhe `const`) ngriten (hoistoh-en), por për da
 Nëse nuk do të kishim deklaruar `name` brenda funksionit `getName`, makina e JavaScript do të kishte shikuar poshtë _zingjirit të shtrirjes_. Fusha e jashtme ka variabël të quajtur `name` me vlerë `Lydia`. Në këtë rast, do të kishte printuat `Lydia`.
 
 ```javascript
-let name = "Lydia";
+let name = 'Lydia';
 
 function getName() {
   console.log(name);
@@ -3634,11 +3634,11 @@ getName(); // Lydia
 
 ```javascript
 function* generatorOne() {
-  yield ["a", "b", "c"];
+  yield ['a', 'b', 'c'];
 }
 
 function* generatorTwo() {
-  yield* ["a", "b", "c"];
+  yield* ['a', 'b', 'c'];
 }
 
 const one = generatorOne();
@@ -3684,7 +3684,7 @@ console.log(two.next().value); // undefined
 ###### 113. Cila është vlera e saj?
 
 ```javascript
-console.log(`${((x) => x)("I love")} to program`);
+console.log(`${(x => x)('I love')} to program`);
 ```
 
 - A: `I love to program`
@@ -3709,7 +3709,7 @@ Shprehjet brenda shablloneve literale vlerësohen së pari. Kjo do të thotë q�
 ```javascript
 let config = {
   alert: setInterval(() => {
-    console.log("Alert!");
+    console.log('Alert!');
   }, 1000),
 };
 
@@ -3728,7 +3728,7 @@ config = null;
 
 Zakonisht kur i vendosim objektet të barabarta me `null`, ato objekte mirren nga _garbage collector_ pasi nuk ka më referencë për ato objekte. Megjithatë, meqenëse funksioni callback brenda `setInterval` është një funksion me shigjetë (pra i lidhur me objektin `config`), funksioni callback ende mban një referencë për objektin `config`.
 Për sa kohë ka një referencë, objekti nuk do të merret nga 'garbage collector' (menaxhuesi i memories për të u larguar).
-Meqenëse ky është një interval, vendosja e `config` në '`null` ose `delete` `config.alert` nuk do të mbledhet nga garbage-collector për intervalin, kështu që intervali do të vazhdojë të thirret.
+Meqenëse ky është një interval, vendosja e `config` në '`null` ose `delete` `config.alert` nuk do të mbledhet nga garbage-collector për  intervalin, kështu që intervali do të vazhdojë të thirret.
 Për ta hequr nga memoria duhet të e pastrojmë me `clearInterval(config.alert)`.
 Meqenëse nuk u fshi, funksioni `setInterval` callback do të vazhdojë të thirret çdo 1000ms (1s).
 
@@ -3741,16 +3741,16 @@ Meqenëse nuk u fshi, funksioni `setInterval` callback do të vazhdojë të thir
 
 ```javascript
 const myMap = new Map();
-const myFunc = () => "greeting";
+const myFunc = () => 'greeting';
 
-myMap.set(myFunc, "Hello world!");
+myMap.set(myFunc, 'Hello world!');
 
 //1
-myMap.get("greeting");
+myMap.get('greeting');
 //2
 myMap.get(myFunc);
 //3
-myMap.get(() => "greeting");
+myMap.get(() => 'greeting');
 ```
 
 - A: 1
@@ -3777,14 +3777,14 @@ Kur shtoni një çift çelës/vlerë duke përdorur metodën `set`, çelësi do 
 
 ```javascript
 const person = {
-  name: "Lydia",
+  name: 'Lydia',
   age: 21,
 };
 
 const changeAge = (x = { ...person }) => (x.age += 1);
 const changeAgeAndName = (x = { ...person }) => {
   x.age += 1;
-  x.name = "Sarah";
+  x.name = 'Sarah';
 };
 
 changeAge(person);
@@ -3843,7 +3843,7 @@ Me operatorin spread `...`, me mund të _përhapim_ iteruesit në elemente indiv
 
 ```javascript
 let num = 1;
-const list = ["🥳", "🤠", "🥰", "🤪"];
+const list = ['🥳', '🤠', '🥰', '🤪'];
 
 console.log(list[(num += 1)]);
 ```
@@ -3869,11 +3869,11 @@ Me operandin `+=`, ne po rrisim vlerën e `sum` për `1`. `num` kishte vlerën i
 
 ```javascript
 const person = {
-  firstName: "Lydia",
-  lastName: "Hallie",
+  firstName: 'Lydia',
+  lastName: 'Hallie',
   pet: {
-    name: "Mara",
-    breed: "Dutch Tulip Hound",
+    name: 'Mara',
+    breed: 'Dutch Tulip Hound',
   },
   getFullName() {
     return `${this.firstName} ${this.lastName}`;
@@ -3911,10 +3911,10 @@ Me operatorin opsional të zinxhirit `?.`, nuk duhet të kontrollojmë më në m
 ###### 120. Cila është vlera e saj?
 
 ```javascript
-const groceries = ["banana", "apple", "peanuts"];
+const groceries = ['banana', 'apple', 'peanuts'];
 
-if (groceries.indexOf("banana")) {
-  console.log("We have to buy bananas!");
+if (groceries.indexOf('banana')) {
+  console.log('We have to buy bananas!');
 } else {
   console.log(`We don't have to buy bananas!`);
 }
@@ -3970,10 +3970,10 @@ Metoda `language` është metodë `setter` (vendosëse). Vendosësit nuk mbajë 
 ###### 122. Cila është vlera e saj?
 
 ```javascript
-const name = "Lydia Hallie";
+const name = 'Lydia Hallie';
 
-console.log(!typeof name === "object");
-console.log(!typeof name === "string");
+console.log(!typeof name === 'object');
+console.log(!typeof name === 'string');
 ```
 
 - A: `false` `true`
@@ -3998,7 +3998,7 @@ console.log(!typeof name === "string");
 ###### 123. Cila është vlera e saj?
 
 ```javascript
-const add = (x) => (y) => (z) => {
+const add = x => y => z => {
   console.log(x, y, z);
   return x + y + z;
 };
@@ -4016,7 +4016,7 @@ add(4)(5)(6);
 
 #### Përgjigja: A
 
-Funksioni `add` kthen një funksion shigjete, i cili kthen një funksion shigjete, i cili kthen një funksion shigjete. Funksioni i parë merr një argument `x` me vlerën `4`. Ne e thërrasim funksionin e dytë, i cili merr një argument `y` me vlerën `5`. Pastaj thërrasim funksionin e tretë, i cili merr një argument `z` me vlerën `6`. Kur po provojmë të qasemi në vlerën `x`, `y` dhe `z` brenda funksionit të fundit të shigjetës, makina JS shkon lart në zinxhirin e shtrirjes për të gjetur vlerat për `x` dhe `y` përkatësisht. Kjo kthen `4` `5` `6`.
+Funksioni `add` kthen një funksion shigjete, i cili kthen një funksion shigjete, i cili kthen një funksion shigjete. Funksioni i parë merr një argument `x` me vlerën `4`. Ne e thërrasim funksionin e dytë, i cili merr një argument `y` me vlerën `5`. Pastaj thërrasim funksionin e tretë, i cili merr një argument `z` me vlerën `6`. Kur po provojmë të qasemi në vlerën `x`, `y` dhe `z` brenda funksionit të fundit të shigjetës, makina  JS shkon lart në zinxhirin e shtrirjes për të gjetur vlerat për `x` dhe `y` përkatësisht. Kjo kthen `4` `5` `6`.
 
 </p>
 </details>
@@ -4088,20 +4088,20 @@ myFunc(1, 2, 3);
 
 ```javascript
 function getFine(speed, amount) {
-  const formattedSpeed = new Intl.NumberFormat("en-US", {
-    style: "unit",
-    unit: "mile-per-hour",
+  const formattedSpeed = new Intl.NumberFormat('en-US', {
+    style: 'unit',
+    unit: 'mile-per-hour'
   }).format(speed);
 
-  const formattedAmount = new Intl.NumberFormat("en-US", {
-    style: "currency",
-    currency: "USD",
+  const formattedAmount = new Intl.NumberFormat('en-US', {
+    style: 'currency',
+    currency: 'USD'
   }).format(amount);
 
   return `The driver drove ${formattedSpeed} and has to pay ${formattedAmount}`;
 }
 
-console.log(getFine(130, 300));
+console.log(getFine(130, 300))
 ```
 
 - A: The driver drove 130 and has to pay 300
@@ -4124,8 +4124,8 @@ Me metoden `Intl.NumberFormat`, ne mund të formatojmë vlerat numerike në çdo
 ###### 127. Cila është vlera e saj?
 
 ```javascript
-const spookyItems = ["👻", "🎃", "🕸"];
-({ item: spookyItems[3] } = { item: "💀" });
+const spookyItems = ['👻', '🎃', '🕸'];
+({ item: spookyItems[3] } = { item: '💀' });
 
 console.log(spookyItems);
 ```
@@ -4150,7 +4150,7 @@ Duke destrukturuar objektet, ne mund të targetojmë vlerat nga objekti i djatht
 ###### 128. Cila është vlera e saj?
 
 ```javascript
-const name = "Lydia Hallie";
+const name = 'Lydia Hallie';
 const age = 21;
 
 console.log(Number.isNaN(name));
@@ -4186,7 +4186,7 @@ const randomValue = 21;
 
 function getInfo() {
   console.log(typeof randomValue);
-  const randomValue = "Lydia Hallie";
+  const randomValue = 'Lydia Hallie';
 }
 
 getInfo();
@@ -4212,7 +4212,7 @@ Variablat e deklaruara me fjalën kyçe `const` nuk janë të referueshme para i
 ###### 130. Cila është vlera e saj?
 
 ```javascript
-const myPromise = Promise.resolve("Woah some cool data");
+const myPromise = Promise.resolve('Woah some cool data');
 
 (async () => {
   try {
@@ -4220,7 +4220,7 @@ const myPromise = Promise.resolve("Woah some cool data");
   } catch {
     throw new Error(`Oops didn't work`);
   } finally {
-    console.log("Oh finally!");
+    console.log('Oh finally!');
   }
 })();
 ```
@@ -4245,7 +4245,7 @@ Në bllokun `try`, ne jemi duke printuar vlerën e pritur të variablës `myProm
 ###### 131. Cila është vlera e saj?
 
 ```javascript
-const emojis = ["🥑", ["✨", "✨", ["🍕", "🍕"]]];
+const emojis = ['🥑', ['✨', '✨', ['🍕', '🍕']]];
 
 console.log(emojis.flat(1));
 ```
@@ -4318,19 +4318,19 @@ Ne thërrasim `counterTwo.increment()`, i cili vendos `count` në `3`. Pastaj, p
 ###### 133. Cila është vlera e saj?
 
 ```javascript
-const myPromise = Promise.resolve(Promise.resolve("Promise"));
+const myPromise = Promise.resolve(Promise.resolve('Promise'));
 
 function funcOne() {
-  setTimeout(() => console.log("Timeout 1!"), 0);
-  myPromise.then((res) => res).then((res) => console.log(`${res} 1!`));
-  console.log("Last line 1!");
+  setTimeout(() => console.log('Timeout 1!'), 0);
+  myPromise.then(res => res).then(res => console.log(`${res} 1!`));
+  console.log('Last line 1!');
 }
 
 async function funcTwo() {
   const res = await myPromise;
-  console.log(`${res} 2!`);
-  setTimeout(() => console.log("Timeout 2!"), 0);
-  console.log("Last line 2!");
+  console.log(`${res} 2!`)
+  setTimeout(() => console.log('Timeout 2!'), 0);
+  console.log('Last line 2!');
 }
 
 funcOne();
@@ -4375,7 +4375,7 @@ export default function sum(x) {
 }
 
 // index.js
-import * as sum from "./sum";
+import * as sum from './sum';
 ```
 
 - A: `sum(4)`
@@ -4392,12 +4392,12 @@ Me yllin `*`, ne importojmë të gjitha vlerat e eksportuara nga ai fajll, si at
 
 ```javascript
 // info.js
-export const name = "Lydia";
+export const name = 'Lydia';
 export const age = 21;
-export default "I love JavaScript";
+export default 'I love JavaScript';
 
 // index.js
-import * as info from "./info";
+import * as info from './info';
 console.log(info);
 ```
 
@@ -4428,13 +4428,13 @@ Mund të e thërrasim këtë funksion, duke thirrur `sum.default`
 
 ```javascript
 const handler = {
-  set: () => console.log("Added a new property!"),
-  get: () => console.log("Accessed a property!"),
+  set: () => console.log('Added a new property!'),
+  get: () => console.log('Accessed a property!'),
 };
 
 const person = new Proxy({}, handler);
 
-person.name = "Lydia";
+person.name = 'Lydia';
 person.name;
 ```
 
@@ -4464,7 +4464,7 @@ Pastaj, ne i qasemi një vlerë të vetisë në objektin proxy, vetia `get` në 
 ###### 136. Cili nga opsionet e mëposhtme do të modifikojë objektin `person`?
 
 ```javascript
-const person = { name: "Lydia Hallie" };
+const person = { name: 'Lydia Hallie' };
 
 Object.seal(person);
 ```
@@ -4492,9 +4492,9 @@ Megjithatë, ju ende mund të modifikoni vlerën e vetive ekzistuese.
 
 ```javascript
 const person = {
-  name: "Lydia Hallie",
+  name: 'Lydia Hallie',
   address: {
-    street: "100 Main St",
+    street: '100 Main St',
   },
 };
 
@@ -4523,7 +4523,7 @@ Megjithatë, ajo vetëm _ngrin sipërfaqësisht_ objektin, që do të thotë se 
 ###### 138. Cila është vlera e saj?
 
 ```javascript
-const add = (x) => x + x;
+const add = x => x + x;
 
 function myFunc(num = 2, value = add(num)) {
   console.log(num, value);
@@ -4556,21 +4556,21 @@ Më pas, ne thirrëm `myFunc(3)` dhe kaluam vlerën `3` si vlerë për argumenti
 
 ```javascript
 class Counter {
-  #number = 10;
+  #number = 10
 
   increment() {
-    this.#number++;
+    this.#number++
   }
 
   getNum() {
-    return this.#number;
+    return this.#number
   }
 }
 
-const counter = new Counter();
-counter.increment();
+const counter = new Counter()
+counter.increment()
 
-console.log(counter.#number);
+console.log(counter.#number)
 ```
 
 - A: `10`
@@ -4594,8 +4594,8 @@ Në ES2020, mund të shtojmë variabla private në klasa duke përdorur `#`. Nuk
 
 ```javascript
 const teams = [
-  { name: "Team 1", members: ["Paul", "Lisa"] },
-  { name: "Team 2", members: ["Laura", "Tim"] },
+  { name: 'Team 1', members: ['Paul', 'Lisa'] },
+  { name: 'Team 2', members: ['Laura', 'Tim'] },
 ];
 
 function* getMembers(members) {
@@ -4638,8 +4638,8 @@ Nëse do të shkruanim `yield`, `return yield`, ose `return`, gjithë funksioni 
 
 ```javascript
 const person = {
-  name: "Lydia Hallie",
-  hobbies: ["coding"],
+  name: 'Lydia Hallie',
+  hobbies: ['coding'],
 };
 
 function addHobby(hobby, hobbies = person.hobbies) {
@@ -4647,9 +4647,9 @@ function addHobby(hobby, hobbies = person.hobbies) {
   return hobbies;
 }
 
-addHobby("running", []);
-addHobby("dancing");
-addHobby("baking", person.hobbies);
+addHobby('running', []);
+addHobby('dancing');
+addHobby('baking', person.hobbies);
 
 console.log(person.hobbies);
 ```
@@ -4718,11 +4718,11 @@ Krijojmë variablën `pet` që është një instancë e klasës `Flamingo`. Kur 
 ###### 143. Cila nga opsionet rezulton me gabim?
 
 ```javascript
-const emojis = ["🎄", "🎅🏼", "🎁", "⭐"];
+const emojis = ['🎄', '🎅🏼', '🎁', '⭐'];
 
-/* 1 */ emojis.push("🦌");
+/* 1 */ emojis.push('🦌');
 /* 2 */ emojis.splice(0, 2);
-/* 3 */ emojis = [...emojis, "🥂"];
+/* 3 */ emojis = [...emojis, '🥂'];
 /* 4 */ emojis.length = 0;
 ```
 
@@ -4777,11 +4777,11 @@ Objektet nuk janë të paraprakisht të iterueshme. Një objekt është i iterue
 let count = 0;
 const nums = [0, 1, 2, 3];
 
-nums.forEach((num) => {
-  if (num) count += 1;
-});
+nums.forEach(num => {
+	if (num) count += 1
+})
 
-console.log(count);
+console.log(count)
 ```
 
 - A: 1
@@ -4805,12 +4805,12 @@ Kushti `if` brenda ciklit `forEach` kontrollon nëse vlera e `num` është e vë
 
 ```javascript
 function getFruit(fruits) {
-  console.log(fruits?.[1]?.[1]);
+	console.log(fruits?.[1]?.[1])
 }
 
-getFruit([["🍊", "🍌"], ["🍍"]]);
-getFruit();
-getFruit([["🍍"], ["🍊", "🍌"]]);
+getFruit([['🍊', '🍌'], ['🍍']])
+getFruit()
+getFruit([['🍍'], ['🍊', '🍌']])
 ```
 
 - A: `null`, `undefined`, 🍌
@@ -4825,7 +4825,7 @@ getFruit([["🍍"], ["🍊", "🍌"]]);
 
 Simboli ? na lejon të i qasemi opsionalisht vetive më të thella brenda objekteve. Ne po provojmë të shfaqim elementin në indeksin 1 brenda në nën-array që është në indeksin 1 të array fruits. Nëse nën-array në indeksin 1 në array fruits nuk ekziston, thjesht do të kthejë undefined. Nëse nën-array në indeksin 1 në vargun fruits ekziston, por ky nën-array nuk ka një artikull në indeksin e tij 1, gjithashtu do të kthejë undefined.
 
-Së pari, ne po përpiqemi të printojmë artikullin e dytë në nën-array `['🍍']` të `[['🍊', '🍌'], ['🍍']]`. Ky nën-array përmban vetëm një element, që do të thotë se nuk ka element në indeksin `1`, dhe kthen `undefined`.
+Së pari, ne po përpiqemi të printojmë artikullin e dytë në nën-array `['🍍']` të `[['🍊', '🍌'], ['🍍']]`. Ky nën-array përmban vetëm  një element, që do të thotë se nuk ka element në indeksin `1`, dhe kthen `undefined`.
 
 Më pas, ne po thërrasim funksionin `getFruits` pa kaluar një vlerë si argument, që do të thotë se `fruits` ka vlerë `undefined` të paracaktuar. Pasi që po lidhim në mënyrë kushtëzuese elementin në indeksin `1` të `fruits`, kthen `undefined` pasi ky element në indeksin `1` nuk ekziston.
 
@@ -4840,19 +4840,19 @@ Së fundmi, po përpiqemi të shfaqim artikullin e dytë në nën-array `['🍊'
 
 ```javascript
 class Calc {
-  constructor() {
-    this.count = 0;
-  }
+	constructor() {
+		this.count = 0 
+	}
 
-  increase() {
-    this.count++;
-  }
+	increase() {
+		this.count ++
+	}
 }
 
-const calc = new Calc();
-new Calc().increase();
+const calc = new Calc()
+new Calc().increase()
 
-console.log(calc.count);
+console.log(calc.count)
 ```
 
 - A: `0`
@@ -4876,25 +4876,25 @@ Ne i caktojmë variablës `calc` të jetë e barabartë me një instancë të re
 
 ```javascript
 const user = {
-  email: "e@mail.com",
-  password: "12345",
-};
+	email: "e@mail.com",
+	password: "12345"
+}
 
 const updateUser = ({ email, password }) => {
-  if (email) {
-    Object.assign(user, { email });
-  }
+	if (email) {
+		Object.assign(user, { email })
+	}
 
-  if (password) {
-    user.password = password;
-  }
+	if (password) {
+		user.password = password
+	}
 
-  return user;
-};
+	return user
+}
 
-const updatedUser = updateUser({ email: "new@email.com" });
+const updatedUser = updateUser({ email: "new@email.com" })
 
-console.log(updatedUser === user);
+console.log(updatedUser === user)
 ```
 
 - A: `false`
@@ -4917,13 +4917,13 @@ Funksioni `updateUser` përditëson vlerat e vetive `email` dhe `password` në u
 ###### 149. Cila është vlera e saj?
 
 ```javascript
-const fruit = ["🍌", "🍊", "🍎"];
+const fruit = ['🍌', '🍊', '🍎']
 
-fruit.slice(0, 1);
-fruit.splice(0, 1);
-fruit.unshift("🍇");
+fruit.slice(0, 1)
+fruit.splice(0, 1)
+fruit.unshift('🍇')
 
-console.log(fruit);
+console.log(fruit)
 ```
 
 - A: `['🍌', '🍊', '🍎']`
@@ -4949,13 +4949,13 @@ Në fund, ne thirrim metodën `unshift` në array e frutave, e cila modifikon ar
 
 ```javascript
 const animals = {};
-let dog = { emoji: "🐶" };
-let cat = { emoji: "🐈" };
+let dog = { emoji: '🐶' }
+let cat = { emoji: '🐈' }
 
-animals[dog] = { ...dog, name: "Mara" };
-animals[cat] = { ...cat, name: "Sara" };
+animals[dog] = { ...dog, name: "Mara" }
+animals[cat] = { ...cat, name: "Sara" }
 
-console.log(animals[dog]);
+console.log(animals[dog])
 ```
 
 - A: `{ emoji: "🐶", name: "Mara" }`
@@ -4985,14 +4985,14 @@ Duke printuar `animals[dog]`, ose në fakt `animals["object Object"]` pasi që k
 
 ```javascript
 const user = {
-  email: "my@email.com",
-  updateEmail: (email) => {
-    this.email = email;
-  },
-};
+	email: "my@email.com",
+	updateEmail: email => {
+		this.email = email
+	}
+}
 
-user.updateEmail("new@email.com");
-console.log(user.email);
+user.updateEmail("new@email.com")
+console.log(user.email)
 ```
 
 - A: `my@email.com`
@@ -5015,20 +5015,20 @@ Funksioni `updateEmail` është një funksion shigjetë dhe nuk është i lidhur
 ###### 152. Cila është vlera e saj?
 
 ```javascript
-const promise1 = Promise.resolve("First");
-const promise2 = Promise.resolve("Second");
-const promise3 = Promise.reject("Third");
-const promise4 = Promise.resolve("Fourth");
+const promise1 = Promise.resolve('First')
+const promise2 = Promise.resolve('Second')
+const promise3 = Promise.reject('Third')
+const promise4 = Promise.resolve('Fourth')
 
 const runPromises = async () => {
-  const res1 = await Promise.all([promise1, promise2]);
-  const res2 = await Promise.all([promise3, promise4]);
-  return [res1, res2];
-};
+	const res1 = await Promise.all([promise1, promise2])
+	const res2  = await Promise.all([promise3, promise4])
+	return [res1, res2]
+}
 
 runPromises()
-  .then((res) => console.log(res))
-  .catch((err) => console.log(err));
+	.then(res => console.log(res))
+	.catch(err => console.log(err))
 ```
 
 - A: `[['First', 'Second'], ['Fourth']]`
@@ -5051,16 +5051,13 @@ Metoda `Promise.all` ekzekuton premtimet e dhëna si argumente paralelisht. Nës
 ###### 153. Cila duhet të jetë vlera e `method` për të printuar `{ name: "Lydia", age: 22 }`?
 
 ```javascript
-const keys = ["name", "age"];
-const values = ["Lydia", 22];
+const keys = ["name", "age"]
+const values = ["Lydia", 22]
 
-const method =
-  /* ?? */
-  Object[method](
-    keys.map((_, i) => {
-      return [keys[i], values[i]];
-    })
-  ); // { name: "Lydia", age: 22 }
+const method = /* ?? */
+Object[method](keys.map((_, i) => {
+	return [keys[i], values[i]]
+})) // { name: "Lydia", age: 22 }
 ```
 
 - A: `entries`
@@ -5073,7 +5070,7 @@ const method =
 
 #### Përgjigja: C
 
-Metoda `fromEntries` transformon një array 2d në një objekt. Elementi i parë në çdo nën-array do të jetë çelësi, dhe elementi i dytë në çdo nën-array do të jetë vlera. Në këtë rast, ne jemi duke mapuar mbi array `keys`, i cili kthen një array ku elementi i parë është elementi në array të çelësave në indeksin aktual, dhe elementi i dytë është elementi i vlerave të array në indeksin aktual.
+Metoda `fromEntries` transformon një array 2d në një objekt. Elementi i parë në çdo nën-array do të jetë çelësi, dhe elementi i dytë në çdo nën-array do të jetë vlera. Në këtë rast, ne jemi duke mapuar mbi array `keys`, i cili kthen një array ku elementi i parë është elementi në array të çelësave në indeksin aktual, dhe elementi i dytë është elementi i vlerave të array  në indeksin aktual.
 
 Kjo krijon një array të nën-arrays që përmbajnë çelësat dhe vlerat e duhura, të cilat rezultojnë në `{ name: "Lydia", age: 22 }`
 
@@ -5085,18 +5082,18 @@ Kjo krijon një array të nën-arrays që përmbajnë çelësat dhe vlerat e duh
 ###### 154. Cila është vlera e saj?
 
 ```javascript
-const createMember = ({ email, address = {} }) => {
-  const validEmail = /.+\@.+\..+/.test(email);
-  if (!validEmail) throw new Error("Valid email pls");
+const createMember = ({ email, address = {}}) => {
+	const validEmail = /.+\@.+\..+/.test(email)
+	if (!validEmail) throw new Error("Valid email pls")
 
-  return {
-    email,
-    address: address ? address : null,
-  };
-};
+	return {
+		email,
+		address: address ? address : null
+	}
+}
 
-const member = createMember({ email: "my@email.com" });
-console.log(member);
+const member = createMember({ email: "my@email.com" })
+console.log(member)
 ```
 
 - A: `{ email: "my@email.com", address: null }`
@@ -5119,13 +5116,13 @@ Vlera e paracaktuar e `address` është një objekt i zbrazët `{}`. Kur vendos�
 ###### 155. Cila është vlera e saj?
 
 ```javascript
-let randomValue = { name: "Lydia" };
-randomValue = 23;
+let randomValue = { name: "Lydia" }
+randomValue = 23
 
 if (!typeof randomValue === "string") {
-  console.log("It's not a string!");
+	console.log("It's not a string!")
 } else {
-  console.log("Yay it's a string!");
+	console.log("Yay it's a string!")
 }
 ```
 

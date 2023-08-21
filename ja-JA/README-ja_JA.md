@@ -1,13 +1,13 @@
-# JavaScript (高度な) 問題集
+# JavaScript  (高度な) 問題集
 
-私は毎日、JavaScript に関する選択問題を [Instagram](https://www.instagram.com/theavocoder)に投稿していますが、ここにも投稿します。
+私は毎日、JavaScriptに関する選択問題を [Instagram](https://www.instagram.com/theavocoder)に投稿していますが、ここにも投稿します。
 
-初級から上級まで： JavaScript の知識のテストを行ったり、知識を少し深めたり、コーディング面接の準備をしてください。:muscle: :rocket: 私はこのレポを毎週新しい質問で更新します。Last update: <a href=#20190629><b>June 29th</b></a>
+初級から上級まで： JavaScriptの知識のテストを行ったり、知識を少し深めたり、コーディング面接の準備をしてください。:muscle: :rocket: 私はこのレポを毎週新しい質問で更新します。Last update: <a href=#20190629><b>June 29th</b></a>
 
 答えは質問の下の折りたたまれたセクションにあります、クリックすればそれを広げられます。幸運を祈ります。:heart:
 
-利用可能な言語リスト:
 
+利用可能な言語リスト:
 - [🇸🇦 العربية](../ar-AR/README_AR.md)
 - [🇪🇬 اللغة العامية](../ar-EG/README_ar-EG.md)
 - [🇧🇦 Bosanski](../bs-BS/README-bs_BS.md)
@@ -21,7 +21,6 @@
 - [🇳🇱 Nederlands](../nl-NL/README.md)
 - [🇵🇱 Polski](../pl-PL/README.md)
 - [🇧🇷 Português Brasil](../pt-BR/README_pt_BR.md)
-- [🇷o Română](../ro-RO/README.ro.md)
 - [🇷🇺 Русский](../ru-RU/README.md)
 - [🇽🇰 Shqip](../sq-KS/README_sq_KS.md)
 - [🇹🇭 ไทย](../th-TH/README-th_TH.md)
@@ -56,13 +55,13 @@ sayHi();
 
 #### 答え: D
 
-関数内で、まず `var`キーワードを使って `name`変数を宣言します。これは、変数が定義されている行に実際に到達するまで、変数がデフォルト値の `undefined`で初期化される（作成時にメモリ空間が設定される）ことを意味します。
+関数内で、まず `var`キーワードを使って `name`変数を宣言します。これは、変数が定義されている行に実際に到達するまで、変数がデフォルト値の `undefined`で初期化される（作成時にメモリ空間が設定される）ことを意味します。 
 
 `name`変数をログ出力を実行している行では、まだ変数を定義していませんので、`undefined`の値を保持しています。
 
 `let`キーワード（または`const`）を持つ変数は持ち上げられますが、 `var`とは異なり、初期化されません。それらを宣言（初期化）する行の前にはアクセスできません。これは"temporal dead zone"と呼ばれます。
 
-宣言される前に変数にアクセスしようとすると、JavaScript は `ReferenceError`を投げます。
+宣言される前に変数にアクセスしようとすると、JavaScriptは `ReferenceError`を投げます。
 
 </p>
 </details>
@@ -90,9 +89,9 @@ for (let i = 0; i < 3; i++) {
 
 #### 答え: C
 
-JavaScript のイベントキューのため、`setTimeout`コールバック関数はループが実行された後に呼び出されます。最初のループの変数 `i`は`var`キーワードを使って宣言されているので、この値はグローバル変数となります。ループの間、単項演算子 `++`を使用して、毎回 `i`の値を`1`ずつインクリメントしました。 最初の例では `setTimeout`コールバック関数が呼び出されるまでに`i`は`3`となりました。
+JavaScriptのイベントキューのため、`setTimeout`コールバック関数はループが実行された後に呼び出されます。最初のループの変数 `i`は`var`キーワードを使って宣言されているので、この値はグローバル変数となります。ループの間、単項演算子 `++`を使用して、毎回 `i`の値を`1`ずつインクリメントしました。 最初の例では `setTimeout`コールバック関数が呼び出されるまでに`i`は`3`となりました。
 
-2 番目のループでは、変数 `i`が `let`キーワードを使って宣言されました。 `let`（または`const`）キーワードで宣言された変数はブロックスコープです（ブロックは `{}`の間のものです）。それぞれの繰り返しの間、 `i`は新しい値を持ち、それぞれの値はループの内側にあります。
+2番目のループでは、変数 `i`が `let`キーワードを使って宣言されました。 `let`（または`const`）キーワードで宣言された変数はブロックスコープです（ブロックは `{}`の間のものです）。それぞれの繰り返しの間、 `i`は新しい値を持ち、それぞれの値はループの内側にあります。
 
 </p>
 </details>
@@ -107,7 +106,7 @@ const shape = {
   diameter() {
     return this.radius * 2;
   },
-  perimeter: () => 2 * Math.PI * this.radius,
+  perimeter: () => 2 * Math.PI * this.radius
 };
 
 shape.diameter();
@@ -126,7 +125,7 @@ shape.perimeter();
 
 `diameter`の値は正則関数であり、`perimeter`の値はアロー関数です。
 
-アロー関数では、`this`キーワードは通常の関数とは異なり、現在の周囲の範囲を参照します。これは、`perimeter`関数を呼ぶと、shape オブジェクトではなく、その周囲の範囲（例えば window）を参照することを意味します。
+アロー関数では、`this`キーワードは通常の関数とは異なり、現在の周囲の範囲を参照します。これは、`perimeter`関数を呼ぶと、shapeオブジェクトではなく、その周囲の範囲（例えば window）を参照することを意味します。
 
 そのオブジェクトには`radius`という値はなく、`undefined`を返します。
 
@@ -153,7 +152,7 @@ shape.perimeter();
 
 単項プラスは、オペランドを数値に変換しようとします。`true`は`1`、`false`は`0`です
 
-文字列「Lydia」は truthy value です。ここで求めているのは、「この truthy value は、falsy なのか」ということです。これは `false`を返します。
+文字列「Lydia」は truthy valueです。ここで求めているのは、「このtruthy valueは、falsyなのか」ということです。これは `false`を返します。
 
 </p>
 </details>
@@ -164,12 +163,12 @@ shape.perimeter();
 
 ```javascript
 const bird = {
-  size: "small",
+  size: "small"
 };
 
 const mouse = {
   name: "Mickey",
-  small: true,
+  small: true
 };
 ```
 
@@ -183,15 +182,15 @@ const mouse = {
 
 #### 答え: A
 
-JavaScript では、すべてのオブジェクトキーは文字列です（Symbol でない限り）。たとえそれを文字列として入力していなくても、それらは常にフードの下で文字列に変換されます。
+JavaScriptでは、すべてのオブジェクトキーは文字列です（Symbolでない限り）。たとえそれを文字列として入力していなくても、それらは常にフードの下で文字列に変換されます。
 
-JavaScript は、ステートメントを解釈（または、ボックス解除）します。大括弧表記を使用すると、最初の左大括弧 `[`を見て、右大括弧 `]`が見つかるまで進みます。その時だけ、そのステートメントを評価します。
+JavaScriptは、ステートメントを解釈（または、ボックス解除）します。大括弧表記を使用すると、最初の左大括弧 `[`を見て、右大括弧 `]`が見つかるまで進みます。その時だけ、そのステートメントを評価します。
 
 `mouse [bird.size]`： まず最初に、`bird.size`が評価されます。これは文字列の `"small"`となります。 `mouse["small"]`は、`true`を返します。
 
 しかし、ドット表記では、これは起こりません。 `mouse`は`bird`と呼ばれるキーを持っていません。 つまり`mouse.bird`は`undefined`となります。
 
-また、ドット表記を使って `size`を求めます： `mouse.bird.size`。 mouse.bird は未定義なので、実際には undefined.size を要求しています。これは有効ではないので、`Cannot read property "size" of undefined`ような、エラーをスローします。
+また、ドット表記を使って `size`を求めます： `mouse.bird.size`。 mouse.birdは未定義なので、実際にはundefined.sizeを要求しています。これは有効ではないので、`Cannot read property "size" of undefined`ような、エラーをスローします。
 
 </p>
 </details>
@@ -222,13 +221,13 @@ console.log(d.greeting);
 
 #### 答え: A
 
-JavaScript では、すべてのオブジェクトは互いに等しく設定すると参照によって相互作用します。
+JavaScriptでは、すべてのオブジェクトは互いに等しく設定すると参照によって相互作用します。
 
 まず、変数`c`は、オブジェクトに対する値を保持します。その後、`c`オブジェクトに対して持っている値と同じ参照で`d`に代入します。
 
 <img src="https://i.imgur.com/ko5k0fs.png" width="200">
 
-1 つのオブジェクトを変更すると、それらすべてが変更されます。
+1つのオブジェクトを変更すると、それらすべてが変更されます。
 
 </p>
 </details>
@@ -261,7 +260,7 @@ console.log(b === c);
 
 `==`演算子を使うとき、同じ値を持っているかどうか？ をチェックするだけとなります。それらは両方とも`3`の値を持っているので、それは`true`を返します。
 
-しかし、`===`演算子を使う時は、値と型は同じであるべきです。 そうでないので: `new Number()`は数値ではなく、**オブジェクト**となります。なので、両方とも false を返します。
+しかし、`===`演算子を使う時は、値と型は同じであるべきです。 そうでないので: `new Number()`は数値ではなく、**オブジェクト**となります。なので、両方ともfalseを返します。
 
 </p>
 </details>
@@ -322,7 +321,7 @@ console.log(greetign);
 
 #### 答え: A
 
-グローバルオブジェクトに、空のオブジェクトを作成したばかりなので、オブジェクトはログ出力されます。`greeting`を`greetign`と誤って入力した場合、JS インタプリタは実際にこれを `global.greetign = {}`（またはブラウザの `window.greetign = {}`）と見なします。
+グローバルオブジェクトに、空のオブジェクトを作成したばかりなので、オブジェクトはログ出力されます。`greeting`を`greetign`と誤って入力した場合、JSインタプリタは実際にこれを `global.greetign = {}`（またはブラウザの `window.greetign = {}`）と見なします。
 
 これを避けるために、"use strict"を使用する事ができます。これにより、変数を何かに設定する前に、変数宣言したことを確認できます。
 
@@ -351,7 +350,7 @@ bark.animal = "dog";
 
 #### 答え: A
 
-関数はオブジェクトとなるので、これは JavaScript で可能です。（プリミティブ型以外はすべてオブジェクトです。）
+関数はオブジェクトとなるので、これはJavaScriptで可能です。（プリミティブ型以外はすべてオブジェクトです。）
 
 関数は特別な種類のオブジェクトです。自分で書いたコードは実際の機能ではありません。関数はプロパティを持つオブジェクトです。よって、このプロパティは呼び出し可能となります。
 
@@ -369,7 +368,7 @@ function Person(firstName, lastName) {
 }
 
 const member = new Person("Lydia", "Hallie");
-Person.getFullName = function () {
+Person.getFullName = function() {
   return `${this.firstName} ${this.lastName}`;
 };
 
@@ -389,7 +388,7 @@ console.log(member.getFullName());
 通常のオブジェクトのようにコンストラクタにプロパティを追加することはできません。一度にすべてのオブジェクトに機能を追加したい場合は、代わりにプロトタイプを使用する必要があります。だからこの場合は、
 
 ```js
-Person.prototype.getFullName = function () {
+Person.prototype.getFullName = function() {
   return `${this.firstName} ${this.lastName}`;
 };
 ```
@@ -398,7 +397,7 @@ Person.prototype.getFullName = function () {
 
 その場合、多くのメモリスペースを浪費する事でしょう。なぜならそれらはまだその特性を持ち、それは各インスタンスのためにメモリスペースを消費するからです。
 
-その代わりに、プロトタイプに追加するだけであれば、メモリ内の 1 箇所に配置するだけで、すべてのユーザーがアクセスできます。
+その代わりに、プロトタイプに追加するだけであれば、メモリ内の1箇所に配置するだけで、すべてのユーザーがアクセスできます。
 
 </p>
 </details>
@@ -441,7 +440,7 @@ console.log(sarah);
 
 ---
 
-###### 13. イベント伝播の 3 つの段階はどれですか？
+###### 13. イベント伝播の3つの段階はどれですか？
 
 - A: Target > Capturing > Bubbling
 - B: Bubbling > Target > Capturing
@@ -474,9 +473,9 @@ console.log(sarah);
 
 **基本オブジェクト**を除き、すべてのオブジェクトにプロトタイプがあります。ベースオブジェクトは`.toString`のようないくつかのメソッドとプロパティにアクセスできます。
 
-これが、組み込みの JavaScript メソッドを使用できる理由です。このような方法はすべてプロトタイプで利用できます。
+これが、組み込みのJavaScriptメソッドを使用できる理由です。このような方法はすべてプロトタイプで利用できます。 
 
-JavaScript はそれをあなたのオブジェクト上で直接見つけることはできませんが、プロトタイプチェーンをたどり、見つけます。
+JavaScriptはそれをあなたのオブジェクト上で直接見つけることはできませんが、プロトタイプチェーンをたどり、見つけます。
 
 </p>
 </details>
@@ -503,9 +502,9 @@ sum(1, "2");
 
 #### 答え: C
 
-JavaScript は、**動的に型付けされた言語**です。: 特定の変数がどんな型であるかは指定しません。知らないうちに、値が自動的に別の型に変換されることがあります。この事を`implicit type coercion`と呼ばれてます。 **Coercion**は、ある型から別の型に変換しています。
+JavaScriptは、**動的に型付けされた言語**です。: 特定の変数がどんな型であるかは指定しません。知らないうちに、値が自動的に別の型に変換されることがあります。この事を`implicit type coercion`と呼ばれてます。 **Coercion**は、ある型から別の型に変換しています。
 
-この例では、関数が意味を成して値を返すために、JavaScript は数字の`1`を文字列に変換します。数値型（`1`）と 文字列型（`'2'`）の追加中は、数字は文字列として扱われます。
+この例では、関数が意味を成して値を返すために、JavaScriptは数字の`1`を文字列に変換します。数値型（`1`）と 文字列型（`'2'`）の追加中は、数字は文字列として扱われます。 
 
 `"Hello"+"World"`のように文字列を連結することができるので、ここで起こっているのは`"1"+"2"`で、これは `"12"`を返します。
 
@@ -535,11 +534,13 @@ console.log(number);
 
 **接尾辞** 単項演算子 `++`：
 
-1.値を返す（これは`0`を返す） 2.値を増やす（number は現在`1`です）
+1.値を返す（これは`0`を返す）
+2.値を増やす（numberは現在`1`です）
 
 **接頭辞** 単項演算子 `++`：
 
-1.値を増やす（数値は 2 になります） 2.値を返す（これは`2`を返します）
+1.値を増やす（数値は2になります）
+2.値を返す（これは`2`を返します）
 
 これは`0 2 2`を返します。
 
@@ -604,9 +605,9 @@ checkAge({ age: 18 });
 
 #### 答え: C
 
-等価性をテストするとき、プリミティブはそれらの値によって比較され、オブジェクトはそれらの参照によって比較されます。 JavaScript は、オブジェクトがメモリ内の同じ場所への参照を持っているかどうかを確認します。
+等価性をテストするとき、プリミティブはそれらの値によって比較され、オブジェクトはそれらの参照によって比較されます。 JavaScriptは、オブジェクトがメモリ内の同じ場所への参照を持っているかどうかを確認します。
 
-比較している 2 つのオブジェクトにはそれがありません。パラメータとして渡したオブジェクトが、等価性を確認するために使用したオブジェクトとは異なるメモリ内の場所を参照しています。
+比較している2つのオブジェクトにはそれがありません。パラメータとして渡したオブジェクトが、等価性を確認するために使用したオブジェクトとは異なるメモリ内の場所を参照しています。
 
 これが `{ age: 18 } === { age: 18 }`と、`{ age: 18 } == { age: 18 }`の両方が、`false`を返す理由です。
 
@@ -664,7 +665,7 @@ getAge();
 
 #### 答え: C
 
-`"use strict"`を使うと、誤ってグローバル変数を宣言しないようにすることができます。変数`age`を宣言したことは一度もありませんし、`"use strict"`を使っているので参照エラーになります。
+`"use strict"`を使うと、誤ってグローバル変数を宣言しないようにすることができます。変数`age`を宣言したことは一度もありませんし、`"use strict"`を使っているので参照エラーになります。 
 
 `"use strict"`を使用しなかった場合は、プロパティ`age`がグローバルオブジェクトに追加されたことになるので、それは機能します。
 
@@ -673,7 +674,7 @@ getAge();
 
 ---
 
-###### 21. sum の値は何？
+###### 21. sumの値は何？
 
 ```javascript
 const sum = eval("10*10+5");
@@ -696,7 +697,7 @@ const sum = eval("10*10+5");
 
 ---
 
-###### 22. cool_secret は、どのくらいの期間アクセス可能ですか？
+###### 22. cool_secretは、どのくらいの期間アクセス可能ですか？
 
 ```javascript
 sessionStorage.setItem("cool_secret", 123);
@@ -771,9 +772,9 @@ set.has(1);
 
 #### 答え: C
 
-すべてのオブジェクトキー（Symbols を除く）は、文字列として自分で入力しなくても、内部では文字列です。これが、`obj.hasOwnProperty('1')`も ​​true を返す理由です。
+すべてのオブジェクトキー（Symbolsを除く）は、文字列として自分で入力しなくても、内部では文字列です。これが、`obj.hasOwnProperty('1')`も​​trueを返す理由です。
 
-set ではそうはいきません。上記の set には`'1'` はありません: `set.has('1')`は、`false`を返します。数値型`1`の`set.has(1)`は、`true`を返します。
+setではそうはいきません。上記のsetには`'1'` はありません: `set.has('1')`は、`false`を返します。数値型`1`の`set.has(1)`は、`true`を返します。
 
 </p>
 </details>
@@ -797,14 +798,14 @@ console.log(obj);
 
 #### 答え: C
 
-同じ名前のキーが 2 つある場合、最初の位置にあるキーは置き換えられ、最後に指定された値になります。
+同じ名前のキーが2つある場合、最初の位置にあるキーは置き換えられ、最後に指定された値になります。
 
 </p>
 </details>
 
 ---
 
-###### 26. JavaScript の global execution context は、2 つを作成します。: それはグローバルオブジェクトと "this"キーワードです。
+###### 26. JavaScriptのglobal execution contextは、2つを作成します。: それはグローバルオブジェクトと "this"キーワードです。
 
 - A: true
 - B: false
@@ -815,7 +816,7 @@ console.log(obj);
 
 #### 答え: A
 
-基本的な execution context は、グローバルな実行コンテキストです。それはあなたのコードの至る所でアクセス可能なものです。
+基本的なexecution contextは、グローバルな実行コンテキストです。それはあなたのコードの至る所でアクセス可能なものです。
 
 </p>
 </details>
@@ -857,7 +858,7 @@ String.prototype.giveLydiaPizza = () => {
 
 const name = "Lydia";
 
-console.log(name.giveLydiaPizza());
+console.log(name.giveLydiaPizza())
 ```
 
 - A: `"Just give Lydia pizza already!"`
@@ -904,9 +905,9 @@ console.log(a[b]);
 
 #### 答え: B
 
-オブジェクトキーは自動的に文字列に変換されます。オブジェクト a のキーとして、値 123 で設定しようとしています。
+オブジェクトキーは自動的に文字列に変換されます。オブジェクトaのキーとして、値123で設定しようとしています。
 
-しかし、オブジェクトを文字列化すると、それは`"[object Object]"`​​ になってしまいます。なので、ここで行っているのは、 `a["object Object"] = 123`です。
+しかし、オブジェクトを文字列化すると、それは`"[object Object]"`​​になってしまいます。なので、ここで行っているのは、 `a["object Object"] = 123`です。
 
 その後、同じことをもう一度試みています。`c`は暗黙のうちに文字列化している別のオブジェクトです。そのため、`a["object Object"] = 456`となります。
 
@@ -941,9 +942,9 @@ baz();
 
 `setTimeout`関数があり、それを最初に呼び出したのですが、それは最後にログ出力されました。
 
-これは、ブラウザにはランタイムエンジンがあるだけでなく、`WebAPI`と呼ばれるものもあるからです。`WebAPI`は最初に`setTimeout`関数を与えてくれます。例えば DOM です。
+これは、ブラウザにはランタイムエンジンがあるだけでなく、`WebAPI`と呼ばれるものもあるからです。`WebAPI`は最初に`setTimeout`関数を与えてくれます。例えばDOMです。
 
-callback が WebAPI にプッシュされた後、`setTimeout`関数自体（コールバックではありません!）がスタックからポップされます。
+callbackがWebAPIにプッシュされた後、`setTimeout`関数自体（コールバックではありません!）がスタックからポップされます。
 
 <img src="https://i.imgur.com/X5wsHOg.png" width="200">
 
@@ -955,11 +956,11 @@ callback が WebAPI にプッシュされた後、`setTimeout`関数自体（コ
 
 <img src="https://i.imgur.com/WhA2bCP.png" width="200">
 
-WebAPI は、準備が整ったときにスタックに、なにかを追加することはできません。代わりに、コールバック関数を`queue`と呼ばれるものにプッシュします。
+WebAPIは、準備が整ったときにスタックに、なにかを追加することはできません。代わりに、コールバック関数を`queue`と呼ばれるものにプッシュします。
 
 <img src="https://i.imgur.com/NSnDZmU.png" width="200">
 
-event loop が機能し始めるところです。 **event loop**はスタックとタスクキューを調べます。スタックが空の場合は、キューの最初のものを取り出し、それをスタックにプッシュします。
+event loopが機能し始めるところです。 **event loop**はスタックとタスクキューを調べます。スタックが空の場合は、キューの最初のものを取り出し、それをスタックにプッシュします。
 
 <img src="https://i.imgur.com/uyiScAI.png" width="200">
 
@@ -970,12 +971,14 @@ event loop が機能し始めるところです。 **event loop**はスタック
 
 ---
 
-###### 31.ボタンをクリックしたときの event.target は何ですか？
+###### 31.ボタンをクリックしたときのevent.targetは何ですか？
 
 ```html
 <div onclick="console.log('first div')">
   <div onclick="console.log('second div')">
-    <button onclick="console.log('button')">Click!</button>
+    <button onclick="console.log('button')">
+      Click!
+    </button>
   </div>
 </div>
 ```
@@ -997,11 +1000,14 @@ event loop が機能し始めるところです。 **event loop**はスタック
 
 ---
 
-###### 32. p 要素をクリックすると、ログ出力はどうなりますか。
+
+###### 32. p要素をクリックすると、ログ出力はどうなりますか。
 
 ```html
 <div onclick="console.log('div')">
-  <p onclick="console.log('p')">Click here!</p>
+  <p onclick="console.log('p')">
+    Click here!
+  </p>
 </div>
 ```
 
@@ -1015,7 +1021,7 @@ event loop が機能し始めるところです。 **event loop**はスタック
 
 #### 答え: A
 
-`p`をクリックすると、`p`と`div`の 2 つのログが表示されます。イベント伝播中は、キャプチャ、ターゲット、バブリングの 3 つのフェーズがあります。
+`p`をクリックすると、`p`と`div`の2つのログが表示されます。イベント伝播中は、キャプチャ、ターゲット、バブリングの3つのフェーズがあります。
 
 デフォルトでは、イベントハンドラはバブリング段階で実行されます（`useCapture`を`true`に設定しない限り）。最も深くネストした要素から外側に向かって進みます。
 
@@ -1078,14 +1084,14 @@ typeof sayHi();
 
 `sayHi`関数は、即時呼び出し関数式（IIFE）の戻り値を返します。この関数は`0`を返しました。それは`"number"`型です。
 
-参考：7 つの組み込み型しかありません： `null`, `undefined`, `boolean`, `number`, `string`, `object`, `symbol`, そして `bigint`。関数はオブジェクトなので、`"function"`型ではなく`"object"`型です。
+参考：7つの組み込み型しかありません： `null`, `undefined`, `boolean`, `number`, `string`, `object`, `symbol`, そして `bigint`。関数はオブジェクトなので、`"function"`型ではなく`"object"`型です。
 
 </p>
 </details>
 
 ---
 
-###### 35. これらの値のどれが falsy ですか？
+###### 35. これらの値のどれがfalsyですか？
 
 ```javascript
 0;
@@ -1099,14 +1105,14 @@ undefined;
 - A: `0`, `''`, `undefined`
 - B: `0`, `new Number(0)`, `''`, `new Boolean(false)`, `undefined`
 - C: `0`, `''`, `new Boolean(false)`, `undefined`
-- D: これらすべて falsy
+- D: これらすべてfalsy
 
 <details><summary><b>答え</b></summary>
 <p>
 
 #### 答え: A
 
-falsy の値は 6 つだけです。
+falsyの値は6つだけです。
 
 - `undefined`
 - `null`
@@ -1115,7 +1121,7 @@ falsy の値は 6 つだけです。
 - `''` (empty string)
 - `false`
 
-`new Number`や、`new Boolean`のような関数コンストラクタは truthy です。
+`new Number`や、`new Boolean`のような関数コンストラクタはtruthyです。
 
 </p>
 </details>
@@ -1165,11 +1171,11 @@ console.log(numbers);
 
 #### 答え: C
 
-配列の長さを超える値を配列内の要素に設定すると、JavaScript では、"empty slots"と呼ばれるものを作成します。これらは実際には、`undefined`の値を持ちますが、あなたは以下のようなものを見るでしょう
+配列の長さを超える値を配列内の要素に設定すると、JavaScriptでは、"empty slots"と呼ばれるものを作成します。これらは実際には、`undefined`の値を持ちますが、あなたは以下のようなものを見るでしょう
 
 `[1, 2, 3, 7 x empty, 11]`
 
-実行場所によって異なります（browser、node などによって異なります）。
+実行場所によって異なります（browser、nodeなどによって異なります）。
 
 </p>
 </details>
@@ -1206,18 +1212,18 @@ console.log(numbers);
 
 後に、このブロックスコープ変数を`1`に設定し、変数`y`の値を設定します。ここで、ブロックスコープ変数`x`をログ出力します。これは`1`となります。
 
-`catch`ブロック以外では、`x`は未定義、`y`は 2 です。 `catch`ブロックの外側で`console.log(x)`した場合は、`undefined`を返し、`y`は`2`を返します。
+`catch`ブロック以外では、`x`は未定義、`y`は2です。 `catch`ブロックの外側で`console.log(x)`した場合は、`undefined`を返し、`y`は`2`を返します。
 
 </p>
 </details>
 
 ---
 
-###### 39. JavaScript のすべてはどちらかです...
+###### 39. JavaScriptのすべてはどちらかです...
 
 - A: primitive か object
 - B: function か object
-- C: ひっかけ問題! objects のみ
+- C: ひっかけ問題! objectsのみ
 - D: number か object
 
 <details><summary><b>答え</b></summary>
@@ -1225,13 +1231,13 @@ console.log(numbers);
 
 #### 答え: A
 
-JavaScript にはプリミティブ型とオブジェクトしかありません。
+JavaScriptにはプリミティブ型とオブジェクトしかありません。
 
 プリミティブ型は、`boolean`, `null`, `undefined`, `bigint`, `number`, `string`, そして`symbol`です。
 
 プリミティブとオブジェクトを区別するのは、プリミティブにはプロパティもメソッドもないということです。
 
-ただし、`'foo'.toUpperCase()`は`'FOO'`と評価され、`TypeError`にはなりません。これは、文字列のようなプリミティブのプロパティやメソッドにアクセスしようとすると、JavaScript がラッパークラスの 1 つ、すなわち`String`を使ってオブジェクトを暗黙的にラップし、式が評価された後ラッパーを直ちに破棄するためです。
+ただし、`'foo'.toUpperCase()`は`'FOO'`と評価され、`TypeError`にはなりません。これは、文字列のようなプリミティブのプロパティやメソッドにアクセスしようとすると、JavaScriptがラッパークラスの1つ、すなわち`String`を使ってオブジェクトを暗黙的にラップし、式が評価された後ラッパーを直ちに破棄するためです。 
 
 `null`と`undefined`を除くすべてのプリミティブはこの振る舞いをします。
 
@@ -1243,10 +1249,7 @@ JavaScript にはプリミティブ型とオブジェクトしかありません
 ###### 40. 何が出力されるでしょうか？
 
 ```javascript
-[
-  [0, 1],
-  [2, 3],
-].reduce(
+[[0, 1], [2, 3]].reduce(
   (acc, cur) => {
     return acc.concat(cur);
   },
@@ -1291,16 +1294,17 @@ JavaScript にはプリミティブ型とオブジェクトしかありません
 
 #### 答え: B
 
-`null`は falsy です。`!null`は`true`を返します。`!true`は`false`を返します。
+`null`はfalsyです。`!null`は`true`を返します。`!true`は`false`を返します。
 
-`""`は falsy です。`!""`は`true`を返します。`!true`は`false`を返します。
+`""`はfalsyです。`!""`は`true`を返します。`!true`は`false`を返します。
 
-`1`は truthy です。`!1`は`false`を返します。`!false`は`true`を返します。
+`1`はtruthyです。`!1`は`false`を返します。`!false`は`true`を返します。
 
 </p>
 </details>
 
 ---
+
 
 ###### 42. `setInterval`メソッドはブラウザに何を返しますか？
 
@@ -1308,7 +1312,7 @@ JavaScript にはプリミティブ型とオブジェクトしかありません
 setInterval(() => console.log("Hi"), 1000);
 ```
 
-- A: ユニーク id
+- A: ユニークid
 - B: 指定されたミリ秒数
 - C: 渡された関数
 - D: `undefined`
@@ -1318,7 +1322,7 @@ setInterval(() => console.log("Hi"), 1000);
 
 #### 答え: A
 
-一意の ID を返します。この ID は `clearInterval()`関数で、その間隔をクリアするために使うことができます。
+一意のIDを返します。このIDは `clearInterval()`関数で、その間隔をクリアするために使うことができます。
 
 </p>
 </details>
@@ -1341,7 +1345,7 @@ setInterval(() => console.log("Hi"), 1000);
 
 #### 答え: A
 
-文字列はイテラブルです。スプレッド演算子は、イテラブルのすべての文字を 1 つの要素にマッピングします。
+文字列はイテラブルです。スプレッド演算子は、イテラブルのすべての文字を1つの要素にマッピングします。
 
 </p>
 </details>
@@ -1398,7 +1402,7 @@ const secondPromise = new Promise((res, rej) => {
   setTimeout(res, 100, "two");
 });
 
-Promise.race([firstPromise, secondPromise]).then((res) => console.log(res));
+Promise.race([firstPromise, secondPromise]).then(res => console.log(res));
 ```
 
 - A: `"one"`
@@ -1413,7 +1417,7 @@ Promise.race([firstPromise, secondPromise]).then((res) => console.log(res));
 
 複数のプロミスを`Promise.race`メソッドに渡した時、"resolves/rejects"は、"最初"のプロミスの"resolves/rejects"を行います。
 
-`setTimeout`メソッドには、タイマーを渡します: 最初のプロミスには 500ms(`firstPromise`)、2 番目のプロミスには 100ms(`secondPromise`)。
+`setTimeout`メソッドには、タイマーを渡します: 最初のプロミスには500ms(`firstPromise`)、2番目のプロミスには100ms(`secondPromise`)。
 
 これは、`secondPromise`が最初に`'two'`の値で解決されることを意味します。`res`は`'two'`の値を保持するようになり、ログ出力されます。
 
@@ -1457,7 +1461,7 @@ console.log(members);
 <img src="https://i.imgur.com/sYjcsMT.png" width="300">
 
 その要素はオブジェクトへの異なる（コピーされた）参照を持っているので、`person`変数の値を変更するだけで配列の最初の要素は変更されません。 `members`の最初の要素はまだ元のオブジェクトへの参照を保持しています。
-
+ 
 `members`配列をログ出力したとき、最初の要素はまだオブジェクトの値を保持しているので、それがログ出力されます。
 
 </p>
@@ -1470,7 +1474,7 @@ console.log(members);
 ```javascript
 const person = {
   name: "Lydia",
-  age: 21,
+  age: 21
 };
 
 for (const item in person) {
@@ -1513,18 +1517,18 @@ console.log(3 + 4 + "5");
 
 #### 答え: B
 
-演算子結合性は、コンパイラーが式を評価する順序（左から右または右から左）となります。これは、すべての演算子が同じ優先順位を持つ場合にのみ発生します。演算子の種類は 1 つだけです: `+`。さらに、結合性は左から右です。
+演算子結合性は、コンパイラーが式を評価する順序（左から右または右から左）となります。これは、すべての演算子が同じ優先順位を持つ場合にのみ発生します。演算子の種類は1つだけです: `+`。さらに、結合性は左から右です。
 
 `3 + 4`が最初に評価されます。これは数字の`7`になります。
 
-`7 + '5'`は、強制的に`"75"`になります。 JavaScript では、数字の`7`を文字列に変換します。質問 15 を参照してください。2 つの文字列を演算子の`+`を使って連結することができます。よって、`"7" + "5"`は、`"75"`になります。
+`7 + '5'`は、強制的に`"75"`になります。 JavaScriptでは、数字の`7`を文字列に変換します。質問15を参照してください。2つの文字列を演算子の`+`を使って連結することができます。よって、`"7" + "5"`は、`"75"`になります。
 
 </p>
 </details>
 
 ---
 
-###### 49. num の値は何ですか？
+###### 49. numの値は何ですか？
 
 ```javascript
 const num = parseInt("7*6", 10);
@@ -1540,9 +1544,9 @@ const num = parseInt("7*6", 10);
 
 #### 答え: C
 
-文字列の最初の数字だけが返されます。"基数"（解析する数値の種類を指定するための 2 番目の引数: 基数 10, 16 進数, 8 進数, 2 進数など）に基づいて、`parseInt`は文字列内の文字が有効かどうかをチェックします。基数の中で有効な数字ではない文字に出会うと、構文解析を停止して次の文字を無視します。
+文字列の最初の数字だけが返されます。"基数"（解析する数値の種類を指定するための2番目の引数: 基数10, 16進数, 8進数, 2進数など）に基づいて、`parseInt`は文字列内の文字が有効かどうかをチェックします。基数の中で有効な数字ではない文字に出会うと、構文解析を停止して次の文字を無視します。
 
-`*`は、有効な数字ではありません。`"7"`を、10 進数の`7`に解析するだけです。そのまま num は`7`の値を保持します。
+`*`は、有効な数字ではありません。`"7"`を、10進数の`7`に解析するだけです。そのままnumは`7`の値を保持します。
 
 </p>
 </details>
@@ -1552,7 +1556,7 @@ const num = parseInt("7*6", 10);
 ###### 50. 何が出力されるでしょうか？
 
 ```javascript
-[1, 2, 3].map((num) => {
+[1, 2, 3].map(num => {
   if (typeof num === "number") return;
   return num * 2;
 });
@@ -1568,7 +1572,7 @@ const num = parseInt("7*6", 10);
 
 #### 答え: C
 
-配列をマッピングするとき、`num`の値に代入されるのは、ループで渡ってくる要素となります。この場合、要素は数値なので、if ステートメント `typeof num === "number"`の条件は`true`を返します。 map 関数は新しい配列を作成して関数から返された値を挿入します。
+配列をマッピングするとき、`num`の値に代入されるのは、ループで渡ってくる要素となります。この場合、要素は数値なので、ifステートメント `typeof num === "number"`の条件は`true`を返します。 map関数は新しい配列を作成して関数から返された値を挿入します。
 
 ただし、値は返されません。関数から値を返さないと、関数は`undefined`を返します。配列内のすべての要素に対して関数ブロックが呼び出されるので、各要素に対して`undefined`を返します。
 
@@ -1603,7 +1607,7 @@ console.log(person, birthYear);
 
 #### 答え: A
 
-値がオブジェクトでない限り、引数は"値"によって渡され、その後、"参照"によって渡されます。 `birthYear`はオブジェクトではなく文字列なので、値で渡されます。引数を値で渡すと、その値の"コピー"が作成されます（質問 46 を参照）。
+値がオブジェクトでない限り、引数は"値"によって渡され、その後、"参照"によって渡されます。 `birthYear`はオブジェクトではなく文字列なので、値で渡されます。引数を値で渡すと、その値の"コピー"が作成されます（質問46を参照）。
 
 変数`birthYear`は、値`"1997"`への参照を持ちます。引数`year`は、値`"1997"`も参照していますが、それは`birthYear`が参照しているのと同じ値ではありません。`year`に`"1998"`を代入することによって`year`の値を更新したとしても、`year`の値を更新するだけです。`birthYear`はまだ`"1997"`となります。
 
@@ -1711,15 +1715,15 @@ y = 10;
 let x = y;
 ```
 
-`y`に`10`を代入すると、実際にはグローバルオブジェクトにプロパティ`y`が追加されます（ブラウザでは`window`、node では`global`）。ブラウザでは、`window.y`は`10`となりました。
+`y`に`10`を代入すると、実際にはグローバルオブジェクトにプロパティ`y`が追加されます（ブラウザでは`window`、nodeでは`global`）。ブラウザでは、`window.y`は`10`となりました。
 
-それから、変数`x`を`10`である値`y`で宣言します。`let`キーワードで宣言された変数は"ブロックスコープ"となり、宣言されたブロック内でのみ定義されます。この場合は即時関数（IIFE）となります。
+それから、変数`x`を`10`である値`y`で宣言します。`let`キーワードで宣言された変数は"ブロックスコープ"となり、宣言されたブロック内でのみ定義されます。この場合は即時関数（IIFE）となります。 
 
 `typeof`演算子使用時、オペランド`x`は定義されていません: 宣言されているブロックの外側で`x`にアクセスしようとしています。これは`x`が定義されていないことを意味します。
 
 値が割り当てられていない、または宣言されていない値は`"undefined"`型となります。なので`console.log(typeof x)`は`"undefined"`を返します。
 
-y に関しては、`y`に`10`を代入するときにグローバル変数`y`を作成しました。この値は、コード内のどこからでもアクセスできます。`y`が定義されていて、`"number"`型の値を保持します。よって`console.log(typeof y)`は`"number"`を返します。
+yに関しては、`y`に`10`を代入するときにグローバル変数`y`を作成しました。この値は、コード内のどこからでもアクセスできます。`y`が定義されていて、`"number"`型の値を保持します。よって`console.log(typeof y)`は`"number"`を返します。
 
 </p>
 </details>
@@ -1733,7 +1737,7 @@ class Dog {
   }
 }
 
-Dog.prototype.bark = function () {
+Dog.prototype.bark = function() {
   console.log(`Woof I am ${this.name}`);
 };
 
@@ -1785,9 +1789,10 @@ console.log(set);
 
 #### 答え: D
 
+
 `Set`オブジェクトは _unique_ の値の集合です: 値は集合の中で一度だけ現れることができます
 
-値`1`が重複したイテラブル`[1、1、2、3、4]`を渡しました。セット内に同じ値を 2 つ持つことはできないので、そのうちの 1 つが削除され`{1、2、3、4}`となります。
+値`1`が重複したイテラブル`[1、1、2、3、4]`を渡しました。セット内に同じ値を2つ持つことはできないので、そのうちの1つが削除され`{1、2、3、4}`となります。
 
 </p>
 </details>
@@ -1850,9 +1855,9 @@ console.log(delete age);
 
 #### 答え: A
 
-`delete`演算子は、ブール値を返します: 正常に削除された場合は true、それ以外の場合は false を返します。`var`, `const`または`let`キーワードで宣言された変数は`delete`演算子を使って削除することはできません。
+`delete`演算子は、ブール値を返します: 正常に削除された場合はtrue、それ以外の場合はfalseを返します。`var`, `const`または`let`キーワードで宣言された変数は`delete`演算子を使って削除することはできません。
 
-`name`変数は`const`キーワードで宣言されているので、削除は成功しません: `false`が返されます。
+`name`変数は`const`キーワードで宣言されているので、削除は成功しません: `false`が返されます。 
 
 `age`を`21`に設定すると、実際にはグローバルオブジェクトに`age`というプロパティを追加されました。グローバルオブジェクトからもプロパティを削除することができますので、`delete age`は`true`を返します。
 
@@ -1952,7 +1957,7 @@ console.log(Object.keys(person));
 
 #### 答え: B
 
-`defineProperty`メソッドを使うと、オブジェクトに新しいプロパティを追加したり、既存のプロパティを修正することができます。 `defineProperty`メソッドを使ってオブジェクトにプロパティを追加すると、それらはデフォルトでは _列挙できません_。
+`defineProperty`メソッドを使うと、オブジェクトに新しいプロパティを追加したり、既存のプロパティを修正することができます。 `defineProperty`メソッドを使ってオブジェクトにプロパティを追加すると、それらはデフォルトでは _列挙できません_。 
 
 `Object.keys`メソッドはオブジェクトから全ての _enumerable_ （列挙可能）なプロパティ名を返します。上記の場合は`"name"`だけとなります。
 
@@ -1969,7 +1974,7 @@ console.log(Object.keys(person));
 const settings = {
   username: "lydiahallie",
   level: 19,
-  health: 90,
+  health: 90
 };
 
 const data = JSON.stringify(settings, ["level", "health"]);
@@ -1986,11 +1991,11 @@ console.log(data);
 
 #### 答え: A
 
-`JSON.stringify`の 2 番目の引数は _replacer_ です。replacer は、関数または配列のいずれかにすることができ、値を文字列化する対象とその方法を制御できます。
+`JSON.stringify`の2番目の引数は _replacer_ です。replacerは、関数または配列のいずれかにすることができ、値を文字列化する対象とその方法を制御できます。
 
-replacer が _array_ の場合、名前が配列に含まれるプロパティのみが JSON 文字列に追加されます。上記の場合、`"level"`と`"health"`という名前のプロパティだけが含まれ、`"username"`は除外されます。`data`は`"{" level "：19、" health "：90}"`となります。
+replacerが _array_ の場合、名前が配列に含まれるプロパティのみがJSON文字列に追加されます。上記の場合、`"level"`と`"health"`という名前のプロパティだけが含まれ、`"username"`は除外されます。`data`は`"{" level "：19、" health "：90}"`となります。
 
-replacer が _function_ の場合、この関数は文字列化しているオブジェクト内のすべてのプロパティに対して呼び出されます。この関数から返される値は、JSON 文字列に追加されたときのプロパティの値になり、値が`undefined`の場合、このプロパティは JSON 文字列から除外されます。
+replacerが _function_ の場合、この関数は文字列化しているオブジェクト内のすべてのプロパティに対して呼び出されます。この関数から返される値は、JSON文字列に追加されたときのプロパティの値になり、値が`undefined`の場合、このプロパティはJSON文字列から除外されます。
 
 </p>
 </details>
@@ -2003,7 +2008,7 @@ replacer が _function_ の場合、この関数は文字列化しているオ�
 let num = 10;
 
 const increaseNumber = () => num++;
-const increasePassedNumber = (number) => number++;
+const increasePassedNumber = number => number++;
 
 const num1 = increaseNumber();
 const num2 = increasePassedNumber(num1);
@@ -2056,17 +2061,18 @@ multiply(value);
 
 #### 答え: C
 
-ES6 では、パラメータをデフォルト値で初期化できます。値が関数に渡されていない場合やパラメータの値が `"undefined"`の場合、パラメータの値はデフォルト値になります。上記の場合、`value`オブジェクトのプロパティを新しいオブジェクトに分割代入されるので、`x`のデフォルト値は`{number：10}`になります。
+
+ES6では、パラメータをデフォルト値で初期化できます。値が関数に渡されていない場合やパラメータの値が `"undefined"`の場合、パラメータの値はデフォルト値になります。上記の場合、`value`オブジェクトのプロパティを新しいオブジェクトに分割代入されるので、`x`のデフォルト値は`{number：10}`になります。
 
 デフォルトの引数は、_呼び出し時_ に評価されます。関数を呼び出すたびに、_新しい_ オブジェクトが作成されます。
 
-最初に値を渡さずに 2 回、`multiply`関数を呼び出します: `x`のデフォルト値は `{number：10}`となり、その数の乗算された値、つまり `20`を出力します。
+最初に値を渡さずに2回、`multiply`関数を呼び出します: `x`のデフォルト値は `{number：10}`となり、その数の乗算された値、つまり `20`を出力します。
 
-3 回目の multiply を呼び出すとき、引数を渡します: `value`というオブジェクトです。
+3回目のmultiplyを呼び出すとき、引数を渡します: `value`というオブジェクトです。
 
 `*=`演算子は`x.number = x.number * 2`の省略形となります: `x.number`の値は乗算した値に修正され、`20`を出力します。
 
-4 回目は、`value`オブジェクトをもう一度渡します。`x.number`は以前は`20`に修正されているので、`x.number *= 2`は`40`を出力します。
+4回目は、`value`オブジェクトをもう一度渡します。`x.number`は以前は`20`に修正されているので、`x.number *= 2`は`40`を出力します。
 
 </p>
 </details>
@@ -2089,7 +2095,8 @@ ES6 では、パラメータをデフォルト値で初期化できます。値�
 
 #### 答え: D
 
-`reduce`メソッドが受け取る最初の引数は _アキュムレータ_ となります。この場合は`x`です。 2 番目の引数は、_現在の値_ `y`です。 reduce メソッドでは、配列内のすべての要素に対してコールバック関数を実行します。これにより、最終的に 1 つの値が得られます。
+
+`reduce`メソッドが受け取る最初の引数は _アキュムレータ_ となります。この場合は`x`です。 2番目の引数は、_現在の値_ `y`です。 reduceメソッドでは、配列内のすべての要素に対してコールバック関数を実行します。これにより、最終的に1つの値が得られます。
 
 上記の例では、値を返していません。単にアキュムレータの値と現在の値を記録しています。
 
@@ -2099,14 +2106,14 @@ ES6 では、パラメータをデフォルト値で初期化できます。値�
 
 関数から値を返さなければ、`undefined`を返します。次の呼び出しでは、アキュムレータは`undefined`で、現在の値は`3`です。`undefined`と`3`が出力されます。
 
-4 回目の呼び出しでも、コールバック関数からは戻りません。アキュムレータもまた`undefined`であり、現在の値は`4`となり、`undefined`と`4`が出力されます。
+4回目の呼び出しでも、コールバック関数からは戻りません。アキュムレータもまた`undefined`であり、現在の値は`4`となり、`undefined`と`4`が出力されます。
 
 </p>
 </details>
   
 ---
 
-###### 66. どのコンストラクタを使えば `Dog` class を継承できるでしょうか？
+###### 66. どのコンストラクタを使えば `Dog` classを継承できるでしょうか？
 
 ```javascript
 class Dog {
@@ -2116,7 +2123,7 @@ class Dog {
 };
 
 class Labrador extends Dog {
-  // 1
+  // 1 
   constructor(name, size) {
     this.size = size;
   }
@@ -2130,7 +2137,7 @@ class Labrador extends Dog {
     super(name);
     this.size = size;
   }
-  // 4
+  // 4 
   constructor(name, size) {
     this.name = name;
     this.size = size;
@@ -2149,14 +2156,13 @@ class Labrador extends Dog {
 
 #### 答え: B
 
-派生クラスでは、`super`を呼び出す前に、`this`キーワードにアクセスすることはできません。そうしようとすると、ReferenceError がスローされます: 1 と 4 は参照エラーをスローします。
+派生クラスでは、`super`を呼び出す前に、`this`キーワードにアクセスすることはできません。そうしようとすると、ReferenceErrorがスローされます: 1と4は参照エラーをスローします。
 
 `super`キーワードを使って、与えられた引数で、その親クラスのコンストラクタを呼び出します。親のコンストラクタは`name`引数を受け取るので、`name`を`super`に渡す必要があります。
 
-`Labrador`クラスは 2 つの引数、`Dog`を拡張するための`name`と、`Labrador`クラスの追加のプロパティとしての`size`を受け取ります。
+`Labrador`クラスは2つの引数、`Dog`を拡張するための`name`と、`Labrador`クラスの追加のプロパティとしての`size`を受け取ります。
 
-両方とも`Labrador`のコンストラクタ関数に渡す必要があります。これはコンストラクタ 2 を使って正しく実行されます。
-
+両方とも`Labrador`のコンストラクタ関数に渡す必要があります。これはコンストラクタ2を使って正しく実行されます。
 </p>
 </details>
 
@@ -2166,12 +2172,12 @@ class Labrador extends Dog {
 
 ```javascript
 // index.js
-console.log("running index.js");
-import { sum } from "./sum.js";
+console.log('running index.js');
+import { sum } from './sum.js';
 console.log(sum(1, 2));
 
 // sum.js
-console.log("running sum.js");
+console.log('running sum.js');
 export const sum = (a, b) => a + b;
 ```
 
@@ -2187,9 +2193,9 @@ export const sum = (a, b) => a + b;
 
 `import`キーワードを使うと、全てのインポートされたモジュールは _事前解析_ されます。これは、インポートされたモジュールが _最初_ に実行され、_その後_ モジュールをインポートしたファイル内のコードが実行されることを意味します。
 
-これは CommonJS の`require()`と`import`の違いです。`require()`を使うと、コードが実行されている間に依存関係をオンデマンドでロードすることができます。
+これはCommonJSの`require()`と`import`の違いです。`require()`を使うと、コードが実行されている間に依存関係をオンデマンドでロードすることができます。 
 
-`import`の代わりに`require`を使用したとしたら、`running index.js`, `running sum.js`, `3`が出力されているはずです。
+`import`の代わりに`require`を使用したとしたら、`running index.js`, `running sum.js`, `3`が出力されているはずです。 
 
 </p>
 </details>
@@ -2199,9 +2205,9 @@ export const sum = (a, b) => a + b;
 ###### 68. 何が出力されるでしょうか？
 
 ```javascript
-console.log(Number(2) === Number(2));
-console.log(Boolean(false) === Boolean(false));
-console.log(Symbol("foo") === Symbol("foo"));
+console.log(Number(2) === Number(2))
+console.log(Boolean(false) === Boolean(false))
+console.log(Symbol('foo') === Symbol('foo'))
 ```
 
 - A: `true`, `true`, `false`
@@ -2214,9 +2220,9 @@ console.log(Symbol("foo") === Symbol("foo"));
 
 #### 答え: A
 
-すべてのシンボルは完全にユニークです。シンボルに渡される引数の目的は、シンボルに説明を与えることです。Symbol の値は渡された引数に依存しません。
+すべてのシンボルは完全にユニークです。シンボルに渡される引数の目的は、シンボルに説明を与えることです。Symbolの値は渡された引数に依存しません。
 
-等価性をテストしているので、2 つのまったく新しいシンボルを作成します: 最初の`Symbol('foo')`と、2 番目の`Symbol('foo')`です。これら 2 つの値は一意であり、互いに等しくはありません、なので`Symbol('foo') === Symbol('foo')`は`false`を返します。
+等価性をテストしているので、2つのまったく新しいシンボルを作成します: 最初の`Symbol('foo')`と、2番目の`Symbol('foo')`です。これら2つの値は一意であり、互いに等しくはありません、なので`Symbol('foo') === Symbol('foo')`は`false`を返します。
 
 </p>
 </details>
@@ -2226,22 +2232,22 @@ console.log(Symbol("foo") === Symbol("foo"));
 ###### 69. 何が出力されるでしょうか？
 
 ```javascript
-const name = "Lydia Hallie";
-console.log(name.padStart(13));
-console.log(name.padStart(2));
+const name = "Lydia Hallie"
+console.log(name.padStart(13))
+console.log(name.padStart(2))
 ```
 
 - A: `"Lydia Hallie"`, `"Lydia Hallie"`
 - B: `"           Lydia Hallie"`, `"  Lydia Hallie"` (`"[13x whitespace]Lydia Hallie"`, `"[2x whitespace]Lydia Hallie"`)
 - C: `" Lydia Hallie"`, `"Lydia Hallie"` (`"[1x whitespace]Lydia Hallie"`, `"Lydia Hallie"`)
-- D: `"Lydia Hallie"`, `"Lyd"`,
+- D: `"Lydia Hallie"`, `"Lyd"`, 
 
 <details><summary><b>答え</b></summary>
 <p>
 
 #### 答え: C
 
-`padStart`メソッドを使うと、文字列の先頭にパディングを追加できます。このメソッドに渡される値は、パディングとともに文字列の長さの _合計_ です。文字列`"Lydia Hallie"`の長さは`12`です。 `name.padStart(13)`は、12 + 1 が 13 であるため、文字列の先頭に 1 スペースを挿入されます。
+`padStart`メソッドを使うと、文字列の先頭にパディングを追加できます。このメソッドに渡される値は、パディングとともに文字列の長さの _合計_ です。文字列`"Lydia Hallie"`の長さは`12`です。 `name.padStart(13)`は、12 + 1が13であるため、文字列の先頭に1スペースを挿入されます。
 
 `padStart`メソッドに渡された引数が、配列の長さよりも小さい場合、パディングは追加されません。
 
@@ -2266,6 +2272,7 @@ console.log("🥑" + "💻");
 
 #### 答え: A
 
+
 `+`演算子を使うと、文字列を連結することができます。この場合、文字列`"🥑"`を文字列`"💻"`と連結して、結果として`"🥑💻"`となります。
 
 </p>
@@ -2273,7 +2280,7 @@ console.log("🥑" + "💻");
 
 ---
 
-###### 71. console.log ステートメントの後にコメントアウトされている値を、ログ出力する方法を教えてください。
+###### 71. console.logステートメントの後にコメントアウトされている値を、ログ出力する方法を教えてください。
 
 ```javascript
 function* startGame() {
@@ -2301,11 +2308,11 @@ console.log(/* 2 */); // JavaScript loves you back ❤️
 
 ジェネレータ関数は、`yield`キーワードを見るとその実行を「一時停止」します。まず、関数に文字列 "Do you love JavaScript?" を返させる必要があります。これは `game.next().value`を呼び出すことによって行うことができます。
 
-最初の`yield`キーワードが見つかるまで、すべての行が実行されます。関数内の最初の行に`yield`キーワードがあります: 実行は最初の yield で停止します！ _これは変数 `answer`がまだ定義されていないことを意味します！_
+最初の`yield`キーワードが見つかるまで、すべての行が実行されます。関数内の最初の行に`yield`キーワードがあります: 実行は最初のyieldで停止します！ _これは変数 `answer`がまだ定義されていないことを意味します！_
 
-`game.next("Yes").value`を呼び出すと、前の`yield`は`next()`関数に渡されたパラメータの値、この場合は`"Yes"`に置き換えられます。変数`answer`の値は現在`"Yes"`となります。
+`game.next("Yes").value`を呼び出すと、前の`yield`は`next()`関数に渡されたパラメータの値、この場合は`"Yes"`に置き換えられます。変数`answer`の値は現在`"Yes"`となります。 
 
-if-statemnet の条件は`false`を返し、`JavaScript loves you back ❤️`が、出力されます。
+if-statemnetの条件は`false`を返し、`JavaScript loves you back ❤️`が、出力されます。
 
 </p>
 </details>
@@ -2368,7 +2375,7 @@ console.log(data);
 
 #### 答え: C
 
-非同期関数は常に、promise を返します。`await`は promise が解決されるのを待たなければなりません: `getData()`を呼び出すと、`data`は保留中の promise が返されます。
+非同期関数は常に、promiseを返します。`await`はpromiseが解決されるのを待たなければなりません: `getData()`を呼び出すと、`data`は保留中のpromiseが返されます。
 
 解決した値`"I made it"`にアクセスしたい場合は、`data`に対して`.then()`メソッドを使用することができます:
 
@@ -2402,10 +2409,10 @@ console.log(result);
 
 #### 答え: B
 
-`.push（）`メソッドは新しい配列の長さを返します。以前は、配列は 1 つの要素（文字列 `" banana "`）を含み、長さは `1`でした。文字列 `" apple "`を配列に追加した後、配列は 2 つの要素を含み、長さは `2`になります。これは `addToList`関数から返されます。
+`.push（）`メソッドは新しい配列の長さを返します。以前は、配列は1つの要素（文字列 `" banana "`）を含み、長さは `1`でした。文字列 `" apple "`を配列に追加した後、配列は2つの要素を含み、長さは `2`になります。これは `addToList`関数から返されます。
 The `.push()` method returns the _length_ of the new array! Previously, the array contained one element (the string `"banana"`) and had a length of `1`. After adding the string `"apple"` to the array, the array contains two elements, and has a length of `2`. This gets returned from the `addToList` function.
 
-`push`メソッドは元の配列を修正します。配列の長さではなく関数から配列を返したい場合は、item をプッシュした後に list を返すべきです。
+`push`メソッドは元の配列を修正します。配列の長さではなく関数から配列を返したい場合は、itemをプッシュした後にlistを返すべきです。
 The `push` method modifies the original array. If you wanted to return the _array_ from the function rather than the _length of the array_, you should have returned `list` after pushing `item` to it.
 
 </p>
@@ -2440,7 +2447,7 @@ console.log(shape);
 
 変数`shape`を作成し、フリーズしたオブジェクト`box`に代入すると、`shape`はフリーズしたオブジェクトとなります。オブジェクトがフリーズしているかどうかは `Object.isFrozen`を使って確認できます。
 
-この場合、変数`shape`はフリーズしたオブジェクトへの参照を持っているので、`Object.isFrozen(shape)`は true を返します。
+この場合、変数`shape`はフリーズしたオブジェクトへの参照を持っているので、`Object.isFrozen(shape)`はtrueを返します。
 
 `shape`はフリーズされており、`x`の値はオブジェクトではないので、プロパティ`x`を変更することはできません。
 
@@ -2471,9 +2478,9 @@ console.log(name);
 
 右側のオブジェクトからプロパティ`name`をアンパックするとき、その値`"Lydia"`を`myName`という名前の変数に代入します。
 
-`{name：myName}`を使って、右側の `name`プロパティの値で`myName`という新しい変数を作りたいことを JavaScript に伝えます。
+`{name：myName}`を使って、右側の `name`プロパティの値で`myName`という新しい変数を作りたいことをJavaScriptに伝えます。
 
-定義されていない変数`name`を出力しようとしているので、ReferenceError が投げられます。
+定義されていない変数`name`を出力しようとしているので、ReferenceErrorが投げられます。
 
 </p>
 </details>
@@ -2510,7 +2517,7 @@ function sum(a, b) {
 ```javascript
 const add = () => {
   const cache = {};
-  return (num) => {
+  return num => {
     if (num in cache) {
       return `From cache! ${cache[num]}`;
     } else {
@@ -2541,15 +2548,15 @@ console.log(addFunction(5 * 2));
 
 同じ引数を指定してもう一度`addFunction`関数を呼び出すと、最初にキャッシュ内でその値がすでに取得されているかどうかを調べます。
 
-この場合、caches の値が返され、実行時間が短縮されます。そうでなくキャッシュされていなければ、値を計算した後にそれを格納します。
+この場合、cachesの値が返され、実行時間が短縮されます。そうでなくキャッシュされていなければ、値を計算した後にそれを格納します。
 
-同じ値で 3 回`addFunction`関数を呼び出します: 最初の呼び出しでは、`num`に`10`を代入した時、関数の値はまだキャッシュされていません。
+同じ値で3回`addFunction`関数を呼び出します: 最初の呼び出しでは、`num`に`10`を代入した時、関数の値はまだキャッシュされていません。 
 
-if ステートメントの`num in cache`の条件は`false`を返し、else ブロックが実行されます: `Calculated! 20`が出力され、結果の値がキャッシュオブジェクトに追加されます。 `cache`は現在 `{ 10: 20 }`となります。
+ifステートメントの`num in cache`の条件は`false`を返し、elseブロックが実行されます: `Calculated! 20`が出力され、結果の値がキャッシュオブジェクトに追加されます。 `cache`は現在 `{ 10: 20 }`となります。
 
-2 回目は、`cache`オブジェクトは`10`に対して返される値を含みます。 if ステートメントの`num in cache`の条件は`true`となり、`'From cache! 20'`を返します。 よって`'From cache! 20'`が出力されます。
+2回目は、`cache`オブジェクトは`10`に対して返される値を含みます。 ifステートメントの`num in cache`の条件は`true`となり、`'From cache! 20'`を返します。 よって`'From cache! 20'`が出力されます。
 
-3 回目は、`10`に評価される関数に`5 * 2`を渡します。`cache`オブジェクトは`10`に対して返される値を含みます。if ステートメントの`num in cache`の条件は`true`となり、`'From cache! 20'`を返します。 よって`'From cache! 20'`が出力されます。
+3回目は、`10`に評価される関数に`5 * 2`を渡します。`cache`オブジェクトは`10`に対して返される値を含みます。ifステートメントの`num in cache`の条件は`true`となり、`'From cache! 20'`を返します。 よって`'From cache! 20'`が出力されます。
 
 </p>
 </details>
@@ -2559,21 +2566,21 @@ if ステートメントの`num in cache`の条件は`false`を返し、else ブ
 ###### <a name=20190726></a>79. 何が出力されるでしょうか？
 
 ```javascript
-const myLifeSummedUp = ["☕", "💻", "🍷", "🍫"];
+const myLifeSummedUp = ["☕", "💻", "🍷", "🍫"]
 
 for (let item in myLifeSummedUp) {
-  console.log(item);
+  console.log(item)
 }
 
 for (let item of myLifeSummedUp) {
-  console.log(item);
+  console.log(item)
 }
 ```
 
 - A: `0` `1` `2` `3` and `"☕"` ` "💻"` `"🍷"` `"🍫"`
 - B: `"☕"` ` "💻"` `"🍷"` `"🍫"` and `"☕"` ` "💻"` `"🍷"` `"🍫"`
 - C: `"☕"` ` "💻"` `"🍷"` `"🍫"` and `0` `1` `2` `3`
-- D: `0` `1` `2` `3` and `{0: "☕", 1: "💻", 2: "🍷", 3: "🍫"}`
+- D:  `0` `1` `2` `3` and `{0: "☕", 1: "💻", 2: "🍷", 3: "🍫"}`
 
 <details><summary><b>答え</b></summary>
 <p>
@@ -2598,14 +2605,14 @@ _for-of_ ループを使うと、**反復可能オブジェクト**を繰り返�
 ###### 80. 何が出力されるでしょうか？
 
 ```javascript
-const list = [1 + 2, 1 * 2, 1 / 2];
-console.log(list);
+const list = [1 + 2, 1 * 2, 1 / 2]
+console.log(list)
 ```
 
 - A: `["1 + 2", "1 * 2", "1 / 2"]`
 - B: `["12", 2, 0.5]`
 - C: `[3, 2, 0.5]`
-- D: `[1, 1, 1]`
+- D:  `[1, 1, 1]`
 
 <details><summary><b>答え</b></summary>
 <p>
@@ -2625,16 +2632,16 @@ console.log(list);
 
 ```javascript
 function sayHi(name) {
-  return `Hi there, ${name}`;
+  return `Hi there, ${name}`
 }
 
-console.log(sayHi());
+console.log(sayHi())
 ```
 
 - A: `Hi there, `
 - B: `Hi there, undefined`
 - C: `Hi there, null`
-- D: `ReferenceError`
+- D:  `ReferenceError`
 
 <details><summary><b>答え</b></summary>
 <p>
@@ -2643,7 +2650,7 @@ console.log(sayHi());
 
 関数に値が渡されていない限り、引数はデフォルトで`undefined`の値を持ちます。上記の場合、`name`引数に値を渡さなかったので、`name`は`undefined`となり出力されます。
 
-ES6 では、このデフォルトの`undefined`値を、デフォルトパラメータで上書きすることができます。例:
+ES6では、このデフォルトの`undefined`値を、デフォルトパラメータで上書きすることができます。例:
 
 `function sayHi(name = "Lydia") { ... }`
 
@@ -2657,21 +2664,21 @@ ES6 では、このデフォルトの`undefined`値を、デフォルトパラ�
 ###### 82. 何が出力されるでしょうか？
 
 ```javascript
-var status = "😎";
+var status = "😎"
 
 setTimeout(() => {
-  const status = "😍";
+  const status = "😍"
 
   const data = {
     status: "🥑",
     getStatus() {
-      return this.status;
-    },
-  };
+      return this.status
+    }
+  }
 
-  console.log(data.getStatus());
-  console.log(data.getStatus.call(this));
-}, 0);
+  console.log(data.getStatus())
+  console.log(data.getStatus.call(this))
+}, 0)
 ```
 
 - A: `"🥑"` and `"😍"`
@@ -2688,7 +2695,7 @@ setTimeout(() => {
 
 メソッドは`data`オブジェクトに属しているので、`this`は `data`オブジェクトを参照します。 `this.status`をログ出力すると、`data`オブジェクトの`status`プロパティの`"🥑"`がログ出力されます。
 
-`call`メソッドを使うと、`this`キーワードが参照するオブジェクトを変更することができます。 **関数**では、`this`キーワードは _その関数が属するオブジェクトを参照します_ 。
+`call`メソッドを使うと、`this`キーワードが参照するオブジェクトを変更することができます。 **関数**では、`this`キーワードは _その関数が属するオブジェクトを参照します_ 。 
 
 _グローバルオブジェクトで_ `setTimeout`関数を宣言したので、`setTimeout`関数内では、 `this`キーワードは _グローバルオブジェクト_ を参照します。
 
@@ -2704,13 +2711,13 @@ _グローバルオブジェクトで_ `setTimeout`関数を宣言したので�
 ```javascript
 const person = {
   name: "Lydia",
-  age: 21,
-};
+  age: 21
+}
 
-let city = person.city;
-city = "Amsterdam";
+let city = person.city
+city = "Amsterdam"
 
-console.log(person);
+console.log(person)
 ```
 
 - A: `{ name: "Lydia", age: 21 }`
@@ -2727,7 +2734,7 @@ console.log(person);
 
 我々は`person`オブジェクト自身を参照して _いない_ ことに注意してください。`person`オブジェクトの`city`プロパティを、変数`city`に代入するだけです。
 
-それから、`city`に、文字列`"Amsterdam"`を代入しますこれは person オブジェクトを変更しません: そのオブジェクトへの参照はありません。
+それから、`city`に、文字列`"Amsterdam"`を代入しますこれは personオブジェクトを変更しません: そのオブジェクトへの参照はありません。
 
 `person`オブジェクトをログ出力するとき、未修正のオブジェクトが返されます。
 
@@ -2741,15 +2748,15 @@ console.log(person);
 ```javascript
 function checkAge(age) {
   if (age < 18) {
-    const message = "Sorry, you're too young.";
+    const message = "Sorry, you're too young."
   } else {
-    const message = "Yay! You're old enough!";
+    const message = "Yay! You're old enough!"
   }
 
-  return message;
+  return message
 }
 
-console.log(checkAge(21));
+console.log(checkAge(21))
 ```
 
 - A: `"Sorry, you're too young."`
@@ -2762,7 +2769,7 @@ console.log(checkAge(21));
 
 #### 答え: C
 
-`const`と`let`キーワードを持つ変数は _ブロックスコープ_ です。ブロックは中括弧(`{ }`)で囲まれたものです。上記の場合、if/else ステートメントが中括弧となります。宣言されたブロックの外側で変数を参照することはできません。ReferenceError がスローされます。
+`const`と`let`キーワードを持つ変数は _ブロックスコープ_ です。ブロックは中括弧(`{ }`)で囲まれたものです。上記の場合、if/elseステートメントが中括弧となります。宣言されたブロックの外側で変数を参照することはできません。ReferenceError がスローされます。
 
 </p>
 </details>
@@ -2772,29 +2779,29 @@ console.log(checkAge(21));
 ###### 85. どのような情報が出力されますか？
 
 ```javascript
-fetch("https://www.website.com/api/user/1")
-  .then((res) => res.json())
-  .then((res) => console.log(res));
+fetch('https://www.website.com/api/user/1')
+  .then(res => res.json())
+  .then(res => console.log(res))
 ```
 
 - A: `fetch`メソッドの結果
-- B: 2 回目の `fetch`メソッド呼び出しの結果
+- B: 2回目の `fetch`メソッド呼び出しの結果
 - C: 前の`.then()`でのコールバックの結果
-- D: 常に undefined.
+- D: 常に undefined. 
 
 <details><summary><b>答え</b></summary>
 <p>
 
 #### 答え: C
 
-2 番目の`.then`の`res`の値は、前の`.then`の戻り値と同じとなります。値が次のハンドラに渡されるように、`.then`を連鎖させることができます。
+2番目の`.then`の`res`の値は、前の`.then`の戻り値と同じとなります。値が次のハンドラに渡されるように、`.then`を連鎖させることができます。
 
 </p>
 </details>
 
 ---
 
-###### 86. 引数として true を渡すことができない場合、どのオプションが`hasName`を`true`に設定するための方法ですか？
+###### 86. 引数としてtrueを渡すことができない場合、どのオプションが`hasName`を`true`に設定するための方法ですか？
 
 ```javascript
 function getName(name) {
@@ -2812,7 +2819,7 @@ function getName(name) {
 
 #### 答え: A
 
-`!!name`を使って、`name`の値が、truthy か falsey かを判断します。name が truthy であり、これをテストしたい場合、`!name`は`false`を返します。`!false`（これは実際には`!!name`です）は`true`を返します。
+`!!name`を使って、`name`の値が、truthyか falseyかを判断します。nameがtruthyであり、これをテストしたい場合、`!name`は`false`を返します。`!false`（これは実際には`!!name`です）は`true`を返します。
 
 `hasName`に`name`を代入することで、`getName`関数に渡されたどんな値も`hasName`に代入されます。ブール値`true`は設定できません。
 

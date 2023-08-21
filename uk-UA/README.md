@@ -20,7 +20,6 @@
 - [🇳🇱 Nederlands](../nl-NL/README.md)
 - [🇵🇱 Polski](../pl-PL/README.md)
 - [🇧🇷 Português Brasil](../pt-BR/README_pt_BR.md)
-- [🇷o Română](../ro-RO/README.ro.md)
 - [🇷🇺 Русский](../ru-RU/README.md)
 - [🇽🇰 Shqip](../sq-KS/README_sq_KS.md)
 - [🇹🇭 ไทย](../th-TH/README-th_TH.md)
@@ -101,7 +100,7 @@ const shape = {
   diameter() {
     return this.radius * 2;
   },
-  perimeter: () => 2 * Math.PI * this.radius,
+  perimeter: () => 2 * Math.PI * this.radius
 };
 
 shape.diameter();
@@ -158,12 +157,12 @@ shape.perimeter();
 
 ```javascript
 const bird = {
-  size: "small",
+  size: "small"
 };
 
 const mouse = {
   name: "Mickey",
-  small: true,
+  small: true
 };
 ```
 
@@ -357,7 +356,7 @@ function Person(firstName, lastName) {
 }
 
 const member = new Person("Lydia", "Hallie");
-Person.getFullName = function () {
+Person.getFullName = function() {
   return `${this.firstName} ${this.lastName}`;
 };
 
@@ -377,7 +376,7 @@ console.log(member.getFullName());
 Не можна додавати властивості конструктору, як звичайному об'єкту. Якщо потрібно додати фічу до всіх об'єктів, то необхідно використовувати прототипи. В даному випадку,
 
 ```js
-Person.prototype.getFullName = function () {
+Person.prototype.getFullName = function() {
   return `${this.firstName} ${this.lastName}`;
 };
 ```
@@ -833,7 +832,7 @@ String.prototype.giveLydiaPizza = () => {
 
 const name = "Lydia";
 
-console.log(name.giveLydiaPizza());
+console.log(name.giveLydiaPizza())
 ```
 
 - A: `"Just give Lydia pizza already!"`
@@ -945,7 +944,9 @@ baz();
 ```html
 <div onclick="console.log('first div')">
   <div onclick="console.log('second div')">
-    <button onclick="console.log('button')">Click!</button>
+    <button onclick="console.log('button')">
+      Click!
+    </button>
   </div>
 </div>
 ```
@@ -971,7 +972,9 @@ baz();
 
 ```html
 <div onclick="console.log('div')">
-  <p onclick="console.log('p')">Click here!</p>
+  <p onclick="console.log('p')">
+    Click here!
+  </p>
 </div>
 ```
 
@@ -1206,10 +1209,7 @@ console.log(numbers);
 ###### 40. Що буде в консолі?
 
 ```javascript
-[
-  [0, 1],
-  [2, 3],
-].reduce(
+[[0, 1], [2, 3]].reduce(
   (acc, cur) => {
     return acc.concat(cur);
   },
@@ -1344,20 +1344,21 @@ console.log(gen.next().value);
 </p>
 </details>
 
+
 ---
 
 ###### 45. Що повернеться?
 
 ```javascript
 const firstPromise = new Promise((res, rej) => {
-  setTimeout(res, 500, "one");
+  setTimeout(res, 500, 'one');
 });
 
 const secondPromise = new Promise((res, rej) => {
-  setTimeout(res, 100, "two");
+  setTimeout(res, 100, 'two');
 });
 
-Promise.race([firstPromise, secondPromise]).then((res) => console.log(res));
+Promise.race([firstPromise, secondPromise]).then(res => console.log(res));
 ```
 
 - A: `"one"`
@@ -1380,7 +1381,7 @@ Promise.race([firstPromise, secondPromise]).then((res) => console.log(res));
 ###### 46. Що буде на виході?
 
 ```javascript
-let person = { name: "Lydia" };
+let person = { name: 'Lydia' };
 const members = [person];
 person = null;
 

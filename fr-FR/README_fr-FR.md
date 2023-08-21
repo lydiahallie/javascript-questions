@@ -19,7 +19,6 @@ Les réponses se trouvent dans les sections repliées en dessous des questions, 
 - [🇳🇱 Nederlands](../nl-NL/README.md)
 - [🇵🇱 Polski](../pl-PL/README.md)
 - [🇧🇷 Português Brasil](../pt-BR/README_pt_BR.md)
-- [🇷o Română](../ro-RO/README.ro.md)
 - [🇷🇺 Русский](../ru-RU/README.md)
 - [🇽🇰 Shqip](../sq-KS/README_sq_KS.md)
 - [🇹🇭 ไทย](../th-TH/README-th_TH.md)
@@ -101,7 +100,7 @@ const shape = {
   diameter() {
     return this.radius * 2;
   },
-  perimeter: () => 2 * Math.PI * this.radius,
+  perimeter: () => 2 * Math.PI * this.radius
 };
 
 shape.diameter();
@@ -158,12 +157,12 @@ La chaîne de caractère `'Lydia'` est une valeur considérée comme vraie _(tru
 
 ```javascript
 const bird = {
-  size: "small",
+  size: "small"
 };
 
 const mouse = {
   name: "Mickey",
-  small: true,
+  small: true
 };
 ```
 
@@ -359,7 +358,7 @@ function Person(firstName, lastName) {
 }
 
 const member = new Person("Lydia", "Hallie");
-Person.getFullName = function () {
+Person.getFullName = function() {
   return `${this.firstName} ${this.lastName}`;
 };
 
@@ -379,7 +378,7 @@ console.log(member.getFullName());
 Vous ne pouvez pas ajouter de propriétés à un constructeur comme pour des objets normaux. Si vous voulez ajouter une fonctionnalité pour tous les objets en une fois, vous devez utiliser le prototype. Donc dans ce cas,
 
 ```js
-Person.prototype.getFullName = function () {
+Person.prototype.getFullName = function() {
   return `${this.firstName} ${this.lastName}`;
 };
 ```
@@ -835,7 +834,7 @@ String.prototype.giveLydiaPizza = () => {
 
 const name = "Lydia";
 
-console.log(name.giveLydiaPizza());
+console.log(name.giveLydiaPizza())
 ```
 
 - A: `"Just give Lydia pizza already!"`
@@ -947,7 +946,9 @@ C'est ici qu'une boucle d'événement commence à fonctionner. La **boucle d'év
 ```html
 <div onclick="console.log('first div')">
   <div onclick="console.log('second div')">
-    <button onclick="console.log('button')">Click!</button>
+    <button onclick="console.log('button')">
+      Click!
+    </button>
   </div>
 </div>
 ```
@@ -973,7 +974,9 @@ L'élément imbriqué le plus profond qui a provoqué l'événement est la cible
 
 ```html
 <div onclick="console.log('div')">
-  <p onclick="console.log('p')">Click here!</p>
+  <p onclick="console.log('p')">
+    Click here!
+  </p>
 </div>
 ```
 
@@ -1198,7 +1201,7 @@ JavaScript n'a que des types et des objets primitifs.
 
 Les types primitifs sont `boolean`, `null`, `undefined`, `bigint`, `number`, `string` et `symbol`.
 
-Ce qui différencie une primitive d'un objet, c'est que les primitives n'ont aucune propriété ou méthode. Cependant, vous remarquerez que `'foo'.toUpperCase()` est évalué à `'FOO'` et n'entraîne pas de `TypeError`. En effet, lorsque vous essayez d'accéder à une propriété ou à une méthode sur une primitive telle qu'une chaîne, JavaScript encapsule implicitement l'objet à l'aide de l'une des classes d'encapsulation, à savoir `String`, puis supprime immédiatement l'encapsulation après l'évaluation de l'expression. Toutes les primitives à l'exception de `null` et` undefined` présentent ce comportement.
+Ce qui différencie une primitive d'un objet, c'est que les primitives n'ont aucune propriété ou méthode. Cependant, vous remarquerez que  `'foo'.toUpperCase()` est évalué à `'FOO'` et n'entraîne pas de `TypeError`. En effet, lorsque vous essayez d'accéder à une propriété ou à une méthode sur une primitive telle qu'une chaîne, JavaScript encapsule implicitement l'objet à l'aide de l'une des classes d'encapsulation, à savoir `String`, puis supprime immédiatement l'encapsulation après l'évaluation de l'expression. Toutes les primitives à l'exception de `null` et` undefined` présentent ce comportement.
 
 </p>
 </details>
@@ -1208,10 +1211,7 @@ Ce qui différencie une primitive d'un objet, c'est que les primitives n'ont auc
 ###### 40. Quelle est la sortie ?
 
 ```javascript
-[
-  [0, 1],
-  [2, 3],
-].reduce(
+[[0, 1], [2, 3]].reduce(
   (acc, cur) => {
     return acc.concat(cur);
   },
@@ -1359,7 +1359,7 @@ const secondPromise = new Promise((res, rej) => {
   setTimeout(res, 100, "two");
 });
 
-Promise.race([firstPromise, secondPromise]).then((res) => console.log(res));
+Promise.race([firstPromise, secondPromise]).then(res => console.log(res));
 ```
 
 - A: `"one"`
@@ -1423,7 +1423,7 @@ Nous modifions seulement la valeur de la variable `person`, et non le premier é
 ```javascript
 const person = {
   name: "Lydia",
-  age: 21,
+  age: 21
 };
 
 for (const item in person) {
@@ -1503,7 +1503,7 @@ Seuls les premiers nombres de la chaîne sont renvoyés. Basé sur la base dix (
 ###### 50. Quelle est la sortie ?
 
 ```javascript
-[1, 2, 3].map((num) => {
+[1, 2, 3].map(num => {
   if (typeof num === "number") return;
   return num * 2;
 });
@@ -1680,7 +1680,7 @@ class Dog {
   }
 }
 
-Dog.prototype.bark = function () {
+Dog.prototype.bark = function() {
   console.log(`Woof I am ${this.name}`);
 };
 
@@ -1908,7 +1908,7 @@ Les propriétés ajoutées à l'aide de la méthode `defineProperty` sont immuab
 const settings = {
   username: "lydiahallie",
   level: 19,
-  health: 90,
+  health: 90
 };
 
 const data = JSON.stringify(settings, ["level", "health"]);
@@ -1942,7 +1942,7 @@ Si le remplaçant est une _fonction_, cette fonction est appelée sur chaque pro
 let num = 10;
 
 const increaseNumber = () => num++;
-const increasePassedNumber = (number) => number++;
+const increasePassedNumber = number => number++;
 
 const num1 = increaseNumber();
 const num2 = increasePassedNumber(num1);
@@ -1963,7 +1963,7 @@ console.log(num2);
 
 L'opérateur arithmétique `++` _renvoie en premier_ la valeur de l'opérande, _puis incrémente_ la valeur de l'opérande. La valeur de `num1` est égale à `10`, puisque la fonction `increaseNumber` renvoie d'abord la valeur de `num`, qui correspond à `10`, et augmente la valeur de `num` par la suite.
 
-`num2` est égal à `10`, puisque nous avons passé `num1` à la commande `increasePassedNumber`. `number` est égal à `10` (la valeur de `num1`). Encore une fois, l'opérateur arithmétique `++` _renvoie d'abord_ la valeur de l'opérande, puis incrémente\_ la valeur de l'opérande. La valeur de `nombre` est `10`, donc `num2` est égal à `10`.
+`num2` est égal à `10`, puisque nous avons passé `num1` à la commande `increasePassedNumber`. `number` est égal à `10` (la valeur de `num1`). Encore une fois, l'opérateur arithmétique `++` _renvoie d'abord_ la valeur de l'opérande, puis incrémente_ la valeur de l'opérande. La valeur de `nombre` est `10`, donc `num2` est égal à `10`.
 
 </p>
 </details>
@@ -1997,7 +1997,7 @@ multiply(value);
 
 Dans ES6, nous pouvons initialiser les paramètres avec une valeur par défaut. La valeur du paramètre sera la valeur par défaut, si aucune autre valeur n'a été passée à la fonction, ou si la valeur du paramètre est `"undefined"`. Dans ce cas, nous répartissons les propriétés de l'objet `value` dans un nouvel objet, donc `x` a la valeur par défaut `{number: 10}`.
 
-L'argument par défaut est évalué at _call time_! Chaque fois que nous appelons la fonction, un a _new_ object créé. Nous invoquons la fonction `multiply` les deux premières fois sans passer de valeur: `x` a la valeur par défaut `{number: 10}`. Nous enregistrons ensuite la valeur multipliée de ce nombre, qui est `20`.
+L'argument par défaut est évalué at _call time_! Chaque fois que nous appelons la fonction, un a _new_ object  créé. Nous invoquons la fonction `multiply` les deux premières fois sans passer de valeur: `x` a la valeur par défaut `{number: 10}`. Nous enregistrons ensuite la valeur multipliée de ce nombre, qui est `20`.
 
 La troisième fois que nous invoquons multiplier, nous passons un argument: l'objet appelé `value`. L'opérateur `* =` est en fait un raccourci pour `x.number = x.number * 2`: nous modifions la valeur de `x.number`, et enregistrons la valeur multipliée `20`.
 
