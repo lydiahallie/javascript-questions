@@ -32,6 +32,7 @@ Nie krępuj się ze mną kontaktować! 😊 <br />
 - [🇰🇷 한국어](./ko-KR/README-ko_KR.md)
 - [🇳🇱 Nederlands](./nl-NL/README.md)
 - [🇧🇷 Português Brasil](./pt-BR/README_pt_BR.md)
+- [🇷o Română](../ro-RO/README.ro.md)
 - [🇷🇺 Русский](./ru-RU/README.md)
 - [🇽🇰 Shqip](../sq-KS/README_sq_KS.md)
 - [🇹🇭 ไทย](./th-TH/README-th_TH.md)
