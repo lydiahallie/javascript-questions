@@ -961,3 +961,302 @@ Aici începe să lucreze un event loop. Un **event loop** se uită la stivă și
 </details>
 
 ---
+
+###### 31. Ce reprezintă "event.target" atunci când se face clic pe buton?
+
+```html
+<div onclick="console.log('first div')">
+  <div onclick="console.log('second div')">
+    <button onclick="console.log('button')">
+      Click!
+    </button>
+  </div>
+</div>
+```
+
+- A: În afara `div`
+- B: În interior `div`
+- C: `button`
+- D: Un șir de toate elementele înglobate.
+
+<details><summary><b>Răspuns</b></summary>
+<p>
+
+#### Răspuns: C
+
+Cel mai profund element înglobat care a cauzat evenimentul este ținta evenimentului. Puteți opri propagarea acestuia prin `event.stopPropagation`
+
+</p>
+</details>
+
+---
+
+###### 32. Când faceți clic pe paragraf, care este ieșirea înregistrată?
+
+```html
+<div onclick="console.log('div')">
+  <p onclick="console.log('p')">
+    Click here!
+  </p>
+</div>
+```
+
+- A: `p` `div`
+- B: `div` `p`
+- C: `p`
+- D: `div`
+
+<details><summary><b>Răspuns</b></summary>
+<p>
+
+#### Răspuns: A
+
+Dacă facem clic pe `p`, vom vedea două înregistrări: `p` și `div`. În timpul propagării evenimentului, există 3 faze: capturare, țintă și propagare. În mod implicit, gestionarii de evenimente sunt executați în faza de propagare (cu excepția cazului în care setați `useCapture` la `true`). Aceștia se execută de la cel mai profund element înglobat către exterior.
+
+</p>
+</details>
+
+---
+
+###### 33. Care este rezultatul?
+
+```javascript
+const person = { name: 'Lydia' };
+
+function sayHi(age) {
+  return `${this.name} is ${age}`;
+}
+
+console.log(sayHi.call(person, 21));
+console.log(sayHi.bind(person, 21));
+```
+
+- A: `undefined is 21` `Lydia is 21`
+- B: `function` `function`
+- C: `Lydia is 21` `Lydia is 21`
+- D: `Lydia is 21` `function`
+
+<details><summary><b>Răspuns</b></summary>
+<p>
+
+#### Răspuns: D
+
+Cu ambele metode, putem transmite obiectul la care dorim să se refere cuvântul cheie `this`. Cu toate acestea, `.call` este de asemenea _executat imediat_!
+
+`.bind.` returnează o _copie_ a funcției, dar cu un context legat! Nu este executat imediat.
+
+</p>
+</details>
+
+---
+
+###### 34. Care este rezultatul?
+
+```javascript
+function sayHi() {
+  return (() => 0)();
+}
+
+console.log(typeof sayHi());
+```
+
+- A: `"object"`
+- B: `"number"`
+- C: `"function"`
+- D: `"undefined"`
+
+<details><summary><b>Răspuns</b></summary>
+<p>
+
+#### Răspuns: B
+
+Funcția `sayHi` returnează valoarea returnată de expresia funcției invocate imediat (IIFE). This function returned `0`, care este de tip `"number"`.
+	
+Informație utilă: `typeof` poate returna următoarele valori: `undefined`, `boolean`, `number`, `bigint`, `string`, `symbol`, `function` și `object`. Notați că `typeof null` returnează `"object"`.
+
+</p>
+</details>
+
+---
+
+###### 35. Care dintre aceste valori sunt considerate falsy?
+
+```javascript
+0;
+new Number(0);
+('');
+(' ');
+new Boolean(false);
+undefined;
+```
+
+- A: `0`, `''`, `undefined`
+- B: `0`, `new Number(0)`, `''`, `new Boolean(false)`, `undefined`
+- C: `0`, `''`, `new Boolean(false)`, `undefined`
+- D: Toate dintre ele sunt considerate falsy
+
+<details><summary><b>Răspuns</b></summary>
+<p>
+
+#### Răspuns: A
+
+Există 8 valori considerate falsy:
+
+- `undefined`
+- `null`
+- `NaN`
+- `false`
+- `''` (șir de caractere gol)
+- `0`
+- `-0`
+- `0n` (BigInt(0))
+
+Constructorii de funcții, cum ar fi `new Number` și `new Boolean` sunt considerați truthy.
+
+</p>
+</details>
+
+---
+
+###### 36. Care este rezultatul?
+
+```javascript
+console.log(typeof typeof 1);
+```
+
+- A: `"number"`
+- B: `"string"`
+- C: `"object"`
+- D: `"undefined"`
+
+<details><summary><b>Răspuns</b></summary>
+<p>
+
+#### Răspuns: B
+
+`typeof 1` returnează `"number"`.
+`typeof "number"` returnează `"string"`
+
+</p>
+</details>
+
+---
+
+###### 37. Care este rezultatul?
+
+```javascript
+const numbers = [1, 2, 3];
+numbers[10] = 11;
+console.log(numbers);
+```
+
+- A: `[1, 2, 3, null x 7, 11]`
+- B: `[1, 2, 3, 11]`
+- C: `[1, 2, 3, empty x 7, 11]`
+- D: `SyntaxError`
+
+<details><summary><b>Răspuns</b></summary>
+<p>
+
+#### Răspuns: C
+
+Când setați o valoare pentru un element într-un array care depășește lungimea array-ului, JavaScript creează ceea ce se numește "slot-uri goale" (empty slots). Acestea au de fapt valoarea `undefined`, dar veți vedea ceva de genul:
+
+`[1, 2, 3, empty x 7, 11]`
+
+în funcție de locul în care îl rulați (este diferit pentru fiecare browser, Node.js, etc.)
+
+</p>
+</details>
+
+---
+
+###### 38. Care este rezultatul?
+
+```javascript
+(() => {
+  let x, y;
+  try {
+    throw new Error();
+  } catch (x) {
+    (x = 1), (y = 2);
+    console.log(x);
+  }
+  console.log(x);
+  console.log(y);
+})();
+```
+
+- A: `1` `undefined` `2`
+- B: `undefined` `undefined` `undefined`
+- C: `1` `1` `2`
+- D: `1` `undefined` `undefined`
+
+<details><summary><b>Răspuns</b></summary>
+<p>
+
+#### Răspuns: A
+
+Blocul `catch` primește argumentul `x`. Acesta nu este același `x` ca variabila când transmitem argumente. Această variabilă `x` este având domeniu de bloc (block-scoped).
+
+Mai târziu, setăm această variabilă cu domeniu de bloc la valoarea `1`, și stabilim valoarea variabilei `y`. Acum, înregistrăm în consolă variabila cu domeniu de bloc `x`, care este egală cu `1`.
+
+În afara blocului `catch`, `x` rămâne `undefined`, și `y` este `2`. Atunci când dorim să afișăm în consolă `console.log(x)` în afara blocului `catch`, acesta returnează `undefined`, și `y` returnează `2`.
+
+</p>
+</details>
+
+---
+
+###### 39. Totul în JavaScript este fie un...
+
+- A: primitiv sau obiect
+- B: funcție sau obiect
+- C: întrebare trucată! doar obiecte
+- D: număr sau obiect
+
+<details><summary><b>Răspuns</b></summary>
+<p>
+
+#### Răspuns: A
+
+JavaScript are doar tipuri primitive și obiecte.
+
+Tipurile primitive sunt `boolean`, `null`, `undefined`, `bigint`, `number`, `string`, și `symbol`.
+
+Ceea ce diferențiază un tip primitiv de un obiect este faptul că tipurile primitive nu au proprietăți sau metode. Cu toate acestea, veți observa că `'foo'.toUpperCase()` se evaluează la `'FOO'` și nu duce la o eroare `TypeError`. Acest lucru se întâmplă pentru că atunci când încercați să accesați o proprietate sau o metodă pe un tip primitiv, cum ar fi un șir de caractere (string), JavaScript va înconjura implicit tipul primitiv folosind una dintre clasele de înveliș, adică `String`, și apoi va renunța imediat la înveliș după ce expresia se evaluează. Toate tipurile primitive, cu excepția `null` și `undefined` prezintă acest comportament.
+
+</p>
+</details>
+
+---
+
+###### 40. Care este rezultatul?
+
+```javascript
+[[0, 1], [2, 3]].reduce(
+  (acc, cur) => {
+    return acc.concat(cur);
+  },
+  [1, 2],
+);
+```
+
+- A: `[0, 1, 2, 3, 1, 2]`
+- B: `[6, 1, 2]`
+- C: `[1, 2, 0, 1, 2, 3]`
+- D: `[1, 2, 6]`
+
+<details><summary><b>Răspuns</b></summary>
+<p>
+
+#### Răspuns: C
+
+`[1, 2]` este valoarea noastră inițială. Aceasta este valoarea cu care începem și valoarea primului `acc`. În prima rundă, `acc` este `[1,2]`, și `cur` este `[0, 1]`. Le concatenăm, ceea ce duce la rezultatul `[1, 2, 0, 1]`.
+
+Atunci, `[1, 2, 0, 1]` este `acc` și `[2, 3]` este `cur`. Le concatenăm și obținem `[1, 2, 0, 1, 2, 3]`
+
+</p>
+</details>
+
+---
