@@ -1260,3 +1260,293 @@ Atunci, `[1, 2, 0, 1]` este `acc` și `[2, 3]` este `cur`. Le concatenăm și ob
 </details>
 
 ---
+
+###### 41. Care este rezultatul?
+
+```javascript
+!!null;
+!!'';
+!!1;
+```
+
+- A: `false` `true` `false`
+- B: `false` `false` `true`
+- C: `false` `true` `true`
+- D: `true` `true` `false`
+
+<details><summary><b>Răspuns</b></summary>
+<p>
+
+#### Răspuns: B
+
+`null` este falsy. `!null` returnează `true`. `!true` returnează `false`.
+
+`""` este falsy. `!""` returnează `true`. `!true` returnează `false`.
+
+`1` este truthy. `!1` returnează `false`. `!false` returnează `true`.
+
+</p>
+</details>
+
+---
+
+###### 42. Ce returnează metoda `setInterval` în browser?
+
+```javascript
+setInterval(() => console.log('Hi'), 1000);
+```
+
+- A: un id unic
+- B: cantitatea de milisecunde specificată
+- C: funcția furnizată
+- D: `undefined`
+
+<details><summary><b>Răspuns</b></summary>
+<p>
+
+#### Răspuns: A
+
+Aceasta returnează un identificator unic. Acest id poate fi utilizat pentru a opri intervalul respectiv cu ajutorul funcției `clearInterval()`.
+
+</p>
+</details>
+
+---
+
+###### 43. Ce returnează acest lucru?
+
+```javascript
+[...'Lydia'];
+```
+
+- A: `["L", "y", "d", "i", "a"]`
+- B: `["Lydia"]`
+- C: `[[], "Lydia"]`
+- D: `[["L", "y", "d", "i", "a"]]`
+
+<details><summary><b>Răspuns</b></summary>
+<p>
+
+#### Răspuns: A
+
+Un șir de caractere este un obiect iterabil. Operatorul de răspândire (spread operator) mapează fiecare caracter dintr-un obiect iterabil la un element separat.
+
+</p>
+</details>
+
+---
+
+###### 44. Care este rezultatul?
+
+```javascript
+function* generator(i) {
+  yield i;
+  yield i * 2;
+}
+
+const gen = generator(10);
+
+console.log(gen.next().value);
+console.log(gen.next().value);
+```
+
+- A: `[0, 10], [10, 20]`
+- B: `20, 20`
+- C: `10, 20`
+- D: `0, 10 and 10, 20`
+
+<details><summary><b>Răspuns</b></summary>
+<p>
+
+#### Răspuns: C
+
+Funcțiile regulate nu pot fi oprite în mijlocul execuției după invocare. Cu toate acestea, o funcție generator poate fi "oprită" în mijloc și ulterior poate continua de la locul unde s-a oprit. De fiecare dată când o funcție generator întâlnește un cuvânt cheie `yield`, funcția furnizează valoarea specificată după el. Notați că funcția generator în acest caz nu _returnează_ the valoarea, ci _furnizează_ valoarea.
+
+Mai întâi, inițializăm funcția generator cu `i` egal cu `10`. Invocăm funcția generator folosind metoda `next()`. Prima dată când invocăm funcția generator, `i` este egal cu `10`. Aceasta întâlnește primul cuvânt cheie `yield`: furnizează valoarea lui `i`. Generatorul este acum "pauzat", și se înregistrează valoarea `10`.
+
+Apoi, invocăm din nou funcția cu metoda `next()`. Ea începe să continue de unde s-a oprit anterior, încă cu `i` egal cu `10`. Acum, întâlnește următorul cuvânt cheie `yield`, și furnizează `i * 2`. `i` este egal cu `10`, așa că returnează `10 * 2`, adică `20`. Acest lucru duce la rezultatul `10, 20`.
+
+</p>
+</details>
+
+---
+
+###### 45. Ce returnează asta?
+
+```javascript
+const firstPromise = new Promise((res, rej) => {
+  setTimeout(res, 500, 'one');
+});
+
+const secondPromise = new Promise((res, rej) => {
+  setTimeout(res, 100, 'two');
+});
+
+Promise.race([firstPromise, secondPromise]).then(res => console.log(res));
+```
+
+- A: `"one"`
+- B: `"two"`
+- C: `"two" "one"`
+- D: `"one" "two"`
+
+<details><summary><b>Răspuns</b></summary>
+<p>
+
+#### Răspuns: B
+
+Atunci când transmitem mai multe promisiuni metodei `Promise.race`, ea rezolvă/rejectează _prima_ promisiune care se rezolvă/rejectează. Pentru metoda `setTimeout`, transmitem un cronometru: 500ms pentru prima promisiune (`firstPromise`), și 100ms pentru a doua promisiune (`secondPromise`). Acest lucru înseamnă că `secondPromise` se rezolvă primul cu valoarea `'two'`. `res` conține acum valoarea `'two'`, care se înregistrează în consolă.
+
+</p>
+</details>
+
+---
+
+###### 46. Care este resultatul?
+
+```javascript
+let person = { name: 'Lydia' };
+const members = [person];
+person = null;
+
+console.log(members);
+```
+
+- A: `null`
+- B: `[null]`
+- C: `[{}]`
+- D: `[{ name: "Lydia" }]`
+
+<details><summary><b>Răspuns</b></summary>
+<p>
+
+#### Răspuns: D
+
+În primul rând, declarăm o variabilă `person` cu valoarea unui obiect care are o proprietate `name`.
+
+<img src="https://i.imgur.com/TML1MbS.png" width="200">
+
+Apoi, declarăm o variabilă numită `members`. Setăm primul element al acestui array egal cu valoarea variabilei `person`. Obiectele interacționează prin _referință_ atunci când le setăm egale între ele. Atunci când atribuiți o referință de la o variabilă la alta, faceți o _copie_ a acelei referințe. (notați că acestea nu au _aceași_ referință!)
+
+<img src="https://i.imgur.com/FSG5K3F.png" width="300">
+
+Apoi, setăm variabila `person` egală cu `null`.
+
+<img src="https://i.imgur.com/sYjcsMT.png" width="300">
+
+Noi modificăm doar valoarea variabilei `person` nu și primul element din array, deoarece acel element are o referință diferită (copiată) la obiect. Primul element din `members` încă păstrează referința sa la obiectul original. Când înregistrăm în consolă array-ul `members` primul element păstrează valoarea obiectului, care este afișată în consolă.
+
+</p>
+</details>
+
+---
+
+###### 47. Care este rezultatul?
+
+```javascript
+const person = {
+  name: 'Lydia',
+  age: 21,
+};
+
+for (const item in person) {
+  console.log(item);
+}
+```
+
+- A: `{ name: "Lydia" }, { age: 21 }`
+- B: `"name", "age"`
+- C: `"Lydia", 21`
+- D: `["name", "Lydia"], ["age", 21]`
+
+<details><summary><b>Răspuns</b></summary>
+<p>
+
+#### Răspuns: B
+
+Cu un ciclu `for-in` putem itera prin cheile obiectului, în acest caz `name` și `age`. În interior, cheile obiectului sunt șiruri de caractere (dacă nu sunt de tip Symbol). În fiecare iterație, setăm valoarea lui `item` egală cu cheia curentă pe care o parcurge. Mai întâi, `item` este egal cu `name`, și este înregistrat în consolă. Apoi, `item` este egal cu `age`, care este, de asemenea, înregistrat în consolă.
+
+</p>
+</details>
+
+---
+
+###### 48. Care este rezultatul?
+
+```javascript
+console.log(3 + 4 + '5');
+```
+
+- A: `"345"`
+- B: `"75"`
+- C: `12`
+- D: `"12"`
+
+<details><summary><b>Răspuns</b></summary>
+<p>
+
+#### Răspuns: B
+
+Asociativitatea operatorilor este ordinea în care compilatorul evaluează expresiile, fie de la stânga la dreapta, fie de la dreapta la stânga. Acest lucru se întâmplă doar dacă toți operatorii au aceeași precedență. În cazul nostru, avem doar un tip de operator: `+`. Pentru adunare, asociativitatea este de la stânga la dreapta.
+
+`3 + 4` este evaluat mai întâi. Acest lucru duce la numărul `7`.
+
+`7 + '5'` duce la rezultatul `"75"` datorită coerției. JavaScript convertește numărul `7` într-un șir de caractere, așa cum am discutat în întrebarea 15. Putem concatena două șiruri de caractere folosind operatorul `+`. `"7" + "5"` rezultă în `"75"`.
+
+</p>
+</details>
+
+---
+
+###### 49. Care este valoarea lui`num`?
+
+```javascript
+const num = parseInt('7*6', 10);
+```
+
+- A: `42`
+- B: `"42"`
+- C: `7`
+- D: `NaN`
+
+<details><summary><b>Răspuns</b></summary>
+<p>
+
+#### Răspuns: C
+
+Este returnat doar primul număr din șir. Bazat pe _radix_ (al doilea argument pentru a specifica în ce tip de număr dorim să-l parsăm: bază 10, hexazecimal, octal, binar, etc.), `parseInt` verifică dacă caracterele din șir sunt valide. Odată ce întâlnește un caracter care nu este un număr valid în baza specificată, oprește parsarea și ignoră caracterele ulterioare.
+
+`*` nu este un număr valid. Parsează doar `"7"` în numărul zecimal `7`. Acum, `num` conține valoarea `7`.
+
+</p>
+</details>
+
+---
+
+###### 50. Care este rezultatul?
+
+```javascript
+[1, 2, 3].map(num => {
+  if (typeof num === 'number') return;
+  return num * 2;
+});
+```
+
+- A: `[]`
+- B: `[null, null, null]`
+- C: `[undefined, undefined, undefined]`
+- D: `[ 3 x empty ]`
+
+<details><summary><b>Răspuns</b></summary>
+<p>
+
+#### Răspuns: C
+
+Când se parcurge array-ul, valoarea lui `num` este egală cu elementul prin care parcurge în acel moment. În acest caz, elementele sunt numere, astfel că condiția din instrucțiunea `typeof num === "number"` returnează `true`. Funcția map creează un nou array și introduce valorile returnate de funcție.
+
+Cu toate acestea, nu returnăm o valoare. Atunci când nu returnăm o valoare din funcție, funcția returnează `undefined`. Pentru fiecare element din array, blocul funcției este apelat, deci pentru fiecare element returnăm `undefined`.
+
+</p>
+</details>
+
+---
