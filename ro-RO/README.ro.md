@@ -1550,3 +1550,349 @@ Cu toate acestea, nu returnăm o valoare. Atunci când nu returnăm o valoare di
 </details>
 
 ---
+
+###### 51. Care este rezultatul?
+
+```javascript
+function getInfo(member, year) {
+  member.name = 'Lydia';
+  year = '1998';
+}
+
+const person = { name: 'Sarah' };
+const birthYear = '1997';
+
+getInfo(person, birthYear);
+
+console.log(person, birthYear);
+```
+
+- A: `{ name: "Lydia" }, "1997"`
+- B: `{ name: "Sarah" }, "1998"`
+- C: `{ name: "Lydia" }, "1998"`
+- D: `{ name: "Sarah" }, "1997"`
+
+<details><summary><b>Răspuns</b></summary>
+<p>
+
+#### Răspuns: A
+
+Argumentele sunt transmise prin _valoare_, cu excepția cazului în care valoarea lor este un obiect, caz în care sunt transmise prin _referință_. `birthYear` este transmis prin valoare, deoarece este un șir de caractere (string), nu un obiect. Atunci când transmitem argumente prin valoare, se creează o _copie_ a acelei valori (consultați întrebarea 46).
+
+Variabila `birthYear` are o referință la valoarea `"1997"`. Argumentul `year` are, de asemenea, o referință la valoarea `"1997"`, dar nu este aceeași valoare la care se referă `birthYear`. Atunci când actualizăm valoarea lui `year` prin setarea lui `year` egal cu `"1998"`, actualizăm doar valoarea lui `year`. `birthYear` rămâne în continuare egal cu `"1997"`.
+
+Valoarea lui `person` este un obiect. Argumentul `member` are o referință (copiată) către _același_ obiect. Atunci când modificăm o proprietate a obiectului la care se referă `member` valoarea lui `person` va fi de asemenea modificată, deoarece ambele au o referință la același obiect. Proprietatea `name` a lui `person` este acum egală cu valoarea `"Lydia"`.
+
+</p>
+</details>
+
+---
+
+###### 52. Care este rezultatul?
+
+```javascript
+function greeting() {
+  throw 'Hello world!';
+}
+
+function sayHi() {
+  try {
+    const data = greeting();
+    console.log('It worked!', data);
+  } catch (e) {
+    console.log('Oh no an error:', e);
+  }
+}
+
+sayHi();
+```
+
+- A: `It worked! Hello world!`
+- B: `Oh no an error: undefined`
+- C: `SyntaxError: can only throw Error objects`
+- D: `Oh no an error: Hello world!`
+
+<details><summary><b>Răspuns</b></summary>
+<p>
+
+#### Răspuns: D
+
+Cu instrucțiunea `throw` putem crea erori personalizate. Cu această instrucțiune, puteți arunca excepții. O excepție poate fi un <b>șir de caractere</b>, un <b>număr</b>, un <b>boolean</b> sau un <b>obiect</b>. În acest caz, excepția noastră este șirul `'Hello world!'`.
+
+Cu instrucțiunea `catch` putem specifica ce să facem dacă o excepție este aruncată în blocul `try`. O excepție este aruncată: șirul `'Hello world!'`. `e` este acum egal cu acel șir, pe care îl înregistrăm. Acest lucru duce la rezultatul `'Oh an error: Hello world!'`.
+
+</p>
+</details>
+
+---
+
+###### 53. Care este rezultatul?
+
+```javascript
+function Car() {
+  this.make = 'Lamborghini';
+  return { make: 'Maserati' };
+}
+
+const myCar = new Car();
+console.log(myCar.make);
+```
+
+- A: `"Lamborghini"`
+- B: `"Maserati"`
+- C: `ReferenceError`
+- D: `TypeError`
+
+<details><summary><b>Răspuns</b></summary>
+<p>
+
+#### Răspuns: B
+
+Atunci când o funcție constructor este apelată cu cuvântul cheie `new`, aceasta creează un obiect și stabilește cuvântul cheie `this` să se refere la acel obiect. În mod implicit, dacă funcția constructor nu returnează explicit nimic, va returna obiectul creat recent.
+
+În acest caz, funcția constructor `Car` returnează în mod explicit un obiect nou cu proprietatea `make` setată la `"Maserati"`, ceea ce suprascrie comportamentul implicit. Prin urmare, atunci când este apelat `new Car()` obiectul _returnat_ este atribuit lui `myCar`, ceea ce duce la rezultatul `"Maserati"` atunci când se accesează `myCar.make`.
+
+</p>
+</details>
+
+---
+
+###### 54. Care este rezultatul?
+
+```javascript
+(() => {
+  let x = (y = 10);
+})();
+
+console.log(typeof x);
+console.log(typeof y);
+```
+
+- A: `"undefined", "number"`
+- B: `"number", "number"`
+- C: `"object", "number"`
+- D: `"number", "undefined"`
+
+<details><summary><b>Răspuns</b></summary>
+<p>
+
+#### Răspuns: A
+
+`let x = (y = 10);` este de fapt o prescurtare pentru
+
+```javascript
+y = 10;
+let x = y;
+```
+
+Când setăm `y` egal cu `10`, adăugăm de fapt o proprietate `y` la obiectul global (`window` într-un browser, `global` în Node). Într-un browser, `window.y` este acum egal cu `10`.
+
+Apoi, declarăm o variabilă `x` cu valoarea `y`, care este `10`. Variabilele declarate cu cuvântul cheie `let` au domeniu de bloc _block scoped_, ele sunt definite doar în blocul în care sunt declarate; în cazul de față, în funcția expresie invocată imediat (IIFE). Atunci când folosim operatorul `typeof` operandul `x` nu este definit: încercăm să accesăm `x` în afara blocului în care este declarat. Acest lucru înseamnă că `x` nu este definit. Valorile care nu au primit o valoare sau nu au fost declarate sunt de tip `"undefined"`. `console.log(typeof x)` returnează `"undefined"`.
+
+Cu toate acestea, am creat o variabilă globală `y` atunci când am setat `y` egal cu `10`. Această valoare este accesibilă oriunde în codul nostru. `y` este definită și deține o valoare de tip `"number"`. `console.log(typeof y)` returnează `"number"`.
+
+</p>
+</details>
+
+---
+
+###### 55. Care este rezultatul?
+
+```javascript
+class Dog {
+  constructor(name) {
+    this.name = name;
+  }
+}
+
+Dog.prototype.bark = function() {
+  console.log(`Woof I am ${this.name}`);
+};
+
+const pet = new Dog('Mara');
+
+pet.bark();
+
+delete Dog.prototype.bark;
+
+pet.bark();
+```
+
+- A: `"Woof I am Mara"`, `TypeError`
+- B: `"Woof I am Mara"`, `"Woof I am Mara"`
+- C: `"Woof I am Mara"`, `undefined`
+- D: `TypeError`, `TypeError`
+
+<details><summary><b>Răspuns</b></summary>
+<p>
+
+#### Răspuns: A
+
+Putem șterge proprietăți din obiecte folosind cuvântul cheie `delete` inclusiv de pe prototip. Prin ștergerea unei proprietăți de pe prototip, aceasta nu mai este disponibilă în lanțul prototipului. În acest caz, funcția `bark` nu mai este disponibilă pe prototip după `delete Dog.prototype.bark`, dar încercăm totuși să o accesăm.
+
+Când încercăm să apelăm ceva care nu este o funcție, este aruncată o excepție  `TypeError`. În acest caz, se generează eroarea `TypeError: pet.bark is not a function`, deoarece `pet.bark` este `undefined`.
+
+</p>
+</details>
+
+---
+
+###### 56. Care este rezultatul?
+
+```javascript
+const set = new Set([1, 1, 2, 3, 4]);
+
+console.log(set);
+```
+
+- A: `[1, 1, 2, 3, 4]`
+- B: `[1, 2, 3, 4]`
+- C: `{1, 1, 2, 3, 4}`
+- D: `{1, 2, 3, 4}`
+
+<details><summary><b>Răspuns</b></summary>
+<p>
+
+#### Răspuns: D
+
+Obiectul `Set` este o colecție de valori unice: o valoare poate apărea doar o singură dată într-un set.
+
+m transmis iterable-ul `[1, 1, 2, 3, 4]` cu o valoare duplicată `1`. Deoarece nu putem avea două valori identice într-un set, una dintre ele este eliminată. Acest lucru duce la rezultatul `{1, 2, 3, 4}`.
+
+</p>
+</details>
+
+---
+
+###### 57. Care este rezultatul?
+
+```javascript
+// counter.js
+let counter = 10;
+export default counter;
+```
+
+```javascript
+// index.js
+import myCounter from './counter';
+
+myCounter += 1;
+
+console.log(myCounter);
+```
+
+- A: `10`
+- B: `11`
+- C: `Error`
+- D: `NaN`
+
+<details><summary><b>Răspuns</b></summary>
+<p>
+
+#### Răspuns: C
+
+Un modul importat este _doar pentru citire_: nu puteți modifica modulul importat. Doar modulul care le exportă poate schimba valorile acestora.
+
+Când încercăm să incrementăm valoarea lui `myCounter`, apare o eroare: `myCounter` este doar pentru citire și nu poate fi modificat.
+
+</p>
+</details>
+
+---
+
+###### 58. Care este rezultatul?
+
+```javascript
+const name = 'Lydia';
+age = 21;
+
+console.log(delete name);
+console.log(delete age);
+```
+
+- A: `false`, `true`
+- B: `"Lydia"`, `21`
+- C: `true`, `true`
+- D: `undefined`, `undefined`
+
+<details><summary><b>Răspuns</b></summary>
+<p>
+
+#### Răspuns: A
+
+Operatorul `delete` returnează o valoare booleană: `true` în cazul ștergerii reușite, în caz contrar va returna `false`. Cu toate acestea, variabilele declarate cu cuvintele cheie `var`, `const` sau `let` nu pot fi șterse folosind operatorul `delete`.
+
+Variabila `name` a fost declarată cu cuvântul cheie `const` așa că ștergerea sa nu reușește: se returnează `false`. Atunci când setăm `age` egal cu `21`, de fapt am adăugat o proprietate numită `age` la obiectul global. În acest fel, puteți șterge cu succes proprietăți din obiecte, inclusiv din obiectul global, așa că `delete age` returnează `true`.
+
+</p>
+</details>
+
+---
+
+###### 59. Care este rezultatul?
+
+```javascript
+const numbers = [1, 2, 3, 4, 5];
+const [y] = numbers;
+
+console.log(y);
+```
+
+- A: `[[1, 2, 3, 4, 5]]`
+- B: `[1, 2, 3, 4, 5]`
+- C: `1`
+- D: `[1]`
+
+<details><summary><b>Răspuns</b></summary>
+<p>
+
+#### Răspuns: C
+
+Putem dezasambla (unpack) valori din array-uri sau proprietăți din obiecte prin destructurare. De exemplu:
+
+```javascript
+[a, b] = [1, 2];
+```
+
+<img src="https://i.imgur.com/ADFpVop.png" width="200">
+
+Valoarea lui `a` este acum `1`, iar valoarea lui `b` este acum `2`. Ceea ce am făcut în întrebare este:
+
+```javascript
+[y] = [1, 2, 3, 4, 5];
+```
+
+<img src="https://i.imgur.com/NzGkMNk.png" width="200">
+
+Acest lucru înseamnă că valoarea lui `y` este egală cu prima valoare din array, care este numărul `1`. Când înregistrăm în consolă `y`, se returnează `1`.
+
+</p>
+</details>
+
+---
+
+###### 60. Care este rezultatul?
+
+```javascript
+const user = { name: 'Lydia', age: 21 };
+const admin = { admin: true, ...user };
+
+console.log(admin);
+```
+
+- A: `{ admin: true, user: { name: "Lydia", age: 21 } }`
+- B: `{ admin: true, name: "Lydia", age: 21 }`
+- C: `{ admin: true, user: ["Lydia", 21] }`
+- D: `{ admin: true }`
+
+<details><summary><b>Răspuns</b></summary>
+<p>
+
+#### Răspuns: B
+
+Este posibil să combinăm obiecte folosind operatorul de răspândire`...`. Acesta vă permite să creați copii ale perechilor cheie/valoare dintr-un obiect și să le adăugați la alt obiect. În acest caz, creăm copii ale obiectului `user` și le adăugăm la obiectul `admin`. Obiectul `admin` conține acum perechile cheie/valoare copiate, ceea ce duce la rezultatul `{ admin: true, name: "Lydia", age: 21 }`.
+
+</p>
+</details>
+
+---
