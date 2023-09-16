@@ -402,7 +402,7 @@ Ovo je moguće u JavaScriptu, jer su funkcije objekti!
 
 function je posebna vrsta objekta. Kod koji sami napišete
 nije stvarna funkcija. Function je objekt sa svojstvima.
-To svojstvo je nepovratna.
+To svojstvo je nepovratno.
 
 </p>
 </details>
