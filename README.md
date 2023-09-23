@@ -477,9 +477,9 @@ During the **capturing** phase, the event goes through the ancestor elements dow
 <details><summary><b>Answer</b></summary>
 <p>
 
-#### Answer: B
+#### Answer: A
 
-All objects have prototypes, except for the **base object**. The base object is the object created by the user, or an object that is created using the `new` keyword. The base object has access to some methods and properties, such as `.toString`. This is the reason why you can use built-in JavaScript methods! All of such methods are available on the prototype. Although JavaScript can't find it directly on your object, it goes down the prototype chain and finds it there, which makes it accessible for you.
+All objects in JavaScript, whether created by users, or even the built-in **Object** object, have prototypes. The prototype chain begins with the Object.prototype object, which serves as the base class for all objects. This base prototype contains common methods and properties that are inherited by all objects. When JavaScript can't find a property or method directly on an object, it searches up the prototype chain to locate and access it.
 
 </p>
 </details>
