@@ -1,16 +1,21 @@
 <div align="center">
   <img height="60" src="https://img.icons8.com/color/344/javascript.png">
   <h1>Pytania dotyczące JavaScript</h1>
+</div>
+
+> [!NOTE]  
+> To repozytorium zostało utworzone w 2019 roku, a zatem pytania tutaj zawarte są oparte na składni i zachowaniu JavaScript w tym czasie. Ponieważ JavaScript jest stale rozwijającym się językiem, istnieją nowsze funkcje językowe, które nie są objęte pytaniami tutaj.
 
 ---
 
-<span>Publikuję pytania wielokrotnego wyboru dotyczące JavaScriptu na swoich [Instagram](https://www.instagram.com/theavocoder) **stories**, które również zamieszczę tutaj! Ostatnia aktualizacja: <a href=#20200612><b>27 Czerwca</b></a>
+<p align="center">
+Od podstawowych do zaawansowanych: sprawdź, jak dobrze znasz JavaScript, odśwież swoją wiedzę lub przygotuj się do rozmowy kwalifikacyjnej! :muscle: :rocket: Regularnie aktualizuję to repozytorium nowymi pytaniami. Odpowiedzi znajdują się w ukrytych zakładkach poniżej pytań - po prostu kliknij, aby je rozwinięć. To dla zabawy, powodzenia! :heart:</p>
 
-Od podstawowych do zaawansowanych: sprawdź, jak dobrze znasz JavaScript, odśwież swoją wiedzę lub przygotuj się do rozmowy kwalifikacyjnej! :muscle: :rocket: Regularnie aktualizuję to repozytorium nowymi pytaniami. Odpowiedzi znajdują się w ukrytych zakładkach poniżej pytań - po prostu kliknij, aby je rozwinięć. To dla zabawy, powodzenia! :heart:</span>
+<p align="center">Nie krępuj się ze mną kontaktować! 😊</p>
 
-Nie krępuj się ze mną kontaktować! 😊 <br />
+<p align="center">
 <a href="https://www.instagram.com/theavocoder">Instagram</a> || <a href="https://www.twitter.com/lydiahallie">Twitter</a> || <a href="https://www.linkedin.com/in/lydia-hallie">LinkedIn</a> || <a href="https://www.lydiahallie.dev">Blog</a>
-</div>
+</p>
 
 | Śmiało używaj ich w projekcie! 😃  Byłabym _bardzo_ wdzięczna za referencje do tego repozytorium, tworzę pytania i wyjaśnienia (tak, jestem smutna lol) i społeczność bardzo mi pomaga w utrzymaniu i ulepszaniu go! 💪🏼 Dziękuję i baw się dobrze!   |
 |---|
