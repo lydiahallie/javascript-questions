@@ -1552,3 +1552,347 @@ Nie zwracamy jednak żadnej wartości. Gdy nie zwracamy wartości z funkcji, fun
 
 </p>
 </details>
+
+---
+
+###### 51. Jaki jest wynik?
+
+```javascript
+function getInfo(member, year) {
+  member.name = 'Lydia';
+  year = '1998';
+}
+
+const person = { name: 'Sarah' };
+const birthYear = '1997';
+
+getInfo(person, birthYear);
+
+console.log(person, birthYear);
+```
+
+- A: `{ name: "Lydia" }, "1997"`
+- B: `{ name: "Sarah" }, "1998"`
+- C: `{ name: "Lydia" }, "1998"`
+- D: `{ name: "Sarah" }, "1997"`
+
+<details><summary><b>Odpowiedź</b></summary>
+<p>
+
+#### Odpowiedź: A
+
+Argumenty są przekazywane przez _wartość_, chyba że ich wartość jest obiektem, wtedy są przekazywane przez _referencję_. Argument `birthYear` jest przekazywany przez wartość, ponieważ jest ciągiem znaków, a nie obiektem. Kiedy przekazujemy argumenty przez wartość, tworzona jest _kopia_ tej wartości (patrz pytanie 46).
+
+Zmienna `birthYear` posiada referencję do wartości `"1997"`. Argument `year` również posiada referencję do wartości `"1997"`, ale nie jest to ta sama wartość, do której odnosi się `birthYear`. Kiedy aktualizujemy wartość `year` ustawiając `year` na `"1998"`, aktualizujemy tylko wartość `year`. Wartość `birthYear` jest wciąż równa `1997`.
+
+Wartość `person` jest obiektem. Argument `member` posiada (skopiowaną) referencję do _tego samego_ obiektu. Gdy zmodyfikujemy właściwość obiektu, do którego odwołuje się `member`, wartość `person` również zostanie zmodyfikowana, ponieważ oba mają odwołanie do tego samego obiektu. Właściwość `name` obiektu `person` jest teraz równa wartości `"Lydia"`.
+
+</p>
+</details>
+
+---
+
+###### 52. Jaki jest wynik?
+
+```javascript
+function greeting() {
+  throw 'Hello world!';
+}
+
+function sayHi() {
+  try {
+    const data = greeting();
+    console.log('It worked!', data);
+  } catch (e) {
+    console.log('Oh no an error:', e);
+  }
+}
+
+sayHi();
+```
+
+- A: `It worked! Hello world!`
+- B: `Oh no an error: undefined`
+- C: `SyntaxError: can only throw Error objects`
+- D: `Oh no an error: Hello world!`
+
+<details><summary><b>Odpowiedź</b></summary>
+<p>
+
+#### Odpowiedź: D
+
+Za pomocą instrukcji `throw` możemy tworzyć niestandardowe błędy. Za pomocą tej instrukcji można rzucać wyjątki <b>string</b>, <b>number</b>, <b>boolean</b> lub <b>object</b>. W tym przypadku, naszym wyjątkiem jest ciąg znaków `'Hello world!".`
+
+Za pomocą instrukcji `catch` możemy określić, co należy zrobić, jeśli wyjątek zostanie rzucony w bloku `try`. Wyjątkiem może być: string `'Hello world!'`. `e` jest teraz równe temu ciągowi, który wyświetlamy w konsoli. Skutkuje to `'Oh an error: Hello world!'`.
+
+</p>
+</details>
+
+---
+
+###### 53. Jaki jest wynik?
+
+```javascript
+function Car() {
+  this.make = 'Lamborghini';
+  return { make: 'Maserati' };
+}
+
+const myCar = new Car();
+console.log(myCar.make);
+```
+
+- A: `"Lamborghini"`
+- B: `"Maserati"`
+- C: `ReferenceError`
+- D: `TypeError`
+
+<details><summary><b>Odpowiedź</b></summary>
+<p>
+
+#### Odpowiedź: B
+
+Kiedy zwracasz właściwość, wartość właściwości jest równa _zwróconej_ wartości, a nie wartości ustawionej w funkcji konstruktora. Zwracamy ciąg `"Maserati"`, więc `myCar.make` jest równe `"Maserati"`.
+
+</p>
+</details>
+
+---
+
+###### 54. Jaki jest wynik?
+
+```javascript
+(() => {
+  let x = (y = 10);
+})();
+
+console.log(typeof x);
+console.log(typeof y);
+```
+
+- A: `"undefined", "number"`
+- B: `"number", "number"`
+- C: `"object", "number"`
+- D: `"number", "undefined"`
+
+<details><summary><b>Odpowiedź</b></summary>
+<p>
+
+#### Odpowiedź: A
+
+`let x = (y = 10);` jest w rzeczywistości skrótem od:
+
+```javascript
+y = 10;
+let x = y;
+```
+
+Kiedy ustawiamy `y` równe `10`, w rzeczywistości dodajemy właściwość `y` do globalnego obiektu (`window` w przeglądarce, `global` w Node). W przeglądarce, `window.y` jest teraz równe `10`.
+
+Następnie deklarujemy zmienną `x` z wartością `y`, która wynosi `10`. Zmienne zadeklarowane za pomocą słowa kluczowego `let` są _block scoped_ i są definiowane tylko w bloku, w którym zostały zadeklarowane; w tym przypadku natychmiast wywołane wyrażenie funkcji (IIFE). Kiedy używamy operatora `typeof`, operand `x` nie jest zdefiniowany: próbujemy uzyskać dostęp do `x` poza blokiem, w którym został zadeklarowany. Oznacza to, że `x` nie jest zdefiniowane. Wartości, które nie zostały przypisane lub zadeklarowane są typu "undefined". `console.log(typeof x)` zwraca `"undefined"`.
+
+Jednakże, utworzyliśmy globalną zmienną `y` podczas ustawiania `y` równego `10`. Wartość ta jest dostępna w dowolnym miejscu naszego kodu. Zmienna `y` jest zdefiniowana i przechowuje wartość typu `"number"`. `console.log(typeof y)` zwraca `"number"`.
+
+</p>
+</details>
+
+---
+
+###### 55. Jaki jest wynik?
+
+```javascript
+class Dog {
+  constructor(name) {
+    this.name = name;
+  }
+}
+
+Dog.prototype.bark = function() {
+  console.log(`Woof I am ${this.name}`);
+};
+
+const pet = new Dog('Mara');
+
+pet.bark();
+
+delete Dog.prototype.bark;
+
+pet.bark();
+```
+
+- A: `"Woof I am Mara"`, `TypeError`
+- B: `"Woof I am Mara"`, `"Woof I am Mara"`
+- C: `"Woof I am Mara"`, `undefined`
+- D: `TypeError`, `TypeError`
+
+<details><summary><b>Odpowiedź</b></summary>
+<p>
+
+#### Odpowiedź: A
+
+Możemy usuwać właściwości z obiektów za pomocą słowa kluczowego `delete`, również na prototypie. Usuwając właściwość z prototypu, nie jest ona już dostępna w łańcuchu prototypów. W tym przypadku funkcja `bark` nie jest już dostępna w prototypie po `delete Dog.prototype.bark`, a mimo to wciąż próbujemy uzyskać do niej dostęp.
+
+Kiedy próbujemy wywołać coś, co nie jest funkcją, rzucany jest `TypeError`. W tym przypadku `TypeError: pet.bark is not a function`, ponieważ `pet.bark` jest `undefined`.
+
+</p>
+</details>
+
+---
+
+###### 56. Jaki jest wynik?
+
+```javascript
+const set = new Set([1, 1, 2, 3, 4]);
+
+console.log(set);
+```
+
+- A: `[1, 1, 2, 3, 4]`
+- B: `[1, 2, 3, 4]`
+- C: `{1, 1, 2, 3, 4}`
+- D: `{1, 2, 3, 4}`
+
+<details><summary><b>Odpowiedź</b></summary>
+<p>
+
+#### Odpowiedź: D
+
+Obiekt `Set` jest zbiorem _unikalnych_ wartości: wartość może wystąpić tylko raz w zbiorze.
+
+Przekazaliśmy iterowalne `[1, 1, 2, 3, 4]` ze zduplikowaną wartością `1`.Ponieważ nie możemy mieć dwóch takich samych wartości w zbiorze, jedna z nich jest usuwana. Wynikiem jest `{1, 2, 3, 4}`.
+
+</p>
+</details>
+
+---
+
+###### 57. Jaki jest wynik?
+
+```javascript
+// counter.js
+let counter = 10;
+export default counter;
+```
+
+```javascript
+// index.js
+import myCounter from './counter';
+
+myCounter += 1;
+
+console.log(myCounter);
+```
+
+- A: `10`
+- B: `11`
+- C: `Error`
+- D: `NaN`
+
+<details><summary><b>Odpowiedź</b></summary>
+<p>
+
+#### Odpowiedź: C
+
+Zaimportowany moduł jest _tylko do odczytu_: nie można modyfikować zaimportowanego modułu. Tylko moduł, który go eksportuje może zmienić jego wartość.
+
+Kiedy próbujemy zwiększyć wartość `myCounter`, wyrzuca błąd: `myCounter` jest tylko do odczytu i nie może być modyfikowany.
+
+</p>
+</details>
+
+---
+
+###### 58. Jaki jest wynik?
+
+```javascript
+const name = 'Lydia';
+age = 21;
+
+console.log(delete name);
+console.log(delete age);
+```
+
+- A: `false`, `true`
+- B: `"Lydia"`, `21`
+- C: `true`, `true`
+- D: `undefined`, `undefined`
+
+<details><summary><b>Odpowiedź</b></summary>
+<p>
+
+#### Odpowiedź: A
+
+Operator `delete` zwraca wartość logiczną: `true` po pomyślnym usunięciu, w przeciwnym razie zwróci `false`. Jednakże, zmienne zadeklarowane ze słowem kluczowym `var`, `const` lub `let` nie mogą być usunięte za pomocą operatora `delete`.
+
+Zmienna `name` została zadeklarowana ze słowem kluczowym `const`, więc jej usunięcie nie powiedzie się: Zwracane jest `false`. Kiedy ustawiliśmy wartość `age` równą `21`, w rzeczywistości dodaliśmy właściwość o nazwie `age` do obiektu globalnego. W ten sposób można pomyślnie usunąć właściwości z obiektów, również z obiektu globalnego, więc `delete age` zwraca `true`.
+
+</p>
+</details>
+
+---
+
+###### 59. Jaki jest wynik?
+
+```javascript
+const numbers = [1, 2, 3, 4, 5];
+const [y] = numbers;
+
+console.log(y);
+```
+
+- A: `[[1, 2, 3, 4, 5]]`
+- B: `[1, 2, 3, 4, 5]`
+- C: `1`
+- D: `[1]`
+
+<details><summary><b>Odpowiedź</b></summary>
+<p>
+
+#### Odpowiedź: C
+
+Możemy rozpakować wartości z tablic lub właściwości z obiektów poprzez destrukturyzację. Na przykład:
+
+```javascript
+[a, b] = [1, 2];
+```
+
+<img src="https://i.imgur.com/ADFpVop.png" width="200">
+
+Wartość `a` wynosi teraz `1`, a wartość `b` wynosi teraz `2`.To, co faktycznie zrobiliśmy w pytaniu, to:
+
+```javascript
+[y] = [1, 2, 3, 4, 5];
+```
+
+<img src="https://i.imgur.com/NzGkMNk.png" width="200">
+
+Oznacza to, że wartość `y` jest równa pierwszej wartości w tablicy, którą jest liczba `1`.Kiedy logujemy `y`, zwracana jest wartość `1`.
+
+</p>
+</details>
+
+---
+
+###### 60. Jaki jest wynik?
+
+```javascript
+const user = { name: 'Lydia', age: 21 };
+const admin = { admin: true, ...user };
+
+console.log(admin);
+```
+
+- A: `{ admin: true, user: { name: "Lydia", age: 21 } }`
+- B: `{ admin: true, name: "Lydia", age: 21 }`
+- C: `{ admin: true, user: ["Lydia", 21] }`
+- D: `{ admin: true }`
+
+<details><summary><b>Odpowiedź</b></summary>
+<p>
+
+#### Odpowiedź: B
+
+Możliwe jest łączenie obiektów za pomocą operatora rozprzestrzeniania `...`.Umożliwia on tworzenie kopii par klucz/wartość jednego obiektu i dodawanie ich do innego obiektu. W tym przypadku tworzymy kopie obiektu `user` i dodajemy je do obiektu `admin`. Obiekt `admin` zawiera teraz skopiowane pary klucz/wartość, czego wynikiem jest `{ admin: true, name: "Lydia", age: 21 }`.
+
+</p>
+</details>
