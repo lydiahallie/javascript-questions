@@ -1896,3 +1896,332 @@ Możliwe jest łączenie obiektów za pomocą operatora rozprzestrzeniania `...`
 
 </p>
 </details>
+
+---
+
+###### 61. Jaki jest wynik?
+
+```javascript
+const person = { name: 'Lydia' };
+
+Object.defineProperty(person, 'age', { value: 21 });
+
+console.log(person);
+console.log(Object.keys(person));
+```
+
+- A: `{ name: "Lydia", age: 21 }`, `["name", "age"]`
+- B: `{ name: "Lydia", age: 21 }`, `["name"]`
+- C: `{ name: "Lydia"}`, `["name", "age"]`
+- D: `{ name: "Lydia"}`, `["age"]`
+
+<details><summary><b>Odpowiedź</b></summary>
+<p>
+
+#### Odpowiedź: B
+
+Za pomocą metody `defineProperty` możemy dodawać nowe właściwości do obiektu lub modyfikować istniejące. Kiedy dodajemy właściwość do obiektu za pomocą metody `defineProperty`, są one domyślnie _niewyliczalne_. Metoda `Object.keys` zwraca wszystkie _wyliczalne_ nazwy właściwości z obiektu, w tym przypadku tylko `"name"`.
+
+Właściwości dodane przy użyciu metody `defineProperty` są domyślnie niezmienne. Możesz nadpisać to zachowanie używając właściwości `writable`, `configurable` i `enumerable`. W ten sposób metoda `defineProperty` daje dużo większą kontrolę nad właściwościami dodawanymi do obiektu.
+
+</p>
+</details>
+
+---
+
+###### 62. Jaki jest wynik?
+
+```javascript
+const settings = {
+  username: 'lydiahallie',
+  level: 19,
+  health: 90,
+};
+
+const data = JSON.stringify(settings, ['level', 'health']);
+console.log(data);
+```
+
+- A: `"{"level":19, "health":90}"`
+- B: `"{"username": "lydiahallie"}"`
+- C: `"["level", "health"]"`
+- D: `"{"username": "lydiahallie", "level":19, "health":90}"`
+
+<details><summary><b>Odpowiedź</b></summary>
+<p>
+
+#### Odpowiedź: A
+
+Drugim argumentem `JSON.stringify` jest _replacer_. Zamiennik może być funkcją lub tablicą i pozwala kontrolować, co i w jaki sposób wartości powinny być łańcuchowane.
+
+Jeśli zamiennik jest _tablicą_, tylko nazwy właściwości zawarte w tablicy zostaną dodane do łańcucha JSON. W tym przypadku tylko właściwości o nazwach `"level"` i `"health"` są uwzględnione, `"username"` jest wykluczone. `data` jest teraz równa `"{"level":19, "health":90}"`.
+
+Jeśli zamiennik jest _funkcją_, funkcja ta jest wywoływana na każdej właściwości obiektu, który stringujesz. Wartość zwrócona z tej funkcji będzie wartością właściwości, gdy zostanie ona dodana do łańcucha JSON. Jeśli wartość jest `undefined`, właściwość ta zostanie wykluczona z łańcucha JSON.
+
+</p>
+</details>
+
+---
+
+###### 63. Jaki jest wynik?
+
+```javascript
+let num = 10;
+
+const increaseNumber = () => num++;
+const increasePassedNumber = number => number++;
+
+const num1 = increaseNumber();
+const num2 = increasePassedNumber(num1);
+
+console.log(num1);
+console.log(num2);
+```
+
+- A: `10`, `10`
+- B: `10`, `11`
+- C: `11`, `11`
+- D: `11`, `12`
+
+<details><summary><b>Odpowiedź</b></summary>
+<p>
+
+#### Odpowiedź: A
+
+Operator jednoargumentowy `++` _najpierw zwraca_ wartość operandu, _potem zwiększa_ wartość operandu. Wartość `num1` to `10`, ponieważ funkcja `increaseNumber` najpierw zwraca wartość `num`, czyli `10`, a dopiero potem zwiększa wartość `num`.
+
+`num2` jest równe `10`, ponieważ przekazaliśmy `num1` do `increasePassedNumber`.`number` jest równe `10` (wartość `num1`). Ponownie, operator jednoargumentowy `++` _najpierw zwraca_ wartość operandu, _następnie zwiększa_ wartość operandu. Wartość `liczba` wynosi `10`, więc `liczba2` jest równa `10`.
+
+</p>
+</details>
+
+---
+
+###### 64. Jaki jest wynik?
+
+```javascript
+const value = { number: 10 };
+
+const multiply = (x = { ...value }) => {
+  console.log((x.number *= 2));
+};
+
+multiply();
+multiply();
+multiply(value);
+multiply(value);
+```
+
+- A: `20`, `40`, `80`, `160`
+- B: `20`, `40`, `20`, `40`
+- C: `20`, `20`, `20`, `40`
+- D: `NaN`, `NaN`, `20`, `40`
+
+<details><summary><b>Odpowiedź</b></summary>
+<p>
+
+#### Odpowiedź: C
+
+W ES6 możemy inicjować parametry z wartością domyślną. Wartość parametru będzie wartością domyślną, jeśli żadna inna wartość nie została przekazana do funkcji lub jeśli wartość parametru jest `"undefined". W tym przypadku, rozkładamy właściwości obiektu `value` na nowy obiekt, więc `x` ma domyślną wartość `{ number: 10 }`.
+
+Domyślny argument jest obliczany w _call time_! Za każdym razem, gdy wywołujemy funkcję, tworzony jest _nowy_ obiekt. Wywołujemy funkcję `multiply` dwa pierwsze razy bez przekazywania wartości: `x` ma wartość domyślną `{ number: 10 }`. Następnie rejestrujemy pomnożoną wartość tej liczby, która wynosi `20`.
+
+Za trzecim razem, gdy wywołujemy multiply, przekazujemy argument: obiekt o nazwie `value`. Operator `*=` jest w rzeczywistości skrótem od `x.number = x.number * 2`: modyfikujemy wartość `x.number` i rejestrujemy pomnożoną wartość `20`.
+
+Za czwartym razem ponownie przekazujemy obiekt `value`. `x.number` zostało wcześniej zmodyfikowane do `20`, więc `x.number *= 2` loguje `40`.
+
+</p>
+</details>
+
+---
+
+###### 65. Jaki jest wynik?
+
+```javascript
+[1, 2, 3, 4].reduce((x, y) => console.log(x, y));
+```
+
+- A: `1` `2` and `3` `3` and `6` `4`
+- B: `1` `2` and `2` `3` and `3` `4`
+- C: `1` `undefined` and `2` `undefined` and `3` `undefined` and `4` `undefined`
+- D: `1` `2` and `undefined` `3` and `undefined` `4`
+
+<details><summary><b>Odpowiedź</b></summary>
+<p>s
+
+#### Odpowiedź: D
+
+Pierwszym argumentem, który otrzymuje metoda `reduce` jest _accumulator_, w tym przypadku `x`. Drugim argumentem jest _bieżąca wartość_, `y`. Za pomocą metody reduce wykonujemy funkcję wywołania zwrotnego na każdym elemencie tablicy, co ostatecznie może skutkować jedną wartością. W tym przykładzie nie zwracamy żadnych wartości, po prostu rejestrujemy wartości akumulatora i wartości bieżącej.
+
+Wartość akumulatora jest równa poprzednio zwróconej wartości funkcji zwrotnej. Jeśli nie przekażesz opcjonalnego argumentu `initialValue` do metody `reduce`, akumulator jest równy pierwszemu elementowi przy pierwszym wywołaniu.
+
+Przy pierwszym wywołaniu, wartość akumulatora (`x`) wynosi `1`, a wartość bieżąca (`y`) wynosi `2`. Nie wracamy z funkcji zwrotnej, rejestrujemy akumulator i bieżącą wartość: `1` i `2` są rejestrowane.
+
+Jeśli nie zwrócisz wartości z funkcji, zwróci ona `undefined`. Przy następnym wywołaniu, akumulatorem jest `undefined`, a bieżącą wartością jest `3`. `undefined` i `3` są rejestrowane.
+
+Przy czwartym wywołaniu ponownie nie wracamy z funkcji zwrotnej. Akumulator jest ponownie `undefined`, a aktualna wartość to `4`. `undefined` i `4` są rejestrowane.
+
+</p>
+</details>
+  
+---
+
+###### 66. Za pomocą którego konstruktora możemy z powodzeniem rozszerzyć klasę `Dog`?
+
+```javascript
+class Dog {
+  constructor(name) {
+    this.name = name;
+  }
+};
+
+class Labrador extends Dog {
+  // 1
+  constructor(name, size) {
+    this.size = size;
+  }
+  // 2
+  constructor(name, size) {
+    super(name);
+    this.size = size;
+  }
+  // 3
+  constructor(size) {
+    super(name);
+    this.size = size;
+  }
+  // 4
+  constructor(name, size) {
+    this.name = name;
+    this.size = size;
+  }
+
+};
+```
+
+- A: 1
+- B: 2
+- C: 3
+- D: 4
+
+<details><summary><b>Odpowiedź</b></summary>
+<p>
+
+#### Odpowiedź: B
+
+W klasie pochodnej nie można uzyskać dostępu do słowa kluczowego `this` przed wywołaniem `super`. Jeśli spróbujesz to zrobić, zostanie wyświetlony ReferenceError: 1 i 4 wyrzuci błąd referencji.
+
+Za pomocą słowa kluczowego `super` wywołujemy konstruktor klasy nadrzędnej z podanymi argumentami. Konstruktor rodzica otrzymuje argument `name`, więc musimy przekazać `name` do `super`.
+
+Klasa `Labrador` otrzymuje dwa argumenty, `name` ponieważ rozszerza klasę `Dog`, oraz `size` jako dodatkową właściwość klasy `Labrador`. Oba muszą być przekazane do funkcji konstruktora na `Labrador`, co jest zrobione poprawnie przy użyciu konstruktora 2.
+
+</p>
+</details>
+
+---
+
+###### 67. Jaki jest wynik?
+
+```javascript
+// index.js
+console.log('running index.js');
+import { sum } from './sum.js';
+console.log(sum(1, 2));
+
+// sum.js
+console.log('running sum.js');
+export const sum = (a, b) => a + b;
+```
+
+- A: `running index.js`, `running sum.js`, `3`
+- B: `running sum.js`, `running index.js`, `3`
+- C: `running sum.js`, `3`, `running index.js`
+- D: `running index.js`, `undefined`, `running sum.js`
+
+<details><summary><b>Odpowiedź</b></summary>
+<p>
+
+#### Odpowiedź: B
+
+Ze słowem kluczowym `import`, wszystkie zaimportowane moduły są _pre-parsed_. Oznacza to, że zaimportowane moduły są uruchamiane _najpierw_, a kod w pliku, który importuje moduł jest wykonywany _potem_.
+
+Jest to różnica pomiędzy `require()` w CommonJS i `import`! 
+Dzięki `require()` można ładować zależności na żądanie podczas wykonywania kodu. Jeśli użylibyśmy `require` zamiast `import`, w konsoli zostałoby wyświetlone `running index.js`, `running sum.js`, `3`.
+
+</p>
+</details>
+
+---
+
+###### 68. Jaki jest wynik?
+
+```javascript
+console.log(Number(2) === Number(2));
+console.log(Boolean(false) === Boolean(false));
+console.log(Symbol('foo') === Symbol('foo'));
+```
+
+- A: `true`, `true`, `false`
+- B: `false`, `true`, `false`
+- C: `true`, `false`, `true`
+- D: `true`, `true`, `true`
+
+<details><summary><b>Odpowiedź</b></summary>
+<p>
+
+#### Odpowiedź: A
+
+Każdy Symbol jest całkowicie unikalny. Celem argumentu przekazywanego do Symbolu jest nadanie Symbolowi opisu. Wartość Symbolu nie zależy od przekazanego argumentu. Testując równość, tworzymy dwa zupełnie nowe symbole: pierwszy `Symbol('foo')` i drugi `Symbol('foo')`. Te dwie wartości są unikalne i nie są sobie równe, `Symbol('foo') == Symbol('foo')` zwraca `false`.
+
+</p>
+</details>
+
+---
+
+###### 69. Jaki jest wynik?
+
+```javascript
+const name = 'Lydia Hallie';
+console.log(name.padStart(13));
+console.log(name.padStart(2));
+```
+
+- A: `"Lydia Hallie"`, `"Lydia Hallie"`
+- B: `" Lydia Hallie"`, `" Lydia Hallie"` (`"[13x whitespace]Lydia Hallie"`, `"[2x whitespace]Lydia Hallie"`)
+- C: `" Lydia Hallie"`, `"Lydia Hallie"` (`"[1x whitespace]Lydia Hallie"`, `"Lydia Hallie"`)
+- D: `"Lydia Hallie"`, `"Lyd"`,
+
+<details><summary><b>Odpowiedź</b></summary>
+<p>
+
+#### Odpowiedź: C
+
+Za pomocą metody `padStart` możemy dodać dopełnienie na początku ciągu znaków. Wartością przekazywaną do tej metody jest _całkowita_ długość łańcucha wraz z dopełnieniem. Ciąg `"Lydia Hallie"` ma długość `12`. Metoda `name.padStart(13)` wstawia 1 spację na początku łańcucha, ponieważ 12 + 1 to 13.
+
+Jeśli argument przekazany do metody `padStart` jest mniejszy niż długość tablicy, dopełnienie nie zostanie dodane.
+
+</p>
+</details>
+
+---
+
+###### 70. Jaki jest wynik?
+
+```javascript
+console.log('🥑' + '💻');
+```
+
+- A: `"🥑💻"`
+- B: `257548`
+- C: A string containing their code points
+- D: Error
+
+<details><summary><b>Odpowiedź</b></summary>
+<p>
+
+#### Odpowiedź: A
+
+Za pomocą operatora `+` można łączyć ciągi znaków. W tym przypadku łączymy ciąg `"🥑"` z ciągiem `"💻"`, otrzymując `"🥑💻"`.
+
+</p>
+</details>
