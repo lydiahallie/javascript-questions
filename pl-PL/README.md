@@ -2225,3 +2225,167 @@ Za pomocą operatora `+` można łączyć ciągi znaków. W tym przypadku łącz
 
 </p>
 </details>
+
+---
+
+###### 71. Jak możemy rejestrować wartości, które są komentowane po instrukcji console.log?
+
+```javascript
+function* startGame() {
+  const answer = yield 'Do you love JavaScript?';
+  if (answer !== 'Yes') {
+    return "Oh wow... Guess we're done here";
+  }
+  return 'JavaScript loves you back ❤️';
+}
+
+const game = startGame();
+console.log(/* 1 */); // Do you love JavaScript?
+console.log(/* 2 */); // JavaScript loves you back ❤️
+```
+
+- A: `game.next("Yes").value` and `game.next().value`
+- B: `game.next.value("Yes")` and `game.next.value()`
+- C: `game.next().value` and `game.next("Yes").value`
+- D: `game.next.value()` and `game.next.value("Yes")`
+
+<details><summary><b>Odpowiedź</b></summary>
+<p>
+
+#### Odpowiedź: C
+
+Funkcja generatora "wstrzymuje" swoje wykonanie, gdy widzi słowo kluczowe `yield`. Najpierw musimy pozwolić funkcji na wygenerowanie ciągu "Do you love JavaScript?", co można zrobić poprzez wywołanie `game.next().value`.
+
+Każda linia jest wykonywana, dopóki nie znajdzie pierwszego słowa kluczowego `yield`. W pierwszej linii funkcji znajduje się słowo kluczowe `yield`: wykonywanie zatrzymuje się wraz z pierwszym yield! Oznacza to, że zmienna `answer` nie jest jeszcze zdefiniowana!
+
+Kiedy wywołamy `game.next("Yes").value`, poprzedni `yield` zostanie zastąpiony wartością parametrów przekazanych do funkcji `next()`, w tym przypadku `"Yes``. Wartość zmiennej `answer` jest teraz równa `"Yes"`. Warunek instrukcji if zwraca `false`, a `JavaScript loves you back ❤️` zostaje zalogowany.
+
+</p>
+</details>
+
+---
+
+###### 72. Jaki jest wynik?
+
+```javascript
+console.log(String.raw`Hello\nworld`);
+```
+
+- A: `Hello world!`
+- B: `Hello` <br />&nbsp; &nbsp; &nbsp;`world`
+- C: `Hello\nworld`
+- D: `Hello\n` <br /> &nbsp; &nbsp; &nbsp;`world`
+
+<details><summary><b>Odpowiedź</b></summary>
+<p>
+
+#### Odpowiedź: C
+
+`String.raw` zwraca ciąg znaków, w którym znaki specjalne (`\n`, `\v`, `\t` itd.) są ignorowane! Backslashe mogą być problemem, ponieważ można skończyć z czymś takim jak:`` const path = `C:\Documents\Projects\table.html` ``
+
+Co skutkowałoby:
+
+`"C:DocumentsProjects able.html"`Z `String.raw`, po prostu zignorowałby ucieczkę i wyświetliłby:
+
+`C:\Documents\Projects\table.html`.
+
+W tym przypadku ciąg to `Hello\nworld`, który zostanie wyświetlony.
+
+</p>
+</details>
+
+---
+
+###### 73. Jaki jest wynik?
+
+```javascript
+async function getData() {
+  return await Promise.resolve('I made it!');
+}
+
+const data = getData();
+console.log(data);
+```
+
+- A: `"I made it!"`
+- B: `Promise {<resolved>: "I made it!"}`
+- C: `Promise {<pending>}`
+- D: `undefined`
+
+<details><summary><b>Odpowiedź</b></summary>
+<p>
+
+#### Odpowiedź: C
+
+Funkcja asynchroniczna zawsze zwraca obietnicę. Funkcja `await` wciąż musi czekać na rozwiązanie obietnicy: oczekująca obietnica zostanie zwrócona, gdy wywołamy `getData()` w celu ustawienia `data` równym tej obietnicy. 
+
+Jeśli chcielibyśmy uzyskać dostęp do rozwiązanej wartości `"I made it"`, moglibyśmy użyć metody `.then()` na `data`:`data.then(res => console.log(res))`. 
+
+To wyświtliłoby w konsoli `"Udało mi się!"`.
+
+</p>
+</details>
+
+---
+
+###### 74. Jaki jest wynik?
+
+```javascript
+function addToList(item, list) {
+  return list.push(item);
+}
+
+const result = addToList('apple', ['banana']);
+console.log(result);
+```
+
+- A: `['apple', 'banana']`
+- B: `2`
+- C: `true`
+- D: `undefined`
+
+<details><summary><b>Odpowiedź</b></summary>
+<p>
+
+#### Odpowiedź: B
+
+Metoda `.push()` zwraca _długość_ nowej tablicy! Poprzednio tablica zawierała jeden element (string `"banan"`) i miała długość `1`. Po dodaniu stringa `"apple"` do tablicy, tablica zawiera dwa elementy i ma długość `2`. Jest to zwracane przez funkcję `addToList`. Metoda `push` modyfikuje oryginalną tablicę. 
+
+Jeśli chciałeś zwrócić _array_ z funkcji, a nie _length of the array_, powinieneś był zwrócić `list` po dodaniu do niej `item`.
+
+</p>
+</details>
+
+---
+
+###### 75. Jaki jest wynik?
+
+```javascript
+const box = { x: 10, y: 20 };
+
+Object.freeze(box);
+
+const shape = box;
+shape.x = 100;
+
+console.log(shape);
+```
+
+- A: `{ x: 100, y: 20 }`
+- B: `{ x: 10, y: 20 }`
+- C: `{ x: 100 }`
+- D: `ReferenceError`
+
+<details><summary><b>Odpowiedź</b></summary>
+<p>
+
+#### Odpowiedź: B
+
+`Object.freeze` uniemożliwia dodawanie, usuwanie lub modyfikowanie właściwości obiektu (chyba że wartością właściwości jest inny obiekt).
+
+Kiedy tworzymy zmienną `shape` i ustawiamy ją jako równą zamrożonemu obiektowi `box`, `shape` również odnosi się do zamrożonego obiektu. Możesz sprawdzić czy obiekt jest zamrożony używając `Object.isFrozen`. W tym przypadku, `Object.isFrozen(shape)` zwróciłby true, ponieważ zmienna `shape` posiada referencję do zamrożonego obiektu.
+
+Ponieważ `shape` jest zamrożony, a wartość `x` nie jest obiektem, nie możemy modyfikować właściwości `x`.`x` jest nadal równe `10`, a `{ x: 10, y: 20 }` zostaje wyświetlone w konsoli.
+
+</p>
+</details>
