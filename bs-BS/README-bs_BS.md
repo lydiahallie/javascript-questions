@@ -5,8 +5,8 @@ Svakodnevno postavljam JavaScript pitanja s višestrukim izborom na moj
 [Instagram](https://www.instagram.com/theavocoder), koja  također objavljujem
 ovdje!
 
-Od osnovnog do naprednog: testirajte koliko dobro znate JavaScript, osvježite svoj
-znanje malo, ili pripremiti za svoj intervju! :muscle: :rocket:
+Od osnovnog do naprednog: testirajte koliko dobro znate JavaScript, malo osvježite 
+svoje znanje, ili se pripremite za svoj intervju! :muscle: :rocket:
 Ovaj tjedni repo ažuriram s novim pitanjima.
 
 Odgovori su jednostavno dijelovima ispod pitanja
@@ -184,7 +184,7 @@ Niz '' Lydia '' je istinita vrijednost. Ono što zapravo tražimo jest
 
 * * * * *
 
-###### 5. Koja je istina?
+###### 5. Što je od ovoga istina?
 
 ```javascript
 const bird = {
@@ -212,9 +212,9 @@ iako ih možda ne * upisujemo kao * nizove, oni se uvijek pretvaraju
 u String ispod "haube".
 
 JavaScript tumači (ili odlaže) izjave. Kada koristimo zagradu
-notacija, on vidi prvu otvarnu zagradu ```i nastavlja dalje do nje
+notacija, on vidi prvu otvorenu zagradu ```i nastavlja dalje do nje
 pronalazi završnu zagradu `]`. Tek tada će procijeniti
-izjava.
+izjavu.
 
 `mouse [bird.size]`: Prvo procjenjuje `bird.size`, što je` `small``.
 `mouse [" small "]` vraća "true"
@@ -401,8 +401,8 @@ Ovo je moguće u JavaScriptu, jer su funkcije objekti!
 (Sve osim primitivnih tipova su objekti)
 
 function je posebna vrsta objekta. Kod koji sami napišete
-nije stvarna funkcija. function je objekt sa svojstvima.
-Ova nekretnina je nepovratna.
+nije stvarna funkcija. Function je objekt sa svojstvima.
+To svojstvo je nepovratno.
 
 </p>
 </details>
@@ -484,8 +484,8 @@ console.log(sarah);
 
 #### Odgovor: A
 
-Za `sarah` nismo koristili ključnu riječ` new`. Kada koristite "new", to
-odnosi se na new prazni objekt koji stvaramo. Međutim, ako ne dodate
+Za `Sarah` nismo koristili ključnu riječ` new`. Kada koristite "new", to
+odnosi se na novi prazni objekt koji stvaramo. Međutim, ako ne dodate
 `new` se odnosi na ** globalni objekt **!
 
 Rekli smo da je "this.ime" jednako "Sarah" i `this.prezime`
