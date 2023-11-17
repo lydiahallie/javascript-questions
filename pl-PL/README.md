@@ -1,16 +1,21 @@
 <div align="center">
   <img height="60" src="https://img.icons8.com/color/344/javascript.png">
   <h1>Pytania dotyczące JavaScript</h1>
+</div>
+
+> [!NOTE]  
+> To repozytorium zostało utworzone w 2019 roku, a zatem pytania tutaj zawarte są oparte na składni i zachowaniu JavaScript w tym czasie. Ponieważ JavaScript jest stale rozwijającym się językiem, istnieją nowsze funkcje językowe, które nie są objęte pytaniami tutaj.
 
 ---
 
-<span>Publikuję pytania wielokrotnego wyboru dotyczące JavaScriptu na swoich [Instagram](https://www.instagram.com/theavocoder) **stories**, które również zamieszczę tutaj! Ostatnia aktualizacja: <a href=#20200612><b>27 Czerwca</b></a>
+<p align="center">
+Od podstawowych do zaawansowanych: sprawdź, jak dobrze znasz JavaScript, odśwież swoją wiedzę lub przygotuj się do rozmowy kwalifikacyjnej! :muscle: :rocket: Regularnie aktualizuję to repozytorium nowymi pytaniami. Odpowiedzi znajdują się w ukrytych zakładkach poniżej pytań - po prostu kliknij, aby je rozwinięć. To dla zabawy, powodzenia! :heart:</p>
 
-Od podstawowych do zaawansowanych: sprawdź, jak dobrze znasz JavaScript, odśwież swoją wiedzę lub przygotuj się do rozmowy kwalifikacyjnej! :muscle: :rocket: Regularnie aktualizuję to repozytorium nowymi pytaniami. Odpowiedzi znajdują się w ukrytych zakładkach poniżej pytań - po prostu kliknij, aby je rozwinięć. To dla zabawy, powodzenia! :heart:</span>
+<p align="center">Nie krępuj się ze mną kontaktować! 😊</p>
 
-Nie krępuj się ze mną kontaktować! 😊 <br />
+<p align="center">
 <a href="https://www.instagram.com/theavocoder">Instagram</a> || <a href="https://www.twitter.com/lydiahallie">Twitter</a> || <a href="https://www.linkedin.com/in/lydia-hallie">LinkedIn</a> || <a href="https://www.lydiahallie.dev">Blog</a>
-</div>
+</p>
 
 | Śmiało używaj ich w projekcie! 😃  Byłabym _bardzo_ wdzięczna za referencje do tego repozytorium, tworzę pytania i wyjaśnienia (tak, jestem smutna lol) i społeczność bardzo mi pomaga w utrzymaniu i ulepszaniu go! 💪🏼 Dziękuję i baw się dobrze!   |
 |---|
@@ -1544,6 +1549,843 @@ Zwracana jest tylko pierwsza liczba w łańcuchu. W oparciu o _radix_ (drugi arg
 Podczas mapowania tablicy, wartość `num` jest równa elementowi, nad którym aktualnie wykonywana jest pętla. W tym przypadku elementami są liczby, więc warunek instrukcji if `typeof num == "number"` zwraca `true`. Funkcja map tworzy nową tablicę i wstawia do niej wartości zwrócone przez funkcję.
 
 Nie zwracamy jednak żadnej wartości. Gdy nie zwracamy wartości z funkcji, funkcja zwraca `undefined`. Dla każdego elementu w tablicy wywoływany jest blok funkcji, więc dla każdego elementu zwracamy `undefined`.
+
+</p>
+</details>
+
+---
+
+###### 51. Jaki jest wynik?
+
+```javascript
+function getInfo(member, year) {
+  member.name = 'Lydia';
+  year = '1998';
+}
+
+const person = { name: 'Sarah' };
+const birthYear = '1997';
+
+getInfo(person, birthYear);
+
+console.log(person, birthYear);
+```
+
+- A: `{ name: "Lydia" }, "1997"`
+- B: `{ name: "Sarah" }, "1998"`
+- C: `{ name: "Lydia" }, "1998"`
+- D: `{ name: "Sarah" }, "1997"`
+
+<details><summary><b>Odpowiedź</b></summary>
+<p>
+
+#### Odpowiedź: A
+
+Argumenty są przekazywane przez _wartość_, chyba że ich wartość jest obiektem, wtedy są przekazywane przez _referencję_. Argument `birthYear` jest przekazywany przez wartość, ponieważ jest ciągiem znaków, a nie obiektem. Kiedy przekazujemy argumenty przez wartość, tworzona jest _kopia_ tej wartości (patrz pytanie 46).
+
+Zmienna `birthYear` posiada referencję do wartości `"1997"`. Argument `year` również posiada referencję do wartości `"1997"`, ale nie jest to ta sama wartość, do której odnosi się `birthYear`. Kiedy aktualizujemy wartość `year` ustawiając `year` na `"1998"`, aktualizujemy tylko wartość `year`. Wartość `birthYear` jest wciąż równa `1997`.
+
+Wartość `person` jest obiektem. Argument `member` posiada (skopiowaną) referencję do _tego samego_ obiektu. Gdy zmodyfikujemy właściwość obiektu, do którego odwołuje się `member`, wartość `person` również zostanie zmodyfikowana, ponieważ oba mają odwołanie do tego samego obiektu. Właściwość `name` obiektu `person` jest teraz równa wartości `"Lydia"`.
+
+</p>
+</details>
+
+---
+
+###### 52. Jaki jest wynik?
+
+```javascript
+function greeting() {
+  throw 'Hello world!';
+}
+
+function sayHi() {
+  try {
+    const data = greeting();
+    console.log('It worked!', data);
+  } catch (e) {
+    console.log('Oh no an error:', e);
+  }
+}
+
+sayHi();
+```
+
+- A: `It worked! Hello world!`
+- B: `Oh no an error: undefined`
+- C: `SyntaxError: can only throw Error objects`
+- D: `Oh no an error: Hello world!`
+
+<details><summary><b>Odpowiedź</b></summary>
+<p>
+
+#### Odpowiedź: D
+
+Za pomocą instrukcji `throw` możemy tworzyć niestandardowe błędy. Za pomocą tej instrukcji można rzucać wyjątki <b>string</b>, <b>number</b>, <b>boolean</b> lub <b>object</b>. W tym przypadku, naszym wyjątkiem jest ciąg znaków `'Hello world!".`
+
+Za pomocą instrukcji `catch` możemy określić, co należy zrobić, jeśli wyjątek zostanie rzucony w bloku `try`. Wyjątkiem może być: string `'Hello world!'`. `e` jest teraz równe temu ciągowi, który wyświetlamy w konsoli. Skutkuje to `'Oh an error: Hello world!'`.
+
+</p>
+</details>
+
+---
+
+###### 53. Jaki jest wynik?
+
+```javascript
+function Car() {
+  this.make = 'Lamborghini';
+  return { make: 'Maserati' };
+}
+
+const myCar = new Car();
+console.log(myCar.make);
+```
+
+- A: `"Lamborghini"`
+- B: `"Maserati"`
+- C: `ReferenceError`
+- D: `TypeError`
+
+<details><summary><b>Odpowiedź</b></summary>
+<p>
+
+#### Odpowiedź: B
+
+Kiedy zwracasz właściwość, wartość właściwości jest równa _zwróconej_ wartości, a nie wartości ustawionej w funkcji konstruktora. Zwracamy ciąg `"Maserati"`, więc `myCar.make` jest równe `"Maserati"`.
+
+</p>
+</details>
+
+---
+
+###### 54. Jaki jest wynik?
+
+```javascript
+(() => {
+  let x = (y = 10);
+})();
+
+console.log(typeof x);
+console.log(typeof y);
+```
+
+- A: `"undefined", "number"`
+- B: `"number", "number"`
+- C: `"object", "number"`
+- D: `"number", "undefined"`
+
+<details><summary><b>Odpowiedź</b></summary>
+<p>
+
+#### Odpowiedź: A
+
+`let x = (y = 10);` jest w rzeczywistości skrótem od:
+
+```javascript
+y = 10;
+let x = y;
+```
+
+Kiedy ustawiamy `y` równe `10`, w rzeczywistości dodajemy właściwość `y` do globalnego obiektu (`window` w przeglądarce, `global` w Node). W przeglądarce, `window.y` jest teraz równe `10`.
+
+Następnie deklarujemy zmienną `x` z wartością `y`, która wynosi `10`. Zmienne zadeklarowane za pomocą słowa kluczowego `let` są _block scoped_ i są definiowane tylko w bloku, w którym zostały zadeklarowane; w tym przypadku natychmiast wywołane wyrażenie funkcji (IIFE). Kiedy używamy operatora `typeof`, operand `x` nie jest zdefiniowany: próbujemy uzyskać dostęp do `x` poza blokiem, w którym został zadeklarowany. Oznacza to, że `x` nie jest zdefiniowane. Wartości, które nie zostały przypisane lub zadeklarowane są typu "undefined". `console.log(typeof x)` zwraca `"undefined"`.
+
+Jednakże, utworzyliśmy globalną zmienną `y` podczas ustawiania `y` równego `10`. Wartość ta jest dostępna w dowolnym miejscu naszego kodu. Zmienna `y` jest zdefiniowana i przechowuje wartość typu `"number"`. `console.log(typeof y)` zwraca `"number"`.
+
+</p>
+</details>
+
+---
+
+###### 55. Jaki jest wynik?
+
+```javascript
+class Dog {
+  constructor(name) {
+    this.name = name;
+  }
+}
+
+Dog.prototype.bark = function() {
+  console.log(`Woof I am ${this.name}`);
+};
+
+const pet = new Dog('Mara');
+
+pet.bark();
+
+delete Dog.prototype.bark;
+
+pet.bark();
+```
+
+- A: `"Woof I am Mara"`, `TypeError`
+- B: `"Woof I am Mara"`, `"Woof I am Mara"`
+- C: `"Woof I am Mara"`, `undefined`
+- D: `TypeError`, `TypeError`
+
+<details><summary><b>Odpowiedź</b></summary>
+<p>
+
+#### Odpowiedź: A
+
+Możemy usuwać właściwości z obiektów za pomocą słowa kluczowego `delete`, również na prototypie. Usuwając właściwość z prototypu, nie jest ona już dostępna w łańcuchu prototypów. W tym przypadku funkcja `bark` nie jest już dostępna w prototypie po `delete Dog.prototype.bark`, a mimo to wciąż próbujemy uzyskać do niej dostęp.
+
+Kiedy próbujemy wywołać coś, co nie jest funkcją, rzucany jest `TypeError`. W tym przypadku `TypeError: pet.bark is not a function`, ponieważ `pet.bark` jest `undefined`.
+
+</p>
+</details>
+
+---
+
+###### 56. Jaki jest wynik?
+
+```javascript
+const set = new Set([1, 1, 2, 3, 4]);
+
+console.log(set);
+```
+
+- A: `[1, 1, 2, 3, 4]`
+- B: `[1, 2, 3, 4]`
+- C: `{1, 1, 2, 3, 4}`
+- D: `{1, 2, 3, 4}`
+
+<details><summary><b>Odpowiedź</b></summary>
+<p>
+
+#### Odpowiedź: D
+
+Obiekt `Set` jest zbiorem _unikalnych_ wartości: wartość może wystąpić tylko raz w zbiorze.
+
+Przekazaliśmy iterowalne `[1, 1, 2, 3, 4]` ze zduplikowaną wartością `1`.Ponieważ nie możemy mieć dwóch takich samych wartości w zbiorze, jedna z nich jest usuwana. Wynikiem jest `{1, 2, 3, 4}`.
+
+</p>
+</details>
+
+---
+
+###### 57. Jaki jest wynik?
+
+```javascript
+// counter.js
+let counter = 10;
+export default counter;
+```
+
+```javascript
+// index.js
+import myCounter from './counter';
+
+myCounter += 1;
+
+console.log(myCounter);
+```
+
+- A: `10`
+- B: `11`
+- C: `Error`
+- D: `NaN`
+
+<details><summary><b>Odpowiedź</b></summary>
+<p>
+
+#### Odpowiedź: C
+
+Zaimportowany moduł jest _tylko do odczytu_: nie można modyfikować zaimportowanego modułu. Tylko moduł, który go eksportuje może zmienić jego wartość.
+
+Kiedy próbujemy zwiększyć wartość `myCounter`, wyrzuca błąd: `myCounter` jest tylko do odczytu i nie może być modyfikowany.
+
+</p>
+</details>
+
+---
+
+###### 58. Jaki jest wynik?
+
+```javascript
+const name = 'Lydia';
+age = 21;
+
+console.log(delete name);
+console.log(delete age);
+```
+
+- A: `false`, `true`
+- B: `"Lydia"`, `21`
+- C: `true`, `true`
+- D: `undefined`, `undefined`
+
+<details><summary><b>Odpowiedź</b></summary>
+<p>
+
+#### Odpowiedź: A
+
+Operator `delete` zwraca wartość logiczną: `true` po pomyślnym usunięciu, w przeciwnym razie zwróci `false`. Jednakże, zmienne zadeklarowane ze słowem kluczowym `var`, `const` lub `let` nie mogą być usunięte za pomocą operatora `delete`.
+
+Zmienna `name` została zadeklarowana ze słowem kluczowym `const`, więc jej usunięcie nie powiedzie się: Zwracane jest `false`. Kiedy ustawiliśmy wartość `age` równą `21`, w rzeczywistości dodaliśmy właściwość o nazwie `age` do obiektu globalnego. W ten sposób można pomyślnie usunąć właściwości z obiektów, również z obiektu globalnego, więc `delete age` zwraca `true`.
+
+</p>
+</details>
+
+---
+
+###### 59. Jaki jest wynik?
+
+```javascript
+const numbers = [1, 2, 3, 4, 5];
+const [y] = numbers;
+
+console.log(y);
+```
+
+- A: `[[1, 2, 3, 4, 5]]`
+- B: `[1, 2, 3, 4, 5]`
+- C: `1`
+- D: `[1]`
+
+<details><summary><b>Odpowiedź</b></summary>
+<p>
+
+#### Odpowiedź: C
+
+Możemy rozpakować wartości z tablic lub właściwości z obiektów poprzez destrukturyzację. Na przykład:
+
+```javascript
+[a, b] = [1, 2];
+```
+
+<img src="https://i.imgur.com/ADFpVop.png" width="200">
+
+Wartość `a` wynosi teraz `1`, a wartość `b` wynosi teraz `2`.To, co faktycznie zrobiliśmy w pytaniu, to:
+
+```javascript
+[y] = [1, 2, 3, 4, 5];
+```
+
+<img src="https://i.imgur.com/NzGkMNk.png" width="200">
+
+Oznacza to, że wartość `y` jest równa pierwszej wartości w tablicy, którą jest liczba `1`.Kiedy logujemy `y`, zwracana jest wartość `1`.
+
+</p>
+</details>
+
+---
+
+###### 60. Jaki jest wynik?
+
+```javascript
+const user = { name: 'Lydia', age: 21 };
+const admin = { admin: true, ...user };
+
+console.log(admin);
+```
+
+- A: `{ admin: true, user: { name: "Lydia", age: 21 } }`
+- B: `{ admin: true, name: "Lydia", age: 21 }`
+- C: `{ admin: true, user: ["Lydia", 21] }`
+- D: `{ admin: true }`
+
+<details><summary><b>Odpowiedź</b></summary>
+<p>
+
+#### Odpowiedź: B
+
+Możliwe jest łączenie obiektów za pomocą operatora rozprzestrzeniania `...`.Umożliwia on tworzenie kopii par klucz/wartość jednego obiektu i dodawanie ich do innego obiektu. W tym przypadku tworzymy kopie obiektu `user` i dodajemy je do obiektu `admin`. Obiekt `admin` zawiera teraz skopiowane pary klucz/wartość, czego wynikiem jest `{ admin: true, name: "Lydia", age: 21 }`.
+
+</p>
+</details>
+
+---
+
+###### 61. Jaki jest wynik?
+
+```javascript
+const person = { name: 'Lydia' };
+
+Object.defineProperty(person, 'age', { value: 21 });
+
+console.log(person);
+console.log(Object.keys(person));
+```
+
+- A: `{ name: "Lydia", age: 21 }`, `["name", "age"]`
+- B: `{ name: "Lydia", age: 21 }`, `["name"]`
+- C: `{ name: "Lydia"}`, `["name", "age"]`
+- D: `{ name: "Lydia"}`, `["age"]`
+
+<details><summary><b>Odpowiedź</b></summary>
+<p>
+
+#### Odpowiedź: B
+
+Za pomocą metody `defineProperty` możemy dodawać nowe właściwości do obiektu lub modyfikować istniejące. Kiedy dodajemy właściwość do obiektu za pomocą metody `defineProperty`, są one domyślnie _niewyliczalne_. Metoda `Object.keys` zwraca wszystkie _wyliczalne_ nazwy właściwości z obiektu, w tym przypadku tylko `"name"`.
+
+Właściwości dodane przy użyciu metody `defineProperty` są domyślnie niezmienne. Możesz nadpisać to zachowanie używając właściwości `writable`, `configurable` i `enumerable`. W ten sposób metoda `defineProperty` daje dużo większą kontrolę nad właściwościami dodawanymi do obiektu.
+
+</p>
+</details>
+
+---
+
+###### 62. Jaki jest wynik?
+
+```javascript
+const settings = {
+  username: 'lydiahallie',
+  level: 19,
+  health: 90,
+};
+
+const data = JSON.stringify(settings, ['level', 'health']);
+console.log(data);
+```
+
+- A: `"{"level":19, "health":90}"`
+- B: `"{"username": "lydiahallie"}"`
+- C: `"["level", "health"]"`
+- D: `"{"username": "lydiahallie", "level":19, "health":90}"`
+
+<details><summary><b>Odpowiedź</b></summary>
+<p>
+
+#### Odpowiedź: A
+
+Drugim argumentem `JSON.stringify` jest _replacer_. Zamiennik może być funkcją lub tablicą i pozwala kontrolować, co i w jaki sposób wartości powinny być łańcuchowane.
+
+Jeśli zamiennik jest _tablicą_, tylko nazwy właściwości zawarte w tablicy zostaną dodane do łańcucha JSON. W tym przypadku tylko właściwości o nazwach `"level"` i `"health"` są uwzględnione, `"username"` jest wykluczone. `data` jest teraz równa `"{"level":19, "health":90}"`.
+
+Jeśli zamiennik jest _funkcją_, funkcja ta jest wywoływana na każdej właściwości obiektu, który stringujesz. Wartość zwrócona z tej funkcji będzie wartością właściwości, gdy zostanie ona dodana do łańcucha JSON. Jeśli wartość jest `undefined`, właściwość ta zostanie wykluczona z łańcucha JSON.
+
+</p>
+</details>
+
+---
+
+###### 63. Jaki jest wynik?
+
+```javascript
+let num = 10;
+
+const increaseNumber = () => num++;
+const increasePassedNumber = number => number++;
+
+const num1 = increaseNumber();
+const num2 = increasePassedNumber(num1);
+
+console.log(num1);
+console.log(num2);
+```
+
+- A: `10`, `10`
+- B: `10`, `11`
+- C: `11`, `11`
+- D: `11`, `12`
+
+<details><summary><b>Odpowiedź</b></summary>
+<p>
+
+#### Odpowiedź: A
+
+Operator jednoargumentowy `++` _najpierw zwraca_ wartość operandu, _potem zwiększa_ wartość operandu. Wartość `num1` to `10`, ponieważ funkcja `increaseNumber` najpierw zwraca wartość `num`, czyli `10`, a dopiero potem zwiększa wartość `num`.
+
+`num2` jest równe `10`, ponieważ przekazaliśmy `num1` do `increasePassedNumber`.`number` jest równe `10` (wartość `num1`). Ponownie, operator jednoargumentowy `++` _najpierw zwraca_ wartość operandu, _następnie zwiększa_ wartość operandu. Wartość `liczba` wynosi `10`, więc `liczba2` jest równa `10`.
+
+</p>
+</details>
+
+---
+
+###### 64. Jaki jest wynik?
+
+```javascript
+const value = { number: 10 };
+
+const multiply = (x = { ...value }) => {
+  console.log((x.number *= 2));
+};
+
+multiply();
+multiply();
+multiply(value);
+multiply(value);
+```
+
+- A: `20`, `40`, `80`, `160`
+- B: `20`, `40`, `20`, `40`
+- C: `20`, `20`, `20`, `40`
+- D: `NaN`, `NaN`, `20`, `40`
+
+<details><summary><b>Odpowiedź</b></summary>
+<p>
+
+#### Odpowiedź: C
+
+W ES6 możemy inicjować parametry z wartością domyślną. Wartość parametru będzie wartością domyślną, jeśli żadna inna wartość nie została przekazana do funkcji lub jeśli wartość parametru jest `"undefined". W tym przypadku, rozkładamy właściwości obiektu `value` na nowy obiekt, więc `x` ma domyślną wartość `{ number: 10 }`.
+
+Domyślny argument jest obliczany w _call time_! Za każdym razem, gdy wywołujemy funkcję, tworzony jest _nowy_ obiekt. Wywołujemy funkcję `multiply` dwa pierwsze razy bez przekazywania wartości: `x` ma wartość domyślną `{ number: 10 }`. Następnie rejestrujemy pomnożoną wartość tej liczby, która wynosi `20`.
+
+Za trzecim razem, gdy wywołujemy multiply, przekazujemy argument: obiekt o nazwie `value`. Operator `*=` jest w rzeczywistości skrótem od `x.number = x.number * 2`: modyfikujemy wartość `x.number` i rejestrujemy pomnożoną wartość `20`.
+
+Za czwartym razem ponownie przekazujemy obiekt `value`. `x.number` zostało wcześniej zmodyfikowane do `20`, więc `x.number *= 2` loguje `40`.
+
+</p>
+</details>
+
+---
+
+###### 65. Jaki jest wynik?
+
+```javascript
+[1, 2, 3, 4].reduce((x, y) => console.log(x, y));
+```
+
+- A: `1` `2` and `3` `3` and `6` `4`
+- B: `1` `2` and `2` `3` and `3` `4`
+- C: `1` `undefined` and `2` `undefined` and `3` `undefined` and `4` `undefined`
+- D: `1` `2` and `undefined` `3` and `undefined` `4`
+
+<details><summary><b>Odpowiedź</b></summary>
+<p>s
+
+#### Odpowiedź: D
+
+Pierwszym argumentem, który otrzymuje metoda `reduce` jest _accumulator_, w tym przypadku `x`. Drugim argumentem jest _bieżąca wartość_, `y`. Za pomocą metody reduce wykonujemy funkcję wywołania zwrotnego na każdym elemencie tablicy, co ostatecznie może skutkować jedną wartością. W tym przykładzie nie zwracamy żadnych wartości, po prostu rejestrujemy wartości akumulatora i wartości bieżącej.
+
+Wartość akumulatora jest równa poprzednio zwróconej wartości funkcji zwrotnej. Jeśli nie przekażesz opcjonalnego argumentu `initialValue` do metody `reduce`, akumulator jest równy pierwszemu elementowi przy pierwszym wywołaniu.
+
+Przy pierwszym wywołaniu, wartość akumulatora (`x`) wynosi `1`, a wartość bieżąca (`y`) wynosi `2`. Nie wracamy z funkcji zwrotnej, rejestrujemy akumulator i bieżącą wartość: `1` i `2` są rejestrowane.
+
+Jeśli nie zwrócisz wartości z funkcji, zwróci ona `undefined`. Przy następnym wywołaniu, akumulatorem jest `undefined`, a bieżącą wartością jest `3`. `undefined` i `3` są rejestrowane.
+
+Przy czwartym wywołaniu ponownie nie wracamy z funkcji zwrotnej. Akumulator jest ponownie `undefined`, a aktualna wartość to `4`. `undefined` i `4` są rejestrowane.
+
+</p>
+</details>
+  
+---
+
+###### 66. Za pomocą którego konstruktora możemy z powodzeniem rozszerzyć klasę `Dog`?
+
+```javascript
+class Dog {
+  constructor(name) {
+    this.name = name;
+  }
+};
+
+class Labrador extends Dog {
+  // 1
+  constructor(name, size) {
+    this.size = size;
+  }
+  // 2
+  constructor(name, size) {
+    super(name);
+    this.size = size;
+  }
+  // 3
+  constructor(size) {
+    super(name);
+    this.size = size;
+  }
+  // 4
+  constructor(name, size) {
+    this.name = name;
+    this.size = size;
+  }
+
+};
+```
+
+- A: 1
+- B: 2
+- C: 3
+- D: 4
+
+<details><summary><b>Odpowiedź</b></summary>
+<p>
+
+#### Odpowiedź: B
+
+W klasie pochodnej nie można uzyskać dostępu do słowa kluczowego `this` przed wywołaniem `super`. Jeśli spróbujesz to zrobić, zostanie wyświetlony ReferenceError: 1 i 4 wyrzuci błąd referencji.
+
+Za pomocą słowa kluczowego `super` wywołujemy konstruktor klasy nadrzędnej z podanymi argumentami. Konstruktor rodzica otrzymuje argument `name`, więc musimy przekazać `name` do `super`.
+
+Klasa `Labrador` otrzymuje dwa argumenty, `name` ponieważ rozszerza klasę `Dog`, oraz `size` jako dodatkową właściwość klasy `Labrador`. Oba muszą być przekazane do funkcji konstruktora na `Labrador`, co jest zrobione poprawnie przy użyciu konstruktora 2.
+
+</p>
+</details>
+
+---
+
+###### 67. Jaki jest wynik?
+
+```javascript
+// index.js
+console.log('running index.js');
+import { sum } from './sum.js';
+console.log(sum(1, 2));
+
+// sum.js
+console.log('running sum.js');
+export const sum = (a, b) => a + b;
+```
+
+- A: `running index.js`, `running sum.js`, `3`
+- B: `running sum.js`, `running index.js`, `3`
+- C: `running sum.js`, `3`, `running index.js`
+- D: `running index.js`, `undefined`, `running sum.js`
+
+<details><summary><b>Odpowiedź</b></summary>
+<p>
+
+#### Odpowiedź: B
+
+Ze słowem kluczowym `import`, wszystkie zaimportowane moduły są _pre-parsed_. Oznacza to, że zaimportowane moduły są uruchamiane _najpierw_, a kod w pliku, który importuje moduł jest wykonywany _potem_.
+
+Jest to różnica pomiędzy `require()` w CommonJS i `import`! 
+Dzięki `require()` można ładować zależności na żądanie podczas wykonywania kodu. Jeśli użylibyśmy `require` zamiast `import`, w konsoli zostałoby wyświetlone `running index.js`, `running sum.js`, `3`.
+
+</p>
+</details>
+
+---
+
+###### 68. Jaki jest wynik?
+
+```javascript
+console.log(Number(2) === Number(2));
+console.log(Boolean(false) === Boolean(false));
+console.log(Symbol('foo') === Symbol('foo'));
+```
+
+- A: `true`, `true`, `false`
+- B: `false`, `true`, `false`
+- C: `true`, `false`, `true`
+- D: `true`, `true`, `true`
+
+<details><summary><b>Odpowiedź</b></summary>
+<p>
+
+#### Odpowiedź: A
+
+Każdy Symbol jest całkowicie unikalny. Celem argumentu przekazywanego do Symbolu jest nadanie Symbolowi opisu. Wartość Symbolu nie zależy od przekazanego argumentu. Testując równość, tworzymy dwa zupełnie nowe symbole: pierwszy `Symbol('foo')` i drugi `Symbol('foo')`. Te dwie wartości są unikalne i nie są sobie równe, `Symbol('foo') == Symbol('foo')` zwraca `false`.
+
+</p>
+</details>
+
+---
+
+###### 69. Jaki jest wynik?
+
+```javascript
+const name = 'Lydia Hallie';
+console.log(name.padStart(13));
+console.log(name.padStart(2));
+```
+
+- A: `"Lydia Hallie"`, `"Lydia Hallie"`
+- B: `" Lydia Hallie"`, `" Lydia Hallie"` (`"[13x whitespace]Lydia Hallie"`, `"[2x whitespace]Lydia Hallie"`)
+- C: `" Lydia Hallie"`, `"Lydia Hallie"` (`"[1x whitespace]Lydia Hallie"`, `"Lydia Hallie"`)
+- D: `"Lydia Hallie"`, `"Lyd"`,
+
+<details><summary><b>Odpowiedź</b></summary>
+<p>
+
+#### Odpowiedź: C
+
+Za pomocą metody `padStart` możemy dodać dopełnienie na początku ciągu znaków. Wartością przekazywaną do tej metody jest _całkowita_ długość łańcucha wraz z dopełnieniem. Ciąg `"Lydia Hallie"` ma długość `12`. Metoda `name.padStart(13)` wstawia 1 spację na początku łańcucha, ponieważ 12 + 1 to 13.
+
+Jeśli argument przekazany do metody `padStart` jest mniejszy niż długość tablicy, dopełnienie nie zostanie dodane.
+
+</p>
+</details>
+
+---
+
+###### 70. Jaki jest wynik?
+
+```javascript
+console.log('🥑' + '💻');
+```
+
+- A: `"🥑💻"`
+- B: `257548`
+- C: A string containing their code points
+- D: Error
+
+<details><summary><b>Odpowiedź</b></summary>
+<p>
+
+#### Odpowiedź: A
+
+Za pomocą operatora `+` można łączyć ciągi znaków. W tym przypadku łączymy ciąg `"🥑"` z ciągiem `"💻"`, otrzymując `"🥑💻"`.
+
+</p>
+</details>
+
+---
+
+###### 71. Jak możemy rejestrować wartości, które są komentowane po instrukcji console.log?
+
+```javascript
+function* startGame() {
+  const answer = yield 'Do you love JavaScript?';
+  if (answer !== 'Yes') {
+    return "Oh wow... Guess we're done here";
+  }
+  return 'JavaScript loves you back ❤️';
+}
+
+const game = startGame();
+console.log(/* 1 */); // Do you love JavaScript?
+console.log(/* 2 */); // JavaScript loves you back ❤️
+```
+
+- A: `game.next("Yes").value` and `game.next().value`
+- B: `game.next.value("Yes")` and `game.next.value()`
+- C: `game.next().value` and `game.next("Yes").value`
+- D: `game.next.value()` and `game.next.value("Yes")`
+
+<details><summary><b>Odpowiedź</b></summary>
+<p>
+
+#### Odpowiedź: C
+
+Funkcja generatora "wstrzymuje" swoje wykonanie, gdy widzi słowo kluczowe `yield`. Najpierw musimy pozwolić funkcji na wygenerowanie ciągu "Do you love JavaScript?", co można zrobić poprzez wywołanie `game.next().value`.
+
+Każda linia jest wykonywana, dopóki nie znajdzie pierwszego słowa kluczowego `yield`. W pierwszej linii funkcji znajduje się słowo kluczowe `yield`: wykonywanie zatrzymuje się wraz z pierwszym yield! Oznacza to, że zmienna `answer` nie jest jeszcze zdefiniowana!
+
+Kiedy wywołamy `game.next("Yes").value`, poprzedni `yield` zostanie zastąpiony wartością parametrów przekazanych do funkcji `next()`, w tym przypadku `"Yes``. Wartość zmiennej `answer` jest teraz równa `"Yes"`. Warunek instrukcji if zwraca `false`, a `JavaScript loves you back ❤️` zostaje zalogowany.
+
+</p>
+</details>
+
+---
+
+###### 72. Jaki jest wynik?
+
+```javascript
+console.log(String.raw`Hello\nworld`);
+```
+
+- A: `Hello world!`
+- B: `Hello` <br />&nbsp; &nbsp; &nbsp;`world`
+- C: `Hello\nworld`
+- D: `Hello\n` <br /> &nbsp; &nbsp; &nbsp;`world`
+
+<details><summary><b>Odpowiedź</b></summary>
+<p>
+
+#### Odpowiedź: C
+
+`String.raw` zwraca ciąg znaków, w którym znaki specjalne (`\n`, `\v`, `\t` itd.) są ignorowane! Backslashe mogą być problemem, ponieważ można skończyć z czymś takim jak:`` const path = `C:\Documents\Projects\table.html` ``
+
+Co skutkowałoby:
+
+`"C:DocumentsProjects able.html"`Z `String.raw`, po prostu zignorowałby ucieczkę i wyświetliłby:
+
+`C:\Documents\Projects\table.html`.
+
+W tym przypadku ciąg to `Hello\nworld`, który zostanie wyświetlony.
+
+</p>
+</details>
+
+---
+
+###### 73. Jaki jest wynik?
+
+```javascript
+async function getData() {
+  return await Promise.resolve('I made it!');
+}
+
+const data = getData();
+console.log(data);
+```
+
+- A: `"I made it!"`
+- B: `Promise {<resolved>: "I made it!"}`
+- C: `Promise {<pending>}`
+- D: `undefined`
+
+<details><summary><b>Odpowiedź</b></summary>
+<p>
+
+#### Odpowiedź: C
+
+Funkcja asynchroniczna zawsze zwraca obietnicę. Funkcja `await` wciąż musi czekać na rozwiązanie obietnicy: oczekująca obietnica zostanie zwrócona, gdy wywołamy `getData()` w celu ustawienia `data` równym tej obietnicy. 
+
+Jeśli chcielibyśmy uzyskać dostęp do rozwiązanej wartości `"I made it"`, moglibyśmy użyć metody `.then()` na `data`:`data.then(res => console.log(res))`. 
+
+To wyświtliłoby w konsoli `"Udało mi się!"`.
+
+</p>
+</details>
+
+---
+
+###### 74. Jaki jest wynik?
+
+```javascript
+function addToList(item, list) {
+  return list.push(item);
+}
+
+const result = addToList('apple', ['banana']);
+console.log(result);
+```
+
+- A: `['apple', 'banana']`
+- B: `2`
+- C: `true`
+- D: `undefined`
+
+<details><summary><b>Odpowiedź</b></summary>
+<p>
+
+#### Odpowiedź: B
+
+Metoda `.push()` zwraca _długość_ nowej tablicy! Poprzednio tablica zawierała jeden element (string `"banan"`) i miała długość `1`. Po dodaniu stringa `"apple"` do tablicy, tablica zawiera dwa elementy i ma długość `2`. Jest to zwracane przez funkcję `addToList`. Metoda `push` modyfikuje oryginalną tablicę. 
+
+Jeśli chciałeś zwrócić _array_ z funkcji, a nie _length of the array_, powinieneś był zwrócić `list` po dodaniu do niej `item`.
+
+</p>
+</details>
+
+---
+
+###### 75. Jaki jest wynik?
+
+```javascript
+const box = { x: 10, y: 20 };
+
+Object.freeze(box);
+
+const shape = box;
+shape.x = 100;
+
+console.log(shape);
+```
+
+- A: `{ x: 100, y: 20 }`
+- B: `{ x: 10, y: 20 }`
+- C: `{ x: 100 }`
+- D: `ReferenceError`
+
+<details><summary><b>Odpowiedź</b></summary>
+<p>
+
+#### Odpowiedź: B
+
+`Object.freeze` uniemożliwia dodawanie, usuwanie lub modyfikowanie właściwości obiektu (chyba że wartością właściwości jest inny obiekt).
+
+Kiedy tworzymy zmienną `shape` i ustawiamy ją jako równą zamrożonemu obiektowi `box`, `shape` również odnosi się do zamrożonego obiektu. Możesz sprawdzić czy obiekt jest zamrożony używając `Object.isFrozen`. W tym przypadku, `Object.isFrozen(shape)` zwróciłby true, ponieważ zmienna `shape` posiada referencję do zamrożonego obiektu.
+
+Ponieważ `shape` jest zamrożony, a wartość `x` nie jest obiektem, nie możemy modyfikować właściwości `x`.`x` jest nadal równe `10`, a `{ x: 10, y: 20 }` zostaje wyświetlone w konsoli.
 
 </p>
 </details>
