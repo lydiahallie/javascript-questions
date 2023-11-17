@@ -5149,3 +5149,32 @@ The condition within the `if` statement checks whether the value of `!typeof ran
 
 </p>
 </details>
+
+---
+
+###### 156. What's the output?
+
+```javascript
+// 1
+const sum = 1_2_3 + 3e3;
+console.log(sum);
+
+// 2
+const anotherSum = 1_2_ + 2e2;
+console.log(anotherSum);
+```
+
+- A: `3123, Error`
+- B: `3123, 212`
+- C: `Error, 12200`
+- D: `Error, 122e2`
+
+<details><summary><b>Answer</b></summary>
+<p>
+
+#### Answer: A
+
+The characters `_` and the letter `e` can be used in numbers. Here `_` acts as a Numeric separator and `3e3` means `3*10^3 = 3000`, similarly `2e2` means `2*10^2 = 200`. However, _*Numeric separators are not allowed at the end of numeric literals*_. Hence `1_2_` results in the above error. And `1__2` will result in an error saying _*Only one underscore is allowed as numeric separator*_.
+
+</p>
+</details>
