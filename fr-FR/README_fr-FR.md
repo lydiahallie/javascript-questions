@@ -17,8 +17,11 @@ Les réponses se trouvent dans les sections repliées en dessous des questions, 
 - [🇯🇵 日本語](../ja-JA/README-ja_JA.md)
 - [🇰🇷 한국어](../ko-KR/README-ko_KR.md)
 - [🇳🇱 Nederlands](../nl-NL/README.md)
+- [🇵🇱 Polski](../pl-PL/README.md)
 - [🇧🇷 Português Brasil](../pt-BR/README_pt_BR.md)
+- [🇷o Română](../ro-RO/README.ro.md)
 - [🇷🇺 Русский](../ru-RU/README.md)
+- [🇽🇰 Shqip](../sq-KS/README_sq_KS.md)
 - [🇹🇭 ไทย](../th-TH/README-th_TH.md)
 - [🇹🇷 Türkçe](../tr-TR/README-tr_TR.md)
 - [🇺🇦 Українська мова](../uk-UA/README.md)
@@ -779,7 +782,7 @@ Si vous avez deux clés portant le même nom, la clé sera remplacée. Elle sera
 
 ---
 
-###### 26. Le contexte global d'exécution de JavaScript crée 2 choses pour vous : l'objet global and le mot-clé `this`.
+###### 26. Le contexte global d'exécution de JavaScript crée 2 choses pour vous : l'objet global et le mot-clé `this`.
 
 - A: Vrai
 - B: Faux

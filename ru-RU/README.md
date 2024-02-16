@@ -17,7 +17,7 @@
 
 ---
 
-<details><summary><b> Доступно в 19 переводах 🇸🇦🇪🇬🇧🇦🇩🇪🇪🇸🇫🇷🇮🇩🇯🇵🇰🇷🇳🇱🇧🇷🇷🇺🇹🇭🇹🇷🇺🇦🇻🇳🇨🇳🇹🇼</b></summary>
+<details><summary><b> Доступно в 20 переводах 🇸🇦🇪🇬🇧🇦🇩🇪🇪🇸🇫🇷🇮🇩🇯🇵🇰🇷🇳🇱🇧🇷🇷🇺🇹🇭🇹🇷🇺🇦🇻🇳🇨🇳🇹🇼🇽🇰</b></summary>
 <p>
 
 - [🇸🇦 العربية](../ar-AR/README_AR.md)
@@ -31,8 +31,11 @@
 - [🇯🇵 日本語](../ja-JA/README-ja_JA.md)
 - [🇰🇷 한국어](../ko-KR/README-ko_KR.md)
 - [🇳🇱 Nederlands](../nl-NL/README.md)
+- [🇵🇱 Polski](../pl-PL/README.md)
 - [🇧🇷 Português Brasil](../pt-BR/README_pt_BR.md)
+- [🇷o Română](../ro-RO/README.ro.md)
 - [🇬🇧 English](../README.md)
+- [🇽🇰 Shqip](../sq-KS/README_sq_KS.md)
 - [🇹🇭 ไทย](../th-TH/README-th_TH.md)
 - [🇹🇷 Türkçe](../tr-TR/README-tr_TR.md)
 - [🇺🇦 Українська мова](../uk-UA/README.md)

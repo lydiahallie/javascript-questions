@@ -19,8 +19,11 @@ Danh sách các ngôn ngữ khác:
 - [🇯🇵 日本語](../ja-JA/README-ja_JA.md)
 - [🇰🇷 한국어](../ko-KR/README-ko_KR.md)
 - [🇳🇱 Nederlands](../nl-NL/README.md)
+- [🇵🇱 Polski](../pl-PL/README.md)
 - [🇧🇷 Português Brasil](../pt-BR/README_pt_BR.md)
+- [🇷o Română](../ro-RO/README.ro.md)
 - [🇷🇺 Русский](../ru-RU/README.md)
+- [🇽🇰 Shqip](../sq-KS/README_sq_KS.md)
 - [🇹🇭 ไทย](../th-TH/README-th_TH.md)
 - [🇹🇷 Türkçe](../tr-TR/README-tr_TR.md)
 - [🇺🇦 Українська мова](../uk-UA/README.md)
@@ -338,7 +341,7 @@ bark.animal = "dog";
 
 #### Đáp án: A
 
-Điều này là có thể với Javascript, bởi vì `function` cũng chỉ là `object` mà thôi! (Mọi primitive types đều là object)
+Điều này là có thể với Javascript, bởi vì `function` cũng chỉ là `object` mà thôi! (Các kiểu dữ liệu khác ngoài các kiểu nguyên thủy được gọi là kiểu dữ liệu tham chiếu)
 
 Function là một object đặc biệt. Phần code mà bạn viết không phải là function thực tế đâu. Function ở đây chính là một object với các thuộc tính. Và các thuộc tính này có thể gọi được.
 
