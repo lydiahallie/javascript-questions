@@ -51,6 +51,16 @@ From basic to advanced: test how well you know JavaScript, refresh your knowledg
 
 ---
 
+If you want to practice with task on your local machine, you can generate javascript files for each question. Run command in root folder
+
+```sh
+node generate-tasks.js
+```
+
+Script will generate **tasks** folder with files for each question, you can invoke them with node.js and check your answers.
+
+---
+
 ###### 1. What's the output?
 
 ```javascript
