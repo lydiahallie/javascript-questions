@@ -4847,7 +4847,7 @@ class Calc {
 	}
 
 	increase() {
-		this.count ++
+		this.count++
 	}
 }
 
