@@ -477,9 +477,26 @@ During the **capturing** phase, the event goes through the ancestor elements dow
 <details><summary><b>Answer</b></summary>
 <p>
 
-#### Answer: B
+#### Answer: A
 
-All objects have prototypes, except for the **base object**. The base object is the object created by the user, or an object that is created using the `new` keyword. The base object has access to some methods and properties, such as `.toString`. This is the reason why you can use built-in JavaScript methods! All of such methods are available on the prototype. Although JavaScript can't find it directly on your object, it goes down the prototype chain and finds it there, which makes it accessible for you.
+All objects in JavaScript, including the base object, have prototypes. The base object, which is created by the user or using the **new** keyword, is an instance of **Object**, and it inherits from **Object.prototype**. This allows all objects to access common methods and properties like **.toString()** through the prototype chain. JavaScript looks up the prototype chain to find methods and properties that are not directly found on an object but are available on its prototype.
+
+For example:
+
+```
+// Creating an object using object literal
+let myObject = {};
+// Checking if the prototype of myObject is same as Object.prototype
+console.log(Object.getPrototypeOf(myObject) === Object.prototype); // true
+
+// Creating an object using the new keyword and Object constructor
+let customObject = new Object();
+// Checking if the prototype of customObject is same as Object.prototype
+console.log(Object.getPrototypeOf(customObject) === Object.prototype); // true
+
+```
+
+In the given code, two objects, myObject and customObject, are created. Using `Object.getPrototypeOf()`, we check if their prototypes are Object.prototype. In JavaScript, objects created using object literals `{}` or the `new Object()` syntax inherit from `Object.prototype`. It clarifies that all objects in JavaScript, including the base object, have a **prototype**.
 
 </p>
 </details>
