@@ -2190,8 +2190,8 @@ console.log("🥑" + "💻");
 
 ```javascript
 function* startGame() {
-  const 答案 = yield "Do you love JavaScript?";
-  if (答案 !== "Yes") {
+  const answer = yield "Do you love JavaScript?";
+  if (answer !== "Yes") {
     return "Oh wow... Guess we're gone here";
   }
   return "JavaScript loves you back ❤️";
