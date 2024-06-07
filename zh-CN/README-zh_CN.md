@@ -3760,7 +3760,7 @@ console.log(person)
 
 ---
 
-###### 117. 下面那个选项将会返回 `6`?
+###### 117. 下面哪个选项将会返回 `6`?
 
 ```javascript
 function sumValues(x, y, z) {
@@ -3778,7 +3778,7 @@ function sumValues(x, y, z) {
 
 #### 答案：C
 
-通过展开操作符 `...`，我们可以 _暂开_ 单个可迭代的元素。函数 `sumValues` function 接收三个参数：`x`, `y` 和 `z`。`...[1, 2, 3]` 的执行结果为 `1, 2, 3`，将会传递给函数 `sumValues`。
+通过展开操作符 `...`，我们可以将可迭代对象 _展开_ 为单个的元素组合。函数 `sumValues` function 接收三个参数：`x`, `y` 和 `z`。`...[1, 2, 3]` 的执行结果为 `1, 2, 3`，将会传递给函数 `sumValues`。
 
 </p>
 </details>
