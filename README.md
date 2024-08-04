@@ -144,6 +144,8 @@ With arrow functions, the `this` keyword refers to its current surrounding scope
 
 Since there is no value `radius` in the scope of the arrow function, `this.radius` returns `undefined` which, when multiplied by `2 * Math.PI`, results in `NaN`.
 
+##### Catch: Declaring a variable radius in the global context using the `var` keyword would fix this issue, but declaring the same variable using `let` would still give an issue. [reason](https://stackoverflow.com/questions/60346763/why-global-let-variables-not-added-to-window-object-of-browser#:~:text=This%20is%20by%20design%3A,function%20regardless%20of%20block%20scope.) 
+
 </p>
 </details>
 
