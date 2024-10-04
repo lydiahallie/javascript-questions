@@ -3175,11 +3175,12 @@ console.log(getUser(user))
 - B: `[1, [2, 3, 4]]` and `{ name: "Lydia", age: 21 }`
 - C: `[1, 2, 3, 4]` and `{ name: "Lydia", age: 21 }`
 - D: `Error` and `{ name: "Lydia", age: 21 }`
+- E: `SyntaxError`
 
 <details><summary><b>Answer</b></summary>
 <p>
 
-#### Answer: A
+#### Answer: E
 
 The `getList` function receives an array as its argument. Between the parentheses of the `getList` function, we destructure this array right away. You could see this as:
 
