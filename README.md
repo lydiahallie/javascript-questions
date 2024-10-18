@@ -5149,3 +5149,32 @@ The condition within the `if` statement checks whether the value of `!typeof ran
 
 </p>
 </details>
+profile picture
+
+
+###### 155. What's the output?
+
+```javascript
+const obj = {
+  name: "John",
+  age: 30,
+  greet: function() {
+    console.log("Hello, my name is " + this.name);
+  }
+};
+
+const greetFunction = obj.greet;
+greetFunction();What will be the output of this code?
+
+   -A: A. Hello, my name is John
+   -B: B. Hello, my name is undefined
+    -C:C. TypeError: Cannot read property 'name' of undefined
+    -D:D. The code will result in an error.
+Explanation:
+
+The correct answer is B.
+
+In JavaScript, when a function is assigned to a variable, it loses its original context. This means that when greetFunction is called, the this keyword inside the function refers to the global object, which doesn't have a name property. Therefore, the output will be Hello, my name is undefined.
+
+To preserve the original context of the greet function, you can use bind to create a new function with a specific this value:
+
