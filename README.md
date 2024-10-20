@@ -2863,7 +2863,7 @@ import * as data from './module';
 console.log(data);
 ```
 
-- A: `{ default: function default(), name: "Lydia" }`
+- A: `{ default: () => 'Hello world', name: "Lydia" }`
 - B: `{ default: function default() }`
 - C: `{ default: "Hello world", name: "Lydia" }`
 - D: Global object of `module.js`
