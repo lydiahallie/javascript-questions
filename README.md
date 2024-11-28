@@ -5149,3 +5149,34 @@ The condition within the `if` statement checks whether the value of `!typeof ran
 
 </p>
 </details>
+
+---
+
+###### 156. What's the output?
+
+```javascript
+var x = "global!";
+let y = "global!";
+function helper(){
+  x = "local!";
+  y = "local!";
+  console.log('X is ',this.x);
+  console.log('Y is ',this.y);
+}
+helper()
+```
+
+- A: `X is global! | Y is global!`
+- B: `X is global! | Y is local!`
+- C: `X is local! | Y is local!`
+- D: `X is local! | Y is undefined`
+
+<details><summary><b>Answer</b></summary>
+<p>
+
+#### Answer: D
+
+At the top level of programs and functions, `let`, unlike `var`, does not create a property on the global object.
+
+</p>
+</details>
