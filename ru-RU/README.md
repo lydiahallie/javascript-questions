@@ -3889,7 +3889,7 @@ console.log(member.getLastName?.());
 ```
 
 - A: `undefined` `undefined` `undefined` `undefined`
-- B: `Mara` `undefined` `Lydia Hallie` `undefined`
+- B: `Mara` `undefined` `Lydia Hallie` `ReferenceError`
 - C: `Mara` `null` `Lydia Hallie` `null`
 - D: `null` `ReferenceError` `null` `ReferenceError`
 
@@ -3903,7 +3903,7 @@ console.log(member.getLastName?.());
 `person.pet?.name`: `person` имеет свойство с именем `pet`: `person.pet` не нулевое. Оно имеет свойство с именем `name`, и возвращает `Mara`.
 `person.pet?.family?.name`: `person` имеет свойство с именем `pet`: `person.pet` не нулевое. `pet` _не_ имеет свойство с именем `family`, `person.pet.family` нулевое. Выражение возвращает `undefined`.
 `person.getFullName?.()`: `person` имеет свойство с именем `getFullName`: `person.getFullName()` не нулевое, и может быть вызвано, возвращает `Lydia Hallie`.
-`member.getLastName?.()`: `member` не определено: `member.getLastName()` нулевое. Выражение возвращает `undefined`.
+`member.getLastName?.()`: переменная `member` не существует, поэтому возникает ошибка `ReferenceError`!
 
 </p>
 </details>
