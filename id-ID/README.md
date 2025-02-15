@@ -5087,3 +5087,33 @@ Kondisi dalam pernyataan `if` memeriksa apakah nilai dari `!typeof randomValue` 
 </details>
 
 ---
+
+###### 156. Apa hasilnya?
+
+```javascript
+var a = 20;
+let b = 20;
+
+console.log(window.a, window.b);
+```
+
+- A: `20 and 20`
+- B: `20 and undefined`
+- C: `TypeError`
+- D: `undefined and undefined`
+
+<details><summary><b>Jawaban</b></summary>
+<p>
+
+#### Answer: B
+
+`var`: Variabel yang dideklarasikan dengan `var` bersifat `function-scoped` atau `global-scoped`, dan menjadi properti dari objek global (window).
+
+`let`: Variabel yang dideklarasikan dengan `let` bersifat `block-scoped` dan tidak terikat ke objek global (window).
+
+`var a = 20` membuat `a` menjadi properti window, sehingga `window.a` mengembalikan `20`.
+
+`let b = 20` tidak membuat `b` menjadi properti window, sehingga `window.b` mengembalikan `undefined`.
+
+</p>
+</details>

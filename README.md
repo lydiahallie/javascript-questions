@@ -5149,3 +5149,35 @@ The condition within the `if` statement checks whether the value of `!typeof ran
 
 </p>
 </details>
+
+---
+
+###### 156. What's the output?
+
+```javascript
+var a = 20;
+let b = 20;
+
+console.log(window.a, window.b);
+```
+
+- A: `20 and 20`
+- B: `20 and undefined`
+- C: `TypeError`
+- D: `undefined and undefined`
+
+<details><summary><b>Answer</b></summary>
+<p>
+
+#### Answer: B
+
+`var`: Variables declared with var are `function-scoped` or `global-scoped` and become properties of the global object (window in browsers).
+
+`let`: Variables declared with let are `block-scoped` and are not bound to the global object (window).
+
+`var a = 20` makes `a` a property of the window object, so `window.a` returns `20`.
+
+`let b = 20` does not make `b` a property of the window object, so `window.b` returns `undefined`.
+
+</p>
+</details>
