@@ -1050,7 +1050,7 @@ typeof sayHi();
 
 Функція `sayHi` повертає значення, що повертається з _негайно викликаного функціонального виразу_ (IIFE). Результатом є `0` типу `"number"`.
 
-Для інформації: в JS 7 вбудованих типів: `null`, `undefined`, `boolean`, `number`, `string`, `object`, `symbol`, та `bigint`. `"Function"` не є окремим типом, тому що функції є об'єктами типу `"object"`.
+Для інформації: в JS 8 вбудованих типів: `null`, `undefined`, `boolean`, `number`, `string`, `object`, `symbol`, та `bigint`. `"Function"` не є окремим типом, тому що функції є об'єктами типу `"object"`.
 
 </p>
 </details>
