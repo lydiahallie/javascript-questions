@@ -469,7 +469,7 @@ During the **capturing** phase, the event goes through the ancestor elements dow
 
 ---
 
-###### 14. All object have prototypes.
+###### 14. All objects have prototypes.
 
 - A: true
 - B: false
