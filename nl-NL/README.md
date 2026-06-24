@@ -98,9 +98,9 @@ for (let i = 0; i < 3; i++) {
 
 #### Antwoord: C
 
-Vanwege de Event Queue in JavaScript wordt de `setTimeout` callback functie aangeroepen _nadat_ de volledige loop is uitgevoerd. Omndat in de eerste loop de variabele `i` gedeclareerd wordt met het keyword `var`, wordt deze global gemaakt. Tijdens de loop verhogen we de waarde van `i` met `1` door middel van de unary operator `++`. Tegen de tijd dat de `setTimeout` callback functie wordt aangeroepen is de waarde van `i` al `3`, zoals te zien is in het eerste voorbeeld.
+Vanwege de Event Queue in JavaScript wordt de `setTimeout` callback functie aangeroepen _nadat_ de volledige loop is uitgevoerd. Omndat in de eerste loop de variabele `i` gedeclareerd wordt met het keyword `var`, wordt deze global gemaakt. Tijdens de loop verhogen we de waarde van `i` met `1` door middel van de unary operator `++`. Tegen de tijd dat de `setTimeout` callback functie wordt aangeroepen is de waarde van `i` al `3`, zoals te zien is in het eerste voorbeeld. Vanwege hoisting reserveert `var` een enkele geheugenplek voor de variabele, waardoor elke iteratie dezelfde variabele overschrijft in plaats van een nieuwe aan te maken.
 
-In de tweede loop wordt de variabele `i` gedeclareerd met het keyword `let`: variabelen die gedeclareerd worden met het keyword `let` (en `const`) zijn block-scoped (een scope is alles tussen `{ }`). Tijdens elke iteratie zal `i` een nieuwe waarde krijgen, en elke waarde is scoped (te gebruiken tussen `{ }`) in de loop.
+In de tweede loop wordt de variabele `i` gedeclareerd met het keyword `let`: variabelen die gedeclareerd worden met het keyword `let` (en `const`) zijn block-scoped (een scope is alles tussen `{ }`). Tijdens elke iteratie zal `i` een nieuwe waarde krijgen, en elke waarde is scoped (te gebruiken tussen `{ }`) in de loop. In tegenstelling tot `var` creëert `let` bij elke iteratie een nieuwe binding (een nieuwe geheugenplek), waardoor elke `setTimeout`-callback een andere waarde vastlegt.
 
 </p>
 </details>

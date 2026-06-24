@@ -105,9 +105,9 @@ for (let i = 0; i < 3; i++) {
 
 #### Odpowiedź: C
 
-Ze względu na kolejkę zdarzeń w JavaScript, funkcja zwrotna `setTimeout` jest wywoływana _po_ wykonaniu pętli. Ponieważ zmienna `i` w pierwszej pętli została zadeklarowana za pomocą słowa kluczowego `var`, jej wartość była globalna. Podczas pętli inkrementowaliśmy wartość `i` o `1` za każdym razem, używając operatora jednoargumentowego `++`. W momencie wywołania funkcji zwrotnej `setTimeout`, `i` miało wartość `3` w pierwszym przykładzie.
+Ze względu na kolejkę zdarzeń w JavaScript, funkcja zwrotna `setTimeout` jest wywoływana _po_ wykonaniu pętli. Ponieważ zmienna `i` w pierwszej pętli została zadeklarowana za pomocą słowa kluczowego `var`, jej wartość była globalna. Podczas pętli inkrementowaliśmy wartość `i` o `1` za każdym razem, używając operatora jednoargumentowego `++`. W momencie wywołania funkcji zwrotnej `setTimeout`, `i` miało wartość `3` w pierwszym przykładzie. Z powodu hoistingu, `var` przydziela pojedynczy slot pamięci dla zmiennej, więc każda iteracja nadpisuje tę samą zmienną, zamiast tworzyć nową.
 
-W drugiej pętli zmienna `i` została zadeklarowana za pomocą słowa kluczowego `let`: zmienne zadeklarowane za pomocą słowa kluczowego `let` (i `const`) mają zakres blokowy (blokiem jest cokolwiek między `{ }`). Podczas każdej iteracji `i` będzie miało nową wartość, a każda wartość będzie miała zakres wewnątrz pętli.
+W drugiej pętli zmienna `i` została zadeklarowana za pomocą słowa kluczowego `let`: zmienne zadeklarowane za pomocą słowa kluczowego `let` (i `const`) mają zakres blokowy (blokiem jest cokolwiek między `{ }`). Podczas każdej iteracji `i` będzie miało nową wartość, a każda wartość będzie miała zakres wewnątrz pętli. W przeciwieństwie do `var`, `let` tworzy nowe wiązanie (nowy slot pamięci) dla każdej iteracji, dlatego każdy callback `setTimeout` przechwytuje inną wartość.
 
 </p>
 </details>
