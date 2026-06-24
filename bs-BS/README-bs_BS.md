@@ -105,12 +105,12 @@ varijabla `i` u prvoj petlji je deklarirana pomoću ključne riječi` var`,
 ta je vrijednost bila globalna. Tijekom petlje povećavamo vrijednost `i`
 svaki put '1', koristeći unarni operator `++`. Do vremena
 Pozvana je function povratnog poziva `setTimeout`,` i` je bila jednaka `3` u
-u prvom primjeru.
+u prvom primjeru. Zbog hoistinga, `var` dodjeljuje jedan memorijski slot za varijablu, tako da svaka iteracija prepisuje istu varijablu umjesto da stvara novu.
 
 U drugoj petlji, varijabla `i` je deklarirana pomoću` let`
 ključna riječ: varijable deklarirane s ključnom riječi `let` (i` const`) su
 block-scoped (blok je sve između `{}`). Tijekom svake iteracije,
-`i` će imati novu vrijednost, a svaka vrijednost će biti obuhvaćena unutar petlje.
+`i` će imati novu vrijednost, a svaka vrijednost će biti obuhvaćena unutar petlje. Za razliku od `var`, `let` stvara novo vezivanje (novi memorijski slot) za svaku iteraciju, zbog čega svaki `setTimeout` callback hvata drugu vrijednost.
 
 </p>
 </details>

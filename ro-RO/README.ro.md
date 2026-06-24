@@ -101,9 +101,9 @@ for (let i = 0; i < 3; i++) {
 
 #### Răspuns: C
 
-Datorită cozii de evenimente din JavaScript, funcția de callback `setTimeout` este apelată _după_ ce bucla a fost executată. Deoarece variabila `i` din prima buclă a fost declarată folosind cuvântul cheie `var`, această valoare a fost globală. În timpul buclei, am incrementat valoarea lui `i` cu `1` de fiecare dată, folosind operatorul unary `++`. Până când funcția de callback `setTimeout` a fost invocată, `i` era egal cu `3` în primul exemplu.
+Datorită cozii de evenimente din JavaScript, funcția de callback `setTimeout` este apelată _după_ ce bucla a fost executată. Deoarece variabila `i` din prima buclă a fost declarată folosind cuvântul cheie `var`, această valoare a fost globală. În timpul buclei, am incrementat valoarea lui `i` cu `1` de fiecare dată, folosind operatorul unary `++`. Până când funcția de callback `setTimeout` a fost invocată, `i` era egal cu `3` în primul exemplu. Din cauza hoisting-ului, `var` alocă un singur slot de memorie pentru variabilă, astfel încât fiecare iterație suprascrie aceeași variabilă în loc să creeze una nouă.
 
-În cea de-a doua buclă, variabila `i` a fost declarată folosind cuvântul cheie `let`: variabilele declarate cu cuvântul cheie `let` (și `const`) sunt cu scop la nivel de bloc (un bloc este orice între `{ }`). În fiecare iterație, `i` va avea o valoare nouă, iar fiecare valoare este în cadrul buclei.
+În cea de-a doua buclă, variabila `i` a fost declarată folosind cuvântul cheie `let`: variabilele declarate cu cuvântul cheie `let` (și `const`) sunt cu scop la nivel de bloc (un bloc este orice între `{ }`). În fiecare iterație, `i` va avea o valoare nouă, iar fiecare valoare este în cadrul buclei. Spre deosebire de `var`, `let` creează o nouă legătură (un nou slot de memorie) pentru fiecare iterație, motiv pentru care fiecare callback `setTimeout` capturează o valoare diferită.
 
 </p>
 </details>

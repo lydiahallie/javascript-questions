@@ -107,9 +107,9 @@ for (let i = 0; i < 3; i++) {
 
 #### Risposta: C
 
-A causa della coda degli eventi in JavaScript la funzione di callback `setTimeout` viene chiamata _dopo_ che il loop è stato eseguito. Poiché la variabile `i` nel primo loop è stata dichiarata usando la chiave `var`, questo valore è globale. Durante il loop abbiamo incrementato ogni volta il valore di `i` di `1` usando l'operatore unario `++`. Quando è stata invocata la funzione di callback `setTimeout`, `i` nel primo esempio risultava sin dal principio uguale a `3`.
+A causa della coda degli eventi in JavaScript la funzione di callback `setTimeout` viene chiamata _dopo_ che il loop è stato eseguito. Poiché la variabile `i` nel primo loop è stata dichiarata usando la chiave `var`, questo valore è globale. Durante il loop abbiamo incrementato ogni volta il valore di `i` di `1` usando l'operatore unario `++`. Quando è stata invocata la funzione di callback `setTimeout`, `i` nel primo esempio risultava sin dal principio uguale a `3`. A causa dell'hoisting, `var` alloca un singolo slot di memoria per la variabile, quindi ogni iterazione sovrascrive la stessa variabile invece di crearne una nuova.
 
-Nel secondo loop, la variabile `i` è stata dichiarata usando la chiave `let`: le variabili dichiarate con la chiave `let` (e `const`) hanno lo scope del blocco (un blocco è qualsiasi cosa tra `{ }`). Durante ogni iterazione, `i` avrà un nuovo valore e ogni valore avrà lo scope all'interno del loop.
+Nel secondo loop, la variabile `i` è stata dichiarata usando la chiave `let`: le variabili dichiarate con la chiave `let` (e `const`) hanno lo scope del blocco (un blocco è qualsiasi cosa tra `{ }`). Durante ogni iterazione, `i` avrà un nuovo valore e ogni valore avrà lo scope all'interno del loop. A differenza di `var`, `let` crea un nuovo binding (un nuovo slot di memoria) per ogni iterazione, motivo per cui ogni callback `setTimeout` cattura un valore diverso.
 
 </p>
 </details>

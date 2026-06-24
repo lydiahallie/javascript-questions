@@ -100,9 +100,9 @@ for (let i = 0; i < 3; i++) {
 
 #### Përgjigja: C
 
-Për shkak të ***event queque*** në JavaScript, funksioni callback `setTimeout` thirret pas ekzekutimit të unazës. Pasi që variabla `i` në iterimin e parë u deklarua duke përdorur fjalën kyçe `var`, kjo vlerë ishte globale. Gjatë unazës, ne rritëm vlerën e `i` me `1` çdo herë, duke përdorur operatorin unar `++`. Deri në kohën që funksioni callback `setTimeout` u thirr, `i` ishte e barabartë me `3` në unazën e parë.
+Për shkak të ***event queque*** në JavaScript, funksioni callback `setTimeout` thirret pas ekzekutimit të unazës. Pasi që variabla `i` në iterimin e parë u deklarua duke përdorur fjalën kyçe `var`, kjo vlerë ishte globale. Gjatë unazës, ne rritëm vlerën e `i` me `1` çdo herë, duke përdorur operatorin unar `++`. Deri në kohën që funksioni callback `setTimeout` u thirr, `i` ishte e barabartë me `3` në unazën e parë. Për shkak të hoisting-ut, `var` ndan një vend të vetëm në memorie për variablin, kështu që çdo përsëritje mbishkruan të njëjtin variabël në vend që të krijojë një të ri.
 
-Në unazën e dytë, variabla `i` u deklarua duke përdorur fjalën kyçe `let`: variablat e deklaruara me fjalën kyçe `let` (dhe `const`) janë të qasshme në bllok (një bllok është çdo gjë mes `{ }`). Gjatë çdo iteracioni, `i` do të ketë një vlerë të re, dhe çdo vlerë është e qasshme brenda unazës.
+Në unazën e dytë, variabla `i` u deklarua duke përdorur fjalën kyçe `let`: variablat e deklaruara me fjalën kyçe `let` (dhe `const`) janë të qasshme në bllok (një bllok është çdo gjë mes `{ }`). Gjatë çdo iteracioni, `i` do të ketë një vlerë të re, dhe çdo vlerë është e qasshme brenda unazës. Ndryshe nga `var`, `let` krijon një lidhje të re (një vend të ri në memorie) për çdo përsëritje, prandaj çdo callback i `setTimeout` kap një vlerë të ndryshme.
 
 </p>
 </details>
