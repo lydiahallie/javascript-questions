@@ -20,7 +20,7 @@ From basic to advanced: test how well you know JavaScript, refresh your knowledg
 | Feel free to use them in a project! 😃 I would _really_ appreciate a reference to this repo, I create the questions and explanations (yes I'm sad lol) and the community helps me so much to maintain and improve it! 💪🏼 Thank you and have fun! |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 
-<details><summary><strong> See 20 Available Translations 🇸🇦🇪🇬🇧🇦🇩🇪🇪🇸🇫🇷🇮🇩🇯🇵🇰🇷🇳🇱🇧🇷🇷🇺🇹🇭🇹🇷🇺🇦🇻🇳🇨🇳🇹🇼🇽🇰</strong></summary>
+<details><summary><strong> See 21 Available Translations 🇸🇦🇪🇬🇧🇦🇩🇪🇪🇸🇫🇷🇮🇩🇯🇵🇰🇷🇳🇱🇧🇷🇷🇺🇹🇭🇹🇷🇺🇦🇺🇿🇻🇳🇨🇳🇹🇼🇽🇰</strong></summary>
 <p>
 
 - [🇸🇦 العربية](./ar-AR/README_AR.md)
@@ -42,6 +42,7 @@ From basic to advanced: test how well you know JavaScript, refresh your knowledg
 - [🇹🇭 ไทย](./th-TH/README-th_TH.md)
 - [🇹🇷 Türkçe](./tr-TR/README-tr_TR.md)
 - [🇺🇦 Українська мова](./uk-UA/README.md)
+- [🇺🇿 O'zbekcha](./uz-UZ/README-uz_UZ.md)
 - [🇻🇳 Tiếng Việt](./vi-VI/README-vi.md)
 - [🇨🇳 简体中文](./zh-CN/README-zh_CN.md)
 - [🇹🇼 繁體中文](./zh-TW/README_zh-TW.md)
