@@ -20,11 +20,12 @@ From basic to advanced: test how well you know JavaScript, refresh your knowledg
 | Feel free to use them in a project! 😃 I would _really_ appreciate a reference to this repo, I create the questions and explanations (yes I'm sad lol) and the community helps me so much to maintain and improve it! 💪🏼 Thank you and have fun! |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 
-<details><summary><strong> See 20 Available Translations 🇸🇦🇪🇬🇧🇦🇩🇪🇪🇸🇫🇷🇮🇩🇯🇵🇰🇷🇳🇱🇧🇷🇷🇺🇹🇭🇹🇷🇺🇦🇻🇳🇨🇳🇹🇼🇽🇰</strong></summary>
+<details><summary><strong> See 22 Available Translations 🇸🇦🇪🇬🇮🇷🇧🇦🇩🇪🇪🇸🇫🇷🇮🇩🇮🇹🇯🇵🇰🇷🇳🇱🇵🇱🇧🇷🇷🇺🇹🇭🇹🇷🇺🇦🇻🇳🇨🇳🇹🇼🇽🇰</strong></summary>
 <p>
 
 - [🇸🇦 العربية](./ar-AR/README_AR.md)
 - [🇪🇬 اللغة العامية](./ar-EG/README_ar-EG.md)
+- [🇮🇷 فارسی](./fa-IR/README_fa-IR.md)
 - [🇧🇦 Bosanski](./bs-BS/README-bs_BS.md)
 - [🇩🇪 Deutsch](./de-DE/README.md)
 - [🇪🇸 Español](./es-ES/README-ES.md)
@@ -36,7 +37,7 @@ From basic to advanced: test how well you know JavaScript, refresh your knowledg
 - [🇳🇱 Nederlands](./nl-NL/README.md)
 - [🇵🇱 Polski](./pl-PL/README.md)
 - [🇧🇷 Português Brasil](./pt-BR/README_pt_BR.md)
-- [🇷o Română](./ro-RO/README.ro.md)
+- [🇷🇴 Română](./ro-RO/README.ro.md)
 - [🇷🇺 Русский](./ru-RU/README.md)
 - [🇽🇰 Shqip](./sq-KS/README_sq_KS.md)
 - [🇹🇭 ไทย](./th-TH/README-th_TH.md)
