@@ -49,6 +49,8 @@ From basic to advanced: test how well you know JavaScript, refresh your knowledg
 </p>
 </details>
 
+<p align="center">Want to try them as a game? <a href="https://canyoustill.com">Can you still?</a> has all the questions, one at a time.</p>
+
 ---
 
 ###### 1. What's the output?
